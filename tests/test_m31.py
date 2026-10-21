@@ -119,15 +119,26 @@ def test_edited_diagnostic_removed_for_both_states(targets):
     targets=[t.model_copy(update={'prime_edited_sequence':t.prime_edited_sequence[:40]+'G'+t.prime_edited_sequence[41:]}) for t in targets]
     report=geometry(targets)
     assert report['diagnostics'][0]['overlaps_edit'] and not report['diagnostics'][0]['usable_for_routing']
-    assert report['status']=='WARN'
+    assert report['status']=='BLOCKED'
+    assert 'EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS' in {r['code'] for r in report['reasons']}
 
 
 def test_matched_edit_loss_qualification(tmp_path):
     from peanalyzer.qualification import qualify
-    result=qualify(tmp_path/'edited',edited_diagnostic=True)
-    assert result['routing_gate']=='PASS'
-    assert result['assigned_pairs']==40 and result['quarantined_pairs']==10
-    assert result['editing_state_retention']['edit_loss_WT']==result['editing_state_retention']['edit_loss_PE']=={'assigned':0,'total':5}
+    from peanalyzer.fastq import paired_fastq
+    from peanalyzer.synthetic_routing import write_challenges
+    # M3.1.1: the edit at diagnostic 40 has no upstream independent flank.
+    # Keep the raw routing regression, but reject production admission.
+    with pytest.raises(ValueError,match='EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS'):
+        qualify(tmp_path/'edited',edited_diagnostic=True)
+    targets,truth=write_challenges(tmp_path/'raw',edited_diagnostic=True)
+    report=geometry(targets)
+    rows=[route_pair(tuple(r.trimmed(27) for r in reads),targets,report,RoutingPolicy())
+          for reads in paired_fastq(tmp_path/'raw/raw_R1.fastq.gz',tmp_path/'raw/raw_R2.fastq.gz')]
+    assert sum(r['assigned_copy'] is not None for r in rows)==40
+    for cls in ('edit_loss_WT','edit_loss_PE'):
+        selected=[r for r,t in zip(rows,truth) if t['truth_class']==cls]
+        assert len(selected)==5 and all(r['assigned_copy'] is None for r in selected)
 
 
 def test_only_diagnostic_destroyed_blocks_geometry(targets):
@@ -159,7 +170,9 @@ def test_three_copies_reference_order_and_exact_copy_agnostic(targets):
     third=base.model_copy(update={'copy_name':'copy3','wt_sequence':base.wt_sequence[:60]+'A'+base.wt_sequence[61:70]+'T'+base.wt_sequence[71:],
                                 'prime_edited_sequence':base.prime_edited_sequence[:60]+'A'+base.prime_edited_sequence[61:70]+'T'+base.prime_edited_sequence[71:]})
     values=targets+[third]; report=geometry(values)
-    assert report['status']!='BLOCKED'
+    # This historical third copy differs only upstream from copy1.
+    assert report['status']=='BLOCKED'
+    assert any(r['code']=='EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS' for r in report['reasons'])
     record=pair(targets[1].wt_sequence)
     left=route_pair(record,values,report,RoutingPolicy())
     right=route_pair(record,list(reversed(values)),geometry(list(reversed(values))),RoutingPolicy())

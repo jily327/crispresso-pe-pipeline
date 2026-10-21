@@ -1,0 +1,103 @@
+{
+  "routing_gate": "PASS",
+  "checks": {
+    "source_full_suite": true,
+    "fresh_wheel_full_suite": true,
+    "original_125_gate": true,
+    "historical_decisions_unchanged": true,
+    "no_cross_assignments": true,
+    "nonmatching_state_does_not_veto_copy": true,
+    "competing_copy_failure_quarantines": true,
+    "equivalent_projection_ambiguity_quarantines": true,
+    "indels_symmetric_or_blocked": true,
+    "supported_chimeras_quarantined_and_one_sided_blocked": true,
+    "policy_aware_geometry": true,
+    "ledger_semantic_attacks_rejected": true,
+    "unqualified_policies_rejected_at_core": true,
+    "matched_difficult_states": true,
+    "every_anchor_native_invariant": true,
+    "anchor_dependence_rejected": true,
+    "m2_production_unchanged": true,
+    "main_unchanged": true
+  },
+  "source_tests": {
+    "total": 404,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "actual_backend_tests": 12
+  },
+  "wheel_tests": {
+    "total": 404,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "actual_backend_tests": 12
+  },
+  "audit_checkpoint": "967e4519f59f7cf0838f2bbc540d37575844ceb2",
+  "unchanged_main": "ae7e7f3e1f9144ea2092d9a6201a4d137a024214",
+  "indels": {
+    "designs": 36,
+    "allowed": 13,
+    "blocked": 23,
+    "raw_diagnostic_trials": 432,
+    "raw_assignments": 386,
+    "raw_quarantine": 46,
+    "raw_cross_assignments": 0,
+    "counts_scope": "raw qualification trials include BLOCKED panels; not production admission"
+  },
+  "original_125": {
+    "input": 125,
+    "assigned": 75,
+    "quarantined": 50,
+    "cross_assignments": 0
+  },
+  "all_read_comparators": {
+    "m3": {
+      "copy1": {
+        "backend_input_reads": 350,
+        "aligned_reads": 330,
+        "unaligned_reads": 20,
+        "numerator": 120,
+        "denominator": 330
+      },
+      "copy2": {
+        "backend_input_reads": 350,
+        "aligned_reads": 330,
+        "unaligned_reads": 20,
+        "numerator": 120,
+        "denominator": 330
+      }
+    },
+    "m31": {
+      "copy1": {
+        "backend_input_reads": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      },
+      "copy2": {
+        "backend_input_reads": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      }
+    }
+  },
+  "confident_cohort_native": {
+    "input": 75,
+    "aligned": 70,
+    "unaligned": 5,
+    "numerator": 30,
+    "denominator": 70,
+    "scope": "confident subcohort only; different population from all-read comparators"
+  },
+  "limitations": [
+    "23 tested indel geometries remain BLOCKED",
+    "perfect-control probes cover specified inward read lengths only",
+    "closed synthetic panel; no biological specificity or arbitrary chimera guarantee",
+    "no production PE reports or statistics"
+  ]
+}

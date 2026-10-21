@@ -32,6 +32,51 @@ class RoutingPolicy:
         if not 0<self.min_alignment_identity<=1: raise ValueError('alignment identity must be in (0,1]')
 
 
+QUALIFIED_POLICY_ID = 'm311-diagnostic-q30-sites2-cap16-identity08-v1'
+
+
+def policy_identity(policy: RoutingPolicy) -> dict:
+    qualified = policy == RoutingPolicy()
+    return dict(id=QUALIFIED_POLICY_ID if qualified else 'experimental-unqualified',
+                qualified=qualified, placement_contract='copy-collapsed-state-qc-v1')
+
+
+def copy_placements(sequence, qualities, target, mate, report, policy, engine):
+    """Discard failed states, retaining *all* qualified equivalent placements.
+
+    State scores are audit data only. No best-state/copy competition is used.
+    Query coordinates are retained: identical bases at different read positions
+    are not proof of an unambiguous diagnostic projection.
+    """
+    surviving, audit = [], []
+    for state, reference in (('WT', target.wt_sequence), ('PE', target.prime_edited_sequence)):
+        alignments = engine.align(reference, sequence)
+        try:
+            number = len(alignments)
+        except OverflowError:
+            number = policy.max_equivalent_alignments + 1
+        entry = dict(mate=mate, copy=target.copy_name, state=state, score=alignments.score,
+                     equivalent_alignments=number, MAPQ=None, XS=None, viable_placements=0)
+        audit.append(entry)
+        if number > policy.max_equivalent_alignments:
+            entry['failure'] = 'STATE_EQUIVALENT_PLACEMENT_CAP_EXCEEDED'
+            continue
+        projection = {b:a for a,b in report['haplotype_maps'][f'{target.copy_name}:{state}']
+                      if a is not None and b is not None}
+        for alignment in alignments:
+            cols = columns(alignment)
+            identity = sum(a is not None and b is not None and reference[a] == sequence[b]
+                           for a,b in cols) / len(sequence)
+            if identity < policy.min_alignment_identity:
+                continue
+            surviving.append({projection[a]:(sequence[b], qualities[b], b)
+                              for a,b in cols if a in projection and b is not None})
+            entry['viable_placements'] += 1
+        if not entry['viable_placements']:
+            entry['failure'] = 'STATE_IDENTITY_BELOW_MINIMUM'
+    return surviving, audit
+
+
 def decide(evidence: list[dict], copies: list[str], policy: RoutingPolicy) -> tuple[str, str | None, list[str]]:
     active = [e for e in evidence if not e['overlaps_edit'] and e['observations']]
     if not active:
@@ -70,33 +115,26 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
         if mate==2:
             sequence=reverse_complement(sequence); qualities.reverse()
         for target in sorted(targets,key=lambda t:t.copy_name):
-            for state,reference in (('WT',target.wt_sequence),('PE',target.prime_edited_sequence)):
-                alignments=engine.align(reference,sequence)
-                try: number=len(alignments)
-                except OverflowError: number=policy.max_equivalent_alignments+1
-                scores.append(dict(mate=mate,copy=target.copy_name,state=state,score=alignments.score,
-                                   equivalent_alignments=number,MAPQ=None,XS=None))
-                if number>policy.max_equivalent_alignments:
-                    return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,evidence=[],alignments=scores,reason='nonunique placement exceeds cap')
-                reference_to_anchor={b:a for a,b in report['haplotype_maps'][f'{target.copy_name}:{state}'] if a is not None and b is not None}
-                alternatives=[]
-                for alignment in alignments:
-                    identity=sum(a is not None and b is not None and reference[a]==sequence[b] for a,b in columns(alignment))/len(sequence)
-                    if identity<policy.min_alignment_identity:
-                        return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,evidence=[],alignments=scores,reason='read/reference identity below qualified placement minimum')
-                    alternatives.append({reference_to_anchor[a]:(sequence[b],qualities[b]) for a,b in columns(alignment)
-                                         if a in reference_to_anchor and b is not None})
-                placements[mate,target.copy_name,state]=alternatives
+            alternatives,audit=copy_placements(sequence,qualities,target,mate,report,policy,engine)
+            scores.extend(audit)
+            if not alternatives:
+                return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,
+                            compatible_copies=copies,evidence=[],alignments=scores,
+                            reason='COPY_HAS_NO_QUALIFIED_STATE_PLACEMENT')
+            placements[mate,target.copy_name]=alternatives
     if len(copies)==1:
         # In an explicitly single-copy assay panel there is no competing copy;
         # retain placement checks and collapse WT/PE before assigning identity.
         for mate in (1,2):
             spans={(min(a),max(a)) for key, alternatives in placements.items() if key[0]==mate for a in alternatives if a}
             if len(spans)!=1:
-                return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,evidence=[],alignments=scores,reason='nonunique single-copy placement')
+                return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,compatible_copies=copies,evidence=[],alignments=scores,reason='nonunique single-copy placement')
         return dict(read_id=identifier,category='ASSIGNED_COPY',assigned_copy=copies[0],compatible_copies=copies,
                     evidence=[],alignments=scores,reason='single-copy assay panel with compatible WT/PE placements')
     for diagnostic in report['diagnostics']:
+        # Edited sites cannot affect copy evidence, including placement vetoes.
+        if not diagnostic['usable_for_routing']:
+            continue
         observations=[]; placement_conflict=False
         position=diagnostic['position']
         for mate in (1,2):
@@ -104,10 +142,10 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
             if len(set(values))!=1:
                 placement_conflict=True
             elif values and values[0] is not None:
-                base,quality=values[0]
-                observations.append(dict(mate=mate,base=base,quality=quality))
+                base,quality,query_position=values[0]
+                observations.append(dict(mate=mate,base=base,quality=quality,query_position=query_position))
         if placement_conflict:
-            return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,evidence=evidence,alignments=scores,reason='diagnostic placement differs across competing alignments')
+            return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,compatible_copies=copies,evidence=evidence,alignments=scores,reason='diagnostic placement differs across competing alignments')
         bases={o['base'] for o in observations}
         compatible=sorted(c for c,a in diagnostic['alleles'].items() if bases=={a})
         evidence.append(dict(position=position,observations=observations,compatible_copies=compatible,
@@ -134,7 +172,7 @@ def routing_gate(*, cross_assignments: int, unsafe_assigned: int, input_pairs: i
 def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], output: Path,
                    policy: RoutingPolicy=RoutingPolicy()) -> dict:
     verified=verify_analysis_output(analysis_root)
-    report=geometry(targets)
+    report=geometry(targets,min_distinguishing_sites=policy.min_distinguishing_sites)
     if any(t.copy_name.casefold()=='quarantine' for t in targets): raise ValueError('quarantine is a reserved cohort name')
     if report['status']=='BLOCKED': raise ValueError(f"target geometry BLOCKED: {report['reasons']}")
     sample=verified.manifest['samples'][sample_id]
@@ -169,7 +207,7 @@ def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], o
             if sha256_file(path)!=sample['files'][f'r{mate}']['sha256']: raise ValueError('analysis changed while routing')
         manifest=dict(schema_version=1,status='completed',scope='routing_only_not_scientific_qualification',
                       analysis_root=str(verified.root),analysis_manifest_sha256=verified.manifest_sha256,sample_id=sample_id,
-                      policy=asdict(policy),targets=[t.model_dump() for t in sorted(targets,key=lambda t:t.copy_name)],
+                      policy=asdict(policy),policy_identity=policy_identity(policy),targets=[t.model_dump() for t in sorted(targets,key=lambda t:t.copy_name)],
                       input_pairs=sample['pairs'],categories=dict(counts),cohorts=cohorts,
                       ledger_sha256=sha256_file(stage/'routing_ledger.jsonl'))
         (stage/'geometry.json').write_text(json.dumps(report,indent=2)+'\n')

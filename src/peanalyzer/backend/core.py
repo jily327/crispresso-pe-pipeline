@@ -4,6 +4,7 @@ import json
 import shutil
 import subprocess
 import tempfile
+from collections import Counter
 from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
@@ -14,6 +15,7 @@ from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import geometry
 from peanalyzer.provenance import software_provenance
 from peanalyzer.schemas import Target
+from peanalyzer.routing import RoutingPolicy, decide, policy_identity
 
 
 def verify_routing_output(root: Path) -> dict:
@@ -24,11 +26,35 @@ def verify_routing_output(root: Path) -> dict:
     verified=verify_analysis_output(Path(data['analysis_root']))
     if verified.manifest_sha256!=data['analysis_manifest_sha256']: raise ValueError('analysis identity mismatch')
     targets=[Target.model_validate(t) for t in data['targets']]
-    if geometry(targets)['status']=='BLOCKED': raise ValueError('blocked target geometry')
+    policy=RoutingPolicy(**data['policy'])
+    if data.get('policy_identity')!=policy_identity(policy): raise ValueError('routing policy identity mismatch')
+    if geometry(targets,min_distinguishing_sites=policy.min_distinguishing_sites)['status']=='BLOCKED': raise ValueError('blocked target geometry')
     if set(data['cohorts'])!={*(t.copy_name for t in targets),'quarantine'}: raise ValueError('cohort inventory mismatch')
     ledger=root/'routing_ledger.jsonl'
     if ledger.is_symlink() or sha256_file(ledger)!=data['ledger_sha256']: raise ValueError('ledger changed')
     rows=[json.loads(line) for line in ledger.read_text().splitlines()]
+    copies=sorted(t.copy_name for t in targets)
+    categories=Counter(); cohort_counts=Counter()
+    for row in rows:
+        category,assigned=row['category'],row['assigned_copy']
+        compatible=row.get('compatible_copies')
+        if not isinstance(compatible,list): raise ValueError('missing compatible-copy semantics')
+        if category=='ASSIGNED_COPY':
+            if assigned not in copies or compatible!=[assigned]: raise ValueError('assigned ledger semantics mismatch')
+        elif assigned is not None:
+            raise ValueError('quarantine ledger cannot assign a copy')
+        if len(compatible)!=len(set(compatible)) or not set(compatible)<=set(copies):
+            raise ValueError('invalid compatible copies')
+        if category!='ALIGNMENT_FAILURE' and len(copies)>1:
+            if decide(row['evidence'],copies,policy)!=(category,assigned,compatible):
+                raise ValueError('ledger decision semantics mismatch')
+        elif category not in ('ALIGNMENT_FAILURE','ASSIGNED_COPY'):
+            raise ValueError('unknown ledger category')
+        categories[category]+=1
+        cohort_counts[assigned or 'quarantine']+=1
+    if dict(categories)!=data['categories']: raise ValueError('ledger category counts mismatch')
+    if any(cohort_counts[c]!=info['pairs'] for c,info in data['cohorts'].items()):
+        raise ValueError('ledger cohort counts mismatch')
     expected={r['read_id']:r['assigned_copy'] or 'quarantine' for r in rows}
     if len(expected)!=len(rows): raise ValueError('duplicate ledger ID')
     actual={}; contents={}
@@ -56,6 +82,8 @@ def verify_routing_output(root: Path) -> dict:
 
 def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: Executable, *, runtime_identity: dict | None=None) -> dict:
     data=verify_routing_output(routing_root)
+    if not data['policy_identity']['qualified']:
+        raise ValueError('production Core requires qualified routing policy')
     targets=[Target.model_validate(t) for t in data['targets']]
     target=next((t for t in targets if t.copy_name==copy_name),None)
     if target is None: raise ValueError('unknown biological copy (quarantine is not a copy)')

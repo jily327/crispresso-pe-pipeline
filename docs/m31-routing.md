@@ -1,5 +1,9 @@
 # M3.1 routing and metric-contract qualification
 
+> M3.1.1 audit remediation supersedes the placement, geometry and production-policy
+> eligibility described here. See [M3.1.1 remediation](m311-remediation.md).
+> Historical evidence below remains unchanged; do not infer merge approval.
+
 **ROUTING GATE: PASS for the documented synthetic geometry and policy.** Default
 multi-copy CRISPRessoPooled routing remains scientifically unqualified (M3 FAIL).
 This milestone adds an explicit conservative router, input verification,

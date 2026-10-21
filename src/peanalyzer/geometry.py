@@ -31,7 +31,24 @@ def columns(alignment):
     return result
 
 
-def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict | None = None) -> dict:
+def edit_regions(edits):
+    """Coalesce adjacent changed columns into coherent half-open WT regions."""
+    regions = []
+    for edit in edits:
+        start = edit['wt_position'] if edit['wt_position'] is not None else edit['wt_boundary']
+        end = start + (edit['wt_position'] is not None)
+        if regions and start <= regions[-1]['end']:
+            regions[-1]['end'] = max(end, regions[-1]['end'])
+            regions[-1]['kinds'] = sorted(set(regions[-1]['kinds']) | {edit['kind']})
+        else:
+            regions.append(dict(start=start, end=end, kinds=[edit['kind']]))
+    return regions
+
+
+def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict | None = None,
+             min_distinguishing_sites: int = 2) -> dict:
+    if type(min_distinguishing_sites) is not int or min_distinguishing_sites < 1:
+        raise ValueError('minimum diagnostic support must be a positive integer')
     if not targets or len({t.target_name for t in targets}) != 1:
         raise ValueError('geometry requires one biological target at a time')
     targets = sorted(targets, key=lambda t:t.copy_name)
@@ -137,7 +154,7 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
         if inside: reason('DIAGNOSTIC_IN_QUANTIFICATION_WINDOW', copy=target.copy_name, positions=inside)
         distances = {str(d['position']):[abs(d['positions'][target.copy_name]-(e['wt_position'] if e['wt_position'] is not None else e['wt_boundary']))
                      if d['positions'][target.copy_name] is not None else None for e in edits] for d in diagnostics}
-        copies[target.copy_name] = dict(edits=edits, diagnostic_to_edit_distances=distances,
+        copies[target.copy_name] = dict(edits=edits, edit_regions=edit_regions(edits), diagnostic_to_edit_distances=distances,
             spacer_forward_starts=forward, spacer_reverse_starts=reverse,
             diagnostics_inside_spacer=[d['position'] for d in diagnostics if d['positions'][target.copy_name] is not None and any(s<=d['positions'][target.copy_name]<s+len(guide) for s in forward+reverse)],
             diagnostic_positions_in_quantification_window=inside)
@@ -186,6 +203,25 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
         pair['edit_independent_diagnostic_count']=sum(d['usable_for_routing'] and d['alleles'][left]!=d['alleles'][right] for d in diagnostics)
         if pair['edit_independent_diagnostic_count']==0:
             reason('NO_EDIT_INDEPENDENT_PAIR_DIAGNOSTICS','BLOCKED',copies=[left,right])
+        if pair['edit_independent_diagnostic_count'] < min_distinguishing_sites:
+            reason('INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY','BLOCKED',
+                   copies=[left,right],required=min_distinguishing_sites,
+                   available=pair['edit_independent_diagnostic_count'])
+        pair['edit_flanks'] = []
+        usable = [d for d in diagnostics if d['usable_for_routing'] and d['alleles'][left]!=d['alleles'][right]]
+        for copy in (left,right):
+            for region in copies[copy]['edit_regions']:
+                start,end = region['start'],region['end']
+                positions = [d['positions'][copy] for d in usable]
+                upstream = sorted(p for p in positions if p < start)
+                # A deletion/substitution ends at end-1; insertion uses its boundary.
+                downstream = sorted(p for p in positions if p >= end and (start != end or p > start))
+                flanks = dict(copy=copy,region=region,upstream=upstream,downstream=downstream,
+                              upstream_distance=start-max(upstream) if upstream else None,
+                              downstream_distance=min(downstream)-(end-1 if end>start else start) if downstream else None)
+                pair['edit_flanks'].append(flanks)
+                if not upstream or not downstream:
+                    reason('EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS','BLOCKED',copies=[left,right],**flanks)
     if len(targets)>1 and not any(d['usable_for_routing'] for d in diagnostics):
         reason('NO_EDIT_INDEPENDENT_DIAGNOSTICS','BLOCKED')
     primer_report=[]
@@ -195,8 +231,29 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
             raise ValueError('invalid primer interval in anchor coordinates')
         sequences={t.copy_name:''.join(t.wt_sequence[b] if b is not None else '-' for a,b in maps[t.copy_name,'WT'] if a is not None and start<=a<end) for t in targets}
         primer_report.append(dict(name=name,interval=interval,sequences=sequences,copy_specific_pcr_may_be_feasible=len(set(sequences.values()))>1))
-    return dict(schema_version=1,target_name=targets[0].target_name,coordinate_system='zero-based anchor WT; intervals half-open',
+    report = dict(schema_version=1,target_name=targets[0].target_name,coordinate_system='zero-based anchor WT; intervals half-open',
+                routing_policy_min_distinguishing_sites=min_distinguishing_sites,
                 anchor_copy=targets[0].copy_name,experimental_spacer=targets[0].pegRNA_spacer,
                 status='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if reasons else 'SAFE',
                 reasons=reasons,pairwise=pairwise,diagnostics=diagnostics,copies=copies,primers=primer_report,
                 haplotype_maps={f'{copy}:{state}':cols for (copy,state),cols in maps.items()})
+    if any(e['kind']!='substitution' for edits in events.values() for e in edits):
+        # Empirical, target-specific check; no arbitrary maximum PE indel length.
+        # It qualifies perfect inward-facing 100/150-nt and full-length mates only,
+        # not unobserved read geometry, error products, or panel completeness.
+        from peanalyzer.routing import RoutingPolicy, route_pair
+        from peanalyzer.fastq import FastqRecord
+        trials = []
+        for target in targets:
+            for state,seq in (('WT',target.wt_sequence),('PE',target.prime_edited_sequence)):
+                for length in sorted({min(100,len(seq)),min(150,len(seq)),len(seq)}):
+                    reads=(seq[:length],reverse_complement(seq[-length:]))
+                    pair=tuple(FastqRecord(f'@geometry/{m}\n'.encode(),(s+'\n').encode(),b'+\n',('I'*len(s)+'\n').encode()) for m,s in enumerate(reads,1))
+                    row=route_pair(pair,targets,report,RoutingPolicy(min_distinguishing_sites=min_distinguishing_sites))
+                    trials.append(dict(copy=target.copy_name,state=state,mate_length=length,
+                                       assigned_copy=row['assigned_copy'],category=row['category'],reason=row['reason']))
+        report['indel_placement_qualification']=dict(scope='perfect amplicon-end 100/150nt and full-length mates',trials=trials)
+        if any(t['assigned_copy']!=t['copy'] for t in trials):
+            reason('PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED','BLOCKED')
+    report['status']='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if reasons else 'SAFE'
+    return report

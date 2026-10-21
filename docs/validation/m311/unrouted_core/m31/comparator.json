@@ -1,0 +1,204 @@
+{
+  "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+  "metric": "target_crispresso_native_pe",
+  "status": "SUPPORTED_IN_TESTED_FIXTURE",
+  "reasons": [],
+  "anchor_invariant": true,
+  "anchors": {
+    "copy1": {
+      "backend_input_reads": 125,
+      "aligned_reads": 105,
+      "unaligned_reads": 20,
+      "numerator": 30,
+      "denominator": 105
+    },
+    "copy2": {
+      "backend_input_reads": 125,
+      "aligned_reads": 105,
+      "unaligned_reads": 20,
+      "numerator": 30,
+      "denominator": 105
+    }
+  },
+  "authoritative_window_diagnostics": {
+    "copy1": [],
+    "copy2": []
+  },
+  "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data.",
+  "backend_metrics": {
+    "copy1": {
+      "alignment_counters": {
+        "N_TOT_READS": 125,
+        "N_CACHED_ALN": 91,
+        "N_COMPUTED_ALN": 14,
+        "N_CACHED_NOTALN": 16,
+        "N_COMPUTED_NOTALN": 4
+      },
+      "mapping_statistics": {
+        "READS IN INPUTS": 125,
+        "READS AFTER PREPROCESSING": 125,
+        "READS ALIGNED": 105,
+        "N_COMPUTED_ALN": 14,
+        "N_CACHED_ALN": 91,
+        "N_COMPUTED_NOTALN": 4,
+        "N_CACHED_NOTALN": 16
+      },
+      "routed_pairs": 125,
+      "authoritative_reference_quantification_window": {
+        "_type": "np.ndarray",
+        "value": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "contract": {
+        "one_input_record_per_pair": true,
+        "preprocessing_preserves_records": true
+      },
+      "native": {
+        "backend_input_reads": 125,
+        "reads_after_preprocessing": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 20
+        },
+        "numerator": 30,
+        "denominator": 105,
+        "exact_fraction": "2/7",
+        "fraction": 0.2857142857142857,
+        "metric": "crispresso_pe_reference_fraction",
+        "reference_counts": {
+          "Reference": 75,
+          "Prime-edited": 30
+        },
+        "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+        "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons"
+      },
+      "exact_haplotype": {
+        "metric": "precise_intended_PE_exact_haplotype_fraction",
+        "numerator": 12,
+        "denominator": 36,
+        "exact_fraction": "1/3",
+        "fraction": 0.3333333333333333,
+        "exact_wt_reads": 24,
+        "exact_pe_reads": 12,
+        "excluded_reads": 69,
+        "exclusion_product_classes": {
+          "other_or_unassessable": 69
+        },
+        "origin_attribution": "not inferred from biological product class",
+        "backend_input_reads": 125,
+        "reads_after_preprocessing": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 20
+        },
+        "backend_unaligned_excluded_reads": 20,
+        "backend_preprocessing_count_delta": 0,
+        "aligned_product_excluded_reads": 69,
+        "backend_input_excluded_reads": 89
+      }
+    },
+    "copy2": {
+      "alignment_counters": {
+        "N_TOT_READS": 125,
+        "N_CACHED_ALN": 91,
+        "N_COMPUTED_ALN": 14,
+        "N_CACHED_NOTALN": 16,
+        "N_COMPUTED_NOTALN": 4
+      },
+      "mapping_statistics": {
+        "READS IN INPUTS": 125,
+        "READS AFTER PREPROCESSING": 125,
+        "READS ALIGNED": 105,
+        "N_COMPUTED_ALN": 14,
+        "N_CACHED_ALN": 91,
+        "N_COMPUTED_NOTALN": 4,
+        "N_CACHED_NOTALN": 16
+      },
+      "routed_pairs": 125,
+      "authoritative_reference_quantification_window": {
+        "_type": "np.ndarray",
+        "value": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "contract": {
+        "one_input_record_per_pair": true,
+        "preprocessing_preserves_records": true
+      },
+      "native": {
+        "backend_input_reads": 125,
+        "reads_after_preprocessing": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 20
+        },
+        "numerator": 30,
+        "denominator": 105,
+        "exact_fraction": "2/7",
+        "fraction": 0.2857142857142857,
+        "metric": "crispresso_pe_reference_fraction",
+        "reference_counts": {
+          "Reference": 75,
+          "Prime-edited": 30
+        },
+        "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+        "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons"
+      },
+      "exact_haplotype": {
+        "metric": "precise_intended_PE_exact_haplotype_fraction",
+        "numerator": 8,
+        "denominator": 24,
+        "exact_fraction": "1/3",
+        "fraction": 0.3333333333333333,
+        "exact_wt_reads": 16,
+        "exact_pe_reads": 8,
+        "excluded_reads": 81,
+        "exclusion_product_classes": {
+          "other_or_unassessable": 81
+        },
+        "origin_attribution": "not inferred from biological product class",
+        "backend_input_reads": 125,
+        "reads_after_preprocessing": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 20
+        },
+        "backend_unaligned_excluded_reads": 20,
+        "backend_preprocessing_count_delta": 0,
+        "aligned_product_excluded_reads": 81,
+        "backend_input_excluded_reads": 101
+      }
+    }
+  }
+}
