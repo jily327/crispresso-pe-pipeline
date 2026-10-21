@@ -1,4 +1,4 @@
-# Milestone 2: Hi-TOM paired-end demultiplexing
+# Milestone 2.1: Hi-TOM paired-end demultiplexing
 
 This layer assigns samples from inline barcodes and produces barcode QC. It does
 not merge reads, identify targets/homeologs, invoke CRISPResso, compute editing
@@ -60,12 +60,17 @@ ePPEmax-v2-EV_leaf2,2C,F2,RC
 
 `barcode_id` is the sample output stem (e.g. `1B`), distinct from the two catalog
 IDs. All sample names, output stems and resolved F/R pairs must be unique.
+Output filenames must also be unique after `casefold()`, on every platform.
+Identifiers are validated, never lossily sanitized; surrounding CSV whitespace
+is normalized before the uniqueness checks. `sample_name` is not a filename.
 Forward/reverse IDs must exist on the correct catalog side. Optional
 `forward_barcode`/`reverse_barcode` columns may provide explicit sequences. If ID
 and sequence are both supplied, disagreement is an error. Empty optional cells
-mean absent. Without an ID, a sequence reuses an existing matching catalog ID or
-receives a deterministic `forward_<sequence>` / `reverse_<sequence>` ID.
-Such custom additions appear in the saved resolved catalog and matrix.
+mean absent. Both the bundled catalog and a supplied `--barcodes` catalog are
+authoritative: an explicit sequence without an ID must match an existing entry.
+Unknown sequences cannot extend that catalog. Only `profile: custom` with no
+`--barcodes` builds a catalog from explicit sample sequences, using deterministic
+`forward_<sequence>` / `reverse_<sequence>` IDs. These modes never mix implicitly.
 
 Full Milestone 1 sample sheets remain supported. If any biological metadata
 columns are present, the full biological schema is required. The minimal sheet
@@ -88,13 +93,17 @@ with `--barcodes`, or explicit sequences in the sample sheet. Configuration:
 - `forward_offset`, `reverse_offset`: zero-based, nonnegative starts (default 0).
 - `forward_length`, `reverse_length`: positive extraction lengths. Explicit
   lengths must agree with every catalog entry on that side. If unset in custom
-  mode, extract the known per-catalog motif lengths at that same offset.
+  mode, infer the single motif length on each side. Equal lengths within each
+  direction are required, including in catalog-free mode; F and R may differ.
 - `reverse_barcode_orientation`: `as_read` (default) or `reverse_complement`.
   Only the extracted R2 motif is reverse-complemented for comparison; output
   reads and bridges stay in raw-read orientation.
 - `forward_bridge`, `reverse_bridge`: optional expected DNA in raw-read
   orientation; explicit null disables that bridge. These override profile data.
 - `max_mismatches`: nonnegative Hamming threshold **per end**, default 0.
+  Execution rejects k >= the minimum same-side pairwise Hamming distance or
+  barcode length. When 2*k >= that distance, it warns about overlapping
+  neighborhoods. A singleton has no pairwise distance but still requires k < length.
 - `bridge_qc`: true by default. Diagnostics are recorded after recognized motifs.
 - `trim_barcodes`: false; true removes sequence/quality through offset+motif.
 - `trim_bridges`: false; true additionally removes the configured bridge length,
@@ -118,8 +127,11 @@ and preserved, but their scores do not affect barcode identity.
 
 Several Qi motifs differ by two bases. For example, F1 `GCTTGCGTT` and F5
 `GCTTGCTCT` are both one mismatch from `GCTTGCTTT`. With tolerance 1 this
-observation must remain ambiguous. In custom variable-length catalogs, two
-equally good prefix candidates of different lengths are also ambiguous.
+observation must remain ambiguous. Both Qi catalog sides have minimum Hamming
+distance 2: k=0 is the production default, k=1 is permitted with a risk warning,
+and k>=2 is rejected. Ties being ambiguous does not eliminate misassignment from
+multiple errors. Mixed-length catalogs, including `ACGT` / `ACGTA`, are rejected
+before reading FASTQs; variable-length matching requires a future explicit mode.
 
 ## Terminal categories (precedence matters)
 
@@ -151,17 +163,26 @@ each synchronized input pair is a separate observation.
 Reads are not loaded as a dataset. Input SHA-256 hashes are computed in streaming
 chunks in an initial pass; processing takes a second pass. Size and mtime are
 checked for input changes. Metadata, catalog/matrix counters and a bounded set
-of output handles remain in memory. A least-recently-used writer reopens gzip
-files using concatenated members, preserving order and data. Gzip timestamps and
+of output handles remain in memory. A least-recently-used writer exclusively creates each file first (`xb`), then
+reopens only files created by this run (`r+b`, identity checked) using concatenated
+gzip members, preserving order and data. Stale or replaced files cause failure. Gzip timestamps and
 filenames are fixed so repeated processing gives identical sample gzip bytes
 with the same settings. All expected samples receive paired output files,
 including valid empty gzip files for samples with zero reads.
 
 An existing output directory is rejected, even if empty. Use a new destination;
-there is no resume/overwrite option in Milestone 2. Handled failures remove only
-the current invocation's newly created directory. A hard process kill may leave
-partial files: the absence of a completed `demux_summary.json` means incomplete.
-Summary publication happens last, after output close, QC and reconciliation.
+there is no resume/overwrite option. Work stays in a unique sibling directory
+`.<output-name>.incomplete-<random-id>` until writers close, reconciliation and
+authoritative QC succeed, output hashes are recorded, and the completed summary
+is written. A single same-filesystem directory rename publishes the final result.
+Handled failures and CLI SIGTERM clean staging. SIGKILL may leave staging behind;
+it cannot be cleaned up by the killed process. Never consume an incomplete tree,
+even if it contains a summary written just before interruption.
+
+A heatmap rendering exception completes authoritative outputs with an explicit
+visualization warning (policy A); it does not erase biological results. CSV,
+FASTQ, close, hash and summary failures still prevent publication.
+See [the M2.1 completion contract](m2-hardening.md#downstream-completion-contract).
 
 ## Outputs and accounting
 
@@ -190,11 +211,14 @@ exact_read_pairs,corrected_read_pairs`. A recognized end contributes even if the
 other end is unknown or ambiguous; these per-end counts are not terminal pair
 categories. Corrected counts require nonzero distance and uniquely best matches.
 
-The summary contains total input pairs, all six categories, assignment percentage
+The schema-version-2 summary contains total input pairs, all six categories, assignment percentage
 (0–100; null for empty input), per-sample counts, resolved sample definitions,
 profile/rules, catalog source and resolved motifs, mismatch/tie policy, resolved
 configuration, input paths/sizes/mtimes/SHA-256, pipeline version, UTC times and
-explicit reconciliation checks. Prefix/suffix and bridge diagnostics are per
+explicit reconciliation checks. It also records software/dependency identity,
+Git SHA/dirty state when available, CLI argv/cwd, profile/catalog hashes and every
+final sample FASTQ SHA-256/size/mate record count (including empty files). Raw QC
+CSVs are hashed too. See [provenance details](m2-hardening.md#provenance). Prefix/suffix and bridge diagnostics are per
 recognized end. Configured bridge counters partition recognized ends into
 `bridge_match`, `bridge_mismatch`, `bridge_short`; disabled checks have no counters.
 
@@ -205,9 +229,14 @@ total_input_read_pairs = sum(the six terminal category counts)
 sum(per_sample_assigned_read_pairs) = assigned_expected_pair
 writer's per-sample pair counts = per_sample_assigned_read_pairs
 sum(barcode_pair_matrix cells) = assigned_expected_pair + unexpected_valid_barcode_pair
+for each expected pair: matrix[F, R] = sample count = written R1 records = written R2 records
+sum(expected matrix cells) = assigned_expected_pair
+on-disk matrix CSV = reconciled matrix (all cells, including zeros)
 ```
 
-`reconciliation.passed` is true only after all four checks. Tests also inspect
+`reconciliation.passed` is true only after all checks. Output file inventory and
+identities are verified after close. The matrix CSV is read back; production
+does not decompress and reparse FASTQs merely to recount them. Tests also inspect
 actual decompressed FASTQ bytes to detect duplicate assignment and read loss.
 
 ## CLI and Python API
@@ -224,7 +253,8 @@ peanalyzer demux --r1 /data/EV_only_1005_R1.fastq.gz \
 
 Omit `--barcodes` to use the installed bundled catalog with `qi_hitom_v1`.
 Paths are relative to the invoking working directory. Exit 0 means completed;
-invalid inputs and operational errors return 2 without a successful summary.
+invalid inputs and authoritative-output errors return 2 without a published
+result. CLI SIGTERM returns 143; heatmap failure returns 0 with a warning.
 JSON is printed to stdout; progress/errors go to stderr.
 
 ```python
@@ -269,11 +299,12 @@ All other expected samples have zero. Both modes reconcile. Tests inspect sample
 contents, complete matrices, PNG validity, error cleanup, trimming, custom
 catalogs/extraction, LRU reopening, gzip corruption and count-failure injection.
 
-The following are **user-supplied observations**, not results reproduced by this
-implementation. The real FASTQs were unavailable during development. When they
-are available locally, run the exact command above and compare the summary and
-sample counts to these targets. Do not commit those files; FASTQ extensions are
-gitignored and are never test dependencies.
+The following began as **user-supplied expectations**. They were subsequently
+reproduced after the M2 commit, with every assigned record compared byte-for-byte
+and every matrix cell independently recounted. Raw data and local validation
+artifacts remain outside Git. When the original FASTQs are available, rerun the
+command above and compare integer counts to these regression targets. Do not
+commit FASTQs; they are gitignored and are never unit-test dependencies.
 
 | Category | Observed pairs | Supplied percentage |
 | --- | ---: | ---: |
@@ -311,7 +342,7 @@ deliberately because they describe invented inputs, not the observed experiment.
 
 Known limits: four-line FASTQ only, Hamming substitutions only, no barcode-quality
 weighting, no automatic protocol discovery, no read deduplication, no retention
-of rejected category FASTQs, no resume and no real-data reproduction yet. Matrix
+of rejected category FASTQs and no resume. Matrix
 memory/plot size scale with catalog dimensions; the read stream itself is bounded.
 Sample assignment validation does not validate target/homeolog assignment.
 

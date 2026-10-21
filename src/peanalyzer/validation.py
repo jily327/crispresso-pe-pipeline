@@ -129,10 +129,27 @@ def load_samples(path: Path, catalog=None, *, metadata_required: bool = True) ->
         values = [getattr(row, field) for row in rows]
         if len(set(values)) != len(values):
             raise MetadataError(f"{path}: duplicate {field}")
+    sample_output_names([row.barcode_id for row in rows])
     pairs = [(row.forward_barcode, row.reverse_barcode) for row in rows]
     if len(set(pairs)) != len(pairs):
         raise MetadataError(f"{path}: duplicate forward/reverse barcode pair")
     return rows
+
+
+def sample_output_names(sample_ids: list[str]) -> dict[str, tuple[str, str]]:
+    """Identifiers are never sanitized; check actual filenames after casefolding."""
+    names, seen = {}, set()
+    for sample in sample_ids:
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", sample):
+            raise MetadataError(f"invalid output identifier {sample!r}; use a safe identifier, not a name requiring sanitization")
+        filenames = tuple(f"{sample}_R{mate}.fastq.gz" for mate in (1, 2))
+        for filename in filenames:
+            key = filename.casefold()
+            if key in seen:
+                raise MetadataError(f"case-insensitive output filename collision: {filename}")
+            seen.add(key)
+        names[sample] = filenames
+    return names
 
 
 def load_targets(path: Path) -> list[Target]:

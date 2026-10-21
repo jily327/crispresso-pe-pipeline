@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from importlib.resources import files
+from itertools import combinations
 from pathlib import Path
 from typing import Literal
 
@@ -28,7 +29,8 @@ class Barcode(Model):
 
 
 class Catalog:
-    def __init__(self, entries: list[Barcode]):
+    def __init__(self, entries: list[Barcode], *, authoritative: bool = True):
+        self.authoritative = authoritative
         self.ends: dict[str, dict[str, str]] = {"forward": {}, "reverse": {}}
         self.ids: set[str] = set()
         for entry in entries:
@@ -56,6 +58,8 @@ class Catalog:
             else:
                 barcode_id = next((key for key, value in end.items() if value == seq), None)
                 if barcode_id is None:
+                    if self.authoritative:
+                        raise MetadataError(f"{sample.sample_name}: unknown {direction} sequence in authoritative catalog; correct the sheet or explicitly revise the catalog")
                     barcode_id = f"{direction}_{seq}"
                     self.add(Barcode(direction=direction, barcode_id=barcode_id, sequence=seq))
             data[seq_key], data[id_key] = seq, barcode_id
@@ -68,6 +72,28 @@ def load_catalog(path: Path) -> Catalog:
     if not all(catalog.ends.values()):
         raise MetadataError(f"{path}: catalog requires both forward and reverse barcodes")
     return catalog
+
+
+def validate_catalog_matching(catalog: Catalog, max_mismatches: int) -> tuple[dict, list[str]]:
+    """Validate each complete catalog side before any FASTQ processing."""
+    report, warnings = {}, []
+    for direction, entries in catalog.ends.items():
+        lengths = {len(seq) for seq in entries.values()}
+        if len(lengths) != 1:
+            raise MetadataError(f"{direction}: equal barcode lengths within each direction are required; mixed lengths/prefix overlaps are unsupported; use a fixed-length catalog")
+        length = next(iter(lengths))
+        distances = [sum(a != b for a, b in zip(left, right))
+                     for left, right in combinations(entries.values(), 2)]
+        minimum = min(distances) if distances else None
+        # A singleton has no pairwise distance: still prohibit matching all motifs.
+        if max_mismatches >= length or (minimum is not None and max_mismatches >= minimum):
+            raise MetadataError(f"{direction}: max_mismatches={max_mismatches} must be below barcode length {length} and minimum pairwise Hamming distance {minimum}")
+        overlap = minimum is not None and 2 * max_mismatches >= minimum
+        report[direction] = {"barcode_length": length, "barcode_count": len(entries),
+                             "minimum_hamming_distance": minimum, "overlapping_mismatch_neighborhoods": overlap}
+        if overlap:
+            warnings.append(f"{direction}: 2*k >= minimum Hamming distance ({minimum}); mismatch neighborhoods overlap; ties remain ambiguous, but unique-nearest correction can misassign reads")
+    return report, warnings
 
 
 class ExtractionRule(Model):
