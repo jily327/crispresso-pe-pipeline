@@ -1,0 +1,14 @@
+schema_version: 1
+demux:
+  profile: qi_hitom_v1
+  forward_offset: 0
+  reverse_offset: 0
+  forward_length: 9
+  reverse_length: 9
+  reverse_barcode_orientation: as_read
+  max_mismatches: 0
+  trim_barcodes: false
+  trim_bridges: false
+  bridge_qc: true
+  ambiguous_policy: unassigned
+  max_open_sample_pairs: 32
