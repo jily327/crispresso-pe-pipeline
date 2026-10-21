@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "software": {
+    "pipeline_version": "0.3.1",
+    "git_commit": "e7e67ccef5792682fcf61344e3423f1a2f80d3e3",
+    "git_dirty": true,
+    "python_version": "3.12.14",
+    "python_executable": "/workspace/peanalyzer-venv/bin/python",
+    "dependencies": {
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pillow": "13.0.0",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "packaging": "26.3",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    }
+  },
+  "runtime_identity": {
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "identity_source": "explicit test environment; see external image inspection evidence"
+  },
+  "executable_path": "/workspace/validation/m3/bin/CRISPResso",
+  "version_probe": {
+    "argv": [
+      "/workspace/validation/m3/bin/CRISPResso",
+      "--version"
+    ],
+    "started_at": "2026-10-21T20:05:30.206639+00:00",
+    "ended_at": "2026-10-21T20:05:34.296842+00:00",
+    "return_code": 0,
+    "stdout": "CRISPResso 2.3.4\n",
+    "stderr": ""
+  },
+  "argv": [
+    "/workspace/validation/m3/bin/CRISPResso",
+    "-r1",
+    "input_R1.fastq.gz",
+    "-r2",
+    "input_R2.fastq.gz",
+    "--amplicon_seq",
+    "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+    "--name",
+    "confident",
+    "--output_folder",
+    "output",
+    "--write_detailed_allele_table",
+    "--keep_intermediate",
+    "--suppress_report",
+    "--suppress_plots",
+    "--prime_editing_pegRNA_spacer_seq",
+    "TAGTGCCGACGGACCAGAAC",
+    "--prime_editing_pegRNA_extension_seq",
+    "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+    "--prime_editing_override_prime_edited_ref_seq",
+    "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+  ],
+  "cwd": "/tmp/peanalyzer-core-e3bote7j",
+  "output_path": "/workspace/validation/m31/release qualification/backend_copy2",
+  "routing_manifest_sha256": "acebb4eadc008b58c4f63667dd8b4cc16c376cb30ba03d882e8199dbf578bbc5",
+  "inputs": {
+    "pairs": 30,
+    "files": {
+      "r1": {
+        "path": "copy2_R1.fastq.gz",
+        "sha256": "dac3c92851366ac266d1ed3e1c482946d741714e777542ee5947a415e6bc7e13",
+        "size_bytes": 412
+      },
+      "r2": {
+        "path": "copy2_R2.fastq.gz",
+        "sha256": "b5ca2dc1cfa3f3dda3dfb80923500e4ea9807cd12726ebac0c99b102783dd62b",
+        "size_bytes": 426
+      }
+    }
+  },
+  "started_at": "2026-10-21T20:05:48.611654+00:00",
+  "return_code": 0,
+  "ended_at": "2026-10-21T20:05:56.322369+00:00"
+}

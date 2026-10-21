@@ -53,10 +53,11 @@ def test_mismatch_preflight_stops_before_execution(tmp_path, monkeypatch):
     assert not (tmp_path / "unused").exists()
 
 
-def test_preflight_accepts_spacer_reverse_complement(targets):
+def test_preflight_reports_empirically_rejected_reverse_spacer(targets):
     from peanalyzer.schemas import reverse_complement
     preflight_guides(targets)
-    preflight_guides([target.model_copy(update={"pegRNA_spacer": reverse_complement(target.pegRNA_spacer)}) for target in targets])
+    with pytest.raises(BackendError, match="PE_GUIDE_ORIENTATION_UNSUPPORTED"):
+        preflight_guides([target.model_copy(update={"pegRNA_spacer": reverse_complement(target.pegRNA_spacer)}) for target in targets])
 
 
 @pytest.mark.parametrize("case", ["empty", "duplicate", "extension", "case_collision"])

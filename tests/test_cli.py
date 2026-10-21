@@ -18,7 +18,7 @@ def test_console_entrypoint_version():
     from pathlib import Path
     result = subprocess.run([str(Path(sys.executable).with_name("peanalyzer")), "--version"], text=True, capture_output=True)
     assert result.returncode == 0
-    assert result.stdout.strip() == "peanalyzer 0.3.0"
+    assert result.stdout.strip() == "peanalyzer 0.3.1"
 
 
 def test_invalid_metadata_returns_nonzero_without_traceback(example_dir, tmp_path):

@@ -1,5 +1,12 @@
 # Pipeline architecture and contracts (Milestones 1–3)
 
+M3.1 update: [explicit routing/preflight/metric contracts](m31-routing.md) qualify
+a conservative replacement for the failed default Pooled routing behavior below.
+The historical M3 result remains FAIL. M3.1's tested explicit routing gate is PASS;
+only supported target geometry is eligible, and final production PE metrics are
+not implemented. `analysis_verify.py`, `geometry.py`, `routing.py`, `backend/core.py`
+and `backend/metrics.py` implement the new boundaries without changing M2.
+
 Status: metadata validation, paired barcode demultiplexing/QC, completion
 verification, analysis preparation and external CRISPResso2 diagnostics are
 implemented. **ROUTING GATE: FAIL** in the actual 2.3.4 synthetic experiment;

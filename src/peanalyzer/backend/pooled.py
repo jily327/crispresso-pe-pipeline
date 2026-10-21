@@ -82,6 +82,9 @@ def validate_targets(targets: list[Target]) -> None:
 def preflight_guides(targets: list[Target]) -> None:
     """Represent the empirically confirmed 2.3.4 exact-spacer limitation."""
     for target in targets:
+        if target.pegRNA_spacer not in target.wt_sequence and reverse_complement(target.pegRNA_spacer) in target.wt_sequence:
+            raise BackendError("PE_GUIDE_ORIENTATION_UNSUPPORTED",
+                               f"{target.amplicon_id}: reverse-only spacer rejected by validated 2.3.4 PE orientation checks; do not reverse the experimental guide")
         if target.pegRNA_spacer not in target.wt_sequence and reverse_complement(target.pegRNA_spacer) not in target.wt_sequence:
             raise BackendError("PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED",
                                f"{target.amplicon_id}: actual experimental spacer is absent from WT in both orientations; "

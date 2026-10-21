@@ -11,6 +11,7 @@ from pathlib import Path
 
 from peanalyzer.analysis_fastq import prepare_analysis_fastqs
 from peanalyzer.backend.pooled import BackendError, Executable, run_pooled_diagnostic, utc_now
+from peanalyzer.backend.metrics import parse_child
 from peanalyzer.backend.synthetic import write_synthetic_run
 from peanalyzer.demux import demultiplex
 from peanalyzer.demux_verify import read_json, sha256_file
@@ -70,6 +71,9 @@ def reference_smoke(pooled_root: Path, pooled_info: dict, targets: list[Target],
                             "precise_pe_truth_reads": len(expected_ids), "precise_pe_routed_correctly": routed,
                             "exact_synthetic_pe_allele_reads_assigned_to_pe_reference": matched,
                             "scope": "synthetic reference smoke test, not a production efficiency metric"}
+        result = parse_child(child, routed_pairs=sum(r['copy']==display for hits in routes.values() for r in hits),
+                             one_input_record_per_pair=True, preprocessing_preserves_records=True)
+        results[display]['alignment_reconciliation'] = result
     return results
 
 

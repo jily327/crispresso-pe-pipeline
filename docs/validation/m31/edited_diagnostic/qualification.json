@@ -1,0 +1,149 @@
+{
+  "routing_gate": "PASS",
+  "checks": {
+    "no_cross_assignments": true,
+    "ambiguous_quarantined": true,
+    "counts_reconcile": true,
+    "no_duplicates": true,
+    "reference_order_invariant": true,
+    "edit_bias_controlled": true,
+    "no_unexplained_informative_loss": true,
+    "informative_tested": true
+  },
+  "input_pairs": 50,
+  "assigned_pairs": 40,
+  "quarantined_pairs": 10,
+  "quarantine_reasons": {
+    "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 10
+  },
+  "cross_routed_ids": [],
+  "unsafe_assigned_ids": [],
+  "unexpected_informative_losses": [],
+  "by_truth_class": {
+    "WT": {
+      "total": 20,
+      "ASSIGNED_COPY": 20,
+      "correctly_assigned": 20,
+      "cross_assigned": 0
+    },
+    "precise_PE": {
+      "total": 20,
+      "ASSIGNED_COPY": 20,
+      "correctly_assigned": 20,
+      "cross_assigned": 0
+    },
+    "edit_loss_WT": {
+      "total": 5,
+      "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "edit_loss_PE": {
+      "total": 5,
+      "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    }
+  },
+  "reference_order_invariant": true,
+  "quality_sensitivity": {
+    "20": {
+      "by_class": {
+        "WT": {
+          "ASSIGNED_COPY": 20
+        },
+        "precise_PE": {
+          "ASSIGNED_COPY": 20
+        },
+        "edit_loss_WT": {
+          "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5
+        },
+        "edit_loss_PE": {
+          "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5
+        }
+      },
+      "unsafe_assignments": []
+    },
+    "30": {
+      "by_class": {
+        "WT": {
+          "ASSIGNED_COPY": 20
+        },
+        "precise_PE": {
+          "ASSIGNED_COPY": 20
+        },
+        "edit_loss_WT": {
+          "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5
+        },
+        "edit_loss_PE": {
+          "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5
+        }
+      },
+      "unsafe_assignments": []
+    },
+    "40": {
+      "by_class": {
+        "WT": {
+          "ASSIGNED_COPY": 20
+        },
+        "precise_PE": {
+          "ASSIGNED_COPY": 20
+        },
+        "edit_loss_WT": {
+          "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5
+        },
+        "edit_loss_PE": {
+          "EDIT_DEPENDENT_DIAGNOSTIC_LOSS": 5
+        }
+      },
+      "unsafe_assignments": []
+    }
+  },
+  "editing_state_retention": {
+    "WT": {
+      "assigned": 20,
+      "total": 20
+    },
+    "precise_PE": {
+      "assigned": 20,
+      "total": 20
+    },
+    "edit_loss_WT": {
+      "assigned": 0,
+      "total": 5
+    },
+    "edit_loss_PE": {
+      "assigned": 0,
+      "total": 5
+    }
+  },
+  "copy_agnostic_exact": {
+    "numerator": 20,
+    "denominator": 40,
+    "exact_fraction": "1/2",
+    "fraction": 0.5,
+    "product_classes": {
+      "exact_WT": 20,
+      "exact_PE": 20,
+      "other_or_unassessable": 10
+    },
+    "excluded_reads": 10,
+    "excluded_synthetic_origin": {
+      "WT": 5,
+      "PE": 5
+    },
+    "cohort": "all prepared pairs, independent of copy routing; exact amplicon-end assessability",
+    "backend_input_reads": 0,
+    "aligned_reads": 0,
+    "unaligned_reads": 0,
+    "backend_counts_scope": "confident subcohort only; not the overall exact metric denominator",
+    "backend_not_submitted_pairs": 50
+  },
+  "backend_metrics": {},
+  "policy": {
+    "diagnostic_min_quality": 30,
+    "min_distinguishing_sites": 2,
+    "max_equivalent_alignments": 16,
+    "min_alignment_identity": 0.8
+  }
+}
