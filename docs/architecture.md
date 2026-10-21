@@ -1,4 +1,4 @@
-# Pipeline architecture and contracts (Milestones 1–2)
+# Pipeline architecture and contracts (Milestones 1–2.1)
 
 Status: metadata validation and paired barcode demultiplexing/QC are implemented.
 CRISPResso execution and downstream sequence analysis remain designs only.
@@ -30,7 +30,8 @@ src/peanalyzer/
     validation.py                 CSV/YAML readers and cross-row diagnostics
     barcodes.py                   catalog resolution, extraction, independent matching
     fastq.py                      lossless four-line streaming and paired-ID validation
-    demux.py, demux_output.py      exclusive classification, accounting, gzip and QC
+    demux.py, demux_output.py      staged publication, classification, accounting, gzip and QC
+    provenance.py                 demux software/environment identity
     barcode_sets/qi_hitom_v1.csv   canonical 12-forward/8-reverse catalog data
     profiles/qi_hitom_v1.yaml      verified extraction/bridge layout data
 examples/{samples.csv,targets.csv,config.yaml}
@@ -52,7 +53,7 @@ Planned modules, **not placeholder implementations in this milestone**:
 | `aggregation.py` | Long-form sample × target × copy results; weighted/unweighted target summaries and copy balance |
 | `statistics.py` | Biological sample/block design, contrasts, model fitting and multiple-test correction |
 | `reporting.py` | CSV/TSV, plots, report and links to individual CRISPResso reports |
-| `workflow.py`, `provenance.py` | DAG, stage manifests, hashes, resume, logs and `--force` |
+| `workflow.py`, future provenance extensions | DAG, stage manifests, resume, logs and `--force`; basic demux provenance is implemented |
 
 CLI remains a thin caller of reusable Python functions so a future GUI can
 use the same contracts. Future commands: `run`, `analyze`, `summarize`,
@@ -93,8 +94,9 @@ target headers are required; explicitly nullable cells may be blank. Optional
 override columns may be absent or blank. Strip surrounding cell whitespace;
 preserve identifiers such as replicate `01` as strings. `NA` is not a null token.
 
-Identifiers match `[A-Za-z0-9][A-Za-z0-9_.-]*`. This prevents path traversal and
-filename sanitization collisions. DNA is nonempty A/C/G/T; normalize case, reject
+Identifiers match `[A-Za-z0-9][A-Za-z0-9_.-]*`. Identifiers are never lossily sanitized. This prevents path traversal;
+actual sample output filenames are additionally checked with `casefold()` to
+reject collisions on case-insensitive filesystems after cell normalization. DNA is nonempty A/C/G/T; normalize case, reject
 N, gaps, ambiguity codes, U and internal whitespace. RNA fields additionally
 accept U and explicitly normalize it to T for the backend. Reference ambiguities
 need an explicit schema/backend extension, not silent normalization.
@@ -134,10 +136,14 @@ R2: [CTGT + 4 variable bases + T] [GAGTTGGATGCTGGATGG] [amplicon...]
 
 The canonical 20 motifs and bridge/layout settings live in package CSV/YAML
 resources, not Python constants. Custom catalogs and a `custom` profile support
-other offsets/lengths, including per-catalog motif lengths when length is unset.
+other offsets/lengths, but demux requires equal lengths within each direction.
+Mixed-length/prefix catalogs are rejected before FASTQ processing. Catalog-free
+explicit sequences require the custom profile and no supplied catalog; bundled
+and supplied catalogs are authoritative and cannot be extended by sample rows.
 Matching is exact by default, optionally substitution-only Hamming with a maximum
-per end. It does not support barcode indels or scanning arbitrary positions. Prefix
-overlap and overlapping mismatch neighborhoods produce warnings. Actual ties
+per end. It does not support barcode indels or scanning arbitrary positions. Demux rejects
+k >= minimum same-side distance (and k >= motif length), and warns when
+2*k >= minimum distance. Qi supports k=0 or k=1 only. Actual ties
 will be quarantined, never resolved by row order. A valid sample pair requires
 both barcode ends to be uniquely identified; resolving an ambiguous end solely
 using the expected pair list could conceal recombination and is disallowed.
@@ -151,7 +157,12 @@ other categories appear separately in the summary. No expected pair can resolve
 a tied barcode. Preserve header, sequence, plus and quality bytes by default;
 trimming requires explicit configuration. Bridge validation is diagnostic only.
 See [demultiplexing.md](demultiplexing.md) for precise rules, output schemas,
-synthetic evidence and the user-supplied real-data manual comparison targets.
+synthetic evidence and the real-data regression targets.
+
+M2.1 publishes only a fully staged, reconciled, hashed run. Future M3 must enforce
+the [completion contract](m2-hardening.md#downstream-completion-contract), including
+summary status, reconciliation and output hashes, before consuming sample FASTQs.
+A convenience heatmap may fail with a warning; authoritative tables may not.
 
 ### targets.csv
 
@@ -220,7 +231,7 @@ from fixed filenames. Relative executable paths also use the invocation director
 | `demux.forward_length`, `reverse_length` | Optional positive integers; profile uses 9, custom defaults to catalog motif lengths |
 | `demux.forward_bridge`, `reverse_bridge` | Optional DNA overrides; explicit null disables the respective bridge |
 | `demux.reverse_barcode_orientation` | `as_read` (default) or `reverse_complement`; forward barcode always as read |
-| `demux.max_mismatches` | Nonnegative integer, 0 per end |
+| `demux.max_mismatches` | Nonnegative integer, 0 per end; catalog-aware bounds enforced by demux |
 | `demux.trim_barcodes`, `trim_bridges` | Booleans, false; bridge trimming requires barcode trimming and configured bridges |
 | `demux.bridge_qc` | Boolean true; bridge matches never control assignment |
 | `demux.max_open_sample_pairs` | Positive integer, 32; bounded LRU of gzip output pairs |

@@ -5,7 +5,7 @@ for inline-barcoded samples and multiple target copies/homeologs. The intended
 workflow is barcode demultiplexing → CRISPRessoPooled → copy/target PE metrics →
 biological statistics → reports.
 
-**Milestones 1–2 implement metadata validation and paired barcode demultiplexing.**
+**Milestones 1–2.1 implement metadata validation and paired barcode demultiplexing.**
 CRISPResso execution, target/homeolog assignment, PE quantification, statistics
 and final reporting are not implemented.
 
@@ -56,8 +56,16 @@ is `src/peanalyzer/barcode_sets/qi_hitom_v1.csv` and is included in wheels.
 Exact matching is the default. Unexpected valid pairs and ambiguous matches
 never enter sample FASTQs. Original header, sequence, plus and quality bytes
 are preserved by default; bridge mismatches are QC-only. Each successful run
-writes sample gzip FASTQs, the complete F × R CSV matrix, a heatmap and a JSON
-summary with mandatory count reconciliation. The output directory must be new.
+publishes sample gzip FASTQs, the complete F × R CSV matrix and a JSON summary
+with count reconciliation, output hashes and software provenance. A heatmap is
+optional convenience output; rendering failures are explicit warnings. The output
+directory must be new; unfinished runs stay in a separate `.incomplete-*` directory.
+
+Version 0.2.1 adds case-insensitive filename checks, exclusive file creation and
+catalog-aware matching guardrails. Custom catalogs require equal barcode lengths
+within each direction; supplied catalogs cannot be extended by a sample sheet.
+See [M2.1 hardening and the completion contract](docs/m2-hardening.md). Future
+stages must verify that contract before consuming FASTQs.
 
 See [demultiplexing documentation](docs/demultiplexing.md) for the Python API,
 custom extraction/trimming, output contracts and manual real-data comparison.

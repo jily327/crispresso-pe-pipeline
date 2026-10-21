@@ -117,7 +117,7 @@ def test_matching_explicit_and_catalog_definitions_are_allowed(write_csv):
 
 
 def test_explicit_custom_sequences_still_resolve(example_dir):
-    catalog = Catalog([])
+    catalog = Catalog([], authoritative=False)
     samples = load_samples(example_dir / "samples.csv", catalog, metadata_required=False)
     assert len(samples) == 2
     assert samples[0].forward_barcode_id == "forward_AAAA"

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crispresso-pe-pipeline"
-version = "0.2.0"
+version = "0.2.1"
 description = "Metadata validation and paired barcode demultiplexing for prime-editing amplicon sequencing"
 readme = "README.md"
 requires-python = ">=3.11"

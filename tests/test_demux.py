@@ -12,6 +12,7 @@ from peanalyzer.barcodes import bundled_catalog
 from peanalyzer.demux import CATEGORIES, DemuxError, demultiplex, reconcile
 from peanalyzer.fastq import FastqError
 from peanalyzer.schemas import Config
+from peanalyzer.validation import MetadataError
 from synthetic import mixed_records, record, write_pairs
 
 
@@ -128,7 +129,7 @@ def test_custom_explicit_sequences_offsets_and_reverse_orientation(tmp_path, wri
     assert gzip.decompress((output / "02_demultiplexed_fastq/A_R2.fastq.gz").read_bytes()) == records[0][1]
 
 
-def test_variable_length_custom_barcodes(tmp_path, write_csv):
+def test_variable_length_custom_barcodes_are_rejected(tmp_path, write_csv):
     samples = write_csv("samples.csv", [
         {"sample_name": "a", "barcode_id": "A", "forward_barcode": "ACG", "reverse_barcode": "TTAA"},
         {"sample_name": "b", "barcode_id": "B", "forward_barcode": "GGGGG", "reverse_barcode": "CC"},
@@ -136,8 +137,10 @@ def test_variable_length_custom_barcodes(tmp_path, write_csv):
     records = [(record("x", "ACGTTTTTT", 1), record("x", "TTAATTTT", 2)),
                (record("y", "GGGGGTTTT", 1), record("y", "CCTTTTTT", 2))]
     r1, r2 = write_pairs(tmp_path, records)
-    report = demultiplex(r1=r1, r2=r2, samples_path=samples, config=Config(schema_version=1, demux={"profile": "custom"}), output=tmp_path / "out")
-    assert report["per_sample_assigned_read_pairs"] == {"A": 1, "B": 1}
+    # M2.1 intentionally tightens the former variable-length execution contract.
+    with pytest.raises(MetadataError, match="equal barcode lengths"):
+        demultiplex(r1=r1, r2=r2, samples_path=samples, config=Config(schema_version=1, demux={"profile": "custom"}), output=tmp_path / "out")
+    assert not (tmp_path / "out").exists()
 
 
 def test_short_motif_is_unknown_not_dropped(tmp_path, example_dir):
@@ -176,10 +179,10 @@ def test_reconciliation_must_fail_on_inconsistent_accounting(kind):
     else:
         categories["extra"] = 0
     with pytest.raises(DemuxError, match="reconciliation failed"):
-        reconcile(total, categories, samples, written, matrix)
+        reconcile(total, categories, samples, written, matrix, {("F", "R"): "A"}, {"A": [1, 1]})
 
 
-@pytest.mark.parametrize("failure", ["read_id", "reconciliation", "writer_loss", "writer_duplicate", "heatmap"])
+@pytest.mark.parametrize("failure", ["read_id", "reconciliation", "writer_loss", "writer_duplicate", "raw_qc"])
 def test_run_failure_leaves_no_success_or_partial_sample_outputs(tmp_path, example_dir, monkeypatch, failure):
     import peanalyzer.demux as module
     records = mixed_records()[:2]
@@ -199,13 +202,14 @@ def test_run_failure_leaves_no_success_or_partial_sample_outputs(tmp_path, examp
         monkeypatch.setattr(module.SampleWriter, "write", twice)
     else:
         def fail(*args):
-            raise OSError("heatmap write failed")
+            raise OSError("authoritative QC table write failed")
         monkeypatch.setattr(module, "write_qc_tables", fail)
     r1, r2 = write_pairs(tmp_path, records)
     output = tmp_path / "out"
     with pytest.raises((DemuxError, FastqError, OSError)):
         demultiplex(r1=r1, r2=r2, samples_path=example_dir / "ev_only_1005_samples.csv", config=Config(schema_version=1), output=output)
     assert not output.exists()
+    assert not list(tmp_path.glob(".out.incomplete-*"))
 
 
 def test_preexisting_output_is_never_overwritten(tmp_path, example_dir):
@@ -226,7 +230,12 @@ def test_demux_cli_with_custom_catalog_argument(tmp_path, example_dir):
                              "--samples", str(example_dir / "ev_only_1005_samples.csv"), "--barcodes", str(bundled_catalog()),
                              "--config", str(example_dir / "qi_hitom_config.yaml"), "--output", str(output)], text=True, capture_output=True)
     assert result.returncode == 0, result.stderr
-    assert json.loads(result.stdout)["assigned_expected_pair"] == 4
+    report = json.loads(result.stdout)
+    assert report["assigned_expected_pair"] == 4
+    assert report["invocation"]["argv"][1:] == ["demux", "--r1", str(r1), "--r2", str(r2),
+                                               "--samples", str(example_dir / "ev_only_1005_samples.csv"), "--barcodes", str(bundled_catalog()),
+                                               "--config", str(example_dir / "qi_hitom_config.yaml"), "--output", str(output)]
+    assert report["invocation"]["cwd"]
     assert "reconciliations passed" in result.stderr
     assert gzip.decompress((output / "02_demultiplexed_fastq/1B_R1.fastq.gz").read_bytes()) == mixed_records()[0][0] + mixed_records()[9][0]
 
