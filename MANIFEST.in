@@ -1,4 +1,5 @@
 include requirements-dev.lock
 recursive-include docs *.md
+recursive-include docs/validation/m3 *.json *.csv *.tsv *.txt
 recursive-include examples *.csv *.yaml
 recursive-include tests *.py

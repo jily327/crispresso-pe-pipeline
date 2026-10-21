@@ -1,10 +1,14 @@
-# Pipeline architecture and contracts (Milestones 1–2.1)
+# Pipeline architecture and contracts (Milestones 1–3)
 
-Status: metadata validation and paired barcode demultiplexing/QC are implemented.
-CRISPResso execution and downstream sequence analysis remain designs only.
+Status: metadata validation, paired barcode demultiplexing/QC, completion
+verification, analysis preparation and external CRISPResso2 diagnostics are
+implemented. **ROUTING GATE: FAIL** in the actual 2.3.4 synthetic experiment;
+production copy quantification and downstream analyses remain blocked.
+See [M3 contracts, evidence and reproduction](m3-backend-validation.md).
 Repository inspection found only a two-line README at `9262a3d` on `main`, with
 no code, tests, CI, dependency pins or agent instructions. Development belongs on
-`feat/initial-architecture`; `main` remains the stable integration branch.
+feature branches; M3 uses `feat/crispresso-integration` from
+`ae7e7f3e1f9144ea2092d9a6201a4d137a024214`. `main` remains the stable integration branch.
 
 ## Workflow and module boundaries
 
@@ -32,6 +36,11 @@ src/peanalyzer/
     fastq.py                      lossless four-line streaming and paired-ID validation
     demux.py, demux_output.py      staged publication, classification, accounting, gzip and QC
     provenance.py                 demux software/environment identity
+    demux_verify.py               independent completed-archive integrity/recount
+    analysis_fastq.py             verified archive → separate trimmed inputs
+    backend/pooled.py             exact TSV, preflight, external execution/provenance
+    backend/synthetic.py          artificial copies and independent read truth
+    backend/routing_validation.py  synthetic-only BAM/handoff/reference audit
     barcode_sets/qi_hitom_v1.csv   canonical 12-forward/8-reverse catalog data
     profiles/qi_hitom_v1.yaml      verified extraction/bridge layout data
 examples/{samples.csv,targets.csv,config.yaml}
@@ -47,7 +56,6 @@ Planned modules, **not placeholder implementations in this milestone**:
 | Module | Responsibility / contract |
 | --- | --- |
 | `reference_qc.py` | Compare WT/PE references using a tested library alignment; report SNPs/indels, diagnostic variants and edit-site proximity with explicit coordinates |
-| `backend/pooled.py` | Version check, exact TSV and argv generation, routing qualification, subprocess execution, completion and count checks |
 | `backend/outputs.py` | Versioned JSON/TSV/ZIP adapters; fail on unknown layouts or inconsistent counts; no HTML scraping |
 | `quantification.py` | Pure count-to-metric functions; distinguish exact PE from PE-reference assignment |
 | `aggregation.py` | Long-form sample × target × copy results; weighted/unweighted target summaries and copy balance |
@@ -74,7 +82,9 @@ in an isolated environment or container with a recorded image digest. Pooled
 2.3.4 uses **fastp** for paired merging; do not copy older FLASH/Trimmomatic setup
 instructions. CRISPResso's Python dependencies include NumPy, pandas, scipy,
 matplotlib, seaborn and Jinja2, with Cython/C build requirements. Only the plotting
-dependencies are used in this milestone; the CRISPResso toolchain is not installed.
+dependencies are package dependencies; the CRISPResso toolchain runs externally.
+M3 actually executed the official v2.3.4 image by digest, with Bowtie2 2.5.5,
+samtools 1.23.1 and fastp 1.3.3; see the M3 evidence for exact probes.
 Verify upstream license terms before
 redistributing a backend image. No external service or credentials are required
 for local analysis; installing packages requires access to their registries.
@@ -176,7 +186,7 @@ future explicit design table.
 | `target_name`, `copy_name` | Identifiers; pair unique; `__` reserved |
 | `wt_sequence` | Complete WT amplicon DNA, without inline barcodes/adapters |
 | `prime_edited_sequence` | Complete intended PE amplicon in the same strand orientation; must differ from WT; intended indels allowed |
-| `pegRNA_spacer` | Required RNA sequence 5′→3′ without PAM |
+| `pegRNA_spacer` | Actual experimental RNA guide 5′→3′ without PAM; shared guides remain identical on copy rows; never an implicit analysis override |
 | `pegRNA_extension` | Required RNA extension 5′→3′: RT template then PBS |
 | `nicking_guide` | Nullable RNA 5′→3′ without PAM (e.g. absent for PE2) |
 | `pegRNA_scaffold` | Nullable RNA scaffold preceding the extension, 5′→3′ |
@@ -205,12 +215,14 @@ options through a reviewed typed allowlist.
 
 Milestone 1 checks syntax, uniqueness, collisions and exact substring warnings.
 It does **not** validate pegRNA design or calculate a SNP/indel alignment report.
-That report is a required preflight in Milestone 3: lengths; pairwise WT and PE
+The original roadmap proposed a generalized reference report: lengths; pairwise WT and PE
 alignments; SNP counts, indel events and affected bases; diagnostic positions;
 distance/overlap with intended edits; and whether read coverage observes those
 positions. Use a tested alignment library, flag non-unique alignments in repeats,
 and report reference-relative coordinates. A difference in equal-length strings
-is not automatically a SNP: compensating indels can occur.
+is not automatically a SNP: compensating indels can occur. The current M3 task
+validates a controlled, documented synthetic design; a generalized reference-QC
+aligner remains deferred after the failed routing gate.
 
 ### config.yaml
 
@@ -473,10 +485,12 @@ results/
   manifest.json, resolved_config.yaml, inputs/       metadata snapshots and hashes
   01_demux_QC/                                     counts, matrix, heatmap, JSON
   02_demultiplexed_fastq/<barcode_id>_{R1,R2}.fastq.gz
-  03_CRISPResso/<barcode_id>/                       TSV, argv, routing ledger, backend files
-  04_quantification/                              copy, target, sample tables
-  05_statistics/                                  pairwise and factorial results
-  06_report/report.html
+  analysis/03_analysis_fastq/                      separate trimmed copies, manifest
+  backend/                                        TSV, argv, logs, external diagnostic output
+  05_routing_QC/                                  synthetic truth/routing comparison
+  future_quantification/                          not implemented
+  future_statistics/                              not implemented
+  future_report/                                  not implemented
 ```
 
 Each stage manifest will contain input content hashes, normalized configuration,
@@ -511,9 +525,10 @@ The presence of a directory or CRISPResso's own no-rerun option is insufficient.
    factor contrasts, interpretation of dpi, minimal biological n and low-depth/
    copy-balance thresholds. No statistical inference is available in this milestone.
 
-Known limitations: metadata/demux success is not backend readiness; no
-copy-variant alignment report, routing audit, PE parser, model or final report
-exists yet. Partial read coverage may prevent full-amplicon precision.
+Known limitations: metadata/demux success is not backend readiness. The synthetic
+routing audit demonstrates forced ambiguous assignments and the guide mismatch
+limitation in 2.3.4. No generalized copy-variant report, production PE parser,
+statistical model or final report exists. Partial read coverage may prevent full-amplicon precision.
 Scaffold detection is motif-based and depends on backend orientation/search rules;
 absence of a count is not proof of absence. Default Pooled cannot supply the
 required reliable cross-copy ambiguous count. Backend contracts are pinned and
@@ -528,21 +543,22 @@ configuration errors, installed CLI success/failure and example metadata.
 Milestone 2 additionally tests streaming FASTQ structure/pair errors, all six
 terminal categories, exact and Hamming ties, raw output preservation, gzip/LRU
 handling, bridge diagnostics, custom extraction, matrix/heatmap contents and
-mandatory reconciliation/failure cleanup. Tests require no CRISPResso or network.
+mandatory reconciliation/failure cleanup. Normal unit tests require no
+CRISPResso or network. M3 real-backend tests use `crispresso_integration` and
+explicit `M3_INTEGRATION=1` opt-in; see the M3 document for runtime requirements.
 
-**Next: Milestone 3**, pinned-backend command generation/execution and routing
-qualification. Milestone 2 is independently usable without that backend.
-Default demux outputs retain motifs and bridges, so Milestone 3 must explicitly
-prepare an analysis input cohort with documented library-sequence trimming.
-Do not change the preserved demux outputs or confuse sample barcode assignment
-with target/homeolog assignment.
+M3 is implemented as a validation gate, with distinct immutable demux and trimmed
+analysis inputs. Actual execution confirms 310/310 informative routes, zero
+cross-routes and 40/40 forced non-informative assignments. Its scientific gate
+failed; diagnostic regression tests passing do not authorize production routing.
+The faithful shared-guide mismatch test also fails in the backend and is now
+represented in preflight. M2 remains independently usable without CRISPResso.
 
-Milestone 3 must run pinned-backend integration experiments with copy1/copy2 WT,
-both precise PE variants, PE+extra mutation, intended/unintended indels, scaffold,
-indistinguishable copies, edited-away diagnostic SNPs and reads missing diagnostic
-positions. Include read-count threshold boundaries and permutation of amplicon
-order; unsafe assignments must fail qualification. Confirm exact TSV generation,
-every child PE reference, output schema and read accounting before enabling runs.
-Milestone 4 parses those saved outputs and validates metrics; 5 aggregates copies;
+**Next: routing follow-up before M4**, including an explicit ambiguous-read
+quarantine strategy and reviewed guide-mismatch handling. Further fixtures for
+edited-away diagnostic SNPs, repeats, scaffold, threshold boundaries and amplicon
+order should qualify the eventual routing design, not broaden this failed gate
+into downstream implementation. After qualification, M4 parses outputs and
+validates metrics; 5 aggregates copies;
 6 implements biological statistics; 7 reports; 8 provides a complete synthetic
 end-to-end reproducibility test. Keep unit and `integration` tests separate.

@@ -1,0 +1,47 @@
+{
+  "python": "3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]",
+  "versions": {
+    "CRISPResso": {
+      "argv": [
+        "CRISPResso",
+        "--version"
+      ],
+      "return_code": 0,
+      "version_output": "CRISPResso 2.3.4"
+    },
+    "CRISPRessoPooled": {
+      "argv": [
+        "CRISPRessoPooled",
+        "--version"
+      ],
+      "return_code": 0,
+      "version_output": "CRISPRessoPooled 2.3.4"
+    },
+    "bowtie2": {
+      "argv": [
+        "bowtie2",
+        "--version"
+      ],
+      "return_code": 0,
+      "version_output": "/CRISPResso2/.pixi/envs/default/bin/bowtie2-align-s version 2.5.5"
+    },
+    "samtools": {
+      "argv": [
+        "samtools",
+        "--version"
+      ],
+      "return_code": 0,
+      "version_output": "samtools 1.23.1"
+    },
+    "fastp": {
+      "argv": [
+        "fastp",
+        "--version"
+      ],
+      "return_code": 0,
+      "version_output": "fastp 1.3.3"
+    }
+  },
+  "pooled_source_path": "/CRISPResso2/CRISPResso2/CRISPRessoPooledCORE.py",
+  "pooled_source_sha256": "95d7843646636f6a49aae12a041f0dcce059ad40035a90d715a1adb9b4d71b68"
+}

@@ -1,0 +1,192 @@
+{
+  "running_info": {
+    "version": "2.3.4",
+    "args": {
+      "_type": "argparse.Namespace",
+      "value": {
+        "fastq_r1": "input_R1.fastq.gz",
+        "fastq_r2": "input_R2.fastq.gz",
+        "amplicon_seq": null,
+        "amplicon_name": "Reference",
+        "amplicon_min_alignment_score": "",
+        "default_min_aln_score": 60,
+        "expand_ambiguous_alignments": false,
+        "assign_ambiguous_alignments_to_first_reference": false,
+        "guide_seq": "",
+        "guide_name": "",
+        "flexiguide_seq": "None",
+        "flexiguide_homology": 80,
+        "flexiguide_name": "",
+        "flexiguide_gap_open_penalty": -20,
+        "flexiguide_gap_extend_penalty": -2,
+        "discard_guide_positions_overhanging_amplicon_edge": false,
+        "expected_hdr_amplicon_seq": "",
+        "coding_seq": "",
+        "coding_seq_name": "",
+        "config_file": "None",
+        "min_average_read_quality": 0,
+        "min_single_bp_quality": 0,
+        "min_bp_quality_or_N": 0,
+        "file_prefix": "",
+        "name": "diagnostic",
+        "display_name": "",
+        "suppress_amplicon_name_truncation": false,
+        "output_folder": "output",
+        "verbosity": 3,
+        "split_interleaved_input": false,
+        "trim_sequences": false,
+        "trimmomatic_command": "None",
+        "trimmomatic_options_string": "",
+        "flash_command": "None",
+        "fastp_command": "fastp",
+        "fastp_options_string": "",
+        "min_paired_end_reads_overlap": 10,
+        "max_paired_end_reads_overlap": "None",
+        "samtools_exclude_flags": "4",
+        "stringent_flash_merging": false,
+        "force_merge_pairs": false,
+        "quantification_window_size": "1",
+        "quantification_window_center": "-3",
+        "exclude_bp_from_left": 15,
+        "exclude_bp_from_right": 15,
+        "use_legacy_insertion_quantification": false,
+        "ignore_substitutions": false,
+        "ignore_insertions": false,
+        "ignore_deletions": false,
+        "discard_indel_reads": false,
+        "needleman_wunsch_gap_open": -20,
+        "needleman_wunsch_gap_extend": -2,
+        "needleman_wunsch_gap_incentive": 1,
+        "needleman_wunsch_aln_matrix_loc": "EDNAFULL",
+        "aln_seed_count": 5,
+        "aln_seed_len": 10,
+        "aln_seed_min": 2,
+        "plot_histogram_outliers": false,
+        "plot_window_size": 20,
+        "min_frequency_alleles_around_cut_to_plot": 0.2,
+        "expand_allele_plots_by_quantification": false,
+        "allele_plot_pcts_only_for_assigned_reference": false,
+        "quantification_window_coordinates": null,
+        "annotate_wildtype_allele": "",
+        "keep_intermediate": true,
+        "dump": false,
+        "write_detailed_allele_table": true,
+        "fastq_output": false,
+        "bam_output": false,
+        "bowtie2_index": "",
+        "zip_output": false,
+        "max_rows_alleles_around_cut_to_plot": 50,
+        "suppress_report": true,
+        "place_report_in_output_folder": false,
+        "suppress_plots": true,
+        "write_cleaned_report": false,
+        "base_editor_output": false,
+        "conversion_nuc_from": "C",
+        "conversion_nuc_to": "T",
+        "prime_editing_pegRNA_spacer_seq": "",
+        "prime_editing_pegRNA_extension_seq": "",
+        "prime_editing_pegRNA_extension_quantification_window_size": 5,
+        "prime_editing_pegRNA_scaffold_seq": "",
+        "prime_editing_pegRNA_scaffold_min_match_length": 1,
+        "prime_editing_nicking_guide_seq": "",
+        "prime_editing_override_prime_edited_ref_seq": "",
+        "prime_editing_override_sequence_checks": false,
+        "prime_editing_gap_open_penalty": -50,
+        "prime_editing_gap_extend_penalty": 0,
+        "crispresso1_mode": false,
+        "dsODN": "",
+        "auto": false,
+        "debug": false,
+        "no_rerun": false,
+        "n_processes": "1",
+        "bam_input": "",
+        "bam_chr_loc": "",
+        "save_also_png": false,
+        "skip_failed": false,
+        "crispresso_command": "CRISPResso",
+        "amplicons_file": "amplicons.tsv",
+        "gene_annotations": "",
+        "bowtie2_options_string": "",
+        "use_legacy_bowtie2_options_string": false,
+        "min_reads_to_use_region": 0.0,
+        "skip_reporting_problematic_regions": false,
+        "compile_postrun_references": false,
+        "compile_postrun_reference_allele_cutoff": 30.0,
+        "alternate_alleles": "",
+        "limit_open_files_for_demux": false,
+        "aligned_pooled_bam": null,
+        "demultiplex_only_at_amplicons": false,
+        "demultiplex_genome_wide": false,
+        "disable_guardrails": false,
+        "use_matplotlib": false,
+        "halt_on_plot_fail": false,
+        "vcf_output": false,
+        "amplicon_coordinates": "",
+        "base_editor_consider_changes_outside_qw": false,
+        "base_editor_target_ref_skip_allele_count": 0
+      }
+    },
+    "log_filename": "CRISPRessoPooled_RUNNING_LOG.txt",
+    "finished_steps": {
+      "merge_paired_fastq": "fastp -i input_R1.fastq.gz -I input_R2.fastq.gz --merge --merged_out /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/out.extendedFrags.fastq.gz --unpaired1 /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/out.notCombined_1.fastq.gz --unpaired2 /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/out.notCombined_2.fastq.gz --overlap_len_require 10 --thread 1 --json /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/fastp_report.json --html /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/fastp_report.html  --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering >> /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/CRISPRessoPooled_RUNNING_LOG.txt 2>&1",
+      "count_input_reads": [
+        350,
+        350
+      ]
+    },
+    "command_used": "/CRISPResso2/.pixi/envs/default/bin/CRISPRessoPooled -r1 input_R1.fastq.gz -r2 input_R2.fastq.gz -f amplicons.tsv -o output --name diagnostic --crispresso_command CRISPResso --n_processes 1 --min_reads_to_use_region 0 --write_detailed_allele_table --suppress_report --suppress_plots --keep_intermediate",
+    "fastp_command": "fastp -i input_R1.fastq.gz -I input_R2.fastq.gz --merge --merged_out /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/out.extendedFrags.fastq.gz --unpaired1 /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/out.notCombined_1.fastq.gz --unpaired2 /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/out.notCombined_2.fastq.gz --overlap_len_require 10 --thread 1 --json /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/fastp_report.json --html /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/fastp_report.html  --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering >> /tmp/peanalyzer-backend-d2ijh43s/output/CRISPRessoPooled_on_diagnostic/CRISPRessoPooled_RUNNING_LOG.txt 2>&1",
+    "running_mode": "ONLY_AMPLICONS",
+    "end_time": {
+      "_type": "datetime.datetime",
+      "value": "2026-10-21 15:02:11.212812"
+    },
+    "end_time_string": "2026-10-21 15:02:11",
+    "running_time": {
+      "_type": "datetime.timedelta",
+      "value": {
+        "days": 0,
+        "seconds": 2,
+        "microseconds": 991458
+      }
+    },
+    "running_time_string": "0:00:02.991458"
+  },
+  "results": {
+    "alignment_stats": {
+      "samples_quantification_summary_filename": "SAMPLES_QUANTIFICATION_SUMMARY.txt"
+    },
+    "general_plots": {
+      "summary_plot_names": [],
+      "summary_plot_titles": {},
+      "summary_plot_labels": {},
+      "summary_plot_datas": {}
+    },
+    "failed_batch_arr": [],
+    "failed_batch_arr_desc": [],
+    "final_data": {
+      "_type": "pd.DataFrame",
+      "value": "{\"columns\":[\"amplicon_seq\",\"prime_editing_pegRNA_spacer_seq\",\"prime_editing_nicking_guide_seq\",\"prime_editing_pegRNA_extension_seq\",\"prime_editing_pegRNA_scaffold_seq\",\"prime_editing_override_prime_edited_ref_seq\",\"prime_editing_pegRNA_scaffold_min_match_length\",\"quantification_window_coordinates\",\"quantification_window_size\",\"quantification_window_center\",\"run_name\",\"Demultiplexed_fastq.gz_filename\",\"n_reads\",\"n_reads_aligned_%\",\"crispresso_command\",\"crispresso_output_folder\"],\"index\":[\"SYN__copy1\",\"SYN__copy2\"],\"data\":[[\"TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC\",\"TAGTGCCGACGGACCAGAAC\",\"NA\",\"TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC\",\"NA\",\"TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC\",\"NA\",\"NA\",\"NA\",\"NA\",\"SYN_copy1\",\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\/AMPL_SYN_copy1.fastq.gz\",211,60.2857142857,\"CRISPResso --fastq_r1 \\\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\/AMPL_SYN_copy1.fastq.gz\\\" --amplicon_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC --name SYN_copy1 --display_name SYN__copy1 --output_folder \\\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\\" --fastp_options_string \\\" --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering\\\" --keep_intermediate --write_detailed_allele_table --suppress_report --suppress_plots --prime_editing_pegRNA_spacer_seq TAGTGCCGACGGACCAGAAC --prime_editing_pegRNA_extension_seq TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC --prime_editing_override_prime_edited_ref_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC\",\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\/CRISPResso_on_SYN_copy1\"],[\"TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC\",\"TAGTGCCGACGGACCAGAAC\",\"NA\",\"TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC\",\"NA\",\"TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC\",\"NA\",\"NA\",\"NA\",\"NA\",\"SYN_copy2\",\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\/AMPL_SYN_copy2.fastq.gz\",139,39.7142857143,\"CRISPResso --fastq_r1 \\\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\/AMPL_SYN_copy2.fastq.gz\\\" --amplicon_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC --name SYN_copy2 --display_name SYN__copy2 --output_folder \\\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\\" --fastp_options_string \\\" --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering\\\" --keep_intermediate --write_detailed_allele_table --suppress_report --suppress_plots --prime_editing_pegRNA_spacer_seq TAGTGCCGACGGACCAGAAC --prime_editing_pegRNA_extension_seq TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC --prime_editing_override_prime_edited_ref_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC\",\"\\/tmp\\/peanalyzer-backend-d2ijh43s\\/output\\/CRISPRessoPooled_on_diagnostic\\/CRISPResso_on_SYN_copy2\"]]}"
+    },
+    "all_region_names": [
+      "SYN_copy1",
+      "SYN_copy2"
+    ],
+    "all_region_display_names": {
+      "SYN_copy1": "SYN__copy1",
+      "SYN_copy2": "SYN__copy2"
+    },
+    "all_region_read_counts": {
+      "SYN_copy1": 211,
+      "SYN_copy2": 139
+    },
+    "good_region_names": [
+      "SYN_copy1",
+      "SYN_copy2"
+    ],
+    "good_region_folders": {
+      "SYN_copy1": "CRISPResso_on_SYN_copy1",
+      "SYN_copy2": "CRISPResso_on_SYN_copy2"
+    }
+  }
+}
