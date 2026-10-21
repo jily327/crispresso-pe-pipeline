@@ -1,6 +1,7 @@
-# Milestone 1 architecture and contracts
+# Pipeline architecture and contracts (Milestones 1–2)
 
-Status: metadata validation is implemented; sequence analysis is a design only.
+Status: metadata validation and paired barcode demultiplexing/QC are implemented.
+CRISPResso execution and downstream sequence analysis remain designs only.
 Repository inspection found only a two-line README at `9262a3d` on `main`, with
 no code, tests, CI, dependency pins or agent instructions. Development belongs on
 `feat/initial-architecture`; `main` remains the stable integration branch.
@@ -24,12 +25,19 @@ MANIFEST.in                       include docs, fixtures and tests in source bui
 requirements-dev.lock            exact tested Python development dependencies
 src/peanalyzer/
     __init__.py, __main__.py       package version and python -m entry point
-    cli.py                        argparse boundary; validate only
+    cli.py                        argparse boundary; validate and demux
     schemas.py                    typed, extra-field-forbidding metadata models
     validation.py                 CSV/YAML readers and cross-row diagnostics
+    barcodes.py                   catalog resolution, extraction, independent matching
+    fastq.py                      lossless four-line streaming and paired-ID validation
+    demux.py, demux_output.py      exclusive classification, accounting, gzip and QC
+    barcode_sets/qi_hitom_v1.csv   canonical 12-forward/8-reverse catalog data
+    profiles/qi_hitom_v1.yaml      verified extraction/bridge layout data
 examples/{samples.csv,targets.csv,config.yaml}
+examples/{ev_only_1005_samples.csv,qi_hitom_config.yaml}
 tests/{conftest.py,test_metadata.py,test_config.py,test_cli.py}
-docs/architecture.md
+tests/{synthetic.py,test_barcodes.py,test_fastq.py,test_demux.py}
+docs/{architecture.md,demultiplexing.md}
 README.md
 ```
 
@@ -37,7 +45,6 @@ Planned modules, **not placeholder implementations in this milestone**:
 
 | Module | Responsibility / contract |
 | --- | --- |
-| `fastq.py`, `demux.py` | Stream paired gzip records; validate pairing and structure; preserve IDs; variable-length barcode matching and exclusive read-pair outcomes |
 | `reference_qc.py` | Compare WT/PE references using a tested library alignment; report SNPs/indels, diagnostic variants and edit-site proximity with explicit coordinates |
 | `backend/pooled.py` | Version check, exact TSV and argv generation, routing qualification, subprocess execution, completion and count checks |
 | `backend/outputs.py` | Versioned JSON/TSV/ZIP adapters; fail on unknown layouts or inconsistent counts; no HTML scraping |
@@ -47,15 +54,16 @@ Planned modules, **not placeholder implementations in this milestone**:
 | `reporting.py` | CSV/TSV, plots, report and links to individual CRISPResso reports |
 | `workflow.py`, `provenance.py` | DAG, stage manifests, hashes, resume, logs and `--force` |
 
-CLI will remain a thin caller of reusable Python functions so a future GUI can
-use the same contracts. Future commands: `run`, `demux`, `analyze`, `summarize`,
+CLI remains a thin caller of reusable Python functions so a future GUI can
+use the same contracts. Future commands: `run`, `analyze`, `summarize`,
 `stats`, `report`. Currently they are rejected, not successful no-ops.
 
 ## Dependencies and reproducibility
 
-Milestone 1: Python >=3.11, Pydantic 2, PyYAML 6, setuptools; development uses
-pytest and build. The lock records the tested Python 3.12 environment and is
-version-pinned, not a platform-independent or artifact-hashed lock. Models are
+Milestones 1–2: Python >=3.11, Pydantic 2, PyYAML 6, matplotlib, setuptools; development uses
+pytest and build. The lock records the tested Python 3.12 environment; its
+NumPy/contourpy pins require >=3.12. It is version-pinned, not a platform-independent
+or artifact-hashed lock. Models are
 the schema source of truth; `Sample.model_json_schema()`,
 `Target.model_json_schema()` and `Config.model_json_schema()` expose JSON Schema
 for the **normalized records**, not CSV parsing or cross-row uniqueness rules.
@@ -64,12 +72,13 @@ Milestone 3: independently pin CRISPResso2 **2.3.4**, Bowtie2, samtools and fast
 in an isolated environment or container with a recorded image digest. Pooled
 2.3.4 uses **fastp** for paired merging; do not copy older FLASH/Trimmomatic setup
 instructions. CRISPResso's Python dependencies include NumPy, pandas, scipy,
-matplotlib, seaborn and Jinja2, with Cython/C build requirements. They are not
-dependencies of the current validator. Verify upstream license terms before
+matplotlib, seaborn and Jinja2, with Cython/C build requirements. Only the plotting
+dependencies are used in this milestone; the CRISPResso toolchain is not installed.
+Verify upstream license terms before
 redistributing a backend image. No external service or credentials are required
 for local analysis; installing packages requires access to their registries.
 
-Later reporting may add pandas/matplotlib/Jinja2; statistics may use an isolated,
+Later reporting may add pandas/Jinja2; statistics may use an isolated,
 versioned R + glmmTMB backend for beta-binomial mixed models. These are decisions
 to validate in their milestones, not installed dependencies now.
 
@@ -77,8 +86,10 @@ to validate in their milestones, not installed dependencies now.
 
 CSV files are UTF-8 (BOM accepted), comma-delimited, with exact case-sensitive
 headers. Header order is arbitrary. Reject duplicate/unknown/missing columns,
-ragged rows, empty datasets and malformed quoting. Every header in the two base
-tables below is required; explicitly nullable cells may be blank. Optional
+ragged rows, empty datasets and malformed quoting. Full metadata validation
+requires the biological columns below, with barcode sequences or IDs per end;
+demux additionally accepts the minimal sample schema described below. All base
+target headers are required; explicitly nullable cells may be blank. Optional
 override columns may be absent or blank. Strip surrounding cell whitespace;
 preserve identifiers such as replicate `01` as strings. `NA` is not a null token.
 
@@ -90,36 +101,57 @@ need an explicit schema/backend extension, not silent normalization.
 
 ### samples.csv
 
-One row is one biological sample in **one sequencing run**. Reused individual
-forward or reverse barcodes are valid; the pair must be unique.
+One row is one sample in **one sequencing run**, including controls. Reused
+individual forward or reverse barcodes are valid; the pair must be unique.
+Milestone 2 adds `forward_barcode_id` and `reverse_barcode_id` references to a
+catalog. Each end requires a sequence or an ID; if both are supplied they must
+agree. `demux` accepts a minimal routing sheet containing `sample_name`,
+`barcode_id` and the two end definitions, as shown in
+`examples/ev_only_1005_samples.csv`. It also accepts full Milestone 1 sheets.
+`validate` still requires full biological metadata and targets; provide
+`--barcodes <catalog.csv>` when those full sheets use catalog IDs. No editor,
+treatment, dpi, replicate or pairing values are fabricated for the minimal sheet.
 
 | Column | Type and meaning |
 | --- | --- |
 | `sample_name` | Unique identifier, biological sample identity |
 | `barcode_id` | Unique identifier, stable output stem; not an inferred biological replicate |
-| `forward_barcode` | DNA barcode expected on R1 at configured offset |
-| `reverse_barcode` | DNA barcode expected on R2, interpreted using configured orientation |
+| `forward_barcode`, `forward_barcode_id` | DNA barcode expected on R1, or a forward catalog ID; either or both |
+| `reverse_barcode`, `reverse_barcode_id` | DNA barcode expected on R2 using configured orientation, or a reverse catalog ID; either or both |
 | `editor`, `treatment` | Nonempty categorical strings; no hard-coded level names |
 | `dpi` | Nonnegative integer days post intervention; fractional days need a schema change |
 | `biological_replicate` | Nonempty identifier, preserved as string; may repeat across treatment groups |
 | `block_id` | Nullable identifier; required when `paired=true` |
 | `paired` | Explicit `true`/`false` (case-insensitive in CSV); rejects 0/1, yes/no and blanks |
 
-Barcode lengths are inferred **per sequence**, never hard-coded. Version 1 plans
-fixed offsets per run and substitution-only Hamming matching with a maximum per
-end. It does not support barcode indels or scanning arbitrary positions. Prefix
+Barcode lengths are configurable. The default `qi_hitom_v1` profile specifies
+9 nt at offset 0 on each end, matching the user-verified Qi-Lab/Azenta layout:
+
+```text
+R1: [GCTT + 4 variable bases + T] [GGAGTGAGTACGGTGTGC] [amplicon...]
+R2: [CTGT + 4 variable bases + T] [GAGTTGGATGCTGGATGG] [amplicon...]
+```
+
+The canonical 20 motifs and bridge/layout settings live in package CSV/YAML
+resources, not Python constants. Custom catalogs and a `custom` profile support
+other offsets/lengths, including per-catalog motif lengths when length is unset.
+Matching is exact by default, optionally substitution-only Hamming with a maximum
+per end. It does not support barcode indels or scanning arbitrary positions. Prefix
 overlap and overlapping mismatch neighborhoods produce warnings. Actual ties
 will be quarantined, never resolved by row order. A valid sample pair requires
 both barcode ends to be uniquely identified; resolving an ambiguous end solely
 using the expected pair list could conceal recombination and is disallowed.
 
-Future demux exclusive categories are `assigned`, `ambiguous_barcode`,
-`invalid_pair` (both known, unexpected combination), `forward_only`,
-`reverse_only`, `unknown_both`. Their sum equals input **read pairs**. Export
-`unassigned_total` only as a derived sum, not an additional disjoint category.
-Record the F × R matrix for uniquely identified ends including invalid pairs;
-unknown/ambiguous ends have separate bins. Preserve original IDs, validate mate
-synchronization, trim through offset+barcode, and write paired gzip files.
+Implemented exclusive categories are `assigned_expected_pair`,
+`unexpected_valid_barcode_pair`, `ambiguous_barcode_match`, `forward_only`,
+`reverse_only`, `no_barcode_match`. Their sum must equal input **read pairs**.
+Only assigned expected pairs enter sample FASTQs. The complete F × R matrix
+retains both expected and unexpected recognized pairs, including zero cells;
+other categories appear separately in the summary. No expected pair can resolve
+a tied barcode. Preserve header, sequence, plus and quality bytes by default;
+trimming requires explicit configuration. Bridge validation is diagnostic only.
+See [demultiplexing.md](demultiplexing.md) for precise rules, output schemas,
+synthetic evidence and the user-supplied real-data manual comparison targets.
 
 ### targets.csv
 
@@ -172,19 +204,27 @@ is not automatically a SNP: compensating indels can occur.
 ### config.yaml
 
 Safe YAML mapping, no duplicate or unknown keys; strict native YAML numeric and
-boolean types. Required `schema_version: 1`. All other fields have the defaults
-shown in `examples/config.yaml`. Empty configuration files fail. CLI metadata
+boolean types. Required `schema_version: 1`. Defaults are listed below;
+`examples/config.yaml` explicitly selects the custom profile, while
+`examples/qi_hitom_config.yaml` records the verified protocol. Empty configuration
+files fail. CLI metadata
 paths are supplied explicitly and resolved relative to the invoking working
-directory; future FASTQ paths and output directory are CLI inputs, never inferred
+directory; FASTQ paths and output directory are CLI inputs, never inferred
 from fixed filenames. Relative executable paths also use the invocation directory.
 
 | Section / field | Accepted values and defaults |
 | --- | --- |
 | `n_processes` | Positive integer, 1; future total worker budget, not workers per sample |
+| `demux.profile` | `qi_hitom_v1` (default) or `custom`; bundled profile data, with explicit field overrides |
 | `demux.forward_offset`, `reverse_offset` | Nonnegative integer, 0; zero-based positions in the respective raw read |
+| `demux.forward_length`, `reverse_length` | Optional positive integers; profile uses 9, custom defaults to catalog motif lengths |
+| `demux.forward_bridge`, `reverse_bridge` | Optional DNA overrides; explicit null disables the respective bridge |
 | `demux.reverse_barcode_orientation` | `as_read` (default) or `reverse_complement`; forward barcode always as read |
 | `demux.max_mismatches` | Nonnegative integer, 0 per end |
-| `demux.trim_barcodes`, `ambiguous_policy` | Only `true` and `unassigned`, respectively, in schema v1 |
+| `demux.trim_barcodes`, `trim_bridges` | Booleans, false; bridge trimming requires barcode trimming and configured bridges |
+| `demux.bridge_qc` | Boolean true; bridge matches never control assignment |
+| `demux.max_open_sample_pairs` | Positive integer, 32; bounded LRU of gzip output pairs |
+| `demux.ambiguous_policy` | Only `unassigned`; no sample-expectation rescue |
 | `crispresso.pooled_executable`, `core_executable` | Nonempty executable names/paths, `CRISPRessoPooled` and `CRISPResso` |
 | `crispresso.version` | Only quoted string `"2.3.4"`; compatibility target, not proof of an installation |
 | `crispresso.min_reads_to_use_region` | Nonnegative integer, 100; explicit pipeline choice, upstream default is 1000 |
@@ -438,8 +478,9 @@ The presence of a directory or CRISPResso's own no-rerun option is insufficient.
 
 ## Assumptions requiring biological confirmation
 
-1. Barcode location, orientation, length distribution, substitution tolerance and
-   whether trimming through the offsets removes only library sequence. Unexpected
+1. The Qi-Lab/Azenta layout above is user-verified for the inspected run; confirm
+   layout for other protocols and whether explicitly requested trimming removes
+   only library sequence. Exact matching is the verified default. Unexpected
    combinations suggest possible recombination but do not prove its mechanism.
 2. Amplicon boundaries/strand, genotype-specific WT references and copy number;
    primer specificity, off-target amplification and paralogs outside the reference
@@ -459,9 +500,9 @@ The presence of a directory or CRISPResso's own no-rerun option is insufficient.
    factor contrasts, interpretation of dpi, minimal biological n and low-depth/
    copy-balance thresholds. No statistical inference is available in this milestone.
 
-Known limitations: metadata success is not backend readiness; no FASTQ validation,
-copy-variant alignment report, demultiplexer, routing audit, PE parser, model or
-report exists yet. Partial read coverage may prevent full-amplicon precision.
+Known limitations: metadata/demux success is not backend readiness; no
+copy-variant alignment report, routing audit, PE parser, model or final report
+exists yet. Partial read coverage may prevent full-amplicon precision.
 Scaffold detection is motif-based and depends on backend orientation/search rules;
 absence of a count is not proof of absence. Default Pooled cannot supply the
 required reliable cross-copy ambiguous count. Backend contracts are pinned and
@@ -469,16 +510,21 @@ must be retested before upgrading.
 
 ## Tests and next milestones
 
-Current pytest suite exercises malformed CSV/YAML, normalization, identifiers,
+The pytest suite exercises malformed CSV/YAML, normalization, identifiers,
 variable barcodes, duplicate pairs/references, backend-specific reference limits,
 typed optional parameters, reference collisions, paired/block requirements,
 configuration errors, installed CLI success/failure and example metadata.
-Tests require no CRISPResso installation or network.
+Milestone 2 additionally tests streaming FASTQ structure/pair errors, all six
+terminal categories, exact and Hamming ties, raw output preservation, gzip/LRU
+handling, bridge diagnostics, custom extraction, matrix/heatmap contents and
+mandatory reconciliation/failure cleanup. Tests require no CRISPResso or network.
 
-**Next: Milestone 2**, streaming paired gzip demultiplexing and QC. Add synthetic
-FASTQ fixtures for correct pairs, unexpected combinations, unknown/ambiguous
-barcodes, variable lengths, mismatches, reverse orientation, truncated records,
-mate-ID mismatch and preservation; prove exclusive count reconciliation.
+**Next: Milestone 3**, pinned-backend command generation/execution and routing
+qualification. Milestone 2 is independently usable without that backend.
+Default demux outputs retain motifs and bridges, so Milestone 3 must explicitly
+prepare an analysis input cohort with documented library-sequence trimming.
+Do not change the preserved demux outputs or confuse sample barcode assignment
+with target/homeolog assignment.
 
 Milestone 3 must run pinned-backend integration experiments with copy1/copy2 WT,
 both precise PE variants, PE+extra mutation, intended/unintended indels, scaffold,

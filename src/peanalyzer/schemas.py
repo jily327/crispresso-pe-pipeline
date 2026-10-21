@@ -30,22 +30,34 @@ def reverse_complement(value: str) -> str:
     return value.translate(str.maketrans("ACGT", "TGCA"))[::-1]
 
 
-class Sample(Model):
+class BarcodeSample(Model):
     sample_name: Identifier
     barcode_id: Identifier
-    forward_barcode: str
-    reverse_barcode: str
+    forward_barcode: str | None = None
+    reverse_barcode: str | None = None
+    forward_barcode_id: Identifier | None = None
+    reverse_barcode_id: Identifier | None = None
+
+    @field_validator("forward_barcode", "reverse_barcode")
+    @classmethod
+    def validate_dna(cls, value: str | None) -> str | None:
+        return None if value is None else sequence(value)
+
+    @model_validator(mode="after")
+    def check_definitions(self) -> Self:
+        for direction in ("forward", "reverse"):
+            if getattr(self, f"{direction}_barcode") is None and getattr(self, f"{direction}_barcode_id") is None:
+                raise ValueError(f"{direction} barcode sequence or catalog ID is required")
+        return self
+
+
+class Sample(BarcodeSample):
     editor: Nonempty
     treatment: Nonempty
     dpi: NonnegativeInt
     biological_replicate: Identifier
     block_id: Identifier | None = None
     paired: bool
-
-    @field_validator("forward_barcode", "reverse_barcode")
-    @classmethod
-    def validate_dna(cls, value: str) -> str:
-        return sequence(value)
 
     @model_validator(mode="after")
     def check_block(self) -> Self:
@@ -112,20 +124,31 @@ class Target(Model):
 
 
 class DemuxConfig(Model):
+    profile: Literal["qi_hitom_v1", "custom"] = "qi_hitom_v1"
     forward_offset: NonnegativeInt = 0
     reverse_offset: NonnegativeInt = 0
+    forward_length: PositiveInt | None = None
+    reverse_length: PositiveInt | None = None
+    forward_bridge: str | None = None
+    reverse_bridge: str | None = None
     reverse_barcode_orientation: Literal["as_read", "reverse_complement"] = "as_read"
     max_mismatches: NonnegativeInt = 0
-    trim_barcodes: Literal[True] = True
+    trim_barcodes: bool = False
+    trim_bridges: bool = False
+    bridge_qc: bool = True
+    max_open_sample_pairs: PositiveInt = 32
     ambiguous_policy: Literal["unassigned"] = "unassigned"
 
-    @field_validator("trim_barcodes", mode="before")
+    @field_validator("forward_bridge", "reverse_bridge")
     @classmethod
-    def check_trim_type(cls, value: object) -> object:
-        # Literal[True] would otherwise accept integer 1 through Python equality.
-        if type(value) is not bool:
-            raise ValueError("trim_barcodes must be the boolean true")
-        return value
+    def check_bridge(cls, value: str | None) -> str | None:
+        return None if value is None else sequence(value)
+
+    @model_validator(mode="after")
+    def check_trimming(self) -> Self:
+        if self.trim_bridges and not self.trim_barcodes:
+            raise ValueError("trim_bridges requires trim_barcodes")
+        return self
 
 
 class CrispressoConfig(Model):

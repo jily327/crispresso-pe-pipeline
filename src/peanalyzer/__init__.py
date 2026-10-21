@@ -1,4 +1,4 @@
-"""Prime-editing amplicon analysis; Milestone 1 provides metadata validation."""
+"""Metadata validation and paired barcode demultiplexing for amplicon analysis."""
 
 from importlib.metadata import version
 

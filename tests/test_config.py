@@ -12,7 +12,7 @@ from peanalyzer.validation import MetadataError, load_config, validate_metadata
     "schema_version: 1\ncpu: 2", "schema_version: 1\ndemux:\n  max_mismatches: -1",
     "schema_version: 1\ndemux:\n  ambiguous_policy: first",
     "schema_version: 1\ndemux:\n  trim_barcodes: 1",
-    "schema_version: 1\ndemux:\n  trim_barcodes: false",
+    "schema_version: 1\ndemux:\n  trim_bridges: true",
     "schema_version: 1\nqc:\n  max_ambiguous_fraction: 1.1",
     "schema_version: 1\nqc:\n  min_copy_fraction: .nan",
     "schema_version: 1\ncrispresso:\n  version: '2.2.0'",
@@ -37,6 +37,8 @@ def test_invalid_config_rejected(tmp_path, text):
 def test_defaults_and_machine_readable_schemas():
     config = Config(schema_version=1)
     assert config.demux.max_mismatches == 0
+    assert config.demux.trim_barcodes is False
+    assert config.demux.trim_bridges is False
     assert config.statistics.mode == "none"
     for model in (Config, Sample, Target):
         schema = model.model_json_schema()

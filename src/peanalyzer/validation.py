@@ -9,7 +9,7 @@ from typing import TypeVar
 import yaml
 from pydantic import ValidationError
 
-from peanalyzer.schemas import Config, Model, Sample, Target, reverse_complement
+from peanalyzer.schemas import BarcodeSample, Config, Model, Sample, Target, reverse_complement
 
 SAMPLE_COLUMNS = (
     "sample_name", "barcode_id", "forward_barcode", "reverse_barcode", "editor",
@@ -27,6 +27,8 @@ NULLABLE_COLUMNS = {
     "block_id", "nicking_guide", "pegRNA_scaffold", "quantification_window_coordinates",
     "quantification_window_size", "quantification_window_center",
     "prime_editing_pegRNA_scaffold_min_match_length",
+    "forward_barcode_id", "reverse_barcode_id",
+    "forward_barcode", "reverse_barcode",
 }
 Row = TypeVar("Row", bound=Model)
 
@@ -102,8 +104,27 @@ def _load_csv(path: Path, model: type[Row], required: tuple[str, ...]) -> list[R
     return rows
 
 
-def load_samples(path: Path) -> list[Sample]:
-    rows = _load_csv(path, Sample, SAMPLE_COLUMNS)
+def load_samples(path: Path, catalog=None, *, metadata_required: bool = True) -> list[BarcodeSample]:
+    # Demux accepts a minimal routing sheet; validate retains full M1 metadata.
+    # Sequence/ID presence is a per-row rule, not a required header spelling.
+    required = tuple(c for c in SAMPLE_COLUMNS if c not in {"forward_barcode", "reverse_barcode"})
+    model = Sample if metadata_required else BarcodeSample
+    if not metadata_required:
+        # Also accept full M1 sheets for demux, without inventing biological data.
+        try:
+            with path.open(encoding="utf-8-sig", newline="") as handle:
+                headers = next(csv.reader(handle), [])
+        except (OSError, UnicodeError, csv.Error) as exc:
+            raise MetadataError(f"{path}: {exc}") from exc
+        if set(headers) & (set(SAMPLE_COLUMNS) - set(BarcodeSample.model_fields)):
+            model = Sample
+        else:
+            required = ("sample_name", "barcode_id")
+    rows = _load_csv(path, model, required)
+    if catalog is not None:
+        rows = [catalog.resolve_sample(row) for row in rows]
+    elif any(row.forward_barcode_id or row.reverse_barcode_id for row in rows):
+        raise MetadataError(f"{path}: barcode IDs require a catalog (--barcodes)")
     for field in ("sample_name", "barcode_id"):
         values = [getattr(row, field) for row in rows]
         if len(set(values)) != len(values):
@@ -167,9 +188,10 @@ def metadata_warnings(samples: list[Sample], targets: list[Target], config: Conf
     return warnings
 
 
-def validate_metadata(samples_path: Path, targets_path: Path, config_path: Path) -> dict:
+def validate_metadata(samples_path: Path, targets_path: Path, config_path: Path, barcodes_path: Path | None = None) -> dict:
     config = load_config(config_path)
-    samples = load_samples(samples_path)
+    from peanalyzer.barcodes import load_catalog
+    samples = load_samples(samples_path, load_catalog(barcodes_path) if barcodes_path else None)
     targets = load_targets(targets_path)
     return {
         "schema_version": 1,

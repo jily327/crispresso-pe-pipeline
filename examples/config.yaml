@@ -1,11 +1,12 @@
 schema_version: 1
 n_processes: 1
 demux:
+  profile: custom
   forward_offset: 0
   reverse_offset: 0
   reverse_barcode_orientation: as_read
   max_mismatches: 0
-  trim_barcodes: true
+  trim_barcodes: false
   ambiguous_policy: unassigned
 crispresso:
   pooled_executable: CRISPRessoPooled
