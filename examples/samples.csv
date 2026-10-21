@@ -1,0 +1,3 @@
+sample_name,barcode_id,forward_barcode,reverse_barcode,editor,treatment,dpi,biological_replicate,block_id,paired
+editorA-control-leaf1,4A,AAAA,CCCC,editorA,control,6,1,leaf1,true
+editorA-edited-leaf1,4B,AAAA,GGGG,editorA,edited,6,1,leaf1,true

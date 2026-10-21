@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=75,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crispresso-pe-pipeline"
+version = "0.1.0"
+description = "Metadata validation and architecture for a prime-editing amplicon pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0.2,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9", "build>=1.2,<2"]
+
+[project.scripts]
+peanalyzer = "peanalyzer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["integration: requires an installed, pinned CRISPResso backend"]
