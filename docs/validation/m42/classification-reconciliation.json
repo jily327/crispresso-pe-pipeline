@@ -1,0 +1,1215 @@
+{
+  "parent": "2ce80b259e8a8630392363f6559b9de2666699ff",
+  "cases": {
+    "insertion_short": {
+      "input": 40,
+      "changed": 20,
+      "previous_fraction": [
+        0,
+        20
+      ],
+      "current_fraction": [
+        0,
+        0
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTT"
+          ],
+          "count": 12,
+          "previous": "exact_WT",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 0,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCT",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCTGCATGAGGA"
+          ],
+          "count": 12,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTT"
+          ],
+          "count": 8,
+          "previous": "exact_WT",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 0,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCT",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCTGCATGAGGA"
+          ],
+          "count": 8,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    },
+    "insertion_long": {
+      "input": 40,
+      "changed": 0,
+      "previous_fraction": [
+        20,
+        40
+      ],
+      "current_fraction": [
+        20,
+        40
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCTGCATGAGGAAACCACATTGTTCTGGTCCGTC"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 12,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCTGCATGAGGAAACCACATTGTTCTGGTCCGTC"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 8,
+          "current_denominator": 8
+        }
+      ]
+    },
+    "deletion_boundary": {
+      "input": 40,
+      "changed": 0,
+      "previous_fraction": [
+        20,
+        40
+      ],
+      "current_fraction": [
+        20,
+        40
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGAA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTCCCACATTG"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 12,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+          ],
+          "count": 12,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGAA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTCCCACATTG"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 8,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+          ],
+          "count": 8,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 8
+        }
+      ]
+    },
+    "deletion_exact_boundary": {
+      "input": 40,
+      "changed": 20,
+      "previous_fraction": [
+        20,
+        20
+      ],
+      "current_fraction": [
+        0,
+        0
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTCCCACATTG"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+          ],
+          "count": 12,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTCCCACATTG"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+          ],
+          "count": 8,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    },
+    "substitution": {
+      "input": 40,
+      "changed": 0,
+      "previous_fraction": [
+        20,
+        40
+      ],
+      "current_fraction": [
+        20,
+        40
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTT"
+          ],
+          "count": 12,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTT"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 12,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTT"
+          ],
+          "count": 8,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTT"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 8,
+          "current_denominator": 8
+        }
+      ]
+    },
+    "repeat": {
+      "input": 40,
+      "changed": 0,
+      "previous_fraction": [
+        20,
+        40
+      ],
+      "current_fraction": [
+        20,
+        40
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGATGTGTGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTG"
+          ],
+          "count": 12,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGATGTGTGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTG"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 12,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGATGTGTGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTG"
+          ],
+          "count": 8,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGATGTGTGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTG"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 8,
+          "current_denominator": 8
+        }
+      ]
+    },
+    "cross_copy_lengths": {
+      "input": 40,
+      "changed": 0,
+      "previous_fraction": [
+        20,
+        40
+      ],
+      "current_fraction": [
+        20,
+        40
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "ACGTATATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 8,
+          "current_numerator": 0,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "ACGTATATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 8,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 12,
+          "current_numerator": 0,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 12,
+          "current_denominator": 12
+        }
+      ]
+    },
+    "historical_m3": {
+      "input": 350,
+      "changed": 0,
+      "previous_fraction": [
+        100,
+        230
+      ],
+      "current_fraction": [
+        100,
+        230
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "AATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCAC",
+            "GTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+          ],
+          "count": 20,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 20,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 80,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 80,
+          "current_numerator": 0,
+          "current_denominator": 80
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+          ],
+          "count": 12,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 60,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 60,
+          "previous_denominator": 60,
+          "current_numerator": 60,
+          "current_denominator": 60
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 50,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 50,
+          "current_numerator": 0,
+          "current_denominator": 50
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+          ],
+          "count": 8,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 40,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 40,
+          "previous_denominator": 40,
+          "current_numerator": 40,
+          "current_denominator": 40
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTGACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    },
+    "historical_m31": {
+      "input": 125,
+      "changed": 0,
+      "previous_fraction": [
+        20,
+        55
+      ],
+      "current_fraction": [
+        20,
+        55
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "AATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGA",
+            "TCCTGACCCGCTTCCGTGAATAGTTACTGTCCTCGCTATT"
+          ],
+          "count": 9,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "AATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACC",
+            "GGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTTACTGTCCTCGCTATT"
+          ],
+          "count": 3,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "AATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGA",
+            "TCCTGACCCGCTTCCGTGAATAGTGACTGTCCTCGCTATT"
+          ],
+          "count": 6,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "AATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACC",
+            "GGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTGACTGTCCTCGCTATT"
+          ],
+          "count": 2,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "CGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCA",
+            "ATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTG"
+          ],
+          "count": 3,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "CGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCA",
+            "ATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTG"
+          ],
+          "count": 2,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 4,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 21,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 21,
+          "current_numerator": 0,
+          "current_denominator": 21
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+          ],
+          "count": 3,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGAT",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTT"
+          ],
+          "count": 3,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 12,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 12,
+          "previous_denominator": 12,
+          "current_numerator": 12,
+          "current_denominator": 12
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 6,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 6,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 9,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 14,
+          "previous": "exact_WT",
+          "current": "exact_WT",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 14,
+          "current_numerator": 0,
+          "current_denominator": 14
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+          ],
+          "count": 2,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 6,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGAT",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTG"
+          ],
+          "count": 2,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 8,
+          "previous": "exact_PE",
+          "current": "exact_PE",
+          "reason": null,
+          "previous_numerator": 8,
+          "previous_denominator": 8,
+          "current_numerator": 8,
+          "current_denominator": 8
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+          ],
+          "count": 4,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": null,
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    },
+    "periodic_CAG": {
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "input": 2,
+      "changed": 2,
+      "previous_fraction": [
+        1,
+        2
+      ],
+      "current_fraction": [
+        0,
+        0
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAG",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTG"
+          ],
+          "count": 1,
+          "previous": "exact_PE",
+          "current": "other_or_unassessable",
+          "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+          "previous_numerator": 1,
+          "previous_denominator": 1,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAG",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTG"
+          ],
+          "count": 1,
+          "previous": "exact_WT",
+          "current": "other_or_unassessable",
+          "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+          "previous_numerator": 0,
+          "previous_denominator": 1,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    },
+    "periodic_CA": {
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "input": 2,
+      "changed": 2,
+      "previous_fraction": [
+        1,
+        2
+      ],
+      "current_fraction": [
+        0,
+        0
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTG"
+          ],
+          "count": 1,
+          "previous": "exact_PE",
+          "current": "other_or_unassessable",
+          "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+          "previous_numerator": 1,
+          "previous_denominator": 1,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTG"
+          ],
+          "count": 1,
+          "previous": "exact_WT",
+          "current": "other_or_unassessable",
+          "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+          "previous_numerator": 0,
+          "previous_denominator": 1,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    },
+    "same_repeat_references_shortened": {
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "input": 4,
+      "changed": 0,
+      "previous_fraction": [
+        0,
+        0
+      ],
+      "current_fraction": [
+        0,
+        0
+      ],
+      "haplotypes": [
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGATGTGTGTG"
+          ],
+          "count": 1,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGATGTGTGTG"
+          ],
+          "count": 1,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGATGTGTGTG"
+          ],
+          "count": 1,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        },
+        {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGATGTGTGTG"
+          ],
+          "count": 1,
+          "previous": "other_or_unassessable",
+          "current": "other_or_unassessable",
+          "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+          "previous_numerator": 0,
+          "previous_denominator": 0,
+          "current_numerator": 0,
+          "current_denominator": 0
+        }
+      ]
+    }
+  }
+}

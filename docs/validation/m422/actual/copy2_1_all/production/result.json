@@ -1,0 +1,1336 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "copy2_1_all",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.4",
+      "git_commit": "41a5ff9e9e290cebcfdb515b9158ff76f43a3780",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/peanalyzer-venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "df2f400a1d9e5fa9f67c2c740ed4b5687a493aa96a3e51b629b91f8344ea81cc",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "7d51bc9690c4fbe9525728d511650688c1e517fa5ae8a77bda300b649bdfe608",
+          "size_bytes": 313
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "b9dcb27ab38439bfd777ec03770e249eaf285756a32823c5a864b46018ad5b36",
+          "size_bytes": 302
+        }
+      },
+      "pairs": 40
+    },
+    "target_definitions_sha256": "2db671353746c20613f9e523baf0a692ed0107e2020681e14c474cfd544c94c0",
+    "routing_manifest_sha256": null,
+    "routing_policy_identity": null,
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "df2f400a1d9e5fa9f67c2c740ed4b5687a493aa96a3e51b629b91f8344ea81cc",
+        "size_bytes": 781
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "BLOCKED",
+    "routing_geometry_status": "BLOCKED",
+    "comparator_status": "BLOCKED",
+    "anchor_invariant": false,
+    "block_reason_codes": [
+      "COPY_COHORT_UNAVAILABLE",
+      "COPY_DEPENDENT_BACKEND_MERGEABILITY",
+      "COPY_DEPENDENT_PRODUCT_OBSERVABILITY",
+      "COPY_INDEL_ROUTING_UNQUALIFIED",
+      "UNSUPPORTED_ROUTING_GEOMETRY"
+    ]
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "BLOCKED",
+      "numerator": null,
+      "denominator": null,
+      "reason_codes": [
+        "COPY_DEPENDENT_BACKEND_MERGEABILITY"
+      ],
+      "confident_input_reads": null,
+      "backend_input_reads": null,
+      "reads_after_preprocessing": null,
+      "aligned_reads": null,
+      "unaligned_reads": null,
+      "ordinary_classified_aligned_reads": null,
+      "ambiguous_aligned_reads": null,
+      "discarded_aligned_reads": null,
+      "backend_counts_role": "unavailable",
+      "preprocessing_count_delta": null,
+      "unaligned_reason_counts": {},
+      "products": null,
+      "population_denominator_exclusions": null
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "NOT_ASSESSABLE",
+      "numerator": null,
+      "denominator": null,
+      "reason_codes": [
+        "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+      ],
+      "confident_input_reads": null,
+      "backend_input_reads": null,
+      "reads_after_preprocessing": null,
+      "aligned_reads": null,
+      "unaligned_reads": null,
+      "ordinary_classified_aligned_reads": null,
+      "ambiguous_aligned_reads": null,
+      "discarded_aligned_reads": null,
+      "backend_counts_role": "unavailable",
+      "preprocessing_count_delta": null,
+      "unaligned_reason_counts": {},
+      "products": {
+        "exact_wt": 18,
+        "exact_pe": 2,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 20,
+        "contradictory_state": 0,
+        "denominator_exclusions": 20,
+        "classification_input_reads": 40,
+        "exclusion_reason_counts": {
+          "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+        }
+      },
+      "population_denominator_exclusions": 20
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy2_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy2_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 40,
+    "routing_assigned_reads": null,
+    "routing_quarantined_reads": null,
+    "routing_quarantine_fraction": null,
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": null,
+    "target_backend_aligned_reads": null,
+    "target_backend_unaligned_reads": null,
+    "target_backend_unaligned_fraction": null,
+    "exact_assessable_reads": 20,
+    "exact_product_exclusions": 20,
+    "per_copy_confident_counts": {},
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "status": "BLOCKED",
+      "reasons": [],
+      "anchor_invariant": false,
+      "anchors": {},
+      "skipped_reason_codes": [
+        "COPY_DEPENDENT_BACKEND_MERGEABILITY"
+      ]
+    },
+    "failures": {},
+    "backend_metrics": {},
+    "observability": {
+      "target": {
+        "pair_geometries": [
+          {
+            "left_length": 124,
+            "right_length": 125,
+            "pairs": 20,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  false,
+                  false
+                ],
+                "backend_merge_states": [
+                  false,
+                  false
+                ]
+              },
+              {
+                "copy": "copy2",
+                "wt_length": 234,
+                "pe_length": 234,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          },
+          {
+            "left_length": 125,
+            "right_length": 125,
+            "pairs": 20,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  false,
+                  false
+                ]
+              },
+              {
+                "copy": "copy2",
+                "wt_length": 234,
+                "pe_length": 234,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {
+          "COPY_DEPENDENT_BACKEND_MERGEABILITY": 40
+        },
+        "exact_reason_counts": {
+          "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+        },
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": true,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      }
+    }
+  },
+  "product_evidence": {
+    "target": {
+      "evidence_version": 1,
+      "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 40,
+      "classification_input_reads": 40,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 18,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 34,
+                  "wt_position": 34,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 74,
+                  "wt_position": 74,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 159,
+                  "wt_position": 159,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 199,
+                  "wt_position": 199,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "sequence": "CAAACT"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 34,
+                  "wt_position": 34,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 74,
+                  "wt_position": 74,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 116,
+                  "wt_position": 116,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 159,
+                  "wt_position": 159,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 199,
+                  "wt_position": 199,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "sequence": "CAAACT"
+                }
+              ]
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 2,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 34,
+                  "wt_position": 34,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 74,
+                  "wt_position": 74,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 116,
+                  "wt_position": 116,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 159,
+                  "wt_position": 159,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 199,
+                  "wt_position": 199,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "sequence": "CAAACT"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 34,
+                  "wt_position": 34,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 74,
+                  "wt_position": 74,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 159,
+                  "wt_position": 159,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 199,
+                  "wt_position": 199,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "sequence": "CAAACT"
+                }
+              ]
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 2,
+          "assessable": false,
+          "reason_codes": [
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [],
+          "observed_mates": [
+            "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+          ],
+          "eligible_copies": [
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 18,
+          "assessable": false,
+          "reason_codes": [
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [],
+          "observed_mates": [
+            "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATT"
+          ],
+          "eligible_copies": [
+            "copy2"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy1": {
+      "evidence_version": 1,
+      "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+      "population_scope": "confident_copy",
+      "copy_id": "copy1",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE",
+        "COPY_INDEL_ROUTING_UNQUALIFIED",
+        "UNSUPPORTED_ROUTING_GEOMETRY"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy2": {
+      "evidence_version": 1,
+      "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+      "population_scope": "confident_copy",
+      "copy_id": "copy2",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTATAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE",
+        "COPY_INDEL_ROUTING_UNQUALIFIED",
+        "UNSUPPORTED_ROUTING_GEOMETRY"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    }
+  },
+  "derived_metrics": {
+    "target": {
+      "0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+        ]
+      },
+      "1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+        ]
+      },
+      "__invalid_policy_request_2": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": null
+        },
+        "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "__invalid_policy_request_3": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "MISSING_POLICY_ID"
+        ]
+      },
+      "__invalid_policy_request_4": {
+        "metric_name": "total_pe_family",
+        "policy_id": "dup",
+        "policy": {
+          "policy_id": "dup"
+        },
+        "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "DUPLICATE_POLICY_ID"
+        ]
+      },
+      "__invalid_policy_request_5": {
+        "metric_name": "total_pe_family",
+        "policy_id": "dup",
+        "policy": {
+          "policy_id": "dup"
+        },
+        "population_id": "6f84cda7268b97f6b538c9ff8f3dc8106360d4fe6754d1debc7a02c3ed04dfdc",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "DUPLICATE_POLICY_ID"
+        ]
+      }
+    },
+    "copy1": {
+      "0": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "1": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_2": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": null
+        },
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "INVALID_TOLERANCE_POLICY",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_3": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "MISSING_POLICY_ID",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_4": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "dup",
+        "policy": {
+          "policy_id": "dup"
+        },
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "DUPLICATE_POLICY_ID",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_5": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "dup",
+        "policy": {
+          "policy_id": "dup"
+        },
+        "population_id": "a9d718ad97a4de4ad265b0206518a8a974dd9558488b31f1bfe05313742b0382",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "DUPLICATE_POLICY_ID",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      }
+    },
+    "copy2": {
+      "0": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "1": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_2": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": null
+        },
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "INVALID_TOLERANCE_POLICY",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_3": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "MISSING_POLICY_ID",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_4": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "dup",
+        "policy": {
+          "policy_id": "dup"
+        },
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "DUPLICATE_POLICY_ID",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "__invalid_policy_request_5": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "dup",
+        "policy": {
+          "policy_id": "dup"
+        },
+        "population_id": "e22e267c4f766af345f374e63ac46e3280a661bbf919e912f922c9c27cfa75a7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "DUPLICATE_POLICY_ID",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "overlap-30",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.2",
+      "git_commit": "2ce80b259e8a8630392363f6559b9de2666699ff",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "36570a3995b9fed2c8409ff871978492afda23801de9d43da5ff1e84fa713b1e",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "a442b9a5721d1e363cf5a4e870998cc98f784087fd9622cbb66050be58e2f01c",
+          "size_bytes": 289
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "260ebbaf88f8df469b225dde5e03e004eda3dbd9f9de44fba1780c65e1875808",
+          "size_bytes": 286
+        }
+      },
+      "pairs": 30
+    },
+    "target_definitions_sha256": "a43e6197e5c237291893a9934bd78b4accf2580d97d156c35c0c025bcaf1772a",
+    "routing_manifest_sha256": null,
+    "routing_policy_identity": null,
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "36570a3995b9fed2c8409ff871978492afda23801de9d43da5ff1e84fa713b1e",
+        "size_bytes": 775
+      },
+      "anchors/copy1/execution.json": {
+        "sha256": "9f53184f3d15dd4ff022b27431e80b7f20eed783c547321dd6f7e98546603e9e",
+        "size_bytes": 2594
+      },
+      "anchors/copy1/input_R1.fastq.gz": {
+        "sha256": "a442b9a5721d1e363cf5a4e870998cc98f784087fd9622cbb66050be58e2f01c",
+        "size_bytes": 289
+      },
+      "anchors/copy1/input_R2.fastq.gz": {
+        "sha256": "260ebbaf88f8df469b225dde5e03e004eda3dbd9f9de44fba1780c65e1875808",
+        "size_bytes": 286
+      },
+      "anchors/copy1/child/CRISPResso2_info.json": {
+        "sha256": "a9a557f46d56ea2ab8b8417b5c31124e00ebeabdbe2c077af27be2abb5b61b8b",
+        "size_bytes": 79290
+      },
+      "anchors/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e03c597416810090cc7d28085e65e21d98ffb39ff201656a7bb85a571c8ed6a6",
+        "size_bytes": 136
+      },
+      "anchors/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "4d323ba74cd1671b60e85284e7be9b3bfea60ab1129abd7823e4d724f731466a",
+        "size_bytes": 439
+      },
+      "anchors/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "69536be095ef75f2fd9482d3bc9d567107fc79c970de0fc2095b9e17254b2243",
+        "size_bytes": 1019
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "REPORTABLE",
+    "routing_geometry_status": "SAFE",
+    "comparator_status": "REPORTABLE",
+    "anchor_invariant": true,
+    "block_reason_codes": [
+      "COPY_COHORT_UNAVAILABLE"
+    ]
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "382f6a488767eeb84d5f270a5de94e5f2d3106770de31311cae44c638ebd25f4",
+      "population_input_reads": 30,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "REPORTABLE",
+      "numerator": 15,
+      "denominator": 30,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 30,
+      "reads_after_preprocessing": 30,
+      "aligned_reads": 30,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 30,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "metric_filter",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": null,
+      "population_denominator_exclusions": 0
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "382f6a488767eeb84d5f270a5de94e5f2d3106770de31311cae44c638ebd25f4",
+      "population_input_reads": 30,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "REPORTABLE",
+      "numerator": 15,
+      "denominator": 30,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 30,
+      "reads_after_preprocessing": 30,
+      "aligned_reads": 30,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 30,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "parallel_native_analysis",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": {
+        "exact_wt": 15,
+        "exact_pe": 15,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 0,
+        "contradictory_state": 0,
+        "denominator_exclusions": 0,
+        "classification_input_reads": 30,
+        "exclusion_reason_counts": {}
+      },
+      "population_denominator_exclusions": 0
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "14a79b378735fc04d56e33bc481e377ef63cc8b8dbf200cc744b2048149b3aff",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "14a79b378735fc04d56e33bc481e377ef63cc8b8dbf200cc744b2048149b3aff",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 30,
+    "routing_assigned_reads": null,
+    "routing_quarantined_reads": null,
+    "routing_quarantine_fraction": null,
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": 30,
+    "target_backend_aligned_reads": 30,
+    "target_backend_unaligned_reads": 0,
+    "target_backend_unaligned_fraction": {
+      "numerator": 0,
+      "denominator": 30
+    },
+    "exact_assessable_reads": 30,
+    "exact_product_exclusions": 0,
+    "per_copy_confident_counts": {},
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "SUPPORTED_IN_TESTED_FIXTURE",
+      "reasons": [],
+      "anchor_invariant": true,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 30,
+          "reads_after_preprocessing": 30,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 30,
+          "unaligned_reads": 0,
+          "numerator": 15,
+          "denominator": 30
+        }
+      },
+      "anchor_partitions": {
+        "copy1": {
+          "ordinary_classified_aligned_reads": 30,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        }
+      },
+      "partition_common": true,
+      "cross_copy_length_divergence": false,
+      "authoritative_window_diagnostics": {
+        "copy1": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "failures": {},
+    "backend_metrics": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 30,
+          "N_CACHED_ALN": 28,
+          "N_COMPUTED_ALN": 2,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 30,
+          "READS AFTER PREPROCESSING": 30,
+          "READS ALIGNED": 30,
+          "N_COMPUTED_ALN": 2,
+          "N_CACHED_ALN": 28,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 30,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 30,
+          "reads_after_preprocessing": 30,
+          "aligned_reads": 30,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 15,
+          "denominator": 30,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 15,
+            "Prime-edited": 15
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 30,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 15,
+          "denominator": 30,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "exact_wt_reads": 15,
+          "exact_pe_reads": 15,
+          "excluded_reads": 0,
+          "exclusion_product_classes": {},
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 30,
+          "reads_after_preprocessing": 30,
+          "aligned_reads": 30,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 30,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 0,
+          "backend_input_excluded_reads": 0
+        }
+      }
+    },
+    "observability": {
+      "target": {
+        "pair_geometries": [
+          {
+            "left_length": 135,
+            "right_length": 135,
+            "pairs": 20,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          },
+          {
+            "left_length": 150,
+            "right_length": 150,
+            "pairs": 10,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      }
+    }
+  },
+  "product_evidence": {
+    "target": {
+      "evidence_version": 1,
+      "population_id": "382f6a488767eeb84d5f270a5de94e5f2d3106770de31311cae44c638ebd25f4",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 30,
+      "classification_input_reads": 30,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 15,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 15,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy1": {
+      "evidence_version": 1,
+      "population_id": "14a79b378735fc04d56e33bc481e377ef63cc8b8dbf200cc744b2048149b3aff",
+      "population_scope": "confident_copy",
+      "copy_id": "copy1",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    }
+  },
+  "derived_metrics": {}
+}

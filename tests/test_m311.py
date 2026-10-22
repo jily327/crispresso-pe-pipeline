@@ -159,7 +159,7 @@ def test_unqualified_policy_never_reaches_core(regression,tmp_path,policy):
 
 
 def anchor_metrics():
-    return {c:dict(native=dict(backend_input_reads=125,aligned_reads=105,unaligned_reads=20,numerator=30,denominator=105),
+    return {c:dict(native=dict(backend_input_reads=125,reads_after_preprocessing=125,preprocessing_count_delta=0,aligned_reads=105,unaligned_reads=20,numerator=30,denominator=105),
                    authoritative_reference_quantification_window=[111,112,*range(140,150)]) for c in ('copy1','copy2')}
 
 

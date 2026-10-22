@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "parent": "2ce80b259e8a8630392363f6559b9de2666699ff",
+  "unchanged_main": "550df70f9f9627c7218b9f047d0b6bf3023b8d25",
+  "version": "0.4.2",
+  "source_tests": 619,
+  "wheel_tests": 619,
+  "actual_backend_tests_per_environment": 55,
+  "geometry": {
+    "total": 36,
+    "allowed": 13,
+    "blocked": 23
+  },
+  "historical_evidence_untouched": true,
+  "routing_geometry_unchanged": true,
+  "correctness_and_tolerance_same_milestone": true
+}

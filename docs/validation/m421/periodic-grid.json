@@ -1,0 +1,4289 @@
+{
+  "cases": [
+    {
+      "period": 1,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 1,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 1,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTTTTTTTTT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 1,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTTTTTTTTT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 2,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACAC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 2,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACAC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 2,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGTGTGTGTG"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGTGTGTGTGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGTGTGTGTGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 2,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGTGTGTGTG"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGTGTGTGTGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGTGTGTGTGTGTGTGTGTGTGTGTGTGTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCACACACACACACACACACACACACACACATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 3,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 3,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 3,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCTGCTGCTGCT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 3,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCTGCTGCTGCT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACACTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCTGCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 4,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAG"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 4,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAG"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 4,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTAGCTAGC"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 4,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTAGCTAGC"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 5,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCAC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGA"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 5,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCAC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGA"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 5,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 5,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGACGTGACGTGACGTGACGTGACGTGACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTCACGTCACGTCACGTCACGTCACGTCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 6,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          0,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCC"
+            ],
+            "count": 1,
+            "previous": "exact_WT",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 6,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          1,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCC"
+            ],
+            "count": 1,
+            "previous": "exact_PE",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 1,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 182,
+                "pe_length": 182,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 6,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCGGCCCCGGCCC"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 6,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCGGCCCCGGCCC"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCGGCCCCCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCGGGGCCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 206,
+                "pe_length": 206,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 7,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          0,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACG"
+            ],
+            "count": 1,
+            "previous": "exact_WT",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 184,
+                "pe_length": 184,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 184,
+                "pe_length": 184,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 7,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          1,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACG"
+            ],
+            "count": 1,
+            "previous": "exact_PE",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 1,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 184,
+                "pe_length": 184,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 184,
+                "pe_length": 184,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 7,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTTGCACGTTGCAC"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTTGCACGTTGCACGTTGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 212,
+                "pe_length": 212,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTTGCACGTTGCACGTTGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 212,
+                "pe_length": 212,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 7,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTTGCACGTTGCAC"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTTGCACGTTGCACGTTGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 212,
+                "pe_length": 212,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCACGTTGCACGTTGCACGTTGCACGTTGCACGTTGCACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTGCAACGTGCAACGTGCAACGTGCAACGTGCAACGTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 212,
+                "pe_length": 212,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 8,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          0,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAAC"
+            ],
+            "count": 1,
+            "previous": "exact_WT",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 8,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          1,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTG",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAAC"
+            ],
+            "count": 1,
+            "previous": "exact_PE",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 1,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 186,
+                "pe_length": 186,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 8,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTT",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTTGCAACGTTGCAA"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 218,
+                "pe_length": 218,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 218,
+                "pe_length": 218,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 8,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTT",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTTGCAACGTTGCAA"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 218,
+                "pe_length": 218,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCAACGTTGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 218,
+                "pe_length": 218,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 9,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          0,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAAC"
+            ],
+            "count": 1,
+            "previous": "exact_WT",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 188,
+                "pe_length": 188,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 188,
+                "pe_length": 188,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 9,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          1,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTC",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAAC"
+            ],
+            "count": 1,
+            "previous": "exact_PE",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 1,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 188,
+                "pe_length": 188,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 188,
+                "pe_length": 188,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 9,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTT",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTTGCGAACGTTGCGA"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 224,
+                "pe_length": 224,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 224,
+                "pe_length": 224,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 9,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTT",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTTGCGAACGTTGCGA"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 224,
+                "pe_length": 224,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTTGCGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCAACGTTCGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 224,
+                "pe_length": 224,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 10,
+      "direction": "expansion",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          0,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAA"
+            ],
+            "count": 1,
+            "previous": "exact_WT",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 10,
+      "direction": "expansion",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 1,
+        "previous_fraction": [
+          1,
+          1
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAA"
+            ],
+            "count": 1,
+            "previous": "exact_PE",
+            "current": "other_or_unassessable",
+            "reason": "PERIODIC_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 1,
+            "previous_denominator": 1,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 190,
+                "pe_length": 190,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 10,
+      "direction": "contraction",
+      "state": "WT",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "period": 10,
+      "direction": "contraction",
+      "state": "PE",
+      "target": {
+        "target_name": "SYN",
+        "copy_name": "copy1",
+        "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+        "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "nicking_guide": null,
+        "pegRNA_scaffold": null,
+        "quantification_window_coordinates": null,
+        "quantification_window_size": null,
+        "quantification_window_center": null,
+        "prime_editing_pegRNA_scaffold_min_match_length": null
+      },
+      "reconciliation": {
+        "input": 1,
+        "changed": 0,
+        "previous_fraction": [
+          0,
+          0
+        ],
+        "current_fraction": [
+          0,
+          0
+        ],
+        "haplotypes": [
+          {
+            "mates": [
+              "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCA",
+              "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGT"
+            ],
+            "count": 1,
+            "previous": "other_or_unassessable",
+            "current": "other_or_unassessable",
+            "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+            "previous_numerator": 0,
+            "previous_denominator": 0,
+            "current_numerator": 0,
+            "current_denominator": 0
+          }
+        ]
+      },
+      "informative_flank_controls": {
+        "exact_WT": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_WT",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        },
+        "exact_PE": {
+          "mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACC",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACATGCTGAACGTTGCTGAACGTTGCTGAACGTCACTACGCCGAGTACAGACG"
+          ],
+          "assessment": {
+            "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGACGTTCAGCAACGTTCAGCAACGTTCAGCATGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+            "reason": null,
+            "canonical": "exact_PE",
+            "eligible_copies": [
+              "copy1"
+            ],
+            "geometry": [
+              {
+                "copy": "copy1",
+                "wt_length": 200,
+                "pe_length": 200,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "ambiguous_cases": 40,
+  "all_current_nonexact": true,
+  "positive_control_classifications": 80,
+  "all_positive_controls_exact": true,
+  "alternative_overlap_minimum": 4
+}

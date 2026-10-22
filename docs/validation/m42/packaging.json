@@ -1,0 +1,26 @@
+{
+  "installed": {
+    "installed_module": "/workspace/m42-wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "version": "peanalyzer 0.4.2",
+    "pip_check": "No broken requirements found.",
+    "resources": [
+      "barcode_sets/qi_hitom_v1.csv",
+      "profiles/qi_hitom_v1.yaml",
+      "metrics/result.schema.json"
+    ],
+    "schema_matches": true,
+    "api_exports": true,
+    "tolerance_arguments": true,
+    "candidate_sdist_tests_present": true
+  },
+  "source_test_directory": "/workspace/crispresso-pe-pipeline",
+  "wheel_test_directory": "/workspace/m42-wheel-suite/crispresso_pe_pipeline-0.4.2",
+  "sdist_build": "PASS",
+  "wheel_build": "PASS",
+  "final_payload_comparison": "PASS",
+  "payload_reference": "tested-wheel-payload.json",
+  "validation_evidence_distribution": "sdist only",
+  "source_dependency_check": "No broken requirements found.",
+  "wheel_dependency_check": "No broken requirements found.",
+  "historical_json_model_compatibility": true
+}

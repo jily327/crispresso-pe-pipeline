@@ -1,0 +1,15 @@
+{
+  "evidence_kind": "Assertions in the complete passing source and wheel tests",
+  "test": "test_m421.test_run_metrics_prevalidates_before_canonical_work_and_publishes",
+  "asserted_order": [
+    "policy_validation",
+    "canonical_collection",
+    "backend_launch",
+    "result.json publication"
+  ],
+  "actual_publication_cases": [
+    "cross_copy_150_150/production/result.json",
+    "cross_copy_124_125/production/result.json",
+    "cross_copy_125_125/production/result.json"
+  ]
+}

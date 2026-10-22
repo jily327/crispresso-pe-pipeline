@@ -1,0 +1,599 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "m3-m4-qualification",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.1",
+      "git_commit": "768d4075c2608f3b72293401bb19dce4309f4967",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "b88bc01365998071a3e97342d06f2d3d6ee8733de3396dfe16631cc3210b237a",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "f046fa203794d1674743a4e15a4dacb6cfb8a61a821cb0b33734c57a85223b41",
+          "size_bytes": 1706
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "e0eb7c0ac0a646f40ff76f91c345d4f87ad3a4d068acc0c0dd97faaf4c4aeeda",
+          "size_bytes": 1697
+        }
+      },
+      "pairs": 350
+    },
+    "target_definitions_sha256": "6fc8ec24b358a709fd1ea051825d308846a1215d6e5ad015ea5322de1e44faae",
+    "routing_manifest_sha256": null,
+    "routing_policy_identity": null,
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "b88bc01365998071a3e97342d06f2d3d6ee8733de3396dfe16631cc3210b237a",
+        "size_bytes": 767
+      },
+      "anchors/copy1/execution.json": {
+        "sha256": "64f4e331e2f8295ae521865a9de99b753a01425b143b8807da2e2c25f138dba6",
+        "size_bytes": 2597
+      },
+      "anchors/copy1/input_R1.fastq.gz": {
+        "sha256": "f046fa203794d1674743a4e15a4dacb6cfb8a61a821cb0b33734c57a85223b41",
+        "size_bytes": 1706
+      },
+      "anchors/copy1/input_R2.fastq.gz": {
+        "sha256": "e0eb7c0ac0a646f40ff76f91c345d4f87ad3a4d068acc0c0dd97faaf4c4aeeda",
+        "size_bytes": 1697
+      },
+      "anchors/copy1/child/CRISPResso2_info.json": {
+        "sha256": "3d7a2148627230a9e10d2cec01fd369c883c122dce2e2bb46416b5c7700aba10",
+        "size_bytes": 80586
+      },
+      "anchors/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "97503f6b01ddc759b98e514458c7d8231951a8d805e732b77595e2080bd9278b",
+        "size_bytes": 142
+      },
+      "anchors/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "8453ef646864cb049c7ff64ff8147b89590bcb6c90ca60297e8053527773587d",
+        "size_bytes": 447
+      },
+      "anchors/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "9bbf911ead0d50b5b0b216d239b14b55e486990bbced660984389b184db692f3",
+        "size_bytes": 1410
+      },
+      "anchors/copy2/execution.json": {
+        "sha256": "08da9c3d7ac48b4ceea8b885a0307102c31b79e27aecb8034af608a6a5a54838",
+        "size_bytes": 2597
+      },
+      "anchors/copy2/input_R1.fastq.gz": {
+        "sha256": "f046fa203794d1674743a4e15a4dacb6cfb8a61a821cb0b33734c57a85223b41",
+        "size_bytes": 1706
+      },
+      "anchors/copy2/input_R2.fastq.gz": {
+        "sha256": "e0eb7c0ac0a646f40ff76f91c345d4f87ad3a4d068acc0c0dd97faaf4c4aeeda",
+        "size_bytes": 1697
+      },
+      "anchors/copy2/child/CRISPResso2_info.json": {
+        "sha256": "e723d85f9d410e146b5d2dfc281db45f95ba090ed3ea1ef481f6acec5c81b0de",
+        "size_bytes": 80586
+      },
+      "anchors/copy2/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "97503f6b01ddc759b98e514458c7d8231951a8d805e732b77595e2080bd9278b",
+        "size_bytes": 142
+      },
+      "anchors/copy2/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "8453ef646864cb049c7ff64ff8147b89590bcb6c90ca60297e8053527773587d",
+        "size_bytes": 447
+      },
+      "anchors/copy2/child/Alleles_frequency_table.zip": {
+        "sha256": "8b0f2f210f20f29517d769ff7e2e198f0913f633ef46e10c3c756d0105c13c1e",
+        "size_bytes": 1419
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "REPORTABLE",
+    "routing_geometry_status": "SAFE",
+    "comparator_status": "REPORTABLE",
+    "anchor_invariant": true,
+    "block_reason_codes": [
+      "COPY_COHORT_UNAVAILABLE"
+    ]
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "da4e7abb274789638d3b83a10a3f7bcbdb85b00536f44868a169fdc7a3d99c51",
+      "population_input_reads": 350,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "REPORTABLE",
+      "numerator": 120,
+      "denominator": 330,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 350,
+      "reads_after_preprocessing": 350,
+      "aligned_reads": 330,
+      "unaligned_reads": 20,
+      "ordinary_classified_aligned_reads": 330,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "metric_filter",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 20
+      },
+      "products": null,
+      "population_denominator_exclusions": 20
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "da4e7abb274789638d3b83a10a3f7bcbdb85b00536f44868a169fdc7a3d99c51",
+      "population_input_reads": 350,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "REPORTABLE",
+      "numerator": 100,
+      "denominator": 230,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 350,
+      "reads_after_preprocessing": 350,
+      "aligned_reads": 330,
+      "unaligned_reads": 20,
+      "ordinary_classified_aligned_reads": 330,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "parallel_native_analysis",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 20
+      },
+      "products": {
+        "exact_wt": 130,
+        "exact_pe": 100,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 120,
+        "contradictory_state": 0,
+        "denominator_exclusions": 120,
+        "classification_input_reads": 350
+      },
+      "population_denominator_exclusions": 120
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "a981453f694f31c05c9505f4459e5dfaad145fff8cc367fd631471bd12598ecc",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "a981453f694f31c05c9505f4459e5dfaad145fff8cc367fd631471bd12598ecc",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy2_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "f74c96ca2aae2612ad71dbf23081cf5725fe83ee1c0d9d9665e255125e4883b7",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy2_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "f74c96ca2aae2612ad71dbf23081cf5725fe83ee1c0d9d9665e255125e4883b7",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 350,
+    "routing_assigned_reads": null,
+    "routing_quarantined_reads": null,
+    "routing_quarantine_fraction": null,
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": 350,
+    "target_backend_aligned_reads": 330,
+    "target_backend_unaligned_reads": 20,
+    "target_backend_unaligned_fraction": {
+      "numerator": 20,
+      "denominator": 350
+    },
+    "exact_assessable_reads": 230,
+    "exact_product_exclusions": 120,
+    "per_copy_confident_counts": {},
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "SUPPORTED_IN_TESTED_FIXTURE",
+      "reasons": [],
+      "anchor_invariant": true,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 350,
+          "reads_after_preprocessing": 350,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 330,
+          "unaligned_reads": 20,
+          "numerator": 120,
+          "denominator": 330
+        },
+        "copy2": {
+          "backend_input_reads": 350,
+          "reads_after_preprocessing": 350,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 330,
+          "unaligned_reads": 20,
+          "numerator": 120,
+          "denominator": 330
+        }
+      },
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "failures": {},
+    "backend_metrics": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 350,
+          "N_CACHED_ALN": 317,
+          "N_COMPUTED_ALN": 13,
+          "N_CACHED_NOTALN": 19,
+          "N_COMPUTED_NOTALN": 1
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 350,
+          "READS AFTER PREPROCESSING": 350,
+          "READS ALIGNED": 330,
+          "N_COMPUTED_ALN": 13,
+          "N_CACHED_ALN": 317,
+          "N_COMPUTED_NOTALN": 1,
+          "N_CACHED_NOTALN": 19
+        },
+        "routed_pairs": 350,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 350,
+          "reads_after_preprocessing": 350,
+          "aligned_reads": 330,
+          "unaligned_reads": 20,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 20
+          },
+          "numerator": 120,
+          "denominator": 330,
+          "exact_fraction": "4/11",
+          "fraction": 0.36363636363636365,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 210,
+            "Prime-edited": 120
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 330,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 60,
+          "denominator": 140,
+          "exact_fraction": "3/7",
+          "fraction": 0.42857142857142855,
+          "exact_wt_reads": 80,
+          "exact_pe_reads": 60,
+          "excluded_reads": 190,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 190
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 350,
+          "reads_after_preprocessing": 350,
+          "aligned_reads": 330,
+          "unaligned_reads": 20,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 20
+          },
+          "ordinary_classified_aligned_reads": 330,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 20,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 190,
+          "backend_input_excluded_reads": 210
+        }
+      },
+      "copy2": {
+        "alignment_counters": {
+          "N_TOT_READS": 350,
+          "N_CACHED_ALN": 317,
+          "N_COMPUTED_ALN": 13,
+          "N_CACHED_NOTALN": 19,
+          "N_COMPUTED_NOTALN": 1
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 350,
+          "READS AFTER PREPROCESSING": 350,
+          "READS ALIGNED": 330,
+          "N_COMPUTED_ALN": 13,
+          "N_CACHED_ALN": 317,
+          "N_COMPUTED_NOTALN": 1,
+          "N_CACHED_NOTALN": 19
+        },
+        "routed_pairs": 350,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 350,
+          "reads_after_preprocessing": 350,
+          "aligned_reads": 330,
+          "unaligned_reads": 20,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 20
+          },
+          "numerator": 120,
+          "denominator": 330,
+          "exact_fraction": "4/11",
+          "fraction": 0.36363636363636365,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 210,
+            "Prime-edited": 120
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 330,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 40,
+          "denominator": 90,
+          "exact_fraction": "4/9",
+          "fraction": 0.4444444444444444,
+          "exact_wt_reads": 50,
+          "exact_pe_reads": 40,
+          "excluded_reads": 240,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 240
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 350,
+          "reads_after_preprocessing": 350,
+          "aligned_reads": 330,
+          "unaligned_reads": 20,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 20
+          },
+          "ordinary_classified_aligned_reads": 330,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 20,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 240,
+          "backend_input_excluded_reads": 260
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "installed": {
+    "import_path": "/workspace/validation/m422/wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "version": "0.4.4",
+    "schema_matches": true,
+    "resources": [
+      "barcode_sets/qi_hitom_v1.csv",
+      "profiles/qi_hitom_v1.yaml",
+      "metrics/result.schema.json"
+    ],
+    "public_api": true,
+    "historical_results_accepted": 50
+  },
+  "cli_version": "peanalyzer 0.4.4",
+  "dependency_check": "No broken requirements found.",
+  "sdist_build": "PASS",
+  "wheel_build": "PASS",
+  "final_payload_comparison": "PASS",
+  "payload_reference": "tested-wheel-payload.json",
+  "final_sdist_evidence_and_tests": "PASS",
+  "test_import": "fresh installed wheel checked outside source checkout",
+  "validation_evidence_distribution": "sdist only"
+}

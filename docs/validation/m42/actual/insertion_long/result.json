@@ -1,0 +1,2021 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "insertion_long",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.2",
+      "git_commit": "2ce80b259e8a8630392363f6559b9de2666699ff",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "db0b67e3a1a98c56122a14a2623bb06ac7daef750bbe4fe7bc64f0ce7795121d",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "5ba3015aa69e25ce6595685d4eb43b0997f1f9890deab50ea4e479d76d3d7d59",
+          "size_bytes": 339
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "fc165561e8c9b6459f86dffb58c6681d4797952d2791f5715a5cb0ae96e4e504",
+          "size_bytes": 336
+        }
+      },
+      "pairs": 40
+    },
+    "target_definitions_sha256": "2f2101b3dacb8ebf557cc31b80a7af83652dd816af618afd47e93adb511366ff",
+    "routing_manifest_sha256": "851d6db66b20636d45b7bf595125e59ed15b1a0bee53212ab88eb886147a5c32",
+    "routing_policy_identity": {
+      "id": "m312-diagnostic-q30-sites2-cap16-identity08-observed-flanks-v1",
+      "qualified": true,
+      "placement_contract": "copy-collapsed-state-qc-v1",
+      "edit_coverage_contract": "observed-pair-flanks-v1"
+    },
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "db0b67e3a1a98c56122a14a2623bb06ac7daef750bbe4fe7bc64f0ce7795121d",
+        "size_bytes": 777
+      },
+      "anchors/copy1/execution.json": {
+        "sha256": "fb9e2781c887450286f4fc12064cf211f82b0cb852bb700a1b1ee99f0a2a4bf4",
+        "size_bytes": 2596
+      },
+      "anchors/copy1/input_R1.fastq.gz": {
+        "sha256": "5ba3015aa69e25ce6595685d4eb43b0997f1f9890deab50ea4e479d76d3d7d59",
+        "size_bytes": 339
+      },
+      "anchors/copy1/input_R2.fastq.gz": {
+        "sha256": "fc165561e8c9b6459f86dffb58c6681d4797952d2791f5715a5cb0ae96e4e504",
+        "size_bytes": 336
+      },
+      "anchors/copy1/child/CRISPResso2_info.json": {
+        "sha256": "cc64e686abafa552726a08e472b50c9d3b861e85fd4a2c30ce3705c22ac513d1",
+        "size_bytes": 81745
+      },
+      "anchors/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e5d2c808aaf5d68f93ff347360eb0e33685864d3d53d064d001c6a866dcf1126",
+        "size_bytes": 136
+      },
+      "anchors/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "b7ce9961d17dd66ef2459c51fc4bb50304d10dc1daaa131186a903f7c0843d17",
+        "size_bytes": 439
+      },
+      "anchors/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "82db694d9078273a010c70d03021fe34da90249ef563802bd61b806a4cb0bc56",
+        "size_bytes": 1160
+      },
+      "anchors/copy2/execution.json": {
+        "sha256": "5091bd92037d5f2bb52fb528656407ced2ae5fc317113ae67b63a50c172e7a44",
+        "size_bytes": 2596
+      },
+      "anchors/copy2/input_R1.fastq.gz": {
+        "sha256": "5ba3015aa69e25ce6595685d4eb43b0997f1f9890deab50ea4e479d76d3d7d59",
+        "size_bytes": 339
+      },
+      "anchors/copy2/input_R2.fastq.gz": {
+        "sha256": "fc165561e8c9b6459f86dffb58c6681d4797952d2791f5715a5cb0ae96e4e504",
+        "size_bytes": 336
+      },
+      "anchors/copy2/child/CRISPResso2_info.json": {
+        "sha256": "58797fe3776bea253237183683959c6698a36494453498689037d8149624cf80",
+        "size_bytes": 81745
+      },
+      "anchors/copy2/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e5d2c808aaf5d68f93ff347360eb0e33685864d3d53d064d001c6a866dcf1126",
+        "size_bytes": 136
+      },
+      "anchors/copy2/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "b7ce9961d17dd66ef2459c51fc4bb50304d10dc1daaa131186a903f7c0843d17",
+        "size_bytes": 439
+      },
+      "anchors/copy2/child/Alleles_frequency_table.zip": {
+        "sha256": "c74aba5e9b4a37672db91409e151c85ce111c693e3cba644bfef995734baa810",
+        "size_bytes": 1163
+      },
+      "routing/routing_manifest.json": {
+        "sha256": "851d6db66b20636d45b7bf595125e59ed15b1a0bee53212ab88eb886147a5c32",
+        "size_bytes": 4162
+      },
+      "routing/routing_ledger.jsonl": {
+        "sha256": "bfe516df93e8b9d1e6610075cee873d47296492aa827ea60640706dc99f3be02",
+        "size_bytes": 123564
+      },
+      "routing/geometry.json": {
+        "sha256": "d68bf6f9f445800f63b149ca0b3e10aa5d73e137af68362c613d947a0cdd6dc2",
+        "size_bytes": 54081
+      },
+      "copies/copy1/execution.json": {
+        "sha256": "9a0c9ae2297a94a6e7dd5a0ea92a08ab5a1ed96254877c85d1b839133124867a",
+        "size_bytes": 2977
+      },
+      "copies/copy1/input_R1.fastq.gz": {
+        "sha256": "46faa45882852fc86d4262825264d17438c7dff17e49f77a346a9cb6a7b767f2",
+        "size_bytes": 268
+      },
+      "copies/copy1/input_R2.fastq.gz": {
+        "sha256": "4b5a2e3b526d4240b632834bc673475f104c77a76aab1dfc24293db1c3308cc7",
+        "size_bytes": 266
+      },
+      "copies/copy1/child/CRISPResso2_info.json": {
+        "sha256": "d3b339fcdac1919d009f29f7056a465931f2c2cdacd02a70ab907af552130d0f",
+        "size_bytes": 80495
+      },
+      "copies/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "a2cc6a980b7ffa5722d81eda10eb338326b8b473bac34cf57264479705f61cd2",
+        "size_bytes": 136
+      },
+      "copies/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "3d648278156d73547b22fb42a026ff4bb3413a396c910c9d8c18716883b38206",
+        "size_bytes": 439
+      },
+      "copies/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "3982b5ac867875fdc77e1cfd80ccad38c1606c7d854249536257cae80ef9389b",
+        "size_bytes": 1054
+      },
+      "copies/copy2/execution.json": {
+        "sha256": "e1ec65ebe031a11e59182aea9252e997a770a82675818ecf9411a8898579f0b3",
+        "size_bytes": 2977
+      },
+      "copies/copy2/input_R1.fastq.gz": {
+        "sha256": "9058ddd31c286841930ffd77b9d1dc1fe7e0bae14bdbcaffb6f8f2598657a3d4",
+        "size_bytes": 232
+      },
+      "copies/copy2/input_R2.fastq.gz": {
+        "sha256": "60e5cae6f977d793a908ed4f79d3bdf7c8d0b0edf07202041dca45bf6c7c20b9",
+        "size_bytes": 230
+      },
+      "copies/copy2/child/CRISPResso2_info.json": {
+        "sha256": "cb9d275cb5b90b06785ccab1b3af8527d876e970fbc543f14e7ac8723c7ffcf9",
+        "size_bytes": 80481
+      },
+      "copies/copy2/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "46491f5f9d47c90af3f53e40fe812452fc66cba23fcdd8c7b6547987e6a31b54",
+        "size_bytes": 136
+      },
+      "copies/copy2/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "cc98c152ff8ec4beea7616c5757f5104f23b297707ef32b10c4c1ed2d489d7b4",
+        "size_bytes": 435
+      },
+      "copies/copy2/child/Alleles_frequency_table.zip": {
+        "sha256": "fd5cecf4c8b54f7cbd55409e55c5a54e19200ff22ef5d685f88889d407f7d844",
+        "size_bytes": 1055
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "REPORTABLE",
+    "routing_geometry_status": "SAFE",
+    "comparator_status": "REPORTABLE",
+    "anchor_invariant": true,
+    "block_reason_codes": []
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "f64e59c421c750da7a3f37623913029931a074f4bc31a4aa3015310f011d2ef1",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 40,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 40,
+      "reads_after_preprocessing": 40,
+      "aligned_reads": 40,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 40,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "metric_filter",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": null,
+      "population_denominator_exclusions": 0
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "f64e59c421c750da7a3f37623913029931a074f4bc31a4aa3015310f011d2ef1",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 40,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 40,
+      "reads_after_preprocessing": 40,
+      "aligned_reads": 40,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 40,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "parallel_native_analysis",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": {
+        "exact_wt": 20,
+        "exact_pe": 20,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 0,
+        "contradictory_state": 0,
+        "denominator_exclusions": 0,
+        "classification_input_reads": 40,
+        "exclusion_reason_counts": {}
+      },
+      "population_denominator_exclusions": 0
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "4257ac58cb085d62ea3f37e9e21d6cf618083ee3fb40afaa4839af1715c8e69f",
+        "population_input_reads": 24,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "reason_codes": [],
+        "confident_input_reads": 24,
+        "backend_input_reads": 24,
+        "reads_after_preprocessing": 24,
+        "aligned_reads": 24,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 24,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": null,
+        "population_denominator_exclusions": 0
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "4257ac58cb085d62ea3f37e9e21d6cf618083ee3fb40afaa4839af1715c8e69f",
+        "population_input_reads": 24,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "reason_codes": [],
+        "confident_input_reads": 24,
+        "backend_input_reads": 24,
+        "reads_after_preprocessing": 24,
+        "aligned_reads": 24,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 24,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": {
+          "exact_wt": 12,
+          "exact_pe": 12,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 0,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "classification_input_reads": 24,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 0
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "metric_name": "copy2_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "9a62de226b3774b6f6c487671e6ae01706d820021ee2bc49a1aed850e0887233",
+        "population_input_reads": 16,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "reason_codes": [],
+        "confident_input_reads": 16,
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 16,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": null,
+        "population_denominator_exclusions": 0
+      },
+      "precise": {
+        "metric_name": "copy2_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "9a62de226b3774b6f6c487671e6ae01706d820021ee2bc49a1aed850e0887233",
+        "population_input_reads": 16,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "reason_codes": [],
+        "confident_input_reads": 16,
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 16,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": {
+          "exact_wt": 8,
+          "exact_pe": 8,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 0,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "classification_input_reads": 16,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 0
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 40,
+    "routing_assigned_reads": 40,
+    "routing_quarantined_reads": 0,
+    "routing_quarantine_fraction": {
+      "numerator": 0,
+      "denominator": 40
+    },
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": 40,
+    "target_backend_aligned_reads": 40,
+    "target_backend_unaligned_reads": 0,
+    "target_backend_unaligned_fraction": {
+      "numerator": 0,
+      "denominator": 40
+    },
+    "exact_assessable_reads": 40,
+    "exact_product_exclusions": 0,
+    "per_copy_confident_counts": {
+      "copy1": 24,
+      "copy2": 16
+    },
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "SUPPORTED_IN_TESTED_FIXTURE",
+      "reasons": [],
+      "anchor_invariant": true,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "numerator": 20,
+          "denominator": 40
+        },
+        "copy2": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "numerator": 20,
+          "denominator": 40
+        }
+      },
+      "anchor_partitions": {
+        "copy1": {
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "copy2": {
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        }
+      },
+      "partition_common": true,
+      "cross_copy_length_divergence": false,
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127
+        ],
+        "copy2": [
+          111,
+          112,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "failures": {},
+    "backend_metrics": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 40,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 40,
+          "READS AFTER PREPROCESSING": 40,
+          "READS ALIGNED": 40,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 40,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 20,
+          "denominator": 40,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 20,
+            "Prime-edited": 20
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 12,
+          "denominator": 24,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "exact_wt_reads": 12,
+          "exact_pe_reads": 12,
+          "excluded_reads": 16,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 16
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 16,
+          "backend_input_excluded_reads": 16
+        }
+      },
+      "copy2": {
+        "alignment_counters": {
+          "N_TOT_READS": 40,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 40,
+          "READS AFTER PREPROCESSING": 40,
+          "READS ALIGNED": 40,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 40,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 20,
+          "denominator": 40,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 20,
+            "Prime-edited": 20
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 8,
+          "denominator": 16,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "exact_wt_reads": 8,
+          "exact_pe_reads": 8,
+          "excluded_reads": 24,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 24
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 24,
+          "backend_input_excluded_reads": 24
+        }
+      }
+    },
+    "observability": {
+      "target": {
+        "pair_geometries": [
+          {
+            "left_length": 150,
+            "right_length": 150,
+            "pairs": 40,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 252,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              },
+              {
+                "copy": "copy2",
+                "wt_length": 240,
+                "pe_length": 252,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      },
+      "copy1": {
+        "pair_geometries": [
+          {
+            "left_length": 150,
+            "right_length": 150,
+            "pairs": 24,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 252,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      },
+      "copy2": {
+        "pair_geometries": [
+          {
+            "left_length": 150,
+            "right_length": 150,
+            "pairs": 16,
+            "copies": [
+              {
+                "copy": "copy2",
+                "wt_length": 240,
+                "pe_length": 252,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      }
+    }
+  },
+  "product_evidence": {
+    "target": {
+      "evidence_version": 1,
+      "population_id": "f64e59c421c750da7a3f37623913029931a074f4bc31a4aa3015310f011d2ef1",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 40,
+      "classification_input_reads": 40,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "CTGCATGAGGAAACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "CTGCATGAGGAAACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "deletion",
+                  "reference_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "observed_positions": [],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 177,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 217,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "deletion",
+                  "reference_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "observed_positions": [],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 177,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 217,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 177,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 217,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "deletion",
+                  "reference_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "observed_positions": [],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "deletion",
+                  "reference_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "observed_positions": [],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 177,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 217,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy1": {
+      "evidence_version": 1,
+      "population_id": "4257ac58cb085d62ea3f37e9e21d6cf618083ee3fb40afaa4839af1715c8e69f",
+      "population_scope": "confident_copy",
+      "copy_id": "copy1",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": 24,
+      "classification_input_reads": 24,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "CTGCATGAGGAAACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "CTGCATGAGGAAACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "deletion",
+                  "reference_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "observed_positions": [],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy2": {
+      "evidence_version": 1,
+      "population_id": "9a62de226b3774b6f6c487671e6ae01706d820021ee2bc49a1aed850e0887233",
+      "population_scope": "confident_copy",
+      "copy_id": "copy2",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": 16,
+      "classification_input_reads": 16,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "CTGCATGAGGAAACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "CTGCATGAGGAAACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "deletion",
+                  "reference_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "observed_positions": [],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTTTCCTCATGCAGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 1,
+              "extra_indels": [
+                {
+                  "kind": "insertion",
+                  "reference_positions": [],
+                  "observed_positions": [
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133
+                  ],
+                  "sequence": "TTTCCTCATGCA"
+                }
+              ]
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy2"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    }
+  },
+  "derived_metrics": {
+    "target": {
+      "0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "f64e59c421c750da7a3f37623913029931a074f4bc31a4aa3015310f011d2ef1",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "wt_family": 20,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 40,
+        "reason_codes": []
+      },
+      "1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "f64e59c421c750da7a3f37623913029931a074f4bc31a4aa3015310f011d2ef1",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "wt_family": 20,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 40,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "total_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "f64e59c421c750da7a3f37623913029931a074f4bc31a4aa3015310f011d2ef1",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "wt_family": 20,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 40,
+        "reason_codes": []
+      }
+    },
+    "copy1": {
+      "0": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "4257ac58cb085d62ea3f37e9e21d6cf618083ee3fb40afaa4839af1715c8e69f",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "wt_family": 12,
+        "pe_family": 12,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 24,
+        "reason_codes": []
+      },
+      "1": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "4257ac58cb085d62ea3f37e9e21d6cf618083ee3fb40afaa4839af1715c8e69f",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "wt_family": 12,
+        "pe_family": 12,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 24,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "4257ac58cb085d62ea3f37e9e21d6cf618083ee3fb40afaa4839af1715c8e69f",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "wt_family": 12,
+        "pe_family": 12,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 24,
+        "reason_codes": []
+      }
+    },
+    "copy2": {
+      "0": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "9a62de226b3774b6f6c487671e6ae01706d820021ee2bc49a1aed850e0887233",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "wt_family": 8,
+        "pe_family": 8,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 16,
+        "reason_codes": []
+      },
+      "1": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "9a62de226b3774b6f6c487671e6ae01706d820021ee2bc49a1aed850e0887233",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "wt_family": 8,
+        "pe_family": 8,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 16,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "9a62de226b3774b6f6c487671e6ae01706d820021ee2bc49a1aed850e0887233",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "wt_family": 8,
+        "pe_family": 8,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 16,
+        "reason_codes": []
+      }
+    }
+  }
+}

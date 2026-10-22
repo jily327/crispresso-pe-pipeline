@@ -1,0 +1,90 @@
+{
+  "cross_copy_lengths/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "deletion_boundary/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "deletion_exact_boundary/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "insertion_long/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "insertion_short/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "repeat/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "single_copy_lengths/copy1/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "single_copy_lengths/copy2/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "substitution/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/10/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/11/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/12/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/13/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/16/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/20/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/28/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/30/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/32/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/4/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/8/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "titration/9/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  },
+  "tolerance/metrics/result.json": {
+    "equal": true,
+    "compared": "canonical and derived records, QC and eligibility; population hashes excluded"
+  }
+}

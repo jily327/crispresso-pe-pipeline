@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "parent": "41a5ff9e9e290cebcfdb515b9158ff76f43a3780",
+  "unchanged_main": "550df70f9f9627c7218b9f047d0b6bf3023b8d25",
+  "version": "0.4.4",
+  "source_tests": 735,
+  "wheel_tests": 735,
+  "integration_cases_per_environment": 62,
+  "actual_backend_test_cases_per_environment": 61,
+  "preflight_only_cases_per_environment": 1,
+  "new_a": "CLOSED",
+  "new_b": "CLOSED",
+  "new_c": "CLOSED",
+  "periodic_residual": "CLOSED_FOR_QUALIFIED_PERIOD_1_THROUGH_10_GRID",
+  "historical_classifications_unchanged": 475,
+  "geometry": {
+    "total": 36,
+    "allowed": 13,
+    "blocked": 23
+  }
+}

@@ -1,0 +1,1885 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "repeat",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.2",
+      "git_commit": "2ce80b259e8a8630392363f6559b9de2666699ff",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "7ce343c6c1459e3e0239a41d4e4a72fcf158c2d548ef0b080843b9c370338757",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "8a64f083bdde97d5c8868ad370e8f9eebd323b2cd9be39abe9d905d537af50c9",
+          "size_bytes": 341
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "8661fec911f230035249b3c45d75a0d336e4d1b75b28a6796573535d1293e7bf",
+          "size_bytes": 338
+        }
+      },
+      "pairs": 40
+    },
+    "target_definitions_sha256": "d72eda4e3488b5a40e3aec1a86d391011388affb39755c6c40d74db7280a9d22",
+    "routing_manifest_sha256": "9d2a42924e978fccd925a26dd94ac7cf78a72bc7eb808bdf893bfa400d9c12d7",
+    "routing_policy_identity": {
+      "id": "m312-diagnostic-q30-sites2-cap16-identity08-observed-flanks-v1",
+      "qualified": true,
+      "placement_contract": "copy-collapsed-state-qc-v1",
+      "edit_coverage_contract": "observed-pair-flanks-v1"
+    },
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "7ce343c6c1459e3e0239a41d4e4a72fcf158c2d548ef0b080843b9c370338757",
+        "size_bytes": 769
+      },
+      "anchors/copy1/execution.json": {
+        "sha256": "b07cd46df43b1553dd8302a28dc00e8d6328cb23c16c92871e8849214de2587e",
+        "size_bytes": 2594
+      },
+      "anchors/copy1/input_R1.fastq.gz": {
+        "sha256": "8a64f083bdde97d5c8868ad370e8f9eebd323b2cd9be39abe9d905d537af50c9",
+        "size_bytes": 341
+      },
+      "anchors/copy1/input_R2.fastq.gz": {
+        "sha256": "8661fec911f230035249b3c45d75a0d336e4d1b75b28a6796573535d1293e7bf",
+        "size_bytes": 338
+      },
+      "anchors/copy1/child/CRISPResso2_info.json": {
+        "sha256": "ca64f78f231d2983f0b1c8b2f54ea61a6e02f54f456f2770d3d0223058642fe7",
+        "size_bytes": 80550
+      },
+      "anchors/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e5d2c808aaf5d68f93ff347360eb0e33685864d3d53d064d001c6a866dcf1126",
+        "size_bytes": 136
+      },
+      "anchors/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "b7ce9961d17dd66ef2459c51fc4bb50304d10dc1daaa131186a903f7c0843d17",
+        "size_bytes": 439
+      },
+      "anchors/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "ca078ec037af5a09fc18ccae35e4ef65639bab9c74962c7f1c928cac0e0ff198",
+        "size_bytes": 1113
+      },
+      "anchors/copy2/execution.json": {
+        "sha256": "8bca0aa5527aee716243a3b3824beccf6cc42586f9bd63293f4f5646677147c3",
+        "size_bytes": 2594
+      },
+      "anchors/copy2/input_R1.fastq.gz": {
+        "sha256": "8a64f083bdde97d5c8868ad370e8f9eebd323b2cd9be39abe9d905d537af50c9",
+        "size_bytes": 341
+      },
+      "anchors/copy2/input_R2.fastq.gz": {
+        "sha256": "8661fec911f230035249b3c45d75a0d336e4d1b75b28a6796573535d1293e7bf",
+        "size_bytes": 338
+      },
+      "anchors/copy2/child/CRISPResso2_info.json": {
+        "sha256": "a0127f583782d2862aa6b04b0d11824c419071b539c71c03aa52acfa2b7ea368",
+        "size_bytes": 80550
+      },
+      "anchors/copy2/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e5d2c808aaf5d68f93ff347360eb0e33685864d3d53d064d001c6a866dcf1126",
+        "size_bytes": 136
+      },
+      "anchors/copy2/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "b7ce9961d17dd66ef2459c51fc4bb50304d10dc1daaa131186a903f7c0843d17",
+        "size_bytes": 439
+      },
+      "anchors/copy2/child/Alleles_frequency_table.zip": {
+        "sha256": "79fa9468d2fc59524e88bed872bb6cd2caffc6ecf2c635692c859d9bf0bee373",
+        "size_bytes": 1113
+      },
+      "routing/routing_manifest.json": {
+        "sha256": "9d2a42924e978fccd925a26dd94ac7cf78a72bc7eb808bdf893bfa400d9c12d7",
+        "size_bytes": 4150
+      },
+      "routing/routing_ledger.jsonl": {
+        "sha256": "34a90739d24410738f521fa204cce3a7253348e8cbb880ac61e2c27b37f54ac1",
+        "size_bytes": 128844
+      },
+      "routing/geometry.json": {
+        "sha256": "d2ad8664688a9c7b39dc45cb1ff565852fb4ff2e940f96ffb869c464c678cb8a",
+        "size_bytes": 45275
+      },
+      "copies/copy1/execution.json": {
+        "sha256": "ab2b16268a98109934b945b24ead1f3910b48a687ec053c3027b1ad40266e791",
+        "size_bytes": 2967
+      },
+      "copies/copy1/input_R1.fastq.gz": {
+        "sha256": "8e0d125239f61d732c066a69adcab0ca0f6a1fcba24c71130ae8bf4e17e9e62e",
+        "size_bytes": 271
+      },
+      "copies/copy1/input_R2.fastq.gz": {
+        "sha256": "d29915fee20fa2778349aac0e1c1be5f68595c598ef83fb40bad1644131239cb",
+        "size_bytes": 269
+      },
+      "copies/copy1/child/CRISPResso2_info.json": {
+        "sha256": "26d5acc746a568a96241091d594cbc78601cf3e2214ec095a6db5b1a66ac2b62",
+        "size_bytes": 79300
+      },
+      "copies/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "a2cc6a980b7ffa5722d81eda10eb338326b8b473bac34cf57264479705f61cd2",
+        "size_bytes": 136
+      },
+      "copies/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "3d648278156d73547b22fb42a026ff4bb3413a396c910c9d8c18716883b38206",
+        "size_bytes": 439
+      },
+      "copies/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "87b6dd5009a804d3078b057fd8dd20350dfd21caee08d8192ac4553bf24db002",
+        "size_bytes": 1016
+      },
+      "copies/copy2/execution.json": {
+        "sha256": "f232ce4f4b338f2332825b010dafc922d75590e0a3a4721e30d145c240171276",
+        "size_bytes": 2967
+      },
+      "copies/copy2/input_R1.fastq.gz": {
+        "sha256": "f05d2b0981dddc6dd16c3e629ccbeb0c4b6ad37ac7b06782324f309c0d66f6b8",
+        "size_bytes": 236
+      },
+      "copies/copy2/input_R2.fastq.gz": {
+        "sha256": "ded094b75669a5b356e6c1e73eb364ebaa364d2cfd6fbdc7181f554ffd039c74",
+        "size_bytes": 234
+      },
+      "copies/copy2/child/CRISPResso2_info.json": {
+        "sha256": "ec9ac4bed70a3a843c7538857041f72d4a61e208683bff66421172281e0f6b99",
+        "size_bytes": 79286
+      },
+      "copies/copy2/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "46491f5f9d47c90af3f53e40fe812452fc66cba23fcdd8c7b6547987e6a31b54",
+        "size_bytes": 136
+      },
+      "copies/copy2/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "cc98c152ff8ec4beea7616c5757f5104f23b297707ef32b10c4c1ed2d489d7b4",
+        "size_bytes": 435
+      },
+      "copies/copy2/child/Alleles_frequency_table.zip": {
+        "sha256": "3956d9d937ce1123a8936621072ee55c0cdf49277c4f0499446a19770fffd915",
+        "size_bytes": 1020
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "REPORTABLE",
+    "routing_geometry_status": "SAFE",
+    "comparator_status": "REPORTABLE",
+    "anchor_invariant": true,
+    "block_reason_codes": []
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "8ddaa3b78518987e98657c3630ad548d79e74dbc1b0d718c20b8fe6ada2f59c6",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 40,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 40,
+      "reads_after_preprocessing": 40,
+      "aligned_reads": 40,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 40,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "metric_filter",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": null,
+      "population_denominator_exclusions": 0
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "8ddaa3b78518987e98657c3630ad548d79e74dbc1b0d718c20b8fe6ada2f59c6",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 40,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 40,
+      "reads_after_preprocessing": 40,
+      "aligned_reads": 40,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 40,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "parallel_native_analysis",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": {
+        "exact_wt": 20,
+        "exact_pe": 20,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 0,
+        "contradictory_state": 0,
+        "denominator_exclusions": 0,
+        "classification_input_reads": 40,
+        "exclusion_reason_counts": {}
+      },
+      "population_denominator_exclusions": 0
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "b48c77a70f1aa1283e81caf0c4d7cf3aa0e7c5a149e0b0476a7299498f890685",
+        "population_input_reads": 24,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "reason_codes": [],
+        "confident_input_reads": 24,
+        "backend_input_reads": 24,
+        "reads_after_preprocessing": 24,
+        "aligned_reads": 24,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 24,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": null,
+        "population_denominator_exclusions": 0
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "b48c77a70f1aa1283e81caf0c4d7cf3aa0e7c5a149e0b0476a7299498f890685",
+        "population_input_reads": 24,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "reason_codes": [],
+        "confident_input_reads": 24,
+        "backend_input_reads": 24,
+        "reads_after_preprocessing": 24,
+        "aligned_reads": 24,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 24,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": {
+          "exact_wt": 12,
+          "exact_pe": 12,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 0,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "classification_input_reads": 24,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 0
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "metric_name": "copy2_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "8f2c35e53ed20e7869382d5616854e67aeab38db94be56322e795c8fc32e8629",
+        "population_input_reads": 16,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "reason_codes": [],
+        "confident_input_reads": 16,
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 16,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": null,
+        "population_denominator_exclusions": 0
+      },
+      "precise": {
+        "metric_name": "copy2_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "8f2c35e53ed20e7869382d5616854e67aeab38db94be56322e795c8fc32e8629",
+        "population_input_reads": 16,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "reason_codes": [],
+        "confident_input_reads": 16,
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "ordinary_classified_aligned_reads": 16,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "backend_counts_role": "metric_filter",
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 0
+        },
+        "products": {
+          "exact_wt": 8,
+          "exact_pe": 8,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 0,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "classification_input_reads": 16,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 0
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 40,
+    "routing_assigned_reads": 40,
+    "routing_quarantined_reads": 0,
+    "routing_quarantine_fraction": {
+      "numerator": 0,
+      "denominator": 40
+    },
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": 40,
+    "target_backend_aligned_reads": 40,
+    "target_backend_unaligned_reads": 0,
+    "target_backend_unaligned_fraction": {
+      "numerator": 0,
+      "denominator": 40
+    },
+    "exact_assessable_reads": 40,
+    "exact_product_exclusions": 0,
+    "per_copy_confident_counts": {
+      "copy1": 24,
+      "copy2": 16
+    },
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "SUPPORTED_IN_TESTED_FIXTURE",
+      "reasons": [],
+      "anchor_invariant": true,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "numerator": 20,
+          "denominator": 40
+        },
+        "copy2": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "numerator": 20,
+          "denominator": 40
+        }
+      },
+      "anchor_partitions": {
+        "copy1": {
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "copy2": {
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        }
+      },
+      "partition_common": true,
+      "cross_copy_length_divergence": false,
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "failures": {},
+    "backend_metrics": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 40,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 40,
+          "READS AFTER PREPROCESSING": 40,
+          "READS ALIGNED": 40,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 40,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 20,
+          "denominator": 40,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 20,
+            "Prime-edited": 20
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 12,
+          "denominator": 24,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "exact_wt_reads": 12,
+          "exact_pe_reads": 12,
+          "excluded_reads": 16,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 16
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 16,
+          "backend_input_excluded_reads": 16
+        }
+      },
+      "copy2": {
+        "alignment_counters": {
+          "N_TOT_READS": 40,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 40,
+          "READS AFTER PREPROCESSING": 40,
+          "READS ALIGNED": 40,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 40,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 20,
+          "denominator": 40,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 20,
+            "Prime-edited": 20
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 8,
+          "denominator": 16,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "exact_wt_reads": 8,
+          "exact_pe_reads": 8,
+          "excluded_reads": 24,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 24
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 24,
+          "backend_input_excluded_reads": 24
+        }
+      }
+    },
+    "observability": {
+      "target": {
+        "pair_geometries": [
+          {
+            "left_length": 180,
+            "right_length": 180,
+            "pairs": 40,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              },
+              {
+                "copy": "copy2",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      },
+      "copy1": {
+        "pair_geometries": [
+          {
+            "left_length": 180,
+            "right_length": 180,
+            "pairs": 24,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      },
+      "copy2": {
+        "pair_geometries": [
+          {
+            "left_length": 180,
+            "right_length": 180,
+            "pairs": 16,
+            "copies": [
+              {
+                "copy": "copy2",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      }
+    }
+  },
+  "product_evidence": {
+    "target": {
+      "evidence_version": 1,
+      "population_id": "8ddaa3b78518987e98657c3630ad548d79e74dbc1b0d718c20b8fe6ada2f59c6",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 40,
+      "classification_input_reads": 40,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 4,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy1": {
+      "evidence_version": 1,
+      "population_id": "b48c77a70f1aa1283e81caf0c4d7cf3aa0e7c5a149e0b0476a7299498f890685",
+      "population_scope": "confident_copy",
+      "copy_id": "copy1",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": 24,
+      "classification_input_reads": 24,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 12,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy2": {
+      "evidence_version": 1,
+      "population_id": "8f2c35e53ed20e7869382d5616854e67aeab38db94be56322e795c8fc32e8629",
+      "population_scope": "confident_copy",
+      "copy_id": "copy2",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": 16,
+      "classification_input_reads": 16,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACACACATCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 8,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy2"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    }
+  },
+  "derived_metrics": {
+    "target": {
+      "0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "8ddaa3b78518987e98657c3630ad548d79e74dbc1b0d718c20b8fe6ada2f59c6",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "wt_family": 20,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 40,
+        "reason_codes": []
+      },
+      "1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "8ddaa3b78518987e98657c3630ad548d79e74dbc1b0d718c20b8fe6ada2f59c6",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "wt_family": 20,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 40,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "total_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "8ddaa3b78518987e98657c3630ad548d79e74dbc1b0d718c20b8fe6ada2f59c6",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "wt_family": 20,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 40,
+        "reason_codes": []
+      }
+    },
+    "copy1": {
+      "0": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "b48c77a70f1aa1283e81caf0c4d7cf3aa0e7c5a149e0b0476a7299498f890685",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "wt_family": 12,
+        "pe_family": 12,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 24,
+        "reason_codes": []
+      },
+      "1": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "b48c77a70f1aa1283e81caf0c4d7cf3aa0e7c5a149e0b0476a7299498f890685",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "wt_family": 12,
+        "pe_family": 12,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 24,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "b48c77a70f1aa1283e81caf0c4d7cf3aa0e7c5a149e0b0476a7299498f890685",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "REPORTABLE",
+        "numerator": 12,
+        "denominator": 24,
+        "wt_family": 12,
+        "pe_family": 12,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 24,
+        "reason_codes": []
+      }
+    },
+    "copy2": {
+      "0": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "8f2c35e53ed20e7869382d5616854e67aeab38db94be56322e795c8fc32e8629",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "wt_family": 8,
+        "pe_family": 8,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 16,
+        "reason_codes": []
+      },
+      "1": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "8f2c35e53ed20e7869382d5616854e67aeab38db94be56322e795c8fc32e8629",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "wt_family": 8,
+        "pe_family": 8,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 16,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "8f2c35e53ed20e7869382d5616854e67aeab38db94be56322e795c8fc32e8629",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "REPORTABLE",
+        "numerator": 8,
+        "denominator": 16,
+        "wt_family": 8,
+        "pe_family": 8,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 16,
+        "reason_codes": []
+      }
+    }
+  }
+}

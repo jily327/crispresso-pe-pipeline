@@ -1,0 +1,56 @@
+{
+  "parent": "41a5ff9e9e290cebcfdb515b9158ff76f43a3780",
+  "unchanged_files": {
+    "src/peanalyzer/routing.py": {
+      "parent_sha256": "917941a306c4eed5dbca3dc6b0701798b637b3407200ca4934421ca18254ff35",
+      "current_sha256": "917941a306c4eed5dbca3dc6b0701798b637b3407200ca4934421ca18254ff35",
+      "unchanged": true
+    },
+    "src/peanalyzer/geometry.py": {
+      "parent_sha256": "ac9dddd35e28bdeb817d5b3e7786a2960f0b308ce6d8a03bf4ded01898b796fe",
+      "current_sha256": "ac9dddd35e28bdeb817d5b3e7786a2960f0b308ce6d8a03bf4ded01898b796fe",
+      "unchanged": true
+    },
+    "src/peanalyzer/observability.py": {
+      "parent_sha256": "b688397e8cdee074e5dd84836f4bc151ed72e9b4dd95f479ccdf7e3f436bf4bf",
+      "current_sha256": "b688397e8cdee074e5dd84836f4bc151ed72e9b4dd95f479ccdf7e3f436bf4bf",
+      "unchanged": true
+    },
+    "src/peanalyzer/backend/core.py": {
+      "parent_sha256": "7183b2fde5d2edca56e18fa891bdba9da0b2ba35dacc3ff0ff9d8d3e055be887",
+      "current_sha256": "7183b2fde5d2edca56e18fa891bdba9da0b2ba35dacc3ff0ff9d8d3e055be887",
+      "unchanged": true
+    },
+    "src/peanalyzer/backend/comparator.py": {
+      "parent_sha256": "e7766b933623fc62b18abf1c5b2470e7be5b27cd3bc30fe1ffc5168b2a47123d",
+      "current_sha256": "e7766b933623fc62b18abf1c5b2470e7be5b27cd3bc30fe1ffc5168b2a47123d",
+      "unchanged": true
+    },
+    "src/peanalyzer/metrics/policy_requests.py": {
+      "parent_sha256": "541b4962dcdda81a908427467e639251155dc6f7156e8f30febf0b3dbefa7cba",
+      "current_sha256": "541b4962dcdda81a908427467e639251155dc6f7156e8f30febf0b3dbefa7cba",
+      "unchanged": true
+    },
+    "src/peanalyzer/metrics/family_models.py": {
+      "parent_sha256": "556f5a7fc4b03e175cdac577cf3411690ecdcab488d3921fb71a68529b88cba3",
+      "current_sha256": "556f5a7fc4b03e175cdac577cf3411690ecdcab488d3921fb71a68529b88cba3",
+      "unchanged": true
+    },
+    "src/peanalyzer/metrics/result.schema.json": {
+      "parent_sha256": "a3b3b41994a929e3ca5b8aad8b99fd8152384601f75a9473ef5ae70d9cff4ae5",
+      "current_sha256": "a3b3b41994a929e3ca5b8aad8b99fd8152384601f75a9473ef5ae70d9cff4ae5",
+      "unchanged": true
+    }
+  },
+  "prior_evidence_directories_unchanged": [
+    "docs/validation/m4",
+    "docs/validation/m41",
+    "docs/validation/m42",
+    "docs/validation/m421"
+  ],
+  "production_files_changed": [
+    "src/peanalyzer/metrics/products.py",
+    "src/peanalyzer/metrics/production.py",
+    "src/peanalyzer/metrics/family.py"
+  ]
+}

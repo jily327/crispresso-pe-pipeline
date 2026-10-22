@@ -1,0 +1,34 @@
+# Executed from /workspace/crispresso-pe-pipeline unless specified.
+# Baseline: audited checkout, before introducing M4 tests.
+M3_INTEGRATION=1 M31_INTEGRATION=1 M311_INTEGRATION=1 M312_INTEGRATION=1 M3_CORE_EXECUTABLE=/workspace/validation/m3/bin/CRISPResso M3_POOLED_EXECUTABLE=/workspace/validation/m3/bin/CRISPRessoPooled M3_SAMTOOLS_EXECUTABLE=/workspace/validation/m3/bin/samtools M3_CHILD_CORE_COMMAND=CRISPResso M31_RUNTIME_IMAGE=pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c /workspace/peanalyzer-venv/bin/python -m pytest -q --junitxml=/workspace/validation/m4/baseline.xml
+
+# Shared environment for all final suites.
+export M3_INTEGRATION=1 M31_INTEGRATION=1 M311_INTEGRATION=1 M312_INTEGRATION=1 M4_INTEGRATION=1
+export M3_CORE_EXECUTABLE=/workspace/validation/m3/bin/CRISPResso
+export M3_POOLED_EXECUTABLE=/workspace/validation/m3/bin/CRISPRessoPooled
+export M3_SAMTOOLS_EXECUTABLE=/workspace/validation/m3/bin/samtools
+export M3_CHILD_CORE_COMMAND=CRISPResso
+export M31_RUNTIME_IMAGE=pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c
+
+# Final source suite, with actual outputs retained outside the repository.
+M3_RESULTS_DIR=/workspace/validation/m4/source-final/m3 M31_RESULTS_DIR=/workspace/validation/m4/source-final/m31 M311_RESULTS_DIR=/workspace/validation/m4/source-final/m311 M312_RESULTS_DIR=/workspace/validation/m4/source-final/m312 M4_RESULTS_DIR=/workspace/validation/m4/source-final/m4 /workspace/peanalyzer-venv/bin/python -m pytest -q --junitxml=/workspace/validation/m4/source-final-tests.xml
+
+# Build candidate and install in a separate venv.
+/workspace/peanalyzer-venv/bin/python -m build --no-isolation --outdir /workspace/validation/m4/qualified-dist
+/workspace/peanalyzer-venv/bin/python -m venv /workspace/validation/m4/wheel-env
+/workspace/validation/m4/wheel-env/bin/python -m pip install -r requirements-dev.lock
+/workspace/validation/m4/wheel-env/bin/python -m pip install --force-reinstall --no-deps /workspace/validation/m4/qualified-dist/crispresso_pe_pipeline-0.4.0-py3-none-any.whl
+mkdir -p /workspace/validation/m4/qualified-wheel-source
+tar -xzf /workspace/validation/m4/qualified-dist/crispresso_pe_pipeline-0.4.0.tar.gz -C /workspace/validation/m4/qualified-wheel-source
+
+# Run from the extracted sdist, importing only the installed wheel package.
+cd /workspace/validation/m4/qualified-wheel-source/crispresso_pe_pipeline-0.4.0
+M3_RESULTS_DIR=/workspace/validation/m4/wheel/m3 M31_RESULTS_DIR=/workspace/validation/m4/wheel/m31 M311_RESULTS_DIR=/workspace/validation/m4/wheel/m311 M312_RESULTS_DIR=/workspace/validation/m4/wheel/m312 M4_RESULTS_DIR=/workspace/validation/m4/wheel/m4 /workspace/validation/m4/wheel-env/bin/python -m pytest -q --junitxml=/workspace/validation/m4/wheel-tests.xml
+
+# Synthetic text-only evidence collection and final evidence-inclusive build.
+cd /workspace/crispresso-pe-pipeline
+/workspace/peanalyzer-venv/bin/python docs/validation/m4/collect_evidence.py /workspace/validation/m4
+/workspace/peanalyzer-venv/bin/python -m build --no-isolation --outdir /workspace/validation/m4/final-dist
+# Verify final wheel peanalyzer/* payload equals the tested qualified wheel,
+# and final sdist src/tests content equals the tested extracted source.
+# Logs are retained under docs/validation/m4; full inputs stay outside Git.

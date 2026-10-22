@@ -1,0 +1,110 @@
+{
+  "targets": {
+    "m3": {
+      "native": [
+        120,
+        330
+      ],
+      "precise": [
+        100,
+        230
+      ],
+      "input": 350,
+      "aligned": 330,
+      "unaligned": 20
+    },
+    "m31": {
+      "native": [
+        30,
+        105
+      ],
+      "precise": [
+        20,
+        55
+      ],
+      "input": 125,
+      "aligned": 105,
+      "unaligned": 20
+    }
+  },
+  "confident_copies": {
+    "copy1": {
+      "input": 45,
+      "aligned": 42,
+      "unaligned": 3,
+      "native": [
+        18,
+        42
+      ],
+      "precise": [
+        12,
+        30
+      ]
+    },
+    "copy2": {
+      "input": 30,
+      "aligned": 28,
+      "unaligned": 2,
+      "native": [
+        12,
+        28
+      ],
+      "precise": [
+        8,
+        20
+      ]
+    }
+  },
+  "historical_pooled": {
+    "copy1": {
+      "input": 211,
+      "aligned": 199,
+      "unaligned": 12,
+      "native": [
+        72,
+        199
+      ],
+      "precise": [
+        60,
+        140
+      ]
+    },
+    "copy2": {
+      "input": 139,
+      "aligned": 131,
+      "unaligned": 8,
+      "native": [
+        48,
+        131
+      ],
+      "precise": [
+        40,
+        90
+      ]
+    }
+  },
+  "combined_confident": {
+    "input": 75,
+    "aligned": 70,
+    "unaligned": 5,
+    "native": [
+      30,
+      70
+    ],
+    "precise": [
+      20,
+      50
+    ]
+  },
+  "original_routing": {
+    "input": 125,
+    "assigned": 75,
+    "quarantined": 50
+  },
+  "geometry_grid": {
+    "designs": 36,
+    "allowed": 13,
+    "blocked": 23,
+    "evidence": "retained test_original_125_decisions_and_indel_admission_are_unchanged"
+  }
+}

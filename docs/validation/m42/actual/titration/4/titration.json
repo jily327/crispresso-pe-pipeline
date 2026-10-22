@@ -1,0 +1,40 @@
+{
+  "nominal_overlap": 4,
+  "control_pairs": 10,
+  "submitted_probe_pairs": 20,
+  "probe_survivors": 0,
+  "controls_surviving": 10,
+  "native": {
+    "metric_name": "target_crispresso_native_pe",
+    "metric_family": "native",
+    "population_scope": "target_all_prepared",
+    "population_id": "780aadca071cf4b5a7c61cc80a3aea261a5c42354cb0c128bf333244ebd8048e",
+    "population_input_reads": 30,
+    "copy_id": null,
+    "routing_conditioned": false,
+    "assessment_stage": "backend_aligned_products",
+    "status": "REPORTABLE",
+    "numerator": 5,
+    "denominator": 10,
+    "reason_codes": [],
+    "confident_input_reads": null,
+    "backend_input_reads": 30,
+    "reads_after_preprocessing": 10,
+    "aligned_reads": 10,
+    "unaligned_reads": 0,
+    "ordinary_classified_aligned_reads": 10,
+    "ambiguous_aligned_reads": 0,
+    "discarded_aligned_reads": 0,
+    "backend_counts_role": "metric_filter",
+    "preprocessing_count_delta": 20,
+    "unaligned_reason_counts": {
+      "unknown_backend_alignment_failure": 0
+    },
+    "products": null,
+    "population_denominator_exclusions": 20
+  },
+  "runtime": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "fastp_invocation": [
+    "fastp -i input_R1.fastq.gz -I input_R2.fastq.gz --merge --merged_out /tmp/m311-comparator-eg4d4llo/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz --out1 /tmp/m311-comparator-eg4d4llo/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz --out2 /tmp/m311-comparator-eg4d4llo/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz --overlap_len_require 10 --thread 1 --json /tmp/m311-comparator-eg4d4llo/output/CRISPResso_on_unrouted/fastp_report.json --html /tmp/m311-comparator-eg4d4llo/output/CRISPResso_on_unrouted/fastp_report.html --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering "
+  ]
+}

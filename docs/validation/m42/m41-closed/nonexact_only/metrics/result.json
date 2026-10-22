@@ -1,0 +1,1484 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "m41-nonexact_only",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.2",
+      "git_commit": "2ce80b259e8a8630392363f6559b9de2666699ff",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "d62b1245ea0c0f7405907b0500d57572b2b25b4bb5ae49a85f84335e3ca0b8b8",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "fa2838a604b146d6ef918db60fb47867bfe38faf0e21c0247d11b91ab06b8659",
+          "size_bytes": 324
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "f32f42b02df4d3a5692dfe594386c74930e0ec3d4a05a981d1ea0a4878819d39",
+          "size_bytes": 320
+        }
+      },
+      "pairs": 40
+    },
+    "target_definitions_sha256": "6fc8ec24b358a709fd1ea051825d308846a1215d6e5ad015ea5322de1e44faae",
+    "routing_manifest_sha256": null,
+    "routing_policy_identity": null,
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "d62b1245ea0c0f7405907b0500d57572b2b25b4bb5ae49a85f84335e3ca0b8b8",
+        "size_bytes": 776
+      },
+      "anchors/copy1/execution.json": {
+        "sha256": "b0c7ed2397e3ac645c59713869e2604af27a6e191904cf4cda52a7f0c5ce3905",
+        "size_bytes": 2594
+      },
+      "anchors/copy1/input_R1.fastq.gz": {
+        "sha256": "fa2838a604b146d6ef918db60fb47867bfe38faf0e21c0247d11b91ab06b8659",
+        "size_bytes": 324
+      },
+      "anchors/copy1/input_R2.fastq.gz": {
+        "sha256": "f32f42b02df4d3a5692dfe594386c74930e0ec3d4a05a981d1ea0a4878819d39",
+        "size_bytes": 320
+      },
+      "anchors/copy1/child/CRISPResso2_info.json": {
+        "sha256": "b26154c73ea1c70351965627de831fe2c4cf189431fbc790ebb6ba98c88cff85",
+        "size_bytes": 80565
+      },
+      "anchors/copy1/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e5d2c808aaf5d68f93ff347360eb0e33685864d3d53d064d001c6a866dcf1126",
+        "size_bytes": 136
+      },
+      "anchors/copy1/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "b7ce9961d17dd66ef2459c51fc4bb50304d10dc1daaa131186a903f7c0843d17",
+        "size_bytes": 439
+      },
+      "anchors/copy1/child/Alleles_frequency_table.zip": {
+        "sha256": "913aedfd8cd7b87a5b2cdc63f49de85f96e0461a7c530884142a402ad0345b09",
+        "size_bytes": 1112
+      },
+      "anchors/copy2/execution.json": {
+        "sha256": "15a6ea86fb0ffc29d7cca5a55eadc6a149447d1a38009dafa347d158925caaa0",
+        "size_bytes": 2594
+      },
+      "anchors/copy2/input_R1.fastq.gz": {
+        "sha256": "fa2838a604b146d6ef918db60fb47867bfe38faf0e21c0247d11b91ab06b8659",
+        "size_bytes": 324
+      },
+      "anchors/copy2/input_R2.fastq.gz": {
+        "sha256": "f32f42b02df4d3a5692dfe594386c74930e0ec3d4a05a981d1ea0a4878819d39",
+        "size_bytes": 320
+      },
+      "anchors/copy2/child/CRISPResso2_info.json": {
+        "sha256": "55cd1df5eb28d10788fd1091fe3e7b5c5562415e2c202509e58cab0c5c1f62c8",
+        "size_bytes": 80565
+      },
+      "anchors/copy2/child/CRISPResso_mapping_statistics.txt": {
+        "sha256": "e5d2c808aaf5d68f93ff347360eb0e33685864d3d53d064d001c6a866dcf1126",
+        "size_bytes": 136
+      },
+      "anchors/copy2/child/CRISPResso_quantification_of_editing_frequency.txt": {
+        "sha256": "b7ce9961d17dd66ef2459c51fc4bb50304d10dc1daaa131186a903f7c0843d17",
+        "size_bytes": 439
+      },
+      "anchors/copy2/child/Alleles_frequency_table.zip": {
+        "sha256": "8e30125e43f84f1feaf18948f9805d2d0c2cbe9d2b743d237255af845e30fb38",
+        "size_bytes": 1118
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "NOT_ASSESSABLE",
+    "routing_geometry_status": "SAFE",
+    "comparator_status": "REPORTABLE",
+    "anchor_invariant": true,
+    "block_reason_codes": [
+      "COPY_COHORT_UNAVAILABLE",
+      "ZERO_EXACT_DENOMINATOR"
+    ]
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "9d009ac9d3feee6a9fd9308be2928a45f294316c208bb87fee4d18b4b1268636",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 40,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 40,
+      "reads_after_preprocessing": 40,
+      "aligned_reads": 40,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 40,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "metric_filter",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": null,
+      "population_denominator_exclusions": 0
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "9d009ac9d3feee6a9fd9308be2928a45f294316c208bb87fee4d18b4b1268636",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "NOT_ASSESSABLE",
+      "numerator": null,
+      "denominator": null,
+      "reason_codes": [
+        "ZERO_EXACT_DENOMINATOR"
+      ],
+      "confident_input_reads": null,
+      "backend_input_reads": 40,
+      "reads_after_preprocessing": 40,
+      "aligned_reads": 40,
+      "unaligned_reads": 0,
+      "ordinary_classified_aligned_reads": 40,
+      "ambiguous_aligned_reads": 0,
+      "discarded_aligned_reads": 0,
+      "backend_counts_role": "parallel_native_analysis",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 0
+      },
+      "products": {
+        "exact_wt": 0,
+        "exact_pe": 0,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 40,
+        "contradictory_state": 0,
+        "denominator_exclusions": 40,
+        "classification_input_reads": 40,
+        "exclusion_reason_counts": {}
+      },
+      "population_denominator_exclusions": 40
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "510f14a66cac389b57bd04b73f7d4af617d41a70fe4c24551681df59dcf0b5a6",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "510f14a66cac389b57bd04b73f7d4af617d41a70fe4c24551681df59dcf0b5a6",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy2_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "29280deb2941f06ff9b7c53fe500306e4b092de44ab6b4ac0d74fd3b367618bb",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy2_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "29280deb2941f06ff9b7c53fe500306e4b092de44ab6b4ac0d74fd3b367618bb",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 40,
+    "routing_assigned_reads": null,
+    "routing_quarantined_reads": null,
+    "routing_quarantine_fraction": null,
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": 40,
+    "target_backend_aligned_reads": 40,
+    "target_backend_unaligned_reads": 0,
+    "target_backend_unaligned_fraction": {
+      "numerator": 0,
+      "denominator": 40
+    },
+    "exact_assessable_reads": 0,
+    "exact_product_exclusions": 40,
+    "per_copy_confident_counts": {},
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "SUPPORTED_IN_TESTED_FIXTURE",
+      "reasons": [],
+      "anchor_invariant": true,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "numerator": 20,
+          "denominator": 40
+        },
+        "copy2": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "preprocessing_count_delta": 0,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "numerator": 20,
+          "denominator": 40
+        }
+      },
+      "anchor_partitions": {
+        "copy1": {
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "copy2": {
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        }
+      },
+      "partition_common": true,
+      "cross_copy_length_divergence": false,
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "failures": {},
+    "backend_metrics": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 40,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 40,
+          "READS AFTER PREPROCESSING": 40,
+          "READS ALIGNED": 40,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 40,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 20,
+          "denominator": 40,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 20,
+            "Prime-edited": 20
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 0,
+          "denominator": 0,
+          "exact_fraction": null,
+          "fraction": null,
+          "exact_wt_reads": 0,
+          "exact_pe_reads": 0,
+          "excluded_reads": 40,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 40
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 40,
+          "backend_input_excluded_reads": 40
+        }
+      },
+      "copy2": {
+        "alignment_counters": {
+          "N_TOT_READS": 40,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 40,
+          "READS AFTER PREPROCESSING": 40,
+          "READS ALIGNED": 40,
+          "N_COMPUTED_ALN": 4,
+          "N_CACHED_ALN": 36,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 40,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 20,
+          "denominator": 40,
+          "exact_fraction": "1/2",
+          "fraction": 0.5,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 20,
+            "Prime-edited": 20
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 0,
+          "denominator": 0,
+          "exact_fraction": null,
+          "fraction": null,
+          "exact_wt_reads": 0,
+          "exact_pe_reads": 0,
+          "excluded_reads": 40,
+          "exclusion_product_classes": {
+            "other_or_unassessable": 40
+          },
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 40,
+          "reads_after_preprocessing": 40,
+          "aligned_reads": 40,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 40,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 0,
+          "aligned_product_excluded_reads": 40,
+          "backend_input_excluded_reads": 40
+        }
+      }
+    },
+    "observability": {
+      "target": {
+        "pair_geometries": [
+          {
+            "left_length": 150,
+            "right_length": 150,
+            "pairs": 40,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              },
+              {
+                "copy": "copy2",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {},
+        "reconstruction_ambiguity_reason_counts": {},
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      }
+    }
+  },
+  "product_evidence": {
+    "target": {
+      "evidence_version": 1,
+      "population_id": "9d009ac9d3feee6a9fd9308be2928a45f294316c208bb87fee4d18b4b1268636",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 40,
+      "classification_input_reads": 40,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 10,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 6,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 10,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 6,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "A",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "G",
+                  "observed": "C",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 10,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 6,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGAGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 10,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 6,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 5,
+              "extra_substitutions": [
+                {
+                  "position": 40,
+                  "wt_position": 40,
+                  "anchor_position": 40,
+                  "reference": "A",
+                  "observed": "C",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 80,
+                  "wt_position": 80,
+                  "anchor_position": 80,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 165,
+                  "wt_position": 165,
+                  "anchor_position": 165,
+                  "reference": "T",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 205,
+                  "wt_position": 205,
+                  "anchor_position": 205,
+                  "reference": "C",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 55,
+                  "wt_position": 55,
+                  "anchor_position": 55,
+                  "reference": "C",
+                  "observed": "A",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": [
+            "copy1",
+            "copy2"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy1": {
+      "evidence_version": 1,
+      "population_id": "510f14a66cac389b57bd04b73f7d4af617d41a70fe4c24551681df59dcf0b5a6",
+      "population_scope": "confident_copy",
+      "copy_id": "copy1",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy2": {
+      "evidence_version": 1,
+      "population_id": "29280deb2941f06ff9b7c53fe500306e4b092de44ab6b4ac0d74fd3b367618bb",
+      "population_scope": "confident_copy",
+      "copy_id": "copy2",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    }
+  },
+  "derived_metrics": {}
+}
