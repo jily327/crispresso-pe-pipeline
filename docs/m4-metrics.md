@@ -4,7 +4,10 @@ M4 adds a Python API and schema for measurements of one target in one verified
 prepared sample. It adds no statistical tests, biological interpretation,
 aggregation, plots, GUI or report generation. The audited base is
 `550df70f9f9627c7218b9f047d0b6bf3023b8d25`. M2 behavior and M3.1.2 routing,
-geometry, observed-flank rules and comparator primitives are unchanged.
+geometry and observed-flank rules remain unchanged. M4.1 (package 0.4.1)
+remediates the audited M4 checkpoint `768d4075c2608f3b72293401bb19dce4309f4967`
+with aligned-category reconciliation, explicit preprocessing attrition, unique
+exact overlap, scoped runtime gates and independent anchor failure reporting.
 
 ## Population and denominator contracts
 
@@ -93,8 +96,8 @@ mapping READS ALIGNED = aligned = native denominator
 mapping READS IN INPUTS = verified submitted pairs
 ```
 
-All required anchors must empirically agree on input, aligned, unaligned,
-native numerator and native denominator. There is no averaging or best-anchor
+All required anchors must empirically agree on input, reads after preprocessing,
+preprocessing count delta, aligned, unaligned, native numerator and native denominator. There is no averaging or best-anchor
 selection. Native results also require the normalized authoritative
 `Reference.include_idxs`: missing, malformed or **empty** windows BLOCK.
 Target comparator diagnostics inside that authoritative window also BLOCK.
@@ -102,15 +105,45 @@ Both qualified list and exact ndarray encodings are preserved; the old parser
 is unchanged. A copy native empty-window failure does not reinterpret an
 otherwise assessable full-product exact sequence as an efficiency of zero.
 
-The existing comparator explicitly contracts record-preserving preprocessing;
-copy Core requires exact routed/backend input equality without silently assuming
-all future preprocessing preserves that count. Every metric carries integer
+Target and copy Core require exact submitted/backend input equality while
+allowing preprocessing loss. `preprocessing_count_delta` equals backend input
+minus reads after preprocessing; a positive loss is visible QC. Unexplained
+counter disagreement or count expansion blocks reporting. Every metric carries integer
 `backend_input_reads`, `reads_after_preprocessing`, `aligned_reads`,
 `unaligned_reads`, `preprocessing_count_delta` and unaligned reason counts when
 that backend population is available. Unavailable backend counts are null, never
 invented zeros. Target exact can remain reportable when native is blocked; in
 that case backend counters may be unavailable and the role is labelled accordingly.
 Unaligned causes default to `unknown_backend_alignment_failure`.
+
+M4.1 explicitly includes aligned ambiguous and discarded reads in the native
+READS ALIGNED denominator. Its numerator remains the authoritative ordinary
+`counts_total['Prime-edited']`. The reconciliation is:
+
+```text
+aligned_reads = ordinary_classified_aligned_reads
+              + ambiguous_aligned_reads + discarded_aligned_reads
+```
+
+Ordinary allele rows reconcile per reference with JSON `counts_total` and the
+quantification table. `AMBIGUOUS_*` allele rows reconcile with JSON
+`class_counts['AMBIGUOUS']` (absent means zero). `DISCARDED_*` rows reconcile
+per reference with JSON `counts_discarded` and quantification `Discarded`.
+The complete allele table must sum to READS ALIGNED. Unknown categories and
+unexplained differences block reporting; residual counts are never guessed.
+Ambiguous/discarded rows remain unresolved exclusions for copy precise, whose
+classification input still equals all aligned reads. Thus one ambiguous aligned
+read can give native 30/106 while leaving the exact-product ratio unchanged.
+This supersedes the earlier architecture note excluding ambiguity from native.
+
+Every otherwise eligible anchor is attempted independently. Execution manifests
+record nonzero exits separately from malformed output and reconciliation failures;
+`anchor_evidence.failures` and metric reason codes retain those causes. Missing
+anchors are never replaced by a surviving anchor. A native precondition records
+its actual reason without claiming that deliberately unexamined anchors are
+missing. Runtime provenance gates target native and both copy metrics. It does
+not gate `total_precise_pe`, which uses only verified prepared pairs and product
+definitions. Native-only failures do not restrict that original population.
 
 States are `REPORTABLE`, `BLOCKED`, `NOT_ASSESSABLE`. Reportable PE fractions have
 integer numerator and positive denominator. Non-reportable fractions have null
@@ -124,6 +157,12 @@ counts. Pydantic model validators additionally enforce arithmetic and population
 relationships that JSON Schema alone cannot express. Top-level fields are:
 `schema_version=1`, `metric_contract_version=m4-v1`, target/sample/analysis IDs,
 `provenance`, `eligibility`, `target_metrics`, `copies`, `qc`, `anchor_evidence`.
+M4.1 retains `schema_version=1` and `metric_contract_version=m4-v1`: metric
+identities, populations and native denominator are unchanged. Three optional
+integer aligned-category fields extend each metric record; all new backend
+records populate them, and their sum is validated. Historical documents without
+these fields still load with null values (unavailable, not inferred zero). Strict
+older consumers must update to accept the added fields.
 There are no convenience floating-point efficiencies in production metric records.
 QC fractions contain integer numerator/denominator; a zero QC denominator means
 undefined, never an interpreted zero fraction. Backend diagnostic evidence may
@@ -132,12 +171,18 @@ retain the older parser's derived convenience fields.
 ## Exact products and exclusions
 
 The target exact classifier reuses the qualified inward-facing amplicon-end
-primitive. Each mate must match its product end, the mates together must cover
-the complete product, and all covered sequence must agree. Internal fragments,
+primitive with `MIN_EXACT_PAIR_OVERLAP = 10`. Before consulting the WT/PE
+reference lengths, it enumerates sequence-consistent suffix/prefix overlaps of
+at least 10 nt. Exactly one such placement must reconstruct the complete product,
+and that product must equal a WT or PE definition. The fixed threshold rejects
+zero/tiny repeat-driven overlaps; uniqueness rejects multiple qualifying repeat
+placements. It is an explicit assessability threshold, not a probability of
+biological correctness. Each mate must support its product end. Internal fragments,
 uncovered gaps, disagreements, partial PE, PE with extra mutations and other
 non-exact products cannot become exact PE. Same-state identical definitions
 collapse safely and every input pair is counted at most once. A WT/PE definition
-collision or pair that satisfies contradictory WT/PE states BLOCKS reporting.
+collision BLOCKS reporting. A pair with non-unique overlap is unresolved and
+cannot provide an exact numerator or denominator read.
 
 Copy exact uses reconciled full backend allele sequences. It exposes
 `exact_wt`, `exact_pe`, `pe_plus_extra_change`, `other_nonexact_assessable`,
@@ -149,8 +194,7 @@ broader observable class. No WT-derived/PE-derived origins are assigned.
 
 Aligned-product exclusions are distinct from
 `population_denominator_exclusions`, which also includes backend attrition for
-copy exact. Preprocessing count expansion would make a simple input-minus-
-denominator exclusion undefined (null), rather than fabricate a negative count.
+copy exact. Unexplained preprocessing count expansion blocks backend metrics.
 Target exact classifications use prepared pairs, so all its exclusions are
 relative to that complete population. Synthetic origin attribution remains in
 historical qualification evidence, not production biological results.
@@ -178,3 +222,6 @@ editing quality or statistical significance.
 
 See [M4 validation and reproduction](validation/m4/README.md) for the review,
 exact regression counts, negative gates, real-backend artifacts and test results.
+
+See [M4.1 remediation evidence](validation/m41/README.md) for the focused fixes,
+real ambiguity/discard/attrition runs, failure matrices and fresh validation.

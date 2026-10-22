@@ -63,6 +63,9 @@ class MetricRecord(Model):
     reads_after_preprocessing: Count | None = None
     aligned_reads: Count | None = None
     unaligned_reads: Count | None = None
+    ordinary_classified_aligned_reads: Count | None = None
+    ambiguous_aligned_reads: Count | None = None
+    discarded_aligned_reads: Count | None = None
     backend_counts_role: Literal["metric_filter", "parallel_native_analysis", "unavailable"]
     preprocessing_count_delta: int | None = None
     unaligned_reason_counts: dict[str, Count] = Field(default_factory=dict)
@@ -102,6 +105,11 @@ class MetricRecord(Model):
             expected = self.population_input_reads if self.assessment_stage == 'prepared_pairs' else self.aligned_reads
             if self.products.classification_input_reads != expected:
                 raise ValueError("exact classification population mismatch")
+        partition = (self.ordinary_classified_aligned_reads, self.ambiguous_aligned_reads,
+                     self.discarded_aligned_reads)
+        if any(v is not None for v in partition):
+            if any(v is None for v in partition) or sum(partition) != self.aligned_reads:
+                raise ValueError("aligned read categories do not reconcile")
         return self
 
 

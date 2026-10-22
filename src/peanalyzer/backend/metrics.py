@@ -11,10 +11,52 @@ from peanalyzer.demux_verify import read_json
 from peanalyzer.schemas import reverse_complement
 
 COUNTERS=('N_TOT_READS','N_CACHED_ALN','N_COMPUTED_ALN','N_CACHED_NOTALN','N_COMPUTED_NOTALN')
+MIN_EXACT_PAIR_OVERLAP = 10
 
 
 class MetricContractError(ValueError):
-    pass
+    def __init__(self, message, code='BACKEND_COUNTER_RECONCILIATION_FAILED'):
+        self.code = code
+        super().__init__(message)
+
+
+def backend_failure_code(exc):
+    """Keep known execution and artifact failures distinct from missing results."""
+    if isinstance(exc, MetricContractError):
+        return exc.code
+    if getattr(exc, 'code', None) == 'COMMAND_FAILED':
+        return 'BACKEND_EXECUTION_FAILED'
+    if getattr(exc, 'code', None) == 'VERSION_MISMATCH':
+        return 'UNQUALIFIED_BACKEND_RUNTIME'
+    if getattr(exc, 'code', None) == 'BACKEND_REFERENCE_MISMATCH':
+        return exc.code
+    if isinstance(exc, FileNotFoundError):
+        return 'MISSING_INCOMPLETE_BACKEND_METRICS'
+    return 'BACKEND_OUTPUT_MALFORMED'
+
+
+def aligned_partition(data, alleles, totals):
+    """Reconcile exclusive 2.3.4 allele rows with JSON reference/discard counts."""
+    code = 'BACKEND_AMBIGUOUS_RECONCILIATION_FAILED'
+    ordinary, discarded = Counter(), Counter()
+    ambiguous = 0
+    for row in alleles:
+        name, count = row['Reference_Name'], integer(row['#Reads'])
+        if name in totals:
+            ordinary[name] += count
+        elif name.startswith('AMBIGUOUS_') and name.removeprefix('AMBIGUOUS_') in totals:
+            ambiguous += count
+        elif name.startswith('DISCARDED_') and name.removeprefix('DISCARDED_') in totals:
+            discarded[name.removeprefix('DISCARDED_')] += count
+        else:
+            raise MetricContractError('unknown aligned allele category', code)
+    expected = {k: integer(v) for k, v in data['results']['alignment_stats']['counts_discarded'].items()}
+    if (set(expected) != set(totals) or any(ordinary[k] != v for k, v in totals.items())
+            or any(discarded[k] != v for k, v in expected.items())
+            or ambiguous != integer(data['results']['alignment_stats']['class_counts'].get('AMBIGUOUS', 0))):
+        raise MetricContractError('allele/ordinary/discarded reference counts disagree', code)
+    return dict(ordinary_classified_aligned_reads=sum(totals.values()),
+                ambiguous_aligned_reads=ambiguous, discarded_aligned_reads=sum(expected.values()))
 
 
 def integer(value):
@@ -66,11 +108,13 @@ def parse_child(root: Path, *, routed_pairs: int, one_input_record_per_pair: boo
             raise MetricContractError('mapping cache counter mismatch')
         input_reads=mapping['READS IN INPUTS']
         if one_input_record_per_pair and input_reads!=integer(routed_pairs):
-            raise MetricContractError('router/backend input mismatch')
+            raise MetricContractError('router/backend input mismatch', 'ROUTED_BACKEND_INPUT_MISMATCH')
+        if input_reads < stats['N_TOT_READS']:
+            raise MetricContractError('preprocessing increased the input population')
         if preprocessing_preserves_records and input_reads!=stats['N_TOT_READS']:
             raise MetricContractError('record-preserving preprocessing contract violated')
         totals={k:integer(v) for k,v in data['results']['alignment_stats']['counts_total'].items()}
-        if 'Prime-edited' not in totals or sum(totals.values())!=aligned:
+        if 'Prime-edited' not in totals:
             raise MetricContractError('unsupported nonexclusive reference accounting')
         quant=table(child_file(root,running['quant_of_editing_freq_filename']))
         if len(quant)!=len(totals) or {r['Amplicon'] for r in quant}!=set(totals):
@@ -78,6 +122,8 @@ def parse_child(root: Path, *, routed_pairs: int, one_input_record_per_pair: boo
         for row in quant:
             if integer(row['Reads_aligned_all_amplicons'])!=aligned or integer(row['Reads_aligned'])!=totals[row['Amplicon']] or integer(row['Reads_in_input'])!=input_reads:
                 raise MetricContractError('native JSON/quantification integer parity failure')
+            if integer(row['Discarded']) != integer(data['results']['alignment_stats']['counts_discarded'][row['Amplicon']]):
+                raise MetricContractError('JSON/quantification discarded count mismatch', 'BACKEND_AMBIGUOUS_RECONCILIATION_FAILED')
         attrs=dict(backend_input_reads=input_reads,reads_after_preprocessing=stats['N_TOT_READS'],aligned_reads=aligned,unaligned_reads=unaligned,
                    preprocessing_count_delta=input_reads-stats['N_TOT_READS'],
                    unaligned_reason_counts={'unknown_backend_alignment_failure':unaligned})
@@ -88,9 +134,14 @@ def parse_child(root: Path, *, routed_pairs: int, one_input_record_per_pair: boo
             with archive.open(running['allele_frequency_table_filename']) as handle:
                 alleles=list(csv.DictReader(io.TextIOWrapper(handle),delimiter='\t'))
         if sum(integer(r['#Reads']) for r in alleles)!=aligned:
-            raise MetricContractError('allele counts do not equal aligned reads')
+            raise MetricContractError('allele counts do not equal aligned reads', 'BACKEND_AMBIGUOUS_RECONCILIATION_FAILED')
+        partition = aligned_partition(data, alleles, totals)
+        if sum(partition.values()) != aligned:
+            raise MetricContractError('aligned partition does not reconcile', 'BACKEND_AMBIGUOUS_RECONCILIATION_FAILED')
+        attrs.update(partition)
+        native.update(partition)
         refs=data['results']['refs']
-        exact=exact_haplotypes([(r['Aligned_Sequence'].replace('-',''),integer(r['#Reads'])) for r in alleles],
+        exact=exact_haplotypes([(r['Aligned_Sequence'].replace('-','') if r['Reference_Name'] in totals else '',integer(r['#Reads'])) for r in alleles],
                                {refs['Reference']['sequence']},{refs['Prime-edited']['sequence']})
         exact.update(attrs)
         exact['backend_unaligned_excluded_reads']=unaligned
@@ -101,8 +152,10 @@ def parse_child(root: Path, *, routed_pairs: int, one_input_record_per_pair: boo
                     authoritative_reference_quantification_window=refs['Reference'].get('include_idxs'),
                     contract=dict(one_input_record_per_pair=one_input_record_per_pair,preprocessing_preserves_records=preprocessing_preserves_records),
                     native=native,exact_haplotype=exact)
+    except MetricContractError:
+        raise
     except (OSError,KeyError,TypeError,ValueError,zipfile.BadZipFile) as exc:
-        raise MetricContractError(str(exc)) from exc
+        raise MetricContractError(str(exc), backend_failure_code(exc)) from exc
 
 
 def exact_haplotypes(sequences, wt: set[str], pe: set[str]) -> dict:
@@ -124,11 +177,18 @@ def exact_pair_class(pair, targets) -> str:
 
     This qualified boundary assumes inward-facing amplicon-end reads. Internal
     fragments, uncovered gaps, disagreements and non-exact products are excluded.
+    A unique exact suffix/prefix overlap of at least 10 nt establishes the
+    reconstruction independently of the proposed WT/PE reference lengths.
     """
     left=pair[0].sequence.decode().upper(); right=reverse_complement(pair[1].sequence.decode().upper())
+    overlaps = [n for n in range(MIN_EXACT_PAIR_OVERLAP, min(len(left), len(right)) + 1)
+                if left[-n:] == right[:n]]
+    if len(overlaps) != 1:
+        return 'other_or_unassessable'
+    reconstructed = left + right[overlaps[0]:]
     states=set()
     for target in targets:
         for state,reference in (('exact_WT',target.wt_sequence),('exact_PE',target.prime_edited_sequence)):
-            if max(len(left),len(right))<=len(reference)<=len(left)+len(right) and reference.startswith(left) and reference.endswith(right):
+            if reconstructed == reference:
                 states.add(state)
     return next(iter(states)) if len(states)==1 else 'state_collision' if states else 'other_or_unassessable'

@@ -8,7 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
-from peanalyzer.backend.metrics import parse_child
+from peanalyzer.backend.metrics import parse_child, backend_failure_code
 from peanalyzer.backend.pooled import BackendError, Executable, FIELDS, preflight_guides, utc_now
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
@@ -114,14 +114,17 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
         error=None
         try:
             with (work/'stdout.txt').open('w') as out,(work/'stderr.txt').open('w') as err:
-                result=subprocess.run(argv,cwd=work,stdout=out,stderr=err,check=False)
+                try:
+                    result=subprocess.run(argv,cwd=work,stdout=out,stderr=err,check=False)
+                except OSError as exc:
+                    raise BackendError('COMMAND_FAILED', str(exc)) from exc
             manifest['return_code']=result.returncode
             if result.returncode: raise BackendError('COMMAND_FAILED',f'Core exit {result.returncode}')
             metrics=parse_child(work/'output/CRISPResso_on_confident',routed_pairs=cohort['pairs'],one_input_record_per_pair=True)
             (work/'metrics.json').write_text(json.dumps(metrics,indent=2)+'\n')
             manifest['status']='completed'
         except (OSError,ValueError,BackendError) as exc:
-            error=exc; manifest.update(status='failed',error=str(exc))
+            error=exc; manifest.update(status='failed',error=str(exc),reason_code=backend_failure_code(exc))
         finally:
             manifest['ended_at']=utc_now()
             (work/'execution.json').write_text(json.dumps(manifest,indent=2)+'\n')

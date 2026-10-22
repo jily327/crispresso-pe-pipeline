@@ -274,6 +274,45 @@
           "default": null,
           "title": "Unaligned Reads"
         },
+        "ordinary_classified_aligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ordinary Classified Aligned Reads"
+        },
+        "ambiguous_aligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ambiguous Aligned Reads"
+        },
+        "discarded_aligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Discarded Aligned Reads"
+        },
         "backend_counts_role": {
           "enum": [
             "metric_filter",

@@ -1,0 +1,384 @@
+{
+  "result": {
+    "target": {
+      "target_crispresso_native_pe": {
+        "metric_name": "target_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "target_all_prepared",
+        "population_id": "e89339931e117eac4a36d3ce6edac6e023ca721358b7b18f35c6f5f281d7d83e",
+        "population_input_reads": 126,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "BACKEND_EXECUTION_FAILED"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "total_precise_pe": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "e89339931e117eac4a36d3ce6edac6e023ca721358b7b18f35c6f5f281d7d83e",
+        "population_input_reads": 126,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 55,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 35,
+          "exact_pe": 20,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 71,
+          "contradictory_state": 0,
+          "denominator_exclusions": 71,
+          "classification_input_reads": 126
+        },
+        "population_denominator_exclusions": 71
+      }
+    },
+    "copies": {
+      "copy1": {
+        "copy_id": "copy1",
+        "copy_metric_status": "BLOCKED",
+        "native": {
+          "metric_name": "copy1_crispresso_native_pe",
+          "metric_family": "native",
+          "population_scope": "confident_copy",
+          "population_id": "a6e75fcf5a3ca2fbffaf8200b7ab2724cad69c292f415d8b15ff1621aba9e29d",
+          "population_input_reads": null,
+          "copy_id": "copy1",
+          "routing_conditioned": true,
+          "assessment_stage": "backend_aligned_products",
+          "status": "BLOCKED",
+          "numerator": null,
+          "denominator": null,
+          "reason_codes": [
+            "COPY_COHORT_UNAVAILABLE"
+          ],
+          "confident_input_reads": null,
+          "backend_input_reads": null,
+          "reads_after_preprocessing": null,
+          "aligned_reads": null,
+          "unaligned_reads": null,
+          "ordinary_classified_aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "discarded_aligned_reads": null,
+          "backend_counts_role": "unavailable",
+          "preprocessing_count_delta": null,
+          "unaligned_reason_counts": {},
+          "products": null,
+          "population_denominator_exclusions": null
+        },
+        "precise": {
+          "metric_name": "copy1_precise_pe",
+          "metric_family": "precise",
+          "population_scope": "confident_copy",
+          "population_id": "a6e75fcf5a3ca2fbffaf8200b7ab2724cad69c292f415d8b15ff1621aba9e29d",
+          "population_input_reads": null,
+          "copy_id": "copy1",
+          "routing_conditioned": true,
+          "assessment_stage": "backend_aligned_products",
+          "status": "BLOCKED",
+          "numerator": null,
+          "denominator": null,
+          "reason_codes": [
+            "COPY_COHORT_UNAVAILABLE"
+          ],
+          "confident_input_reads": null,
+          "backend_input_reads": null,
+          "reads_after_preprocessing": null,
+          "aligned_reads": null,
+          "unaligned_reads": null,
+          "ordinary_classified_aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "discarded_aligned_reads": null,
+          "backend_counts_role": "unavailable",
+          "preprocessing_count_delta": null,
+          "unaligned_reason_counts": {},
+          "products": null,
+          "population_denominator_exclusions": null
+        }
+      },
+      "copy2": {
+        "copy_id": "copy2",
+        "copy_metric_status": "BLOCKED",
+        "native": {
+          "metric_name": "copy2_crispresso_native_pe",
+          "metric_family": "native",
+          "population_scope": "confident_copy",
+          "population_id": "48c8cc14a43f22b43316ee456e1b0c1ced1ff7ad8c734e6124c042f5ef5449c8",
+          "population_input_reads": null,
+          "copy_id": "copy2",
+          "routing_conditioned": true,
+          "assessment_stage": "backend_aligned_products",
+          "status": "BLOCKED",
+          "numerator": null,
+          "denominator": null,
+          "reason_codes": [
+            "COPY_COHORT_UNAVAILABLE"
+          ],
+          "confident_input_reads": null,
+          "backend_input_reads": null,
+          "reads_after_preprocessing": null,
+          "aligned_reads": null,
+          "unaligned_reads": null,
+          "ordinary_classified_aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "discarded_aligned_reads": null,
+          "backend_counts_role": "unavailable",
+          "preprocessing_count_delta": null,
+          "unaligned_reason_counts": {},
+          "products": null,
+          "population_denominator_exclusions": null
+        },
+        "precise": {
+          "metric_name": "copy2_precise_pe",
+          "metric_family": "precise",
+          "population_scope": "confident_copy",
+          "population_id": "48c8cc14a43f22b43316ee456e1b0c1ced1ff7ad8c734e6124c042f5ef5449c8",
+          "population_input_reads": null,
+          "copy_id": "copy2",
+          "routing_conditioned": true,
+          "assessment_stage": "backend_aligned_products",
+          "status": "BLOCKED",
+          "numerator": null,
+          "denominator": null,
+          "reason_codes": [
+            "COPY_COHORT_UNAVAILABLE"
+          ],
+          "confident_input_reads": null,
+          "backend_input_reads": null,
+          "reads_after_preprocessing": null,
+          "aligned_reads": null,
+          "unaligned_reads": null,
+          "ordinary_classified_aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "discarded_aligned_reads": null,
+          "backend_counts_role": "unavailable",
+          "preprocessing_count_delta": null,
+          "unaligned_reason_counts": {},
+          "products": null,
+          "population_denominator_exclusions": null
+        }
+      }
+    },
+    "qc": {
+      "prepared_input_reads": 126,
+      "routing_assigned_reads": null,
+      "routing_quarantined_reads": null,
+      "routing_quarantine_fraction": null,
+      "routing_quarantine_reasons": {},
+      "target_backend_input_reads": null,
+      "target_backend_aligned_reads": null,
+      "target_backend_unaligned_reads": null,
+      "target_backend_unaligned_fraction": null,
+      "exact_assessable_reads": 55,
+      "exact_product_exclusions": 71,
+      "per_copy_confident_counts": {},
+      "limitations": [
+        "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+        "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+        "Target all-read metrics are the primary population view when eligible.",
+        "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+        "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+        "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+        "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+        "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+        "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+      ]
+    },
+    "eligibility": {
+      "target_metric_status": "BLOCKED",
+      "routing_geometry_status": "SAFE",
+      "comparator_status": "BLOCKED",
+      "anchor_invariant": false,
+      "block_reason_codes": [
+        "BACKEND_EXECUTION_FAILED",
+        "COPY_COHORT_UNAVAILABLE"
+      ]
+    },
+    "anchor_failures": {
+      "copy1": "BACKEND_EXECUTION_FAILED",
+      "copy2": "BACKEND_EXECUTION_FAILED"
+    }
+  },
+  "executions": {
+    "copy1": {
+      "scope": "qualification_only_unrouted_all_prepared_reads",
+      "argv": [
+        "/workspace/m41-source-final/m41/preprocessing/invalid_core",
+        "-r1",
+        "input_R1.fastq.gz",
+        "-r2",
+        "input_R2.fastq.gz",
+        "--amplicon_seq",
+        "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "--name",
+        "unrouted",
+        "--output_folder",
+        "output",
+        "--write_detailed_allele_table",
+        "--keep_intermediate",
+        "--suppress_report",
+        "--suppress_plots",
+        "--prime_editing_pegRNA_spacer_seq",
+        "TAGTGCCGACGGACCAGAAC",
+        "--prime_editing_pegRNA_extension_seq",
+        "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "--prime_editing_override_prime_edited_ref_seq",
+        "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+      ],
+      "started_at": "2026-10-22T09:56:40.440226+00:00",
+      "runtime_identity": {
+        "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+      },
+      "software": {
+        "pipeline_version": "0.4.1",
+        "git_commit": "768d4075c2608f3b72293401bb19dce4309f4967",
+        "git_dirty": true,
+        "python_version": "3.12.14",
+        "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+        "dependencies": {
+          "pydantic": "2.14.1",
+          "pydantic_core": "2.50.1",
+          "PyYAML": "6.0.3",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.4",
+          "pillow": "13.0.0",
+          "contourpy": "1.4.0",
+          "cycler": "0.12.1",
+          "fonttools": "4.67.0",
+          "kiwisolver": "1.5.1",
+          "packaging": "26.3",
+          "pyparsing": "3.3.3",
+          "python-dateutil": "2.9.0.post0"
+        }
+      },
+      "analysis_manifest_sha256": "4330a66b0d2db220ca2537952a3ba0474295d283c0e14ffd0868fa75c5bbcb10",
+      "inputs": {
+        "files": {
+          "r1": {
+            "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+            "sha256": "343d84002d2160fbccdf6bd6ae1d99ef1d3beb971b4b411e9b23fb5d62a04232",
+            "size_bytes": 1029
+          },
+          "r2": {
+            "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+            "sha256": "e8450701d49f2afdff52bc3350953340baba67018a0daa5aeb6080afea25c441",
+            "size_bytes": 1040
+          }
+        },
+        "pairs": 126
+      },
+      "status": "failed",
+      "return_code": 2,
+      "error": "COMMAND_FAILED: comparator Core exit 2",
+      "reason_code": "BACKEND_EXECUTION_FAILED",
+      "ended_at": "2026-10-22T09:56:42.347010+00:00"
+    },
+    "copy2": {
+      "scope": "qualification_only_unrouted_all_prepared_reads",
+      "argv": [
+        "/workspace/m41-source-final/m41/preprocessing/invalid_core",
+        "-r1",
+        "input_R1.fastq.gz",
+        "-r2",
+        "input_R2.fastq.gz",
+        "--amplicon_seq",
+        "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+        "--name",
+        "unrouted",
+        "--output_folder",
+        "output",
+        "--write_detailed_allele_table",
+        "--keep_intermediate",
+        "--suppress_report",
+        "--suppress_plots",
+        "--prime_editing_pegRNA_spacer_seq",
+        "TAGTGCCGACGGACCAGAAC",
+        "--prime_editing_pegRNA_extension_seq",
+        "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+        "--prime_editing_override_prime_edited_ref_seq",
+        "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+      ],
+      "started_at": "2026-10-22T09:56:42.348512+00:00",
+      "runtime_identity": {
+        "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+      },
+      "software": {
+        "pipeline_version": "0.4.1",
+        "git_commit": "768d4075c2608f3b72293401bb19dce4309f4967",
+        "git_dirty": true,
+        "python_version": "3.12.14",
+        "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+        "dependencies": {
+          "pydantic": "2.14.1",
+          "pydantic_core": "2.50.1",
+          "PyYAML": "6.0.3",
+          "matplotlib": "3.11.2",
+          "numpy": "2.5.4",
+          "pillow": "13.0.0",
+          "contourpy": "1.4.0",
+          "cycler": "0.12.1",
+          "fonttools": "4.67.0",
+          "kiwisolver": "1.5.1",
+          "packaging": "26.3",
+          "pyparsing": "3.3.3",
+          "python-dateutil": "2.9.0.post0"
+        }
+      },
+      "analysis_manifest_sha256": "4330a66b0d2db220ca2537952a3ba0474295d283c0e14ffd0868fa75c5bbcb10",
+      "inputs": {
+        "files": {
+          "r1": {
+            "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+            "sha256": "343d84002d2160fbccdf6bd6ae1d99ef1d3beb971b4b411e9b23fb5d62a04232",
+            "size_bytes": 1029
+          },
+          "r2": {
+            "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+            "sha256": "e8450701d49f2afdff52bc3350953340baba67018a0daa5aeb6080afea25c441",
+            "size_bytes": 1040
+          }
+        },
+        "pairs": 126
+      },
+      "status": "failed",
+      "return_code": 2,
+      "error": "COMMAND_FAILED: comparator Core exit 2",
+      "reason_code": "BACKEND_EXECUTION_FAILED",
+      "ended_at": "2026-10-22T09:56:44.183770+00:00"
+    }
+  }
+}

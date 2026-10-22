@@ -60,7 +60,9 @@ def aligned_products(child, target):
                 full = (name in refs and row['Reference_Sequence'].replace('-', '') == refs[name]['sequence']
                         and not row['Aligned_Sequence'].startswith('-')
                         and not row['Aligned_Sequence'].endswith('-') and set(seq) <= set('ACGT'))
-                if seq == wt == pe:
+                if name.startswith(('AMBIGUOUS_', 'DISCARDED_')):
+                    label = 'unresolved_unassessable'
+                elif seq == wt == pe:
                     label = 'contradictory_state'
                 elif seq == wt:
                     label = 'exact_wt'

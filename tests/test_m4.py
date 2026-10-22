@@ -164,7 +164,23 @@ def test_empirical_anchor_difference_from_independently_reconciled_tables(archiv
     for i in (1,2):
         row=lines[i].split('\t');row[idx]=str(74 if row[0]=='Reference' else 31);lines[i]='\t'.join(row)
     path.write_text('\n'.join(lines)+'\n')
+    # Keep independent allele/JSON/quantification reconciliation valid while
+    # changing one anchor's native result by one ordinary aligned read.
+    running=json.loads((child/'CRISPResso2_info.json').read_text())['running_info']
+    archive_path=child/running['allele_frequency_table_zip_filename']
+    import csv
+    import io
+    with zipfile.ZipFile(archive_path) as z:
+        rows=list(csv.DictReader(io.StringIO(z.read(running['allele_frequency_table_filename']).decode()),delimiter='\t'))
+    for name,delta in [('Reference',-1),('Prime-edited',1)]:
+        row=next(r for r in rows if r['Reference_Name']==name and int(r['#Reads'])>1)
+        row['#Reads']=str(int(row['#Reads'])+delta)
+    buffer=io.StringIO();writer=csv.DictWriter(buffer,fieldnames=rows[0].keys(),delimiter='\t',lineterminator='\n')
+    writer.writeheader();writer.writerows(rows)
+    with zipfile.ZipFile(archive_path,'w') as z:z.writestr(running['allele_frequency_table_filename'],buffer.getvalue())
     result=collect(root)
+    assert result.anchor_evidence['failures']=={}
+    assert len(result.anchor_evidence['backend_metrics'])==2
     assert not result.eligibility.anchor_invariant
     assert 'ANCHOR_DEPENDENT_NATIVE_RESULT' in result.target_metrics.target_crispresso_native_pe.reason_codes
     assert result.target_metrics.target_crispresso_native_pe.numerator is None
@@ -204,9 +220,9 @@ def test_unsupported_geometry_preserves_target_exact(archive):
     assert all('UNSUPPORTED_ROUTING_GEOMETRY' in c.precise.reason_codes for c in result.copies.values())
 
 
-def test_missing_required_global_provenance_blocks_every_metric(archive):
+def test_missing_runtime_provenance_preserves_prepared_exact_metric(archive):
     result=collect(archive,runtime_digest=None)
-    assert result.target_metrics.total_precise_pe.status=='BLOCKED'
+    assert result.target_metrics.total_precise_pe.status=='REPORTABLE'
     assert 'MISSING_REQUIRED_PROVENANCE' in result.eligibility.block_reason_codes
 
 
@@ -238,7 +254,7 @@ def test_overlapping_product_definitions_cannot_guess_wt_or_pe(tmp_path):
     from peanalyzer.demux import demultiplex
     from peanalyzer.schemas import Config
     # Two different full lengths can fit the same repeat-bearing mates. There
-    # is no identical WT/PE definition, yet the pair is state-contradictory.
+    # is no identical WT/PE definition, but reconstruction is non-unique.
     target=Target(target_name='repeat',copy_name='copy1',wt_sequence='A'*20,
                   prime_edited_sequence='A'*25,pegRNA_spacer='AAAAAAA',pegRNA_extension='TTTTT')
     prefixes=('GCTTGCGTTGGAGTGAGTACGGTGTGC','CTGTGTAGTGAGTTGGATGCTGGATGG')
@@ -252,10 +268,10 @@ def test_overlapping_product_definitions_cannot_guess_wt_or_pe(tmp_path):
     result=collect_metrics(analysis_root=tmp_path/'analysis',sample_id='1B',targets=[target],
                            analysis_id='ambiguous-repeat',comparator_root=tmp_path/'absent',runtime_digest=RUNTIME_DIGEST)
     record=result.target_metrics.total_precise_pe
-    assert record.status=='BLOCKED'
+    assert record.status=='NOT_ASSESSABLE'
     assert record.numerator is record.denominator is None
-    assert 'CONTRADICTORY_EXACT_CLASSIFICATION' in record.reason_codes
-    assert record.products.contradictory_state==1
+    assert record.reason_codes==['ZERO_EXACT_DENOMINATOR']
+    assert record.products.unresolved_unassessable==1
 
 
 @pytest.mark.parametrize('attack',['population','scope','numeric_blocked','float_count','native_denominator','extra_field'])

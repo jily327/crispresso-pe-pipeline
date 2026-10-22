@@ -48,6 +48,7 @@ def test_actual_target_native_and_exact_populations(production):
     assert (native.backend_input_reads,native.aligned_reads,native.unaligned_reads,native.numerator,native.denominator)==expected
     assert result.eligibility.anchor_invariant and native.status=='REPORTABLE'
     if name=='m31': assert (exact.numerator,exact.denominator)==(20,55)
+    else: assert (exact.numerator,exact.denominator)==(100,230)
     assert native.population_id==exact.population_id and exact.population_input_reads==expected[0]
     assert MetricResult.model_validate_json((root/'m4/result.json').read_text())==result
 

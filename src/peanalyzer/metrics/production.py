@@ -12,7 +12,7 @@ from pathlib import Path
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.backend.comparator import evaluate_anchors, normalize_include_idxs, run_comparator
 from peanalyzer.backend.core import run_confident_core, verify_routing_output
-from peanalyzer.backend.metrics import MetricContractError, child_file, parse_child
+from peanalyzer.backend.metrics import MetricContractError, child_file, parse_child, backend_failure_code
 from peanalyzer.backend.pooled import BackendError, FIELDS, preflight_guides
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.geometry import geometry
@@ -28,7 +28,7 @@ LIMITATIONS = [
     'Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.',
     'Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.',
     'Target all-read metrics are the primary population view when eligible.',
-    'Prepared exact classification requires inward-facing amplicon-end reads with complete combined coverage; internal fragments, gaps and disagreements are excluded.',
+    'Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.',
     'Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.',
     'Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.',
     'Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.',
@@ -73,7 +73,9 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
     if not isinstance(execution, dict):
         raise GateError('MISSING_REQUIRED_PROVENANCE')
     if execution.get('status') != 'completed' or execution.get('return_code') != 0:
-        raise GateError('MISSING_INCOMPLETE_BACKEND_METRICS')
+        raise GateError(execution.get('reason_code') or
+                        ('BACKEND_EXECUTION_FAILED' if execution.get('return_code') not in (None, 0)
+                         else 'MISSING_INCOMPLETE_BACKEND_METRICS'))
     if (not isinstance(execution.get('software'), dict)
             or not execution['software'].get('pipeline_version')
             or not execution.get('started_at') or not execution.get('ended_at')
@@ -109,11 +111,9 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
         raise GateError('BACKEND_REFERENCE_MISMATCH')
     try:
         metrics = parse_child(child, routed_pairs=inputs['pairs'], one_input_record_per_pair=True,
-                              preprocessing_preserves_records=comparator)
+                              preprocessing_preserves_records=False)
     except MetricContractError as exc:
-        code = ('ROUTED_BACKEND_INPUT_MISMATCH' if 'router/backend input mismatch' in str(exc)
-                else 'BACKEND_COUNTER_RECONCILIATION_FAILED')
-        raise GateError(code, str(exc)) from exc
+        raise GateError(exc.code, str(exc)) from exc
     for filename in ['CRISPResso2_info.json', *(info['running_info'][key] for key in
                      ('mapping_stats_filename', 'quant_of_editing_freq_filename', 'allele_frequency_table_zip_filename'))]:
         inventory(child_file(child, filename), artifacts, label + '/child/' + filename)
@@ -139,7 +139,8 @@ def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=
     else:
         status = 'REPORTABLE'
     attrs = {k: native[k] for k in ('backend_input_reads', 'reads_after_preprocessing', 'aligned_reads',
-             'unaligned_reads', 'preprocessing_count_delta', 'unaligned_reason_counts')} if native else {}
+             'unaligned_reads', 'preprocessing_count_delta', 'unaligned_reason_counts',
+             'ordinary_classified_aligned_reads', 'ambiguous_aligned_reads', 'discarded_aligned_reads')} if native else {}
     target_exact = scope == 'target_all_prepared' and family == 'precise'
     return MetricRecord(metric_name=name, metric_family=family, population_scope=scope,
                         population_id=pop_id, population_input_reads=count, copy_id=copy,
@@ -177,9 +178,10 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     targets = sorted(targets, key=lambda t: t.copy_name)
     definitions_hash = digest([t.model_dump() for t in targets])
     artifacts, global_reasons, routing_reasons, native_reasons = {}, [], [], []
+    runtime_reasons = []
     verified, sample, routing, route_hash, products = None, None, None, None, None
     if runtime_digest != RUNTIME_DIGEST:
-        global_reasons.append('MISSING_REQUIRED_PROVENANCE' if not runtime_digest else 'UNQUALIFIED_BACKEND_RUNTIME')
+        runtime_reasons.append('MISSING_REQUIRED_PROVENANCE' if not runtime_digest else 'UNQUALIFIED_BACKEND_RUNTIME')
     try:
         report = geometry(targets)
     except (ValueError, KeyError) as exc:
@@ -214,7 +216,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
                              sample=sample_id, target=definitions_hash, scope='target_all_prepared'))
     count = sample['pairs'] if sample else None
     anchor_metrics, anchor_failures = {}, {}
-    if verified and sample and not global_reasons and not native_reasons:
+    native_preconditions = global_reasons + native_reasons + runtime_reasons
+    if verified and sample and not native_preconditions:
         for target in targets:
             try:
                 root = Path(comparator_root) / target.copy_name
@@ -226,13 +229,17 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
                 anchor_metrics[target.copy_name] = parsed
             except GateError as exc:
                 anchor_failures[target.copy_name] = exc.code
-            except (OSError, ValueError, KeyError, TypeError):
-                anchor_failures[target.copy_name] = 'MISSING_INCOMPLETE_BACKEND_METRICS'
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                anchor_failures[target.copy_name] = backend_failure_code(exc)
     native_reasons.extend(anchor_failures.values())
     try:
-        comparison = evaluate_anchors(targets, anchor_metrics)
+        comparison = (dict(status='BLOCKED', reasons=[], anchor_invariant=False, anchors={},
+                           skipped_reason_codes=sorted(set(native_preconditions))) if native_preconditions
+                      else evaluate_anchors(targets, anchor_metrics))
     except (ValueError, KeyError, TypeError):
         comparison = dict(status='BLOCKED', reasons=['COMPARATOR_NOT_QUALIFIED'], anchor_invariant=False, anchors={})
+    if anchor_failures and 'MISSING_ANCHOR_RESULT' not in anchor_failures.values():
+        comparison['reasons'] = [r for r in comparison['reasons'] if r != 'MISSING_ANCHOR_RESULT']
     native_reasons.extend(comparison['reasons'])
     for target in targets:
         if target.copy_name in anchor_metrics:
@@ -241,7 +248,7 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     common = (next(iter(anchor_metrics.values()))['native']
               if comparison['anchor_invariant'] and not native_reasons else None)
     target_native = metric('target_crispresso_native_pe', 'native', 'target_all_prepared', population, count,
-                           reasons=global_reasons + native_reasons, native=common)
+                           reasons=global_reasons + native_reasons + runtime_reasons, native=common)
     target_exact = metric('total_precise_pe', 'precise', 'target_all_prepared', population, count,
                           reasons=global_reasons, native=common, products=products)
     if routing_root is None:
@@ -267,7 +274,7 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     copies = {}
     for target in targets:
         copy = target.copy_name
-        reasons = global_reasons + routing_reasons
+        reasons = global_reasons + routing_reasons + runtime_reasons
         cohort = routing['cohorts'][copy] if routing else None
         size = cohort['pairs'] if cohort else None
         pop_id = digest(dict(prepared_population=population, routing=route_hash, copy=copy, scope='confident_copy'))
@@ -284,8 +291,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
                                                      comparator=False)
             except GateError as exc:
                 reasons = reasons + [exc.code]
-            except (OSError, ValueError, KeyError, TypeError):
-                reasons = reasons + ['MISSING_INCOMPLETE_BACKEND_METRICS']
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                reasons = reasons + [backend_failure_code(exc)]
         attrs = parsed['native'] if parsed else None
         windows = window_reasons(parsed, target) if parsed else []
         native = metric(copy + '_crispresso_native_pe', 'native', 'confident_copy', pop_id, size,
@@ -339,12 +346,26 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
         analysis_id=analysis_id, comparator_root=output/'comparator', routing_root=routing_root,
         runtime_digest=runtime_digest)
     failures = {}
+    def record_unstarted_failure(root, exc):
+        # Preserve failures before a runner creates its execution manifest.
+        # Existing completed/failed execution evidence must never be replaced.
+        path = root/'execution.json'
+        if not path.exists():
+            root.mkdir(parents=True, exist_ok=True)
+            with path.open('x') as handle:
+                json.dump(dict(status='not_started', return_code=None,
+                               reason_code=backend_failure_code(exc), error=str(exc)), handle, indent=2)
+                handle.write('\n')
     allowed_missing = {'MISSING_ANCHOR_RESULT', 'ANCHOR_DEPENDENT_NATIVE_RESULT'}
     if set(initial.target_metrics.target_crispresso_native_pe.reason_codes) <= allowed_missing:
         try:
-            run_comparator(analysis_root, sample_id, targets, output/'comparator', core, runtime_identity=runtime)
+            comparison = run_comparator(analysis_root, sample_id, targets, output/'comparator', core, runtime_identity=runtime)
+            if comparison['anchor_failures']:
+                failures['anchors'] = comparison['anchor_failures']
         except (OSError, ValueError, KeyError, TypeError, BackendError) as exc:
             failures['comparator'] = str(exc)
+            for target in targets:
+                record_unstarted_failure(output/'comparator'/target.copy_name, exc)
     copy_roots = {}
     for copy, row in initial.copies.items():
         if row.native.reason_codes == ['MISSING_INCOMPLETE_BACKEND_METRICS']:
@@ -353,6 +374,7 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
                 run_confident_core(Path(routing_root), copy, copy_roots[copy], core, runtime_identity=runtime)
             except (OSError, ValueError, KeyError, TypeError, BackendError) as exc:
                 failures[copy] = str(exc)
+                record_unstarted_failure(copy_roots[copy], exc)
     result = collect_metrics(analysis_root=analysis_root, sample_id=sample_id, targets=targets,
         analysis_id=analysis_id, comparator_root=output/'comparator', routing_root=routing_root,
         copy_roots=copy_roots, runtime_digest=runtime_digest)

@@ -159,7 +159,7 @@ def test_original_125_decisions_and_indel_admission_are_unchanged(tmp_path):
 
 
 def metrics_with_window(window):
-    return {c:dict(native=dict(backend_input_reads=125,aligned_reads=105,unaligned_reads=20,numerator=30,denominator=105),
+    return {c:dict(native=dict(backend_input_reads=125,reads_after_preprocessing=125,preprocessing_count_delta=0,aligned_reads=105,unaligned_reads=20,numerator=30,denominator=105),
                    authoritative_reference_quantification_window=window) for c in ('copy1','copy2')}
 
 

@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "audited_parent": "768d4075c2608f3b72293401bb19dce4309f4967",
+  "package_version": "0.4.1",
+  "source_tests": 556,
+  "wheel_tests": 556,
+  "actual_backend_tests_per_environment": 28,
+  "historical_evidence_untouched": true,
+  "routing_geometry_unchanged": true,
+  "blockers_remediated": [
+    "HIGH-1",
+    "HIGH-2",
+    "MEDIUM-1",
+    "MEDIUM-2",
+    "MEDIUM-3"
+  ]
+}
