@@ -19,6 +19,7 @@ from peanalyzer.demux_verify import read_json
 from peanalyzer.schemas import Target
 from peanalyzer.metrics.family_models import FamilyPolicy,FamilyMetric,ObservedProduct,ProductEvidence
 from peanalyzer.metrics.policy_requests import PolicyRequest, prepare_policies
+from peanalyzer.metrics.products import selective_observability_reasons
 
 
 @lru_cache(maxsize=4096)
@@ -149,6 +150,14 @@ def aggregate_family(evidence,policy):
     targets=[Target.model_validate(t) for t in evidence.targets]
     request=policy if isinstance(policy,PolicyRequest) else prepare_policies([policy],targets).requests[0]
     reasons=list(evidence.blocking_reasons)+list(request.reasons)
+    # Apply the population guard to stored evidence as well as fresh evidence,
+    # before any tolerance policy can aggregate a surviving biological subset.
+    excluded_reasons=Counter()
+    if evidence.population_scope=='target_all_prepared' and evidence.assessment_stage=='prepared_pairs':
+        for row in evidence.products:
+            if not row.assessable:
+                for reason in row.reason_codes:excluded_reasons[reason]+=row.count
+    selective=selective_observability_reasons(excluded_reasons)
     policy=request.policy
     policy_dict=policy.model_dump() if policy else request.raw
     policy_id=request.policy_id
@@ -157,7 +166,7 @@ def aggregate_family(evidence,policy):
         except (ValueError,IndexError):reasons.append('UNSUPPORTED_FAMILY_PRODUCT_DEFINITION')
     counts=Counter()
     for row in evidence.products:
-        if reasons or not policy or not row.assessable or row.sequence is None:
+        if reasons or selective or not policy or not row.assessable or row.sequence is None:
             counts['excluded']+=row.count;continue
         # Recompute distances from immutable sequence and definitions; stored
         # candidate annotations remain explanatory evidence, not trusted calls.
@@ -175,6 +184,7 @@ def aggregate_family(evidence,policy):
         counts[label]+=row.count
     denominator=counts['WT']+counts['PE']
     if reasons:status='BLOCKED'
+    elif selective:status='NOT_ASSESSABLE';reasons=selective
     elif not denominator:status='NOT_ASSESSABLE';reasons=['ZERO_FAMILY_DENOMINATOR']
     else:status='REPORTABLE'
     return FamilyMetric(metric_name='total_pe_family' if evidence.copy_id is None else evidence.copy_id+'_pe_family',

@@ -1,0 +1,691 @@
+{
+  "request": {
+    "evidence": {
+      "evidence_version": 1,
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 1380,
+      "classification_input_reads": 1380,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 1000,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": true,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCGGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 20,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCTGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 10,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCGGTCACTTCCTTCGACTGATCTGTACGTGCTGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 5,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "WT",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 3,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 5,
+          "assessable": false,
+          "reason_codes": [
+            "FULL_PRODUCT_NOT_ESTABLISHED"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": false,
+              "complete_intended_state": false,
+              "reason": "NONUNIQUE_PRODUCT_ALIGNMENT",
+              "extra_substitutions": [],
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": false,
+              "complete_intended_state": false,
+              "reason": "NONUNIQUE_PRODUCT_ALIGNMENT",
+              "extra_substitutions": [],
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 300,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": true,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 0,
+              "extra_substitutions": [],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCGGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 20,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCTGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 10,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCGGTCACTTCCTTCGACTGATCTGTACGTGCTGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 5,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 3,
+              "extra_substitutions": [
+                {
+                  "position": 122,
+                  "wt_position": 122,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                },
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 149,
+                  "wt_position": 149,
+                  "anchor_position": 149,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 179,
+                  "wt_position": 179,
+                  "anchor_position": 179,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCCGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 5,
+          "assessable": false,
+          "reason_codes": [
+            "FULL_PRODUCT_NOT_ESTABLISHED"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": false,
+              "complete_intended_state": false,
+              "reason": "NONUNIQUE_PRODUCT_ALIGNMENT",
+              "extra_substitutions": [],
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": false,
+              "complete_intended_state": false,
+              "reason": "NONUNIQUE_PRODUCT_ALIGNMENT",
+              "extra_substitutions": [],
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "policies": [
+      {},
+      null,
+      {
+        "policy_id": "same"
+      },
+      {
+        "policy_id": "same"
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ]
+  },
+  "results": {
+    "__invalid_policy_request_0": {
+      "metric_name": "total_pe_family",
+      "policy_id": "invalid",
+      "policy": {},
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "BLOCKED",
+      "numerator": null,
+      "denominator": null,
+      "wt_family": 0,
+      "pe_family": 0,
+      "family_ambiguous": 0,
+      "excluded": 1380,
+      "classification_input_reads": 1380,
+      "reason_codes": [
+        "MISSING_POLICY_ID"
+      ]
+    },
+    "__invalid_policy_request_1": {
+      "metric_name": "total_pe_family",
+      "policy_id": "invalid",
+      "policy": {
+        "invalid_policy": null
+      },
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "BLOCKED",
+      "numerator": null,
+      "denominator": null,
+      "wt_family": 0,
+      "pe_family": 0,
+      "family_ambiguous": 0,
+      "excluded": 1380,
+      "classification_input_reads": 1380,
+      "reason_codes": [
+        "INVALID_TOLERANCE_POLICY"
+      ]
+    },
+    "__invalid_policy_request_2": {
+      "metric_name": "total_pe_family",
+      "policy_id": "same",
+      "policy": {
+        "policy_id": "same"
+      },
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "BLOCKED",
+      "numerator": null,
+      "denominator": null,
+      "wt_family": 0,
+      "pe_family": 0,
+      "family_ambiguous": 0,
+      "excluded": 1380,
+      "classification_input_reads": 1380,
+      "reason_codes": [
+        "DUPLICATE_POLICY_ID"
+      ]
+    },
+    "__invalid_policy_request_3": {
+      "metric_name": "total_pe_family",
+      "policy_id": "same",
+      "policy": {
+        "policy_id": "same"
+      },
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "BLOCKED",
+      "numerator": null,
+      "denominator": null,
+      "wt_family": 0,
+      "pe_family": 0,
+      "family_ambiguous": 0,
+      "excluded": 1380,
+      "classification_input_reads": 1380,
+      "reason_codes": [
+        "DUPLICATE_POLICY_ID"
+      ]
+    },
+    "valid": {
+      "metric_name": "total_pe_family",
+      "policy_id": "valid",
+      "policy": {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1,
+        "max_extra_indel_events": 0,
+        "allowed_extra_substitution_positions": null
+      },
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "REPORTABLE",
+      "numerator": 330,
+      "denominator": 1360,
+      "wt_family": 1030,
+      "pe_family": 330,
+      "family_ambiguous": 0,
+      "excluded": 20,
+      "classification_input_reads": 1380,
+      "reason_codes": []
+    }
+  },
+  "equal": true,
+  "fastq_or_backend_access": false
+}

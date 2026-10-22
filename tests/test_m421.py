@@ -222,5 +222,8 @@ def test_mixed_length_population_excludes_entire_biased_class(tmp_path):
     assert products.exclusion_reason_counts=={'COPY_DEPENDENT_PRODUCT_OBSERVABILITY':40}
     evidence=prepared_evidence(paths,targets,population_id='mixed',population_scope='target_all_prepared',copy_id=None,source_input_reads=80)
     result=aggregate_family(evidence,dict(policy_id='one',max_extra_substitutions=1))
-    assert (result.numerator,result.denominator,result.excluded)==(20,40,40)
+    # M4.2.2: retain per-pair QC, but never report the selected target subset.
+    assert result.status=='NOT_ASSESSABLE'
+    assert (result.numerator,result.denominator,result.excluded)==(None,None,80)
+    assert result.reason_codes==['COPY_DEPENDENT_PRODUCT_OBSERVABILITY']
     assert population_observability(paths,targets)['backend_reason_counts']=={'COPY_DEPENDENT_BACKEND_MERGEABILITY':40}

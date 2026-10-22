@@ -1,0 +1,53 @@
+{
+  "results": {
+    "0": {
+      "metric_name": "total_pe_family",
+      "policy_id": "0",
+      "policy": {
+        "policy_id": "0",
+        "max_extra_substitutions": 0,
+        "max_extra_indel_events": 0,
+        "allowed_extra_substitution_positions": null
+      },
+      "population_id": "m422-matrix:copy2_1_all",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "NOT_ASSESSABLE",
+      "numerator": null,
+      "denominator": null,
+      "wt_family": 0,
+      "pe_family": 0,
+      "family_ambiguous": 0,
+      "excluded": 40,
+      "classification_input_reads": 40,
+      "reason_codes": [
+        "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+      ]
+    },
+    "1": {
+      "metric_name": "total_pe_family",
+      "policy_id": "1",
+      "policy": {
+        "policy_id": "1",
+        "max_extra_substitutions": 1,
+        "max_extra_indel_events": 0,
+        "allowed_extra_substitution_positions": null
+      },
+      "population_id": "m422-matrix:copy2_1_all",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "status": "NOT_ASSESSABLE",
+      "numerator": null,
+      "denominator": null,
+      "wt_family": 0,
+      "pe_family": 0,
+      "family_ambiguous": 0,
+      "excluded": 40,
+      "classification_input_reads": 40,
+      "reason_codes": [
+        "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+      ]
+    }
+  },
+  "fastq_or_backend_access": false
+}

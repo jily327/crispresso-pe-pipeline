@@ -13,6 +13,19 @@ from peanalyzer.metrics.models import ProductCounts
 from peanalyzer.observability import assess_pair
 
 
+SELECTIVE_OBSERVABILITY_REASONS = frozenset({
+    'COPY_DEPENDENT_PRODUCT_OBSERVABILITY',
+    'STATE_DEPENDENT_PRODUCT_OBSERVABILITY',
+    'STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY',
+})
+
+
+def selective_observability_reasons(reason_counts):
+    """Reasons that invalidate a whole-target product denominator, not its QC."""
+    return sorted(reason for reason in SELECTIVE_OBSERVABILITY_REASONS
+                  if reason_counts.get(reason, 0) > 0)
+
+
 def contradictory_products(targets):
     return bool({t.wt_sequence for t in targets} & {t.prime_edited_sequence for t in targets})
 

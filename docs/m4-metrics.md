@@ -12,6 +12,9 @@ M4.2 (package 0.4.2) adds within-copy state symmetry, empirically qualified
 mergeability, short-period overlap checks and optional WT/PE-family aggregation.
 M4.2.1 (package 0.4.3) also protects target composition across copies at each
 observed mate-length geometry and isolates every invalid policy request.
+M4.2.2 (package 0.4.4) additionally withholds the entire target precise/family
+fraction when any prepared pair has a biologically selective observability
+exclusion. See [the focused validation](validation/m422/README.md).
 
 ## Population and denominator contracts
 
@@ -182,11 +185,13 @@ suffix/prefix overlap, including shorter alternatives. Exactly one placement
 of at least 10 nt must reconstruct the complete product. A shorter placement
 also invalidates that reconstruction when it has at least four matching bases,
 or its shift is a repeat period fitting at least twice in the qualifying overlap.
-The four-base alternative boundary admits distinct self-consistent product lengths
-for periods greater than half the qualifying overlap, including periods 6–10. This closes short CAG/CA expansion
-aliases without rejecting informative overlaps merely containing an internal
-microsatellite. This is a qualified conservative reconstruction contract, not a
-claim to resolve every possible unobserved repeat expansion.
+Qualified ambiguous reconstructions in the tested period 1–10 expansion and
+contraction grid fail closed; sufficiently informative unique flanks remain
+exact. This does not imply that period 6–10 repeat structures are universally
+resolvable. Byte-identical molecules and molecules with insufficient true
+overlap (including 0–3 nt) may be information-theoretically indistinguishable.
+This accepted read-information limit is separate from the whole-target
+observability rule below; no speculative sequence inference is applied.
 
 For each observed mate-length geometry, both WT and intended PE references must
 have the same exact observability **within each copy**. State-dependent exact
@@ -217,8 +222,23 @@ It alone does not block target metrics. At each observed mate-length class,
 backend merge eligibility is compared across every copy × state candidate.
 A difference across copies blocks the whole target native result with
 `COPY_DEPENDENT_BACKEND_MERGEABILITY`, before launching a selected backend cohort.
-Target exact/family exclude only classes with unequal exact observability; retained
-classes can remain reportable. No retained exact denominator means NOT_ASSESSABLE.
+Target exact/family are all-or-nothing for biologically selective observability:
+if **any** prepared pair is excluded with `COPY_DEPENDENT_PRODUCT_OBSERVABILITY`,
+`STATE_DEPENDENT_PRODUCT_OBSERVABILITY`, or
+`STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY`, the whole target product metric
+is `NOT_ASSESSABLE`, with null numerator and denominator and the explicit reason.
+No numeric fraction is emitted. The surviving classes cannot define a selected
+target denominator, even if only one pair failed. Raw per-product counts remain
+QC, not a reportable target fraction. Family aggregation applies the same guard
+before tolerance assignment, including reaggregation of stored evidence; invalid
+policies still produce local `BLOCKED` results. Its entire population is recorded
+as excluded when this guard fires, while original exclusion details remain in
+product evidence and exact-product QC.
+
+Multiple read-length classes are allowed when each is biologically symmetric.
+Ordinary extra substitutions, indels, nonexact products and non-selective
+unassessable exclusions retain their existing denominator rules. A zero exact
+or family denominator remains `NOT_ASSESSABLE`.
 Thus 240/234 nt substitution copies at 125+125 mates have blocked native but
 reportable exact/family; at 124+125 all three lose target eligibility. At 150+150
 all are reportable. Length equality does not protect copy-specific repeat ambiguity.

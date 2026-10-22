@@ -11,3 +11,4 @@ recursive-include tests *.py
 recursive-include docs/validation/m41 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
 recursive-include docs/validation/m42 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
 recursive-include docs/validation/m421 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
+recursive-include docs/validation/m422 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh

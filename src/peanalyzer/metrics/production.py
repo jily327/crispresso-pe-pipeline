@@ -18,7 +18,8 @@ from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.geometry import geometry
 from peanalyzer.metrics.models import (CopyMetrics, Eligibility, MetricRecord, MetricResult,
                                       Provenance, QC, Ratio, TargetMetrics)
-from peanalyzer.metrics.products import aligned_products, contradictory_products, prepared_products
+from peanalyzer.metrics.products import (aligned_products, contradictory_products, prepared_products,
+                                        selective_observability_reasons)
 from peanalyzer.provenance import software_provenance
 from peanalyzer.routing import RoutingPolicy, policy_identity
 from peanalyzer.schemas import Target
@@ -131,10 +132,14 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
 
 def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=None, products=None):
     reasons = sorted(set(reasons))
+    target_exact = scope == 'target_all_prepared' and family == 'precise'
+    selective = selective_observability_reasons(products.exclusion_reason_counts) if target_exact and products else []
     n = native['numerator'] if family == 'native' and native else products.exact_pe if products else None
     d = native['denominator'] if family == 'native' and native else products.exact_wt + products.exact_pe if products else None
     if reasons:
         status = 'BLOCKED'
+    elif selective:
+        status, reasons = 'NOT_ASSESSABLE', selective
     elif d == 0:
         status = 'NOT_ASSESSABLE'
         reasons = ['ZERO_EXACT_DENOMINATOR' if family == 'precise' else 'ZERO_NATIVE_DENOMINATOR']
@@ -146,7 +151,6 @@ def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=
     attrs = {k: native[k] for k in ('backend_input_reads', 'reads_after_preprocessing', 'aligned_reads',
              'unaligned_reads', 'preprocessing_count_delta', 'unaligned_reason_counts',
              'ordinary_classified_aligned_reads', 'ambiguous_aligned_reads', 'discarded_aligned_reads')} if native else {}
-    target_exact = scope == 'target_all_prepared' and family == 'precise'
     return MetricRecord(metric_name=name, metric_family=family, population_scope=scope,
                         population_id=pop_id, population_input_reads=count, copy_id=copy,
                         routing_conditioned=copy is not None,

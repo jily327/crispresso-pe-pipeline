@@ -2,6 +2,11 @@
 
 **M4 implements production PE measurements with explicit target and copy
 populations, integer denominators, provenance and reportability gates.**
+**M4.2.2 (0.4.4)** withholds whole-target precise/family fractions when any
+prepared pair has copy- or state-dependent product observability. Safe mixed
+read lengths and independently qualified copy metrics remain supported. See
+[remediation evidence](docs/validation/m422/README.md).
+
 Use the [M4 Python API and measurement contracts](docs/m4-metrics.md), including
 the target all-read native/precise metrics and separately labelled confident-copy
 metrics. See [M4 evidence](docs/validation/m4/README.md) for qualification and

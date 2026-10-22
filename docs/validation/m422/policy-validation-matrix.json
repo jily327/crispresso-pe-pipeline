@@ -1,0 +1,1342 @@
+{
+  "none": {
+    "requests": [],
+    "canonical_equal": true,
+    "target": {}
+  },
+  "one": {
+    "requests": [
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "two": {
+    "requests": [
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      },
+      {
+        "policy_id": "strict"
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      },
+      "strict": {
+        "metric_name": "total_pe_family",
+        "policy_id": "strict",
+        "policy": {
+          "policy_id": "strict",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 55,
+        "wt_family": 35,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 70,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "duplicate": {
+    "requests": [
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "DUPLICATE_POLICY_ID"
+        ]
+      },
+      "__invalid_policy_request_1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "DUPLICATE_POLICY_ID"
+        ]
+      }
+    }
+  },
+  "missing_twice": {
+    "requests": [
+      {},
+      {}
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "MISSING_POLICY_ID"
+        ]
+      },
+      "__invalid_policy_request_1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "MISSING_POLICY_ID"
+        ]
+      }
+    }
+  },
+  "missing_valid": {
+    "requests": [
+      {},
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "MISSING_POLICY_ID"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "null": {
+    "requests": [
+      null,
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "integer": {
+    "requests": [
+      7,
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": 7
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "string": {
+    "requests": [
+      "bad",
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": "bad"
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "list": {
+    "requests": [
+      [],
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": []
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "bool": {
+    "requests": [
+      true,
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": true
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "unknown": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "x": 1
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "x": 1
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "negative": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "max_extra_substitutions": -1
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "max_extra_substitutions": -1
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "float": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "max_extra_substitutions": 1.0
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "max_extra_substitutions": 1.0
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "bool_count": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "max_extra_substitutions": true
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "max_extra_substitutions": true
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "indel": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "max_extra_indel_events": 1
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "max_extra_indel_events": 1
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "abundance": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "min_haplotype_count": 2
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "min_haplotype_count": 2
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "quality": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "min_base_quality": 20
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "min_base_quality": 20
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "position": {
+    "requests": [
+      {
+        "policy_id": "bad",
+        "allowed_extra_substitution_positions": [
+          999
+        ]
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "bad",
+        "policy": {
+          "policy_id": "bad",
+          "allowed_extra_substitution_positions": [
+            999
+          ]
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "UNSUPPORTED_TOLERANCE_POLICY"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "duplicate_and_valid": {
+    "requests": [
+      {
+        "policy_id": "duplicate"
+      },
+      {
+        "policy_id": "duplicate"
+      },
+      {
+        "policy_id": "valid",
+        "max_extra_substitutions": 1
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "duplicate",
+        "policy": {
+          "policy_id": "duplicate"
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "DUPLICATE_POLICY_ID"
+        ]
+      },
+      "__invalid_policy_request_1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "duplicate",
+        "policy": {
+          "policy_id": "duplicate"
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "DUPLICATE_POLICY_ID"
+        ]
+      },
+      "valid": {
+        "metric_name": "total_pe_family",
+        "policy_id": "valid",
+        "policy": {
+          "policy_id": "valid",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 30,
+        "denominator": 80,
+        "wt_family": 50,
+        "pe_family": 30,
+        "family_ambiguous": 0,
+        "excluded": 45,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "all_invalid": {
+    "requests": [
+      null,
+      {},
+      7,
+      false
+    ],
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "__invalid_policy_request_1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "MISSING_POLICY_ID"
+        ]
+      },
+      "__invalid_policy_request_2": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": 7
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "__invalid_policy_request_3": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": false
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      }
+    }
+  },
+  "key_collision": {
+    "requests": [
+      null,
+      {
+        "policy_id": "__invalid_policy_request_0"
+      }
+    ],
+    "canonical_equal": true,
+    "target": {
+      "___invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      },
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "__invalid_policy_request_0",
+        "policy": {
+          "policy_id": "__invalid_policy_request_0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 55,
+        "wt_family": 35,
+        "pe_family": 20,
+        "family_ambiguous": 0,
+        "excluded": 70,
+        "classification_input_reads": 125,
+        "reason_codes": []
+      }
+    }
+  },
+  "top_integer": {
+    "requests": 7,
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": 7
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      }
+    }
+  },
+  "top_bool": {
+    "requests": true,
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": true
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      }
+    }
+  },
+  "top_string": {
+    "requests": "bad",
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {
+          "invalid_policy": "bad"
+        },
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "INVALID_TOLERANCE_POLICY"
+        ]
+      }
+    }
+  },
+  "top_dict": {
+    "requests": {},
+    "canonical_equal": true,
+    "target": {
+      "__invalid_policy_request_0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "invalid",
+        "policy": {},
+        "population_id": "d1a52fa0fd7c0462ce20b3b5cddcc032f449cb47491f9700c1c8c5bf138b4fbb",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 125,
+        "classification_input_reads": 125,
+        "reason_codes": [
+          "MISSING_POLICY_ID"
+        ]
+      }
+    }
+  }
+}
