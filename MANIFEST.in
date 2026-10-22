@@ -4,5 +4,7 @@ recursive-include docs/validation/m3 *.json *.csv *.tsv *.txt
 recursive-include docs/validation/m31 *.json *.jsonl *.csv *.tsv *.txt
 recursive-include docs/validation/m311 *.json *.jsonl *.csv *.tsv *.txt
 recursive-include docs/validation/m312 *.json *.jsonl *.csv *.tsv *.txt
+recursive-include docs/validation/m4 *.json *.jsonl *.csv *.tsv *.txt
+recursive-include docs/validation/m4 *.py
 recursive-include examples *.csv *.yaml
 recursive-include tests *.py

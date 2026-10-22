@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "software": {
+    "pipeline_version": "0.4.0",
+    "git_commit": "550df70f9f9627c7218b9f047d0b6bf3023b8d25",
+    "git_dirty": true,
+    "python_version": "3.12.14",
+    "python_executable": "/workspace/peanalyzer-venv/bin/python",
+    "dependencies": {
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pillow": "13.0.0",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "packaging": "26.3",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    }
+  },
+  "runtime_identity": {
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+  },
+  "executable_path": "/workspace/validation/m3/bin/CRISPResso",
+  "version_probe": {
+    "argv": [
+      "/workspace/validation/m3/bin/CRISPResso",
+      "--version"
+    ],
+    "started_at": "2026-10-22T05:16:49.020838+00:00",
+    "ended_at": "2026-10-22T05:16:58.734474+00:00",
+    "return_code": 0,
+    "stdout": "CRISPResso 2.3.4\n",
+    "stderr": ""
+  },
+  "argv": [
+    "/workspace/validation/m3/bin/CRISPResso",
+    "-r1",
+    "input_R1.fastq.gz",
+    "-r2",
+    "input_R2.fastq.gz",
+    "--amplicon_seq",
+    "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+    "--name",
+    "confident",
+    "--output_folder",
+    "output",
+    "--write_detailed_allele_table",
+    "--keep_intermediate",
+    "--suppress_report",
+    "--suppress_plots",
+    "--prime_editing_pegRNA_spacer_seq",
+    "TAGTGCCGACGGACCAGAAC",
+    "--prime_editing_pegRNA_extension_seq",
+    "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+    "--prime_editing_override_prime_edited_ref_seq",
+    "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+  ],
+  "cwd": "/tmp/peanalyzer-core-kzgi9xhm",
+  "output_path": "/workspace/validation/m4/source-final/m4/m31/m4/copies/copy2",
+  "routing_manifest_sha256": "903b42c37b28537c0ed0649d9a73441be272fbd35a8600cf787abf4e8eb27e8f",
+  "inputs": {
+    "pairs": 30,
+    "files": {
+      "r1": {
+        "path": "copy2_R1.fastq.gz",
+        "sha256": "7b81ca3192e295ca141c17d05fb9c81b5f5c57a8924df530a1fe7642e2998b29",
+        "size_bytes": 412
+      },
+      "r2": {
+        "path": "copy2_R2.fastq.gz",
+        "sha256": "7106fc1477437d3ed5418b8ee134b6af3a48f216f95f1abfcb7351948746238f",
+        "size_bytes": 426
+      }
+    }
+  },
+  "started_at": "2026-10-22T05:17:25.752482+00:00",
+  "return_code": 0,
+  "ended_at": "2026-10-22T05:17:34.991756+00:00"
+}

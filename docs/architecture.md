@@ -1,4 +1,34 @@
-# Pipeline architecture and contracts (Milestones 1–3)
+# Pipeline architecture and contracts
+
+## Current M4 layer
+
+The audited M3.1.2 merge `550df70f9f9627c7218b9f047d0b6bf3023b8d25` is
+the routing/backend boundary for M4. [M4 measurement contracts](m4-metrics.md)
+supersede the historical proposed metric formulas and future-module descriptions
+below. `metrics/models.py` defines the strict versioned result,
+`metrics/products.py` accounts for observable exact products, and
+`metrics/production.py` executes/collects verified Core analyses. The packaged
+`metrics/result.schema.json` exposes JSON Schema; model validators additionally
+enforce arithmetic and population consistency.
+
+Target native uses empirically invariant conventional Core anchors on **all
+prepared target reads**. Target precise uses exact amplicon-end assessment of
+that same original population, independently of copy routing. Copy native and
+precise metrics describe **only verified M3.1.2 confident cohorts**. Native
+denominator is authoritative aligned reads; precise denominator is exact WT +
+exact PE, never the older generic `analyzable_reads` proposal. Target and copy
+population IDs, input counts and assessment stages are explicit. Empty
+authoritative native quantification windows BLOCK production reporting.
+
+Routing, backend preprocessing/alignment and product assessability each affect
+the applicable denominator. No single stage defines all denominators. Exact PE
+may be higher or lower than native PE; direction alone has no quality meaning.
+Insertion-bearing fragments may be preferentially quarantined by the existing
+observed-flank rule, so copy cohorts may be PE-depleted. M4 exposes these counts
+and this limitation without correction. All 23 previously blocked indel designs
+remain blocked. M2 behavior and M3–M3.1.2 evidence remain unchanged.
+
+## Historical M1–M3 design and investigation
 
 M3.1 update: [explicit routing/preflight/metric contracts](m31-routing.md) qualify
 a conservative replacement for the failed default Pooled routing behavior below.

@@ -1,0 +1,122 @@
+[
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[missing_anchor-MISSING_ANCHOR_RESULT]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[malformed_window-AUTHORITATIVE_QUANTIFICATION_WINDOW_INVALID]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[empty_window-EMPTY_AUTHORITATIVE_QUANTIFICATION_WINDOW]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[diagnostic_window-DIAGNOSTIC_IN_AUTHORITATIVE_QUANTIFICATION_WINDOW]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[counter_mismatch-BACKEND_COUNTER_RECONCILIATION_FAILED]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[missing_backend-MISSING_INCOMPLETE_BACKEND_METRICS]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[missing_provenance-MISSING_REQUIRED_PROVENANCE]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[null_software-MISSING_REQUIRED_PROVENANCE]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[null_execution-MISSING_REQUIRED_PROVENANCE]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[wrong_input-BACKEND_INPUT_LINEAGE_MISMATCH]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[wrong_guide-BACKEND_CONFIGURATION_MISMATCH]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_native_artifact_negative_gates[wrong_reference-BACKEND_REFERENCE_MISMATCH]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_empirical_anchor_difference_from_independently_reconciled_tables",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_copy_gates_do_not_restrict_target_population[stale_policy-STALE_OR_UNQUALIFIED_ROUTING_POLICY]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_copy_gates_do_not_restrict_target_population[ledger-ROUTED_HANDOFF_VERIFICATION_FAILED]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_copy_gates_do_not_restrict_target_population[missing_cohort-ROUTED_HANDOFF_VERIFICATION_FAILED]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_copy_gates_do_not_restrict_target_population[routed_backend_mismatch-ROUTED_BACKEND_INPUT_MISMATCH]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_copy_gates_do_not_restrict_target_population[missing_backend-MISSING_INCOMPLETE_BACKEND_METRICS]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_copy_gates_do_not_restrict_target_population[copy_empty_window-EMPTY_AUTHORITATIVE_QUANTIFICATION_WINDOW]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_unsupported_geometry_preserves_target_exact",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_missing_required_global_provenance_blocks_every_metric",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_cross_copy_contradictory_definitions_are_blocked",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_zero_exact_denominator_is_not_zero_efficiency",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_overlapping_product_definitions_cannot_guess_wt_or_pe",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_schema_rejects_population_and_count_confusion[population]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_schema_rejects_population_and_count_confusion[scope]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_schema_rejects_population_and_count_confusion[numeric_blocked]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_schema_rejects_population_and_count_confusion[float_count]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_schema_rejects_population_and_count_confusion[native_denominator]",
+    "outcome": "PASS"
+  },
+  {
+    "test": "tests.test_m4::test_schema_rejects_population_and_count_confusion[extra_field]",
+    "outcome": "PASS"
+  }
+]

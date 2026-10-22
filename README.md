@@ -1,5 +1,13 @@
 # crispresso-pe-pipeline
 
+**M4 implements production PE measurements with explicit target and copy
+populations, integer denominators, provenance and reportability gates.**
+Use the [M4 Python API and measurement contracts](docs/m4-metrics.md), including
+the target all-read native/precise metrics and separately labelled confident-copy
+metrics. See [M4 evidence](docs/validation/m4/README.md) for qualification and
+reproduction. Statistical analysis, biological interpretation and reporting
+remain future work. The milestone history below describes the boundaries M4 uses.
+
 A local, reproducible prime-editing amplicon sequencing pipeline under development
 for inline-barcoded samples and multiple target copies/homeologs. The intended
 workflow is barcode demultiplexing → CRISPRessoPooled → copy/target PE metrics →
@@ -11,8 +19,8 @@ The actual 2.3.4 synthetic validation found **ROUTING GATE: FAIL**: all 310
 informative reads routed correctly, but all 40 deliberately ambiguous or
 non-informative reads were forced into individual copies. The same experimental
 spacer with a one-base homeolog mismatch was rejected. That default routing
-approach remains blocked; final PE quantification, statistics and reporting
-are not implemented.
+approach remains blocked; M4 uses the subsequent qualified explicit-routing
+boundary for copy metrics. Statistics and reporting are not implemented.
 
 **M3.1 adds a separate explicit diagnostic-evidence router. Its qualified synthetic
 gate passes: 75/125 pairs confidently assigned, 50 quarantined, zero cross-routes.**
@@ -92,14 +100,15 @@ package boundaries, version-pinned CRISPResso invocation and output fields,
 metric definitions, assumptions and remaining milestones. Models in
 `src/peanalyzer/schemas.py` are the executable schema source of truth.
 
-The proposed primary metric is **precise full-amplicon intended PE**, distinct
+The precise metric is **precise full-amplicon intended PE**, distinct
 from all reads assigned to a PE reference or unmodified in a quantification
 window. CRISPRessoPooled's default Bowtie2 routing does not guarantee unambiguous
 homeolog assignment; a validated routing gate is required before copy estimates.
 
-Next, after independent M3.1 review, is production metric implementation using
-the qualified routing boundary. Guide-mismatched and unsupported geometry remain
-blocked. No biological reporting or production metric qualification is implied.
+M4 is ready for independent audit after its documented validation. Guide-mismatched
+backend representations and unsupported copy geometry remain blocked. Copy
+metrics are routing-conditioned; target metrics use all eligible prepared pairs.
+No biological interpretation or statistical reporting is implied.
 Work is developed on feature branches and integrated into `main`
 only after review. Research use; biological definitions require experiment-specific
 confirmation.

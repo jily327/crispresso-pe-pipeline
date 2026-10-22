@@ -1,0 +1,761 @@
+{
+  "$defs": {
+    "Artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "CopyMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "copy_id": {
+          "title": "Copy Id",
+          "type": "string"
+        },
+        "copy_metric_status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Copy Metric Status",
+          "type": "string"
+        },
+        "native": {
+          "$ref": "#/$defs/MetricRecord"
+        },
+        "precise": {
+          "$ref": "#/$defs/MetricRecord"
+        }
+      },
+      "required": [
+        "copy_id",
+        "copy_metric_status",
+        "native",
+        "precise"
+      ],
+      "title": "CopyMetrics",
+      "type": "object"
+    },
+    "Eligibility": {
+      "additionalProperties": false,
+      "properties": {
+        "target_metric_status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Target Metric Status",
+          "type": "string"
+        },
+        "routing_geometry_status": {
+          "enum": [
+            "SAFE",
+            "WARN",
+            "BLOCKED"
+          ],
+          "title": "Routing Geometry Status",
+          "type": "string"
+        },
+        "comparator_status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Comparator Status",
+          "type": "string"
+        },
+        "anchor_invariant": {
+          "title": "Anchor Invariant",
+          "type": "boolean"
+        },
+        "block_reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Block Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "target_metric_status",
+        "routing_geometry_status",
+        "comparator_status",
+        "anchor_invariant",
+        "block_reason_codes"
+      ],
+      "title": "Eligibility",
+      "type": "object"
+    },
+    "MetricRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "metric_name": {
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "metric_family": {
+          "enum": [
+            "native",
+            "precise"
+          ],
+          "title": "Metric Family",
+          "type": "string"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "population_id": {
+          "title": "Population Id",
+          "type": "string"
+        },
+        "population_input_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Population Input Reads"
+        },
+        "copy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Copy Id"
+        },
+        "routing_conditioned": {
+          "title": "Routing Conditioned",
+          "type": "boolean"
+        },
+        "assessment_stage": {
+          "enum": [
+            "backend_aligned_products",
+            "prepared_pairs"
+          ],
+          "title": "Assessment Stage",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Numerator"
+        },
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Denominator"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "confident_input_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confident Input Reads"
+        },
+        "backend_input_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Backend Input Reads"
+        },
+        "reads_after_preprocessing": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reads After Preprocessing"
+        },
+        "aligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Aligned Reads"
+        },
+        "unaligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unaligned Reads"
+        },
+        "backend_counts_role": {
+          "enum": [
+            "metric_filter",
+            "parallel_native_analysis",
+            "unavailable"
+          ],
+          "title": "Backend Counts Role",
+          "type": "string"
+        },
+        "preprocessing_count_delta": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Preprocessing Count Delta"
+        },
+        "unaligned_reason_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Unaligned Reason Counts",
+          "type": "object"
+        },
+        "products": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProductCounts"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "population_denominator_exclusions": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Population Denominator Exclusions"
+        }
+      },
+      "required": [
+        "metric_name",
+        "metric_family",
+        "population_scope",
+        "population_id",
+        "population_input_reads",
+        "copy_id",
+        "routing_conditioned",
+        "assessment_stage",
+        "status",
+        "backend_counts_role"
+      ],
+      "title": "MetricRecord",
+      "type": "object"
+    },
+    "ProductCounts": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_wt": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Exact Wt",
+          "type": "integer"
+        },
+        "exact_pe": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Exact Pe",
+          "type": "integer"
+        },
+        "pe_plus_extra_change": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Pe Plus Extra Change",
+          "type": "integer"
+        },
+        "other_nonexact_assessable": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Other Nonexact Assessable",
+          "type": "integer"
+        },
+        "unresolved_unassessable": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Unresolved Unassessable",
+          "type": "integer"
+        },
+        "contradictory_state": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Contradictory State",
+          "type": "integer"
+        },
+        "denominator_exclusions": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Denominator Exclusions",
+          "type": "integer"
+        },
+        "classification_input_reads": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Classification Input Reads",
+          "type": "integer"
+        }
+      },
+      "title": "ProductCounts",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "software": {
+          "additionalProperties": true,
+          "title": "Software",
+          "type": "object"
+        },
+        "prepared_manifest_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Prepared Manifest Sha256"
+        },
+        "prepared_sample": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Prepared Sample"
+        },
+        "target_definitions_sha256": {
+          "title": "Target Definitions Sha256",
+          "type": "string"
+        },
+        "routing_manifest_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Routing Manifest Sha256"
+        },
+        "routing_policy_identity": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Routing Policy Identity"
+        },
+        "crispresso_version": {
+          "const": "2.3.4",
+          "title": "Crispresso Version",
+          "type": "string"
+        },
+        "runtime_digest": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Runtime Digest"
+        },
+        "artifacts": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Artifact"
+          },
+          "title": "Artifacts",
+          "type": "object"
+        }
+      },
+      "required": [
+        "software",
+        "prepared_manifest_sha256",
+        "prepared_sample",
+        "target_definitions_sha256",
+        "routing_manifest_sha256",
+        "routing_policy_identity",
+        "crispresso_version",
+        "runtime_digest",
+        "artifacts"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "QC": {
+      "additionalProperties": false,
+      "properties": {
+        "prepared_input_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Prepared Input Reads"
+        },
+        "routing_assigned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Routing Assigned Reads"
+        },
+        "routing_quarantined_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Routing Quarantined Reads"
+        },
+        "routing_quarantine_fraction": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ratio"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "routing_quarantine_reasons": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Routing Quarantine Reasons",
+          "type": "object"
+        },
+        "target_backend_input_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Target Backend Input Reads"
+        },
+        "target_backend_aligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Target Backend Aligned Reads"
+        },
+        "target_backend_unaligned_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Target Backend Unaligned Reads"
+        },
+        "target_backend_unaligned_fraction": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ratio"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "exact_assessable_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Exact Assessable Reads"
+        },
+        "exact_product_exclusions": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Exact Product Exclusions"
+        },
+        "per_copy_confident_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Per Copy Confident Counts",
+          "type": "object"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "prepared_input_reads",
+        "routing_assigned_reads",
+        "routing_quarantined_reads",
+        "routing_quarantine_fraction",
+        "routing_quarantine_reasons",
+        "target_backend_input_reads",
+        "target_backend_aligned_reads",
+        "target_backend_unaligned_reads",
+        "target_backend_unaligned_fraction",
+        "exact_assessable_reads",
+        "exact_product_exclusions",
+        "per_copy_confident_counts",
+        "limitations"
+      ],
+      "title": "QC",
+      "type": "object"
+    },
+    "Ratio": {
+      "additionalProperties": false,
+      "properties": {
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "title": "Ratio",
+      "type": "object"
+    },
+    "TargetMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "target_crispresso_native_pe": {
+          "$ref": "#/$defs/MetricRecord"
+        },
+        "total_precise_pe": {
+          "$ref": "#/$defs/MetricRecord"
+        }
+      },
+      "required": [
+        "target_crispresso_native_pe",
+        "total_precise_pe"
+      ],
+      "title": "TargetMetrics",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "metric_contract_version": {
+      "const": "m4-v1",
+      "default": "m4-v1",
+      "title": "Metric Contract Version",
+      "type": "string"
+    },
+    "target_id": {
+      "title": "Target Id",
+      "type": "string"
+    },
+    "sample_id": {
+      "title": "Sample Id",
+      "type": "string"
+    },
+    "analysis_id": {
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "eligibility": {
+      "$ref": "#/$defs/Eligibility"
+    },
+    "target_metrics": {
+      "$ref": "#/$defs/TargetMetrics"
+    },
+    "copies": {
+      "additionalProperties": {
+        "$ref": "#/$defs/CopyMetrics"
+      },
+      "title": "Copies",
+      "type": "object"
+    },
+    "qc": {
+      "$ref": "#/$defs/QC"
+    },
+    "anchor_evidence": {
+      "additionalProperties": true,
+      "title": "Anchor Evidence",
+      "type": "object"
+    }
+  },
+  "required": [
+    "target_id",
+    "sample_id",
+    "analysis_id",
+    "provenance",
+    "eligibility",
+    "target_metrics",
+    "copies",
+    "qc",
+    "anchor_evidence"
+  ],
+  "title": "MetricResult",
+  "type": "object"
+}
