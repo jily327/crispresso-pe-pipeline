@@ -1,0 +1,592 @@
+{
+  "routing_gate": "PASS",
+  "checks": {
+    "no_cross_assignments": true,
+    "ambiguous_quarantined": true,
+    "counts_reconcile": true,
+    "no_duplicates": true,
+    "reference_order_invariant": true,
+    "edit_bias_controlled": true,
+    "no_unexplained_informative_loss": true,
+    "informative_tested": true
+  },
+  "input_pairs": 125,
+  "assigned_pairs": 75,
+  "quarantined_pairs": 50,
+  "quarantine_reasons": {
+    "LOW_QUALITY_DIAGNOSTICS_ONLY": 5,
+    "CONFLICTING_DIAGNOSTIC_EVIDENCE": 20,
+    "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 15,
+    "LOW_QUALITY_CONFLICT": 5,
+    "MATE_CONFLICT": 5
+  },
+  "cross_routed_ids": [],
+  "unsafe_assigned_ids": [],
+  "unexpected_informative_losses": [],
+  "by_truth_class": {
+    "WT": {
+      "total": 20,
+      "ASSIGNED_COPY": 20,
+      "correctly_assigned": 20,
+      "cross_assigned": 0
+    },
+    "precise_PE": {
+      "total": 20,
+      "ASSIGNED_COPY": 20,
+      "correctly_assigned": 20,
+      "cross_assigned": 0
+    },
+    "PE_extra_substitution": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "PE_sequencing_error": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "indel": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "Q20": {
+      "total": 5,
+      "LOW_QUALITY_DIAGNOSTICS_ONLY": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "Q30": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "Q40": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "one_diagnostic_error": {
+      "total": 5,
+      "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "two_diagnostic_errors": {
+      "total": 5,
+      "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "one_site": {
+      "total": 5,
+      "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "two_sites": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "terminal_truncation": {
+      "total": 5,
+      "ASSIGNED_COPY": 5,
+      "correctly_assigned": 5,
+      "cross_assigned": 0
+    },
+    "mosaic_3_1": {
+      "total": 5,
+      "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "mosaic_2_2": {
+      "total": 5,
+      "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "low_quality_conflict": {
+      "total": 5,
+      "LOW_QUALITY_CONFLICT": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "mate_conflict": {
+      "total": 5,
+      "MATE_CONFLICT": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "edit_loss_WT": {
+      "total": 5,
+      "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    },
+    "edit_loss_PE": {
+      "total": 5,
+      "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5,
+      "correctly_assigned": 0,
+      "cross_assigned": 0
+    }
+  },
+  "reference_order_invariant": true,
+  "quality_sensitivity": {
+    "20": {
+      "by_class": {
+        "WT": {
+          "ASSIGNED_COPY": 20
+        },
+        "precise_PE": {
+          "ASSIGNED_COPY": 20
+        },
+        "PE_extra_substitution": {
+          "ASSIGNED_COPY": 5
+        },
+        "PE_sequencing_error": {
+          "ASSIGNED_COPY": 5
+        },
+        "indel": {
+          "ASSIGNED_COPY": 5
+        },
+        "Q20": {
+          "ASSIGNED_COPY": 5
+        },
+        "Q30": {
+          "ASSIGNED_COPY": 5
+        },
+        "Q40": {
+          "ASSIGNED_COPY": 5
+        },
+        "one_diagnostic_error": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "two_diagnostic_errors": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "one_site": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        },
+        "two_sites": {
+          "ASSIGNED_COPY": 5
+        },
+        "terminal_truncation": {
+          "ASSIGNED_COPY": 5
+        },
+        "mosaic_3_1": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "mosaic_2_2": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "low_quality_conflict": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "mate_conflict": {
+          "MATE_CONFLICT": 5
+        },
+        "edit_loss_WT": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        },
+        "edit_loss_PE": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        }
+      },
+      "unsafe_assignments": []
+    },
+    "30": {
+      "by_class": {
+        "WT": {
+          "ASSIGNED_COPY": 20
+        },
+        "precise_PE": {
+          "ASSIGNED_COPY": 20
+        },
+        "PE_extra_substitution": {
+          "ASSIGNED_COPY": 5
+        },
+        "PE_sequencing_error": {
+          "ASSIGNED_COPY": 5
+        },
+        "indel": {
+          "ASSIGNED_COPY": 5
+        },
+        "Q20": {
+          "LOW_QUALITY_DIAGNOSTICS_ONLY": 5
+        },
+        "Q30": {
+          "ASSIGNED_COPY": 5
+        },
+        "Q40": {
+          "ASSIGNED_COPY": 5
+        },
+        "one_diagnostic_error": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "two_diagnostic_errors": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "one_site": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        },
+        "two_sites": {
+          "ASSIGNED_COPY": 5
+        },
+        "terminal_truncation": {
+          "ASSIGNED_COPY": 5
+        },
+        "mosaic_3_1": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "mosaic_2_2": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "low_quality_conflict": {
+          "LOW_QUALITY_CONFLICT": 5
+        },
+        "mate_conflict": {
+          "MATE_CONFLICT": 5
+        },
+        "edit_loss_WT": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        },
+        "edit_loss_PE": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        }
+      },
+      "unsafe_assignments": []
+    },
+    "40": {
+      "by_class": {
+        "WT": {
+          "ASSIGNED_COPY": 20
+        },
+        "precise_PE": {
+          "ASSIGNED_COPY": 20
+        },
+        "PE_extra_substitution": {
+          "ASSIGNED_COPY": 5
+        },
+        "PE_sequencing_error": {
+          "ASSIGNED_COPY": 5
+        },
+        "indel": {
+          "ASSIGNED_COPY": 5
+        },
+        "Q20": {
+          "LOW_QUALITY_DIAGNOSTICS_ONLY": 5
+        },
+        "Q30": {
+          "LOW_QUALITY_DIAGNOSTICS_ONLY": 5
+        },
+        "Q40": {
+          "ASSIGNED_COPY": 5
+        },
+        "one_diagnostic_error": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "two_diagnostic_errors": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "one_site": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        },
+        "two_sites": {
+          "ASSIGNED_COPY": 5
+        },
+        "terminal_truncation": {
+          "ASSIGNED_COPY": 5
+        },
+        "mosaic_3_1": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "mosaic_2_2": {
+          "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+        },
+        "low_quality_conflict": {
+          "LOW_QUALITY_CONFLICT": 5
+        },
+        "mate_conflict": {
+          "MATE_CONFLICT": 5
+        },
+        "edit_loss_WT": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        },
+        "edit_loss_PE": {
+          "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+        }
+      },
+      "unsafe_assignments": []
+    }
+  },
+  "editing_state_retention": {
+    "WT": {
+      "assigned": 20,
+      "total": 20
+    },
+    "precise_PE": {
+      "assigned": 20,
+      "total": 20
+    },
+    "edit_loss_WT": {
+      "assigned": 0,
+      "total": 5
+    },
+    "edit_loss_PE": {
+      "assigned": 0,
+      "total": 5
+    }
+  },
+  "copy_agnostic_exact": {
+    "numerator": 20,
+    "denominator": 55,
+    "exact_fraction": "4/11",
+    "fraction": 0.36363636363636365,
+    "product_classes": {
+      "exact_WT": 35,
+      "exact_PE": 20,
+      "other_or_unassessable": 70
+    },
+    "excluded_reads": 70,
+    "excluded_synthetic_origin": {
+      "PE": 15,
+      "WT": 35,
+      "unresolved": 20
+    },
+    "cohort": "all prepared pairs, independent of copy routing; exact amplicon-end assessability",
+    "backend_input_reads": 75,
+    "aligned_reads": 70,
+    "unaligned_reads": 5,
+    "backend_counts_scope": "confident subcohort only; not the overall exact metric denominator",
+    "backend_not_submitted_pairs": 50
+  },
+  "backend_metrics": {
+    "copy1": {
+      "alignment_counters": {
+        "N_TOT_READS": 45,
+        "N_CACHED_ALN": 37,
+        "N_COMPUTED_ALN": 5,
+        "N_CACHED_NOTALN": 2,
+        "N_COMPUTED_NOTALN": 1
+      },
+      "mapping_statistics": {
+        "READS IN INPUTS": 45,
+        "READS AFTER PREPROCESSING": 45,
+        "READS ALIGNED": 42,
+        "N_COMPUTED_ALN": 5,
+        "N_CACHED_ALN": 37,
+        "N_COMPUTED_NOTALN": 1,
+        "N_CACHED_NOTALN": 2
+      },
+      "routed_pairs": 45,
+      "authoritative_reference_quantification_window": {
+        "_type": "np.ndarray",
+        "value": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "contract": {
+        "one_input_record_per_pair": true,
+        "preprocessing_preserves_records": false
+      },
+      "native": {
+        "backend_input_reads": 45,
+        "reads_after_preprocessing": 45,
+        "aligned_reads": 42,
+        "unaligned_reads": 3,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 3
+        },
+        "numerator": 18,
+        "denominator": 42,
+        "exact_fraction": "3/7",
+        "fraction": 0.42857142857142855,
+        "metric": "crispresso_pe_reference_fraction",
+        "reference_counts": {
+          "Reference": 24,
+          "Prime-edited": 18
+        },
+        "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+        "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons"
+      },
+      "exact_haplotype": {
+        "metric": "precise_intended_PE_exact_haplotype_fraction",
+        "numerator": 12,
+        "denominator": 30,
+        "exact_fraction": "2/5",
+        "fraction": 0.4,
+        "exact_wt_reads": 18,
+        "exact_pe_reads": 12,
+        "excluded_reads": 12,
+        "exclusion_product_classes": {
+          "other_or_unassessable": 12
+        },
+        "origin_attribution": "not inferred from biological product class",
+        "backend_input_reads": 45,
+        "reads_after_preprocessing": 45,
+        "aligned_reads": 42,
+        "unaligned_reads": 3,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 3
+        },
+        "backend_unaligned_excluded_reads": 3,
+        "backend_preprocessing_count_delta": 0,
+        "aligned_product_excluded_reads": 12,
+        "backend_input_excluded_reads": 15
+      },
+      "synthetic_exclusion_origins": {
+        "evidence": "independent synthetic origin + actual allele sequence multiplicities",
+        "aligned_exact_denominator_excluded": {
+          "WT_derived": 6,
+          "PE_derived": 6,
+          "origin_unresolved": 0
+        },
+        "backend_unaligned": {
+          "WT_derived": 3,
+          "PE_derived": 0,
+          "origin_unresolved": 0
+        },
+        "all_backend_input_exact_denominator_excluded": {
+          "WT_derived": 9,
+          "PE_derived": 6,
+          "origin_unresolved": 0
+        },
+        "failure_reason": "unknown_backend_alignment_failure"
+      }
+    },
+    "copy2": {
+      "alignment_counters": {
+        "N_TOT_READS": 30,
+        "N_CACHED_ALN": 23,
+        "N_COMPUTED_ALN": 5,
+        "N_CACHED_NOTALN": 1,
+        "N_COMPUTED_NOTALN": 1
+      },
+      "mapping_statistics": {
+        "READS IN INPUTS": 30,
+        "READS AFTER PREPROCESSING": 30,
+        "READS ALIGNED": 28,
+        "N_COMPUTED_ALN": 5,
+        "N_CACHED_ALN": 23,
+        "N_COMPUTED_NOTALN": 1,
+        "N_CACHED_NOTALN": 1
+      },
+      "routed_pairs": 30,
+      "authoritative_reference_quantification_window": {
+        "_type": "np.ndarray",
+        "value": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "contract": {
+        "one_input_record_per_pair": true,
+        "preprocessing_preserves_records": false
+      },
+      "native": {
+        "backend_input_reads": 30,
+        "reads_after_preprocessing": 30,
+        "aligned_reads": 28,
+        "unaligned_reads": 2,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 2
+        },
+        "numerator": 12,
+        "denominator": 28,
+        "exact_fraction": "3/7",
+        "fraction": 0.42857142857142855,
+        "metric": "crispresso_pe_reference_fraction",
+        "reference_counts": {
+          "Reference": 16,
+          "Prime-edited": 12
+        },
+        "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+        "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons"
+      },
+      "exact_haplotype": {
+        "metric": "precise_intended_PE_exact_haplotype_fraction",
+        "numerator": 8,
+        "denominator": 20,
+        "exact_fraction": "2/5",
+        "fraction": 0.4,
+        "exact_wt_reads": 12,
+        "exact_pe_reads": 8,
+        "excluded_reads": 8,
+        "exclusion_product_classes": {
+          "other_or_unassessable": 8
+        },
+        "origin_attribution": "not inferred from biological product class",
+        "backend_input_reads": 30,
+        "reads_after_preprocessing": 30,
+        "aligned_reads": 28,
+        "unaligned_reads": 2,
+        "preprocessing_count_delta": 0,
+        "unaligned_reason_counts": {
+          "unknown_backend_alignment_failure": 2
+        },
+        "backend_unaligned_excluded_reads": 2,
+        "backend_preprocessing_count_delta": 0,
+        "aligned_product_excluded_reads": 8,
+        "backend_input_excluded_reads": 10
+      },
+      "synthetic_exclusion_origins": {
+        "evidence": "independent synthetic origin + actual allele sequence multiplicities",
+        "aligned_exact_denominator_excluded": {
+          "WT_derived": 4,
+          "PE_derived": 4,
+          "origin_unresolved": 0
+        },
+        "backend_unaligned": {
+          "WT_derived": 2,
+          "PE_derived": 0,
+          "origin_unresolved": 0
+        },
+        "all_backend_input_exact_denominator_excluded": {
+          "WT_derived": 6,
+          "PE_derived": 4,
+          "origin_unresolved": 0
+        },
+        "failure_reason": "unknown_backend_alignment_failure"
+      }
+    }
+  },
+  "policy": {
+    "diagnostic_min_quality": 30,
+    "min_distinguishing_sites": 2,
+    "max_equivalent_alignments": 16,
+    "min_alignment_identity": 0.8
+  }
+}

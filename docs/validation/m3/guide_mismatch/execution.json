@@ -1,0 +1,97 @@
+{
+  "amplicons_sha256": "ffe674e99710a2724ee6ea1aa1e6fae8d339dff9b42926cc08c98dc9eb1940c9",
+  "argv": [
+    "/workspace/validation/m3/bin/CRISPRessoPooled",
+    "-r1",
+    "input_R1.fastq.gz",
+    "-r2",
+    "input_R2.fastq.gz",
+    "-f",
+    "amplicons.tsv",
+    "-o",
+    "output",
+    "--name",
+    "diagnostic",
+    "--crispresso_command",
+    "CRISPResso",
+    "--n_processes",
+    "1",
+    "--min_reads_to_use_region",
+    "0",
+    "--write_detailed_allele_table",
+    "--suppress_report",
+    "--suppress_plots",
+    "--keep_intermediate"
+  ],
+  "core_version": "2.3.4",
+  "cwd": "/tmp/peanalyzer-backend-vhac3dqs",
+  "diagnostic_test_unsupported_guide": true,
+  "ended_at": "2026-10-21T15:02:33.180297+00:00",
+  "error": "PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED: backend exit 255; see stderr.log",
+  "error_code": "PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED",
+  "executable_path": "/workspace/validation/m3/bin/CRISPRessoPooled",
+  "inputs": {
+    "r1": {
+      "path": "/workspace/validation/m3/final tests/guide_mismatch/analysis/03_analysis_fastq/1B_R1.analysis.fastq.gz",
+      "sha256": "5a36f1c3cc35efaedef5fd4c27ef0a87d5b742972ea39c2200d05f7fc8d37998"
+    },
+    "r2": {
+      "path": "/workspace/validation/m3/final tests/guide_mismatch/analysis/03_analysis_fastq/1B_R2.analysis.fastq.gz",
+      "sha256": "5b6fc1420786cb5a3bd742903bd56f27a919ca0d859d32d3663de30b0988b408"
+    }
+  },
+  "output_path": "/workspace/validation/m3/final tests/guide_mismatch/backend",
+  "pooled_version": "2.3.4",
+  "return_code": 255,
+  "schema_version": 1,
+  "scope": "backend_diagnostic_only",
+  "software": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "ae7e7f3e1f9144ea2092d9a6201a4d137a024214",
+    "git_dirty": true,
+    "pipeline_version": "0.3.0",
+    "python_executable": "/workspace/peanalyzer-venv/bin/python",
+    "python_version": "3.12.14"
+  },
+  "started_at": "2026-10-21T15:02:23.527901+00:00",
+  "status": "failed",
+  "target_configuration_sha256": "a03ce76f1521933487854fdc82fb342250949ddcc2bdbde355530f076c18bb17",
+  "version_probes": [
+    {
+      "argv": [
+        "/workspace/validation/m3/bin/CRISPResso",
+        "--version"
+      ],
+      "ended_at": "2026-10-21T15:01:53.286721+00:00",
+      "return_code": 0,
+      "started_at": "2026-10-21T15:01:45.405239+00:00",
+      "stderr": "",
+      "stdout": "CRISPResso 2.3.4\n"
+    },
+    {
+      "argv": [
+        "/workspace/validation/m3/bin/CRISPRessoPooled",
+        "--version"
+      ],
+      "ended_at": "2026-10-21T15:01:59.079891+00:00",
+      "return_code": 0,
+      "started_at": "2026-10-21T15:01:53.286865+00:00",
+      "stderr": "",
+      "stdout": "CRISPRessoPooled 2.3.4\n"
+    }
+  ]
+}

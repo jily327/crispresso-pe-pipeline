@@ -1,0 +1,124 @@
+INFO  @ Wed, 21 Oct 2026 23:36:26 (0.0% done):
+	 
+                               ~~~CRISPResso 2~~~                               
+        -Analysis of genome editing outcomes from deep sequencing data-         
+                                                                                
+                                        _                                       
+                                       '  )                                     
+                                       .-'                                      
+                                      (____                                     
+                                   C)|     \                                    
+                                     \     /                                    
+                                      \___/                                     
+
+                           [CRISPResso version 2.3.4]                           
+[Note that as of version 2.3.0 FLASh and Trimmomatic have been replaced by fastp for read merging and trimming. Accordingly, the --flash_command and --trimmomatic_command parameters have been replaced with --fastp_command. Also, --trimmomatic_options_string has been replaced with --fastp_options_string.
+
+Also in version 2.3.2, when running CRISPRessoPooled in mixed-mode (amplicon file and genome are provided) the default behavior will be as if the --demultiplex_only_at_amplicons parameter is provided. This change means that reads and amplicons do not need to align to the exact locations.]
+       [For support contact k.clement@utah.edu or support@edilytics.com]        
+ 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (0.0% done):
+	 Creating Folder /tmp/m311-comparator-0eax_u2u/output/CRISPResso_on_unrouted 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (2.0% done):
+	 Computing quantification windows 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (2.0% done):
+	 Counting reads in input 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (2.0% done):
+	 Processing sequences with fastp... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (6.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (7.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (7.0% done):
+	 Counting reads after preprocessing... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (7.0% done):
+	 Aligning sequences... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (7.0% done):
+	 Finished reading fastq file; 18 unique reads found of 125 total reads found  
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (7.0% done):
+	 Processing Reads; 0 Completed out of 18 Unique Reads 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (7.0% done):
+	 Finished reads; N_TOT_READS: 125 N_COMPUTED_ALN: 14 N_CACHED_ALN: 91 N_COMPUTED_NOTALN: 4 N_CACHED_NOTALN: 16 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (20.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (20.0% done):
+	 Quantifying indels/substitutions... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (30.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (30.0% done):
+	 Calculating allele frequencies... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (40.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (40.0% done):
+	 Saving processed data... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (48.0% done):
+	 Processing plots for amplicon Reference... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (48.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 Processing plots for amplicon Prime-edited... 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 Done! 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 Low number of total reads: <10000. Total reads: 125. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 <=90.0% of reads were aligned. Total reads: 125, Aligned reads: 105. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 Disproportionate percentages of reads were aligned to amplicon: Reference, Percent of aligned reads aligned to this amplicon: 60.0%. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 Disproportionate percentages of reads were aligned to amplicon: Prime-edited, Percent of aligned reads aligned to this amplicon: 24.0%. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 <=1.0% of modifications were inside of the quantification window. Total modifications: 560, Modifications in window: 0, Modifications outside window: 560. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 >=1.0% of reads have modifications at the start or end. Total reads: 105, Irregular reads: 5. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 >=0.2% of substitutions were outside of the quantification window. Total substitutions: 255, Substitutions outside window: 255. 
+
+WARNING @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	 >=30.0% of modifications were substitutions. This could potentially indicate poor sequencing quality. Total modifications: 560, Substitutions: 255. 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (68.0% done):
+	                                                                                
+                                        _                                      
+                                       '  )                                    
+                                       .-'                                     
+                                      (____                                    
+                                   C)|     \                                   
+                                     \     /                                   
+                                      \___/                                    
+ 
+
+INFO  @ Wed, 21 Oct 2026 23:36:26 (100.0% done):
+	 Analysis Complete! 
+

@@ -5,9 +5,24 @@ for inline-barcoded samples and multiple target copies/homeologs. The intended
 workflow is barcode demultiplexing → CRISPRessoPooled → copy/target PE metrics →
 biological statistics → reports.
 
-**Milestones 1–2.1 implement metadata validation and paired barcode demultiplexing.**
-CRISPResso execution, target/homeolog assignment, PE quantification, statistics
-and final reporting are not implemented.
+**Milestones 1–3 implement metadata validation, paired barcode demultiplexing,
+completion verification, analysis trimming and external CRISPResso2 diagnostics.**
+The actual 2.3.4 synthetic validation found **ROUTING GATE: FAIL**: all 310
+informative reads routed correctly, but all 40 deliberately ambiguous or
+non-informative reads were forced into individual copies. The same experimental
+spacer with a one-base homeolog mismatch was rejected. That default routing
+approach remains blocked; final PE quantification, statistics and reporting
+are not implemented.
+
+**M3.1 adds a separate explicit diagnostic-evidence router. Its qualified synthetic
+gate passes: 75/125 pairs confidently assigned, 50 quarantined, zero cross-routes.**
+This does not rehabilitate Pooled's default router. Prepared inputs and routed
+cohorts are independently verified, and only confident cohorts enter direct
+CRISPResso Core analyses. See [M3.1 qualification](docs/m31-routing.md) for scope,
+limitations, exact metric denominators and backend alignment attrition.
+
+See [Milestone 3 validation and reproduction](docs/m3-backend-validation.md) and
+the [committed synthetic evidence](docs/validation/m3/README.md).
 
 ## Install and test
 
@@ -82,7 +97,9 @@ from all reads assigned to a PE reference or unmodified in a quantification
 window. CRISPRessoPooled's default Bowtie2 routing does not guarantee unambiguous
 homeolog assignment; a validated routing gate is required before copy estimates.
 
-Next is Milestone 3: pinned CRISPRessoPooled integration and explicit validation
-of target/copy routing. Work is developed on feature branches and integrated into `main`
+Next, after independent M3.1 review, is production metric implementation using
+the qualified routing boundary. Guide-mismatched and unsupported geometry remain
+blocked. No biological reporting or production metric qualification is implied.
+Work is developed on feature branches and integrated into `main`
 only after review. Research use; biological definitions require experiment-specific
 confirmation.

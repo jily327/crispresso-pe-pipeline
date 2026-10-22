@@ -1,0 +1,87 @@
+{
+  "alignment_counters": {
+    "N_TOT_READS": 30,
+    "N_CACHED_ALN": 23,
+    "N_COMPUTED_ALN": 5,
+    "N_CACHED_NOTALN": 1,
+    "N_COMPUTED_NOTALN": 1
+  },
+  "mapping_statistics": {
+    "READS IN INPUTS": 30,
+    "READS AFTER PREPROCESSING": 30,
+    "READS ALIGNED": 28,
+    "N_COMPUTED_ALN": 5,
+    "N_CACHED_ALN": 23,
+    "N_COMPUTED_NOTALN": 1,
+    "N_CACHED_NOTALN": 1
+  },
+  "routed_pairs": 30,
+  "authoritative_reference_quantification_window": {
+    "_type": "np.ndarray",
+    "value": [
+      111,
+      112,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149
+    ]
+  },
+  "contract": {
+    "one_input_record_per_pair": true,
+    "preprocessing_preserves_records": false
+  },
+  "native": {
+    "backend_input_reads": 30,
+    "reads_after_preprocessing": 30,
+    "aligned_reads": 28,
+    "unaligned_reads": 2,
+    "preprocessing_count_delta": 0,
+    "unaligned_reason_counts": {
+      "unknown_backend_alignment_failure": 2
+    },
+    "numerator": 12,
+    "denominator": 28,
+    "exact_fraction": "3/7",
+    "fraction": 0.42857142857142855,
+    "metric": "crispresso_pe_reference_fraction",
+    "reference_counts": {
+      "Reference": 16,
+      "Prime-edited": 12
+    },
+    "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+    "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons"
+  },
+  "exact_haplotype": {
+    "metric": "precise_intended_PE_exact_haplotype_fraction",
+    "numerator": 8,
+    "denominator": 20,
+    "exact_fraction": "2/5",
+    "fraction": 0.4,
+    "exact_wt_reads": 12,
+    "exact_pe_reads": 8,
+    "excluded_reads": 8,
+    "exclusion_product_classes": {
+      "other_or_unassessable": 8
+    },
+    "origin_attribution": "not inferred from biological product class",
+    "backend_input_reads": 30,
+    "reads_after_preprocessing": 30,
+    "aligned_reads": 28,
+    "unaligned_reads": 2,
+    "preprocessing_count_delta": 0,
+    "unaligned_reason_counts": {
+      "unknown_backend_alignment_failure": 2
+    },
+    "backend_unaligned_excluded_reads": 2,
+    "backend_preprocessing_count_delta": 0,
+    "aligned_product_excluded_reads": 8,
+    "backend_input_excluded_reads": 10
+  }
+}

@@ -1,0 +1,151 @@
+INFO  @ Wed, 21 Oct 2026 20:06:16 (0.0% done):
+	 
+                             ~~~CRISPRessoPooled~~~                             
+      -Analysis of CRISPR/Cas9 outcomes from POOLED deep sequencing data-       
+                                                                                
+              _                                                   _             
+             '  )                                                '  )           
+             .-'            _______________________              .-'            
+            (____          | __  __  __     __ __  |            (____           
+         C)|     \         ||__)/  \/  \|  |_ |  \ |         C)|     \          
+           \     /         ||   \__/\__/|__|__|__/ |           \     /          
+            \___/          |_______________________|            \___/           
+
+                           [CRISPResso version 2.3.4]                           
+[Note that as of version 2.3.0 FLASh and Trimmomatic have been replaced by fastp for read merging and trimming. Accordingly, the --flash_command and --trimmomatic_command parameters have been replaced with --fastp_command. Also, --trimmomatic_options_string has been replaced with --fastp_options_string.
+
+Also in version 2.3.2, when running CRISPRessoPooled in mixed-mode (amplicon file and genome are provided) the default behavior will be as if the --demultiplex_only_at_amplicons parameter is provided. This change means that reads and amplicons do not need to align to the exact locations.]
+       [For support contact k.clement@utah.edu or support@edilytics.com]        
+ 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (0.0% done):
+	 Creating Folder /tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (0.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (0.0% done):
+	 Checking dependencies... 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (0.0% done):
+	 All the required dependencies are present! 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (0.0% done):
+	 Only the amplicon description file was provided. The analysis will be performed using only the provided amplicon sequences. 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (5.0% done):
+	 Processing input 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (5.0% done):
+	 Merging paired sequences with fastp... 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (7.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (7.0% done):
+	 Counting input reads... 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (8.0% done):
+	 Done! 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (8.0% done):
+	 Detected header in amplicon file. 
+
+INFO  @ Wed, 21 Oct 2026 20:06:16 (8.0% done):
+	 Creating a custom index file with all the amplicons... 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (8.0% done):
+	 Align reads to the amplicons... 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 Alignment command: bowtie2 -x /tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/CUSTOM_BOWTIE2_INDEX -p 1  --end-to-end -N 0 --np 0 --mp 3,2 --score-min L,-5,-1.2000000000000002  -U /tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/out.extendedFrags.fastq.gz 2>>/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/CRISPRessoPooled_RUNNING_LOG.txt | samtools view -bS - > /tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/CRISPResso_AMPLICONS_ALIGNED.bam 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 Demultiplexing reads and running CRISPResso on each amplicon... 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 Processing: SYN__copy1 with 75 reads 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 The amplicon [SYN__copy1] has enough reads (75) mapped to it! Running CRISPResso!
+ 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 Processing: SYN__copy2 with 50 reads 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 The amplicon [SYN__copy2] has enough reads (50) mapped to it! Running CRISPResso!
+ 
+
+INFO  @ Wed, 21 Oct 2026 20:06:17 (15.0% done):
+	 Running CRISPResso with 1 processes 
+
+INFO  @ Wed, 21 Oct 2026 20:06:18 (0.0% done):
+	 
+                               ~~~CRISPResso 2~~~                               
+        -Analysis of genome editing outcomes from deep sequencing data-         
+                                                                                
+                                        _                                       
+                                       '  )                                     
+                                       .-'                                      
+                                      (____                                     
+                                   C)|     \                                    
+                                     \     /                                    
+                                      \___/                                     
+
+                           [CRISPResso version 2.3.4]                           
+[Note that as of version 2.3.0 FLASh and Trimmomatic have been replaced by fastp for read merging and trimming. Accordingly, the --flash_command and --trimmomatic_command parameters have been replaced with --fastp_command. Also, --trimmomatic_options_string has been replaced with --fastp_options_string.
+
+Also in version 2.3.2, when running CRISPRessoPooled in mixed-mode (amplicon file and genome are provided) the default behavior will be as if the --demultiplex_only_at_amplicons parameter is provided. This change means that reads and amplicons do not need to align to the exact locations.]
+       [For support contact k.clement@utah.edu or support@edilytics.com]        
+ 
+
+INFO  @ Wed, 21 Oct 2026 20:06:18 (0.0% done):
+	 Creating Folder /tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/CRISPResso_on_SYN_copy1 
+
+CRITICAL @ Wed, 21 Oct 2026 20:06:18 (0.0% done):
+	 Parameter error, please check your input.
+
+ERROR: The prime editing pegRNA spacer sequence appears to be given in the 3'->5' order. The prime editing pegRNA spacer sequence (--prime_editing_pegRNA_spacer_seq) must be given in the RNA 5'->3' order. 
+
+CRISPResso command failed (return value 6) on amplicon #0: "CRISPResso --fastq_r1 "/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/AMPL_SYN_copy1.fastq.gz" --amplicon_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC --name SYN_copy1 --display_name SYN__copy1 --output_folder "/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic" --fastp_options_string " --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering" --keep_intermediate --write_detailed_allele_table --suppress_report --suppress_plots --prime_editing_pegRNA_spacer_seq GTTCTGGTCCGTCGGCACTA --prime_editing_pegRNA_extension_seq TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC --prime_editing_override_prime_edited_ref_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+INFO  @ Wed, 21 Oct 2026 20:06:18 (48.0% done):
+	 Completed 1/2 runs 
+
+INFO  @ Wed, 21 Oct 2026 20:06:19 (0.0% done):
+	 
+                               ~~~CRISPResso 2~~~                               
+        -Analysis of genome editing outcomes from deep sequencing data-         
+                                                                                
+                                        _                                       
+                                       '  )                                     
+                                       .-'                                      
+                                      (____                                     
+                                   C)|     \                                    
+                                     \     /                                    
+                                      \___/                                     
+
+                           [CRISPResso version 2.3.4]                           
+[Note that as of version 2.3.0 FLASh and Trimmomatic have been replaced by fastp for read merging and trimming. Accordingly, the --flash_command and --trimmomatic_command parameters have been replaced with --fastp_command. Also, --trimmomatic_options_string has been replaced with --fastp_options_string.
+
+Also in version 2.3.2, when running CRISPRessoPooled in mixed-mode (amplicon file and genome are provided) the default behavior will be as if the --demultiplex_only_at_amplicons parameter is provided. This change means that reads and amplicons do not need to align to the exact locations.]
+       [For support contact k.clement@utah.edu or support@edilytics.com]        
+ 
+
+INFO  @ Wed, 21 Oct 2026 20:06:19 (0.0% done):
+	 Creating Folder /tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/CRISPResso_on_SYN_copy2 
+
+CRITICAL @ Wed, 21 Oct 2026 20:06:19 (0.0% done):
+	 Parameter error, please check your input.
+
+ERROR: The prime editing pegRNA spacer sequence appears to be given in the 3'->5' order. The prime editing pegRNA spacer sequence (--prime_editing_pegRNA_spacer_seq) must be given in the RNA 5'->3' order. 
+
+CRISPResso command failed (return value 6) on amplicon #1: "CRISPResso --fastq_r1 "/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/AMPL_SYN_copy2.fastq.gz" --amplicon_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC --name SYN_copy2 --display_name SYN__copy2 --output_folder "/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic" --fastp_options_string " --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering" --keep_intermediate --write_detailed_allele_table --suppress_report --suppress_plots --prime_editing_pegRNA_spacer_seq GTTCTGGTCCGTCGGCACTA --prime_editing_pegRNA_extension_seq TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC --prime_editing_override_prime_edited_ref_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+INFO  @ Wed, 21 Oct 2026 20:06:19 (80.0% done):
+	 Completed 2/2 runs 
+
+CRITICAL @ Wed, 21 Oct 2026 20:06:19 (80.0% done):
+	 
+
+ERROR: CRISPResso amplicon #0 failed. For more information, try running the command: "CRISPResso --fastq_r1 "/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic/AMPL_SYN_copy1.fastq.gz" --amplicon_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC --name SYN_copy1 --display_name SYN__copy1 --output_folder "/tmp/peanalyzer-backend-rt9avexl/output/CRISPRessoPooled_on_diagnostic" --fastp_options_string " --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering" --keep_intermediate --write_detailed_allele_table --suppress_report --suppress_plots --prime_editing_pegRNA_spacer_seq GTTCTGGTCCGTCGGCACTA --prime_editing_pegRNA_extension_seq TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC --prime_editing_override_prime_edited_ref_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC" 
+

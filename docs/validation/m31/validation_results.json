@@ -1,0 +1,46 @@
+{
+  "unit_suite": {
+    "passed": 325,
+    "deselected_real_backend": 8,
+    "seconds": 19.34
+  },
+  "fresh_wheel_suite": {
+    "passed": 325,
+    "skipped_real_backend": 8,
+    "seconds": 19.25,
+    "command": "/workspace/validation/m31/wheel-env/bin/python -m pytest -q /workspace/crispresso-pe-pipeline/tests",
+    "cwd": "/tmp"
+  },
+  "combined_real_integration": {
+    "passed": 8,
+    "seconds": 103.6,
+    "command_reference": "README.md"
+  },
+  "final_m31_real_integration": {
+    "passed": 4,
+    "seconds": 49.78,
+    "command_reference": "README.md"
+  },
+  "build": {
+    "sdist": "crispresso_pe_pipeline-0.3.1.tar.gz",
+    "wheel": "crispresso_pe_pipeline-0.3.1-py3-none-any.whl",
+    "passed": true
+  },
+  "installed_api_smoke": {
+    "installed_module": "/workspace/validation/m31/wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "version": "0.3.1",
+    "analysis_pairs_verified": 125,
+    "routing_partition_verified": 125,
+    "geometry_status": "SAFE",
+    "first_read_assigned_copy": "copy1"
+  },
+  "independent_ledger_recount": {
+    "input": 125,
+    "assigned": 75,
+    "quarantined": 50,
+    "cross_assignments": 0
+  },
+  "routing_gate": "PASS",
+  "scope": "documented synthetic geometry and policy only",
+  "local_ALS_W_reference_available": false
+}

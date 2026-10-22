@@ -1,0 +1,53 @@
+{
+  "coordinate_convention": "zero-based",
+  "design_sha256": "5d6cb8f1379b22245e4dc203a8939ae9e83d9bdfdfb3370e8f7ceacebdd2ec3a",
+  "diagnostic_positions": [
+    40,
+    80,
+    165,
+    205
+  ],
+  "guide_mismatch": false,
+  "intended_edit": {
+    "from": "G",
+    "position": 122,
+    "to": "T"
+  },
+  "length": 240,
+  "seed": 20261021,
+  "spacer_interval": [
+    95,
+    115
+  ],
+  "targets": [
+    {
+      "copy_name": "copy1",
+      "nicking_guide": null,
+      "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "pegRNA_scaffold": null,
+      "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+      "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "prime_editing_pegRNA_scaffold_min_match_length": null,
+      "quantification_window_center": null,
+      "quantification_window_coordinates": null,
+      "quantification_window_size": null,
+      "target_name": "SYN",
+      "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+    },
+    {
+      "copy_name": "copy2",
+      "nicking_guide": null,
+      "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "pegRNA_scaffold": null,
+      "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+      "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "prime_editing_pegRNA_scaffold_min_match_length": null,
+      "quantification_window_center": null,
+      "quantification_window_coordinates": null,
+      "quantification_window_size": null,
+      "target_name": "SYN",
+      "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+    }
+  ],
+  "version": "synthetic_homeologs_v1"
+}

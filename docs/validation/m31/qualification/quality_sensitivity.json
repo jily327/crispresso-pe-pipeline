@@ -1,0 +1,188 @@
+{
+  "20": {
+    "by_class": {
+      "WT": {
+        "ASSIGNED_COPY": 20
+      },
+      "precise_PE": {
+        "ASSIGNED_COPY": 20
+      },
+      "PE_extra_substitution": {
+        "ASSIGNED_COPY": 5
+      },
+      "PE_sequencing_error": {
+        "ASSIGNED_COPY": 5
+      },
+      "indel": {
+        "ASSIGNED_COPY": 5
+      },
+      "Q20": {
+        "ASSIGNED_COPY": 5
+      },
+      "Q30": {
+        "ASSIGNED_COPY": 5
+      },
+      "Q40": {
+        "ASSIGNED_COPY": 5
+      },
+      "one_diagnostic_error": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "two_diagnostic_errors": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "one_site": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      },
+      "two_sites": {
+        "ASSIGNED_COPY": 5
+      },
+      "terminal_truncation": {
+        "ASSIGNED_COPY": 5
+      },
+      "mosaic_3_1": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "mosaic_2_2": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "low_quality_conflict": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "mate_conflict": {
+        "MATE_CONFLICT": 5
+      },
+      "edit_loss_WT": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      },
+      "edit_loss_PE": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      }
+    },
+    "unsafe_assignments": []
+  },
+  "30": {
+    "by_class": {
+      "WT": {
+        "ASSIGNED_COPY": 20
+      },
+      "precise_PE": {
+        "ASSIGNED_COPY": 20
+      },
+      "PE_extra_substitution": {
+        "ASSIGNED_COPY": 5
+      },
+      "PE_sequencing_error": {
+        "ASSIGNED_COPY": 5
+      },
+      "indel": {
+        "ASSIGNED_COPY": 5
+      },
+      "Q20": {
+        "LOW_QUALITY_DIAGNOSTICS_ONLY": 5
+      },
+      "Q30": {
+        "ASSIGNED_COPY": 5
+      },
+      "Q40": {
+        "ASSIGNED_COPY": 5
+      },
+      "one_diagnostic_error": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "two_diagnostic_errors": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "one_site": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      },
+      "two_sites": {
+        "ASSIGNED_COPY": 5
+      },
+      "terminal_truncation": {
+        "ASSIGNED_COPY": 5
+      },
+      "mosaic_3_1": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "mosaic_2_2": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "low_quality_conflict": {
+        "LOW_QUALITY_CONFLICT": 5
+      },
+      "mate_conflict": {
+        "MATE_CONFLICT": 5
+      },
+      "edit_loss_WT": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      },
+      "edit_loss_PE": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      }
+    },
+    "unsafe_assignments": []
+  },
+  "40": {
+    "by_class": {
+      "WT": {
+        "ASSIGNED_COPY": 20
+      },
+      "precise_PE": {
+        "ASSIGNED_COPY": 20
+      },
+      "PE_extra_substitution": {
+        "ASSIGNED_COPY": 5
+      },
+      "PE_sequencing_error": {
+        "ASSIGNED_COPY": 5
+      },
+      "indel": {
+        "ASSIGNED_COPY": 5
+      },
+      "Q20": {
+        "LOW_QUALITY_DIAGNOSTICS_ONLY": 5
+      },
+      "Q30": {
+        "LOW_QUALITY_DIAGNOSTICS_ONLY": 5
+      },
+      "Q40": {
+        "ASSIGNED_COPY": 5
+      },
+      "one_diagnostic_error": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "two_diagnostic_errors": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "one_site": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      },
+      "two_sites": {
+        "ASSIGNED_COPY": 5
+      },
+      "terminal_truncation": {
+        "ASSIGNED_COPY": 5
+      },
+      "mosaic_3_1": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "mosaic_2_2": {
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5
+      },
+      "low_quality_conflict": {
+        "LOW_QUALITY_CONFLICT": 5
+      },
+      "mate_conflict": {
+        "MATE_CONFLICT": 5
+      },
+      "edit_loss_WT": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      },
+      "edit_loss_PE": {
+        "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5
+      }
+    },
+    "unsafe_assignments": []
+  }
+}

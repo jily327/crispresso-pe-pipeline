@@ -1,0 +1,56 @@
+[
+  {
+    "truth_class": "PE_extra_substitution",
+    "MAPQ": "6",
+    "AS_minus_XS": 12,
+    "reads": 20
+  },
+  {
+    "truth_class": "WT",
+    "MAPQ": "6",
+    "AS_minus_XS": 12,
+    "reads": 130
+  },
+  {
+    "truth_class": "compatible_both",
+    "MAPQ": "1",
+    "AS_minus_XS": 0,
+    "reads": 20
+  },
+  {
+    "truth_class": "diagnostic_error",
+    "MAPQ": "6",
+    "AS_minus_XS": 6,
+    "reads": 12
+  },
+  {
+    "truth_class": "diagnostic_error",
+    "MAPQ": "6",
+    "AS_minus_XS": 9,
+    "reads": 8
+  },
+  {
+    "truth_class": "indel",
+    "MAPQ": "6",
+    "AS_minus_XS": 12,
+    "reads": 20
+  },
+  {
+    "truth_class": "missing_diagnostics",
+    "MAPQ": "1",
+    "AS_minus_XS": 0,
+    "reads": 20
+  },
+  {
+    "truth_class": "ordinary_error",
+    "MAPQ": "6",
+    "AS_minus_XS": 12,
+    "reads": 20
+  },
+  {
+    "truth_class": "precise_PE",
+    "MAPQ": "6",
+    "AS_minus_XS": 12,
+    "reads": 100
+  }
+]

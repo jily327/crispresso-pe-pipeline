@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import os, pathlib, subprocess, sys
+program=pathlib.Path(sys.argv[0]).name
+image="pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+env={k:v for k,v in os.environ.items() if k not in {"DOCKER_HOST","DOCKER_CONTEXT","DOCKER_TLS","DOCKER_TLS_VERIFY","DOCKER_CERT_PATH"}}
+argv=["/usr/local/bin/docker","--host=unix:///var/run/docker.sock","run","--rm","--network","none","--user",f"{os.getuid()}:{os.getgid()}","-v","/workspace:/workspace","-v","/tmp:/tmp","-w",os.getcwd(),"--entrypoint",program,image,*sys.argv[1:]]
+raise SystemExit(subprocess.call(argv,env=env))

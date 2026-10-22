@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crispresso-pe-pipeline"
-version = "0.2.1"
-description = "Metadata validation and paired barcode demultiplexing for prime-editing amplicon sequencing"
+version = "0.3.1"
+description = "Prime-editing amplicon metadata, demultiplexing and external backend validation"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0.2,<7", "matplotlib>=3.9,<4"]
+dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0.2,<7", "matplotlib>=3.9,<4", "biopython==1.85"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3,<9", "build>=1.2,<2"]
@@ -25,4 +25,5 @@ peanalyzer = ["barcode_sets/*.csv", "profiles/*.yaml"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra --strict-markers"
-markers = ["integration: requires an installed, pinned CRISPResso backend"]
+markers = ["integration: requires an installed, pinned CRISPResso backend",
+           "crispresso_integration: executes real CRISPResso2 2.3.4 synthetic routing experiments"]

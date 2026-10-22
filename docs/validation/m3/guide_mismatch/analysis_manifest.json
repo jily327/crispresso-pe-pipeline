@@ -1,0 +1,25 @@
+{
+  "demux_summary_sha256": "a3ddabf635ff06136ec31b078f70e66bd00f048686ded79c8f6c228f3bc3d562",
+  "r1_analysis_trim_5p": 27,
+  "r2_analysis_trim_5p": 27,
+  "samples": {
+    "1B": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "5a36f1c3cc35efaedef5fd4c27ef0a87d5b742972ea39c2200d05f7fc8d37998",
+          "size_bytes": 1714
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "5b6fc1420786cb5a3bd742903bd56f27a919ca0d859d32d3663de30b0988b408",
+          "size_bytes": 1704
+        }
+      },
+      "pairs": 350
+    }
+  },
+  "schema_version": 1,
+  "status": "completed",
+  "verified_demux_root": "/workspace/validation/m3/final tests/guide_mismatch/demux"
+}
