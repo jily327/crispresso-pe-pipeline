@@ -11,7 +11,6 @@ import zipfile
 from collections import Counter
 from functools import lru_cache
 
-from pydantic import ValidationError
 from peanalyzer.fastq import paired_fastq
 from peanalyzer.geometry import aligner, columns
 from peanalyzer.observability import assess_pair
@@ -19,6 +18,7 @@ from peanalyzer.backend.metrics import child_file,integer
 from peanalyzer.demux_verify import read_json
 from peanalyzer.schemas import Target
 from peanalyzer.metrics.family_models import FamilyPolicy,FamilyMetric,ObservedProduct,ProductEvidence
+from peanalyzer.metrics.policy_requests import PolicyRequest, prepare_policies
 
 
 @lru_cache(maxsize=4096)
@@ -146,19 +146,12 @@ def aligned_evidence(child,target,*,targets=None,**identity):
 def aggregate_family(evidence,policy):
     """Reaggregate stored evidence without FASTQ or backend access."""
     evidence=ProductEvidence.model_validate(evidence.model_dump() if isinstance(evidence,ProductEvidence) else evidence)
-    raw=policy.model_dump() if isinstance(policy,FamilyPolicy) else policy
-    reasons=list(evidence.blocking_reasons)
-    try:
-        policy=FamilyPolicy.model_validate(raw)
-        targets=[Target.model_validate(t) for t in evidence.targets]
-        if policy.allowed_extra_substitution_positions is not None and any(p>=len(sorted(targets,key=lambda t:t.copy_name)[0].wt_sequence) for p in policy.allowed_extra_substitution_positions):
-            raise ValueError('position outside anchor WT')
-        policy_dict=policy.model_dump();policy_id=policy.policy_id
-    except (ValidationError,ValueError,TypeError):
-        reasons.append('UNSUPPORTED_TOLERANCE_POLICY')
-        policy_id=raw.get('policy_id','invalid') if isinstance(raw,dict) and isinstance(raw.get('policy_id'),str) else 'invalid'
-        policy_dict=raw if isinstance(raw,dict) else {'invalid_policy':raw}
-        policy=None
+    targets=[Target.model_validate(t) for t in evidence.targets]
+    request=policy if isinstance(policy,PolicyRequest) else prepare_policies([policy],targets).requests[0]
+    reasons=list(evidence.blocking_reasons)+list(request.reasons)
+    policy=request.policy
+    policy_dict=policy.model_dump() if policy else request.raw
+    policy_id=request.policy_id
     if policy:
         try:candidate_evidence(targets[0].wt_sequence,targets)
         except (ValueError,IndexError):reasons.append('UNSUPPORTED_FAMILY_PRODUCT_DEFINITION')
@@ -194,6 +187,7 @@ def aggregate_family(evidence,policy):
 
 def reaggregate(evidence, policies):
     """Evaluate several named policies on the same retained aggregate products."""
-    results=[aggregate_family(evidence,p) for p in policies]
-    if len({r.policy_id for r in results})!=len(results):raise ValueError('duplicate tolerance policy ID')
-    return {r.policy_id:r for r in results}
+    evidence=ProductEvidence.model_validate(evidence.model_dump() if isinstance(evidence,ProductEvidence) else evidence)
+    targets=[Target.model_validate(t) for t in evidence.targets]
+    requests=prepare_policies(policies,targets)
+    return {request.storage_key:aggregate_family(evidence,request) for request in requests.requests}

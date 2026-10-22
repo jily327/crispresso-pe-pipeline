@@ -1,0 +1,93 @@
+{
+  "copy_specific_repeat/production/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  },
+  "cross_copy_124_125/production/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  },
+  "cross_copy_124_125/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  },
+  "cross_copy_125_125/production/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  },
+  "cross_copy_125_125/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  },
+  "cross_copy_150_150/production/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  },
+  "cross_copy_150_150/result.json": {
+    "equal": true,
+    "compared": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics"
+    ],
+    "ignored": [
+      "population_id"
+    ]
+  }
+}

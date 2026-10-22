@@ -255,9 +255,10 @@ def test_position_policy_uses_same_anchor_coordinates_for_shifted_copy():
     assert aggregate_family(target,policy).pe_family==aggregate_family(copy,policy).pe_family==0
 
 
-def test_policy_iterables_apply_to_every_population_and_duplicate_ids_fail(archive):
+def test_policy_iterables_apply_to_every_population_and_duplicate_ids_block(archive):
     policies=(dict(policy_id=str(n),max_extra_substitutions=n) for n in (0,1))
     result=collect(archive,tolerance_policies=policies)
     assert all(set(rows)=={'0','1'} for rows in result.derived_metrics.values())
-    with pytest.raises(ValueError,match='duplicate tolerance policy ID'):
-        reaggregate(tolerance_fixture(),[dict(policy_id='duplicate'),dict(policy_id='duplicate')])
+    duplicate=reaggregate(tolerance_fixture(),[dict(policy_id='duplicate'),dict(policy_id='duplicate')])
+    assert len(duplicate)==2
+    assert all(r.status=='BLOCKED' and r.reason_codes==['DUPLICATE_POLICY_ID'] for r in duplicate.values())

@@ -7,6 +7,7 @@ from peanalyzer.fastq import paired_fastq
 from peanalyzer.schemas import reverse_complement
 
 MIN_EXACT_PAIR_OVERLAP = 10
+MIN_ALTERNATIVE_PAIR_OVERLAP = 4
 # Measured through production Core 2.3.4 / fastp 1.3.3, not a fastp default.
 MIN_PINNED_BACKEND_OVERLAP = 11
 
@@ -15,9 +16,10 @@ MIN_PINNED_BACKEND_OVERLAP = 11
 def reconstruct(left, right):
     """Reject distinct long placements and short period-shifted alternatives.
 
-    A chance short border of an otherwise aperiodic long overlap is not a
-    tandem-repeat length ambiguity. A repeated period fitting at least twice
-    in the observed overlap is; it permits a different complete molecule.
+    A self-consistent alternative with at least four matching bases supports a
+    different complete product length, even if its period exceeds half the
+    qualifying overlap. Shorter borders also reject a demonstrable repeated
+    period fitting twice. No motif or reference length selects a placement.
     """
     overlaps = [n for n in range(1, min(len(left), len(right))+1) if left[-n:]==right[:n]]
     qualified = [n for n in overlaps if n>=MIN_EXACT_PAIR_OVERLAP]
@@ -26,7 +28,8 @@ def reconstruct(left, right):
     if len(qualified)!=1:
         return None, 'AMBIGUOUS_PRODUCT_RECONSTRUCTION'
     n=qualified[0]
-    if any(0<n-short<=n//2 for short in overlaps if short<n):
+    if any(short>=MIN_ALTERNATIVE_PAIR_OVERLAP or 0<n-short<=n//2
+           for short in overlaps if short<n):
         return None, 'PERIODIC_PRODUCT_RECONSTRUCTION'
     return left+right[n:], None
 
@@ -53,6 +56,11 @@ def state_geometry(targets, left_length, right_length):
     return rows
 
 
+def copy_dependent(rows, field):
+    """Compare candidate eligibility, not absolute lengths, across copies."""
+    return len({tuple(row[field]) for row in rows})>1
+
+
 def assess_pair(pair, targets):
     left=pair[0].sequence.decode().upper()
     right=reverse_complement(pair[1].sequence.decode().upper())
@@ -62,6 +70,8 @@ def assess_pair(pair, targets):
     if asymmetric:
         reason=('STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY' if any(r['wt_length']!=r['pe_length'] for r in asymmetric)
                 else 'STATE_DEPENDENT_PRODUCT_OBSERVABILITY')
+    elif copy_dependent(rows,'exact_states'):
+        reason='COPY_DEPENDENT_PRODUCT_OBSERVABILITY'
     eligible={r['copy'] for r in rows if all(r['exact_states'])}
     if not reason and not eligible:
         reason='REFERENCE_PRODUCT_NOT_OBSERVABLE'
@@ -87,6 +97,10 @@ def population_observability(paths, targets):
         rows.append(dict(left_length=left,right_length=right,pairs=count,copies=copies))
         if any(len(set(c['backend_merge_states']))>1 for c in copies):
             backend['STATE_DEPENDENT_BACKEND_MERGEABILITY']+=count
+        if copy_dependent(copies,'backend_merge_states'):
+            backend['COPY_DEPENDENT_BACKEND_MERGEABILITY']+=count
+        if copy_dependent(copies,'exact_states'):
+            exact['COPY_DEPENDENT_PRODUCT_OBSERVABILITY']+=count
         if any(len(set(c['exact_states']))>1 for c in copies):
             exact['STATE_DEPENDENT_PRODUCT_OBSERVABILITY']+=count
     return dict(pair_geometries=rows,backend_reason_counts=dict(backend),exact_reason_counts=dict(exact),

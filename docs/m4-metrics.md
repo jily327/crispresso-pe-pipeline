@@ -10,6 +10,8 @@ with aligned-category reconciliation, explicit preprocessing attrition, unique
 exact overlap, scoped runtime gates and independent anchor failure reporting.
 M4.2 (package 0.4.2) adds within-copy state symmetry, empirically qualified
 mergeability, short-period overlap checks and optional WT/PE-family aggregation.
+M4.2.1 (package 0.4.3) also protects target composition across copies at each
+observed mate-length geometry and isolates every invalid policy request.
 
 ## Population and denominator contracts
 
@@ -178,8 +180,10 @@ The target exact classifier uses inward-facing amplicon-end mates and
 `MIN_EXACT_PAIR_OVERLAP = 10`. It enumerates every sequence-consistent
 suffix/prefix overlap, including shorter alternatives. Exactly one placement
 of at least 10 nt must reconstruct the complete product. A shorter placement
-also invalidates that reconstruction when its shift is a repeat period fitting
-at least twice in the qualifying overlap. This closes short CAG/CA expansion
+also invalidates that reconstruction when it has at least four matching bases,
+or its shift is a repeat period fitting at least twice in the qualifying overlap.
+The four-base alternative boundary admits distinct self-consistent product lengths
+for periods greater than half the qualifying overlap, including periods 6–10. This closes short CAG/CA expansion
 aliases without rejecting informative overlaps merely containing an internal
 microsatellite. This is a qualified conservative reconstruction contract, not a
 claim to resolve every possible unobserved repeat expansion.
@@ -188,8 +192,11 @@ For each observed mate-length geometry, both WT and intended PE references must
 have the same exact observability **within each copy**. State-dependent exact
 eligibility excludes both states with an explicit reason; a shorter WT cannot
 enter the denominator while the longer PE is invisible. Reference ends are
-capped at product length for full-product read-through. Eligible copies may have
-different absolute lengths. Complete reconstructed sequences must still equal
+capped at product length for full-product read-through. Candidates across all copies must also have equivalent exact eligibility for
+that target read-length class. A copy-dependent difference excludes the entire
+class with `COPY_DEPENDENT_PRODUCT_OBSERVABILITY`, including otherwise observable
+molecules. Target family evidence shares this exclusion. Classes with equal
+eligibility may have different absolute copy lengths. Complete reconstructed sequences must still equal
 an eligible full WT or PE definition; references do not dictate overlap length.
 Same-family copy matches collapse once; WT/PE collisions block reporting.
 Partial products, uncovered gaps and extra mutations cannot become exact PE.
@@ -206,9 +213,21 @@ reconstruction geometry. Target exact remains independent of backend selection.
 These checks do not certify mismatch-, quality- or adapter-dependent survival.
 
 Cross-copy length divergence is exposed in observability/comparison evidence.
-It alone does not block target metrics. Existing routing still refuses unsupported
-inter-copy indels; copy results require that unchanged routing contract. Separately
-qualified copy cohorts of different absolute lengths can each remain reportable.
+It alone does not block target metrics. At each observed mate-length class,
+backend merge eligibility is compared across every copy × state candidate.
+A difference across copies blocks the whole target native result with
+`COPY_DEPENDENT_BACKEND_MERGEABILITY`, before launching a selected backend cohort.
+Target exact/family exclude only classes with unequal exact observability; retained
+classes can remain reportable. No retained exact denominator means NOT_ASSESSABLE.
+Thus 240/234 nt substitution copies at 125+125 mates have blocked native but
+reportable exact/family; at 124+125 all three lose target eligibility. At 150+150
+all are reportable. Length equality does not protect copy-specific repeat ambiguity.
+
+These additional comparisons are target-scoped. Copy metrics compare only their
+own WT/PE candidates and retain their independent eligibility. Existing routing
+still refuses unsupported inter-copy indels; copy results require that unchanged
+routing contract. Separately qualified copy cohorts of different absolute lengths
+can each remain reportable.
 
 Copy exact uses reconciled full backend allele sequences. It exposes
 `exact_wt`, `exact_pe`, `pe_plus_extra_change`, `other_nonexact_assessable`,
@@ -318,7 +337,23 @@ other copies to that anchor; unmappable extra substitutions cannot satisfy a
 position whitelist. An empty whitelist permits no extra substitutions. Copies
 must encode the same biological intended edit after coordinate projection.
 Ambiguous definitions block derived results without changing canonical results.
-Duplicate policy IDs raise an explicit API error.
+Policy requests are prevalidated before prepared-input analysis and backend launch.
+Missing IDs are invalid. All requests sharing a nonempty ID, including the first,
+are BLOCKED with `DUPLICATE_POLICY_ID`; a different valid policy still computes.
+Missing IDs yield `MISSING_POLICY_ID`, malformed objects yield
+`INVALID_TOLERANCE_POLICY`, and malformed ID values yield `INVALID_POLICY_ID`.
+Unsupported settings retain `UNSUPPORTED_TOLERANCE_POLICY`. None of these policy
+errors changes canonical results or prevents publication of `result.json`.
+
+Valid dictionary keys remain user policy IDs. Invalid requests have deterministic
+internal keys such as `__invalid_policy_request_0` based on request order; these
+are collision-safe storage keys, not renamed scientific policy identities.
+`policy_id` and `policy` preserve the supplied identity/request (or an explicit
+`invalid_policy` diagnostic for non-dict inputs). Invalid requests have null
+fractions, local reasons and all classification counts excluded. A top-level
+`None` means no requested policies; `[None]` is one invalid request. A dict is
+accepted as one request, while iterable requests are materialized once. The same
+normalization and local failures apply to fresh analysis and stored reaggregation.
 
 Derived records expose `wt_family`, `pe_family`, `family_ambiguous`, `excluded`,
 classification input, policy and population identity. The denominator is WT-family
@@ -334,3 +369,7 @@ The broad canonical target unresolved bucket, lack of enforced cross-copy backen
 option equality outside the target comparator, and independent verification of
 `running_info.args` remain limited as before. No provenance attestation redesign
 is included.
+
+See [M4.2.1 focused remediation](validation/m421/README.md) for the post-audit
+copy-axis, malformed-policy and period-1-through-10 evidence, portable reproduction,
+and complete source/fresh-wheel regression results. Historical evidence is immutable.

@@ -25,6 +25,7 @@ from peanalyzer.schemas import Target
 from peanalyzer.observability import population_observability
 from peanalyzer.metrics.family import prepared_evidence, aligned_evidence, reaggregate
 from peanalyzer.metrics.family_models import ProductEvidence
+from peanalyzer.metrics.policy_requests import prepare_policies
 
 RUNTIME_DIGEST = 'pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c'
 LIMITATIONS = [
@@ -137,7 +138,7 @@ def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=
     elif d == 0:
         status = 'NOT_ASSESSABLE'
         reasons = ['ZERO_EXACT_DENOMINATOR' if family == 'precise' else 'ZERO_NATIVE_DENOMINATOR']
-        if products:reasons+=sorted(k for k in products.exclusion_reason_counts if k.startswith('STATE_DEPENDENT_'))
+        if products:reasons+=sorted(k for k in products.exclusion_reason_counts if k.startswith(('STATE_DEPENDENT_','COPY_DEPENDENT_')))
     elif n is None or d is None:
         status, reasons = 'BLOCKED', ['MISSING_INCOMPLETE_BACKEND_METRICS']
     else:
@@ -174,8 +175,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     read selection is outside this API; sample/target applicability is explicit.
     Failure of copy routing does not remove reads from the target population.
     """
-    tolerance_policies=list(tolerance_policies or [])
     targets = [Target.model_validate(t.model_dump() if isinstance(t, Target) else t) for t in targets]
+    tolerance_policies=prepare_policies(tolerance_policies,targets)
     if not targets or not analysis_id or len({t.target_name for t in targets}) != 1:
         raise ValueError('one nonempty biological target and analysis identifier are required')
     if len({t.copy_name.casefold() for t in targets}) != len(targets):
@@ -374,8 +375,8 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
     Routing must already exist. Unsupported/missing copies stay explicit in the
     result. Execution failures never create a numeric zero. No resume/overwrite.
     """
-    tolerance_policies=list(tolerance_policies or [])
     targets = [Target.model_validate(t.model_dump() if isinstance(t, Target) else t) for t in targets]
+    tolerance_policies=prepare_policies(tolerance_policies,targets)
     output = Path(output).absolute()
     if output.exists():
         raise ValueError('M4 output must be new')

@@ -1,0 +1,778 @@
+{
+  "schema_version": 1,
+  "metric_contract_version": "m4-v1",
+  "target_id": "SYN",
+  "sample_id": "1B",
+  "analysis_id": "copy_specific_repeat",
+  "provenance": {
+    "software": {
+      "pipeline_version": "0.4.3",
+      "git_commit": "db49e23f0881bed35a24747587275463949c764d",
+      "git_dirty": true,
+      "python_version": "3.12.14",
+      "python_executable": "/workspace/crispresso-pe-pipeline/.venv/bin/python",
+      "dependencies": {
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "PyYAML": "6.0.3",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "pillow": "13.0.0",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "packaging": "26.3",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      }
+    },
+    "prepared_manifest_sha256": "aea1f06d9353ebbd03a6bf9d017db6edf86c1b1fdea0e1953746462ef7e60c7c",
+    "prepared_sample": {
+      "files": {
+        "r1": {
+          "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+          "sha256": "093df246573c30f581b672a89c1c8a8aa1cb5d974ca77a3341f25b03ae88f818",
+          "size_bytes": 328
+        },
+        "r2": {
+          "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+          "sha256": "9ebb14ee379d66b14e7f7f97ba43ab35bdb6edebce880684df5fdfb3f9a80476",
+          "size_bytes": 253
+        }
+      },
+      "pairs": 40
+    },
+    "target_definitions_sha256": "9017fa455974c3f07640fbba2f26f6bdc33fb904a49a1288dcf58500c7f5f92d",
+    "routing_manifest_sha256": null,
+    "routing_policy_identity": null,
+    "crispresso_version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "artifacts": {
+      "prepared/analysis_manifest.json": {
+        "sha256": "aea1f06d9353ebbd03a6bf9d017db6edf86c1b1fdea0e1953746462ef7e60c7c",
+        "size_bytes": 789
+      }
+    }
+  },
+  "eligibility": {
+    "target_metric_status": "BLOCKED",
+    "routing_geometry_status": "BLOCKED",
+    "comparator_status": "BLOCKED",
+    "anchor_invariant": false,
+    "block_reason_codes": [
+      "COPY_COHORT_UNAVAILABLE",
+      "COPY_DEPENDENT_PRODUCT_OBSERVABILITY",
+      "COPY_INDEL_ROUTING_UNQUALIFIED",
+      "EDIT_COORDINATES_NOT_COMPARABLE",
+      "MISSING_ANCHOR_RESULT",
+      "NONUNIQUE_REFERENCE_ALIGNMENT",
+      "PE_EXTENSION_LOCATION_UNSUPPORTED",
+      "UNSUPPORTED_ROUTING_GEOMETRY",
+      "ZERO_EXACT_DENOMINATOR"
+    ]
+  },
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "61767031d66ab2f1f37fdd538318353d43fc79010d5356c7be0e0f5638de7e85",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "BLOCKED",
+      "numerator": null,
+      "denominator": null,
+      "reason_codes": [
+        "EDIT_COORDINATES_NOT_COMPARABLE",
+        "MISSING_ANCHOR_RESULT"
+      ],
+      "confident_input_reads": null,
+      "backend_input_reads": null,
+      "reads_after_preprocessing": null,
+      "aligned_reads": null,
+      "unaligned_reads": null,
+      "ordinary_classified_aligned_reads": null,
+      "ambiguous_aligned_reads": null,
+      "discarded_aligned_reads": null,
+      "backend_counts_role": "unavailable",
+      "preprocessing_count_delta": null,
+      "unaligned_reason_counts": {},
+      "products": null,
+      "population_denominator_exclusions": null
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "61767031d66ab2f1f37fdd538318353d43fc79010d5356c7be0e0f5638de7e85",
+      "population_input_reads": 40,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "NOT_ASSESSABLE",
+      "numerator": null,
+      "denominator": null,
+      "reason_codes": [
+        "ZERO_EXACT_DENOMINATOR",
+        "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+      ],
+      "confident_input_reads": null,
+      "backend_input_reads": null,
+      "reads_after_preprocessing": null,
+      "aligned_reads": null,
+      "unaligned_reads": null,
+      "ordinary_classified_aligned_reads": null,
+      "ambiguous_aligned_reads": null,
+      "discarded_aligned_reads": null,
+      "backend_counts_role": "unavailable",
+      "preprocessing_count_delta": null,
+      "unaligned_reason_counts": {},
+      "products": {
+        "exact_wt": 0,
+        "exact_pe": 0,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 40,
+        "contradictory_state": 0,
+        "denominator_exclusions": 40,
+        "classification_input_reads": 40,
+        "exclusion_reason_counts": {
+          "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 40
+        }
+      },
+      "population_denominator_exclusions": 40
+    }
+  },
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy1_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "d9f40516fa0c2ff1e3f0dd7d780346961ceb4fe471cd1ca4b7d7745f1bfab7e7",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy1_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "d9f40516fa0c2ff1e3f0dd7d780346961ceb4fe471cd1ca4b7d7745f1bfab7e7",
+        "population_input_reads": null,
+        "copy_id": "copy1",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "BLOCKED",
+      "native": {
+        "metric_name": "copy2_crispresso_native_pe",
+        "metric_family": "native",
+        "population_scope": "confident_copy",
+        "population_id": "5ca24ce68fb46cffb4cfec9e5c07b382ab1978249ae4c18f3c94b1160d5d0473",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      },
+      "precise": {
+        "metric_name": "copy2_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "confident_copy",
+        "population_id": "5ca24ce68fb46cffb4cfec9e5c07b382ab1978249ae4c18f3c94b1160d5d0473",
+        "population_input_reads": null,
+        "copy_id": "copy2",
+        "routing_conditioned": true,
+        "assessment_stage": "backend_aligned_products",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": null,
+        "population_denominator_exclusions": null
+      }
+    }
+  },
+  "qc": {
+    "prepared_input_reads": 40,
+    "routing_assigned_reads": null,
+    "routing_quarantined_reads": null,
+    "routing_quarantine_fraction": null,
+    "routing_quarantine_reasons": {},
+    "target_backend_input_reads": null,
+    "target_backend_aligned_reads": null,
+    "target_backend_unaligned_reads": null,
+    "target_backend_unaligned_fraction": null,
+    "exact_assessable_reads": 0,
+    "exact_product_exclusions": 40,
+    "per_copy_confident_counts": {},
+    "limitations": [
+      "Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.",
+      "Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.",
+      "Target all-read metrics are the primary population view when eligible.",
+      "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+      "Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.",
+      "Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.",
+      "Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.",
+      "Closed, correctly specified target panels and M3.1.2 geometry/placement qualification remain required; unseen panels are not biologically certified.",
+      "Verification assumes immutable trusted archives; coordinated rewriting of all trusted artifacts and large-scale memory performance are not qualified."
+    ]
+  },
+  "anchor_evidence": {
+    "comparison": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "BLOCKED",
+      "reasons": [
+        "EDIT_COORDINATES_NOT_COMPARABLE",
+        "MISSING_ANCHOR_RESULT"
+      ],
+      "anchor_invariant": false,
+      "anchors": {},
+      "anchor_partitions": {},
+      "partition_common": false,
+      "cross_copy_length_divergence": false,
+      "authoritative_window_diagnostics": {},
+      "authoritative_windows": {},
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "failures": {
+      "copy1": "MISSING_ANCHOR_RESULT",
+      "copy2": "MISSING_ANCHOR_RESULT"
+    },
+    "backend_metrics": {},
+    "observability": {
+      "target": {
+        "pair_geometries": [
+          {
+            "left_length": 150,
+            "right_length": 106,
+            "pairs": 40,
+            "copies": [
+              {
+                "copy": "copy1",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  true,
+                  true
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              },
+              {
+                "copy": "copy2",
+                "wt_length": 240,
+                "pe_length": 240,
+                "exact_states": [
+                  false,
+                  false
+                ],
+                "backend_merge_states": [
+                  true,
+                  true
+                ]
+              }
+            ]
+          }
+        ],
+        "backend_reason_counts": {},
+        "exact_reason_counts": {
+          "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 40
+        },
+        "reconstruction_ambiguity_reason_counts": {
+          "AMBIGUOUS_PRODUCT_RECONSTRUCTION": 20
+        },
+        "cross_copy_length_divergence": false,
+        "exact_minimum_overlap": 10,
+        "backend_minimum_overlap": 11
+      }
+    }
+  },
+  "product_evidence": {
+    "target": {
+      "evidence_version": 1,
+      "population_id": "61767031d66ab2f1f37fdd538318353d43fc79010d5356c7be0e0f5638de7e85",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 40,
+      "classification_input_reads": 40,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCACACACACACACACACAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCACACACACACACACACAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 18,
+          "assessable": false,
+          "reason_codes": [
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [],
+          "observed_mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTAC"
+          ],
+          "eligible_copies": [
+            "copy1"
+          ]
+        },
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 2,
+          "assessable": false,
+          "reason_codes": [
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [],
+          "observed_mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTAC"
+          ],
+          "eligible_copies": [
+            "copy1"
+          ]
+        },
+        {
+          "sequence": null,
+          "count": 2,
+          "assessable": false,
+          "reason_codes": [
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [],
+          "observed_mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCACACACACACACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGTGTGTGTGTGTGTG"
+          ],
+          "eligible_copies": [
+            "copy1"
+          ]
+        },
+        {
+          "sequence": null,
+          "count": 18,
+          "assessable": false,
+          "reason_codes": [
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+          ],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "neither",
+          "candidates": [],
+          "observed_mates": [
+            "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCACACACACACACACACA",
+            "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGTGTGTGTGTGTGTG"
+          ],
+          "eligible_copies": [
+            "copy1"
+          ]
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy1": {
+      "evidence_version": 1,
+      "population_id": "d9f40516fa0c2ff1e3f0dd7d780346961ceb4fe471cd1ca4b7d7745f1bfab7e7",
+      "population_scope": "confident_copy",
+      "copy_id": "copy1",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCACACACACACACACACAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCACACACACACACACACAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE",
+        "COPY_INDEL_ROUTING_UNQUALIFIED",
+        "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "PE_EXTENSION_LOCATION_UNSUPPORTED",
+        "UNSUPPORTED_ROUTING_GEOMETRY"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "copy2": {
+      "evidence_version": 1,
+      "population_id": "5ca24ce68fb46cffb4cfec9e5c07b382ab1978249ae4c18f3c94b1160d5d0473",
+      "population_scope": "confident_copy",
+      "copy_id": "copy2",
+      "assessment_stage": "backend_aligned_products",
+      "source_input_reads": null,
+      "classification_input_reads": 0,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCACACACACACACACACAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCACACACACACACACACAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [],
+      "blocking_reasons": [
+        "COPY_COHORT_UNAVAILABLE",
+        "COPY_INDEL_ROUTING_UNQUALIFIED",
+        "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "PE_EXTENSION_LOCATION_UNSUPPORTED",
+        "UNSUPPORTED_ROUTING_GEOMETRY"
+      ],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    }
+  },
+  "derived_metrics": {
+    "target": {
+      "0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "61767031d66ab2f1f37fdd538318353d43fc79010d5356c7be0e0f5638de7e85",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "UNSUPPORTED_FAMILY_PRODUCT_DEFINITION"
+        ]
+      },
+      "1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "61767031d66ab2f1f37fdd538318353d43fc79010d5356c7be0e0f5638de7e85",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 40,
+        "classification_input_reads": 40,
+        "reason_codes": [
+          "UNSUPPORTED_FAMILY_PRODUCT_DEFINITION"
+        ]
+      }
+    },
+    "copy1": {
+      "0": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d9f40516fa0c2ff1e3f0dd7d780346961ceb4fe471cd1ca4b7d7745f1bfab7e7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_FAMILY_PRODUCT_DEFINITION",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "1": {
+        "metric_name": "copy1_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "d9f40516fa0c2ff1e3f0dd7d780346961ceb4fe471cd1ca4b7d7745f1bfab7e7",
+        "population_scope": "confident_copy",
+        "copy_id": "copy1",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_FAMILY_PRODUCT_DEFINITION",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      }
+    },
+    "copy2": {
+      "0": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "5ca24ce68fb46cffb4cfec9e5c07b382ab1978249ae4c18f3c94b1160d5d0473",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_FAMILY_PRODUCT_DEFINITION",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      },
+      "1": {
+        "metric_name": "copy2_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "5ca24ce68fb46cffb4cfec9e5c07b382ab1978249ae4c18f3c94b1160d5d0473",
+        "population_scope": "confident_copy",
+        "copy_id": "copy2",
+        "status": "BLOCKED",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 0,
+        "reason_codes": [
+          "COPY_COHORT_UNAVAILABLE",
+          "COPY_INDEL_ROUTING_UNQUALIFIED",
+          "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "PE_EXTENSION_LOCATION_UNSUPPORTED",
+          "UNSUPPORTED_FAMILY_PRODUCT_DEFINITION",
+          "UNSUPPORTED_ROUTING_GEOMETRY"
+        ]
+      }
+    }
+  }
+}

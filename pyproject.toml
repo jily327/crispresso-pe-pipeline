@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crispresso-pe-pipeline"
-version = "0.4.2"
+version = "0.4.3"
 description = "Prime-editing amplicon analysis with qualified routing and explicit production metric populations"
 readme = "README.md"
 requires-python = ">=3.11"
