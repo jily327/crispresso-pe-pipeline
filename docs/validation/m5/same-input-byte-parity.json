@@ -1,0 +1,26 @@
+{
+  "command": "peanalyzer stats",
+  "files": {
+    "contrasts.tsv": {
+      "byte_identical": true,
+      "sha256": "44c73a92878f1d9f6fdbf0206ee7f2cd40e486838eb4a530d0dfe8e30858ed37"
+    },
+    "group_summaries.tsv": {
+      "byte_identical": true,
+      "sha256": "c9630274af826e42e0639f46eb7a367ccc71beb0e6444336dc8726820a41af13"
+    },
+    "observations.tsv": {
+      "byte_identical": true,
+      "sha256": "ac2c85eda364d78ffebfc7e842c1098e1481574e61b43564d0f54cce3f766c1a"
+    },
+    "result.json": {
+      "byte_identical": true,
+      "sha256": "da5952db85577fdc2b459d9c086722bcb94f1d8988403bb5ae8b73e396d4a3c6"
+    }
+  },
+  "ignored_fields": [],
+  "input_fixture": "actual/fixtures/unpaired",
+  "same_absolute_input_paths": true,
+  "source_working_directory": "repository checkout",
+  "wheel_working_directory": "outside repository checkout"
+}

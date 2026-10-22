@@ -1,4 +1,4 @@
-"""Metadata validation and paired barcode demultiplexing for amplicon analysis."""
+"""Qualified prime-editing measurements and biological-sample statistics."""
 
 from importlib.metadata import version
 

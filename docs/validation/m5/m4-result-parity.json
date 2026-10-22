@@ -1,0 +1,590 @@
+{
+  "m4/m3/m4/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m4/m31/m4/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m41/ambiguous/failed_metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m41/ambiguous/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m41/nonexact_only/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m41/preprocessing/failed_metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m41/preprocessing/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m41/routing_blocked/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/cross_copy_lengths/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/deletion_boundary/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/deletion_exact_boundary/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/insertion_long/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/insertion_short/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/repeat/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/single_copy_lengths/copy1/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/single_copy_lengths/copy2/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/substitution/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/10/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/11/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/12/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/13/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/16/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/20/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/28/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/30/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/32/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/4/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/8/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/titration/9/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m42/tolerance/metrics/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/copy_specific_repeat/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/cross_copy_124_125/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/cross_copy_124_125/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/cross_copy_125_125/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/cross_copy_125_125/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/cross_copy_150_150/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m421/cross_copy_150_150/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m422/copy2_1_all/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m422/copy2_1_all/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m422/copy_independence/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m422/fixed/production/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  },
+  "m422/fixed/result.json": {
+    "baseline_source_wheel_and_final_source_wheel_equal": true,
+    "compared_fields": [
+      "target_metrics",
+      "copies",
+      "qc",
+      "eligibility",
+      "derived_metrics",
+      "product_evidence"
+    ],
+    "excluded_nested_fields": [
+      "population_id"
+    ]
+  }
+}

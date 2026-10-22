@@ -1,5 +1,11 @@
 # crispresso-pe-pipeline
 
+**M5 (0.5.0) adds offline biological-sample aggregation and explicit exact
+replicate-level contrasts with family-scoped BH correction.** Use
+[`peanalyzer summarize` and `peanalyzer stats`](docs/m5-statistics.md). Reads are
+not biological replicates. Target, copy and policy populations stay separate;
+nonreportable measurements retain their status. See [M5 qualification](docs/validation/m5/README.md).
+
 **M4 implements production PE measurements with explicit target and copy
 populations, integer denominators, provenance and reportability gates.**
 **M4.2.2 (0.4.4)** withholds whole-target precise/family fractions when any
@@ -10,8 +16,8 @@ read lengths and independently qualified copy metrics remain supported. See
 Use the [M4 Python API and measurement contracts](docs/m4-metrics.md), including
 the target all-read native/precise metrics and separately labelled confident-copy
 metrics. See [M4 evidence](docs/validation/m4/README.md) for qualification and
-reproduction. Statistical analysis, biological interpretation and reporting
-remain future work. The milestone history below describes the boundaries M4 uses.
+reproduction. M5 provides the statistical layer described above; biological
+interpretation and reporting remain future work. The milestone history below describes the boundaries M4 uses.
 
 A local, reproducible prime-editing amplicon sequencing pipeline under development
 for inline-barcoded samples and multiple target copies/homeologs. The intended
@@ -25,7 +31,7 @@ informative reads routed correctly, but all 40 deliberately ambiguous or
 non-informative reads were forced into individual copies. The same experimental
 spacer with a one-base homeolog mismatch was rejected. That default routing
 approach remains blocked; M4 uses the subsequent qualified explicit-routing
-boundary for copy metrics. Statistics and reporting are not implemented.
+boundary for copy metrics. These historical milestones do not implement biological statistics or reporting.
 
 **M3.1 adds a separate explicit diagnostic-evidence router. Its qualified synthetic
 gate passes: 75/125 pairs confidently assigned, 50 quarantined, zero cross-routes.**

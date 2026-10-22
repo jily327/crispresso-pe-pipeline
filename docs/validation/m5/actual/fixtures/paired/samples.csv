@@ -1,0 +1,7 @@
+sample_name,barcode_id,forward_barcode,reverse_barcode,editor,treatment,dpi,biological_replicate,block_id,paired
+A001,barcode-A001,AAAA,CCCC,synthetic-editor,A,6,1,block001,true
+A002,barcode-A002,AAAA,CCCC,synthetic-editor,A,6,2,block002,true
+A003,barcode-A003,AAAA,CCCC,synthetic-editor,A,6,3,block003,true
+B001,barcode-B001,AAAA,CCCC,synthetic-editor,B,6,1,block001,true
+B002,barcode-B002,AAAA,CCCC,synthetic-editor,B,6,2,block002,true
+B003,barcode-B003,AAAA,CCCC,synthetic-editor,B,6,3,block003,true
