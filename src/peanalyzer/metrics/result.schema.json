@@ -105,8 +105,179 @@
       "title": "Eligibility",
       "type": "object"
     },
+    "FamilyMetric": {
+      "additionalProperties": false,
+      "properties": {
+        "metric_name": {
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "policy_id": {
+          "title": "Policy Id",
+          "type": "string"
+        },
+        "policy": {
+          "additionalProperties": true,
+          "title": "Policy",
+          "type": "object"
+        },
+        "population_id": {
+          "title": "Population Id",
+          "type": "string"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "copy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Copy Id"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Numerator"
+        },
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Denominator"
+        },
+        "wt_family": {
+          "minimum": 0,
+          "title": "Wt Family",
+          "type": "integer"
+        },
+        "pe_family": {
+          "minimum": 0,
+          "title": "Pe Family",
+          "type": "integer"
+        },
+        "family_ambiguous": {
+          "minimum": 0,
+          "title": "Family Ambiguous",
+          "type": "integer"
+        },
+        "excluded": {
+          "minimum": 0,
+          "title": "Excluded",
+          "type": "integer"
+        },
+        "classification_input_reads": {
+          "minimum": 0,
+          "title": "Classification Input Reads",
+          "type": "integer"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "metric_name",
+        "policy_id",
+        "policy",
+        "population_id",
+        "population_scope",
+        "copy_id",
+        "status",
+        "numerator",
+        "denominator",
+        "wt_family",
+        "pe_family",
+        "family_ambiguous",
+        "excluded",
+        "classification_input_reads",
+        "reason_codes"
+      ],
+      "title": "FamilyMetric",
+      "type": "object"
+    },
     "MetricRecord": {
       "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "numerator": {
+                "type": "null"
+              },
+              "denominator": {
+                "type": "null"
+              },
+              "reason_codes": {
+                "minItems": 1
+              }
+            },
+            "required": [
+              "reason_codes"
+            ]
+          },
+          "if": {
+            "properties": {
+              "status": {
+                "const": "REPORTABLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "numerator": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "denominator": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "reason_codes": {
+                "maxItems": 0
+              }
+            },
+            "required": [
+              "numerator",
+              "denominator"
+            ]
+          }
+        }
+      ],
       "properties": {
         "metric_name": {
           "title": "Metric Name",
@@ -382,6 +553,96 @@
       "title": "MetricRecord",
       "type": "object"
     },
+    "ObservedProduct": {
+      "additionalProperties": false,
+      "properties": {
+        "sequence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sequence"
+        },
+        "count": {
+          "minimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "assessable": {
+          "title": "Assessable",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "canonical_exact_wt": {
+          "default": false,
+          "title": "Canonical Exact Wt",
+          "type": "boolean"
+        },
+        "canonical_exact_pe": {
+          "default": false,
+          "title": "Canonical Exact Pe",
+          "type": "boolean"
+        },
+        "intended_state": {
+          "default": "neither",
+          "enum": [
+            "WT",
+            "PE",
+            "neither",
+            "ambiguous"
+          ],
+          "title": "Intended State",
+          "type": "string"
+        },
+        "candidates": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Candidates",
+          "type": "array"
+        },
+        "observed_mates": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observed Mates"
+        },
+        "eligible_copies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Eligible Copies",
+          "type": "array"
+        }
+      },
+      "required": [
+        "sequence",
+        "count",
+        "assessable"
+      ],
+      "title": "ObservedProduct",
+      "type": "object"
+    },
     "ProductCounts": {
       "additionalProperties": false,
       "properties": {
@@ -432,9 +693,116 @@
           "minimum": 0,
           "title": "Classification Input Reads",
           "type": "integer"
+        },
+        "exclusion_reason_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Exclusion Reason Counts",
+          "type": "object"
         }
       },
       "title": "ProductCounts",
+      "type": "object"
+    },
+    "ProductEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Evidence Version",
+          "type": "integer"
+        },
+        "population_id": {
+          "title": "Population Id",
+          "type": "string"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "copy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Copy Id"
+        },
+        "assessment_stage": {
+          "enum": [
+            "prepared_pairs",
+            "backend_aligned_products"
+          ],
+          "title": "Assessment Stage",
+          "type": "string"
+        },
+        "source_input_reads": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Input Reads"
+        },
+        "classification_input_reads": {
+          "minimum": 0,
+          "title": "Classification Input Reads",
+          "type": "integer"
+        },
+        "targets": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Targets",
+          "type": "array"
+        },
+        "products": {
+          "items": {
+            "$ref": "#/$defs/ObservedProduct"
+          },
+          "title": "Products",
+          "type": "array"
+        },
+        "blocking_reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Blocking Reasons",
+          "type": "array"
+        },
+        "coordinate_contract": {
+          "const": "zero_based_anchor_wt_forward",
+          "default": "zero_based_anchor_wt_forward",
+          "title": "Coordinate Contract",
+          "type": "string"
+        }
+      },
+      "required": [
+        "population_id",
+        "population_scope",
+        "copy_id",
+        "assessment_stage",
+        "source_input_reads",
+        "classification_input_reads",
+        "targets",
+        "products"
+      ],
+      "title": "ProductEvidence",
       "type": "object"
     },
     "Provenance": {
@@ -781,6 +1149,23 @@
     "anchor_evidence": {
       "additionalProperties": true,
       "title": "Anchor Evidence",
+      "type": "object"
+    },
+    "product_evidence": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ProductEvidence"
+      },
+      "title": "Product Evidence",
+      "type": "object"
+    },
+    "derived_metrics": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "$ref": "#/$defs/FamilyMetric"
+        },
+        "type": "object"
+      },
+      "title": "Derived Metrics",
       "type": "object"
     }
   },

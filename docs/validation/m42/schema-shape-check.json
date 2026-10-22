@@ -1,0 +1,10 @@
+{
+  "schema_valid": true,
+  "actual_result_accepted": true,
+  "rejected": [
+    "reportable_null",
+    "reportable_zero_denominator",
+    "blocked_numeric",
+    "blocked_empty_reasons"
+  ]
+}

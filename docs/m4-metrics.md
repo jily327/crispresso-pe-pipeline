@@ -2,12 +2,14 @@
 
 M4 adds a Python API and schema for measurements of one target in one verified
 prepared sample. It adds no statistical tests, biological interpretation,
-aggregation, plots, GUI or report generation. The audited base is
+cross-sample aggregation, plots, GUI or report generation. The audited base is
 `550df70f9f9627c7218b9f047d0b6bf3023b8d25`. M2 behavior and M3.1.2 routing,
 geometry and observed-flank rules remain unchanged. M4.1 (package 0.4.1)
 remediates the audited M4 checkpoint `768d4075c2608f3b72293401bb19dce4309f4967`
 with aligned-category reconciliation, explicit preprocessing attrition, unique
 exact overlap, scoped runtime gates and independent anchor failure reporting.
+M4.2 (package 0.4.2) adds within-copy state symmetry, empirically qualified
+mergeability, short-period overlap checks and optional WT/PE-family aggregation.
 
 ## Population and denominator contracts
 
@@ -156,7 +158,9 @@ as `peanalyzer/metrics/result.schema.json`. It forbids unknown fields and float
 counts. Pydantic model validators additionally enforce arithmetic and population
 relationships that JSON Schema alone cannot express. Top-level fields are:
 `schema_version=1`, `metric_contract_version=m4-v1`, target/sample/analysis IDs,
-`provenance`, `eligibility`, `target_metrics`, `copies`, `qc`, `anchor_evidence`.
+`provenance`, `eligibility`, `target_metrics`, `copies`, `qc`, `anchor_evidence`,
+`product_evidence`, `derived_metrics`. The last two fields are additive dictionaries
+with empty defaults for historical documents.
 M4.1 retains `schema_version=1` and `metric_contract_version=m4-v1`: metric
 identities, populations and native denominator are unchanged. Three optional
 integer aligned-category fields extend each metric record; all new backend
@@ -170,19 +174,41 @@ retain the older parser's derived convenience fields.
 
 ## Exact products and exclusions
 
-The target exact classifier reuses the qualified inward-facing amplicon-end
-primitive with `MIN_EXACT_PAIR_OVERLAP = 10`. Before consulting the WT/PE
-reference lengths, it enumerates sequence-consistent suffix/prefix overlaps of
-at least 10 nt. Exactly one such placement must reconstruct the complete product,
-and that product must equal a WT or PE definition. The fixed threshold rejects
-zero/tiny repeat-driven overlaps; uniqueness rejects multiple qualifying repeat
-placements. It is an explicit assessability threshold, not a probability of
-biological correctness. Each mate must support its product end. Internal fragments,
-uncovered gaps, disagreements, partial PE, PE with extra mutations and other
-non-exact products cannot become exact PE. Same-state identical definitions
-collapse safely and every input pair is counted at most once. A WT/PE definition
-collision BLOCKS reporting. A pair with non-unique overlap is unresolved and
-cannot provide an exact numerator or denominator read.
+The target exact classifier uses inward-facing amplicon-end mates and
+`MIN_EXACT_PAIR_OVERLAP = 10`. It enumerates every sequence-consistent
+suffix/prefix overlap, including shorter alternatives. Exactly one placement
+of at least 10 nt must reconstruct the complete product. A shorter placement
+also invalidates that reconstruction when its shift is a repeat period fitting
+at least twice in the qualifying overlap. This closes short CAG/CA expansion
+aliases without rejecting informative overlaps merely containing an internal
+microsatellite. This is a qualified conservative reconstruction contract, not a
+claim to resolve every possible unobserved repeat expansion.
+
+For each observed mate-length geometry, both WT and intended PE references must
+have the same exact observability **within each copy**. State-dependent exact
+eligibility excludes both states with an explicit reason; a shorter WT cannot
+enter the denominator while the longer PE is invisible. Reference ends are
+capped at product length for full-product read-through. Eligible copies may have
+different absolute lengths. Complete reconstructed sequences must still equal
+an eligible full WT or PE definition; references do not dictate overlap length.
+Same-family copy matches collapse once; WT/PE collisions block reporting.
+Partial products, uncovered gaps and extra mutations cannot become exact PE.
+
+Native mergeability is a separate qualification. The pinned production Core
+2.3.4 preprocessing path uses fastp 1.3.3 with `--overlap_len_require 10`, but
+empirically retains perfect probe pairs only at nominal overlaps **11 nt and
+above**. Tests cover 4, 8, 9, 10, 11, 12, 13, 16, 20, 28, 30 and 32 nt with
+independent long-overlap controls. `MIN_PINNED_BACKEND_OVERLAP = 11` captures that
+measured boundary for this runtime/path. Within-copy asymmetric merge eligibility
+blocks native reporting with `STATE_DEPENDENT_BACKEND_MERGEABILITY`. Copy precise
+also rejects this state-selected backend population and rejects ambiguous exact
+reconstruction geometry. Target exact remains independent of backend selection.
+These checks do not certify mismatch-, quality- or adapter-dependent survival.
+
+Cross-copy length divergence is exposed in observability/comparison evidence.
+It alone does not block target metrics. Existing routing still refuses unsupported
+inter-copy indels; copy results require that unchanged routing contract. Separately
+qualified copy cohorts of different absolute lengths can each remain reportable.
 
 Copy exact uses reconciled full backend allele sequences. It exposes
 `exact_wt`, `exact_pe`, `pe_plus_extra_change`, `other_nonexact_assessable`,
@@ -225,3 +251,86 @@ exact regression counts, negative gates, real-backend artifacts and test results
 
 See [M4.1 remediation evidence](validation/m41/README.md) for the focused fixes,
 real ambiguity/discard/attrition runs, failure matrices and fresh validation.
+
+## M4.2 anchor QC and failure reasons
+
+Every anchor retains ordinary, ambiguous and discarded aligned partitions in
+`anchor_evidence.comparison.anchor_partitions`. If these disagree while all seven
+scientific comparison counters agree, native reporting remains valid; the common
+record's three partition counters are null and `partition_common` is false.
+No preferred anchor supplies purported common QC. Failed execution `reason_code`
+values must be strings in the documented runner/parser allowlist: unknown strings
+map to `UNKNOWN_BACKEND_FAILURE_REASON`, nonstrings to
+`INVALID_BACKEND_FAILURE_REASON`. Missing values use the existing failure fallback.
+
+`eligibility` and `copy_metric_status` are worst-status summaries of their metric
+families. Comparator eligibility describes target native. `block_reason_codes`
+is a union and can include nonreportable zero-denominator reasons. Consumers
+must inspect individual metric status/reasons to decide reportability.
+Simple JSON Schema conditionals now enforce reportable positive-denominator and
+nonreportable null-fraction shapes. Pydantic still enforces strict Python integer
+counts, arithmetic and population relationships; JSON Schema integer semantics
+alone do not distinguish a JSON number written as `30.0` from `30`.
+
+## Optional WT/PE families and offline reaggregation
+
+Canonical native/exact records remain independent of tolerance selection.
+Both APIs accept `tolerance_policies`, an iterable of named policies. No policies
+means an empty `derived_metrics` dictionary. `product_evidence` is retained
+independently of policy selection, keyed by target or copy. It records aggregate
+raw haplotypes/counts, unassessable mates where needed, population/stage, target
+definitions, eligibility, intended state, canonical exact flags, and per-candidate
+substitutions/positions/indel events. It records observations, not biological origin.
+No read identifiers are necessary. Copy evidence is the reconciled aligned cohort;
+target evidence is all prepared pairs. Counts partition each classification input.
+
+```python
+import json
+from peanalyzer.metrics import reaggregate
+
+stored = json.load(open("m4-run1/result.json"))
+policies = [
+    {"policy_id": "strict", "max_extra_substitutions": 0},
+    {"policy_id": "one-extra", "max_extra_substitutions": 1},
+    {"policy_id": "two-selected-sites", "max_extra_substitutions": 2,
+     "allowed_extra_substitution_positions": [149, 179]},
+]
+family_results = reaggregate(stored["product_evidence"]["target"], policies)
+```
+
+This requires neither backend execution nor FASTQ. Reaggregation recomputes
+candidate distances from stored raw sequence and definitions. All intended
+state changes remain mandatory. The same tolerance applies to WT and PE.
+Candidates must be full products with a unique qualified alignment, an admissible
+intended state, no extra indels and allowed substitutions. Among eligible
+candidates, minimum extra-substitution distance chooses the family. Equal minimum
+WT/PE distances are `family_ambiguous`; ties among copies of one family count once.
+A farther opposite-family candidate entering a larger radius cannot override a
+closer match. Family counts, rather than the fraction, are monotone as only the
+substitution radius increases.
+
+`max_extra_substitutions` is a strict nonnegative integer (default 0).
+`max_extra_indel_events` currently supports only integer 0. Nonzero indel tolerance,
+unknown fields, invalid types/ranges and out-of-reference positions produce
+`BLOCKED / UNSUPPORTED_TOLERANCE_POLICY`. Optional allowed positions are zero-based,
+forward coordinates of the lexically first copy's WT. Unique alignment projects
+other copies to that anchor; unmappable extra substitutions cannot satisfy a
+position whitelist. An empty whitelist permits no extra substitutions. Copies
+must encode the same biological intended edit after coordinate projection.
+Ambiguous definitions block derived results without changing canonical results.
+Duplicate policy IDs raise an explicit API error.
+
+Derived records expose `wt_family`, `pe_family`, `family_ambiguous`, `excluded`,
+classification input, policy and population identity. The denominator is WT-family
+plus PE-family; zero yields `NOT_ASSESSABLE / ZERO_FAMILY_DENOMINATOR`, with null
+numerator and denominator. Tolerance never rescues unobservable products or
+bypasses routing/runtime/mergeability guards. Extra indels are preserved as
+observed evidence but excluded. Abundance and base-quality tolerance are not
+implemented. Canonical strict PE plus extra mutations remains non-exact.
+
+See [M4.2 evidence](validation/m42/README.md) for empirical thresholds, old/new
+classification reconciliation, family policies and fresh source/wheel validation.
+The broad canonical target unresolved bucket, lack of enforced cross-copy backend
+option equality outside the target comparator, and independent verification of
+`running_info.args` remain limited as before. No provenance attestation redesign
+is included.

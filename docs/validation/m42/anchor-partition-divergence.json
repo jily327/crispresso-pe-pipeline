@@ -1,0 +1,152 @@
+{
+  "evidence_kind": "Coherent controlled JSON, quantification and allele-table perturbation",
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "metric_name": "target_crispresso_native_pe",
+      "metric_family": "native",
+      "population_scope": "target_all_prepared",
+      "population_id": "0a5684f3e342860f9898b31c24f120c5610336394359e3368211fc6342fa4adc",
+      "population_input_reads": 125,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "backend_aligned_products",
+      "status": "REPORTABLE",
+      "numerator": 30,
+      "denominator": 105,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 125,
+      "reads_after_preprocessing": 125,
+      "aligned_reads": 105,
+      "unaligned_reads": 20,
+      "ordinary_classified_aligned_reads": null,
+      "ambiguous_aligned_reads": null,
+      "discarded_aligned_reads": null,
+      "backend_counts_role": "metric_filter",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 20
+      },
+      "products": null,
+      "population_denominator_exclusions": 20
+    },
+    "total_precise_pe": {
+      "metric_name": "total_precise_pe",
+      "metric_family": "precise",
+      "population_scope": "target_all_prepared",
+      "population_id": "0a5684f3e342860f9898b31c24f120c5610336394359e3368211fc6342fa4adc",
+      "population_input_reads": 125,
+      "copy_id": null,
+      "routing_conditioned": false,
+      "assessment_stage": "prepared_pairs",
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 55,
+      "reason_codes": [],
+      "confident_input_reads": null,
+      "backend_input_reads": 125,
+      "reads_after_preprocessing": 125,
+      "aligned_reads": 105,
+      "unaligned_reads": 20,
+      "ordinary_classified_aligned_reads": null,
+      "ambiguous_aligned_reads": null,
+      "discarded_aligned_reads": null,
+      "backend_counts_role": "parallel_native_analysis",
+      "preprocessing_count_delta": 0,
+      "unaligned_reason_counts": {
+        "unknown_backend_alignment_failure": 20
+      },
+      "products": {
+        "exact_wt": 35,
+        "exact_pe": 20,
+        "pe_plus_extra_change": 0,
+        "other_nonexact_assessable": 0,
+        "unresolved_unassessable": 70,
+        "contradictory_state": 0,
+        "denominator_exclusions": 70,
+        "classification_input_reads": 125,
+        "exclusion_reason_counts": {
+          "REFERENCE_PRODUCT_NOT_OBSERVABLE": 20,
+          "INSUFFICIENT_EXACT_PAIR_OVERLAP": 5
+        }
+      },
+      "population_denominator_exclusions": 70
+    }
+  },
+  "comparison": {
+    "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+    "metric": "target_crispresso_native_pe",
+    "status": "SUPPORTED_IN_TESTED_FIXTURE",
+    "reasons": [],
+    "anchor_invariant": true,
+    "anchors": {
+      "copy1": {
+        "backend_input_reads": 125,
+        "reads_after_preprocessing": 125,
+        "preprocessing_count_delta": 0,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      },
+      "copy2": {
+        "backend_input_reads": 125,
+        "reads_after_preprocessing": 125,
+        "preprocessing_count_delta": 0,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      }
+    },
+    "anchor_partitions": {
+      "copy1": {
+        "ordinary_classified_aligned_reads": 105,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0
+      },
+      "copy2": {
+        "ordinary_classified_aligned_reads": 104,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 1
+      }
+    },
+    "partition_common": false,
+    "cross_copy_length_divergence": false,
+    "authoritative_window_diagnostics": {
+      "copy1": [],
+      "copy2": []
+    },
+    "authoritative_windows": {
+      "copy1": [
+        111,
+        112,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "copy2": [
+        111,
+        112,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ]
+    },
+    "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+  }
+}

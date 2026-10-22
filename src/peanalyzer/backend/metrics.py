@@ -11,7 +11,23 @@ from peanalyzer.demux_verify import read_json
 from peanalyzer.schemas import reverse_complement
 
 COUNTERS=('N_TOT_READS','N_CACHED_ALN','N_COMPUTED_ALN','N_CACHED_NOTALN','N_COMPUTED_NOTALN')
-MIN_EXACT_PAIR_OVERLAP = 10
+from peanalyzer.observability import MIN_EXACT_PAIR_OVERLAP, assess_pair
+
+KNOWN_BACKEND_FAILURE_REASONS = frozenset({
+    'BACKEND_EXECUTION_FAILED', 'BACKEND_COUNTER_RECONCILIATION_FAILED',
+    'BACKEND_AMBIGUOUS_RECONCILIATION_FAILED', 'BACKEND_OUTPUT_MALFORMED',
+    'BACKEND_REFERENCE_MISMATCH', 'BACKEND_INPUT_LINEAGE_MISMATCH',
+    'BACKEND_CONFIGURATION_MISMATCH', 'BACKEND_PRODUCT_RECONCILIATION_FAILED',
+    'ROUTED_BACKEND_INPUT_MISMATCH', 'MISSING_INCOMPLETE_BACKEND_METRICS',
+    'MISSING_REQUIRED_PROVENANCE', 'UNQUALIFIED_BACKEND_RUNTIME',
+})
+
+
+def validated_failure_reason(value):
+    """Codes are exact uppercase tokens; raw diagnostics are never authoritative."""
+    if not isinstance(value, str):
+        return 'INVALID_BACKEND_FAILURE_REASON'
+    return value if value in KNOWN_BACKEND_FAILURE_REASONS else 'UNKNOWN_BACKEND_FAILURE_REASON'
 
 
 class MetricContractError(ValueError):
@@ -173,22 +189,5 @@ def exact_haplotypes(sequences, wt: set[str], pe: set[str]) -> dict:
 
 
 def exact_pair_class(pair, targets) -> str:
-    """Exact full-fragment assessability from both original mates, without copy assignment.
-
-    This qualified boundary assumes inward-facing amplicon-end reads. Internal
-    fragments, uncovered gaps, disagreements and non-exact products are excluded.
-    A unique exact suffix/prefix overlap of at least 10 nt establishes the
-    reconstruction independently of the proposed WT/PE reference lengths.
-    """
-    left=pair[0].sequence.decode().upper(); right=reverse_complement(pair[1].sequence.decode().upper())
-    overlaps = [n for n in range(MIN_EXACT_PAIR_OVERLAP, min(len(left), len(right)) + 1)
-                if left[-n:] == right[:n]]
-    if len(overlaps) != 1:
-        return 'other_or_unassessable'
-    reconstructed = left + right[overlaps[0]:]
-    states=set()
-    for target in targets:
-        for state,reference in (('exact_WT',target.wt_sequence),('exact_PE',target.prime_edited_sequence)):
-            if reconstructed == reference:
-                states.add(state)
-    return next(iter(states)) if len(states)==1 else 'state_collision' if states else 'other_or_unassessable'
+    """Strict exact identity after state-symmetric, unique reconstruction."""
+    return assess_pair(pair, targets)['canonical']

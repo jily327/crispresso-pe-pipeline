@@ -10,6 +10,7 @@ from peanalyzer.demux_verify import read_json
 from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import aligner, columns
 from peanalyzer.metrics.models import ProductCounts
+from peanalyzer.observability import assess_pair
 
 
 def contradictory_products(targets):
@@ -24,7 +25,7 @@ def product_counts(counts):
 
 def prepared_products(paths, targets):
     """Qualified amplicon-end coverage; count a pair once even across shared copies."""
-    counts, seen = Counter(), set()
+    counts, seen, reasons = Counter(), set(), Counter()
     labels = {'exact_WT': 'exact_wt', 'exact_PE': 'exact_pe',
               'state_collision': 'contradictory_state',
               'other_or_unassessable': 'unresolved_unassessable'}
@@ -33,8 +34,12 @@ def prepared_products(paths, targets):
         if identifier in seen:
             raise ValueError('duplicate prepared pair ID')
         seen.add(identifier)
-        counts[labels[exact_pair_class(pair, targets)]] += 1
-    return product_counts(counts)
+        assessment=assess_pair(pair,targets)
+        counts[labels[assessment['canonical']]] += 1
+        if assessment['reason']: reasons[assessment['reason']]+=1
+    result=product_counts(counts)
+    result.exclusion_reason_counts=dict(reasons)
+    return result
 
 
 def aligned_products(child, target):

@@ -1,0 +1,373 @@
+{
+  "scope": "Raw diagnostics only; production metrics are BLOCKED",
+  "experiments": {
+    "insertion_short": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 12,
+          "N_CACHED_ALN": 11,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 24,
+          "READS AFTER PREPROCESSING": 12,
+          "READS ALIGNED": 12,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_ALN": 11,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 24,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 24,
+          "reads_after_preprocessing": 12,
+          "aligned_reads": 12,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 12,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 0,
+          "denominator": 12,
+          "exact_fraction": "0",
+          "fraction": 0.0,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 12,
+            "Prime-edited": 0
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 12,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 0,
+          "denominator": 12,
+          "exact_fraction": "0",
+          "fraction": 0.0,
+          "exact_wt_reads": 12,
+          "exact_pe_reads": 0,
+          "excluded_reads": 0,
+          "exclusion_product_classes": {},
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 24,
+          "reads_after_preprocessing": 12,
+          "aligned_reads": 12,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 12,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 12,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 12,
+          "aligned_product_excluded_reads": 0,
+          "backend_input_excluded_reads": 12
+        }
+      },
+      "copy2": {
+        "alignment_counters": {
+          "N_TOT_READS": 8,
+          "N_CACHED_ALN": 7,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 16,
+          "READS AFTER PREPROCESSING": 8,
+          "READS ALIGNED": 8,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_ALN": 7,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 16,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 16,
+          "reads_after_preprocessing": 8,
+          "aligned_reads": 8,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 8,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 0,
+          "denominator": 8,
+          "exact_fraction": "0",
+          "fraction": 0.0,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 8,
+            "Prime-edited": 0
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 8,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 0,
+          "denominator": 8,
+          "exact_fraction": "0",
+          "fraction": 0.0,
+          "exact_wt_reads": 8,
+          "exact_pe_reads": 0,
+          "excluded_reads": 0,
+          "exclusion_product_classes": {},
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 16,
+          "reads_after_preprocessing": 8,
+          "aligned_reads": 8,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 8,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 8,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 8,
+          "aligned_product_excluded_reads": 0,
+          "backend_input_excluded_reads": 8
+        }
+      }
+    },
+    "deletion_boundary": {
+      "copy1": {
+        "alignment_counters": {
+          "N_TOT_READS": 12,
+          "N_CACHED_ALN": 11,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 24,
+          "READS AFTER PREPROCESSING": 12,
+          "READS ALIGNED": 12,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_ALN": 11,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 24,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 24,
+          "reads_after_preprocessing": 12,
+          "aligned_reads": 12,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 12,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 12,
+          "denominator": 12,
+          "exact_fraction": "1",
+          "fraction": 1.0,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 0,
+            "Prime-edited": 12
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 12,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 12,
+          "denominator": 12,
+          "exact_fraction": "1",
+          "fraction": 1.0,
+          "exact_wt_reads": 0,
+          "exact_pe_reads": 12,
+          "excluded_reads": 0,
+          "exclusion_product_classes": {},
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 24,
+          "reads_after_preprocessing": 12,
+          "aligned_reads": 12,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 12,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 12,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 12,
+          "aligned_product_excluded_reads": 0,
+          "backend_input_excluded_reads": 12
+        }
+      },
+      "copy2": {
+        "alignment_counters": {
+          "N_TOT_READS": 8,
+          "N_CACHED_ALN": 7,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_NOTALN": 0,
+          "N_COMPUTED_NOTALN": 0
+        },
+        "mapping_statistics": {
+          "READS IN INPUTS": 16,
+          "READS AFTER PREPROCESSING": 8,
+          "READS ALIGNED": 8,
+          "N_COMPUTED_ALN": 1,
+          "N_CACHED_ALN": 7,
+          "N_COMPUTED_NOTALN": 0,
+          "N_CACHED_NOTALN": 0
+        },
+        "routed_pairs": 16,
+        "authoritative_reference_quantification_window": {
+          "_type": "np.ndarray",
+          "value": [
+            111,
+            112,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129
+          ]
+        },
+        "contract": {
+          "one_input_record_per_pair": true,
+          "preprocessing_preserves_records": false
+        },
+        "native": {
+          "backend_input_reads": 16,
+          "reads_after_preprocessing": 8,
+          "aligned_reads": 8,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 8,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "numerator": 8,
+          "denominator": 8,
+          "exact_fraction": "1",
+          "fraction": 1.0,
+          "metric": "crispresso_pe_reference_fraction",
+          "reference_counts": {
+            "Reference": 0,
+            "Prime-edited": 8
+          },
+          "source_numerator": "results.alignment_stats.counts_total['Prime-edited']",
+          "source_denominator": "mapping READS ALIGNED; quantification Reads_aligned_all_amplicons",
+          "ordinary_classified_aligned_reads": 8,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0
+        },
+        "exact_haplotype": {
+          "metric": "precise_intended_PE_exact_haplotype_fraction",
+          "numerator": 8,
+          "denominator": 8,
+          "exact_fraction": "1",
+          "fraction": 1.0,
+          "exact_wt_reads": 0,
+          "exact_pe_reads": 8,
+          "excluded_reads": 0,
+          "exclusion_product_classes": {},
+          "origin_attribution": "not inferred from biological product class",
+          "backend_input_reads": 16,
+          "reads_after_preprocessing": 8,
+          "aligned_reads": 8,
+          "unaligned_reads": 0,
+          "preprocessing_count_delta": 8,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "ordinary_classified_aligned_reads": 8,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_unaligned_excluded_reads": 0,
+          "backend_preprocessing_count_delta": 8,
+          "aligned_product_excluded_reads": 0,
+          "backend_input_excluded_reads": 8
+        }
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@ from pathlib import Path
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.backend.comparator import evaluate_anchors, normalize_include_idxs, run_comparator
 from peanalyzer.backend.core import run_confident_core, verify_routing_output
-from peanalyzer.backend.metrics import MetricContractError, child_file, parse_child, backend_failure_code
+from peanalyzer.backend.metrics import MetricContractError, child_file, parse_child, backend_failure_code, validated_failure_reason
 from peanalyzer.backend.pooled import BackendError, FIELDS, preflight_guides
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.geometry import geometry
@@ -22,6 +22,9 @@ from peanalyzer.metrics.products import aligned_products, contradictory_products
 from peanalyzer.provenance import software_provenance
 from peanalyzer.routing import RoutingPolicy, policy_identity
 from peanalyzer.schemas import Target
+from peanalyzer.observability import population_observability
+from peanalyzer.metrics.family import prepared_evidence, aligned_evidence, reaggregate
+from peanalyzer.metrics.family_models import ProductEvidence
 
 RUNTIME_DIGEST = 'pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c'
 LIMITATIONS = [
@@ -73,7 +76,7 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
     if not isinstance(execution, dict):
         raise GateError('MISSING_REQUIRED_PROVENANCE')
     if execution.get('status') != 'completed' or execution.get('return_code') != 0:
-        raise GateError(execution.get('reason_code') or
+        raise GateError(validated_failure_reason(execution['reason_code']) if 'reason_code' in execution else
                         ('BACKEND_EXECUTION_FAILED' if execution.get('return_code') not in (None, 0)
                          else 'MISSING_INCOMPLETE_BACKEND_METRICS'))
     if (not isinstance(execution.get('software'), dict)
@@ -134,6 +137,7 @@ def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=
     elif d == 0:
         status = 'NOT_ASSESSABLE'
         reasons = ['ZERO_EXACT_DENOMINATOR' if family == 'precise' else 'ZERO_NATIVE_DENOMINATOR']
+        if products:reasons+=sorted(k for k in products.exclusion_reason_counts if k.startswith('STATE_DEPENDENT_'))
     elif n is None or d is None:
         status, reasons = 'BLOCKED', ['MISSING_INCOMPLETE_BACKEND_METRICS']
     else:
@@ -162,7 +166,7 @@ def combined_status(records):
 
 
 def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparator_root,
-                    routing_root=None, copy_roots=None, runtime_digest=None):
+                    routing_root=None, copy_roots=None, runtime_digest=None, tolerance_policies=None):
     """Build M4 JSON from existing verified runs; never accepts cached metrics.json.
 
     One invocation describes one biological target and one prepared sample. The
@@ -170,6 +174,7 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     read selection is outside this API; sample/target applicability is explicit.
     Failure of copy routing does not remove reads from the target population.
     """
+    tolerance_policies=list(tolerance_policies or [])
     targets = [Target.model_validate(t.model_dump() if isinstance(t, Target) else t) for t in targets]
     if not targets or not analysis_id or len({t.target_name for t in targets}) != 1:
         raise ValueError('one nonempty biological target and analysis identifier are required')
@@ -180,6 +185,7 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     artifacts, global_reasons, routing_reasons, native_reasons = {}, [], [], []
     runtime_reasons = []
     verified, sample, routing, route_hash, products = None, None, None, None, None
+    observability={}
     if runtime_digest != RUNTIME_DIGEST:
         runtime_reasons.append('MISSING_REQUIRED_PROVENANCE' if not runtime_digest else 'UNQUALIFIED_BACKEND_RUNTIME')
     try:
@@ -205,6 +211,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
         inventory(verified.root / 'analysis_manifest.json', artifacts, 'prepared/analysis_manifest.json')
         paths = [verified.root / sample['files'][f'r{m}']['path'] for m in (1, 2)]
         products = prepared_products(paths, targets)
+        observability['target']=population_observability(paths,targets)
+        native_reasons.extend(observability['target']['backend_reason_counts'])
         if products.classification_input_reads != sample['pairs']:
             raise ValueError('prepared classification count mismatch')
         if products.contradictory_state:
@@ -215,6 +223,20 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     population = digest(dict(prepared=verified.manifest_sha256 if verified else None,
                              sample=sample_id, target=definitions_hash, scope='target_all_prepared'))
     count = sample['pairs'] if sample else None
+    product_evidence={}
+    def unavailable_evidence(key, pop_id, size, scope, reasons):
+        return ProductEvidence(population_id=pop_id,population_scope=scope,copy_id=None if key=='target' else key,
+            assessment_stage='prepared_pairs' if key=='target' else 'backend_aligned_products',
+            source_input_reads=size,classification_input_reads=0,targets=[t.model_dump() for t in targets],
+            products=[],blocking_reasons=sorted(set(reasons or ['PRODUCT_EVIDENCE_UNAVAILABLE'])))
+    if products is not None:
+        try:
+            product_evidence['target']=prepared_evidence(paths,targets,population_id=population,
+                population_scope='target_all_prepared',copy_id=None,source_input_reads=count)
+            product_evidence['target'].blocking_reasons=sorted(set(product_evidence['target'].blocking_reasons+global_reasons))
+        except (OSError,ValueError,KeyError,TypeError):
+            product_evidence['target']=unavailable_evidence('target',population,count,'target_all_prepared',global_reasons)
+    else:product_evidence['target']=unavailable_evidence('target',population,count,'target_all_prepared',global_reasons)
     anchor_metrics, anchor_failures = {}, {}
     native_preconditions = global_reasons + native_reasons + runtime_reasons
     if verified and sample and not native_preconditions:
@@ -247,6 +269,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     # One common integer tuple, only after complete empirical equality; no averaging.
     common = (next(iter(anchor_metrics.values()))['native']
               if comparison['anchor_invariant'] and not native_reasons else None)
+    if common and not comparison.get('partition_common'):
+        common={**common,**{k:None for k in ('ordinary_classified_aligned_reads','ambiguous_aligned_reads','discarded_aligned_reads')}}
     target_native = metric('target_crispresso_native_pe', 'native', 'target_all_prepared', population, count,
                            reasons=global_reasons + native_reasons + runtime_reasons, native=common)
     target_exact = metric('total_precise_pe', 'precise', 'target_all_prepared', population, count,
@@ -279,6 +303,12 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
         size = cohort['pairs'] if cohort else None
         pop_id = digest(dict(prepared_population=population, routing=route_hash, copy=copy, scope='confident_copy'))
         parsed, copy_products = None, None
+        exact_observability_reasons=[]
+        if cohort and size:
+            paths=[Path(routing_root)/cohort['files'][f'r{m}']['path'] for m in (1,2)]
+            observability[copy]=population_observability(paths,[target])
+            reasons=reasons+list(observability[copy]['backend_reason_counts'])
+            exact_observability_reasons=list(observability[copy]['exact_reason_counts'])+list(observability[copy]['reconstruction_ambiguity_reason_counts'])
         if cohort and not size:
             reasons = reasons + ['COPY_COHORT_UNAVAILABLE']
         if not reasons and cohort:
@@ -298,9 +328,16 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
         native = metric(copy + '_crispresso_native_pe', 'native', 'confident_copy', pop_id, size,
                         copy=copy, reasons=reasons + windows, native=attrs)
         precise = metric(copy + '_precise_pe', 'precise', 'confident_copy', pop_id, size,
-                         copy=copy, reasons=reasons, native=attrs, products=copy_products)
+                         copy=copy, reasons=reasons+exact_observability_reasons, native=attrs, products=copy_products)
         copies[copy] = CopyMetrics(copy_id=copy, copy_metric_status=combined_status([native, precise]),
                                   native=native, precise=precise)
+        if parsed and not reasons and not exact_observability_reasons:
+            try:
+                product_evidence[copy]=aligned_evidence(Path(root)/'output/CRISPResso_on_confident',target,targets=targets,
+                    population_id=pop_id,population_scope='confident_copy',copy_id=copy,source_input_reads=size)
+            except (OSError,ValueError,KeyError,TypeError):
+                product_evidence[copy]=unavailable_evidence(copy,pop_id,size,'confident_copy',[])
+        else:product_evidence[copy]=unavailable_evidence(copy,pop_id,size,'confident_copy',reasons+exact_observability_reasons)
     records = [target_native, target_exact, *(r for c in copies.values() for r in (c.native, c.precise))]
     assigned = sum(v['pairs'] for c, v in routing['cohorts'].items() if c != 'quarantine') if routing else None
     quarantine = routing['cohorts']['quarantine']['pairs'] if routing else None
@@ -314,7 +351,9 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
             anchor_invariant=comparison['anchor_invariant'],
             block_reason_codes=sorted({reason for r in records for reason in r.reason_codes})),
         target_metrics=TargetMetrics(target_crispresso_native_pe=target_native, total_precise_pe=target_exact),
-        copies=copies, anchor_evidence=dict(comparison=comparison, failures=anchor_failures, backend_metrics=anchor_metrics),
+        copies=copies, anchor_evidence=dict(comparison=comparison, failures=anchor_failures, backend_metrics=anchor_metrics,observability=observability),
+        product_evidence=product_evidence,
+        derived_metrics={key:reaggregate(evidence,tolerance_policies) for key,evidence in product_evidence.items()} if tolerance_policies else {},
         qc=QC(prepared_input_reads=count, routing_assigned_reads=assigned, routing_quarantined_reads=quarantine,
             routing_quarantine_fraction=Ratio(numerator=quarantine, denominator=count) if quarantine is not None else None,
             routing_quarantine_reasons={k:v for k,v in routing['categories'].items() if k != 'ASSIGNED_COPY'} if routing else {},
@@ -329,12 +368,13 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
 
 
 def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
-                routing_root=None, runtime_digest=RUNTIME_DIGEST):
+                routing_root=None, runtime_digest=RUNTIME_DIGEST, tolerance_policies=None):
     """Execute conventional all-read anchors and verified copy Core; publish M4 JSON.
 
     Routing must already exist. Unsupported/missing copies stay explicit in the
     result. Execution failures never create a numeric zero. No resume/overwrite.
     """
+    tolerance_policies=list(tolerance_policies or [])
     targets = [Target.model_validate(t.model_dump() if isinstance(t, Target) else t) for t in targets]
     output = Path(output).absolute()
     if output.exists():
@@ -378,6 +418,8 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
     result = collect_metrics(analysis_root=analysis_root, sample_id=sample_id, targets=targets,
         analysis_id=analysis_id, comparator_root=output/'comparator', routing_root=routing_root,
         copy_roots=copy_roots, runtime_digest=runtime_digest)
+    if tolerance_policies:
+        result.derived_metrics={key:reaggregate(evidence,tolerance_policies) for key,evidence in result.product_evidence.items()}
     (output/'execution_failures.json').write_text(json.dumps(failures, indent=2)+'\n')
     # Exclusive publication only after schema validation of the complete result.
     with (output/'result.json').open('x') as handle:

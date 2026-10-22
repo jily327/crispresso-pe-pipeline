@@ -14,7 +14,7 @@ from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.backend.metrics import parse_child, backend_failure_code
 from peanalyzer.backend.pooled import FIELDS, BackendError, utc_now
 from peanalyzer.demux_verify import sha256_file, read_json
-from peanalyzer.geometry import geometry
+from peanalyzer.geometry import geometry, aligner, columns
 from peanalyzer.provenance import software_provenance
 
 
@@ -39,15 +39,31 @@ def evaluate_anchors(targets, metrics):
     copies={t.copy_name for t in targets}
     if set(metrics)!=copies or not copies:
         reasons.append('MISSING_ANCHOR_RESULT')
-    # For this qualified representation copies share WT coordinates (no copy indels).
-    if any(r['code'] in ('COPY_INDEL_ROUTING_UNQUALIFIED','NONUNIQUE_REFERENCE_ALIGNMENT','NONUNIQUE_EDIT_ALIGNMENT') for r in report['reasons']):
+    if any(r['code'] in ('NONUNIQUE_REFERENCE_ALIGNMENT','NONUNIQUE_EDIT_ALIGNMENT') for r in report['reasons']):
         reasons.append('EDIT_COORDINATES_NOT_COMPARABLE')
-    signatures={tuple((e['wt_position'],e.get('wt_boundary'),e['old'],e['new']) for e in report['copies'][c]['edits']) for c in copies}
+    signatures=set()
+    anchor=sorted(targets,key=lambda t:t.copy_name)[0].wt_sequence
+    for target in targets:
+        mapping={b:a for a,b in columns(aligner().align(anchor,target.wt_sequence)[0]) if b is not None}
+        signature=[]
+        for e in report['copies'][target.copy_name]['edits']:
+            p=e['wt_position'];boundary=e.get('wt_boundary')
+            mapped=mapping.get(p) if p is not None else None
+            mapped_boundary=(mapping.get(boundary-1,-1)+1 if mapping.get(boundary-1,-1) is not None else None) if boundary is not None else None
+            if (p is not None and mapped is None) or (boundary is not None and mapped_boundary is None):
+                reasons.append('EDIT_COORDINATES_NOT_COMPARABLE')
+            signature.append((mapped,mapped_boundary,e['old'],e['new']))
+        signatures.add(tuple(signature))
     if len(signatures)!=1:
         reasons.append('INTENDED_EDIT_STATE_DIFFERS_BETWEEN_COPIES')
     values={c:{k:m['native'][k] for k in COMPARISON_FIELDS} for c,m in metrics.items()}
     invariant=bool(values) and len({tuple(v[k] for k in COMPARISON_FIELDS) for v in values.values()})==1 and set(metrics)==copies
     if set(metrics)==copies and not invariant: reasons.append('ANCHOR_DEPENDENT_NATIVE_RESULT')
+    partition_fields=('ordinary_classified_aligned_reads','ambiguous_aligned_reads','discarded_aligned_reads')
+    partitions={c:{k:m['native'].get(k) for k in partition_fields} for c,m in metrics.items()}
+    partition_common=(set(partitions)==copies and bool(partitions)
+                      and all(v is not None for p in partitions.values() for v in p.values())
+                      and len({tuple(p.values()) for p in partitions.values()})==1)
     overlap={};normalized_windows={}
     lengths={t.copy_name:len(t.wt_sequence) for t in targets}
     for c,m in metrics.items():
@@ -67,6 +83,8 @@ def evaluate_anchors(targets, metrics):
     return dict(scope='qualification_only_all_prepared_pairs_not_confident_copy_cohort',
                 metric='target_crispresso_native_pe',status='BLOCKED' if reasons else 'SUPPORTED_IN_TESTED_FIXTURE',
                 reasons=sorted(set(reasons)),anchor_invariant=invariant,anchors=values,
+                anchor_partitions=partitions,partition_common=partition_common,
+                cross_copy_length_divergence=len({len(t.wt_sequence) for t in targets})>1,
                 authoritative_window_diagnostics=overlap,
                 authoritative_windows=normalized_windows,
                 limitation='Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data.')

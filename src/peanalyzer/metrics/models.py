@@ -3,6 +3,7 @@
 from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
+from peanalyzer.metrics.family_models import ProductEvidence, FamilyMetric
 
 Count = Annotated[int, Field(strict=True, ge=0)]
 Status = Literal["REPORTABLE", "BLOCKED", "NOT_ASSESSABLE"]
@@ -33,6 +34,7 @@ class ProductCounts(Model):
     contradictory_state: Count = 0
     denominator_exclusions: Count = 0
     classification_input_reads: Count = 0
+    exclusion_reason_counts: dict[str, Count] = Field(default_factory=dict)
 
     @model_validator(mode="after")
     def partition(self):
@@ -46,6 +48,14 @@ class ProductCounts(Model):
 
 
 class MetricRecord(Model):
+    model_config=ConfigDict(json_schema_extra={'allOf':[
+        {'if':{'properties':{'status':{'const':'REPORTABLE'}}},
+         'then':{'properties':{'numerator':{'type':'integer','minimum':0},
+                               'denominator':{'type':'integer','minimum':1},'reason_codes':{'maxItems':0}},
+                 'required':['numerator','denominator']},
+         'else':{'properties':{'numerator':{'type':'null'},'denominator':{'type':'null'},
+                               'reason_codes':{'minItems':1}},'required':['reason_codes']}}
+    ]})
     metric_name: str
     metric_family: Literal["native", "precise"]
     population_scope: Scope
@@ -178,6 +188,8 @@ class MetricResult(Model):
     copies: dict[str, CopyMetrics]
     qc: QC
     anchor_evidence: dict
+    product_evidence: dict[str, ProductEvidence] = Field(default_factory=dict)
+    derived_metrics: dict[str, dict[str, FamilyMetric]] = Field(default_factory=dict)
 
     @model_validator(mode="after")
     def populations(self):
