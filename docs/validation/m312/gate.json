@@ -1,0 +1,117 @@
+{
+  "routing_gate": "PASS",
+  "parent": "64d372852ac5f8a84e0c7fd7492a55023f7f78b8",
+  "unchanged_main": "ae7e7f3e1f9144ea2092d9a6201a4d137a024214",
+  "checks": {
+    "source_suite_complete": true,
+    "fresh_wheel_suite_complete": true,
+    "partial_decisions_correct": true,
+    "no_partial_cross_assignments": true,
+    "noncovering_reads_retained": true,
+    "flanks_on_different_mates_allowed": true,
+    "real_core_partial_hazard_confirmed": true,
+    "original_125_unchanged": true,
+    "indel_qualification_preserved": true,
+    "real_ndarray_window_guard_blocks": true,
+    "malformed_windows_rejected": true,
+    "anchor_dependence_rejected": true,
+    "actual_comparators_invariant": true,
+    "m3_all_read_integers_preserved": true,
+    "m31_all_read_integers_preserved": true,
+    "confident_cohort_integers_preserved": true
+  },
+  "source_tests": {
+    "total": 468,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "actual_backend_tests": 14
+  },
+  "wheel_tests": {
+    "total": 468,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "actual_backend_tests": 14
+  },
+  "original_125": {
+    "input": 125,
+    "assigned": 75,
+    "quarantined": 50,
+    "copy1_assigned": 45,
+    "copy2_assigned": 30,
+    "cross_assignments": 0,
+    "changed_decisions": 0
+  },
+  "indels": {
+    "designs": 36,
+    "allowed": 13,
+    "blocked": 23
+  },
+  "partial_panels": {
+    "short": {
+      "input": 28,
+      "categories": {
+        "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS": 16,
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 4,
+        "ASSIGNED_COPY": 8
+      }
+    },
+    "longer": {
+      "input": 28,
+      "categories": {
+        "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS": 16,
+        "CONFLICTING_DIAGNOSTIC_EVIDENCE": 4,
+        "ASSIGNED_COPY": 8
+      }
+    }
+  },
+  "all_read_comparators": {
+    "m3": {
+      "copy1": {
+        "backend_input_reads": 350,
+        "aligned_reads": 330,
+        "unaligned_reads": 20,
+        "numerator": 120,
+        "denominator": 330
+      },
+      "copy2": {
+        "backend_input_reads": 350,
+        "aligned_reads": 330,
+        "unaligned_reads": 20,
+        "numerator": 120,
+        "denominator": 330
+      }
+    },
+    "m31": {
+      "copy1": {
+        "backend_input_reads": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      },
+      "copy2": {
+        "backend_input_reads": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      }
+    }
+  },
+  "confident_cohort": {
+    "input": 75,
+    "aligned": 70,
+    "unaligned": 5,
+    "numerator": 30,
+    "denominator": 70,
+    "population": "confident routed subcohort only"
+  },
+  "limitations": [
+    "Existing blocked indel geometries remain blocked",
+    "Closed synthetic panel and qualified placement scope only",
+    "Coordinated ledger forgery remains outside the threat model",
+    "No production reporting or statistics"
+  ]
+}

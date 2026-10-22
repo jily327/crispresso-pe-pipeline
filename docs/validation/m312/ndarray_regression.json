@@ -1,0 +1,420 @@
+{
+  "source": "docs/validation/m311/unrouted_core/m31/copy1/CRISPResso2_info.json",
+  "real_serialization": {
+    "_type": "np.ndarray",
+    "value": [
+      111,
+      112,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149
+    ]
+  },
+  "normalized_indices": [
+    111,
+    112,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149
+  ],
+  "diagnostic_injected_serialization": {
+    "_type": "np.ndarray",
+    "value": [
+      111,
+      112,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      40
+    ]
+  },
+  "result": {
+    "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+    "metric": "target_crispresso_native_pe",
+    "status": "BLOCKED",
+    "reasons": [
+      "DIAGNOSTIC_IN_AUTHORITATIVE_QUANTIFICATION_WINDOW"
+    ],
+    "anchor_invariant": true,
+    "anchors": {
+      "copy1": {
+        "backend_input_reads": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      },
+      "copy2": {
+        "backend_input_reads": 125,
+        "aligned_reads": 105,
+        "unaligned_reads": 20,
+        "numerator": 30,
+        "denominator": 105
+      }
+    },
+    "authoritative_window_diagnostics": {
+      "copy1": [
+        40
+      ],
+      "copy2": [
+        40
+      ]
+    },
+    "authoritative_windows": {
+      "copy1": [
+        40,
+        111,
+        112,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "copy2": [
+        40,
+        111,
+        112,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ]
+    },
+    "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+  },
+  "anchor_negative_tests": {
+    "backend_input_reads": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "BLOCKED",
+      "reasons": [
+        "ANCHOR_DEPENDENT_NATIVE_RESULT"
+      ],
+      "anchor_invariant": false,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        },
+        "copy2": {
+          "backend_input_reads": 126,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        }
+      },
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "aligned_reads": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "BLOCKED",
+      "reasons": [
+        "ANCHOR_DEPENDENT_NATIVE_RESULT"
+      ],
+      "anchor_invariant": false,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        },
+        "copy2": {
+          "backend_input_reads": 125,
+          "aligned_reads": 106,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        }
+      },
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "unaligned_reads": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "BLOCKED",
+      "reasons": [
+        "ANCHOR_DEPENDENT_NATIVE_RESULT"
+      ],
+      "anchor_invariant": false,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        },
+        "copy2": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 21,
+          "numerator": 30,
+          "denominator": 105
+        }
+      },
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "numerator": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "BLOCKED",
+      "reasons": [
+        "ANCHOR_DEPENDENT_NATIVE_RESULT"
+      ],
+      "anchor_invariant": false,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        },
+        "copy2": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 31,
+          "denominator": 105
+        }
+      },
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    },
+    "denominator": {
+      "scope": "qualification_only_all_prepared_pairs_not_confident_copy_cohort",
+      "metric": "target_crispresso_native_pe",
+      "status": "BLOCKED",
+      "reasons": [
+        "ANCHOR_DEPENDENT_NATIVE_RESULT"
+      ],
+      "anchor_invariant": false,
+      "anchors": {
+        "copy1": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 105
+        },
+        "copy2": {
+          "backend_input_reads": 125,
+          "aligned_reads": 105,
+          "unaligned_reads": 20,
+          "numerator": 30,
+          "denominator": 106
+        }
+      },
+      "authoritative_window_diagnostics": {
+        "copy1": [],
+        "copy2": []
+      },
+      "authoritative_windows": {
+        "copy1": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ],
+        "copy2": [
+          111,
+          112,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149
+        ]
+      },
+      "limitation": "Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data."
+    }
+  }
+}

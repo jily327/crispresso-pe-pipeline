@@ -32,13 +32,42 @@ class RoutingPolicy:
         if not 0<self.min_alignment_identity<=1: raise ValueError('alignment identity must be in (0,1]')
 
 
-QUALIFIED_POLICY_ID = 'm311-diagnostic-q30-sites2-cap16-identity08-v1'
+QUALIFIED_POLICY_ID = 'm312-diagnostic-q30-sites2-cap16-identity08-observed-flanks-v1'
 
 
 def policy_identity(policy: RoutingPolicy) -> dict:
     qualified = policy == RoutingPolicy()
     return dict(id=QUALIFIED_POLICY_ID if qualified else 'experimental-unqualified',
-                qualified=qualified, placement_contract='copy-collapsed-state-qc-v1')
+                qualified=qualified, placement_contract='copy-collapsed-state-qc-v1',
+                edit_coverage_contract='observed-pair-flanks-v1')
+
+
+def edit_footprints(target, state, report):
+    """Express each WT edit region in the state reference's coordinates.
+
+    Empty intervals are junctions. PE inserted bases are retained here even
+    though they have no WT diagnostic coordinate. Deleted PE intervals become
+    junctions, which require observed reference sequence on both sides.
+    """
+    regions=report['copies'][target.copy_name]['edit_regions']
+    if state=='WT':
+        return [(r['start'],r['end']) for r in regions]
+    edits=report['copies'][target.copy_name]['edits']
+    anchor_to_wt=dict(report['haplotype_maps'][f'{target.copy_name}:WT'])
+    pe_to_wt={p:anchor_to_wt[a] for a,p in report['haplotype_maps'][f'{target.copy_name}:PE']
+              if p is not None and a is not None and anchor_to_wt.get(a) is not None}
+    footprints=[]
+    for region in regions:
+        start,end=region['start'],region['end']
+        bases=[e['pe_position'] for e in edits if e['pe_position'] is not None and
+               (start<=e['wt_position']<end if e['wt_position'] is not None
+                else start<=e['wt_boundary']<=end)]
+        if bases:
+            footprints.append((min(bases),max(bases)+1))
+        else:
+            boundary=min((p for p,w in pe_to_wt.items() if w>=end),default=len(target.prime_edited_sequence))
+            footprints.append((boundary,boundary))
+    return footprints
 
 
 def copy_placements(sequence, qualities, target, mate, report, policy, engine):
@@ -56,13 +85,15 @@ def copy_placements(sequence, qualities, target, mate, report, policy, engine):
         except OverflowError:
             number = policy.max_equivalent_alignments + 1
         entry = dict(mate=mate, copy=target.copy_name, state=state, score=alignments.score,
-                     equivalent_alignments=number, MAPQ=None, XS=None, viable_placements=0)
+                     equivalent_alignments=number, MAPQ=None, XS=None, viable_placements=0,
+                     covered_edit_regions=[])
         audit.append(entry)
         if number > policy.max_equivalent_alignments:
             entry['failure'] = 'STATE_EQUIVALENT_PLACEMENT_CAP_EXCEEDED'
             continue
         projection = {b:a for a,b in report['haplotype_maps'][f'{target.copy_name}:{state}']
                       if a is not None and b is not None}
+        footprints=edit_footprints(target,state,report)
         for alignment in alignments:
             cols = columns(alignment)
             identity = sum(a is not None and b is not None and reference[a] == sequence[b]
@@ -72,6 +103,12 @@ def copy_placements(sequence, qualities, target, mate, report, policy, engine):
             surviving.append({projection[a]:(sequence[b], qualities[b], b)
                               for a,b in cols if a in projection and b is not None})
             entry['viable_placements'] += 1
+            observed=[a for a,b in cols if a is not None and b is not None]
+            if observed:
+                lo,hi=min(observed),max(observed)
+                covered=[i for i,(start,end) in enumerate(footprints)
+                         if (lo<start<=hi if start==end else lo<end and hi>=start)]
+                entry['covered_edit_regions']=sorted(set(entry['covered_edit_regions'])|set(covered))
         if not entry['viable_placements']:
             entry['failure'] = 'STATE_IDENTITY_BELOW_MINIMUM'
     return surviving, audit
@@ -104,6 +141,42 @@ def decide(evidence: list[dict], copies: list[str], policy: RoutingPolicy) -> tu
     return 'ASSIGNED_COPY', candidate, [candidate]
 
 
+def observed_edit_flanking(evidence, alignments, report, policy):
+    """Audit observed flanks on one molecule; never bridge an unsequenced mate gap.
+
+    Potential edit coverage in any viable state/placement triggers the flank
+    requirement conservatively. Failed states contribute no coverage. Upstream
+    and downstream diagnostics may be observed by different synchronized mates.
+    """
+    usable={e['position']:e for e in evidence if e['observations'] and not e['overlaps_edit']
+            and e['mates_agree'] and all(o['quality']>=policy.diagnostic_min_quality for o in e['observations'])}
+    flanking=[]
+    for comparison in report['pairwise']:
+        left,right=comparison['copies']
+        for flank in comparison['edit_flanks']:
+            copy,region=flank['copy'],flank['region']
+            index=report['copies'][copy]['edit_regions'].index(region)
+            covering_mates=sorted({a['mate'] for a in alignments if a['copy']==copy and
+                                   index in a.get('covered_edit_regions',[])})
+            observed=[d['positions'][copy] for d in report['diagnostics'] if d['position'] in usable
+                      and d['usable_for_routing'] and d['alleles'][left]!=d['alleles'][right]
+                      and set(usable[d['position']]['compatible_copies']) & {left,right}]
+            upstream=sorted(p for p in observed if p in flank['upstream'])
+            downstream=sorted(p for p in observed if p in flank['downstream'])
+            flanking.append(dict(copies=[left,right],copy=copy,edit_region=region,
+                                 pair_covers_edit=bool(covering_mates),covering_mates=covering_mates,
+                                 observed_upstream_diagnostics=upstream,observed_downstream_diagnostics=downstream,
+                                 flanking_eligible=not covering_mates or bool(upstream and downstream)))
+    return flanking
+
+
+def enforce_edit_flanking(decision, flanking):
+    category,assigned,compatible=decision
+    if category=='ASSIGNED_COPY' and any(assigned in f['copies'] and not f['flanking_eligible'] for f in flanking):
+        return 'EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS',None,compatible
+    return decision
+
+
 def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy) -> dict:
     identifier=read_id(pair[0],1).decode()
     copies=sorted(t.copy_name for t in targets)
@@ -130,7 +203,7 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
             if len(spans)!=1:
                 return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,compatible_copies=copies,evidence=[],alignments=scores,reason='nonunique single-copy placement')
         return dict(read_id=identifier,category='ASSIGNED_COPY',assigned_copy=copies[0],compatible_copies=copies,
-                    evidence=[],alignments=scores,reason='single-copy assay panel with compatible WT/PE placements')
+                    evidence=[],alignments=scores,edit_flanking=[],reason='single-copy assay panel with compatible WT/PE placements')
     for diagnostic in report['diagnostics']:
         # Edited sites cannot affect copy evidence, including placement vetoes.
         if not diagnostic['usable_for_routing']:
@@ -152,11 +225,12 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
                              both_mates_cover=len(observations)==2,mates_agree=len(bases)<=1,
                              overlaps_edit=diagnostic['overlaps_edit'],
                              ignored_for_quality=bool(observations) and any(o['quality']<policy.diagnostic_min_quality for o in observations)))
-    category,assigned,compatible=decide(evidence,copies,policy)
+    flanking=observed_edit_flanking(evidence,scores,report,policy)
+    category,assigned,compatible=enforce_edit_flanking(decide(evidence,copies,policy),flanking)
     return dict(read_id=identifier,category=category,assigned_copy=assigned,compatible_copies=compatible,
                 diagnostics_covered=sum(bool(e['observations']) for e in evidence),
                 diagnostics_usable=sum(bool(e['observations']) and not e['ignored_for_quality'] and not e['overlaps_edit'] for e in evidence),
-                evidence=evidence,alignments=scores,reason=category)
+                evidence=evidence,alignments=scores,edit_flanking=flanking,reason=category)
 
 
 def routing_gate(*, cross_assignments: int, unsafe_assigned: int, input_pairs: int, terminal_pairs: int,

@@ -128,14 +128,15 @@ def test_matched_edit_loss_qualification(tmp_path):
     from peanalyzer.fastq import paired_fastq
     from peanalyzer.synthetic_routing import write_challenges
     # M3.1.1: the edit at diagnostic 40 has no upstream independent flank.
-    # Keep the raw routing regression, but reject production admission.
+    # N1 also rejects covered edits without observed flanks in raw routing.
     with pytest.raises(ValueError,match='EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS'):
         qualify(tmp_path/'edited',edited_diagnostic=True)
     targets,truth=write_challenges(tmp_path/'raw',edited_diagnostic=True)
     report=geometry(targets)
     rows=[route_pair(tuple(r.trimmed(27) for r in reads),targets,report,RoutingPolicy())
           for reads in paired_fastq(tmp_path/'raw/raw_R1.fastq.gz',tmp_path/'raw/raw_R2.fastq.gz')]
-    assert sum(r['assigned_copy'] is not None for r in rows)==40
+    assert all(r['assigned_copy'] is None for r in rows)
+    assert sum(r['category']=='EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS' for r in rows)==40
     for cls in ('edit_loss_WT','edit_loss_PE'):
         selected=[r for r,t in zip(rows,truth) if t['truth_class']==cls]
         assert len(selected)==5 and all(r['assigned_copy'] is None for r in selected)
@@ -245,7 +246,7 @@ def test_explicit_single_copy_panel_collapses_wt_pe(targets):
         assert route_pair(pair(sequence),values,report,RoutingPolicy())['assigned_copy']=='copy1'
 
 
-def test_all_three_copies_route_without_two_copy_assumption(targets):
+def test_three_copy_one_sided_relationship_blocks_covered_edit_assignment(targets):
     from peanalyzer.backend.synthetic import changed
     base=targets[0]
     def alter(seq):
@@ -253,9 +254,15 @@ def test_all_three_copies_route_without_two_copy_assumption(targets):
         return seq
     third=base.model_copy(update={'copy_name':'copy3','wt_sequence':alter(base.wt_sequence),'prime_edited_sequence':alter(base.prime_edited_sequence)})
     values=targets+[third];report=geometry(values)
+    assert report['status']=='BLOCKED'
     for target in values:
         for seq in (target.wt_sequence,target.prime_edited_sequence):
-            assert route_pair(pair(seq),values,report,RoutingPolicy())['assigned_copy']==target.copy_name
+            row=route_pair(pair(seq),values,report,RoutingPolicy())
+            if target.copy_name=='copy2':
+                assert row['assigned_copy']=='copy2'
+            else:
+                assert row['assigned_copy'] is None
+                assert row['category']=='EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS'
 
 
 def test_no_implicit_biological_origin_labels():

@@ -15,7 +15,7 @@ from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import geometry
 from peanalyzer.provenance import software_provenance
 from peanalyzer.schemas import Target
-from peanalyzer.routing import RoutingPolicy, decide, policy_identity
+from peanalyzer.routing import RoutingPolicy, decide, enforce_edit_flanking, policy_identity
 
 
 def verify_routing_output(root: Path) -> dict:
@@ -46,7 +46,9 @@ def verify_routing_output(root: Path) -> dict:
         if len(compatible)!=len(set(compatible)) or not set(compatible)<=set(copies):
             raise ValueError('invalid compatible copies')
         if category!='ALIGNMENT_FAILURE' and len(copies)>1:
-            if decide(row['evidence'],copies,policy)!=(category,assigned,compatible):
+            if not isinstance(row.get('edit_flanking'),list): raise ValueError('missing observed edit-flanking evidence')
+            decision=enforce_edit_flanking(decide(row['evidence'],copies,policy),row['edit_flanking'])
+            if decision!=(category,assigned,compatible):
                 raise ValueError('ledger decision semantics mismatch')
         elif category not in ('ALIGNMENT_FAILURE','ASSIGNED_COPY'):
             raise ValueError('unknown ledger category')

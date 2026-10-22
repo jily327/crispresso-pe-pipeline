@@ -1,0 +1,797 @@
+{
+  "scope": "raw diagnostic calls on already BLOCKED panels; not original 125",
+  "changed_decisions": [
+    {
+      "read_id": "copy1_WT_000",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_001",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_002",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_003",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_004",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_005",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_006",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_007",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_008",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_009",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_010",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_WT_011",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_000",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_001",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_002",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_003",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_004",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_005",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_006",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_007",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_008",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_009",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_010",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy1_precise_PE_011",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_000",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_001",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_002",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_003",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_004",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_005",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_006",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_WT_007",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_000",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_001",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_002",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_003",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_004",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_005",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_006",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "copy2_precise_PE_007",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy2",
+        "compatible_copies": [
+          "copy2"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy2"
+        ]
+      }
+    },
+    {
+      "read_id": "blocked_three_copy_copy1_WT",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "blocked_three_copy_copy1_PE",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy1",
+        "compatible_copies": [
+          "copy1"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy1"
+        ]
+      }
+    },
+    {
+      "read_id": "blocked_three_copy_copy3_WT",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy3",
+        "compatible_copies": [
+          "copy3"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy3"
+        ]
+      }
+    },
+    {
+      "read_id": "blocked_three_copy_copy3_PE",
+      "geometry_status": "BLOCKED",
+      "before": {
+        "category": "ASSIGNED_COPY",
+        "assigned_copy": "copy3",
+        "compatible_copies": [
+          "copy3"
+        ]
+      },
+      "after": {
+        "category": "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS",
+        "assigned_copy": null,
+        "compatible_copies": [
+          "copy3"
+        ]
+      }
+    }
+  ]
+}

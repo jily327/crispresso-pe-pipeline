@@ -21,6 +21,17 @@ from peanalyzer.provenance import software_provenance
 COMPARISON_FIELDS=('backend_input_reads','aligned_reads','unaligned_reads','numerator','denominator')
 
 
+def normalize_include_idxs(value, reference_length):
+    """Validate list or CRISPResso2's JSON ndarray encoding; fail closed."""
+    if isinstance(value,dict):
+        if set(value)!={'_type','value'} or value['_type']!='np.ndarray':
+            raise ValueError('unknown authoritative include_idxs serialization')
+        value=value['value']
+    if not isinstance(value,list) or any(type(p) is not int or not 0<=p<reference_length for p in value):
+        raise ValueError('authoritative include_idxs must be a one-dimensional list of valid integer positions')
+    return sorted(set(value))
+
+
 def evaluate_anchors(targets, metrics):
     report=geometry(targets)
     reasons=[]
@@ -36,19 +47,27 @@ def evaluate_anchors(targets, metrics):
     values={c:{k:m['native'][k] for k in COMPARISON_FIELDS} for c,m in metrics.items()}
     invariant=bool(values) and len({tuple(v[k] for k in COMPARISON_FIELDS) for v in values.values()})==1 and set(metrics)==copies
     if not invariant: reasons.append('ANCHOR_DEPENDENT_NATIVE_RESULT')
-    overlap={}
+    overlap={};normalized_windows={}
+    lengths={t.copy_name:len(t.wt_sequence) for t in targets}
     for c,m in metrics.items():
         if c not in copies: continue
         window=m.get('authoritative_reference_quantification_window')
         if window is None:
             reasons.append('AUTHORITATIVE_QUANTIFICATION_WINDOW_MISSING')
             continue
+        try:
+            window=normalize_include_idxs(window,lengths[c])
+        except ValueError:
+            reasons.append('AUTHORITATIVE_QUANTIFICATION_WINDOW_INVALID')
+            continue
+        normalized_windows[c]=window
         overlap[c]=[d['positions'][c] for d in report['diagnostics'] if d['positions'][c] in window]
         if overlap[c]: reasons.append('DIAGNOSTIC_IN_AUTHORITATIVE_QUANTIFICATION_WINDOW')
     return dict(scope='qualification_only_all_prepared_pairs_not_confident_copy_cohort',
                 metric='target_crispresso_native_pe',status='BLOCKED' if reasons else 'SUPPORTED_IN_TESTED_FIXTURE',
                 reasons=sorted(set(reasons)),anchor_invariant=invariant,anchors=values,
                 authoritative_window_diagnostics=overlap,
+                authoritative_windows=normalized_windows,
                 limitation='Necessary eligibility checks and empirical invariance on this input do not qualify unseen targets or data.')
 
 
