@@ -1,0 +1,33 @@
+{
+  "baseline_source": "/workspace/validation/m7/baseline-source-qualified",
+  "baseline_wheel": "/workspace/validation/m7/baseline-wheel-qualified",
+  "final_source": "/workspace/validation/m7/source-final",
+  "final_wheel": "/workspace/validation/m7/wheel-final",
+  "integration_wrappers": "/workspace/validation/m61/bin",
+  "observed_container_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "observed_crispresso_version": "2.3.4",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "qualified_runtime": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "software": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "348759fa60153c741449424da577ed7b0cc722c1",
+    "git_dirty": true,
+    "pipeline_version": "0.7.0",
+    "python_executable": "/workspace/peanalyzer-venv/bin/python",
+    "python_version": "3.12.14"
+  }
+}

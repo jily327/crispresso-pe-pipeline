@@ -1,10 +1,17 @@
 # crispresso-pe-pipeline
 
+**M7 (0.7.0) provides local end-to-end orchestration, validated resume and selective force.**
+Use [`peanalyzer run` or `peanalyzer analyze`](docs/m7-workflow.md). Production
+execution supports one biological target per workflow, including multiple copies;
+multi-target planning is available, but execution fails closed pending a qualified
+target-selection contract. Existing M2–M6.1 stages remain scientifically authoritative.
+See [M7 qualification](docs/validation/m7/README.md).
+
 **M6 (0.6.0) provides deterministic offline reporting from completed M5 results.**
 Use [`peanalyzer report`](docs/m6-reporting.md) for sample-level SVG figures,
 family-scoped contrast-effect figures, complete TSV tables and self-contained HTML.
 The copied M5 JSON remains authoritative; reporting adds no statistical inference
-or automated biological interpretation. Workflow orchestration remains future work.
+or automated biological interpretation. M7 adds orchestration without changing that boundary.
 
 **M5.1 (0.5.1) adds offline biological-sample aggregation and explicit exact
 replicate-level contrasts with family-scoped BH correction.** Use
@@ -26,11 +33,11 @@ Use the [M4 Python API and measurement contracts](docs/m4-metrics.md), including
 the target all-read native/precise metrics and separately labelled confident-copy
 metrics. See [M4 evidence](docs/validation/m4/README.md) for qualification and
 reproduction. M5 provides the statistical layer described above; M6 provides the presentation layer. Automated biological
-interpretation and end-to-end workflow orchestration remain future work. The milestone history below describes the boundaries M4 uses.
+interpretation remains future work. The milestone history below describes the boundaries M4 uses.
 
 A local, reproducible prime-editing amplicon sequencing pipeline under development
 for inline-barcoded samples and multiple target copies/homeologs. The intended
-workflow is barcode demultiplexing → CRISPRessoPooled → copy/target PE metrics →
+production workflow is barcode demultiplexing → prepared FASTQs → qualified internal copy routing → direct Core PE metrics →
 biological statistics → reports.
 
 **Milestones 1–3 implement metadata validation, paired barcode demultiplexing,

@@ -1,0 +1,30 @@
+{
+  "compared": [
+    "M4 target/copy/QC/eligibility/derived/product evidence",
+    "M5 observations/groups/contrasts/families",
+    "prepared FASTQ records",
+    "routing FASTQ records and TSV ledgers",
+    "M6 SVG bytes"
+  ],
+  "exclusions": [
+    "M4/M5 population_id and source_result_sha256: existing root-bound lineage",
+    "backend logs/timestamps/artifact hashes and source paths",
+    "workflow timestamps/sessions and Git source-vs-installed identity",
+    "M6 exact local M5 copy and HTML/TSV source identity; not cross-root byte-identical"
+  ],
+  "independent_json_schema_checks": 88,
+  "input_sha256": {
+    "config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+    "contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+    "policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+    "raw_R1.fastq.gz": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+    "raw_R2.fastq.gz": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+    "samples.csv": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+    "targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+    "truth.json": "fc54e95e4d9e76577719de50011868edf5f529f817ead6f88b2e03f7a79eef86"
+  },
+  "source_wheel_science_equal": true,
+  "status": "PASS",
+  "synthetic_input_bytes_equal": true,
+  "unknown_fields_rejected": true
+}

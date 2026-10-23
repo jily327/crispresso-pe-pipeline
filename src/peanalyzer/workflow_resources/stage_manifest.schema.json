@@ -1,0 +1,378 @@
+{
+  "$defs": {
+    "Artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "Backend": {
+      "additionalProperties": false,
+      "properties": {
+        "executable": {
+          "title": "Executable",
+          "type": "string"
+        },
+        "executable_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Executable Sha256",
+          "type": "string"
+        },
+        "runtime_digest": {
+          "minLength": 1,
+          "title": "Runtime Digest",
+          "type": "string"
+        },
+        "version": {
+          "const": "2.3.4",
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "executable",
+        "executable_sha256",
+        "version",
+        "runtime_digest"
+      ],
+      "title": "Backend",
+      "type": "object"
+    },
+    "Dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "manifest": {
+          "$ref": "#/$defs/Artifact"
+        },
+        "output_identity_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Output Identity Sha256",
+          "type": "string"
+        },
+        "stage_signature_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Stage Signature Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "manifest",
+        "stage_signature_sha256",
+        "output_identity_sha256"
+      ],
+      "title": "Dependency",
+      "type": "object"
+    },
+    "InputArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "snapshot": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot"
+        },
+        "source_path": {
+          "title": "Source Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "InputArtifact",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "Node": {
+      "additionalProperties": false,
+      "properties": {
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "output_path": {
+          "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+          "title": "Output Path",
+          "type": "string"
+        },
+        "sample_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Id"
+        },
+        "stage_id": {
+          "title": "Stage Id",
+          "type": "string"
+        },
+        "stage_kind": {
+          "enum": [
+            "raw_inputs",
+            "external_demux",
+            "demux",
+            "analysis",
+            "routing",
+            "metrics",
+            "metrics_manifest",
+            "statistics",
+            "report"
+          ],
+          "title": "Stage Kind",
+          "type": "string"
+        },
+        "target_name": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Name"
+        }
+      },
+      "required": [
+        "stage_id",
+        "stage_kind",
+        "dependencies",
+        "output_path"
+      ],
+      "title": "Node",
+      "type": "object"
+    },
+    "Software": {
+      "additionalProperties": false,
+      "properties": {
+        "dependencies": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Dependencies",
+          "type": "object"
+        },
+        "git_commit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Git Commit"
+        },
+        "git_dirty": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Git Dirty"
+        },
+        "package_code_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Package Code Sha256",
+          "type": "string"
+        },
+        "pipeline_version": {
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "python_version": {
+          "title": "Python Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pipeline_version",
+        "git_commit",
+        "git_dirty",
+        "python_version",
+        "dependencies",
+        "package_code_sha256"
+      ],
+      "title": "Software",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "api_call": {
+      "title": "Api Call",
+      "type": "string"
+    },
+    "backend_identity": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Backend"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dependencies": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Dependency"
+      },
+      "title": "Dependencies",
+      "type": "object"
+    },
+    "ended_at": {
+      "title": "Ended At",
+      "type": "string"
+    },
+    "input_artifacts": {
+      "additionalProperties": {
+        "$ref": "#/$defs/InputArtifact"
+      },
+      "title": "Input Artifacts",
+      "type": "object"
+    },
+    "node": {
+      "$ref": "#/$defs/Node"
+    },
+    "normalized_parameters": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Normalized Parameters",
+      "type": "object"
+    },
+    "output_artifacts": {
+      "items": {
+        "$ref": "#/$defs/Artifact"
+      },
+      "title": "Output Artifacts",
+      "type": "array"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "software_identity": {
+      "$ref": "#/$defs/Software"
+    },
+    "stage_signature_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Stage Signature Sha256",
+      "type": "string"
+    },
+    "started_at": {
+      "title": "Started At",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "SKIPPED_SCIENTIFIC_GATE"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "validation": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Validation",
+      "type": "array"
+    },
+    "workflow_contract_version": {
+      "const": "m7-v1",
+      "default": "m7-v1",
+      "title": "Workflow Contract Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "node",
+    "status",
+    "stage_signature_sha256",
+    "dependencies",
+    "input_artifacts",
+    "output_artifacts",
+    "normalized_parameters",
+    "software_identity",
+    "backend_identity",
+    "api_call",
+    "started_at",
+    "ended_at",
+    "validation",
+    "reason_codes"
+  ],
+  "title": "StageManifest",
+  "type": "object"
+}
