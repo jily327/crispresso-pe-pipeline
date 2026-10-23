@@ -1,0 +1,24 @@
+{
+  "backend_executing": 62,
+  "baseline_version": "0.6.1",
+  "changed_classifications": 0,
+  "fresh_wheel_tests": 1036,
+  "geometry": {
+    "allowed": 13,
+    "blocked": 23,
+    "total": 36
+  },
+  "historical_integration": 62,
+  "historical_pair_classifications": 475,
+  "m4_results_compared": 42,
+  "m7_integration_cases": 1,
+  "m7_unit_cases": 83,
+  "m7_version": "0.7.0",
+  "new_m7_integration": 1,
+  "preflight_only": 1,
+  "prior_cases_retained": 952,
+  "source_tests": 1036,
+  "starting_main": "348759fa60153c741449424da577ed7b0cc722c1",
+  "status": "PASS",
+  "total_integration": 63
+}

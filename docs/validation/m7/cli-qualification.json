@@ -1,0 +1,19 @@
+{
+  "analyze_cli_resume": {
+    "completion_bytes_preserved": true,
+    "executed_stages": [],
+    "exit_code": 0,
+    "reused_stages": 13
+  },
+  "completed_resume_executed_stages": [],
+  "completion_bytes_preserved": true,
+  "contrasts": 0,
+  "existing_completion_untouched": true,
+  "existing_output_diagnostic": "OUTPUT_EXISTS",
+  "existing_output_exit": 2,
+  "installed_cli_version": "0.7.0",
+  "recovery_executed_stages": [
+    "report"
+  ],
+  "summarize_real_backend": "PASS"
+}

@@ -1,6 +1,6 @@
 # Pipeline architecture and contracts
 
-## Implemented M5/M6 boundaries
+## Implemented M5/M6/M7 boundaries
 
 M5 and M5.1 implement biological-sample aggregation and exact contrasts; M6
 implements deterministic offline reporting from one completed `StatisticsResult`.
@@ -10,7 +10,10 @@ then exports complete tables, SVG figures and self-contained HTML.
 `reporting_models.py` and the packaged report manifest schema describe artifacts,
 not new scientific results. M4 measurements and M5 statistics remain unchanged.
 CRISPResso report links are deferred until a portable source-artifact contract exists.
-`workflow.py`, DAG orchestration, resume and force remain future work. Historical
+M7 implements `workflow.py`, strict stage/workflow manifests, DAG orchestration,
+validated resume and descendant-aware force; see [M7 contracts](m7-workflow.md).
+Production execution supports one biological target with multiple copies;
+multi-target execution fails closed pending qualified target selection. Historical
 sections below describe earlier proposals; they do not supersede these contracts.
 
 ## Current M4 layer
@@ -113,11 +116,11 @@ Planned modules, **not placeholder implementations in this milestone**:
 | `reference_qc.py` | Compare WT/PE references using a tested library alignment; report SNPs/indels, diagnostic variants and edit-site proximity with explicit coordinates |
 | `backend/outputs.py` | Versioned JSON/TSV/ZIP adapters; fail on unknown layouts or inconsistent counts; no HTML scraping |
 | `quantification.py` | Pure count-to-metric functions; distinguish exact PE from PE-reference assignment |
-| `workflow.py`, future provenance extensions | DAG, stage manifests, resume, logs and `--force`; basic demux provenance is implemented |
+| `workflow.py`, `workflow_models.py`, `workflow_storage.py` | Implemented M7 DAG, strict manifests, provenance, validated resume, selective force and public verifier |
 
 CLI remains a thin caller of reusable Python functions so a future GUI can
 use the same contracts. Implemented commands include `summarize`, `stats` and `report`. Future commands
-`run` and `analyze` remain rejected; they are not successful no-ops.
+`run` and `analyze` execute the common M7 Python workflow engine.
 
 ## Dependencies and reproducibility
 
@@ -500,7 +503,7 @@ failed subruns, Core unaligned reads and accepted counts separately. Do not equa
 raw mate count with merged sequence count. No missing run, missing reference,
 unmeasured ambiguity or zero denominator becomes a numerical zero by default.
 
-## Historical aggregation proposals and future workflow provenance
+## Historical aggregation proposals and workflow provenance
 
 Store long-form counts, status, denominators and metric-definition version per
 sample × target × copy; a wide sample table is only a derived presentation.
@@ -531,7 +534,7 @@ blocks, technical replication, pseudoreplication, few blocks and zero coverage
 require checks before fitting. Report model, biological n, estimates, confidence
 intervals, raw p-values and defined multiplicity adjustments.
 
-Planned deterministic outputs:
+Historical proposed layout (superseded by the [M7 workspace](m7-workflow.md)):
 
 ```text
 results/
@@ -546,7 +549,7 @@ results/
   report/                                         standalone M6 HTML, manifest, SVGs and TSVs
 ```
 
-Each stage manifest will contain input content hashes, normalized configuration,
+M7 stage manifests contain input content hashes, normalized configuration,
 metadata snapshots, schema/metric versions, pipeline version and exact Git commit
 (plus dirty state), backend/tool versions or container digest, exact argv and
 working directory, UTC timestamps, exit status, expected outputs and counts.
@@ -613,5 +616,6 @@ edited-away diagnostic SNPs, repeats, scaffold, threshold boundaries and amplico
 order should qualify the eventual routing design, not broaden this failed gate
 into downstream implementation. After qualification, M4 parses outputs and
 validates metrics; M5 implements biological aggregation/statistics and M6 implements reporting.
-Workflow orchestration and a complete synthetic end-to-end workflow remain
-future milestones. Keep unit and `integration` tests separate.
+M7 implements local workflow orchestration and a real synthetic raw-to-report
+fixture. Its explicit single-biological-target execution limit is documented above.
+Keep unit and `integration` tests separate.

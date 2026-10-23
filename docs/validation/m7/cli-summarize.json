@@ -1,0 +1,26 @@
+{
+  "executed_stages": [
+    "raw_inputs",
+    "demux",
+    "analysis",
+    "routing::bc001::T1",
+    "routing::bc002::T1",
+    "routing::bc003::T1",
+    "routing::bc004::T1",
+    "metrics::bc001::T1",
+    "metrics::bc002::T1",
+    "metrics::bc003::T1",
+    "metrics::bc004::T1",
+    "metrics_manifest",
+    "statistics",
+    "report"
+  ],
+  "metrics_results": 4,
+  "mode": "run",
+  "output": "/workspace/validation/m7/cli-summarize",
+  "report_path": "/workspace/validation/m7/cli-summarize/report/report.html",
+  "reused_stages": [],
+  "statistics_mode": "summarize",
+  "workflow_contract_version": "m7-v1",
+  "workflow_manifest_sha256": "cb1648e02e0c1ff26368b5a6780e1da7abf64434fbedf8e6d49ab57de8ea0b49"
+}

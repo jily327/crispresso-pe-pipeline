@@ -18,7 +18,7 @@ def test_console_entrypoint_version():
     from pathlib import Path
     result = subprocess.run([str(Path(sys.executable).with_name("peanalyzer")), "--version"], text=True, capture_output=True)
     assert result.returncode == 0
-    assert result.stdout.strip() == "peanalyzer 0.6.1"
+    assert result.stdout.strip() == "peanalyzer 0.7.0"
 
 
 def test_invalid_metadata_returns_nonzero_without_traceback(example_dir, tmp_path):
@@ -37,4 +37,5 @@ def test_invalid_metadata_returns_nonzero_without_traceback(example_dir, tmp_pat
 def test_unimplemented_run_command_fails():
     result = subprocess.run([sys.executable, "-m", "peanalyzer", "run"], capture_output=True, text=True)
     assert result.returncode == 2
-    assert "invalid choice" in result.stderr
+    # Retain the historical case ID: run is implemented in M7, but missing inputs still fail.
+    assert "the following arguments are required" in result.stderr

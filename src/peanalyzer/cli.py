@@ -53,14 +53,40 @@ def main(argv: list[str] | None = None) -> int:
     command.add_argument("--output", type=Path, required=True)
     from peanalyzer.reporting_models import DEFAULT_TITLE, ReportingError
     command.add_argument("--title", default=DEFAULT_TITLE)
+    for name in ("run", "analyze"):
+        workflow = commands.add_parser(name, help="execute a validated local workflow from raw FASTQ" if name == "run" else "analyze an immutable verified demux archive")
+        for option in ("samples", "targets", "config", "output"):
+            workflow.add_argument("--" + option, type=Path, required=True)
+        if name == "run":
+            workflow.add_argument("--r1", type=Path, required=True)
+            workflow.add_argument("--r2", type=Path, required=True)
+        else:
+            workflow.add_argument("--demux-root", type=Path, required=True)
+        workflow.add_argument("--crispresso", required=True)
+        workflow.add_argument("--runtime-digest", required=True)
+        for option in ("barcodes", "contrasts", "tolerance-policies"):
+            workflow.add_argument("--" + option, type=Path)
+        workflow.add_argument("--title", default=DEFAULT_TITLE)
+        workflow.add_argument("--analysis-r1-trim-5p", type=int)
+        workflow.add_argument("--analysis-r2-trim-5p", type=int)
+        workflow.add_argument("--resume", action="store_true")
+        workflow.add_argument("--force", action="append", default=[], choices=["demux", "analysis", "routing", "metrics", "statistics", "report", "all"])
     args = parser.parse_args(argv)
     from peanalyzer.demux import DemuxError, demultiplex
     from peanalyzer.fastq import FastqError
     from peanalyzer.validation import load_config
     from peanalyzer.aggregation import AggregationError, summarize
     from peanalyzer.statistics import stats
+    from peanalyzer.workflow_storage import WorkflowError
     try:
-        if args.command == "validate":
+        if args.command in ("run", "analyze"):
+            from peanalyzer.workflow import execute_workflow
+            options = vars(args).copy()
+            options["mode"] = options.pop("command")
+            options["argv"] = ([str(Path(sys.argv[0]).resolve()), *sys.argv[1:]] if argv is None else [parser.prog, *argv])
+            with sigterm_cleanup():
+                report = execute_workflow(**options)
+        elif args.command == "validate":
             report = validate_metadata(args.samples, args.targets, args.config, args.barcodes)
         elif args.command == "report":
             from peanalyzer.reporting import generate_report
@@ -83,8 +109,8 @@ def main(argv: list[str] | None = None) -> int:
                                      barcodes_path=args.barcodes, config=load_config(args.config), output=args.output,
                                      command_argv=([str(Path(sys.argv[0]).resolve()), *sys.argv[1:]] if argv is None
                                                    else [parser.prog, *argv]))
-    except (MetadataError, FastqError, DemuxError, AggregationError, ReportingError, OSError) as exc:
-        label = {"validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting"}[args.command]
+    except (MetadataError, FastqError, DemuxError, AggregationError, ReportingError, WorkflowError, OSError) as exc:
+        label = {"validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting", "run": "Workflow", "analyze": "Workflow"}[args.command]
         print(f"{label} failed: {exc}", file=sys.stderr)
         return 2
     print(json.dumps(report, indent=2, sort_keys=True))

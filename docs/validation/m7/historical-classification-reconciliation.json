@@ -1,0 +1,506 @@
+{
+  "m3": {
+    "changed": 0,
+    "current_fraction": [
+      100,
+      230
+    ],
+    "haplotypes": [
+      {
+        "count": 20,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "AATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCAC",
+          "GTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATT"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE"
+      },
+      {
+        "count": 20,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 80,
+        "current": "exact_WT",
+        "current_denominator": 80,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_WT",
+        "previous_denominator": 80,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 12,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 60,
+        "current": "exact_PE",
+        "current_denominator": 60,
+        "current_numerator": 60,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_PE",
+        "previous_denominator": 60,
+        "previous_numerator": 60,
+        "reason": null
+      },
+      {
+        "count": 12,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 12,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 12,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 50,
+        "current": "exact_WT",
+        "current_denominator": 50,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_WT",
+        "previous_denominator": 50,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 8,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 40,
+        "current": "exact_PE",
+        "current_denominator": 40,
+        "current_numerator": 40,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_PE",
+        "previous_denominator": 40,
+        "previous_numerator": 40,
+        "reason": null
+      },
+      {
+        "count": 8,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 8,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 8,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTGACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      }
+    ],
+    "input": 350,
+    "previous_fraction": [
+      100,
+      230
+    ]
+  },
+  "m31": {
+    "changed": 0,
+    "current_fraction": [
+      20,
+      55
+    ],
+    "haplotypes": [
+      {
+        "count": 9,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "AATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGA",
+          "TCCTGACCCGCTTCCGTGAATAGTTACTGTCCTCGCTATT"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE"
+      },
+      {
+        "count": 3,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "AATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACC",
+          "GGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTTACTGTCCTCGCTATT"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE"
+      },
+      {
+        "count": 6,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "AATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGA",
+          "TCCTGACCCGCTTCCGTGAATAGTGACTGTCCTCGCTATT"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE"
+      },
+      {
+        "count": 2,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "AATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACC",
+          "GGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTGACTGTCCTCGCTATT"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "REFERENCE_PRODUCT_NOT_OBSERVABLE"
+      },
+      {
+        "count": 3,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "CGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCA",
+          "ATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 2,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "CGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCA",
+          "ATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 4,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 21,
+        "current": "exact_WT",
+        "current_denominator": 21,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_WT",
+        "previous_denominator": 21,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 3,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 3,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGAT",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACCCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTT"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP"
+      },
+      {
+        "count": 12,
+        "current": "exact_PE",
+        "current_denominator": 12,
+        "current_numerator": 12,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_PE",
+        "previous_denominator": 12,
+        "previous_numerator": 12,
+        "reason": null
+      },
+      {
+        "count": 6,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 6,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 9,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 14,
+        "current": "exact_WT",
+        "current_denominator": 14,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_WT",
+        "previous_denominator": 14,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 2,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGATGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGA"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 6,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCGAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCAGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      },
+      {
+        "count": 2,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGAT",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGCCCACATTGTTCTGGTCCGTCGGCACTACGCCGAGTACAGACGCATGGGATTGGCGTCTCCTGACCCGCTTCCGTGAATAGTG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP"
+      },
+      {
+        "count": 8,
+        "current": "exact_PE",
+        "current_denominator": 8,
+        "current_numerator": 8,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "exact_PE",
+        "previous_denominator": 8,
+        "previous_numerator": 8,
+        "reason": null
+      },
+      {
+        "count": 4,
+        "current": "other_or_unassessable",
+        "current_denominator": 0,
+        "current_numerator": 0,
+        "mates": [
+          "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGGGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCA",
+          "GGTCGACCATAACGCTCGTCTTACGACACGATCCCAGTCCATCATCGATTGGTCCATGTCTGCACGTACAGATCTGTCGAAGGAAGTGACTGAACTGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCCGTCGGCACTACGCCG"
+        ],
+        "previous": "other_or_unassessable",
+        "previous_denominator": 0,
+        "previous_numerator": 0,
+        "reason": null
+      }
+    ],
+    "input": 125,
+    "previous_fraction": [
+      20,
+      55
+    ]
+  }
+}
