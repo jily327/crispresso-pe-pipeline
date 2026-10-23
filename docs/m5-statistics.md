@@ -1,6 +1,6 @@
 # M5 biological aggregation and exact statistical contrasts
 
-M5 (package 0.5.0, `statistics_contract_version: m5-v1`, schema version 1)
+M5.1 (package 0.5.1, `statistics_contract_version: m5-v1`, schema version 1)
 consumes completed M4 JSON measurements offline. The inferential unit is the
 biological **sample**, identified by `sample_name`. Reads are measurements
 within that sample; reads are never independent biological replicates.
@@ -28,8 +28,9 @@ model: `sample_name`, `barcode_id`, barcode sequences or catalog IDs, `editor`,
 `barcode_id`**. There is no sample-name fallback, barcode guessing or case
 folding. Sample names and barcode IDs must each be unique. M5 validates the full
 typed metadata but does not resolve barcode catalogs or rerun demultiplexing;
-barcode sequence/pair qualification remains upstream. A metadata row without a
-result is listed as unused and never creates an observation. Within each
+barcode sequence/pair qualification remains upstream. A metadata sample with
+zero M4 result documents across all targets is listed in
+`unused_metadata_sample_ids` and never creates an observation. Within each
 condition and target, duplicate biological-replicate identifiers are rejected.
 Technical replicates are not automatically merged.
 
@@ -43,6 +44,26 @@ to conflicting definitions across samples. These are identity checks, not new
 sequence interpretation. No M4 result, count, eligibility, evidence or reason is
 rewritten. Trusted, immutable M4 archives are required; coordinated forgery of
 all provenance is outside the contract.
+
+## Complete sample × target coverage
+
+A participating sample is a metadata sample whose authoritative `barcode_id`
+appears as `sample_id` in at least one validated M4 result in the manifest.
+The observed target universe is the union of target IDs in all validated results.
+Every participating sample must have **exactly one M4 result for every observed
+target**. Duplicates remain errors; missing whole sample × target documents
+raise `AggregationError` with `PARTIAL_SAMPLE_TARGET_COVERAGE`, the barcode ID
+and deterministically ordered missing targets, before summaries, contrasts or
+completed outputs are produced. No sample or first manifest row defines the
+reference target set. A target found in only one sample still belongs to the
+run-wide target universe.
+
+Metadata samples with zero results remain unused and do not trigger this check.
+An existing result with a BLOCKED/NOT_ASSESSABLE metric still covers its sample
+and target. A missing optional metric within that result remains `MISSING_METRIC`
+with `METRIC_NOT_PRESENT`. Selective sample-target applicability needs a future
+explicit design contract and is not inferred here. M5.1 adds no status or schema
+version and does not change statistical calculations on complete inputs.
 
 ## Observations and summaries
 
@@ -84,8 +105,9 @@ fraction is `91/110`. The pooled fraction is descriptive only and never enters
 hypothesis testing. Blocked/not-assessable values remain null, never zero.
 If a sample has a target result but lacks an optional policy metric, its summary
 assessment is `MISSING_METRIC` with `METRIC_NOT_PRESENT`; no observation is
-fabricated. Expected counts concern samples with an M4 result for that target,
-not unused metadata rows.
+fabricated. Expected counts concern participating samples in the relevant
+condition, each of which must have a result for every target represented in the
+run. Metadata samples with zero results remain outside those inventories.
 
 ## Explicit contrast specification
 
@@ -198,4 +220,5 @@ inference, arbitrary formulas or automatic biological interpretation. Label
 exchangeability for unpaired inference and sign symmetry for paired inference
 remain scientific design assumptions. M4's existing observability/read-geometry
 limitations remain upstream and unchanged; M4.2.3 is not implemented here.
-See [qualification and reproduction](validation/m5/README.md).
+See [M5 qualification](validation/m5/README.md) and
+[M5.1 coverage validation](validation/m51/README.md).

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crispresso-pe-pipeline"
-version = "0.5.0"
+version = "0.5.1"
 description = "Prime-editing measurements with qualified populations and exact biological-sample statistics"
 readme = "README.md"
 requires-python = ">=3.11"

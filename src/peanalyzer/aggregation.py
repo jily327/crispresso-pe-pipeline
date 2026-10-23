@@ -218,6 +218,14 @@ def collect_observations(manifest_path, samples_path):
         for path, expected in snapshots.items():
             if sha256(path.read_bytes()) != expected:
                 raise AggregationError(f"input changed during collection: {path}")
+        sample_targets = defaultdict(set)
+        for item in inputs:
+            sample_targets[item.sample_id].add(item.target_name)
+        observed_targets = set(target_definitions)
+        missing = [f"sample {sample_id} is missing targets: {', '.join(sorted(observed_targets - targets))}"
+                   for sample_id, targets in sorted(sample_targets.items()) if targets != observed_targets]
+        if missing:
+            raise AggregationError("PARTIAL_SAMPLE_TARGET_COVERAGE: " + "; ".join(missing))
         observations.sort(key=lambda r: (series_key(r), condition_key(r), r.sample_name))
         return StatisticsResult(
             schema_version=1, statistics_contract_version="m5-v1",

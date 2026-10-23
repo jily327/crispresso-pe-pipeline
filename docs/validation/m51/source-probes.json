@@ -1,0 +1,3145 @@
+{
+  "cli": {
+    "stats": {
+      "completed_output": false,
+      "exit_code": 2,
+      "publication_leftovers": false,
+      "stderr": "Statistics failed: PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A003 is missing targets: T2"
+    },
+    "summarize": {
+      "completed_output": false,
+      "exit_code": 2,
+      "publication_leftovers": false,
+      "stderr": "Summarization failed: PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A003 is missing targets: T2"
+    }
+  },
+  "complete": {
+    "paired_stats": {
+      "contrasts": [
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [
+            "block001",
+            "block002",
+            "block003"
+          ],
+          "contrast_id": "copy",
+          "copy_name": "copy1",
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "copy1_precise_pe",
+          "p_value": 0.25,
+          "pairing_mode": "block",
+          "permutation_count": 8,
+          "permutation_space_size": 8,
+          "policy_definition": null,
+          "policy_id": null,
+          "population_scope": "confident_copy",
+          "q_value": 0.25,
+          "reason_codes": [],
+          "routing_conditioned": true,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [
+            "block001",
+            "block002",
+            "block003"
+          ],
+          "contrast_id": "copy-family",
+          "copy_name": "copy1",
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "secondary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "copy1_pe_family",
+          "p_value": 0.25,
+          "pairing_mode": "block",
+          "permutation_count": 8,
+          "permutation_space_size": 8,
+          "policy_definition": {
+            "allowed_extra_substitution_positions": null,
+            "max_extra_indel_events": 0,
+            "max_extra_substitutions": 0,
+            "policy_id": "policy0"
+          },
+          "policy_id": "policy0",
+          "population_scope": "confident_copy",
+          "q_value": 0.25,
+          "reason_codes": [],
+          "routing_conditioned": true,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 1
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [
+            "block001",
+            "block002",
+            "block003"
+          ],
+          "contrast_id": "family",
+          "copy_name": null,
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "total_pe_family",
+          "p_value": 0.25,
+          "pairing_mode": "block",
+          "permutation_count": 8,
+          "permutation_space_size": 8,
+          "policy_definition": {
+            "allowed_extra_substitution_positions": null,
+            "max_extra_indel_events": 0,
+            "max_extra_substitutions": 1,
+            "policy_id": "policy1"
+          },
+          "policy_id": "policy1",
+          "population_scope": "target_all_prepared",
+          "q_value": 0.25,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [
+            "block001",
+            "block002",
+            "block003"
+          ],
+          "contrast_id": "native",
+          "copy_name": null,
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "target_crispresso_native_pe",
+          "p_value": 0.25,
+          "pairing_mode": "block",
+          "permutation_count": 8,
+          "permutation_space_size": 8,
+          "policy_definition": null,
+          "policy_id": null,
+          "population_scope": "target_all_prepared",
+          "q_value": 0.25,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [
+            "block001",
+            "block002",
+            "block003"
+          ],
+          "contrast_id": "precise",
+          "copy_name": null,
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": "block001",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": "block002",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": "block003",
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": true,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "total_precise_pe",
+          "p_value": 0.25,
+          "pairing_mode": "block",
+          "permutation_count": 8,
+          "permutation_space_size": 8,
+          "policy_definition": null,
+          "policy_id": null,
+          "population_scope": "target_all_prepared",
+          "q_value": 0.25,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        }
+      ],
+      "manifest_order_invariant": true,
+      "observations": 144,
+      "parent_scientific_equal": true,
+      "scientific_sha256": "7f5f6576f6d85fac00d53397cd1465900814c789c983cf869fe74f1ab5e63e86",
+      "summaries": 48
+    },
+    "paired_summarize": {
+      "contrasts": [],
+      "manifest_order_invariant": true,
+      "observations": 144,
+      "parent_scientific_equal": true,
+      "scientific_sha256": "2da828bab3ba4ba89d8c6ea7dc9b5eca2717866d65bc783a3a289ed05ed7b8e6",
+      "summaries": 48
+    },
+    "unpaired_stats": {
+      "contrasts": [
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [],
+          "contrast_id": "copy",
+          "copy_name": "copy1",
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "copy1_precise_pe",
+          "p_value": 0.1,
+          "pairing_mode": "unpaired",
+          "permutation_count": 20,
+          "permutation_space_size": 20,
+          "policy_definition": null,
+          "policy_id": null,
+          "population_scope": "confident_copy",
+          "q_value": 0.1,
+          "reason_codes": [],
+          "routing_conditioned": true,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [],
+          "contrast_id": "copy-family",
+          "copy_name": "copy1",
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "secondary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "copy1_pe_family",
+          "p_value": 0.1,
+          "pairing_mode": "unpaired",
+          "permutation_count": 20,
+          "permutation_space_size": 20,
+          "policy_definition": {
+            "allowed_extra_substitution_positions": null,
+            "max_extra_indel_events": 0,
+            "max_extra_substitutions": 0,
+            "policy_id": "policy0"
+          },
+          "policy_id": "policy0",
+          "population_scope": "confident_copy",
+          "q_value": 0.1,
+          "reason_codes": [],
+          "routing_conditioned": true,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 1
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [],
+          "contrast_id": "family",
+          "copy_name": null,
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "total_pe_family",
+          "p_value": 0.1,
+          "pairing_mode": "unpaired",
+          "permutation_count": 20,
+          "permutation_space_size": 20,
+          "policy_definition": {
+            "allowed_extra_substitution_positions": null,
+            "max_extra_indel_events": 0,
+            "max_extra_substitutions": 1,
+            "policy_id": "policy1"
+          },
+          "policy_id": "policy1",
+          "population_scope": "target_all_prepared",
+          "q_value": 0.1,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [],
+          "contrast_id": "native",
+          "copy_name": null,
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "target_crispresso_native_pe",
+          "p_value": 0.1,
+          "pairing_mode": "unpaired",
+          "permutation_count": 20,
+          "permutation_space_size": 20,
+          "policy_definition": null,
+          "policy_id": null,
+          "population_scope": "target_all_prepared",
+          "q_value": 0.1,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        },
+        {
+          "alternative": "two-sided",
+          "complete_blocks": [],
+          "contrast_id": "precise",
+          "copy_name": null,
+          "difference_in_biological_sample_fraction": 0.8,
+          "excluded_blocks": [],
+          "expected_group_a": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A001",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A002",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "A003",
+              "status": "REPORTABLE",
+              "treatment": "A"
+            }
+          ],
+          "expected_group_a_count": 3,
+          "expected_group_b": [
+            {
+              "biological_replicate": "1",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B001",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "2",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B002",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            },
+            {
+              "biological_replicate": "3",
+              "block_id": null,
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "paired": false,
+              "reason_codes": [],
+              "sample_name": "B003",
+              "status": "REPORTABLE",
+              "treatment": "B"
+            }
+          ],
+          "expected_group_b_count": 3,
+          "extreme_count": 2,
+          "family_id": "primary",
+          "group_a": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "A"
+          },
+          "group_b": {
+            "dpi": 6,
+            "editor": "synthetic-editor",
+            "treatment": "B"
+          },
+          "metric_name": "total_precise_pe",
+          "p_value": 0.1,
+          "pairing_mode": "unpaired",
+          "permutation_count": 20,
+          "permutation_space_size": 20,
+          "policy_definition": null,
+          "policy_id": null,
+          "population_scope": "target_all_prepared",
+          "q_value": 0.1,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "target_name": "T1",
+          "used_group_a_count": 3,
+          "used_group_a_sample_ids": [
+            "A001",
+            "A002",
+            "A003"
+          ],
+          "used_group_b_count": 3,
+          "used_group_b_sample_ids": [
+            "B001",
+            "B002",
+            "B003"
+          ],
+          "valid_tests_in_family": 4
+        }
+      ],
+      "manifest_order_invariant": true,
+      "observations": 144,
+      "parent_scientific_equal": true,
+      "scientific_sha256": "e9aa184a5e78a4a27cbea4f27caa4400eb76377d7ac59a6b1a711067fc230596",
+      "summaries": 48
+    },
+    "unpaired_summarize": {
+      "contrasts": [],
+      "manifest_order_invariant": true,
+      "observations": 144,
+      "parent_scientific_equal": true,
+      "scientific_sha256": "cf34498cfde43bf598c0b1a5384d206b245e9e7faa37ac422ad3d9e46201852a",
+      "summaries": 48
+    }
+  },
+  "controls": {
+    "BLOCKED": {
+      "stats": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 1,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [
+                  "SYNTHETIC_BLOCKED"
+                ],
+                "sample_name": "A003",
+                "status": "BLOCKED",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 144,
+        "unused_metadata_sample_ids": []
+      },
+      "summarize": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 1,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [
+                  "SYNTHETIC_BLOCKED"
+                ],
+                "sample_name": "A003",
+                "status": "BLOCKED",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 144,
+        "unused_metadata_sample_ids": []
+      }
+    },
+    "NOT_ASSESSABLE": {
+      "stats": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 1,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [
+                  "SYNTHETIC_NOT_ASSESSABLE"
+                ],
+                "sample_name": "A003",
+                "status": "NOT_ASSESSABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 144,
+        "unused_metadata_sample_ids": []
+      },
+      "summarize": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 1,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [
+                  "SYNTHETIC_NOT_ASSESSABLE"
+                ],
+                "sample_name": "A003",
+                "status": "NOT_ASSESSABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 144,
+        "unused_metadata_sample_ids": []
+      }
+    },
+    "added_unused": {
+      "stats": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 144,
+        "unused_metadata_sample_ids": [
+          "unused"
+        ]
+      },
+      "summarize": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 144,
+        "unused_metadata_sample_ids": [
+          "unused"
+        ]
+      }
+    },
+    "missing_policy": {
+      "stats": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 1,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [
+                  "METRIC_NOT_PRESENT"
+                ],
+                "sample_name": "A003",
+                "status": "MISSING_METRIC",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 143,
+        "unused_metadata_sample_ids": []
+      },
+      "summarize": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.2,
+            "mean_biological_sample_fraction": 0.1,
+            "median_biological_sample_fraction": 0.1,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.1076923076923077,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 3,
+            "reportable_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A003",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              },
+              {
+                "denominator": 20,
+                "fraction": 0.2,
+                "numerator": 4,
+                "sample_name": "A003"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 3,
+            "expected_sample_ids": [
+              "A001",
+              "A002",
+              "A003"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 1,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "3",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [
+                  "METRIC_NOT_PRESENT"
+                ],
+                "sample_name": "A003",
+                "status": "MISSING_METRIC",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 143,
+        "unused_metadata_sample_ids": []
+      }
+    },
+    "remove_all_A003": {
+      "stats": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 2,
+            "expected_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 2,
+            "expected_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 120,
+        "unused_metadata_sample_ids": [
+          "A003"
+        ]
+      },
+      "summarize": {
+        "collection_succeeded": true,
+        "groups": [
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 2,
+            "expected_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "target_crispresso_native_pe",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": null,
+            "policy_id": null,
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          },
+          {
+            "blocked_count": 0,
+            "condition": {
+              "dpi": 6,
+              "editor": "synthetic-editor",
+              "treatment": "A"
+            },
+            "copy_name": null,
+            "expected_sample_count": 2,
+            "expected_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "maximum_biological_sample_fraction": 0.1,
+            "mean_biological_sample_fraction": 0.05,
+            "median_biological_sample_fraction": 0.05,
+            "metric_name": "total_pe_family",
+            "minimum_biological_sample_fraction": 0.0,
+            "missing_metric_count": 0,
+            "not_assessable_count": 0,
+            "policy_definition": {
+              "allowed_extra_substitution_positions": null,
+              "max_extra_indel_events": 0,
+              "max_extra_substitutions": 1,
+              "policy_id": "policy1"
+            },
+            "policy_id": "policy1",
+            "pooled_read_fraction": 0.09090909090909091,
+            "pooled_read_fraction_label": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+            "population_scope": "target_all_prepared",
+            "reportable_count": 2,
+            "reportable_sample_ids": [
+              "A001",
+              "A002"
+            ],
+            "routing_conditioned": false,
+            "sample_assessments": [
+              {
+                "biological_replicate": "1",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A001",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              },
+              {
+                "biological_replicate": "2",
+                "block_id": null,
+                "dpi": 6,
+                "editor": "synthetic-editor",
+                "paired": false,
+                "reason_codes": [],
+                "sample_name": "A002",
+                "status": "REPORTABLE",
+                "treatment": "A"
+              }
+            ],
+            "source_fractions": [
+              {
+                "denominator": 10,
+                "fraction": 0.0,
+                "numerator": 0,
+                "sample_name": "A001"
+              },
+              {
+                "denominator": 100,
+                "fraction": 0.1,
+                "numerator": 10,
+                "sample_name": "A002"
+              }
+            ],
+            "target_name": "T2"
+          }
+        ],
+        "observations": 120,
+        "unused_metadata_sample_ids": [
+          "A003"
+        ]
+      }
+    }
+  },
+  "partial": {
+    "A003-T2_stats": {
+      "completed_output": false,
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A003 is missing targets: T2",
+      "manifest_order_invariant": true
+    },
+    "A003-T2_summarize": {
+      "completed_output": false,
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A003 is missing targets: T2",
+      "manifest_order_invariant": true
+    },
+    "B002-T1_stats": {
+      "completed_output": false,
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-B002 is missing targets: T1",
+      "manifest_order_invariant": true
+    },
+    "B002-T1_summarize": {
+      "completed_output": false,
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-B002 is missing targets: T1",
+      "manifest_order_invariant": true
+    },
+    "multiple_missing_stats": {
+      "completed_output": false,
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A003 is missing targets: T2, T3",
+      "manifest_order_invariant": true
+    },
+    "multiple_missing_summarize": {
+      "completed_output": false,
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A003 is missing targets: T2, T3",
+      "manifest_order_invariant": true
+    },
+    "unique_A001": {
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A002 is missing targets: T2; sample barcode-A003 is missing targets: T2; sample barcode-B001 is missing targets: T2; sample barcode-B002 is missing targets: T2; sample barcode-B003 is missing targets: T2"
+    },
+    "unique_B003": {
+      "error": "PARTIAL_SAMPLE_TARGET_COVERAGE: sample barcode-A001 is missing targets: T2; sample barcode-A002 is missing targets: T2; sample barcode-A003 is missing targets: T2; sample barcode-B001 is missing targets: T2; sample barcode-B002 is missing targets: T2"
+    }
+  },
+  "version": "0.5.1"
+}

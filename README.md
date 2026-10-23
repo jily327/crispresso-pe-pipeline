@@ -1,10 +1,13 @@
 # crispresso-pe-pipeline
 
-**M5 (0.5.0) adds offline biological-sample aggregation and explicit exact
+**M5.1 (0.5.1) adds offline biological-sample aggregation and explicit exact
 replicate-level contrasts with family-scoped BH correction.** Use
 [`peanalyzer summarize` and `peanalyzer stats`](docs/m5-statistics.md). Reads are
 not biological replicates. Target, copy and policy populations stay separate;
-nonreportable measurements retain their status. See [M5 qualification](docs/validation/m5/README.md).
+nonreportable measurements retain their status. Every participating sample must
+have one result for every target represented in the run; partial coverage fails
+closed. Metadata with no results remains unused. See
+[M5.1 remediation](docs/validation/m51/README.md) and [M5 qualification](docs/validation/m5/README.md).
 
 **M4 implements production PE measurements with explicit target and copy
 populations, integer denominators, provenance and reportability gates.**
