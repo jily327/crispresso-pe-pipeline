@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crispresso-pe-pipeline"
-version = "0.4.4"
-description = "Prime-editing amplicon analysis with qualified routing and explicit production metric populations"
+version = "0.5.1"
+description = "Prime-editing measurements with qualified populations and exact biological-sample statistics"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0.2,<7", "matplotlib>=3.9,<4", "biopython==1.85"]
@@ -20,7 +20,7 @@ peanalyzer = "peanalyzer.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-peanalyzer = ["barcode_sets/*.csv", "profiles/*.yaml", "metrics/*.json"]
+peanalyzer = ["barcode_sets/*.csv", "profiles/*.yaml", "metrics/*.json", "statistics_resources/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

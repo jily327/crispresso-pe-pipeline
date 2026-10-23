@@ -1,0 +1,74 @@
+{
+  "artifacts": {
+    "paired_stats/contrasts.tsv": {
+      "byte_identical": true,
+      "sha256": "fbeab70a2c2bf6825b76b5095a694c8ca08c143b9b3de859e5c5cb2407f2fda0"
+    },
+    "paired_stats/group_summaries.tsv": {
+      "byte_identical": true,
+      "sha256": "e953670d3822aea1ebc17779de262a1356581bfbecd15c1a743a67d16b1ed64d"
+    },
+    "paired_stats/observations.tsv": {
+      "byte_identical": true,
+      "sha256": "158a259922788e3b378ddfeda075687d43d15df241ad425342c0f7068930d129"
+    },
+    "paired_stats/result.json": {
+      "byte_identical": true,
+      "sha256": "c7bc01d22e7507337d109a609d7217f270b5fa80bab4a5a1228a6672448a671e"
+    },
+    "paired_summarize/contrasts.tsv": {
+      "byte_identical": true,
+      "sha256": "bccf463a3fad4c2cb12e32b7bf6d8d8aa111217911d63e99b68a3e22a00e16b2"
+    },
+    "paired_summarize/group_summaries.tsv": {
+      "byte_identical": true,
+      "sha256": "e953670d3822aea1ebc17779de262a1356581bfbecd15c1a743a67d16b1ed64d"
+    },
+    "paired_summarize/observations.tsv": {
+      "byte_identical": true,
+      "sha256": "158a259922788e3b378ddfeda075687d43d15df241ad425342c0f7068930d129"
+    },
+    "paired_summarize/result.json": {
+      "byte_identical": true,
+      "sha256": "313654f91e70baf6ca0bb4ea00fc8a3dc8c02d242c510cd793f31c4590da3c99"
+    },
+    "unpaired_stats/contrasts.tsv": {
+      "byte_identical": true,
+      "sha256": "44c73a92878f1d9f6fdbf0206ee7f2cd40e486838eb4a530d0dfe8e30858ed37"
+    },
+    "unpaired_stats/group_summaries.tsv": {
+      "byte_identical": true,
+      "sha256": "c9630274af826e42e0639f46eb7a367ccc71beb0e6444336dc8726820a41af13"
+    },
+    "unpaired_stats/observations.tsv": {
+      "byte_identical": true,
+      "sha256": "ac2c85eda364d78ffebfc7e842c1098e1481574e61b43564d0f54cce3f766c1a"
+    },
+    "unpaired_stats/result.json": {
+      "byte_identical": true,
+      "sha256": "b6ada95f850bbb4f698c322a020b45a5ee9a59459ff968426a5e245bf59937f0"
+    },
+    "unpaired_summarize/contrasts.tsv": {
+      "byte_identical": true,
+      "sha256": "bccf463a3fad4c2cb12e32b7bf6d8d8aa111217911d63e99b68a3e22a00e16b2"
+    },
+    "unpaired_summarize/group_summaries.tsv": {
+      "byte_identical": true,
+      "sha256": "c9630274af826e42e0639f46eb7a367ccc71beb0e6444336dc8726820a41af13"
+    },
+    "unpaired_summarize/observations.tsv": {
+      "byte_identical": true,
+      "sha256": "ac2c85eda364d78ffebfc7e842c1098e1481574e61b43564d0f54cce3f766c1a"
+    },
+    "unpaired_summarize/result.json": {
+      "byte_identical": true,
+      "sha256": "3b6210f21dd7a967cab2843e692d69fd57601e311303436dc92ff6dc1012c5d3"
+    }
+  },
+  "basis": "Identical synthetic fixture paths and bytes; Python/platform and package versions agree.",
+  "compared_artifacts": 16,
+  "comparison_includes_provenance": true,
+  "complete_parent_scientific_parity": true,
+  "probe_reports_equal": true,
+  "status": "PASS"
+}

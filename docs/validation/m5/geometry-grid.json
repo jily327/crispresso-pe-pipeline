@@ -1,0 +1,4921 @@
+[
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 1,
+    "edit_start": 122,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_1_seed11",
+    "inserted_sequence": "T",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 241,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 241,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 1,
+    "edit_start": 123,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_1_seed29",
+    "inserted_sequence": "A",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 241,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 241,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 1,
+    "edit_start": 124,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_1_seed47",
+    "inserted_sequence": "G",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 241,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 241,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 12,
+    "edit_start": 122,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_12_seed11",
+    "inserted_sequence": "TTTCCTCATGCA",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 252,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 252,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 12,
+    "edit_start": 123,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_12_seed29",
+    "inserted_sequence": "AGGAGTTAAATC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 252,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 252,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 12,
+    "edit_start": 124,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_12_seed47",
+    "inserted_sequence": "GATTGGTTATAA",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 252,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 252,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 28,
+    "edit_start": 122,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_28_seed11",
+    "inserted_sequence": "TTTCCTCATGCAATTCAAAACCATGTCC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 268,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 268,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 28,
+    "edit_start": 123,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_28_seed29",
+    "inserted_sequence": "AGGAGTTAAATCGATGTCTCCTTCTGGC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 268,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 268,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 28,
+    "edit_start": 124,
+    "edit_type": "insertion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "insertion_28_seed47",
+    "inserted_sequence": "GATTGGTTATAAAGTAGTCCGTCAGGGC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 268,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 268,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 30,
+    "edit_start": 122,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_30_seed11",
+    "inserted_sequence": "TTTCCTCATGCAATTCAAAACCATGTCCGT",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 270,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 270,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 30,
+    "edit_start": 123,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_30_seed29",
+    "inserted_sequence": "AGGAGTTAAATCGATGTCTCCTTCTGGCTT",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 270,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 270,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 30,
+    "edit_start": 124,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_30_seed47",
+    "inserted_sequence": "GATTGGTTATAAAGTAGTCCGTCAGGGCCA",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 270,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 270,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 40,
+    "edit_start": 122,
+    "edit_type": "insertion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "insertion_40_seed11",
+    "inserted_sequence": "TTTCCTCATGCAATTCAAAACCATGTCCGTAATGTAGGCG",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 280,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 280,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 40,
+    "edit_start": 123,
+    "edit_type": "insertion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "insertion_40_seed29",
+    "inserted_sequence": "AGGAGTTAAATCGATGTCTCCTTCTGGCTTCGGTTAGCGC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 280,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 280,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 40,
+    "edit_start": 124,
+    "edit_type": "insertion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "insertion_40_seed47",
+    "inserted_sequence": "GATTGGTTATAAAGTAGTCCGTCAGGGCCACGAGTGACGC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 280,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 280,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 60,
+    "edit_start": 122,
+    "edit_type": "insertion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "insertion_60_seed11",
+    "inserted_sequence": "TTTCCTCATGCAATTCAAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTTACG",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 300,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 300,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 60,
+    "edit_start": 123,
+    "edit_type": "insertion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "insertion_60_seed29",
+    "inserted_sequence": "AGGAGTTAAATCGATGTCTCCTTCTGGCTTCGGTTAGCGCGATCTTTGCGCGAATTCTCG",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 300,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 300,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 60,
+    "edit_start": 124,
+    "edit_type": "insertion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "insertion_60_seed47",
+    "inserted_sequence": "GATTGGTTATAAAGTAGTCCGTCAGGGCCACGAGTGACGCTATGGCGGATGTGCACTTGC",
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 300,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 300,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 1,
+    "edit_start": 122,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_1_seed11",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 239,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 239,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 1,
+    "edit_start": 123,
+    "edit_type": "deletion",
+    "geometry_reasons": [],
+    "geometry_status": "SAFE",
+    "id": "deletion_1_seed29",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 239,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 239,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 1,
+    "edit_start": 124,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_1_seed47",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 239,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 239,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 12,
+    "edit_start": 122,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_12_seed11",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 228,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 228,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 12,
+    "edit_start": 123,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_12_seed29",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 228,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 228,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 12,
+    "cross_assignments": 0,
+    "edit_length": 12,
+    "edit_start": 124,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_12_seed47",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {},
+    "quarantine_count": 0,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 6,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 228,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 228,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 28,
+    "edit_start": 122,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_28_seed11",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 212,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 212,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 28,
+    "edit_start": 123,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_28_seed29",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 212,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 212,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 28,
+    "edit_start": 124,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_28_seed47",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 212,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 212,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 30,
+    "edit_start": 122,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_30_seed11",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 210,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 210,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 30,
+    "edit_start": 123,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_30_seed29",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 210,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 210,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 30,
+    "edit_start": 124,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_30_seed47",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 210,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 210,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 2,
+    "cross_assignments": 0,
+    "edit_length": 40,
+    "edit_start": 122,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "DIAGNOSTIC_IN_QUANTIFICATION_WINDOW",
+        "copy": "copy1",
+        "positions": [
+          165
+        ],
+        "severity": "WARN"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "DIAGNOSTIC_IN_QUANTIFICATION_WINDOW",
+        "copy": "copy2",
+        "positions": [
+          165
+        ],
+        "severity": "WARN"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_40_seed11",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 10
+    },
+    "quarantine_count": 10,
+    "retention": {
+      "PE": {
+        "assigned": 0,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 2,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 200,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 200,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 2,
+    "cross_assignments": 0,
+    "edit_length": 40,
+    "edit_start": 123,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy1",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "DIAGNOSTIC_IN_QUANTIFICATION_WINDOW",
+        "copy": "copy1",
+        "positions": [
+          165
+        ],
+        "severity": "WARN"
+      },
+      {
+        "code": "NONUNIQUE_EDIT_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED"
+      },
+      {
+        "code": "DIAGNOSTIC_IN_QUANTIFICATION_WINDOW",
+        "copy": "copy2",
+        "positions": [
+          165
+        ],
+        "severity": "WARN"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_40_seed29",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 10
+    },
+    "quarantine_count": 10,
+    "retention": {
+      "PE": {
+        "assigned": 0,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 2,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 200,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 200,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 4,
+    "cross_assignments": 0,
+    "edit_length": 40,
+    "edit_start": 124,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+        "copy": "copy2",
+        "severity": "BLOCKED",
+        "state": "PE"
+      },
+      {
+        "code": "DIAGNOSTIC_IN_QUANTIFICATION_WINDOW",
+        "copy": "copy1",
+        "positions": [
+          165
+        ],
+        "severity": "WARN"
+      },
+      {
+        "code": "DIAGNOSTIC_IN_QUANTIFICATION_WINDOW",
+        "copy": "copy2",
+        "positions": [
+          165
+        ],
+        "severity": "WARN"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_40_seed47",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 8
+    },
+    "quarantine_count": 8,
+    "retention": {
+      "PE": {
+        "assigned": 2,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 2,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 200,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 200,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 60,
+    "edit_start": 122,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+        "severity": "WARN"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_60_seed11",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 11,
+    "trials": [
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 180,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 180,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 60,
+    "edit_start": 123,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+        "severity": "WARN"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_60_seed29",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 29,
+    "trials": [
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 180,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 180,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  },
+  {
+    "confident_assignments": 10,
+    "cross_assignments": 0,
+    "edit_length": 60,
+    "edit_start": 124,
+    "edit_type": "deletion",
+    "geometry_reasons": [
+      {
+        "code": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+        "severity": "WARN"
+      },
+      {
+        "code": "PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED",
+        "severity": "BLOCKED"
+      }
+    ],
+    "geometry_status": "BLOCKED",
+    "id": "deletion_60_seed47",
+    "inserted_sequence": null,
+    "passed": true,
+    "placement_failure_reasons": {
+      "diagnostic placement differs across competing alignments": 2
+    },
+    "quarantine_count": 2,
+    "retention": {
+      "PE": {
+        "assigned": 6,
+        "total": 6
+      },
+      "WT": {
+        "assigned": 4,
+        "total": 6
+      }
+    },
+    "seed": 47,
+    "trials": [
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy1",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy1",
+        "mate_length": 180,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": null,
+        "category": "ALIGNMENT_FAILURE",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "diagnostic placement differs across competing alignments",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 240,
+        "reason": "ASSIGNED_COPY",
+        "state": "WT"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 100,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 150,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      },
+      {
+        "assigned_copy": "copy2",
+        "category": "ASSIGNED_COPY",
+        "copy": "copy2",
+        "mate_length": 180,
+        "reason": "ASSIGNED_COPY",
+        "state": "PE"
+      }
+    ]
+  }
+]

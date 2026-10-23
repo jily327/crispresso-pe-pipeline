@@ -1,0 +1,32 @@
+{
+  "paired": {
+    "contrasts": 5,
+    "excluded_fields": [
+      "provenance",
+      "input_manifest_hash",
+      "sample_metadata_hash"
+    ],
+    "observations": 144,
+    "scientific_equal": true
+  },
+  "paired-attrition": {
+    "contrasts": 5,
+    "excluded_fields": [
+      "provenance",
+      "input_manifest_hash",
+      "sample_metadata_hash"
+    ],
+    "observations": 216,
+    "scientific_equal": true
+  },
+  "unpaired": {
+    "contrasts": 5,
+    "excluded_fields": [
+      "provenance",
+      "input_manifest_hash",
+      "sample_metadata_hash"
+    ],
+    "observations": 144,
+    "scientific_equal": true
+  }
+}

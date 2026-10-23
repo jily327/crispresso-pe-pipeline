@@ -1,0 +1,565 @@
+{
+  "analysis_id": "synthetic-barcode-B003-T1",
+  "anchor_evidence": {},
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "aligned_reads": 10,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 10,
+        "confident_input_reads": 10,
+        "copy_id": "copy1",
+        "denominator": 10,
+        "discarded_aligned_reads": 0,
+        "metric_family": "native",
+        "metric_name": "copy1_crispresso_native_pe",
+        "numerator": 10,
+        "ordinary_classified_aligned_reads": 10,
+        "population_denominator_exclusions": 0,
+        "population_id": "e953ad7dc61a84e6b81136ac5d30ada21390f8b2f316443a6386d01a4ea9c26a",
+        "population_input_reads": 10,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": null,
+        "reads_after_preprocessing": 10,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      },
+      "precise": {
+        "aligned_reads": 10,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 10,
+        "confident_input_reads": 10,
+        "copy_id": "copy1",
+        "denominator": 10,
+        "discarded_aligned_reads": 0,
+        "metric_family": "precise",
+        "metric_name": "copy1_precise_pe",
+        "numerator": 10,
+        "ordinary_classified_aligned_reads": 10,
+        "population_denominator_exclusions": 0,
+        "population_id": "e953ad7dc61a84e6b81136ac5d30ada21390f8b2f316443a6386d01a4ea9c26a",
+        "population_input_reads": 10,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": {
+          "classification_input_reads": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "exact_pe": 10,
+          "exact_wt": 0,
+          "exclusion_reason_counts": {},
+          "other_nonexact_assessable": 0,
+          "pe_plus_extra_change": 0,
+          "unresolved_unassessable": 0
+        },
+        "reads_after_preprocessing": 10,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "aligned_reads": 10,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 10,
+        "confident_input_reads": 10,
+        "copy_id": "copy2",
+        "denominator": 10,
+        "discarded_aligned_reads": 0,
+        "metric_family": "native",
+        "metric_name": "copy2_crispresso_native_pe",
+        "numerator": 10,
+        "ordinary_classified_aligned_reads": 10,
+        "population_denominator_exclusions": 0,
+        "population_id": "5df2e890ab57ff66bd049501453fca24125afd8916bac8f4b5c612310b8cb16d",
+        "population_input_reads": 10,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": null,
+        "reads_after_preprocessing": 10,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      },
+      "precise": {
+        "aligned_reads": 10,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 10,
+        "confident_input_reads": 10,
+        "copy_id": "copy2",
+        "denominator": 10,
+        "discarded_aligned_reads": 0,
+        "metric_family": "precise",
+        "metric_name": "copy2_precise_pe",
+        "numerator": 10,
+        "ordinary_classified_aligned_reads": 10,
+        "population_denominator_exclusions": 0,
+        "population_id": "5df2e890ab57ff66bd049501453fca24125afd8916bac8f4b5c612310b8cb16d",
+        "population_input_reads": 10,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": {
+          "classification_input_reads": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "exact_pe": 10,
+          "exact_wt": 0,
+          "exclusion_reason_counts": {},
+          "other_nonexact_assessable": 0,
+          "pe_plus_extra_change": 0,
+          "unresolved_unassessable": 0
+        },
+        "reads_after_preprocessing": 10,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      }
+    }
+  },
+  "derived_metrics": {
+    "copy1": {
+      "policy0": {
+        "classification_input_reads": 10,
+        "copy_id": "copy1",
+        "denominator": 10,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy1_pe_family",
+        "numerator": 10,
+        "pe_family": 10,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 0,
+          "policy_id": "policy0"
+        },
+        "policy_id": "policy0",
+        "population_id": "e953ad7dc61a84e6b81136ac5d30ada21390f8b2f316443a6386d01a4ea9c26a",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 0
+      },
+      "policy1": {
+        "classification_input_reads": 10,
+        "copy_id": "copy1",
+        "denominator": 10,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy1_pe_family",
+        "numerator": 10,
+        "pe_family": 10,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 1,
+          "policy_id": "policy1"
+        },
+        "policy_id": "policy1",
+        "population_id": "e953ad7dc61a84e6b81136ac5d30ada21390f8b2f316443a6386d01a4ea9c26a",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 0
+      }
+    },
+    "copy2": {
+      "policy0": {
+        "classification_input_reads": 10,
+        "copy_id": "copy2",
+        "denominator": 10,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy2_pe_family",
+        "numerator": 10,
+        "pe_family": 10,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 0,
+          "policy_id": "policy0"
+        },
+        "policy_id": "policy0",
+        "population_id": "5df2e890ab57ff66bd049501453fca24125afd8916bac8f4b5c612310b8cb16d",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 0
+      },
+      "policy1": {
+        "classification_input_reads": 10,
+        "copy_id": "copy2",
+        "denominator": 10,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy2_pe_family",
+        "numerator": 10,
+        "pe_family": 10,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 1,
+          "policy_id": "policy1"
+        },
+        "policy_id": "policy1",
+        "population_id": "5df2e890ab57ff66bd049501453fca24125afd8916bac8f4b5c612310b8cb16d",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 0
+      }
+    },
+    "target": {
+      "policy0": {
+        "classification_input_reads": 20,
+        "copy_id": null,
+        "denominator": 20,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "total_pe_family",
+        "numerator": 20,
+        "pe_family": 20,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 0,
+          "policy_id": "policy0"
+        },
+        "policy_id": "policy0",
+        "population_id": "c10b7ba46966a1a5668a7e9579eeeb13957ec7660b56fbc02c0e35395788bd1d",
+        "population_scope": "target_all_prepared",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 0
+      },
+      "policy1": {
+        "classification_input_reads": 20,
+        "copy_id": null,
+        "denominator": 20,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "total_pe_family",
+        "numerator": 20,
+        "pe_family": 20,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 1,
+          "policy_id": "policy1"
+        },
+        "policy_id": "policy1",
+        "population_id": "c10b7ba46966a1a5668a7e9579eeeb13957ec7660b56fbc02c0e35395788bd1d",
+        "population_scope": "target_all_prepared",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 0
+      }
+    }
+  },
+  "eligibility": {
+    "anchor_invariant": true,
+    "block_reason_codes": [],
+    "comparator_status": "REPORTABLE",
+    "routing_geometry_status": "SAFE",
+    "target_metric_status": "REPORTABLE"
+  },
+  "metric_contract_version": "m4-v1",
+  "product_evidence": {
+    "copy1": {
+      "assessment_stage": "backend_aligned_products",
+      "blocking_reasons": [],
+      "classification_input_reads": 10,
+      "coordinate_contract": "zero_based_anchor_wt_forward",
+      "copy_id": "copy1",
+      "evidence_version": 1,
+      "population_id": "e953ad7dc61a84e6b81136ac5d30ada21390f8b2f316443a6386d01a4ea9c26a",
+      "population_scope": "confident_copy",
+      "products": [
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": true,
+          "canonical_exact_wt": false,
+          "count": 10,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ],
+      "source_input_reads": 10,
+      "targets": [
+        {
+          "copy_name": "copy1",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "copy_name": "copy2",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ]
+    },
+    "copy2": {
+      "assessment_stage": "backend_aligned_products",
+      "blocking_reasons": [],
+      "classification_input_reads": 10,
+      "coordinate_contract": "zero_based_anchor_wt_forward",
+      "copy_id": "copy2",
+      "evidence_version": 1,
+      "population_id": "5df2e890ab57ff66bd049501453fca24125afd8916bac8f4b5c612310b8cb16d",
+      "population_scope": "confident_copy",
+      "products": [
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": true,
+          "canonical_exact_wt": false,
+          "count": 10,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ],
+      "source_input_reads": 10,
+      "targets": [
+        {
+          "copy_name": "copy1",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "copy_name": "copy2",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ]
+    },
+    "target": {
+      "assessment_stage": "prepared_pairs",
+      "blocking_reasons": [],
+      "classification_input_reads": 20,
+      "coordinate_contract": "zero_based_anchor_wt_forward",
+      "copy_id": null,
+      "evidence_version": 1,
+      "population_id": "c10b7ba46966a1a5668a7e9579eeeb13957ec7660b56fbc02c0e35395788bd1d",
+      "population_scope": "target_all_prepared",
+      "products": [
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": true,
+          "canonical_exact_wt": false,
+          "count": 20,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ],
+      "source_input_reads": 20,
+      "targets": [
+        {
+          "copy_name": "copy1",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "copy_name": "copy2",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "artifacts": {},
+    "crispresso_version": "2.3.4",
+    "prepared_manifest_sha256": "5c2820c948dfc654c55c2834631f5dcd29fa95e559ea1cf74d996aba19959814",
+    "prepared_sample": {
+      "pairs": 20
+    },
+    "routing_manifest_sha256": "21ada03a30c7108f187c8bad4ecab37827cbe72c3771d01d378bf3de4f01e869",
+    "routing_policy_identity": {},
+    "runtime_digest": null,
+    "software": {
+      "fixture": "synthetic M5 count contract"
+    },
+    "target_definitions_sha256": "b2d436fc4487400a5ce7b8cef3edd10c92ed3c267e23ecb4d297a98b958f2fe5"
+  },
+  "qc": {
+    "exact_assessable_reads": 20,
+    "exact_product_exclusions": 0,
+    "limitations": [],
+    "per_copy_confident_counts": {
+      "copy1": 10,
+      "copy2": 10
+    },
+    "prepared_input_reads": 20,
+    "routing_assigned_reads": 20,
+    "routing_quarantine_fraction": {
+      "denominator": 20,
+      "numerator": 0
+    },
+    "routing_quarantine_reasons": {},
+    "routing_quarantined_reads": 0,
+    "target_backend_aligned_reads": 20,
+    "target_backend_input_reads": 20,
+    "target_backend_unaligned_fraction": {
+      "denominator": 20,
+      "numerator": 0
+    },
+    "target_backend_unaligned_reads": 0
+  },
+  "sample_id": "barcode-B003",
+  "schema_version": 1,
+  "target_id": "T1",
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "aligned_reads": 20,
+      "ambiguous_aligned_reads": 0,
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "backend_input_reads": 20,
+      "confident_input_reads": null,
+      "copy_id": null,
+      "denominator": 20,
+      "discarded_aligned_reads": 0,
+      "metric_family": "native",
+      "metric_name": "target_crispresso_native_pe",
+      "numerator": 20,
+      "ordinary_classified_aligned_reads": 20,
+      "population_denominator_exclusions": 0,
+      "population_id": "c10b7ba46966a1a5668a7e9579eeeb13957ec7660b56fbc02c0e35395788bd1d",
+      "population_input_reads": 20,
+      "population_scope": "target_all_prepared",
+      "preprocessing_count_delta": 0,
+      "products": null,
+      "reads_after_preprocessing": 20,
+      "reason_codes": [],
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "unaligned_reads": 0,
+      "unaligned_reason_counts": {}
+    },
+    "total_precise_pe": {
+      "aligned_reads": 20,
+      "ambiguous_aligned_reads": 0,
+      "assessment_stage": "prepared_pairs",
+      "backend_counts_role": "metric_filter",
+      "backend_input_reads": 20,
+      "confident_input_reads": null,
+      "copy_id": null,
+      "denominator": 20,
+      "discarded_aligned_reads": 0,
+      "metric_family": "precise",
+      "metric_name": "total_precise_pe",
+      "numerator": 20,
+      "ordinary_classified_aligned_reads": 20,
+      "population_denominator_exclusions": 0,
+      "population_id": "c10b7ba46966a1a5668a7e9579eeeb13957ec7660b56fbc02c0e35395788bd1d",
+      "population_input_reads": 20,
+      "population_scope": "target_all_prepared",
+      "preprocessing_count_delta": 0,
+      "products": {
+        "classification_input_reads": 20,
+        "contradictory_state": 0,
+        "denominator_exclusions": 0,
+        "exact_pe": 20,
+        "exact_wt": 0,
+        "exclusion_reason_counts": {},
+        "other_nonexact_assessable": 0,
+        "pe_plus_extra_change": 0,
+        "unresolved_unassessable": 0
+      },
+      "reads_after_preprocessing": 20,
+      "reason_codes": [],
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "unaligned_reads": 0,
+      "unaligned_reason_counts": {}
+    }
+  }
+}
