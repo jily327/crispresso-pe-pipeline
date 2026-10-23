@@ -1,0 +1,1186 @@
+{
+  "source": {
+    "bh_preserved": true,
+    "biological_sample_units_preserved": true,
+    "cases": [
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_enumerated_unpaired[oracle0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_enumerated_paired[oracle0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_enumerated_paired[oracle1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle2]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle3]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle4]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[None]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[nan]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[inf]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[-0.1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[1.1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_multisample_populations_and_exact_contrasts"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_descriptive_weighting_oracle"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_mixed_status_retained_and_inference_uses_valid_samples[BLOCKED]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_mixed_status_retained_and_inference_uses_valid_samples[NOT_ASSESSABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_all_nonreportable_and_mixed_bh_family"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_missing_policy_is_explicit_without_fabricating_observations"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_analysis_never_selected[same_path]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_analysis_never_selected[alias_path]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_analysis_never_selected[duplicate_analysis]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[schema]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[boolean_schema]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[missing_schema]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[contract]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[missing_sample]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[target]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[target_definition]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[zero_reportable]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[status_counts]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[copy_collision]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[family_population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[family_name]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[policy_collision]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[invalid_policy]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[policy_identity]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[duplicate_series]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[evidence_target]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[qc_population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[sample_population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_malformed_or_ambiguous_json[{]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_malformed_or_ambiguous_json[{\"schema_version\":1,\"schema_version\":1}]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_malformed_or_ambiguous_json[{\"x\":NaN}]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_metadata_identity[sample_name]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_metadata_identity[barcode_id]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_metadata_identity[biological_replicate]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_absent_metadata_and_no_name_fallback"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_unused_metadata_does_not_create_observation"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>2]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>3]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>4]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>5]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>6]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>7]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>8]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>9]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>10]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>11]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>12]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_yaml_duplicate_key"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_paired_three_blocks"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_incomplete_and_blocked_pairs_are_explicit"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_block_group_blocks_inference[A]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_block_group_blocks_inference[B]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[paired_true]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[shared_block]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[block_mode_without_pairing]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[missing_block]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_minimum_biological_units[False]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_minimum_biological_units[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[False-20-REPORTABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[False-19-NOT_ASSESSABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[True-8-REPORTABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[True-7-NOT_ASSESSABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[-1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[100001]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_default_cap_prevents_combinatorial_execution"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_zero_effect_and_exact_resolution"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_input_order_invariance_and_immutability"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_paired_order_invariance"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_offline_installed_cli_and_atomic_output[summarize]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_offline_installed_cli_and_atomic_output[stats]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_publication_failure_cleans_stage"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_schemas_and_strict_output_contract"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m4/m31/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m41/nonexact_only/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m41/routing_blocked/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m42/actual/insertion_long/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m422/actual/fixed/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m422/actual/copy2_1_all/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m422/actual/copy_independence/production/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_zero_denominator_nonreportable_family_retained"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_nonreportable_invalid_policy_preserves_diagnostic"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_whitespace_condition_is_invalid"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_two_biological_units_are_sufficient[False]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_two_biological_units_are_sufficient[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_equal_fractions_do_not_collapse_distinct_policies"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[result_json\\n]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[result_json,extra\\na.json,x\\n]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[result_json\\n\\n]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_publication_failure_during_tsv_cleans_stage"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_boolean_schema_version_is_not_an_integer_contract"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_family_classification_cannot_exceed_source_population"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_result_requires_explicit_version_fields[schema_version]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_result_requires_explicit_version_fields[statistics_contract_version]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_typed_contrast_api_replaces_specification_provenance"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-A003-T2.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-A003-T2.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-B002-T1.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-B002-T1.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-A003-T2.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-A003-T2.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-B002-T1.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-B002-T1.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_multiple_missing_targets_are_sorted[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_multiple_missing_targets_are_sorted[stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_target_unique_to_one_sample_is_not_selective_applicability[A001]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_target_unique_to_one_sample_is_not_selective_applicability[B003]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[added_unused-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[added_unused-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[remove_all_A003-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[remove_all_A003-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[False-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[False-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[True-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[True-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_missing_policy_is_not_a_missing_result[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_missing_policy_is_not_a_missing_result[stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[BLOCKED-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[BLOCKED-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[NOT_ASSESSABLE-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[NOT_ASSESSABLE-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_manifest_shuffle_keeps_science[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_manifest_shuffle_keeps_science[stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_coverage_uses_barcode_join_after_metadata_names_are_swapped"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_installed_cli_rejects_partial_input_without_output[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_installed_cli_rejects_partial_input_without_output[stats]"
+      }
+    ],
+    "exact_oracles": 3,
+    "hand_calculated_bh_cases": 5,
+    "paired_sign_flips_preserved": true,
+    "partial_target_rejection_preserved": true,
+    "passed_cases": 145,
+    "permutation_limits_preserved": true
+  },
+  "wheel": {
+    "bh_preserved": true,
+    "biological_sample_units_preserved": true,
+    "cases": [
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_enumerated_unpaired[oracle0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_enumerated_paired[oracle0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_enumerated_paired[oracle1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle2]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle3]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_hand_calculated_bh[oracle4]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[None]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[nan]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[inf]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[-0.1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_bh_rejects_invalid_probabilities[1.1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_multisample_populations_and_exact_contrasts"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_descriptive_weighting_oracle"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_mixed_status_retained_and_inference_uses_valid_samples[BLOCKED]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_mixed_status_retained_and_inference_uses_valid_samples[NOT_ASSESSABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_all_nonreportable_and_mixed_bh_family"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_missing_policy_is_explicit_without_fabricating_observations"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_analysis_never_selected[same_path]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_analysis_never_selected[alias_path]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_analysis_never_selected[duplicate_analysis]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[schema]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[boolean_schema]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[missing_schema]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[contract]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[missing_sample]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[target]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[target_definition]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[zero_reportable]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[status_counts]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[copy_collision]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[family_population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[family_name]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[policy_collision]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[invalid_policy]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[policy_identity]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[duplicate_series]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[evidence_target]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[qc_population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_corrupt_m4_input_fails_closed[sample_population]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_malformed_or_ambiguous_json[{]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_malformed_or_ambiguous_json[{\"schema_version\":1,\"schema_version\":1}]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_malformed_or_ambiguous_json[{\"x\":NaN}]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_metadata_identity[sample_name]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_metadata_identity[barcode_id]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_metadata_identity[biological_replicate]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_absent_metadata_and_no_name_fallback"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_unused_metadata_does_not_create_observation"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>2]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>3]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>4]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>5]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>6]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>7]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>8]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>9]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>10]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>11]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_contrast_specification[<lambda>12]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_yaml_duplicate_key"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_paired_three_blocks"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_incomplete_and_blocked_pairs_are_explicit"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_block_group_blocks_inference[A]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_duplicate_block_group_blocks_inference[B]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[paired_true]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[shared_block]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[block_mode_without_pairing]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_pairing_cannot_be_silently_discarded[missing_block]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_minimum_biological_units[False]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_minimum_biological_units[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[False-20-REPORTABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[False-19-NOT_ASSESSABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[True-8-REPORTABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_exact_space_boundary[True-7-NOT_ASSESSABLE]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[0]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[-1]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_cannot_raise_hard_cap[100001]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_default_cap_prevents_combinatorial_execution"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_zero_effect_and_exact_resolution"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_input_order_invariance_and_immutability"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_paired_order_invariance"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_offline_installed_cli_and_atomic_output[summarize]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_offline_installed_cli_and_atomic_output[stats]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_publication_failure_cleans_stage"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_schemas_and_strict_output_contract"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m4/m31/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m41/nonexact_only/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m41/routing_blocked/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m42/actual/insertion_long/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m422/actual/fixed/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m422/actual/copy2_1_all/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_existing_qualified_m4_documents_remain_unchanged[m422/actual/copy_independence/production/result.json]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_zero_denominator_nonreportable_family_retained"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_nonreportable_invalid_policy_preserves_diagnostic"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_whitespace_condition_is_invalid"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_two_biological_units_are_sufficient[False]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_two_biological_units_are_sufficient[True]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_equal_fractions_do_not_collapse_distinct_policies"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[result_json\\n]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[result_json,extra\\na.json,x\\n]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_invalid_manifest_rejected[result_json\\n\\n]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_publication_failure_during_tsv_cleans_stage"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_boolean_schema_version_is_not_an_integer_contract"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_family_classification_cannot_exceed_source_population"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_result_requires_explicit_version_fields[schema_version]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_result_requires_explicit_version_fields[statistics_contract_version]"
+      },
+      {
+        "classname": "tests.test_m5",
+        "name": "test_typed_contrast_api_replaces_specification_provenance"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-A003-T2.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-A003-T2.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-B002-T1.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[False-B002-T1.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-A003-T2.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-A003-T2.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-B002-T1.json-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_partial_target_rejects_before_summaries_or_publication[True-B002-T1.json-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_multiple_missing_targets_are_sorted[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_multiple_missing_targets_are_sorted[stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_target_unique_to_one_sample_is_not_selective_applicability[A001]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_target_unique_to_one_sample_is_not_selective_applicability[B003]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[added_unused-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[added_unused-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[remove_all_A003-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_zero_results_remain_unused_metadata[remove_all_A003-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[False-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[False-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[True-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_fixture_matches_audited_parent[True-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_missing_policy_is_not_a_missing_result[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_missing_policy_is_not_a_missing_result[stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[BLOCKED-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[BLOCKED-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[NOT_ASSESSABLE-summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_nonreportable_metric_still_covers_target[NOT_ASSESSABLE-stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_manifest_shuffle_keeps_science[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_complete_manifest_shuffle_keeps_science[stats]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_coverage_uses_barcode_join_after_metadata_names_are_swapped"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_installed_cli_rejects_partial_input_without_output[summarize]"
+      },
+      {
+        "classname": "tests.test_m51",
+        "name": "test_installed_cli_rejects_partial_input_without_output[stats]"
+      }
+    ],
+    "exact_oracles": 3,
+    "hand_calculated_bh_cases": 5,
+    "paired_sign_flips_preserved": true,
+    "partial_target_rejection_preserved": true,
+    "passed_cases": 145,
+    "permutation_limits_preserved": true
+  }
+}

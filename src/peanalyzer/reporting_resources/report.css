@@ -1,0 +1,16 @@
+body { font-family: sans-serif; color: #202020; background: white; margin: 2rem; line-height: 1.5; }
+main { max-width: 110rem; margin: auto; }
+h1, h2, h3 { line-height: 1.25; }
+h2 { border-bottom: 1px solid #ccc; margin-top: 2rem; }
+figure { margin: 2rem 0; max-width: 70rem; }
+svg { width: 100%; height: auto; }
+figcaption { margin-top: .5rem; }
+.table-scroll { overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; font-size: .875rem; }
+caption { text-align: left; font-weight: bold; margin-bottom: .5rem; }
+th, td { border: 1px solid #ccc; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+td { max-width: 36rem; overflow-wrap: anywhere; }
+code { overflow-wrap: anywhere; }
+a { color: #005a8c; }
+@media print { body { margin: 0; } figure { break-inside: avoid; } }

@@ -1,0 +1,26 @@
+{
+  "cli_stderr_note": "Matplotlib warning source locations differ; ReportingError diagnostic and exit status match exactly",
+  "failure_diagnostics_and_cleanup_identical": true,
+  "installed_reporting_module": "/workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/reporting.py",
+  "ordinary_reports": {
+    "paired": {
+      "every_file_byte_identical": true,
+      "files": 32,
+      "svg_count": 26
+    },
+    "summarize-only": {
+      "every_file_byte_identical": true,
+      "files": 30,
+      "svg_count": 24
+    },
+    "unpaired": {
+      "every_file_byte_identical": true,
+      "files": 32,
+      "svg_count": 26
+    }
+  },
+  "package_version": "0.6.1",
+  "positive_xml_controls_identical": true,
+  "report_artifact_ignored_fields": [],
+  "status": "PASS"
+}

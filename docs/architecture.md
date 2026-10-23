@@ -1,5 +1,18 @@
 # Pipeline architecture and contracts
 
+## Implemented M5/M6 boundaries
+
+M5 and M5.1 implement biological-sample aggregation and exact contrasts; M6
+implements deterministic offline reporting from one completed `StatisticsResult`.
+See [M5 contracts](m5-statistics.md) and [M6 reporting](m6-reporting.md).
+`reporting.py` consumes strict M5 models through a pure presentation specification,
+then exports complete tables, SVG figures and self-contained HTML.
+`reporting_models.py` and the packaged report manifest schema describe artifacts,
+not new scientific results. M4 measurements and M5 statistics remain unchanged.
+CRISPResso report links are deferred until a portable source-artifact contract exists.
+`workflow.py`, DAG orchestration, resume and force remain future work. Historical
+sections below describe earlier proposals; they do not supersede these contracts.
+
 ## Current M4 layer
 
 The audited M3.1.2 merge `550df70f9f9627c7218b9f047d0b6bf3023b8d25` is
@@ -66,7 +79,12 @@ MANIFEST.in                       include docs, fixtures and tests in source bui
 requirements-dev.lock            exact tested Python development dependencies
 src/peanalyzer/
     __init__.py, __main__.py       package version and python -m entry point
-    cli.py                        argparse boundary; validate and demux
+    cli.py                        argparse boundary; validate, demux, summarize, stats and report
+    aggregation.py, statistics.py strict M5 observations and exact biological contrasts
+    statistical_models.py         versioned M5 scientific result contract
+    reporting.py                  deterministic M6 presentation spec, tables, SVG and HTML
+    reporting_models.py           strict M6 artifact manifest
+    reporting_resources/          packaged manifest schema and inline CSS
     schemas.py                    typed, extra-field-forbidding metadata models
     validation.py                 CSV/YAML readers and cross-row diagnostics
     barcodes.py                   catalog resolution, extraction, independent matching
@@ -95,14 +113,11 @@ Planned modules, **not placeholder implementations in this milestone**:
 | `reference_qc.py` | Compare WT/PE references using a tested library alignment; report SNPs/indels, diagnostic variants and edit-site proximity with explicit coordinates |
 | `backend/outputs.py` | Versioned JSON/TSV/ZIP adapters; fail on unknown layouts or inconsistent counts; no HTML scraping |
 | `quantification.py` | Pure count-to-metric functions; distinguish exact PE from PE-reference assignment |
-| `aggregation.py` | Long-form sample × target × copy results; weighted/unweighted target summaries and copy balance |
-| `statistics.py` | Biological sample/block design, contrasts, model fitting and multiple-test correction |
-| `reporting.py` | CSV/TSV, plots, report and links to individual CRISPResso reports |
 | `workflow.py`, future provenance extensions | DAG, stage manifests, resume, logs and `--force`; basic demux provenance is implemented |
 
 CLI remains a thin caller of reusable Python functions so a future GUI can
-use the same contracts. Future commands: `run`, `analyze`, `summarize`,
-`stats`, `report`. Currently they are rejected, not successful no-ops.
+use the same contracts. Implemented commands include `summarize`, `stats` and `report`. Future commands
+`run` and `analyze` remain rejected; they are not successful no-ops.
 
 ## Dependencies and reproducibility
 
@@ -126,7 +141,8 @@ Verify upstream license terms before
 redistributing a backend image. No external service or credentials are required
 for local analysis; installing packages requires access to their registries.
 
-Later reporting may add pandas/Jinja2; statistics may use an isolated,
+M6 uses existing Matplotlib and the standard library without pandas/Jinja2.
+Future statistical extensions may use an isolated,
 versioned R + glmmTMB backend for beta-binomial mixed models. These are decisions
 to validate in their milestones, not installed dependencies now.
 
@@ -484,7 +500,7 @@ failed subruns, Core unaligned reads and accepted counts separately. Do not equa
 raw mate count with merged sequence count. No missing run, missing reference,
 unmeasured ambiguity or zero denominator becomes a numerical zero by default.
 
-## Aggregation, design and provenance (future)
+## Historical aggregation proposals and future workflow provenance
 
 Store long-form counts, status, denominators and metric-definition version per
 sample × target × copy; a wide sample table is only a derived presentation.
@@ -525,9 +541,9 @@ results/
   analysis/03_analysis_fastq/                      separate trimmed copies, manifest
   backend/                                        TSV, argv, logs, external diagnostic output
   05_routing_QC/                                  synthetic truth/routing comparison
-  future_quantification/                          not implemented
-  future_statistics/                              not implemented
-  future_report/                                  not implemented
+  metrics/                                        standalone M4 production results
+  statistics/                                     standalone M5 result and TSVs
+  report/                                         standalone M6 HTML, manifest, SVGs and TSVs
 ```
 
 Each stage manifest will contain input content hashes, normalized configuration,
@@ -565,7 +581,7 @@ The presence of a directory or CRISPResso's own no-rerun option is insufficient.
 Known limitations: metadata/demux success is not backend readiness. The synthetic
 routing audit demonstrates forced ambiguous assignments and the guide mismatch
 limitation in 2.3.4. No generalized copy-variant report, production PE parser,
-statistical model or final report exists. Partial read coverage may prevent full-amplicon precision.
+generalized statistical model exists. Standalone M5 exact tests and M6 reports are implemented. Partial read coverage may prevent full-amplicon precision.
 Scaffold detection is motif-based and depends on backend orientation/search rules;
 absence of a count is not proof of absence. Default Pooled cannot supply the
 required reliable cross-copy ambiguous count. Backend contracts are pinned and
@@ -596,6 +612,6 @@ quarantine strategy and reviewed guide-mismatch handling. Further fixtures for
 edited-away diagnostic SNPs, repeats, scaffold, threshold boundaries and amplicon
 order should qualify the eventual routing design, not broaden this failed gate
 into downstream implementation. After qualification, M4 parses outputs and
-validates metrics; 5 aggregates copies;
-6 implements biological statistics; 7 reports; 8 provides a complete synthetic
-end-to-end reproducibility test. Keep unit and `integration` tests separate.
+validates metrics; M5 implements biological aggregation/statistics and M6 implements reporting.
+Workflow orchestration and a complete synthetic end-to-end workflow remain
+future milestones. Keep unit and `integration` tests separate.
