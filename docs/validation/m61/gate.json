@@ -1,0 +1,29 @@
+{
+  "all_xml_and_publication_probes": "PASS",
+  "backend_executing": 61,
+  "branch": "feat/m6-reporting",
+  "fresh_wheel_tests": 952,
+  "integration_scenarios": 62,
+  "m4_regression": "PASS",
+  "m5_m51_regression": "PASS",
+  "new_cases": 12,
+  "ordinary_fixture_parity": "PASS",
+  "package_version": "0.6.1",
+  "preflight_only": 1,
+  "report_contract_version": "m6-v1",
+  "required_parent": "1e3f3b1923f97d06b62903cbbf648b25ded75572",
+  "schema_version": 1,
+  "scope": "Only M6-1 final SVG XML validation plus version/tests/evidence",
+  "source_tests": 952,
+  "source_wheel_byte_parity": "PASS",
+  "statistics_contract_version": "m5-v1",
+  "status": "PASS",
+  "unchanged_remote_main": "83f05a3a6279aedec18dee70fed79dc1d315ef4b",
+  "untouched_findings": [
+    "M6-2",
+    "M5-2",
+    "M5-3",
+    "M5-4",
+    "M4.2.3"
+  ]
+}

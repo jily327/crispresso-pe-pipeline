@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import shutil
 import tempfile
+import xml.etree.ElementTree as ET
 
 import matplotlib
 matplotlib.use("Agg")
@@ -225,7 +226,12 @@ def render_svg(item, kind):
             svg = stream.getvalue()
             svg = svg[svg.index("<svg "):]
             label = (item["identity"]["target_name"] + " " + metric_label(item["identity"])) if kind == "samples" else "Contrast family " + item["family_id"]
-            return svg.replace("<svg ", '<svg role="img" aria-label="' + html.escape(label, quote=True) + '" ', 1)
+            svg = svg.replace("<svg ", '<svg role="img" aria-label="' + html.escape(label, quote=True) + '" ', 1)
+            try:
+                ET.fromstring(svg)
+            except ET.ParseError as exc:
+                raise ReportingError(f"INVALID_GENERATED_SVG: figure {item['figure_id']} is not well-formed XML") from exc
+            return svg
         finally:
             if fig is not None:
                 plt.close(fig)

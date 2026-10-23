@@ -1,6 +1,6 @@
 # M6 deterministic reporting
 
-M6 (package 0.6.0, report contract `m6-v1`) renders a completed M5
+M6 (package 0.6.1, report contract `m6-v1`) renders a completed M5
 `StatisticsResult` (`schema_version=1`, `statistics_contract_version=m5-v1`).
 The exact copied M5 JSON remains the scientific authority. M6 sorts, formats,
 labels and renders existing values; it performs no biological inference.
@@ -109,6 +109,12 @@ and mathematical parsing disabled. Default packaged DejaVu Sans is used, and
 figures are closed after rendering, including failures. Missing glyph support
 for some Unicode scripts remains a default-font limitation; original labels
 remain available in HTML/tables/source.
+
+The final SVG, including accessibility attributes, must parse as well-formed XML
+before it is exported or inventoried. Malformed output raises `ReportingError`
+with `INVALID_GENERATED_SVG` and aborts publication through the existing cleanup
+path. Labels and copied source bytes are never sanitized. See the focused
+[M6.1 validation evidence](validation/m61/README.md).
 
 Absolute source paths are excluded from HTML, manifest and figures. The
 observations TSV preserves the required original `source_result` value; the
