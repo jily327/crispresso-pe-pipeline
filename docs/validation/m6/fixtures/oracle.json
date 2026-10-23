@@ -1,0 +1,30 @@
+{
+  "artifacts": 31,
+  "contrast": {
+    "difference_in_biological_sample_fraction": 0.5,
+    "p_value": 0.1,
+    "q_value": 0.2
+  },
+  "contrast_figures": 2,
+  "native_figure_id": "series-9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658-samples",
+  "reportability_T2_policy1_A": {
+    "blocked": 1,
+    "expected": 3,
+    "missing": 1,
+    "not_assessable": 1,
+    "reportable": 0
+  },
+  "sample_figures": 24,
+  "sample_fractions": [
+    0.1,
+    0.2,
+    0.3,
+    0.6,
+    0.7,
+    0.8
+  ],
+  "stored_means": [
+    0.2,
+    0.7
+  ]
+}

@@ -1,0 +1,252 @@
+<svg role="img" aria-label="T2 Target precise PE" xmlns:xlink="http://www.w3.org/1999/xlink" width="504pt" height="360pt" viewBox="0 0 504 360" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>peanalyzer 0.6.0</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 360 
+L 504 360 
+L 504 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 52.590084 281.904204 
+L 500.99976 281.904204 
+L 500.99976 52.026231 
+L 52.590084 52.026231 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="PathCollection_1"/>
+   <g id="PathCollection_2"/>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m919f977524" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m919f977524" x="164.692503" y="281.904204" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(41.318784 340.690817) rotate(-20)">synthetic-editor | A | 6 dpi</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m919f977524" x="388.897341" y="281.904204" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'" transform="translate(265.504535 340.697764) rotate(-20)">synthetic-editor | B | 6 dpi</text>
+     </g>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="276.794922" y="354.597416" transform="rotate(-0 276.794922 354.597416)">Biological condition (editor | treatment | dpi)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_3">
+      <defs>
+       <path id="m2d98e7fa41" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m2d98e7fa41" x="52.590084" y="281.904204" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="45.590084" y="285.703033" transform="rotate(-0 45.590084 285.703033)">0%</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m2d98e7fa41" x="52.590084" y="235.92861" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="45.590084" y="239.727438" transform="rotate(-0 45.590084 239.727438)">20%</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m2d98e7fa41" x="52.590084" y="189.953015" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="45.590084" y="193.751843" transform="rotate(-0 45.590084 193.751843)">40%</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m2d98e7fa41" x="52.590084" y="143.97742" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="45.590084" y="147.776249" transform="rotate(-0 45.590084 147.776249)">60%</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m2d98e7fa41" x="52.590084" y="98.001826" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="45.590084" y="101.800654" transform="rotate(-0 45.590084 101.800654)">80%</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m2d98e7fa41" x="52.590084" y="52.026231" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: end" x="45.590084" y="55.825059" transform="rotate(-0 45.590084 55.825059)">100%</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: middle" x="10.598678" y="166.965218" transform="rotate(-90 10.598678 166.965218)">Biological-sample fraction</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 52.590084 281.904204 
+L 52.590084 52.026231 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 52.590084 281.904204 
+L 500.99976 281.904204 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_3">
+    <defs>
+     <path id="me89b75a7de" d="M 0 2.95804 
+C 0.784481 2.95804 1.536938 2.646362 2.09165 2.09165 
+C 2.646362 1.536938 2.95804 0.784481 2.95804 0 
+C 2.95804 -0.784481 2.646362 -1.536938 2.09165 -2.09165 
+C 1.536938 -2.646362 0.784481 -2.95804 0 -2.95804 
+C -0.784481 -2.95804 -1.536938 -2.646362 -2.09165 -2.09165 
+C -2.646362 -1.536938 -2.95804 -0.784481 -2.95804 0 
+C -2.95804 0.784481 -2.646362 1.536938 -2.09165 2.09165 
+C -1.536938 2.646362 -0.784481 2.95804 0 2.95804 
+z
+" style="stroke: #0072b2"/>
+    </defs>
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#me89b75a7de" x="124.335632" y="258.916407" style="fill: #0072b2; stroke: #0072b2"/>
+    </g>
+   </g>
+   <g id="PathCollection_4">
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#me89b75a7de" x="164.692503" y="235.92861" style="fill: #0072b2; stroke: #0072b2"/>
+    </g>
+   </g>
+   <g id="PathCollection_5">
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#me89b75a7de" x="205.049374" y="212.940812" style="fill: #0072b2; stroke: #0072b2"/>
+    </g>
+   </g>
+   <g id="PathCollection_6">
+    <defs>
+     <path id="ma7f7c49310" d="M 0 2.95804 
+C 0.784481 2.95804 1.536938 2.646362 2.09165 2.09165 
+C 2.646362 1.536938 2.95804 0.784481 2.95804 0 
+C 2.95804 -0.784481 2.646362 -1.536938 2.09165 -2.09165 
+C 1.536938 -2.646362 0.784481 -2.95804 0 -2.95804 
+C -0.784481 -2.95804 -1.536938 -2.646362 -2.09165 -2.09165 
+C -2.646362 -1.536938 -2.95804 -0.784481 -2.95804 0 
+C -2.95804 0.784481 -2.646362 1.536938 -2.09165 2.09165 
+C -1.536938 2.646362 -0.784481 2.95804 0 2.95804 
+z
+" style="stroke: #e69f00"/>
+    </defs>
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#ma7f7c49310" x="348.54047" y="143.97742" style="fill: #e69f00; stroke: #e69f00"/>
+    </g>
+   </g>
+   <g id="PathCollection_7">
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#ma7f7c49310" x="388.897341" y="120.989623" style="fill: #e69f00; stroke: #e69f00"/>
+    </g>
+   </g>
+   <g id="PathCollection_8">
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#ma7f7c49310" x="429.254212" y="98.001826" style="fill: #e69f00; stroke: #e69f00"/>
+    </g>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: middle" x="276.794922" y="46.026231" transform="rotate(-0 276.794922 46.026231)">T2 — Target precise PE</text>
+   </g>
+   <g id="PathCollection_9">
+    <defs>
+     <path id="mb61c4b1702" d="M 9.354143 0 
+L -9.354143 -0 
+" style="stroke: #000000; stroke-width: 2.5"/>
+    </defs>
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#mb61c4b1702" x="164.692503" y="235.92861" style="stroke: #000000; stroke-width: 2.5"/>
+    </g>
+   </g>
+   <g id="PathCollection_10">
+    <g clip-path="url(#pdee7cbeb69)">
+     <use xlink:href="#mb61c4b1702" x="388.897341" y="120.989623" style="stroke: #000000; stroke-width: 2.5"/>
+    </g>
+   </g>
+   <g id="legend_1">
+    <g id="PathCollection_11">
+     <g>
+      <use xlink:href="#me89b75a7de" x="69.690084" y="7.132832" style="fill: #0072b2; stroke: #0072b2"/>
+     </g>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="85.890084" y="9.495332" transform="rotate(-0 85.890084 9.495332)">Biological samples</text>
+    </g>
+    <g id="PathCollection_12">
+     <defs>
+      <path id="md817dbd3f8" d="M 9.354143 0 
+L -9.354143 -0 
+" style="stroke: #000000; stroke-width: 1.5"/>
+     </defs>
+     <g>
+      <use xlink:href="#md817dbd3f8" x="69.690084" y="20.633535" style="stroke: #000000; stroke-width: 1.5"/>
+     </g>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start" x="85.890084" y="22.996035" transform="rotate(-0 85.890084 22.996035)">Unweighted biological-sample mean</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pdee7cbeb69">
+   <rect x="52.590084" y="52.026231" width="448.409676" height="229.877973"/>
+  </clipPath>
+ </defs>
+</svg>

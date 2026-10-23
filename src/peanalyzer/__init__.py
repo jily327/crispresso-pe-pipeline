@@ -1,4 +1,4 @@
-"""Qualified prime-editing measurements and biological-sample statistics."""
+"""Qualified prime-editing measurements, biological-sample statistics and deterministic reporting."""
 
 from importlib.metadata import version
 

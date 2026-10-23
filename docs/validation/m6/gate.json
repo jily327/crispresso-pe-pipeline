@@ -1,0 +1,60 @@
+{
+  "atomic_publication_and_source_mutation_tests": "PASS",
+  "authoritative_parent": "83f05a3a6279aedec18dee70fed79dc1d315ef4b",
+  "baseline_source_tests": 880,
+  "baseline_wheel_tests": 880,
+  "benchmark": {
+    "biological_samples": 100,
+    "elapsed_seconds": 15.823,
+    "figures": 48,
+    "group_summaries": 96,
+    "observations": 4800,
+    "peak_process_rss_bytes": 188968960,
+    "rss_method": "Linux getrusage(RUSAGE_SELF).ru_maxrss; process peak including imports",
+    "targets": 4,
+    "timing_role": "descriptive evidence only"
+  },
+  "branch": "feat/m6-reporting",
+  "changed_classifications": 0,
+  "errors": 0,
+  "exact_source_copy": true,
+  "failures": 0,
+  "final_distribution_verification": "package-verification.txt",
+  "geometry": {
+    "allowed": 13,
+    "blocked": 23,
+    "total": 36
+  },
+  "historical_classifications": 475,
+  "html_and_svg_injection_tests": "PASS",
+  "integration": {
+    "backend_executing": 61,
+    "preflight_only": 1,
+    "total": 62
+  },
+  "limits": [
+    "No automatic biological interpretation or significance calls",
+    "No confidence intervals or GLMMs",
+    "Copy metrics remain routing-conditioned",
+    "M4 upstream observability and geometry limits remain unchanged",
+    "No portable CRISPResso report-link contract",
+    "Byte reproducibility is qualified in the same rendering environment",
+    "No workflow DAG, resume, force or M7"
+  ],
+  "m4_artifacts_compared": 42,
+  "manifest_hashes_verified": true,
+  "new_reporting_tests": 60,
+  "offline_no_external_resources": "PASS",
+  "package_version": "0.6.0",
+  "report_contract_version": "m6-v1",
+  "scientific_authority": "exact copied M5 source/result.json",
+  "skipped": 0,
+  "source_statistics_contract_version": "m5-v1",
+  "source_tests": 940,
+  "source_wheel_byte_parity": true,
+  "statistics_recomputed": false,
+  "stats_supported": true,
+  "status": "PASS",
+  "summarize_only_supported": true,
+  "wheel_tests": 940
+}

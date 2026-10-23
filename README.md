@@ -1,5 +1,11 @@
 # crispresso-pe-pipeline
 
+**M6 (0.6.0) provides deterministic offline reporting from completed M5 results.**
+Use [`peanalyzer report`](docs/m6-reporting.md) for sample-level SVG figures,
+family-scoped contrast-effect figures, complete TSV tables and self-contained HTML.
+The copied M5 JSON remains authoritative; reporting adds no statistical inference
+or automated biological interpretation. Workflow orchestration remains future work.
+
 **M5.1 (0.5.1) adds offline biological-sample aggregation and explicit exact
 replicate-level contrasts with family-scoped BH correction.** Use
 [`peanalyzer summarize` and `peanalyzer stats`](docs/m5-statistics.md). Reads are
@@ -19,8 +25,8 @@ read lengths and independently qualified copy metrics remain supported. See
 Use the [M4 Python API and measurement contracts](docs/m4-metrics.md), including
 the target all-read native/precise metrics and separately labelled confident-copy
 metrics. See [M4 evidence](docs/validation/m4/README.md) for qualification and
-reproduction. M5 provides the statistical layer described above; biological
-interpretation and reporting remain future work. The milestone history below describes the boundaries M4 uses.
+reproduction. M5 provides the statistical layer described above; M6 provides the presentation layer. Automated biological
+interpretation and end-to-end workflow orchestration remain future work. The milestone history below describes the boundaries M4 uses.
 
 A local, reproducible prime-editing amplicon sequencing pipeline under development
 for inline-barcoded samples and multiple target copies/homeologs. The intended

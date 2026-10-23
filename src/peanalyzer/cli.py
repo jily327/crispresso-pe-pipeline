@@ -48,6 +48,11 @@ def main(argv: list[str] | None = None) -> int:
         if name == "stats":
             command.add_argument("--contrasts", type=Path, required=True)
             command.add_argument("--max-permutations", type=int, default=100_000)
+    command = commands.add_parser("report", help="render a completed M5 result as an offline report")
+    command.add_argument("--result", type=Path, required=True)
+    command.add_argument("--output", type=Path, required=True)
+    from peanalyzer.reporting_models import DEFAULT_TITLE, ReportingError
+    command.add_argument("--title", default=DEFAULT_TITLE)
     args = parser.parse_args(argv)
     from peanalyzer.demux import DemuxError, demultiplex
     from peanalyzer.fastq import FastqError
@@ -57,6 +62,12 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.command == "validate":
             report = validate_metadata(args.samples, args.targets, args.config, args.barcodes)
+        elif args.command == "report":
+            from peanalyzer.reporting import generate_report
+            with sigterm_cleanup():
+                manifest = generate_report(result_path=args.result, output=args.output, title=args.title)
+            report = dict(output=str(args.output), report_contract_version=manifest.report_contract_version,
+                          source_result_sha256=manifest.source_result_sha256, artifacts=len(manifest.artifacts))
         elif args.command in ("summarize", "stats"):
             options = dict(manifest_path=args.manifest, samples_path=args.samples, output=args.output)
             with sigterm_cleanup():
@@ -72,8 +83,8 @@ def main(argv: list[str] | None = None) -> int:
                                      barcodes_path=args.barcodes, config=load_config(args.config), output=args.output,
                                      command_argv=([str(Path(sys.argv[0]).resolve()), *sys.argv[1:]] if argv is None
                                                    else [parser.prog, *argv]))
-    except (MetadataError, FastqError, DemuxError, AggregationError, OSError) as exc:
-        label = {"validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics"}[args.command]
+    except (MetadataError, FastqError, DemuxError, AggregationError, ReportingError, OSError) as exc:
+        label = {"validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting"}[args.command]
         print(f"{label} failed: {exc}", file=sys.stderr)
         return 2
     print(json.dumps(report, indent=2, sort_keys=True))
