@@ -1,0 +1,840 @@
+[
+  {
+    "sample": "4E",
+    "id_sha256": "ebb75fa91d4b37157c579f265b985ac031fa854a269015af37fb947e420ac8cc",
+    "before": [
+      "ASSIGNED_COPY",
+      "chr01g24880",
+      "ASSIGNED_COPY"
+    ],
+    "after": {
+      "category": "ALIGNMENT_FAILURE",
+      "assigned_copy": null,
+      "reason": "COPY_HAS_NO_QUALIFIED_STATE_PLACEMENT",
+      "alignments": [
+        {
+          "MAPQ": null,
+          "XS": null,
+          "ambiguity_only_placements": 4,
+          "copy": "chr01g24880",
+          "covered_edit_regions": [],
+          "equivalent_alignments": 4,
+          "failure": "STATE_IDENTITY_BELOW_MINIMUM",
+          "mate": 1,
+          "score": 254.0,
+          "state": "WT",
+          "viable_placements": 0
+        },
+        {
+          "MAPQ": null,
+          "XS": null,
+          "copy": "chr01g24880",
+          "covered_edit_regions": [
+            0
+          ],
+          "equivalent_alignments": 4,
+          "mate": 1,
+          "score": 259.0,
+          "state": "PE",
+          "viable_placements": 4
+        },
+        {
+          "MAPQ": null,
+          "XS": null,
+          "ambiguity_only_placements": 4,
+          "copy": "chr11g18980",
+          "covered_edit_regions": [],
+          "equivalent_alignments": 4,
+          "failure": "STATE_IDENTITY_BELOW_MINIMUM",
+          "mate": 1,
+          "score": 234.0,
+          "state": "WT",
+          "viable_placements": 0
+        },
+        {
+          "MAPQ": null,
+          "XS": null,
+          "ambiguity_only_placements": 4,
+          "copy": "chr11g18980",
+          "covered_edit_regions": [],
+          "equivalent_alignments": 4,
+          "failure": "STATE_IDENTITY_BELOW_MINIMUM",
+          "mate": 1,
+          "score": 239.0,
+          "state": "PE",
+          "viable_placements": 0
+        }
+      ]
+    },
+    "placements": [
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            104,
+            146,
+            211,
+            211
+          ],
+          [
+            0,
+            104,
+            104,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            105,
+            147,
+            211,
+            211
+          ],
+          [
+            0,
+            105,
+            105,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            106,
+            148,
+            211,
+            211
+          ],
+          [
+            0,
+            106,
+            106,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            107,
+            149,
+            211,
+            211
+          ],
+          [
+            0,
+            107,
+            107,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            104,
+            146,
+            211,
+            211
+          ],
+          [
+            0,
+            104,
+            104,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            105,
+            147,
+            211,
+            211
+          ],
+          [
+            0,
+            105,
+            105,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            106,
+            148,
+            211,
+            211
+          ],
+          [
+            0,
+            106,
+            106,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            107,
+            149,
+            211,
+            211
+          ],
+          [
+            0,
+            107,
+            107,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            104,
+            146,
+            211,
+            211
+          ],
+          [
+            0,
+            104,
+            104,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            105,
+            147,
+            211,
+            211
+          ],
+          [
+            0,
+            105,
+            105,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            106,
+            148,
+            211,
+            211
+          ],
+          [
+            0,
+            106,
+            106,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            107,
+            149,
+            211,
+            211
+          ],
+          [
+            0,
+            107,
+            107,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            104,
+            146,
+            211,
+            211
+          ],
+          [
+            0,
+            104,
+            104,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            105,
+            147,
+            211,
+            211
+          ],
+          [
+            0,
+            105,
+            105,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            106,
+            148,
+            211,
+            211
+          ],
+          [
+            0,
+            106,
+            106,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 1,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            107,
+            149,
+            211,
+            211
+          ],
+          [
+            0,
+            107,
+            107,
+            169,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            104,
+            146,
+            211
+          ],
+          [
+            0,
+            27,
+            131,
+            131,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            105,
+            147,
+            211
+          ],
+          [
+            0,
+            27,
+            132,
+            132,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            106,
+            148,
+            211
+          ],
+          [
+            0,
+            27,
+            133,
+            133,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "WT",
+        "old_identity": 0.8571428571428571,
+        "reference_span_identity": 0.7962085308056872,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            107,
+            149,
+            211
+          ],
+          [
+            0,
+            27,
+            134,
+            134,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            0,
+            104,
+            146,
+            211
+          ],
+          [
+            0,
+            27,
+            131,
+            131,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            0,
+            105,
+            147,
+            211
+          ],
+          [
+            0,
+            27,
+            132,
+            132,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            0,
+            106,
+            148,
+            211
+          ],
+          [
+            0,
+            27,
+            133,
+            133,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr01g24880",
+        "state": "PE",
+        "old_identity": 0.8622448979591837,
+        "reference_span_identity": 0.8009478672985783,
+        "ambiguity_witness": false,
+        "coordinates": [
+          [
+            0,
+            0,
+            107,
+            149,
+            211
+          ],
+          [
+            0,
+            27,
+            134,
+            134,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            104,
+            146,
+            211
+          ],
+          [
+            0,
+            27,
+            131,
+            131,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            105,
+            147,
+            211
+          ],
+          [
+            0,
+            27,
+            132,
+            132,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            106,
+            148,
+            211
+          ],
+          [
+            0,
+            27,
+            133,
+            133,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "WT",
+        "old_identity": 0.8367346938775511,
+        "reference_span_identity": 0.7772511848341233,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            107,
+            149,
+            211
+          ],
+          [
+            0,
+            27,
+            134,
+            134,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            104,
+            146,
+            211
+          ],
+          [
+            0,
+            27,
+            131,
+            131,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            105,
+            147,
+            211
+          ],
+          [
+            0,
+            27,
+            132,
+            132,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            106,
+            148,
+            211
+          ],
+          [
+            0,
+            27,
+            133,
+            133,
+            196
+          ]
+        ]
+      },
+      {
+        "mate": 2,
+        "copy": "chr11g18980",
+        "state": "PE",
+        "old_identity": 0.8418367346938775,
+        "reference_span_identity": 0.7819905213270142,
+        "ambiguity_witness": true,
+        "coordinates": [
+          [
+            0,
+            0,
+            107,
+            149,
+            211
+          ],
+          [
+            0,
+            27,
+            134,
+            134,
+            196
+          ]
+        ]
+      }
+    ]
+  }
+]

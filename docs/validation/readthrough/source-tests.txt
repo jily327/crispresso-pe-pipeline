@@ -1,0 +1,43 @@
+........................................................................ [  6%]
+........................................................................ [ 13%]
+........................................................................ [ 19%]
+........................................................................ [ 26%]
+........................................................................ [ 32%]
+........................................................................ [ 39%]
+........................................................................ [ 46%]
+........................................................................ [ 52%]
+........................................................................ [ 59%]
+........................................................................ [ 65%]
+........................................................................ [ 72%]
+........................................................................ [ 78%]
+........................................................................ [ 85%]
+........................................................................ [ 92%]
+........................................................................ [ 98%]
+...............                                                          [100%]
+=============================== warnings summary ===============================
+tests/test_m61.py::test_invalid_editor_fails_closed[U0001]
+tests/test_m61.py::test_contrast_failure_removes_previously_staged_sample_figures
+tests/test_m7.py::test_m61_invalid_svg_fails_workflow_closed
+  /workspace/crispresso-pe-pipeline/src/peanalyzer/reporting.py:225: UserWarning: Glyph 1 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U000B]
+  /workspace/crispresso-pe-pipeline/src/peanalyzer/reporting.py:225: UserWarning: Glyph 11 (
+  ) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFE]
+  /workspace/crispresso-pe-pipeline/src/peanalyzer/reporting.py:225: UserWarning: Glyph 65534 (\ufffe) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFF]
+  /workspace/crispresso-pe-pipeline/src/peanalyzer/reporting.py:225: UserWarning: Glyph 65535 (\uffff) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py: 12 warnings
+  /workspace/crispresso-pe-pipeline/src/peanalyzer/reporting.py:225: UserWarning: Glyph 127 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /workspace/validation/readthrough/source-final/tests.xml -
+1095 passed, 18 warnings in 903.08s (0:15:03)

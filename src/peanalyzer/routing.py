@@ -70,12 +70,49 @@ def edit_footprints(target, state, report):
     return footprints
 
 
-def copy_placements(sequence, qualities, target, mate, report, policy, engine):
+def reference_bearing_columns(reference, cols):
+    """Retain internal query insertions even outside the first/last paired base.
+
+    A query-only run is outside the biological reference only at reference
+    boundary zero or len(reference), not merely at a local matched-span end.
+    """
+    paired = [i for i,(a,b) in enumerate(cols) if a is not None and b is not None]
+    if not paired:
+        return []
+    lo,hi = paired[0],paired[-1]
+    span=[];boundary=0
+    for i,(a,b) in enumerate(cols):
+        if lo<=i<=hi or (a is None and boundary not in (0,len(reference))):
+            span.append((a,b))
+        if a is not None:
+            boundary=a+1
+    return span
+
+
+def reference_span_identity(reference, sequence, alignment):
+    """Identity over the reference-bearing span, including all internal gaps.
+
+    Terminal query-only read-through and unobserved reference ends do not
+    describe biological disagreement. Internal mismatches, insertions and
+    deletions each contribute a nonmatching column; none are clipped away.
+    Boundaries come from this alignment, never a motif or fixed read length.
+    """
+    span = reference_bearing_columns(reference, columns(alignment))
+    if not span:
+        return 0.0
+    matches = sum(a is not None and b is not None and reference[a] == sequence[b]
+                  for a,b in span)
+    return matches / len(span)
+
+
+def copy_placements(sequence, qualities, target, mate, report, policy, engine, ambiguity=None):
     """Discard failed states, retaining *all* qualified equivalent placements.
 
     State scores are audit data only. No best-state/copy competition is used.
     Query coordinates are retained: identical bases at different read positions
-    are not proof of an unambiguous diagnostic projection.
+    are not proof of an unambiguous diagnostic projection. Rejected placements
+    with strong query-base agreement can supply an ambiguity veto only; they
+    never supply positive evidence or edit coverage.
     """
     surviving, audit = [], []
     for state, reference in (('WT', target.wt_sequence), ('PE', target.prime_edited_sequence)):
@@ -96,12 +133,15 @@ def copy_placements(sequence, qualities, target, mate, report, policy, engine):
         footprints=edit_footprints(target,state,report)
         for alignment in alignments:
             cols = columns(alignment)
-            identity = sum(a is not None and b is not None and reference[a] == sequence[b]
-                           for a,b in cols) / len(sequence)
+            identity = reference_span_identity(reference, sequence, alignment)
+            placement = {projection[a]:(sequence[b], qualities[b], b)
+                         for a,b in cols if a in projection and b is not None}
             if identity < policy.min_alignment_identity:
+                if ambiguity is not None and deletion_ambiguity_candidate(reference, sequence, cols, policy):
+                    ambiguity.append(placement)
+                    entry['ambiguity_only_placements'] = entry.get('ambiguity_only_placements', 0) + 1
                 continue
-            surviving.append({projection[a]:(sequence[b], qualities[b], b)
-                              for a,b in cols if a in projection and b is not None})
+            surviving.append(placement)
             entry['viable_placements'] += 1
             observed=[a for a,b in cols if a is not None and b is not None]
             if observed:
@@ -112,6 +152,24 @@ def copy_placements(sequence, qualities, target, mate, report, policy, engine):
         if not entry['viable_placements']:
             entry['failure'] = 'STATE_IDENTITY_BELOW_MINIMUM'
     return surviving, audit
+
+
+def deletion_ambiguity_candidate(reference, sequence, cols, policy):
+    """A deletion-rich competing placement may veto, but never qualify.
+
+    Require an internal reference-only column and at least policy-threshold
+    agreement among query bases *inside* the paired reference span. Internal
+    insertions/mismatches count against this query support; terminal query bases
+    never enter it. This is a plausibility screen for an ambiguity witness,
+    separate from reference_span_identity(), which penalizes every internal gap.
+    A witness vetoes only if its diagnostic projection actually differs.
+    """
+    span = reference_bearing_columns(reference, cols)
+    if not any(b is None for a,b in span):
+        return False
+    query_bases = sum(b is not None for a,b in span)
+    matches = sum(a is not None and b is not None and reference[a] == sequence[b] for a,b in span)
+    return matches / query_bases >= policy.min_alignment_identity
 
 
 def decide(evidence: list[dict], copies: list[str], policy: RoutingPolicy) -> tuple[str, str | None, list[str]]:
@@ -180,7 +238,7 @@ def enforce_edit_flanking(decision, flanking):
 def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy) -> dict:
     identifier=read_id(pair[0],1).decode()
     copies=sorted(t.copy_name for t in targets)
-    evidence=[]; scores=[]; placements={}
+    evidence=[]; scores=[]; placements={}; ambiguity={}
     engine=aligner(reads=True)
     for mate,record in enumerate(pair,1):
         sequence=record.sequence.decode().upper()
@@ -188,13 +246,15 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
         if mate==2:
             sequence=reverse_complement(sequence); qualities.reverse()
         for target in sorted(targets,key=lambda t:t.copy_name):
-            alternatives,audit=copy_placements(sequence,qualities,target,mate,report,policy,engine)
+            witnesses=[]
+            alternatives,audit=copy_placements(sequence,qualities,target,mate,report,policy,engine,witnesses)
             scores.extend(audit)
             if not alternatives:
                 return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,
                             compatible_copies=copies,evidence=[],alignments=scores,
                             reason='COPY_HAS_NO_QUALIFIED_STATE_PLACEMENT')
             placements[mate,target.copy_name]=alternatives
+            ambiguity[mate,target.copy_name]=witnesses
     if len(copies)==1:
         # In an explicitly single-copy assay panel there is no competing copy;
         # retain placement checks and collapse WT/PE before assigning identity.
@@ -212,7 +272,8 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
         position=diagnostic['position']
         for mate in (1,2):
             values=[alternative.get(position) for key, alternatives in placements.items() if key[0]==mate for alternative in alternatives]
-            if len(set(values))!=1:
+            witnesses=[alternative.get(position) for key, alternatives in ambiguity.items() if key[0]==mate for alternative in alternatives]
+            if len(set(values+witnesses))!=1:
                 placement_conflict=True
             elif values and values[0] is not None:
                 base,quality,query_position=values[0]

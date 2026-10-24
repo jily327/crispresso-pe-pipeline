@@ -1,0 +1,6 @@
+schema_version: 1
+demux:
+  profile: qi_hitom_v1
+  max_mismatches: 0
+  trim_barcodes: false
+  trim_bridges: false

@@ -33,7 +33,7 @@ LIMITATIONS = [
     'Copy metrics are routing-conditioned subpopulations, not unbiased target estimates.',
     'Insertion edit coverage can quarantine PE-bearing fragments without an equivalent WT quarantine; confident cohorts may be PE-depleted. No correction is applied.',
     'Target all-read metrics are the primary population view when eligible.',
-    'Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.',
+    'Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.',
     'Backend preprocessing/alignment and product assessability impose additional metric-specific filters; no single stage defines every denominator.',
     'Exact and native PE fractions have different numerators and denominators; either may be higher. Direction alone does not establish editing quality.',
     'Backend unaligned causes remain unknown unless authoritative evidence establishes them. Biological origins are not inferred.',

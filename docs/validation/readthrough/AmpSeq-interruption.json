@@ -1,0 +1,9 @@
+{
+  "workspace": "/workspace/validation/readthrough/AmpSeq-final",
+  "completed_metric_results": 5,
+  "completion_marker_present": false,
+  "python_process_alive": false,
+  "backend_process_alive": false,
+  "recovery": "remove verified task-owned stale lock; resume with force metrics",
+  "cause": "execution process disappeared without handled-failure record; external cause not established"
+}
