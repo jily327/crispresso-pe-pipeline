@@ -1,0 +1,8 @@
+sample_name,barcode_id,forward_barcode_id,reverse_barcode_id,editor,treatment,dpi,biological_replicate,block_id,paired
+NC,1A,F1,RA,NC,NC,6,1A,,false
+ePPEmax-v2-EV_leaf1,2B,F2,RB,ePPEmax-v2,EV,6,1,,false
+PE6c-v3-EV_leaf1,3C,F3,RC,PE6c-v3,EV,6,1,,false
+ePPEmax-v2-ALSW_leaf1,4D,F4,RD,ePPEmax-v2,ALSW,6,1,,false
+PE6c-v3-ALSW_leaf1,5E,F5,RE,PE6c-v3,ALSW,6,1,,false
+ePPEmax-v2-ALSW_leaf4,6F,F6,RF,ePPEmax-v2,ALSW,6,4,,false
+PE6c-v3-ALSW_leaf4,7G,F7,RG,PE6c-v3,ALSW,6,4,,false

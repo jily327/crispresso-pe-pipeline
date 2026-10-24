@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "starting_main": "67734b842d3295a9c40e2981724d981cc060fd80",
+  "version": "0.7.1",
+  "targeted_tests": 59,
+  "full_source": 1095,
+  "full_wheel": 1095,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "integration": 63,
+  "geometry": {
+    "total": 36,
+    "allowed": 13,
+    "blocked": 23
+  },
+  "historical_routing_trial_changes": 0,
+  "historical_product_classification_changes": 0,
+  "historical_metric_numeric_changes": 0,
+  "native_audit_counts_preserved": true,
+  "real_sample_target_results": 19,
+  "real_target_precise_reportable": 19,
+  "real_prepared_oracle_comparisons": 178128,
+  "real_oracle_disagreements": 0,
+  "normalization_trials": 376,
+  "normalization_disagreements": 0
+}

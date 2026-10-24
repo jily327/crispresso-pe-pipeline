@@ -1,0 +1,86 @@
+[
+  {
+    "copy": "copy1",
+    "state": "wt_sequence",
+    "partial_reference_tail_length": 5,
+    "exact": "exact_WT",
+    "routing": "copy1"
+  },
+  {
+    "copy": "copy1",
+    "state": "wt_sequence",
+    "partial_reference_tail_length": 27,
+    "exact": "exact_WT",
+    "routing": "copy1"
+  },
+  {
+    "copy": "copy1",
+    "state": "wt_sequence",
+    "partial_reference_tail_length": 70,
+    "exact": "exact_WT",
+    "routing": "copy1"
+  },
+  {
+    "copy": "copy1",
+    "state": "prime_edited_sequence",
+    "partial_reference_tail_length": 5,
+    "exact": "exact_PE",
+    "routing": "copy1"
+  },
+  {
+    "copy": "copy1",
+    "state": "prime_edited_sequence",
+    "partial_reference_tail_length": 27,
+    "exact": "exact_PE",
+    "routing": "copy1"
+  },
+  {
+    "copy": "copy1",
+    "state": "prime_edited_sequence",
+    "partial_reference_tail_length": 70,
+    "exact": "exact_PE",
+    "routing": "copy1"
+  },
+  {
+    "copy": "copy2",
+    "state": "wt_sequence",
+    "partial_reference_tail_length": 5,
+    "exact": "exact_WT",
+    "routing": "copy2"
+  },
+  {
+    "copy": "copy2",
+    "state": "wt_sequence",
+    "partial_reference_tail_length": 27,
+    "exact": "exact_WT",
+    "routing": "copy2"
+  },
+  {
+    "copy": "copy2",
+    "state": "wt_sequence",
+    "partial_reference_tail_length": 70,
+    "exact": "exact_WT",
+    "routing": "copy2"
+  },
+  {
+    "copy": "copy2",
+    "state": "prime_edited_sequence",
+    "partial_reference_tail_length": 5,
+    "exact": "exact_PE",
+    "routing": "copy2"
+  },
+  {
+    "copy": "copy2",
+    "state": "prime_edited_sequence",
+    "partial_reference_tail_length": 27,
+    "exact": "exact_PE",
+    "routing": "copy2"
+  },
+  {
+    "copy": "copy2",
+    "state": "prime_edited_sequence",
+    "partial_reference_tail_length": 70,
+    "exact": "exact_PE",
+    "routing": "copy2"
+  }
+]

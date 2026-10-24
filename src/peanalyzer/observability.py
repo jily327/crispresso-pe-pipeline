@@ -35,10 +35,54 @@ def reconstruct(left, right):
 
 
 @lru_cache(maxsize=8192)
+def reconstruct_product(left, right, references):
+    """Exact candidate products with uniquely established terminal read-through.
+
+    Reads retain their amplicon-end 5-prime anchors: left is forward, right is
+    reverse-complemented. Only a complete exact candidate in an overlong mate
+    can establish a 3-prime boundary. Both mates must match their entire
+    biological portions, and their clipped overlap must pass the unchanged
+    conservative reconstructor. All WT/PE/copy sequences are considered together.
+    Distinct supported products or additional complete-reference occurrences
+    reject boundary ambiguity. No selected allele, motif or vendor determines
+    trimming. Non-exact products never gain exact status through this path.
+    """
+    original = reconstruct(left, right)
+    supported = set()
+    ambiguous = False
+    for reference in references:
+        size = len(reference)
+        if len(left) <= size and len(right) <= size:
+            continue
+        clipped_left, clipped_right = left[:size], right[-size:]
+        if not reference.startswith(clipped_left) or not reference.endswith(clipped_right):
+            continue
+        sequence, reason = reconstruct(clipped_left, clipped_right)
+        if reason or sequence != reference:
+            continue
+        supported.add(reference)
+    if not supported:
+        return original
+    # Inspect every complete candidate occurrence, including alternative copies
+    # and states inside an overhang; never choose the first or longest match.
+    for reference in references:
+        for read, expected in ((left, 0), (right, len(right)-len(reference))):
+            start = read.find(reference)
+            while start >= 0:
+                if start != expected:
+                    ambiguous = True
+                start = read.find(reference, start+1)
+    if ambiguous or len(supported) != 1:
+        return None, 'AMBIGUOUS_PRODUCT_RECONSTRUCTION'
+    return next(iter(supported)), None
+
+
+@lru_cache(maxsize=8192)
 def reference_observable(sequence, left_length, right_length):
     # A fully observed shorter state can end before the sequencing read length.
     # Read-through must not exclude that counterfactual while retaining the
-    # longer state. Actual observed adapter/extra sequence still fails identity.
+    # longer state. Actual read-through additionally requires unique exact
+    # candidate support in reconstruct_product(); geometry alone never trims.
     left_length=min(left_length,len(sequence));right_length=min(right_length,len(sequence))
     reconstructed,_=reconstruct(sequence[:left_length],sequence[-right_length:])
     return reconstructed==sequence
@@ -66,7 +110,8 @@ def assess_pair(pair, targets):
     right=reverse_complement(pair[1].sequence.decode().upper())
     rows=state_geometry(targets,len(left),len(right))
     asymmetric=[r for r in rows if len(set(r['exact_states']))>1]
-    sequence,reason=reconstruct(left,right)
+    references=tuple(sorted({s for t in targets for s in (t.wt_sequence,t.prime_edited_sequence)}))
+    sequence,reason=reconstruct_product(left,right,references)
     if asymmetric:
         reason=('STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY' if any(r['wt_length']!=r['pe_length'] for r in asymmetric)
                 else 'STATE_DEPENDENT_PRODUCT_OBSERVABILITY')
@@ -87,9 +132,10 @@ def assess_pair(pair, targets):
 
 def population_observability(paths, targets):
     lengths=Counter();ambiguity=Counter()
+    references=tuple(sorted({s for t in targets for s in (t.wt_sequence,t.prime_edited_sequence)}))
     for pair in paired_fastq(*paths):
         lengths[len(pair[0].sequence),len(pair[1].sequence)]+=1
-        _,reason=reconstruct(pair[0].sequence.decode().upper(),reverse_complement(pair[1].sequence.decode().upper()))
+        _,reason=reconstruct_product(pair[0].sequence.decode().upper(),reverse_complement(pair[1].sequence.decode().upper()),references)
         if reason in ('AMBIGUOUS_PRODUCT_RECONSTRUCTION','PERIODIC_PRODUCT_RECONSTRUCTION'):ambiguity[reason]+=1
     rows=[];backend=Counter();exact=Counter()
     for (left,right),count in sorted(lengths.items()):

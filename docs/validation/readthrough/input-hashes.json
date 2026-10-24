@@ -1,0 +1,27 @@
+{
+  "AmpSeq_R1": {
+    "path": "/workspace/attachments/51586a41-076d-4548-9baf-b7932e9d0b6a/EV_only_1005_R1.fastq.gz",
+    "sha256": "5e9a64283ab9800278c3d64b79aa12b5a453369e80d6f638272def2388b973f5",
+    "size_bytes": 10306907
+  },
+  "AmpSeq_R2": {
+    "path": "/workspace/attachments/300a8a96-def4-429d-a1fe-c698a2156a52/EV_only_1005_R2.fastq.gz",
+    "sha256": "22d7a68a645464aac961c7b5ea0dae452dfecb3c46666dbfca8e90fb539e3149",
+    "size_bytes": 16261831
+  },
+  "Azenta_R1": {
+    "path": "/workspace/attachments/26797453-e521-496a-9804-1079d04c7df6/Jo-different-barcodes-test_R1_001.fastq.gz",
+    "sha256": "04a4af1490e43e940926e4df29cfdb44ff18e6bc6d7a948ddc52bbd17eb5344b",
+    "size_bytes": 4358676
+  },
+  "Azenta_R2": {
+    "path": "/workspace/attachments/92c94237-d34a-4595-801e-5b3f086689a2/Jo-different-barcodes-test_R2_001.fastq.gz",
+    "sha256": "8b6bd623b6d063a7d6a56cea0c9213146a338bddbacc22f1ee3ff927d7c1b8a2",
+    "size_bytes": 5911562
+  },
+  "targets_ALSW.csv": {
+    "path": "/workspace/attachments/190ff9f4-df28-4bb8-b395-97f8d7fb0381/targets_ALSW.csv",
+    "sha256": "3112ba5418883cf40e8d8de09d5835376027745d5616a45a05231957f8198b24",
+    "size_bytes": 1307
+  }
+}

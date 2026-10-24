@@ -1,5 +1,10 @@
 # crispresso-pe-pipeline
 
+**0.7.1 fixes terminal amplicon read-through in routing and exact-product assessment.**
+Identity retains internal-error penalties and a separate conservative ambiguity veto;
+exact WT/PE products require unique, state-symmetric whole-reference support.
+See [D1/D2 qualification and limitations](docs/validation/readthrough/README.md).
+
 **M7 (0.7.0) provides local end-to-end orchestration, validated resume and selective force.**
 Use [`peanalyzer run` or `peanalyzer analyze`](docs/m7-workflow.md). Production
 execution supports one biological target per workflow, including multiple copies;

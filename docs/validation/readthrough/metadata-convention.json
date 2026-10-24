@@ -1,0 +1,12 @@
+{
+  "source": "explicit user clarification",
+  "Azenta": {
+    "all_7_samples": 6
+  },
+  "AmpSeq": {
+    "all_10_EV_biological_samples": 6,
+    "Untreated_WT_gDNA": 0,
+    "PCR1_NTC_to_PCR2": 0
+  },
+  "control_note": "dpi=0 is a bookkeeping placeholder required by M7, not a biological harvest-time claim"
+}

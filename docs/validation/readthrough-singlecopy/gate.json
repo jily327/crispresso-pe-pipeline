@@ -1,0 +1,47 @@
+{
+  "changed_real_products": 0,
+  "changed_real_routing_rows": 0,
+  "historical_m4_result_comparisons": 42,
+  "internal_deletion_quarantine_retained": true,
+  "multi_copy": {
+    "allowed": 13,
+    "blocked": 23,
+    "changed": 0,
+    "designs": 36,
+    "trials": 432
+  },
+  "parent": "249979e0e97c7dc8fffdf04cdab329bdb4a47394",
+  "real_replayed_pairs": 178128,
+  "real_result_files_unchanged": 19,
+  "single_copy": {
+    "allowed": 15,
+    "blocked": 57,
+    "changed_from_070": 0,
+    "panels": 72,
+    "restored_routing_regressions": 4,
+    "restored_safe_regressions": 3,
+    "trials": 432
+  },
+  "status": "PASS",
+  "tests": {
+    "source": {
+      "errors": 0,
+      "failures": 0,
+      "integration": 63,
+      "new_cases": 90,
+      "prior_retained": 1095,
+      "skips": 0,
+      "tests": 1185
+    },
+    "wheel": {
+      "errors": 0,
+      "failures": 0,
+      "integration": 63,
+      "new_cases": 90,
+      "prior_retained": 1095,
+      "skips": 0,
+      "tests": 1185
+    }
+  },
+  "version": "0.7.1"
+}

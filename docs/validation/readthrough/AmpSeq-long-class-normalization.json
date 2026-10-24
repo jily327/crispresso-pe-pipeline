@@ -1,0 +1,192 @@
+[
+  {
+    "sample": "2C",
+    "id_sha256": "29a1fe92997ccb4727924b8bb0042900cdd250a7b08d7689c3fce82388c9741e",
+    "prepared_lengths": [
+      273,
+      273
+    ],
+    "biological_query_bounds": [
+      [
+        0,
+        211
+      ],
+      [
+        27,
+        238
+      ]
+    ],
+    "raw_query_bounds": [
+      [
+        0,
+        211
+      ],
+      [
+        35,
+        246
+      ]
+    ],
+    "normalized_lengths": [
+      211,
+      211
+    ],
+    "assigned_copy": "chr01g24880",
+    "decision_equal": true
+  },
+  {
+    "sample": "2D",
+    "id_sha256": "a04ea8c25d8d7fe24694ef45833cd18592ca1a823a57c039f38398587117aed9",
+    "normalization": "NOT_ESTABLISHED",
+    "reason": "optimal full-reference placements do not establish one boundary",
+    "details": [
+      {
+        "mate": 1,
+        "candidate_bounds": [
+          [
+            0,
+            243
+          ],
+          [
+            32,
+            243
+          ]
+        ]
+      }
+    ],
+    "assigned_copy": "chr01g24880"
+  },
+  {
+    "sample": "3E",
+    "id_sha256": "53a1c5d02651b3619bf50eaa69034de8efe05e7874c047ae3f5958f4bcd4b6ea",
+    "normalization": "NOT_ESTABLISHED",
+    "reason": "optimal full-reference placements do not establish one boundary",
+    "details": [
+      {
+        "mate": 1,
+        "candidate_bounds": [
+          [
+            0,
+            243
+          ],
+          [
+            32,
+            243
+          ]
+        ]
+      }
+    ],
+    "assigned_copy": "chr01g24880"
+  },
+  {
+    "sample": "4E",
+    "id_sha256": "1525a1b6cf0f2359f6e6461675e6f3643574f0c9891c95522d2a0baebbdc8f79",
+    "normalization": "NOT_ESTABLISHED",
+    "reason": "optimal full-reference placements do not establish one boundary",
+    "details": [
+      {
+        "mate": 2,
+        "candidate_bounds": [
+          [
+            27,
+            238
+          ],
+          [
+            27,
+            270
+          ]
+        ]
+      }
+    ],
+    "assigned_copy": "chr11g18980"
+  },
+  {
+    "sample": "5A",
+    "id_sha256": "24844dc5eb0f3719420f15471cddf495a03ad1bd253c9ee859087d58919aeffe",
+    "prepared_lengths": [
+      263,
+      263
+    ],
+    "biological_query_bounds": [
+      [
+        25,
+        236
+      ],
+      [
+        52,
+        263
+      ]
+    ],
+    "raw_query_bounds": [
+      [
+        25,
+        236
+      ],
+      [
+        0,
+        211
+      ]
+    ],
+    "normalized_lengths": [
+      211,
+      211
+    ],
+    "assigned_copy": "chr11g18980",
+    "decision_equal": true
+  },
+  {
+    "sample": "5A",
+    "id_sha256": "39a8350245d03ec741e036231f3168a89a98e55d8cb9d017a353732faed213a5",
+    "prepared_lengths": [
+      271,
+      271
+    ],
+    "biological_query_bounds": [
+      [
+        0,
+        244
+      ],
+      [
+        60,
+        271
+      ]
+    ],
+    "raw_query_bounds": [
+      [
+        0,
+        244
+      ],
+      [
+        0,
+        211
+      ]
+    ],
+    "normalized_lengths": [
+      244,
+      211
+    ],
+    "assigned_copy": "chr11g18980",
+    "decision_equal": true
+  },
+  {
+    "sample": "5A",
+    "id_sha256": "7a20de1610d739cb2b70e7875deca50ec62f296e11b5d3ec63824edb764a5cc5",
+    "normalization": "NOT_ESTABLISHED",
+    "reason": "optimal full-reference placements do not establish one boundary",
+    "details": [
+      {
+        "mate": 1,
+        "candidate_bounds": [
+          [
+            0,
+            237
+          ],
+          [
+            26,
+            237
+          ]
+        ]
+      }
+    ],
+    "assigned_copy": "chr11g18980"
+  }
+]

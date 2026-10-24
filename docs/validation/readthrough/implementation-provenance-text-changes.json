@@ -1,0 +1,590 @@
+[
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m4/m3/m4/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m4/m31/m4/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m41/ambiguous/failed_metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m41/ambiguous/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m41/nonexact_only/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m41/preprocessing/failed_metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m41/preprocessing/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m41/routing_blocked/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/cross_copy_lengths/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/deletion_boundary/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/deletion_exact_boundary/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/insertion_long/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/insertion_short/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/repeat/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/single_copy_lengths/copy1/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/single_copy_lengths/copy2/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/substitution/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/10/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/11/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/12/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/13/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/16/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/20/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/28/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/30/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/32/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/4/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/8/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/9/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m42/tolerance/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/copy_specific_repeat/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_124_125/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_124_125/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_125_125/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_125_125/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_150_150/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_150_150/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m422/copy2_1_all/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m422/copy2_1_all/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m422/copy_independence/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m422/fixed/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "source",
+    "field": "qc.limitations[3]",
+    "result": "m422/fixed/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m4/m3/m4/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m4/m31/m4/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m41/ambiguous/failed_metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m41/ambiguous/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m41/nonexact_only/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m41/preprocessing/failed_metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m41/preprocessing/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m41/routing_blocked/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/cross_copy_lengths/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/deletion_boundary/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/deletion_exact_boundary/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/insertion_long/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/insertion_short/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/repeat/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/single_copy_lengths/copy1/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/single_copy_lengths/copy2/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/substitution/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/10/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/11/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/12/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/13/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/16/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/20/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/28/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/30/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/32/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/4/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/8/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/titration/9/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m42/tolerance/metrics/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/copy_specific_repeat/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_124_125/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_124_125/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_125_125/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_125_125/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_150_150/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m421/cross_copy_150_150/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m422/copy2_1_all/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m422/copy2_1_all/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m422/copy_independence/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m422/fixed/production/result.json"
+  },
+  {
+    "after": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; uniquely supported exact reference products may exclude terminal read-through (0.7.1); internal fragments, gaps and disagreements are excluded.",
+    "before": "Prepared exact classification requires inward-facing amplicon-end reads with a unique sequence-consistent overlap of at least 10 nt and complete reconstruction; internal fragments, gaps and disagreements are excluded.",
+    "environment": "wheel",
+    "field": "qc.limitations[3]",
+    "result": "m422/fixed/result.json"
+  }
+]
