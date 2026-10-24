@@ -1,0 +1,28 @@
+{
+  "sample": "4E",
+  "id_sha256": "ebb75fa91d4b37157c579f265b985ac031fa854a269015af37fb947e420ac8cc",
+  "category": "ALIGNMENT_FAILURE",
+  "assigned_copy": null,
+  "reason": "COPY_HAS_NO_QUALIFIED_STATE_PLACEMENT",
+  "threshold": 0.8,
+  "chr01_WT_placement_identities": [
+    {
+      "mate": 1,
+      "WT_reference_span_identities": [
+        0.7962085308056872,
+        0.7962085308056872,
+        0.7962085308056872,
+        0.7962085308056872
+      ]
+    },
+    {
+      "mate": 2,
+      "WT_reference_span_identities": [
+        0.7962085308056872,
+        0.7962085308056872,
+        0.7962085308056872,
+        0.7962085308056872
+      ]
+    }
+  ]
+}

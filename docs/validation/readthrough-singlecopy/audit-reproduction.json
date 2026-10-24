@@ -1,0 +1,98 @@
+[
+  {
+    "design": "deletion_60_seed11",
+    "copy": "copy2",
+    "before": "BLOCKED",
+    "candidate": "SAFE",
+    "trials": [
+      {
+        "before": {
+          "assigned_copy": null,
+          "category": "ALIGNMENT_FAILURE",
+          "length": 100,
+          "reason": "nonunique single-copy placement",
+          "state": "WT"
+        },
+        "candidate": {
+          "assigned_copy": "copy2",
+          "category": "ASSIGNED_COPY",
+          "length": 100,
+          "reason": "single-copy assay panel with compatible WT/PE placements",
+          "state": "WT"
+        }
+      }
+    ]
+  },
+  {
+    "design": "deletion_60_seed29",
+    "copy": "copy1",
+    "before": "BLOCKED",
+    "candidate": "SAFE",
+    "trials": [
+      {
+        "before": {
+          "assigned_copy": null,
+          "category": "ALIGNMENT_FAILURE",
+          "length": 100,
+          "reason": "nonunique single-copy placement",
+          "state": "WT"
+        },
+        "candidate": {
+          "assigned_copy": "copy1",
+          "category": "ASSIGNED_COPY",
+          "length": 100,
+          "reason": "single-copy assay panel with compatible WT/PE placements",
+          "state": "WT"
+        }
+      }
+    ]
+  },
+  {
+    "design": "deletion_60_seed29",
+    "copy": "copy2",
+    "before": "BLOCKED",
+    "candidate": "SAFE",
+    "trials": [
+      {
+        "before": {
+          "assigned_copy": null,
+          "category": "ALIGNMENT_FAILURE",
+          "length": 100,
+          "reason": "nonunique single-copy placement",
+          "state": "WT"
+        },
+        "candidate": {
+          "assigned_copy": "copy2",
+          "category": "ASSIGNED_COPY",
+          "length": 100,
+          "reason": "single-copy assay panel with compatible WT/PE placements",
+          "state": "WT"
+        }
+      }
+    ]
+  },
+  {
+    "design": "deletion_60_seed47",
+    "copy": "copy2",
+    "before": "BLOCKED",
+    "candidate": "BLOCKED",
+    "trials": [
+      {
+        "before": {
+          "assigned_copy": null,
+          "category": "ALIGNMENT_FAILURE",
+          "length": 100,
+          "reason": "nonunique single-copy placement",
+          "state": "WT"
+        },
+        "candidate": {
+          "assigned_copy": "copy2",
+          "category": "ASSIGNED_COPY",
+          "length": 100,
+          "reason": "single-copy assay panel with compatible WT/PE placements",
+          "state": "WT"
+        }
+      }
+    ]
+  }
+]

@@ -260,7 +260,10 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
         # retain placement checks and collapse WT/PE before assigning identity.
         for mate in (1,2):
             spans={(min(a),max(a)) for key, alternatives in placements.items() if key[0]==mate for a in alternatives if a}
-            if len(spans)!=1:
+            # Witnesses can disprove uniqueness, never supply a qualified span.
+            witness_spans={(min(a),max(a)) for key, alternatives in ambiguity.items()
+                           if key[0]==mate for a in alternatives if a}
+            if len(spans)!=1 or len(spans | witness_spans)!=1:
                 return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,compatible_copies=copies,evidence=[],alignments=scores,reason='nonunique single-copy placement')
         return dict(read_id=identifier,category='ASSIGNED_COPY',assigned_copy=copies[0],compatible_copies=copies,
                     evidence=[],alignments=scores,edit_flanking=[],reason='single-copy assay panel with compatible WT/PE placements')

@@ -1,0 +1,170 @@
+{
+  "m4/m3/m4/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m4/m31/m4/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m41/ambiguous/failed_metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m41/ambiguous/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m41/nonexact_only/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m41/preprocessing/failed_metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m41/preprocessing/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m41/routing_blocked/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/cross_copy_lengths/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/deletion_boundary/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/deletion_exact_boundary/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/insertion_long/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/insertion_short/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/repeat/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/single_copy_lengths/copy1/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/single_copy_lengths/copy2/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/substitution/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/10/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/11/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/12/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/13/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/16/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/20/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/28/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/30/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/32/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/4/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/8/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/titration/9/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m42/tolerance/metrics/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/copy_specific_repeat/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/cross_copy_124_125/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/cross_copy_124_125/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/cross_copy_125_125/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/cross_copy_125_125/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/cross_copy_150_150/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m421/cross_copy_150_150/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m422/copy2_1_all/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m422/copy2_1_all/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m422/copy_independence/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m422/fixed/production/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  },
+  "m422/fixed/result.json": {
+    "source_equal": true,
+    "wheel_equal": true
+  }
+}
