@@ -1,0 +1,6122 @@
+{
+  "api_version": "viewer-v1",
+  "workspace_id": "bfd5114e3f524dbc87998b6897a7137b",
+  "label": "indel_nuclease",
+  "verified": true,
+  "snapshot_id": "ecaaf3c5461aa0d58fb832cbc1b120d89cdac6db46255d5f58a030376770fec4",
+  "mode": "indel_nuclease",
+  "targets": [
+    "T1"
+  ],
+  "contracts": [
+    "indel-nuclease-stats-v1",
+    "indel-nuclease-v1",
+    "m7-v1"
+  ],
+  "observations": [
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "bc376609355f983cd395b0bcb0ee8afbd5e7e9e117b881613ce10a6fc0eade40",
+      "series_id": "328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_and_deletion_containing_fraction",
+      "label": "insertion and deletion containing fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "e4c197780fde5b8e17ba8c2da1a9f63181e18eccf3a3842c8fff254a9b1fd770",
+      "series_id": "37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_plus_substitution_fraction",
+      "label": "indel plus substitution fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "5b9b66ee394532097a58d7d67adf660bb4b0906b5c39a373bb018fde4e843853",
+      "series_id": "4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_containing_fraction",
+      "label": "insertion containing fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "390a77b65e0d2951ab55272edec1871367aa065098d25f525ded109878e01399",
+      "series_id": "5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "any_modification_fraction",
+      "label": "any modification fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "67de0054734dfdafe05a31da85858081f075b488ad17688ba044eb12fe4aa1bf",
+      "series_id": "61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_containing_fraction",
+      "label": "substitution containing fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "16",
+      "denominator": "20",
+      "fraction": 0.8,
+      "percentage": "80%",
+      "observation_id": "caa7d709209420c308a89854812f030ed8c598acdffa933cf2e6fe7216c51291",
+      "series_id": "6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "unmodified_fraction",
+      "label": "unmodified fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "65812034988f1c25826ea3e1788dfd0bbcda41c4e795abd1ba53780b4907fbc9",
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_fraction",
+      "label": "Indel fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "cbc79d5f12db49a062584290848172244caa3ad021f6a50a90d349b81d80e9f9",
+      "series_id": "e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "deletion_containing_fraction",
+      "label": "deletion containing fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "4a65617baa789562d95cc2261b6394d57ea7f375713bca046f2ba87efeea3460",
+      "series_id": "f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_only_fraction",
+      "label": "indel only fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "bbf3137a9b397b9357be063e6eb51a1492f75ebd971b477dd96812ad03e905dc",
+      "series_id": "fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654",
+      "sample_id": "bc001",
+      "sample_name": "bio1",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_only_fraction",
+      "label": "substitution only fraction",
+      "population_id": "063b77b3257fd4a7a980ffb867f258585d34f7ec9a2d2d08e69d9ce4d4981494",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "0236d8012e15426f1954eb6a8fde731e9244968060df5f9de2a88b52f74f873b",
+      "series_id": "328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_and_deletion_containing_fraction",
+      "label": "insertion and deletion containing fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "a216b37c16d157a73c0aacbb6ea9e3384e3a37e9c01a551446a47fdb07a7236b",
+      "series_id": "37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_plus_substitution_fraction",
+      "label": "indel plus substitution fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "71802d0b9aff41dc6e9ee3e2b491c3f391fd0d4ae4393bf1505db692ea497402",
+      "series_id": "4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_containing_fraction",
+      "label": "insertion containing fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "8",
+      "denominator": "20",
+      "fraction": 0.4,
+      "percentage": "40%",
+      "observation_id": "dae430a52f0dab8c2244905b13ebe9eec3591417befbd9f381ad27cf199c698b",
+      "series_id": "5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "any_modification_fraction",
+      "label": "any modification fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "9b6798e6a3c4abae7e9e2794c593f4c281c701c5f245e38e3392b0041528f4ed",
+      "series_id": "61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_containing_fraction",
+      "label": "substitution containing fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "12",
+      "denominator": "20",
+      "fraction": 0.6,
+      "percentage": "60%",
+      "observation_id": "2a143b9fadd17120198058594accf45e9000c78cf8dca31544e3f97e43acb282",
+      "series_id": "6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "unmodified_fraction",
+      "label": "unmodified fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "8",
+      "denominator": "20",
+      "fraction": 0.4,
+      "percentage": "40%",
+      "observation_id": "4a9a404f74b7a71a7bdb707224bb01b42ba6d4f43b8d8bef5485ed382532502a",
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_fraction",
+      "label": "Indel fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "8",
+      "denominator": "20",
+      "fraction": 0.4,
+      "percentage": "40%",
+      "observation_id": "aa5a4d77df8a40ec3239f608cb440fca327352ea25872fc36976dcb7eb218ef5",
+      "series_id": "e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "deletion_containing_fraction",
+      "label": "deletion containing fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "8",
+      "denominator": "20",
+      "fraction": 0.4,
+      "percentage": "40%",
+      "observation_id": "f409fa32e7812c6f6dcdca6b99db746f118255b47cecf7f32e4ae59058e4737b",
+      "series_id": "f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_only_fraction",
+      "label": "indel only fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "fc2c8b7854f4ebcc73332237467eaea39753e1643fe1edc9029223a118fd7239",
+      "series_id": "fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654",
+      "sample_id": "bc002",
+      "sample_name": "bio2",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_only_fraction",
+      "label": "substitution only fraction",
+      "population_id": "1846728509f8ef53dbae05085bf86680e751461966579ece6d93294730c31e0c",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "9b18ccffc16b7f0f0301a5edbf648106a73c2dc880de53b4fde6e2baa874102b",
+      "series_id": "328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_and_deletion_containing_fraction",
+      "label": "insertion and deletion containing fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "86a368b8e9c788aaadc997935ee45ff466bb1be72253ed57d84c60cee1ea8b2f",
+      "series_id": "37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_plus_substitution_fraction",
+      "label": "indel plus substitution fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "0fcad6ce009d8721eb0c0a5d20e55454bda57a60aa4fbdfd79c20d74e3360164",
+      "series_id": "4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_containing_fraction",
+      "label": "insertion containing fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "16",
+      "denominator": "20",
+      "fraction": 0.8,
+      "percentage": "80%",
+      "observation_id": "30c9bda754d3fd502278eb4635672d979eb2ad096cce0e7e2b1a8d61f9826906",
+      "series_id": "5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "any_modification_fraction",
+      "label": "any modification fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "11e0b9df926fc260c36d4251852bc9fd6682e9a5318d012379e8a0b4f5d82da0",
+      "series_id": "61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_containing_fraction",
+      "label": "substitution containing fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "4",
+      "denominator": "20",
+      "fraction": 0.2,
+      "percentage": "20%",
+      "observation_id": "e278ad8f1e76a0f66c51b4f8057b3330cc40651f2061860bcb0cf49dfc533b1d",
+      "series_id": "6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "unmodified_fraction",
+      "label": "unmodified fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "16",
+      "denominator": "20",
+      "fraction": 0.8,
+      "percentage": "80%",
+      "observation_id": "25a34e3fca60050e15498cb4e732b09a91bae6558f2dcf1ed5622e754c8730b6",
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_fraction",
+      "label": "Indel fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "16",
+      "denominator": "20",
+      "fraction": 0.8,
+      "percentage": "80%",
+      "observation_id": "57c108f1b689c8e779e115b82eb11b1eb11ced50a9b6cea4faa404c0f6c84bf7",
+      "series_id": "e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "deletion_containing_fraction",
+      "label": "deletion containing fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "16",
+      "denominator": "20",
+      "fraction": 0.8,
+      "percentage": "80%",
+      "observation_id": "e918afab6efc1ba31f47cfe3e221ceea204a44e18573e3738969fa1c507562ec",
+      "series_id": "f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_only_fraction",
+      "label": "indel only fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "f09a8cba466de29b917921043f849dc14dad78b31044919d6ec23e0a8cff41b8",
+      "series_id": "fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654",
+      "sample_id": "bc003",
+      "sample_name": "bio3",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_only_fraction",
+      "label": "substitution only fraction",
+      "population_id": "ec657dcd477a1606c18f21b72520f03a2d991996a82b7a269c10e7fe17b753d0",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "06d9ea9ff24e74dbe617c0de4c27a4c881e2688456ed7b32b33917e4118d68f2",
+      "series_id": "328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_and_deletion_containing_fraction",
+      "label": "insertion and deletion containing fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "25327c572fdfc04de240740b20752fa43fd2fda816f84c77cec77e26f8503d40",
+      "series_id": "37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_plus_substitution_fraction",
+      "label": "indel plus substitution fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "93712ada069dfab67bb8ee6e9cf05f67dcbaf0f1df1fd582dc9bcadfdefd0c00",
+      "series_id": "4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "insertion_containing_fraction",
+      "label": "insertion containing fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "18",
+      "denominator": "20",
+      "fraction": 0.9,
+      "percentage": "90%",
+      "observation_id": "a6b4e4b14c8b0d0321bdef42a1bb115d7091fec15812be046081d145c05a8031",
+      "series_id": "5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "any_modification_fraction",
+      "label": "any modification fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "40e3fb09f021f5684ce76a7d9d0b1038d5a357530b2250865945901ba9202bde",
+      "series_id": "61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_containing_fraction",
+      "label": "substitution containing fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "2",
+      "denominator": "20",
+      "fraction": 0.1,
+      "percentage": "10%",
+      "observation_id": "42150bea8f6805a77653760ddb7a80a6514e2fe1bbfc8e2bdb38dfdfd34d9705",
+      "series_id": "6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "unmodified_fraction",
+      "label": "unmodified fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "18",
+      "denominator": "20",
+      "fraction": 0.9,
+      "percentage": "90%",
+      "observation_id": "6ea2226f27a04367f7c2bf7475897b0408c11b1050f78bb289112397307a94c8",
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_fraction",
+      "label": "Indel fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "18",
+      "denominator": "20",
+      "fraction": 0.9,
+      "percentage": "90%",
+      "observation_id": "f9843308a86276736e54f36a9b0a17bb6fa133de6ba2f24b22e1adada857b3b2",
+      "series_id": "e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "deletion_containing_fraction",
+      "label": "deletion containing fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "18",
+      "denominator": "20",
+      "fraction": 0.9,
+      "percentage": "90%",
+      "observation_id": "0bb9920281f2ff037b0da18acc353b37aec2cf71f94350681df920f8b3b6bd40",
+      "series_id": "f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "indel_only_fraction",
+      "label": "indel only fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    },
+    {
+      "numerator": "0",
+      "denominator": "20",
+      "fraction": 0.0,
+      "percentage": "0%",
+      "observation_id": "289116fe563eb8fe0a4752fc87125f4d5e380d9a8b8e6dc53d53aed43f610baf",
+      "series_id": "fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654",
+      "sample_id": "bc004",
+      "sample_name": "bio4",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false,
+      "target": "T1",
+      "copy_name": null,
+      "policy_id": null,
+      "policy": [],
+      "metric_name": "substitution_only_fraction",
+      "label": "substitution only fraction",
+      "population_id": "dceb3252aa26ed2c5d96c8f5495d830b59c7b995da01697ed2ec207a7a9fda6e",
+      "population_scope": "target_all_prepared",
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "reasons": [],
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "denominator_label": "Authoritative aligned reads",
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      },
+      "evidence": []
+    }
+  ],
+  "groups": [
+    {
+      "series_id": "5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493",
+      "metric_name": "any_modification_fraction",
+      "label": "any modification fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.3,
+      "mean_percentage": "30%",
+      "minimum": 0.2,
+      "maximum": 0.4,
+      "median": 0.3,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.2"
+        },
+        {
+          "name": "bio2",
+          "value": "0.4"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493",
+      "metric_name": "any_modification_fraction",
+      "label": "any modification fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.85,
+      "mean_percentage": "85%",
+      "minimum": 0.8,
+      "maximum": 0.9,
+      "median": 0.85,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.8"
+        },
+        {
+          "name": "bio4",
+          "value": "0.9"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962",
+      "metric_name": "deletion_containing_fraction",
+      "label": "deletion containing fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.3,
+      "mean_percentage": "30%",
+      "minimum": 0.2,
+      "maximum": 0.4,
+      "median": 0.3,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.2"
+        },
+        {
+          "name": "bio2",
+          "value": "0.4"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962",
+      "metric_name": "deletion_containing_fraction",
+      "label": "deletion containing fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.85,
+      "mean_percentage": "85%",
+      "minimum": 0.8,
+      "maximum": 0.9,
+      "median": 0.85,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.8"
+        },
+        {
+          "name": "bio4",
+          "value": "0.9"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "metric_name": "indel_fraction",
+      "label": "Indel fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.3,
+      "mean_percentage": "30%",
+      "minimum": 0.2,
+      "maximum": 0.4,
+      "median": 0.3,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.2"
+        },
+        {
+          "name": "bio2",
+          "value": "0.4"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "metric_name": "indel_fraction",
+      "label": "Indel fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.85,
+      "mean_percentage": "85%",
+      "minimum": 0.8,
+      "maximum": 0.9,
+      "median": 0.85,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.8"
+        },
+        {
+          "name": "bio4",
+          "value": "0.9"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3",
+      "metric_name": "indel_only_fraction",
+      "label": "indel only fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.3,
+      "mean_percentage": "30%",
+      "minimum": 0.2,
+      "maximum": 0.4,
+      "median": 0.3,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.2"
+        },
+        {
+          "name": "bio2",
+          "value": "0.4"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3",
+      "metric_name": "indel_only_fraction",
+      "label": "indel only fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.85,
+      "mean_percentage": "85%",
+      "minimum": 0.8,
+      "maximum": 0.9,
+      "median": 0.85,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.8"
+        },
+        {
+          "name": "bio4",
+          "value": "0.9"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c",
+      "metric_name": "indel_plus_substitution_fraction",
+      "label": "indel plus substitution fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.0"
+        },
+        {
+          "name": "bio2",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c",
+      "metric_name": "indel_plus_substitution_fraction",
+      "label": "indel plus substitution fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.0"
+        },
+        {
+          "name": "bio4",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a",
+      "metric_name": "insertion_and_deletion_containing_fraction",
+      "label": "insertion and deletion containing fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.1,
+      "mean_percentage": "10%",
+      "minimum": 0.0,
+      "maximum": 0.2,
+      "median": 0.1,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.2"
+        },
+        {
+          "name": "bio2",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a",
+      "metric_name": "insertion_and_deletion_containing_fraction",
+      "label": "insertion and deletion containing fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.0"
+        },
+        {
+          "name": "bio4",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d",
+      "metric_name": "insertion_containing_fraction",
+      "label": "insertion containing fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.1,
+      "mean_percentage": "10%",
+      "minimum": 0.0,
+      "maximum": 0.2,
+      "median": 0.1,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.2"
+        },
+        {
+          "name": "bio2",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d",
+      "metric_name": "insertion_containing_fraction",
+      "label": "insertion containing fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.0"
+        },
+        {
+          "name": "bio4",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec",
+      "metric_name": "substitution_containing_fraction",
+      "label": "substitution containing fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.0"
+        },
+        {
+          "name": "bio2",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec",
+      "metric_name": "substitution_containing_fraction",
+      "label": "substitution containing fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.0"
+        },
+        {
+          "name": "bio4",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654",
+      "metric_name": "substitution_only_fraction",
+      "label": "substitution only fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.0"
+        },
+        {
+          "name": "bio2",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654",
+      "metric_name": "substitution_only_fraction",
+      "label": "substitution only fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.0,
+      "mean_percentage": "0%",
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "median": 0.0,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.0"
+        },
+        {
+          "name": "bio4",
+          "value": "0.0"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944",
+      "metric_name": "unmodified_fraction",
+      "label": "unmodified fraction",
+      "condition": "synthetic-nuclease / A / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.7,
+      "mean_percentage": "70%",
+      "minimum": 0.6,
+      "maximum": 0.8,
+      "median": 0.7,
+      "points": [
+        {
+          "name": "bio1",
+          "value": "0.8"
+        },
+        {
+          "name": "bio2",
+          "value": "0.6"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio1",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio2",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "series_id": "6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944",
+      "metric_name": "unmodified_fraction",
+      "label": "unmodified fraction",
+      "condition": "synthetic-nuclease / B / dpi 6",
+      "expected_n": "2",
+      "reportable_n": "2",
+      "mean": 0.15,
+      "mean_percentage": "15%",
+      "minimum": 0.1,
+      "maximum": 0.2,
+      "median": 0.15,
+      "points": [
+        {
+          "name": "bio3",
+          "value": "0.2"
+        },
+        {
+          "name": "bio4",
+          "value": "0.1"
+        }
+      ],
+      "availability": [
+        {
+          "name": "bio3",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        },
+        {
+          "name": "bio4",
+          "value": "{\"reasons\": [], \"status\": \"REPORTABLE\"}"
+        }
+      ],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "contrast_id": "indel",
+      "series_id": "af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540",
+      "metric_name": "indel_fraction",
+      "group_a": "synthetic-nuclease / A / dpi 6",
+      "group_b": "synthetic-nuclease / B / dpi 6",
+      "effect": 0.55,
+      "p": 0.3333333333333333,
+      "q": 0.3333333333333333,
+      "expected_a": "2",
+      "expected_b": "2",
+      "used_a": "2",
+      "used_b": "2",
+      "family": "primary",
+      "pairing_mode": "unpaired",
+      "blocks": [],
+      "exclusions": [],
+      "status": "REPORTABLE",
+      "reasons": [],
+      "source": {
+        "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+        "name": "statistics/result.json",
+        "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+        "size_bytes": "202536",
+        "kind": "json",
+        "downloadable": true
+      }
+    }
+  ],
+  "populations": [
+    {
+      "sample_id": null,
+      "name": "Demultiplexing read pairs",
+      "role": "Raw pool terminal categories",
+      "counts": [
+        {
+          "name": "ambiguous_barcode_match",
+          "value": "0"
+        },
+        {
+          "name": "assigned_expected_pair",
+          "value": "80"
+        },
+        {
+          "name": "assignment_percentage",
+          "value": "100.0"
+        },
+        {
+          "name": "barcode_bridge_qc",
+          "value": "{\"forward\": {\"recognized\": 80}, \"reverse\": {\"recognized\": 80}}"
+        },
+        {
+          "name": "barcode_catalog",
+          "value": "{\"authoritative\": false, \"matching_safety\": {\"forward\": {\"barcode_count\": 4, \"barcode_length\": 8, \"minimum_hamming_distance\": 1, \"overlapping_mismatch_neighborhoods\": false}, \"reverse\": {\"barcode_count\": 1, \"barcode_length\": 8, \"minimum_hamming_distance\": null, \"overlapping_mismatch_neighborhoods\": false}}, \"resolved\": {\"forward\": {\"forward_AAAAAAAA\": \"AAAAAAAA\", \"forward_AAAAAAAC\": \"AAAAAAAC\", \"forward_AAAAAAAG\": \"AAAAAAAG\", \"forward_AAAAAAAT\": \"AAAAAAAT\"}, \"reverse\": {\"reverse_CCCCCCCC\": \"CCCCCCCC\"}}, \"resolved_sha256\": \"ddaf5d66960f6a652ede0925c0cf190db14aee0cc91b4c1c50c6f02ba75359b0\", \"source\": \"explicit sample sequences\"}"
+        },
+        {
+          "name": "completed_at",
+          "value": "\"2026-10-25T08:07:29.895990+00:00\""
+        },
+        {
+          "name": "extraction_profile",
+          "value": "{\"name\": \"custom\", \"resolved_sha256\": \"874e0fe21d13ae7e68f2546bb5b9b53b13fd79c139f617422d34005325686663\", \"rules\": {\"forward\": {\"bridge\": null, \"expected_prefix\": null, \"expected_suffix\": null, \"length\": 8, \"start\": 0}, \"reverse\": {\"bridge\": null, \"expected_prefix\": null, \"expected_suffix\": null, \"length\": 8, \"start\": 0}}, \"source_sha256\": null}"
+        },
+        {
+          "name": "forward_only",
+          "value": "0"
+        },
+        {
+          "name": "input_provenance",
+          "value": "{\"r1\": {\"mtime_ns\": 1792915648320404464, \"path\": \"/workspace/m10-implementation/focused-real/indel_nuclease/inputs/raw_R1.fastq.gz\", \"sha256\": \"babe74ca2aeedee56ba2173b4865fcbdadcddfd49918e9ea7f4f110a50eacfcc\", \"size_bytes\": 531}, \"r2\": {\"mtime_ns\": 1792915648321294719, \"path\": \"/workspace/m10-implementation/focused-real/indel_nuclease/inputs/raw_R2.fastq.gz\", \"sha256\": \"42252f117e5bf40b3c3790af7c3c254a0545377d559c94732dd5bf0d46b575d2\", \"size_bytes\": 512}, \"samples\": {\"mtime_ns\": 1792915649721022610, \"path\": \"/workspace/m10-implementation/focused-real/indel_nuclease/workflow/inputs/f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4/samples.csv\", \"sha256\": \"f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4\", \"size_bytes\": 357}}"
+        },
+        {
+          "name": "invocation",
+          "value": "{\"argv\": [], \"cwd\": \"/workspace/crispresso-pe-pipeline-m10\"}"
+        },
+        {
+          "name": "mismatch_policy",
+          "value": "{\"max_mismatches_per_end\": 0, \"method\": \"exact\", \"non_acgt_motifs\": \"unknown\", \"sample_pair_rescue\": false, \"ties\": \"ambiguous\"}"
+        },
+        {
+          "name": "no_barcode_match",
+          "value": "0"
+        },
+        {
+          "name": "output_files",
+          "value": "{\"01_demux_QC/barcode_counts.csv\": {\"sha256\": \"a16dc7aa4cbc23af6b577b885d85690b56a145147843dbaae896caa5746ffa78\", \"size_bytes\": 306}, \"01_demux_QC/barcode_pair_matrix.csv\": {\"sha256\": \"aad5cfa0d87599de33415986fc0b25b6c17e3433ee49d469756f4ae0f59ecab7\", \"size_bytes\": 121}, \"02_demultiplexed_fastq/bc001_R1.fastq.gz\": {\"mate\": 1, \"records\": 20, \"sample_id\": \"bc001\", \"sha256\": \"cc2c37abb0531fc5865ed12024e3d185b5670e6530bd56fd8f4756f292e14e9c\", \"size_bytes\": 250}, \"02_demultiplexed_fastq/bc001_R2.fastq.gz\": {\"mate\": 2, \"records\": 20, \"sample_id\": \"bc001\", \"sha256\": \"e389940c2a74a3748dc7de154f83de51fb82e3e1c2216163765d3350207ef821\", \"size_bytes\": 250}, \"02_demultiplexed_fastq/bc002_R1.fastq.gz\": {\"mate\": 1, \"records\": 20, \"sample_id\": \"bc002\", \"sha256\": \"54d605e0ede36c5323cdcccd143d88501d1391acbe958b3fdbef0bf0c31e5199\", \"size_bytes\": 252}, \"02_demultiplexed_fastq/bc002_R2.fastq.gz\": {\"mate\": 2, \"records\": 20, \"sample_id\": \"bc002\", \"sha256\": \"9c112b060e6496ffa3a7f38321ac658f8e39268498bd3bf3f9a820cf4d490f6b\", \"size_bytes\": 251}, \"02_demultiplexed_fastq/bc003_R1.fastq.gz\": {\"mate\": 1, \"records\": 20, \"sample_id\": \"bc003\", \"sha256\": \"ff0081cbb9060b3d23fa7d434ef90ea17e0dd3b81285a21b8008cc8c0f9b7579\", \"size_bytes\": 251}, \"02_demultiplexed_fastq/bc003_R2.fastq.gz\": {\"mate\": 2, \"records\": 20, \"sample_id\": \"bc003\", \"sha256\": \"9c3fb93ed07588d2a0cd754f69a23c46c17345069453ab681f2c3ad435043e2f\", \"size_bytes\": 251}, \"02_demultiplexed_fastq/bc004_R1.fastq.gz\": {\"mate\": 1, \"records\": 20, \"sample_id\": \"bc004\", \"sha256\": \"5e552011bc55cf9a112db23d259ba7f8aef3fe7ba0155d066292e8a5cf3d01cf\", \"size_bytes\": 251}, \"02_demultiplexed_fastq/bc004_R2.fastq.gz\": {\"mate\": 2, \"records\": 20, \"sample_id\": \"bc004\", \"sha256\": \"962e080ee3ce92c404c82fdfc32724a3d06df77933aa30ca11460c5c29a7b8da\", \"size_bytes\": 251}}"
+        },
+        {
+          "name": "per_sample_assigned_read_pairs",
+          "value": "{\"bc001\": 20, \"bc002\": 20, \"bc003\": 20, \"bc004\": 20}"
+        },
+        {
+          "name": "pipeline_version",
+          "value": "\"0.8.0\""
+        },
+        {
+          "name": "reconciliation",
+          "value": "{\"checks\": {\"expected_matrix_cells_equal_samples\": true, \"expected_matrix_sum_equals_assigned\": true, \"mate_records_equal_sample_counts\": true, \"matrix_equals_recognized_pairs\": true, \"on_disk_matrix_matches_counts\": true, \"sample_counts_equal_assigned\": true, \"terminal_categories_equal_input\": true, \"written_pairs_equal_sample_counts\": true}, \"passed\": true}"
+        },
+        {
+          "name": "resolved_config",
+          "value": "{\"crispresso\": {\"copy_assignment_policy\": \"require_validated\", \"core_executable\": \"CRISPResso\", \"min_reads_to_use_region\": 100, \"pooled_executable\": \"CRISPRessoPooled\", \"version\": \"2.3.4\"}, \"demux\": {\"ambiguous_policy\": \"unassigned\", \"bridge_qc\": true, \"forward_bridge\": null, \"forward_length\": 8, \"forward_offset\": 0, \"max_mismatches\": 0, \"max_open_sample_pairs\": 32, \"profile\": \"custom\", \"reverse_barcode_orientation\": \"as_read\", \"reverse_bridge\": null, \"reverse_length\": 8, \"reverse_offset\": 0, \"trim_barcodes\": false, \"trim_bridges\": false}, \"n_processes\": 1, \"qc\": {\"discriminating_variant_edit_distance\": 5, \"max_ambiguous_fraction\": 0.1, \"min_analyzable_reads\": 100, \"min_copy_fraction\": 0.1}, \"quantification\": {\"denominator\": \"nonambiguous_nondiscarded_aligned\", \"primary_metric\": \"precise_full_amplicon\"}, \"schema_version\": 1, \"statistics\": {\"block_column\": null, \"factors\": [], \"include_interaction\": false, \"min_biological_replicates\": 3, \"mode\": \"none\"}}"
+        },
+        {
+          "name": "resolved_config_sha256",
+          "value": "\"c9241407dd55d1e9cd26f751e133e8aa2a59c34bd7eac294fff4f4c427cfba88\""
+        },
+        {
+          "name": "reverse_only",
+          "value": "0"
+        },
+        {
+          "name": "samples",
+          "value": "[{\"barcode_id\": \"bc001\", \"biological_replicate\": \"1\", \"block_id\": null, \"dpi\": 6, \"editor\": \"synthetic-nuclease\", \"forward_barcode\": \"AAAAAAAA\", \"forward_barcode_id\": \"forward_AAAAAAAA\", \"paired\": false, \"reverse_barcode\": \"CCCCCCCC\", \"reverse_barcode_id\": \"reverse_CCCCCCCC\", \"sample_name\": \"bio1\", \"treatment\": \"A\"}, {\"barcode_id\": \"bc002\", \"biological_replicate\": \"2\", \"block_id\": null, \"dpi\": 6, \"editor\": \"synthetic-nuclease\", \"forward_barcode\": \"AAAAAAAC\", \"forward_barcode_id\": \"forward_AAAAAAAC\", \"paired\": false, \"reverse_barcode\": \"CCCCCCCC\", \"reverse_barcode_id\": \"reverse_CCCCCCCC\", \"sample_name\": \"bio2\", \"treatment\": \"A\"}, {\"barcode_id\": \"bc003\", \"biological_replicate\": \"1\", \"block_id\": null, \"dpi\": 6, \"editor\": \"synthetic-nuclease\", \"forward_barcode\": \"AAAAAAAG\", \"forward_barcode_id\": \"forward_AAAAAAAG\", \"paired\": false, \"reverse_barcode\": \"CCCCCCCC\", \"reverse_barcode_id\": \"reverse_CCCCCCCC\", \"sample_name\": \"bio3\", \"treatment\": \"B\"}, {\"barcode_id\": \"bc004\", \"biological_replicate\": \"2\", \"block_id\": null, \"dpi\": 6, \"editor\": \"synthetic-nuclease\", \"forward_barcode\": \"AAAAAAAT\", \"forward_barcode_id\": \"forward_AAAAAAAT\", \"paired\": false, \"reverse_barcode\": \"CCCCCCCC\", \"reverse_barcode_id\": \"reverse_CCCCCCCC\", \"sample_name\": \"bio4\", \"treatment\": \"B\"}]"
+        },
+        {
+          "name": "schema_version",
+          "value": "2"
+        },
+        {
+          "name": "short_barcode_reads",
+          "value": "{\"forward\": 0, \"reverse\": 0}"
+        },
+        {
+          "name": "software",
+          "value": "{\"dependencies\": {\"PyYAML\": \"6.0.3\", \"contourpy\": \"1.4.0\", \"cycler\": \"0.12.1\", \"fonttools\": \"4.67.0\", \"kiwisolver\": \"1.5.1\", \"matplotlib\": \"3.11.2\", \"numpy\": \"2.5.4\", \"packaging\": \"26.3\", \"pillow\": \"13.0.0\", \"pydantic\": \"2.14.1\", \"pydantic_core\": \"2.50.1\", \"pyparsing\": \"3.3.3\", \"python-dateutil\": \"2.9.0.post0\"}, \"git_commit\": \"9e9a51fb20e56a3421fdfa156375170cd6b257dc\", \"git_dirty\": true, \"pipeline_version\": \"0.8.0\", \"python_executable\": \"/workspace/m10-implementation/venv/bin/python\", \"python_version\": \"3.12.14\"}"
+        },
+        {
+          "name": "started_at",
+          "value": "\"2026-10-25T08:07:29.776000+00:00\""
+        },
+        {
+          "name": "status",
+          "value": "\"completed\""
+        },
+        {
+          "name": "total_input_read_pairs",
+          "value": "80"
+        },
+        {
+          "name": "unexpected_valid_barcode_pair",
+          "value": "0"
+        },
+        {
+          "name": "visualization",
+          "value": "{\"path\": \"01_demux_QC/barcode_pair_heatmap.png\", \"status\": \"completed\"}"
+        },
+        {
+          "name": "warnings",
+          "value": "[]"
+        }
+      ],
+      "source": {
+        "artifact_id": "521c9488fde848fe8fe67c0c17e2a378",
+        "name": "demux/01_demux_QC/demux_summary.json",
+        "sha256": "fb5889d81e216a3a1e85f959c59fd91bf3f37680c721ff50db1257951ba19edb",
+        "size_bytes": "9594",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc001",
+      "name": "Single-copy identity \u2192 CRISPResso alignment \u2192 ordinary population",
+      "role": "Experimental single-copy identity; no PE copy-routing partition",
+      "counts": [
+        {
+          "name": "backend_input_reads",
+          "value": "20"
+        },
+        {
+          "name": "reads_after_preprocessing",
+          "value": "20"
+        },
+        {
+          "name": "aligned_reads",
+          "value": "20"
+        },
+        {
+          "name": "unaligned_reads",
+          "value": "0"
+        },
+        {
+          "name": "class_counts",
+          "value": "{\"ambiguous\": 0, \"discarded\": 0, \"indel_only\": 4, \"indel_plus_substitution\": 0, \"substitution_only\": 0, \"unmodified\": 16}"
+        }
+      ],
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc002",
+      "name": "Single-copy identity \u2192 CRISPResso alignment \u2192 ordinary population",
+      "role": "Experimental single-copy identity; no PE copy-routing partition",
+      "counts": [
+        {
+          "name": "backend_input_reads",
+          "value": "20"
+        },
+        {
+          "name": "reads_after_preprocessing",
+          "value": "20"
+        },
+        {
+          "name": "aligned_reads",
+          "value": "20"
+        },
+        {
+          "name": "unaligned_reads",
+          "value": "0"
+        },
+        {
+          "name": "class_counts",
+          "value": "{\"ambiguous\": 0, \"discarded\": 0, \"indel_only\": 8, \"indel_plus_substitution\": 0, \"substitution_only\": 0, \"unmodified\": 12}"
+        }
+      ],
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc003",
+      "name": "Single-copy identity \u2192 CRISPResso alignment \u2192 ordinary population",
+      "role": "Experimental single-copy identity; no PE copy-routing partition",
+      "counts": [
+        {
+          "name": "backend_input_reads",
+          "value": "20"
+        },
+        {
+          "name": "reads_after_preprocessing",
+          "value": "20"
+        },
+        {
+          "name": "aligned_reads",
+          "value": "20"
+        },
+        {
+          "name": "unaligned_reads",
+          "value": "0"
+        },
+        {
+          "name": "class_counts",
+          "value": "{\"ambiguous\": 0, \"discarded\": 0, \"indel_only\": 16, \"indel_plus_substitution\": 0, \"substitution_only\": 0, \"unmodified\": 4}"
+        }
+      ],
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc004",
+      "name": "Single-copy identity \u2192 CRISPResso alignment \u2192 ordinary population",
+      "role": "Experimental single-copy identity; no PE copy-routing partition",
+      "counts": [
+        {
+          "name": "backend_input_reads",
+          "value": "20"
+        },
+        {
+          "name": "reads_after_preprocessing",
+          "value": "20"
+        },
+        {
+          "name": "aligned_reads",
+          "value": "20"
+        },
+        {
+          "name": "unaligned_reads",
+          "value": "0"
+        },
+        {
+          "name": "class_counts",
+          "value": "{\"ambiguous\": 0, \"discarded\": 0, \"indel_only\": 18, \"indel_plus_substitution\": 0, \"substitution_only\": 0, \"unmodified\": 2}"
+        }
+      ],
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      }
+    }
+  ],
+  "nuclease": [
+    {
+      "sample_id": "bc001",
+      "target": "T1",
+      "status": "REPORTABLE",
+      "window": [
+        {
+          "name": "derivation",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "profile_version",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "target_sequence",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "target_start",
+          "value": "100"
+        },
+        {
+          "name": "target_interval",
+          "value": "[100, 117]"
+        },
+        {
+          "name": "orientation",
+          "value": "\"forward\""
+        },
+        {
+          "name": "physical_nick_boundaries",
+          "value": "[[104, 105], [112, 113]]"
+        },
+        {
+          "name": "target_oriented_nick_labels",
+          "value": "[\"5|6\", \"13|14\"]"
+        },
+        {
+          "name": "amplicon_top_strand_target",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "amplicon_top_strand_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "target_oriented_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "selected_window",
+          "value": "\"W2\""
+        },
+        {
+          "name": "intervals",
+          "value": "[[104, 113]]"
+        },
+        {
+          "name": "coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "classes": [
+        {
+          "numerator": "16",
+          "denominator": "20",
+          "fraction": 0.8,
+          "percentage": "80%",
+          "name": "unmodified"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_only"
+        },
+        {
+          "numerator": "4",
+          "denominator": "20",
+          "fraction": 0.2,
+          "percentage": "20%",
+          "name": "indel_only"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "indel_plus_substitution"
+        }
+      ],
+      "overlapping": [
+        {
+          "numerator": "4",
+          "denominator": "20",
+          "fraction": 0.2,
+          "percentage": "20%",
+          "name": "insertion_containing_fraction"
+        },
+        {
+          "numerator": "4",
+          "denominator": "20",
+          "fraction": 0.2,
+          "percentage": "20%",
+          "name": "deletion_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_containing_fraction"
+        },
+        {
+          "numerator": "4",
+          "denominator": "20",
+          "fraction": 0.2,
+          "percentage": "20%",
+          "name": "insertion_and_deletion_containing_fraction"
+        },
+        {
+          "numerator": "4",
+          "denominator": "20",
+          "fraction": 0.2,
+          "percentage": "20%",
+          "name": "any_modification_fraction"
+        }
+      ],
+      "bins": [
+        {
+          "numerator": "4",
+          "denominator": "4",
+          "fraction": 1.0,
+          "percentage": "100%",
+          "net_size": "0"
+        }
+      ],
+      "allele_count": "2",
+      "expected_configuration": [
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "resolved_configuration": [
+        {
+          "name": "fastq_r1",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "fastq_r2",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq_name",
+          "value": "\"\""
+        },
+        {
+          "name": "config_file",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "file_prefix",
+          "value": "\"\""
+        },
+        {
+          "name": "name",
+          "value": "\"nuclease\""
+        },
+        {
+          "name": "display_name",
+          "value": "\"\""
+        },
+        {
+          "name": "suppress_amplicon_name_truncation",
+          "value": "false"
+        },
+        {
+          "name": "output_folder",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "verbosity",
+          "value": "3"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "trimmomatic_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "trimmomatic_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "flash_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "max_paired_end_reads_overlap",
+          "value": "\"None\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "stringent_flash_merging",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "plot_histogram_outliers",
+          "value": "false"
+        },
+        {
+          "name": "plot_window_size",
+          "value": "20"
+        },
+        {
+          "name": "min_frequency_alleles_around_cut_to_plot",
+          "value": "0.2"
+        },
+        {
+          "name": "expand_allele_plots_by_quantification",
+          "value": "false"
+        },
+        {
+          "name": "allele_plot_pcts_only_for_assigned_reference",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        },
+        {
+          "name": "annotate_wildtype_allele",
+          "value": "\"\""
+        },
+        {
+          "name": "keep_intermediate",
+          "value": "true"
+        },
+        {
+          "name": "dump",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "bowtie2_index",
+          "value": "\"\""
+        },
+        {
+          "name": "zip_output",
+          "value": "false"
+        },
+        {
+          "name": "max_rows_alleles_around_cut_to_plot",
+          "value": "50"
+        },
+        {
+          "name": "suppress_report",
+          "value": "true"
+        },
+        {
+          "name": "place_report_in_output_folder",
+          "value": "false"
+        },
+        {
+          "name": "suppress_plots",
+          "value": "true"
+        },
+        {
+          "name": "write_cleaned_report",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_output",
+          "value": "false"
+        },
+        {
+          "name": "conversion_nuc_from",
+          "value": "\"C\""
+        },
+        {
+          "name": "conversion_nuc_to",
+          "value": "\"T\""
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "dsODN",
+          "value": "\"\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "debug",
+          "value": "false"
+        },
+        {
+          "name": "no_rerun",
+          "value": "false"
+        },
+        {
+          "name": "n_processes",
+          "value": "\"1\""
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "save_also_png",
+          "value": "false"
+        },
+        {
+          "name": "disable_guardrails",
+          "value": "false"
+        },
+        {
+          "name": "use_matplotlib",
+          "value": "false"
+        },
+        {
+          "name": "halt_on_plot_fail",
+          "value": "false"
+        },
+        {
+          "name": "vcf_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_coordinates",
+          "value": "\"\""
+        },
+        {
+          "name": "base_editor_consider_changes_outside_qw",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_target_ref_skip_allele_count",
+          "value": "0"
+        }
+      ],
+      "source": {
+        "artifact_id": "90a88a66709849e1800f92bc2266ae36",
+        "name": "metrics/bc001/T1/result.json",
+        "sha256": "e37e92e31b85e882c13a874d9704d7cd26402fc5f5219374fcba01826301bd9e",
+        "size_bytes": "28252",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc002",
+      "target": "T1",
+      "status": "REPORTABLE",
+      "window": [
+        {
+          "name": "derivation",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "profile_version",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "target_sequence",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "target_start",
+          "value": "100"
+        },
+        {
+          "name": "target_interval",
+          "value": "[100, 117]"
+        },
+        {
+          "name": "orientation",
+          "value": "\"forward\""
+        },
+        {
+          "name": "physical_nick_boundaries",
+          "value": "[[104, 105], [112, 113]]"
+        },
+        {
+          "name": "target_oriented_nick_labels",
+          "value": "[\"5|6\", \"13|14\"]"
+        },
+        {
+          "name": "amplicon_top_strand_target",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "amplicon_top_strand_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "target_oriented_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "selected_window",
+          "value": "\"W2\""
+        },
+        {
+          "name": "intervals",
+          "value": "[[104, 113]]"
+        },
+        {
+          "name": "coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "classes": [
+        {
+          "numerator": "12",
+          "denominator": "20",
+          "fraction": 0.6,
+          "percentage": "60%",
+          "name": "unmodified"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_only"
+        },
+        {
+          "numerator": "8",
+          "denominator": "20",
+          "fraction": 0.4,
+          "percentage": "40%",
+          "name": "indel_only"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "indel_plus_substitution"
+        }
+      ],
+      "overlapping": [
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "insertion_containing_fraction"
+        },
+        {
+          "numerator": "8",
+          "denominator": "20",
+          "fraction": 0.4,
+          "percentage": "40%",
+          "name": "deletion_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "insertion_and_deletion_containing_fraction"
+        },
+        {
+          "numerator": "8",
+          "denominator": "20",
+          "fraction": 0.4,
+          "percentage": "40%",
+          "name": "any_modification_fraction"
+        }
+      ],
+      "bins": [
+        {
+          "numerator": "8",
+          "denominator": "8",
+          "fraction": 1.0,
+          "percentage": "100%",
+          "net_size": "-1"
+        }
+      ],
+      "allele_count": "2",
+      "expected_configuration": [
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "resolved_configuration": [
+        {
+          "name": "fastq_r1",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "fastq_r2",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq_name",
+          "value": "\"\""
+        },
+        {
+          "name": "config_file",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "file_prefix",
+          "value": "\"\""
+        },
+        {
+          "name": "name",
+          "value": "\"nuclease\""
+        },
+        {
+          "name": "display_name",
+          "value": "\"\""
+        },
+        {
+          "name": "suppress_amplicon_name_truncation",
+          "value": "false"
+        },
+        {
+          "name": "output_folder",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "verbosity",
+          "value": "3"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "trimmomatic_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "trimmomatic_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "flash_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "max_paired_end_reads_overlap",
+          "value": "\"None\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "stringent_flash_merging",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "plot_histogram_outliers",
+          "value": "false"
+        },
+        {
+          "name": "plot_window_size",
+          "value": "20"
+        },
+        {
+          "name": "min_frequency_alleles_around_cut_to_plot",
+          "value": "0.2"
+        },
+        {
+          "name": "expand_allele_plots_by_quantification",
+          "value": "false"
+        },
+        {
+          "name": "allele_plot_pcts_only_for_assigned_reference",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        },
+        {
+          "name": "annotate_wildtype_allele",
+          "value": "\"\""
+        },
+        {
+          "name": "keep_intermediate",
+          "value": "true"
+        },
+        {
+          "name": "dump",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "bowtie2_index",
+          "value": "\"\""
+        },
+        {
+          "name": "zip_output",
+          "value": "false"
+        },
+        {
+          "name": "max_rows_alleles_around_cut_to_plot",
+          "value": "50"
+        },
+        {
+          "name": "suppress_report",
+          "value": "true"
+        },
+        {
+          "name": "place_report_in_output_folder",
+          "value": "false"
+        },
+        {
+          "name": "suppress_plots",
+          "value": "true"
+        },
+        {
+          "name": "write_cleaned_report",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_output",
+          "value": "false"
+        },
+        {
+          "name": "conversion_nuc_from",
+          "value": "\"C\""
+        },
+        {
+          "name": "conversion_nuc_to",
+          "value": "\"T\""
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "dsODN",
+          "value": "\"\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "debug",
+          "value": "false"
+        },
+        {
+          "name": "no_rerun",
+          "value": "false"
+        },
+        {
+          "name": "n_processes",
+          "value": "\"1\""
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "save_also_png",
+          "value": "false"
+        },
+        {
+          "name": "disable_guardrails",
+          "value": "false"
+        },
+        {
+          "name": "use_matplotlib",
+          "value": "false"
+        },
+        {
+          "name": "halt_on_plot_fail",
+          "value": "false"
+        },
+        {
+          "name": "vcf_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_coordinates",
+          "value": "\"\""
+        },
+        {
+          "name": "base_editor_consider_changes_outside_qw",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_target_ref_skip_allele_count",
+          "value": "0"
+        }
+      ],
+      "source": {
+        "artifact_id": "54b6b60f10f841beb527923049255b8a",
+        "name": "metrics/bc002/T1/result.json",
+        "sha256": "c6c6f4ba42d74a8e677151397a1747d180f7d2974a9b2a81db4ff8ce4b0ea9b1",
+        "size_bytes": "28217",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc003",
+      "target": "T1",
+      "status": "REPORTABLE",
+      "window": [
+        {
+          "name": "derivation",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "profile_version",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "target_sequence",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "target_start",
+          "value": "100"
+        },
+        {
+          "name": "target_interval",
+          "value": "[100, 117]"
+        },
+        {
+          "name": "orientation",
+          "value": "\"forward\""
+        },
+        {
+          "name": "physical_nick_boundaries",
+          "value": "[[104, 105], [112, 113]]"
+        },
+        {
+          "name": "target_oriented_nick_labels",
+          "value": "[\"5|6\", \"13|14\"]"
+        },
+        {
+          "name": "amplicon_top_strand_target",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "amplicon_top_strand_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "target_oriented_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "selected_window",
+          "value": "\"W2\""
+        },
+        {
+          "name": "intervals",
+          "value": "[[104, 113]]"
+        },
+        {
+          "name": "coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "classes": [
+        {
+          "numerator": "4",
+          "denominator": "20",
+          "fraction": 0.2,
+          "percentage": "20%",
+          "name": "unmodified"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_only"
+        },
+        {
+          "numerator": "16",
+          "denominator": "20",
+          "fraction": 0.8,
+          "percentage": "80%",
+          "name": "indel_only"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "indel_plus_substitution"
+        }
+      ],
+      "overlapping": [
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "insertion_containing_fraction"
+        },
+        {
+          "numerator": "16",
+          "denominator": "20",
+          "fraction": 0.8,
+          "percentage": "80%",
+          "name": "deletion_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "insertion_and_deletion_containing_fraction"
+        },
+        {
+          "numerator": "16",
+          "denominator": "20",
+          "fraction": 0.8,
+          "percentage": "80%",
+          "name": "any_modification_fraction"
+        }
+      ],
+      "bins": [
+        {
+          "numerator": "16",
+          "denominator": "16",
+          "fraction": 1.0,
+          "percentage": "100%",
+          "net_size": "-1"
+        }
+      ],
+      "allele_count": "2",
+      "expected_configuration": [
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "resolved_configuration": [
+        {
+          "name": "fastq_r1",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "fastq_r2",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq_name",
+          "value": "\"\""
+        },
+        {
+          "name": "config_file",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "file_prefix",
+          "value": "\"\""
+        },
+        {
+          "name": "name",
+          "value": "\"nuclease\""
+        },
+        {
+          "name": "display_name",
+          "value": "\"\""
+        },
+        {
+          "name": "suppress_amplicon_name_truncation",
+          "value": "false"
+        },
+        {
+          "name": "output_folder",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "verbosity",
+          "value": "3"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "trimmomatic_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "trimmomatic_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "flash_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "max_paired_end_reads_overlap",
+          "value": "\"None\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "stringent_flash_merging",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "plot_histogram_outliers",
+          "value": "false"
+        },
+        {
+          "name": "plot_window_size",
+          "value": "20"
+        },
+        {
+          "name": "min_frequency_alleles_around_cut_to_plot",
+          "value": "0.2"
+        },
+        {
+          "name": "expand_allele_plots_by_quantification",
+          "value": "false"
+        },
+        {
+          "name": "allele_plot_pcts_only_for_assigned_reference",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        },
+        {
+          "name": "annotate_wildtype_allele",
+          "value": "\"\""
+        },
+        {
+          "name": "keep_intermediate",
+          "value": "true"
+        },
+        {
+          "name": "dump",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "bowtie2_index",
+          "value": "\"\""
+        },
+        {
+          "name": "zip_output",
+          "value": "false"
+        },
+        {
+          "name": "max_rows_alleles_around_cut_to_plot",
+          "value": "50"
+        },
+        {
+          "name": "suppress_report",
+          "value": "true"
+        },
+        {
+          "name": "place_report_in_output_folder",
+          "value": "false"
+        },
+        {
+          "name": "suppress_plots",
+          "value": "true"
+        },
+        {
+          "name": "write_cleaned_report",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_output",
+          "value": "false"
+        },
+        {
+          "name": "conversion_nuc_from",
+          "value": "\"C\""
+        },
+        {
+          "name": "conversion_nuc_to",
+          "value": "\"T\""
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "dsODN",
+          "value": "\"\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "debug",
+          "value": "false"
+        },
+        {
+          "name": "no_rerun",
+          "value": "false"
+        },
+        {
+          "name": "n_processes",
+          "value": "\"1\""
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "save_also_png",
+          "value": "false"
+        },
+        {
+          "name": "disable_guardrails",
+          "value": "false"
+        },
+        {
+          "name": "use_matplotlib",
+          "value": "false"
+        },
+        {
+          "name": "halt_on_plot_fail",
+          "value": "false"
+        },
+        {
+          "name": "vcf_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_coordinates",
+          "value": "\"\""
+        },
+        {
+          "name": "base_editor_consider_changes_outside_qw",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_target_ref_skip_allele_count",
+          "value": "0"
+        }
+      ],
+      "source": {
+        "artifact_id": "3ef8e48be7b6451aaf43d15e2777659d",
+        "name": "metrics/bc003/T1/result.json",
+        "sha256": "266c9876b53c053f1bdca4baaf86a3c11b2816c33d01a8b9c04f0369a6b733fc",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      }
+    },
+    {
+      "sample_id": "bc004",
+      "target": "T1",
+      "status": "REPORTABLE",
+      "window": [
+        {
+          "name": "derivation",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "profile_version",
+          "value": "\"tigr_tas_v1\""
+        },
+        {
+          "name": "target_sequence",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "target_start",
+          "value": "100"
+        },
+        {
+          "name": "target_interval",
+          "value": "[100, 117]"
+        },
+        {
+          "name": "orientation",
+          "value": "\"forward\""
+        },
+        {
+          "name": "physical_nick_boundaries",
+          "value": "[[104, 105], [112, 113]]"
+        },
+        {
+          "name": "target_oriented_nick_labels",
+          "value": "[\"5|6\", \"13|14\"]"
+        },
+        {
+          "name": "amplicon_top_strand_target",
+          "value": "\"TCTATAGGCAGTAAGAAG\""
+        },
+        {
+          "name": "amplicon_top_strand_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "target_oriented_between_cuts",
+          "value": "\"AGGCAGTA\""
+        },
+        {
+          "name": "selected_window",
+          "value": "\"W2\""
+        },
+        {
+          "name": "intervals",
+          "value": "[[104, 113]]"
+        },
+        {
+          "name": "coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "classes": [
+        {
+          "numerator": "2",
+          "denominator": "20",
+          "fraction": 0.1,
+          "percentage": "10%",
+          "name": "unmodified"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_only"
+        },
+        {
+          "numerator": "18",
+          "denominator": "20",
+          "fraction": 0.9,
+          "percentage": "90%",
+          "name": "indel_only"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "indel_plus_substitution"
+        }
+      ],
+      "overlapping": [
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "insertion_containing_fraction"
+        },
+        {
+          "numerator": "18",
+          "denominator": "20",
+          "fraction": 0.9,
+          "percentage": "90%",
+          "name": "deletion_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "substitution_containing_fraction"
+        },
+        {
+          "numerator": "0",
+          "denominator": "20",
+          "fraction": 0.0,
+          "percentage": "0%",
+          "name": "insertion_and_deletion_containing_fraction"
+        },
+        {
+          "numerator": "18",
+          "denominator": "20",
+          "fraction": 0.9,
+          "percentage": "90%",
+          "name": "any_modification_fraction"
+        }
+      ],
+      "bins": [
+        {
+          "numerator": "18",
+          "denominator": "18",
+          "fraction": 1.0,
+          "percentage": "100%",
+          "net_size": "-1"
+        }
+      ],
+      "allele_count": "2",
+      "expected_configuration": [
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        }
+      ],
+      "resolved_configuration": [
+        {
+          "name": "fastq_r1",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "fastq_r2",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "amplicon_seq",
+          "value": "\"TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG\""
+        },
+        {
+          "name": "amplicon_name",
+          "value": "\"Reference\""
+        },
+        {
+          "name": "amplicon_min_alignment_score",
+          "value": "\"\""
+        },
+        {
+          "name": "default_min_aln_score",
+          "value": "60"
+        },
+        {
+          "name": "expand_ambiguous_alignments",
+          "value": "false"
+        },
+        {
+          "name": "assign_ambiguous_alignments_to_first_reference",
+          "value": "false"
+        },
+        {
+          "name": "guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "guide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_seq",
+          "value": "\"None\""
+        },
+        {
+          "name": "flexiguide_homology",
+          "value": "80"
+        },
+        {
+          "name": "flexiguide_name",
+          "value": "\"\""
+        },
+        {
+          "name": "flexiguide_gap_open_penalty",
+          "value": "-20"
+        },
+        {
+          "name": "flexiguide_gap_extend_penalty",
+          "value": "-2"
+        },
+        {
+          "name": "discard_guide_positions_overhanging_amplicon_edge",
+          "value": "false"
+        },
+        {
+          "name": "expected_hdr_amplicon_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "coding_seq_name",
+          "value": "\"\""
+        },
+        {
+          "name": "config_file",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "min_average_read_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_single_bp_quality",
+          "value": "0"
+        },
+        {
+          "name": "min_bp_quality_or_N",
+          "value": "0"
+        },
+        {
+          "name": "file_prefix",
+          "value": "\"\""
+        },
+        {
+          "name": "name",
+          "value": "\"nuclease\""
+        },
+        {
+          "name": "display_name",
+          "value": "\"\""
+        },
+        {
+          "name": "suppress_amplicon_name_truncation",
+          "value": "false"
+        },
+        {
+          "name": "output_folder",
+          "value": "\"<local path>\""
+        },
+        {
+          "name": "verbosity",
+          "value": "3"
+        },
+        {
+          "name": "split_interleaved_input",
+          "value": "false"
+        },
+        {
+          "name": "trim_sequences",
+          "value": "false"
+        },
+        {
+          "name": "trimmomatic_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "trimmomatic_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "flash_command",
+          "value": "\"None\""
+        },
+        {
+          "name": "fastp_command",
+          "value": "\"fastp\""
+        },
+        {
+          "name": "crispresso_merge",
+          "value": "false"
+        },
+        {
+          "name": "fastp_options_string",
+          "value": "\"\""
+        },
+        {
+          "name": "min_paired_end_reads_overlap",
+          "value": "10"
+        },
+        {
+          "name": "max_paired_end_reads_overlap",
+          "value": "\"None\""
+        },
+        {
+          "name": "samtools_exclude_flags",
+          "value": "\"0\""
+        },
+        {
+          "name": "stringent_flash_merging",
+          "value": "false"
+        },
+        {
+          "name": "force_merge_pairs",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_size",
+          "value": "\"1\""
+        },
+        {
+          "name": "quantification_window_center",
+          "value": "\"-3\""
+        },
+        {
+          "name": "exclude_bp_from_left",
+          "value": "0"
+        },
+        {
+          "name": "exclude_bp_from_right",
+          "value": "0"
+        },
+        {
+          "name": "use_legacy_insertion_quantification",
+          "value": "false"
+        },
+        {
+          "name": "ignore_substitutions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_insertions",
+          "value": "false"
+        },
+        {
+          "name": "ignore_deletions",
+          "value": "false"
+        },
+        {
+          "name": "discard_indel_reads",
+          "value": "false"
+        },
+        {
+          "name": "needleman_wunsch_gap_open",
+          "value": "-20"
+        },
+        {
+          "name": "needleman_wunsch_gap_extend",
+          "value": "-2"
+        },
+        {
+          "name": "needleman_wunsch_gap_incentive",
+          "value": "1"
+        },
+        {
+          "name": "needleman_wunsch_aln_matrix_loc",
+          "value": "\"EDNAFULL\""
+        },
+        {
+          "name": "aln_seed_count",
+          "value": "5"
+        },
+        {
+          "name": "aln_seed_len",
+          "value": "10"
+        },
+        {
+          "name": "aln_seed_min",
+          "value": "2"
+        },
+        {
+          "name": "plot_histogram_outliers",
+          "value": "false"
+        },
+        {
+          "name": "plot_window_size",
+          "value": "20"
+        },
+        {
+          "name": "min_frequency_alleles_around_cut_to_plot",
+          "value": "0.2"
+        },
+        {
+          "name": "expand_allele_plots_by_quantification",
+          "value": "false"
+        },
+        {
+          "name": "allele_plot_pcts_only_for_assigned_reference",
+          "value": "false"
+        },
+        {
+          "name": "quantification_window_coordinates",
+          "value": "\"104-113\""
+        },
+        {
+          "name": "annotate_wildtype_allele",
+          "value": "\"\""
+        },
+        {
+          "name": "keep_intermediate",
+          "value": "true"
+        },
+        {
+          "name": "dump",
+          "value": "false"
+        },
+        {
+          "name": "write_detailed_allele_table",
+          "value": "true"
+        },
+        {
+          "name": "fastq_output",
+          "value": "false"
+        },
+        {
+          "name": "bam_output",
+          "value": "false"
+        },
+        {
+          "name": "bowtie2_index",
+          "value": "\"\""
+        },
+        {
+          "name": "zip_output",
+          "value": "false"
+        },
+        {
+          "name": "max_rows_alleles_around_cut_to_plot",
+          "value": "50"
+        },
+        {
+          "name": "suppress_report",
+          "value": "true"
+        },
+        {
+          "name": "place_report_in_output_folder",
+          "value": "false"
+        },
+        {
+          "name": "suppress_plots",
+          "value": "true"
+        },
+        {
+          "name": "write_cleaned_report",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_output",
+          "value": "false"
+        },
+        {
+          "name": "conversion_nuc_from",
+          "value": "\"C\""
+        },
+        {
+          "name": "conversion_nuc_to",
+          "value": "\"T\""
+        },
+        {
+          "name": "prime_editing_pegRNA_spacer_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_extension_quantification_window_size",
+          "value": "5"
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_pegRNA_scaffold_min_match_length",
+          "value": "1"
+        },
+        {
+          "name": "prime_editing_nicking_guide_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_prime_edited_ref_seq",
+          "value": "\"\""
+        },
+        {
+          "name": "prime_editing_override_sequence_checks",
+          "value": "false"
+        },
+        {
+          "name": "prime_editing_gap_open_penalty",
+          "value": "-50"
+        },
+        {
+          "name": "prime_editing_gap_extend_penalty",
+          "value": "0"
+        },
+        {
+          "name": "crispresso1_mode",
+          "value": "false"
+        },
+        {
+          "name": "dsODN",
+          "value": "\"\""
+        },
+        {
+          "name": "auto",
+          "value": "false"
+        },
+        {
+          "name": "debug",
+          "value": "false"
+        },
+        {
+          "name": "no_rerun",
+          "value": "false"
+        },
+        {
+          "name": "n_processes",
+          "value": "\"1\""
+        },
+        {
+          "name": "bam_input",
+          "value": "\"\""
+        },
+        {
+          "name": "bam_chr_loc",
+          "value": "\"\""
+        },
+        {
+          "name": "save_also_png",
+          "value": "false"
+        },
+        {
+          "name": "disable_guardrails",
+          "value": "false"
+        },
+        {
+          "name": "use_matplotlib",
+          "value": "false"
+        },
+        {
+          "name": "halt_on_plot_fail",
+          "value": "false"
+        },
+        {
+          "name": "vcf_output",
+          "value": "false"
+        },
+        {
+          "name": "amplicon_coordinates",
+          "value": "\"\""
+        },
+        {
+          "name": "base_editor_consider_changes_outside_qw",
+          "value": "false"
+        },
+        {
+          "name": "base_editor_target_ref_skip_allele_count",
+          "value": "0"
+        }
+      ],
+      "source": {
+        "artifact_id": "27d7c12e6a634531bc16f1fff3e3c029",
+        "name": "metrics/bc004/T1/result.json",
+        "sha256": "fd3f1559e7cd17d6bd03e64a055a16519aca1e68ead7c7dacb6215f69dc23446",
+        "size_bytes": "28222",
+        "kind": "json",
+        "downloadable": true
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "name": "viewer_version",
+      "value": "\"0.8.0\""
+    },
+    {
+      "name": "source_software",
+      "value": "{\"dependencies\": {\"PyYAML\": \"6.0.3\", \"contourpy\": \"1.4.0\", \"cycler\": \"0.12.1\", \"fonttools\": \"4.67.0\", \"kiwisolver\": \"1.5.1\", \"matplotlib\": \"3.11.2\", \"numpy\": \"2.5.4\", \"packaging\": \"26.3\", \"pillow\": \"13.0.0\", \"pydantic\": \"2.14.1\", \"pydantic_core\": \"2.50.1\", \"pyparsing\": \"3.3.3\", \"python-dateutil\": \"2.9.0.post0\"}, \"git_commit\": \"9e9a51fb20e56a3421fdfa156375170cd6b257dc\", \"git_dirty\": true, \"package_code_sha256\": \"cc00eb5923e1b1dd470af584459a38800a7701d5b6ca3b967874c3c3e26436f1\", \"pipeline_version\": \"0.8.0\", \"python_version\": \"3.12.14\"}"
+    },
+    {
+      "name": "analysis_mode",
+      "value": "\"indel_nuclease\""
+    },
+    {
+      "name": "CRISPResso_version",
+      "value": "\"2.3.4\""
+    },
+    {
+      "name": "runtime_digest",
+      "value": "\"pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c\""
+    },
+    {
+      "name": "input_identities",
+      "value": "{\"config\": {\"sha256\": \"8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef\", \"size_bytes\": \"83\"}, \"contrasts\": {\"sha256\": \"cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3\", \"size_bytes\": \"365\"}, \"r1\": {\"sha256\": \"babe74ca2aeedee56ba2173b4865fcbdadcddfd49918e9ea7f4f110a50eacfcc\", \"size_bytes\": \"531\"}, \"r2\": {\"sha256\": \"42252f117e5bf40b3c3790af7c3c254a0545377d559c94732dd5bf0d46b575d2\", \"size_bytes\": \"512\"}, \"samples\": {\"sha256\": \"f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4\", \"size_bytes\": \"357\"}, \"targets\": {\"sha256\": \"bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba\", \"size_bytes\": \"470\"}}"
+    },
+    {
+      "name": "limitations",
+      "value": "[\"Production execution supports one biological target only; multi-target DAG planning is supported, but target-specific read selection is not defined.\", \"Local serial execution only; no scheduler, distributed execution or automatic biological interpretation.\", \"Exclusive lock files require manual ownership review after a hard kill; no automatic stale-lock stealing.\", \"Workspace relocation is unsupported: existing stage contracts retain absolute lineage paths.\", \"Local hashes detect accidental corruption, not coordinated malicious rewriting of all provenance.\", \"M4/M5/M6 scientific and presentation limits remain unchanged; no portable CRISPResso HTML links.\"]"
+    },
+    {
+      "name": "statistics_source_sha256",
+      "value": "\"e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815\""
+    },
+    {
+      "name": "report_manifest_sha256",
+      "value": "\"002d10ccfea954fc416ef7d6a669c56e481cbd37021a7045bf747d3bd854415f\""
+    }
+  ],
+  "stages": [
+    {
+      "stage_id": "analysis",
+      "label": "analysis",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "f6e3912855cc36230f4a355b569f7982c052a63bc863e65c97e86651dfdd9dd3",
+      "started_at": "2026-10-25T08:07:29.928110+00:00",
+      "ended_at": "2026-10-25T08:07:29.973243+00:00"
+    },
+    {
+      "stage_id": "demux",
+      "label": "demux",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "fb84298fbfe21b7f02454f6d27d849f3d3b805829b0aa34ab64f28340a91f40e",
+      "started_at": "2026-10-25T08:07:29.756592+00:00",
+      "ended_at": "2026-10-25T08:07:29.926057+00:00"
+    },
+    {
+      "stage_id": "metrics::bc001::T1",
+      "label": "metrics",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "4f3b7391666395140f2366c74d06806f349d4e6a4bcc196ae62373d3999f66e2",
+      "started_at": "2026-10-25T08:07:30.091810+00:00",
+      "ended_at": "2026-10-25T08:07:33.586802+00:00"
+    },
+    {
+      "stage_id": "metrics::bc002::T1",
+      "label": "metrics",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "43de43815b7f779c827684f9356435a3fdc290d1fb1c7b1bb16f782beb916ca8",
+      "started_at": "2026-10-25T08:07:33.589744+00:00",
+      "ended_at": "2026-10-25T08:07:37.085601+00:00"
+    },
+    {
+      "stage_id": "metrics::bc003::T1",
+      "label": "metrics",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "8d6aebd85694bcd69f9913bed77791e0317eafc6c036e0997cfb1c19c73e7f05",
+      "started_at": "2026-10-25T08:07:37.088476+00:00",
+      "ended_at": "2026-10-25T08:07:40.358568+00:00"
+    },
+    {
+      "stage_id": "metrics::bc004::T1",
+      "label": "metrics",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "0851482e31fede2ed581714ab50486e5abd796cab0065951eed01592d2be9920",
+      "started_at": "2026-10-25T08:07:40.361154+00:00",
+      "ended_at": "2026-10-25T08:07:43.894871+00:00"
+    },
+    {
+      "stage_id": "metrics_manifest",
+      "label": "metrics_manifest",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "fbd3b67dfc5d175232cc2c173b91aca68504bf32d53591fbd8876bfbe1e8fc25",
+      "started_at": "2026-10-25T08:07:43.897648+00:00",
+      "ended_at": "2026-10-25T08:07:43.956472+00:00"
+    },
+    {
+      "stage_id": "raw_inputs",
+      "label": "raw_inputs",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "caadef9c41b274e002575cfe9092d43ada4209c37617777ff6da94fdec6a57b1",
+      "started_at": "2026-10-25T08:07:29.727724+00:00",
+      "ended_at": "2026-10-25T08:07:29.754228+00:00"
+    },
+    {
+      "stage_id": "report",
+      "label": "report",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "69c2487c213556c7946b02bc0d7644c06a13c36c332148617f5db971130ae9fd",
+      "started_at": "2026-10-25T08:07:44.039102+00:00",
+      "ended_at": "2026-10-25T08:07:44.853582+00:00"
+    },
+    {
+      "stage_id": "routing::bc001::T1",
+      "label": "Single-copy identity check",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "e44060b6b8e568a67bb82b32de0028b45484edd08e24063e17226b3c735ed89e",
+      "started_at": "2026-10-25T08:07:29.975066+00:00",
+      "ended_at": "2026-10-25T08:07:30.003104+00:00"
+    },
+    {
+      "stage_id": "routing::bc002::T1",
+      "label": "Single-copy identity check",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "bce3378921fbf9392d04e2eda18b285e8e84af6446f5bf8fabf5bd1c5dd0c129",
+      "started_at": "2026-10-25T08:07:30.004931+00:00",
+      "ended_at": "2026-10-25T08:07:30.031705+00:00"
+    },
+    {
+      "stage_id": "routing::bc003::T1",
+      "label": "Single-copy identity check",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "09b5a337997203d9b1bf0a751ca6bf5b9bad2f9fce5a9ede259d95e12803b80e",
+      "started_at": "2026-10-25T08:07:30.033485+00:00",
+      "ended_at": "2026-10-25T08:07:30.061636+00:00"
+    },
+    {
+      "stage_id": "routing::bc004::T1",
+      "label": "Single-copy identity check",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "3d7a58f17fdf30318a1bb25576be87ff452d16babaf9546d100376a4d3d912fb",
+      "started_at": "2026-10-25T08:07:30.063523+00:00",
+      "ended_at": "2026-10-25T08:07:30.089960+00:00"
+    },
+    {
+      "stage_id": "statistics",
+      "label": "statistics",
+      "status": "COMPLETED",
+      "history": "executed",
+      "signature": "2f658d63a5a3179afe8b820b975f2623005a2cbe893e4753991690b5f03b297e",
+      "started_at": "2026-10-25T08:07:43.958261+00:00",
+      "ended_at": "2026-10-25T08:07:44.037315+00:00"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "355828714c0c490cb06afa2802f9b444",
+      "name": "report/report.html",
+      "sha256": "727e2e2097569126655119eb6256b8e013c03459ad16877aab6405a4a7f385d3",
+      "size_bytes": "218588",
+      "kind": "html",
+      "downloadable": true
+    },
+    {
+      "artifact_id": "551bf437cb3b4c65a33812ab07bce6d3",
+      "name": "statistics/result.json",
+      "sha256": "e9adba9ad22a5a5eda89d3af8a0538855d13bce22c0065abded26ed30d0e2815",
+      "size_bytes": "202536",
+      "kind": "json",
+      "downloadable": true
+    }
+  ],
+  "native_html": "Not produced"
+}
