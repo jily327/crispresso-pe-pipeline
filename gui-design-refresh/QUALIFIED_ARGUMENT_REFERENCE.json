@@ -1,0 +1,236 @@
+{
+  "arguments": {
+    "aln_seed_count": {
+      "exact_python_type": "int",
+      "value": 5
+    },
+    "aln_seed_len": {
+      "exact_python_type": "int",
+      "value": 10
+    },
+    "aln_seed_min": {
+      "exact_python_type": "int",
+      "value": 2
+    },
+    "amplicon_min_alignment_score": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "amplicon_name": {
+      "exact_python_type": "str",
+      "value": "Reference"
+    },
+    "assign_ambiguous_alignments_to_first_reference": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "auto": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "bam_chr_loc": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "bam_input": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "bam_output": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "crispresso1_mode": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "crispresso_merge": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "default_min_aln_score": {
+      "exact_python_type": "int",
+      "value": 60
+    },
+    "discard_guide_positions_overhanging_amplicon_edge": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "discard_indel_reads": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "exclude_bp_from_left": {
+      "exact_python_type": "int",
+      "value": 0
+    },
+    "exclude_bp_from_right": {
+      "exact_python_type": "int",
+      "value": 0
+    },
+    "expand_ambiguous_alignments": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "expected_hdr_amplicon_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "fastp_command": {
+      "exact_python_type": "str",
+      "value": "fastp"
+    },
+    "fastp_options_string": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "fastq_output": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "flexiguide_gap_extend_penalty": {
+      "exact_python_type": "int",
+      "value": -2
+    },
+    "flexiguide_gap_open_penalty": {
+      "exact_python_type": "int",
+      "value": -20
+    },
+    "flexiguide_homology": {
+      "exact_python_type": "int",
+      "value": 80
+    },
+    "flexiguide_seq": {
+      "exact_python_type": "str",
+      "value": "None"
+    },
+    "force_merge_pairs": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "guide_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "ignore_deletions": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "ignore_insertions": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "ignore_substitutions": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "min_average_read_quality": {
+      "exact_python_type": "int",
+      "value": 0
+    },
+    "min_bp_quality_or_N": {
+      "exact_python_type": "int",
+      "value": 0
+    },
+    "min_paired_end_reads_overlap": {
+      "exact_python_type": "int",
+      "value": 10
+    },
+    "min_single_bp_quality": {
+      "exact_python_type": "int",
+      "value": 0
+    },
+    "needleman_wunsch_aln_matrix_loc": {
+      "exact_python_type": "str",
+      "value": "EDNAFULL"
+    },
+    "needleman_wunsch_gap_extend": {
+      "exact_python_type": "int",
+      "value": -2
+    },
+    "needleman_wunsch_gap_incentive": {
+      "exact_python_type": "int",
+      "value": 1
+    },
+    "needleman_wunsch_gap_open": {
+      "exact_python_type": "int",
+      "value": -20
+    },
+    "prime_editing_gap_extend_penalty": {
+      "exact_python_type": "int",
+      "value": 0
+    },
+    "prime_editing_gap_open_penalty": {
+      "exact_python_type": "int",
+      "value": -50
+    },
+    "prime_editing_nicking_guide_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "prime_editing_override_prime_edited_ref_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "prime_editing_override_sequence_checks": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "prime_editing_pegRNA_extension_quantification_window_size": {
+      "exact_python_type": "int",
+      "value": 5
+    },
+    "prime_editing_pegRNA_extension_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "prime_editing_pegRNA_scaffold_min_match_length": {
+      "exact_python_type": "int",
+      "value": 1
+    },
+    "prime_editing_pegRNA_scaffold_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "prime_editing_pegRNA_spacer_seq": {
+      "exact_python_type": "str",
+      "value": ""
+    },
+    "quantification_window_center": {
+      "exact_python_type": "str",
+      "value": "-3"
+    },
+    "quantification_window_size": {
+      "exact_python_type": "str",
+      "value": "1"
+    },
+    "samtools_exclude_flags": {
+      "exact_python_type": "str",
+      "value": "0"
+    },
+    "split_interleaved_input": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "trim_sequences": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "use_legacy_insertion_quantification": {
+      "exact_python_type": "bool",
+      "value": false
+    },
+    "write_detailed_allele_table": {
+      "exact_python_type": "bool",
+      "value": true
+    }
+  },
+  "inspection_only": true,
+  "main": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+  "qualified_argument_count": 58,
+  "static_argument_count": 56,
+  "target_dependent_fields": [
+    "amplicon_seq",
+    "quantification_window_coordinates"
+  ]
+}

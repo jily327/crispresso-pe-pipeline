@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=75,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crispresso-pe-pipeline"
+version = "0.8.0"
+description = "Prime-editing measurements with qualified populations and exact biological-sample statistics and deterministic reporting"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0.2,<7", "matplotlib>=3.9,<4", "biopython==1.85"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9", "build>=1.2,<2"]
+
+[project.scripts]
+peanalyzer = "peanalyzer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+peanalyzer = ["barcode_sets/*.csv", "profiles/*.yaml", "metrics/*.json", "statistics_resources/*.json", "reporting_resources/*.json", "reporting_resources/*.css", "workflow_resources/*.json", "nuclease/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["integration: requires an installed, pinned CRISPResso backend",
+           "crispresso_integration: executes real CRISPResso2 2.3.4 synthetic routing experiments"]

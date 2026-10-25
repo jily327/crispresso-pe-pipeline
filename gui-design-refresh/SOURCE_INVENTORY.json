@@ -1,0 +1,157 @@
+[
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "pyproject.toml",
+    "sha256": "0dd619f1ffe0677ddd43113d53078b9a9932e39bcbe94a589749ef086cd6b54e"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "docs/m8-nuclease.md",
+    "sha256": "e7c60dbe1b59a0293cf52bc0d0dbe6a83cc5e0111132f297c41adc8713499975"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "docs/m81-backend-qualification.md",
+    "sha256": "b412bf2632041047138d92d4bee37beda9e5f39355f4bcf52dba6860ade14d46"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "docs/m7-workflow.md",
+    "sha256": "21ec4841db65657332200d15fad1be7f55bae368841d6ecd10f6d4170ff993c9"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "docs/m6-reporting.md",
+    "sha256": "53758c4ba8687f171c3cf433424dc4b86a03253dd4d7b3e9c7ef770b801ca8e9"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/nuclease/qualification.py",
+    "sha256": "7b4f2cca0d005f565a8bda14e573b7f3c9788910f96681a06e07f41fc8dd4edb"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/nuclease/targets.py",
+    "sha256": "11f0c80a9909f2d0177be0f3c0e3c7b05c2399af36a698de04cb268d5cee0369"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/nuclease/models.py",
+    "sha256": "0e37bc84eb60d94b7564606da89d0793a7ea286e710a02e4896ac075491fd6d5"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/nuclease/backend.py",
+    "sha256": "a872c22ce142ae373da93be93539ade9f154da61b35c6803014f5ca634140afb"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/nuclease/reporting.py",
+    "sha256": "c0aea702a2b926a453971db07245e16d886d53f48339422a636cce89df609b85"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/workflow.py",
+    "sha256": "00d60826bbbce308f9f8b6d3f4fda2b6f7a47f3f5db0c0132701575dd1efdcd0"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/workflow_models.py",
+    "sha256": "9c759ead2a75fd491e244910bb235d1230d92c566bec6caf6628a2c2d63b20c6"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/workflow_storage.py",
+    "sha256": "bf2da066e52f956e5a7ab19eaf4bf0b21a03273146eeb1ef68fe20597d6080ea"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/cli.py",
+    "sha256": "69f09487ee2f473f18e347ebd5a086658efc7c78030ee9944cca076520515666"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/validation.py",
+    "sha256": "46e9c196ebdb5a2bf749f463a70e9e281d101960c2becd738eec26af3555f7fe"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/schemas.py",
+    "sha256": "b76b731c605e3f773dd7a6b2d2615f3a8c417f26a1f0b3fede219526db85a68c"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/metrics/models.py",
+    "sha256": "123971715cbf80e31e70aaa246e5958f5921c2e3273dcbe37bb16c27fbd8b6aa"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/statistical_models.py",
+    "sha256": "df5d4033529eac22f102c38e1061d269b5c5ef800a13ec63d592d08a5138379d"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/result_dispatch.py",
+    "sha256": "ea79c887f6b62da4f1db5d30e430fd862fb385697b6c9ca50ea017fe097e9856"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/reporting.py",
+    "sha256": "fe810fc25d61f823f8be96fc6102fb6032f898fdb3608f6778544a0fc7a160ef"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "src/peanalyzer/reporting_models.py",
+    "sha256": "35088c64bc785d37b221d22a90ae0569a4b60712e74aea70859938c873c5e42c"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "docs/validation/m81/stale-resume.json",
+    "sha256": "361a6e5ef4d3f7cb2b4305c1cd2b57b2b5cd82e8e98ababbe83e4ebf0a9fb24c"
+  },
+  {
+    "revision": "9e9a51fb20e56a3421fdfa156375170cd6b257dc",
+    "path": "docs/validation/m81/argument-inventory.json",
+    "sha256": "8965578784c1296039096ab219a84de0337b8360267e494cb12937b12e07e415"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/GUI_DESIGN_SPEC.md",
+    "sha256": "b79cb48877f76dbafb4d01c938cef793a032cbb54fff8bbc5e83c4bea2db6fb2"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/SCREEN_FLOW.md",
+    "sha256": "6bf97b2a5a8462e84ecd3489e75c05575cd9b3c0de0bbd4a755aa621f21999c8"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/FIELD_BACKEND_MAPPING.md",
+    "sha256": "ae8a7a6c41bbc5439d7cf242763d1d4a386db0b15022262c3ae80c0b44df3246"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/RESULTS_INFORMATION_ARCHITECTURE.md",
+    "sha256": "96d33e7d0d1fae20cb7a7664372020da54da19c902b37fb88fa722689a796251"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/ERROR_AND_STATUS_UX.md",
+    "sha256": "118282002eeeaf15adf7236118a79eb3e2d0099acecb1f600b0257ab4c0bdd9f"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/TECHNOLOGY_RECOMMENDATION.md",
+    "sha256": "be18b6c6da379da9688b72da018d9411c297cc07620048a6ceb566c67a6aa578"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/WIREFRAMES.md",
+    "sha256": "14f4382a5af85f392a373199e31df05644aebff1d29619317400729a931bce8f"
+  },
+  {
+    "revision": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "path": "gui-design/REFERENCE_REVIEW.md",
+    "sha256": "3076da5a914d39ee531cde52fa282989eef6d8ed390ec10608fec8ef75c900a1"
+  }
+]

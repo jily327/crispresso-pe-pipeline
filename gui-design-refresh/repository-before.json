@@ -1,0 +1,19 @@
+{
+  "local_heads": "329a24bdbda61f1a981b9902456c4e13169348f7 refs/heads/artifacts/gui-design\ne7e67ccef5792682fcf61344e3423f1a2f80d3e3 refs/heads/feat/crispresso-integration\nbe4222b43db6926e3b89d1d09310e5581bc3f258 refs/heads/feat/indel-nuclease-mode\n5f9c6ed7fac963b67e6896a34a7217ae88695602 refs/heads/feat/initial-architecture\n967e4519f59f7cf0838f2bbc540d37575844ceb2 refs/heads/feat/m3.1-routing-quarantine\n3766364dabc7bd26954b3c771d601383b2c9e782 refs/heads/feat/m4-production-metrics\nb95771faad0f156e35d3ca8632b2e3f7cf7992bd refs/heads/feat/m5-biological-statistics\nd3058f1040e46f34c46299978eeb1a795446e9e9 refs/heads/feat/m6-reporting\n30f9672efbee0f0af1af70f5e21175ff8fdce9ed refs/heads/feat/m7-workflow\n55eec7a755ceff8ba5aeda01b5c0aa34c2355cf0 refs/heads/fix/alsw-readthrough\ne195fd9b734c7f016ca686fb5f8fa76ede097a68 refs/heads/fix/m2-audit-hardening\nf200e28cfafa398bf8072babf311621bd0af6ff8 refs/heads/main\n9262a3dfd3dee87d7c197984e473a435b89c65f8 refs/heads/work\n",
+  "remote_heads": {
+    "refs/heads/artifacts/gui-design": "329a24bdbda61f1a981b9902456c4e13169348f7",
+    "refs/heads/feat/crispresso-integration": "e7e67ccef5792682fcf61344e3423f1a2f80d3e3",
+    "refs/heads/feat/indel-nuclease-mode": "bb8a50e153d4c5c29f19a6031fd9a271acd4e559",
+    "refs/heads/feat/initial-architecture": "5f9c6ed7fac963b67e6896a34a7217ae88695602",
+    "refs/heads/feat/m3.1-routing-quarantine": "456e0c6a73b6e356a9fb06bdbab43a4efa8c5bdb",
+    "refs/heads/feat/m4-production-metrics": "3766364dabc7bd26954b3c771d601383b2c9e782",
+    "refs/heads/feat/m5-biological-statistics": "b95771faad0f156e35d3ca8632b2e3f7cf7992bd",
+    "refs/heads/feat/m6-reporting": "d3058f1040e46f34c46299978eeb1a795446e9e9",
+    "refs/heads/feat/m7-workflow": "30f9672efbee0f0af1af70f5e21175ff8fdce9ed",
+    "refs/heads/fix/alsw-readthrough": "55eec7a755ceff8ba5aeda01b5c0aa34c2355cf0",
+    "refs/heads/fix/m2-audit-hardening": "e195fd9b734c7f016ca686fb5f8fa76ede097a68",
+    "refs/heads/main": "9e9a51fb20e56a3421fdfa156375170cd6b257dc"
+  },
+  "checkout": "be4222b43db6926e3b89d1d09310e5581bc3f258\n",
+  "status": ""
+}
