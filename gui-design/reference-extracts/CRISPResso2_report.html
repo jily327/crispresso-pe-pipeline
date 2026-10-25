@@ -1,0 +1,3358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CRISPResso2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CRISPResso2: Analysis of genome editing outcomes from deep sequencing data">
+    <meta name="author" content="Kendell Clement and Luca Pinello">
+    <link href='https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <style>
+/* ===================================================================
+   CRISPResso2 — "Lab Instrument" Design System
+   Centralized CSS: tokens, base styles, tabs, cards, print, utilities
+   =================================================================== */
+
+/* ----- Design Tokens ----- */
+:root {
+  /* Instrument grays — cool-neutral with subtle blue undertone */
+  --cr-surface-ground:  #edf2f8;  /* page canvas — light blue */
+  --cr-surface:         #ffffff;  /* card / elevated surface */
+  --cr-surface-inset:   #dfe4ec;  /* inset panels, code blocks, card headers */
+  --cr-surface-hover:   #e8ecf2;  /* hover state for interactive surfaces */
+
+  /* Ink hierarchy — four levels of text contrast */
+  --cr-ink:             #1a2332;  /* primary text */
+  --cr-ink-secondary:   #3d4f65;  /* supporting text, sublabels */
+  --cr-ink-tertiary:    #6b7d93;  /* metadata, captions */
+  --cr-ink-muted:       #94a3b5;  /* disabled, placeholder */
+
+  /* Border progression — intensity matches boundary importance */
+  --cr-border:          rgba(26, 35, 50, 0.12);  /* standard separation */
+  --cr-border-soft:     rgba(26, 35, 50, 0.07);  /* whisper-quiet dividers */
+  --cr-border-emphasis: rgba(26, 35, 50, 0.20);  /* card edges, input borders */
+  --cr-border-focus:    rgba(37, 99, 160, 0.50);  /* focus rings */
+
+  /* Reagent accent — teal-indigo derived from electrophoresis staining */
+  --cr-reagent-50:  #eef4f9;
+  --cr-reagent-100: #d4e4f0;
+  --cr-reagent-200: #a8cae0;
+  --cr-reagent-300: #6fa8cc;
+  --cr-reagent-400: #3d8ab8;
+  --cr-reagent-500: #2563a0;  /* primary accent */
+  --cr-reagent-600: #1c4d7e;  /* hover / active */
+
+  /* Semantic: guardrails — desaturated, scientific palette */
+  --cr-pass-bg:     #ddeee5;
+  --cr-pass-border: #3a8a5c;
+  --cr-pass-text:   #1b4d33;
+  --cr-fail-bg:     #f3dada;
+  --cr-fail-border: #b84444;
+  --cr-fail-text:   #6e2525;
+
+  /* Typography scale — 4px-based */
+  --cr-font-xs:    0.75rem;   /* 12px */
+  --cr-font-sm:    0.8125rem; /* 13px */
+  --cr-font-base:  0.9375rem; /* 15px */
+  --cr-font-lg:    1.125rem;  /* 18px */
+  --cr-font-xl:    1.25rem;   /* 20px */
+  --cr-font-2xl:   1.5rem;    /* 24px */
+  --cr-font-3xl:   1.875rem;  /* 30px */
+  --cr-font-title: 3.5rem;    /* 56px */
+
+  /* Spacing — 4px base */
+  --cr-space-xs: 0.25rem;   /* 4px */
+  --cr-space-sm: 0.5rem;    /* 8px */
+  --cr-space-md: 1rem;      /* 16px */
+  --cr-space-lg: 1.5rem;    /* 24px */
+  --cr-space-xl: 2rem;      /* 32px */
+
+  /* Border radius — sharp end of the scale for a technical tool */
+  --cr-radius-sm: 3px;
+  --cr-radius-md: 5px;
+  --cr-radius-lg: 7px;
+}
+
+/* ----- Base Styles ----- */
+body {
+  font-family: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif !important;
+  font-size: var(--cr-font-base);
+  color: var(--cr-ink);
+  background-color: var(--cr-surface-ground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--cr-ink);
+  letter-spacing: -0.01em;
+}
+
+pre, code, .pre-scrollable {
+  font-family: 'IBM Plex Mono', 'Menlo', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--cr-reagent-500);
+  transition: color 0.12s ease;
+}
+a:hover {
+  color: var(--cr-reagent-600);
+}
+
+/* ----- Header ----- */
+.crispresso-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--cr-space-lg);
+  padding: var(--cr-space-lg) 0;
+}
+.crispresso-header img {
+  width: 110px;
+  height: auto;
+  flex-shrink: 0;
+}
+.crispresso-header-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.75rem;
+}
+.crispresso-header-text h1 {
+  font-size: var(--cr-font-title);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+.crispresso-header-text h1 a {
+  text-decoration: none !important;
+  color: var(--cr-ink);
+}
+.crispresso-header-text h1 a:hover {
+  color: var(--cr-reagent-500);
+}
+.crispresso-header-text h3 {
+  font-size: var(--cr-font-base);
+  font-weight: 400;
+  color: var(--cr-ink-tertiary);
+  margin: var(--cr-space-xs) 0 0 0;
+  letter-spacing: 0.005em;
+}
+
+/* ----- Report Body (replaces jumbotron) ----- */
+.crispresso-report-body {
+  background: transparent;
+  padding: 0;
+}
+
+/* ----- Cards: 3-level hierarchy ----- */
+
+/* Level 1: Primary section cards — subtle top accent border */
+.card {
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius-md);
+  overflow: hidden;
+  background: var(--cr-surface);
+}
+.card-header {
+  background-color: var(--cr-surface-inset);
+  border-bottom: 1px solid var(--cr-border);
+  font-weight: 600;
+  padding: var(--cr-space-sm) var(--cr-space-md);
+}
+.card-header h5 {
+  font-size: var(--cr-font-2xl);
+  font-weight: 700;
+  margin-bottom: 0;
+  color: var(--cr-ink);
+}
+h2.cr-run-name {
+  font-size: var(--cr-font-3xl);
+  text-align: center;
+  margin-bottom: var(--cr-space-xl);
+}
+h2.cr-run-name.cr-section-heading::before {
+  display: none;
+}
+h2.cr-run-name.cr-section-heading::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 14px;
+  margin: 0.75rem auto 0;
+  background:
+    linear-gradient(var(--cr-border-emphasis, rgba(26,35,50,0.20)), var(--cr-border-emphasis, rgba(26,35,50,0.20))) left center / calc(50% - 70px) 1px no-repeat,
+    linear-gradient(var(--cr-border-emphasis, rgba(26,35,50,0.20)), var(--cr-border-emphasis, rgba(26,35,50,0.20))) right center / calc(50% - 70px) 1px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='14' viewBox='0 0 80 14'%3E%3Cpath d='M0,4 Q20,0 40,7 Q60,14 80,10' stroke='%232563a0' stroke-width='1.5' fill='none' opacity='0.7'/%3E%3Cpath d='M0,10 Q20,14 40,7 Q60,0 80,4' stroke='%232563a0' stroke-width='1.5' fill='none' opacity='0.7'/%3E%3Cline x1='10' y1='2.7' x2='10' y2='11.3' stroke='%232563a0' stroke-width='1' opacity='0.4'/%3E%3Cline x1='20' y1='2.8' x2='20' y2='11.2' stroke='%232563a0' stroke-width='1' opacity='0.4'/%3E%3Cline x1='30' y1='4.2' x2='30' y2='9.8' stroke='%232563a0' stroke-width='1' opacity='0.4'/%3E%3Cline x1='50' y1='4.2' x2='50' y2='9.8' stroke='%232563a0' stroke-width='1' opacity='0.4'/%3E%3Cline x1='60' y1='2.8' x2='60' y2='11.2' stroke='%232563a0' stroke-width='1' opacity='0.4'/%3E%3Cline x1='70' y1='2.7' x2='70' y2='11.3' stroke='%232563a0' stroke-width='1' opacity='0.4'/%3E%3C/svg%3E") center center / 140px 14px no-repeat;
+}
+
+/* Level 2: Amplicon container — the prominent container */
+#amplicons-card {
+  border: 1px solid var(--cr-reagent-200);
+  border-top: 3px solid var(--cr-reagent-400);
+}
+#amplicons-card > .card-header.amp-header {
+  background-color: var(--cr-reagent-50);
+  border-bottom: 1px solid var(--cr-reagent-200);
+}
+
+/* Level 3: Nested cards inside tab panes — recede quietly */
+.tab-pane .card {
+  border-color: var(--cr-border-soft);
+}
+.tab-pane .card > .card-header {
+  background-color: var(--cr-surface);
+  border-bottom-color: var(--cr-border-soft);
+}
+
+/* ----- Tabs: underline style ----- */
+
+.nav-tabs {
+  border-bottom: 2px solid var(--cr-border);
+}
+.nav-tabs .nav-link {
+  font-size: var(--cr-font-lg);
+  font-weight: 600;
+  color: var(--cr-ink-muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  padding: var(--cr-space-sm) var(--cr-space-md);
+  background: transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  letter-spacing: 0.01em;
+}
+.nav-tabs .nav-link:hover {
+  color: var(--cr-reagent-400);
+  border-bottom-color: var(--cr-reagent-200);
+  background: transparent;
+}
+.nav-tabs .nav-link.active {
+  color: var(--cr-reagent-600);
+  font-weight: 700;
+  border-bottom: 2px solid var(--cr-reagent-500);
+  background: transparent;
+}
+
+/* Amplicon tabs — bolder indicator, tighter feel */
+.nav-tabs.amp-header {
+  border-bottom: 3px solid var(--cr-reagent-100);
+}
+.nav-tabs.amp-header .nav-link {
+  font-weight: 700;
+  margin-bottom: -3px;
+}
+.nav-tabs.amp-header .nav-link.active {
+  border-bottom: 3px solid var(--cr-reagent-500);
+  background: transparent;
+}
+
+.card-header.amp-header {
+  border-bottom: none !important;
+}
+
+/* Tab content body */
+.tab-content.amp-body {
+  background-color: var(--cr-reagent-50);
+  border: 1px solid var(--cr-reagent-100);
+  border-top: none;
+}
+
+/* ----- Scrollable containers ----- */
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: auto;
+  background-color: var(--cr-surface-inset);
+  text-align: left;
+  font-size: var(--cr-font-sm);
+  padding: var(--cr-space-sm) var(--cr-space-md);
+  border: 1px solid var(--cr-border);
+  border-radius: var(--cr-radius-sm);
+}
+
+.scrollable-list,
+.scrollable-list-tall {
+  overflow-y: auto;
+  --scroll-fade: var(--cr-surface, #ffffff);
+  mask-image:
+    linear-gradient(to bottom, transparent, black 8px, black calc(100% - 12px), transparent);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent, black 8px, black calc(100% - 12px), transparent);
+}
+.scrollable-list {
+  max-height: 25vh;
+}
+.scrollable-list-tall {
+  max-height: 80vh;
+}
+
+/* ----- Zoom viewer (nucleotide composition) ----- */
+.div_zoom_outer {
+  height: 100px;
+  border: 1px solid var(--cr-border-emphasis) !important;
+  position: relative;
+}
+
+/* ----- Figure containers ----- */
+.cr-figure {
+  padding-bottom: var(--cr-space-md);
+  margin-bottom: var(--cr-space-md);
+  border-bottom: 1px solid var(--cr-border-soft);
+}
+.cr-figure:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* ----- Figure labels / captions ----- */
+.labelpadding,
+figcaption.labelpadding {
+  display: block;
+  font-size: var(--cr-font-lg);
+  color: var(--cr-ink);
+  padding: var(--cr-space-sm) var(--cr-space-md);
+  line-height: 1.5;
+}
+
+/* ----- Data download links ----- */
+.cr-data-link {
+  font-size: var(--cr-font-xs);
+  color: var(--cr-ink-muted);
+  margin: var(--cr-space-xs) 0 0 0;
+  padding: 0 var(--cr-space-md);
+}
+.cr-data-link a {
+  color: var(--cr-ink-tertiary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cr-border-soft);
+}
+.cr-data-link a:hover {
+  color: var(--cr-reagent-500);
+  border-bottom-color: var(--cr-reagent-300);
+}
+
+/* ----- Secondary button variant ----- */
+.btn-outline-secondary {
+  color: var(--cr-ink-secondary);
+  border-color: var(--cr-border-emphasis);
+}
+.btn-outline-secondary:hover {
+  background-color: var(--cr-surface-inset);
+  color: var(--cr-ink);
+  border-color: var(--cr-border-emphasis);
+}
+
+/* ----- Guardrail warnings ----- */
+.guardrail-toggle {
+  transition: transform 0.2s ease;
+}
+details[open] > summary .guardrail-toggle {
+  transform: rotate(180deg);
+}
+.guardrail-summary {
+  list-style: none;
+}
+.guardrail-summary::-webkit-details-marker {
+  display: none;
+}
+
+.guardrail-outer {
+  margin-bottom: var(--cr-space-sm);
+  text-align: center;
+  border-radius: var(--cr-radius-md);
+}
+.guardrail-banner {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05em;
+  padding: var(--cr-space-sm) var(--cr-space-md);
+  border-radius: var(--cr-radius-md);
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.guardrail-banner-fail {
+  background-color: var(--cr-fail-bg);
+  border: 2px solid var(--cr-fail-border);
+}
+.guardrail-banner-pass {
+  background-color: var(--cr-pass-bg);
+  border: 2px solid var(--cr-pass-border);
+}
+.guardrail-body {
+  padding: var(--cr-space-md);
+  background-color: var(--cr-surface);
+}
+.guardrail-section {
+  margin-left: var(--cr-space-xl);
+  margin-top: var(--cr-space-xs);
+  text-align: left;
+}
+.guardrail-section-fail > summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--cr-fail-text);
+}
+.guardrail-section-pass > summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--cr-pass-text);
+}
+.guardrail-chevron {
+  margin-right: var(--cr-space-xs);
+}
+.guardrail-banner-chevron {
+  margin-left: auto;
+}
+
+/* ----- CRISPRessoPro Report Banner ----- */
+.cr-report-promo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--cr-reagent-50), var(--cr-surface));
+  border: 1px solid var(--cr-reagent-200);
+  border-radius: var(--cr-radius-md);
+  padding: 0.625rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: var(--cr-font-sm);
+  color: var(--cr-ink-secondary);
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.cr-report-promo-banner:hover {
+  border-color: var(--cr-reagent-400);
+  box-shadow: 0 2px 8px rgba(37, 99, 160, 0.12);
+  color: var(--cr-ink-secondary);
+  text-decoration: none;
+}
+.cr-report-promo-banner strong {
+  color: var(--cr-ink);
+}
+.cr-report-promo-icon {
+  font-size: 1rem;
+  color: var(--cr-reagent-500);
+  flex-shrink: 0;
+}
+
+/* ----- Buttons ----- */
+.btn-primary {
+  background-color: var(--cr-reagent-500);
+  border-color: var(--cr-reagent-500);
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background-color: var(--cr-reagent-600);
+  border-color: var(--cr-reagent-600);
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 3px var(--cr-border-focus);
+}
+
+/* ----- Tables ----- */
+.table thead th {
+  background-color: var(--cr-surface-inset);
+  font-weight: 700;
+  font-size: var(--cr-font-sm);
+  color: var(--cr-ink-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--cr-border-emphasis);
+}
+
+/* ----- Responsive ----- */
+@media only screen and (max-width: 600px) {
+  .crispresso-report-body img {
+    width: 100%;
+  }
+  .print-only {
+    display: none !important;
+  }
+  .screen-only {
+    display: block;
+  }
+  .crispresso-header-text h1 {
+    font-size: var(--cr-font-2xl);
+  }
+  .crispresso-header-text h3 {
+    font-size: var(--cr-font-sm);
+  }
+}
+
+/* ----- Print ----- */
+@media print {
+  .tab-content > .tab-pane {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-bottom: 0.5em !important;
+  }
+  .nav-tabs {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .tab-content.amp-body {
+    background-color: transparent !important;
+    border: none !important;
+  }
+  .col-sm-10 {
+    margin-left: -15%;
+    width: 130% !important;
+  }
+  .breakinpage {
+    clear: both;
+    page-break-before: always !important;
+    display: block;
+  }
+  .print-only, .print-only * {
+    display: block;
+  }
+  .screen-only, .screen-only * {
+    display: none !important;
+  }
+  div {
+    border: none !important;
+  }
+  body {
+    background-color: #ffffff;
+  }
+}
+</style>
+    <style>
+      
+      @media (max-width: 1015px) {
+        #left_help_div  { display: none; }
+        #top_help_div   { display: block; }
+      }
+      @media (min-width: 1015px) {
+        #left_help_div  { display: block; }
+        #top_help_div   { display: none; }
+      }
+    </style>
+
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+    
+    <link rel="shortcut icon" href="http://crispresso.com/static/favicon.ico" />
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  
+<style>
+  .nav-tabs.amp-header { border-bottom: none !important; }
+  .card-header.amp-header { border-bottom: none !important; }
+  .nav-tabs.amp-header .nav-link.active {
+    background-color: lightsteelblue;
+    border-bottom: lightsteelblue;
+  }
+  .tab-content.amp-body { background-color: lightsteelblue; }
+  @media print {
+    .tab-content > .tab-pane { display: block !important; opacity: 1 !important; }
+    .nav-tabs { display: none !important; }
+  }
+</style>
+<script src="https://cdn.plot.ly/plotly-3.3.0.min.js" charset="utf-8"></script>
+
+
+  </head>
+
+  <body class="m-2">
+    
+        <div id="messages"></div>
+
+        <script>
+        function fetchAndUpdateMessage() {
+        fetch('https://crispresso.com/messages')
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+            })
+            .then(data => {
+            const messageDiv = document.getElementById('messages');
+            if (messageDiv) {
+                messageDiv.innerHTML = data;
+            }
+            })
+            .catch(error => {});
+        }
+
+        // Call the function
+        fetchAndUpdateMessage();
+        </script>
+
+    
+
+  
+  
+  <div class="container">
+      <div class="row pb-2">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <div class="crispresso-header">
+            
+            <a href='https://crispresso.com'><img src="https://crispresso.com/static/imgs/CRISPResso_report_header.svg" alt="CRISPResso2"></a>
+            
+            <div class="crispresso-header-text">
+              <h1><a href="https://crispresso.com">CRISPResso2</a></h1>
+              <h3>Analysis of genome editing outcomes from deep sequencing data</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+
+
+    
+
+      <div id='top_help_div'>
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class='col-sm-10 pb-2 crispresso_body_div'>
+           
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+
+      
+<div class="col-sm-1"></div>
+<center><div class="col-sm-10">
+  <div class="jumbotron" style="background:rgba(0,0,0,0.0); padding:0px">
+    <div id='jumbotron_content'>
+
+      
+
+
+<details class="guardrail-outer">
+	<summary class="guardrail-banner guardrail-banner-fail">Guardrails — 5 out of 12 failed <i class="fas fa-chevron-down guardrail-toggle guardrail-banner-chevron"></i></summary>
+	<div class="guardrail-body">
+	
+	<details open class="guardrail-section guardrail-section-fail">
+		<summary class="guardrail-summary"><i class="fas fa-chevron-down guardrail-toggle guardrail-chevron"></i>Failed Guardrails (5)</summary>
+		
+			<div class="alert alert-danger"><strong>Guardrail Warning!</strong> Disproportionate percentages of reads were aligned to amplicon: Reference, Percent of aligned reads aligned to this amplicon: 57.59%.</div>
+		
+			<div class="alert alert-danger"><strong>Guardrail Warning!</strong> Disproportionate percentages of reads were aligned to amplicon: Prime-edited, Percent of aligned reads aligned to this amplicon: 38.94%.</div>
+		
+			<div class="alert alert-danger"><strong>Guardrail Warning!</strong> Disproportionate percentages of reads were aligned to amplicon: Scaffold-incorporated, Percent of aligned reads aligned to this amplicon: 2.12%.</div>
+		
+			<div class="alert alert-danger"><strong>Guardrail Warning!</strong> >=1.0% of reads have modifications at the start or end. Total reads: 24911, Irregular reads: 24907.</div>
+		
+			<div class="alert alert-danger"><strong>Guardrail Warning!</strong> >=0.2% of substitutions were outside of the quantification window. Total substitutions: 6550, Substitutions outside window: 5668.</div>
+		
+	</details>
+	
+	
+	<details class="guardrail-section guardrail-section-pass">
+		<summary class="guardrail-summary"><i class="fas fa-chevron-down guardrail-toggle guardrail-chevron"></i>Passed Guardrails (7)</summary>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> Total reads (25000) above minimum threshold (10000).</div>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> Read alignment rate above threshold. 99.6% of reads aligned.</div>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> Sufficient ratio of modifications inside quantification window.</div>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> Substitution rate within acceptable range.</div>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> All amplicon lengths above minimum threshold (50).</div>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> All guide lengths above minimum threshold (19).</div>
+		
+			<div class="alert alert-success"><strong>Guardrail Passed:</strong> Amplicon lengths within acceptable range of read lengths.</div>
+		
+	</details>
+	
+	</div>
+</details>
+
+
+      
+      <h5 class="text-center mb-3">mai8jzwl</h5>
+      
+
+      
+      
+        
+        <div class='card text-center mb-2 breakinpage'>
+          <div class='card-header'><h5>Alignment</h5></div>
+          <div class='card-body'>
+            
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_0_Alignment_global_0_btn_Alignment_statistics_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_0_Alignment_global_0_pane_Alignment_statistics_0"
+                    role="tab"
+                    aria-controls="tab_section_0_Alignment_global_0_pane_Alignment_statistics_0"
+                    aria-selected="true">Alignment statistics</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_0_Alignment_global_0_btn_Alignment_Distribution_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_0_Alignment_global_0_pane_Alignment_Distribution_1"
+                    role="tab"
+                    aria-controls="tab_section_0_Alignment_global_0_pane_Alignment_Distribution_1"
+                    aria-selected="false">Alignment Distribution</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_0_Alignment_global_0_btn_Run_Parameters_2"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_0_Alignment_global_0_pane_Run_Parameters_2"
+                    role="tab"
+                    aria-controls="tab_section_0_Alignment_global_0_pane_Run_Parameters_2"
+                    aria-selected="false">Run Parameters</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_0_Alignment_global_0_pane_Alignment_statistics_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_0_Alignment_global_0_btn_Alignment_statistics_0">
+            
+              
+  
+<div id="fig_read_barplot" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="1a.Read_barplot.pdf">
+            <img src="1a.Read_barplot.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 1a: The number of reads in input fastqs, after preprocessing, and after alignment to amplicons.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="CRISPResso_mapping_statistics.txt">Mapping statistics</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_0_Alignment_global_0_pane_Alignment_Distribution_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_0_Alignment_global_0_btn_Alignment_Distribution_1">
+            
+              
+  
+<div id="fig_allele_homology" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="1e.Allele_homology_histogram.pdf">
+            <img src="1e.Allele_homology_histogram.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 1e: Distribution of read alignment homology scores, showing the best-scoring alignment of each sequencing read to the provided amplicons. The dashed line indicates the minimum alignment score threshold used to discard low-quality alignments.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Alleles_frequency_table.zip">Alleles frequency table</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_0_Alignment_global_0_pane_Run_Parameters_2"
+               role="tabpanel"
+               aria-labelledby="tab_section_0_Alignment_global_0_btn_Run_Parameters_2">
+            
+              
+  
+<div class="text-start screen-only" id="log_params">
+  <p><strong>CRISPResso version:</strong> 2.3.4</p>
+  <p><strong>Run completed:</strong> 2026-10-25 03:29:36</p>
+  <p><strong>Amplicon sequence:</strong> <pre class='pre-scrollable'>ACGTCTCATATGCCCCTTGGCAGTCATCTTAGTCATTACCTGAGGTGTTCGTTGTAACTCATATAAACTGAGTTCCCATGTTTTGCTTAATGGTTGAGTTCCGTTTGTCTGCACAGCCTGAGACATTGCTGGAAATAAAGAAGAGAGAAAAACAATTTTAGTATTTGGAAGGGAAGTGCTATGGTCTGAATGTATGTGTCCCACCAAAATTCCTACGT</pre></p>
+  
+  <p><strong>Command used:</strong> <pre class='pre-scrollable'>CRISPResso -r1 prime_editor.fastq.gz -a ACGTCTCATATGCCCCTTGGCAGTCATCTTAGTCATTACCTGAGGTGTTCGTTGTAACTCATATAAACTGAGTTCCCATGTTTTGCTTAATGGTTGAGTTCCGTTTGTCTGCACAGCCTGAGACATTGCTGGAAATAAAGAAGAGAGAAAAACAATTTTAGTATTTGGAAGGGAAGTGCTATGGTCTGAATGTATGTGTCCCACCAAAATTCCTACGT --name mai8jzwl --output_folder CRISPRessoRunmai8jzwl --write_cleaned_report --place_report_in_output_folder --prime_editing_pegRNA_spacer_seq GTCATCTTAGTCATTACCTG --prime_editing_pegRNA_extension_seq AACGAACACCTCATGTAATGACTAAGATG --prime_editing_pegRNA_scaffold_seq GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGC --prime_editing_nicking_guide_seq CTCAACCATTAAGCAAAACAT --use_matplotlib</pre></p>
+  <p><strong>Parameters:</strong> <pre class='pre-scrollable'>allele_plot_pcts_only_for_assigned_reference: False
+aln_seed_count: 5
+aln_seed_len: 10
+aln_seed_min: 2
+amplicon_coordinates: 
+amplicon_min_alignment_score: 
+amplicon_name: Reference
+amplicon_seq: ACGTCTCATATGCCCCTTGGCAGTCATCTTAGTCATTACCTGAGGTGTTCGTTGTAACTCATATAAACTGAGTTCCCATGTTTTGCTTAATGGTTGAGTTCCGTTTGTCTGCACAGCCTGAGACATTGCTGGAAATAAAGAAGAGAGAAAAACAATTTTAGTATTTGGAAGGGAAGTGCTATGGTCTGAATGTATGTGTCCCACCAAAATTCCTACGT
+annotate_wildtype_allele: 
+assign_ambiguous_alignments_to_first_reference: False
+auto: False
+bam_chr_loc: 
+bam_input: 
+bam_output: False
+base_editor_consider_changes_outside_qw: False
+base_editor_output: False
+base_editor_target_ref_skip_allele_count: 0
+bowtie2_index: 
+coding_seq: 
+coding_seq_name: 
+config_file: None
+config_json: None
+conversion_nuc_from: C
+conversion_nuc_to: T
+crispresso1_mode: False
+crispresso_merge: False
+debug: False
+default_min_aln_score: 60
+disable_guardrails: False
+discard_guide_positions_overhanging_amplicon_edge: False
+discard_indel_reads: False
+display_name: 
+dsODN: 
+dump: False
+exclude_bp_from_left: 15
+exclude_bp_from_right: 15
+expand_allele_plots_by_quantification: False
+expand_ambiguous_alignments: False
+expected_hdr_amplicon_seq: 
+fastp_command: fastp
+fastp_options_string: 
+fastq_output: False
+fastq_r1: prime_editor.fastq.gz
+fastq_r2: 
+file_prefix: 
+flash_command: None
+flexiguide_gap_extend_penalty: -2
+flexiguide_gap_open_penalty: -20
+flexiguide_homology: 80
+flexiguide_name: 
+flexiguide_seq: None
+force_merge_pairs: False
+guide_name: 
+guide_seq: 
+halt_on_plot_fail: False
+ignore_deletions: False
+ignore_insertions: False
+ignore_substitutions: False
+keep_intermediate: False
+list_plots: False
+max_paired_end_reads_overlap: None
+max_rows_alleles_around_cut_to_plot: 50
+min_average_read_quality: 0
+min_bp_quality_or_N: 0
+min_frequency_alleles_around_cut_to_plot: 0.2
+min_paired_end_reads_overlap: 10
+min_single_bp_quality: 0
+n_processes: 1
+name: mai8jzwl
+needleman_wunsch_aln_matrix_loc: EDNAFULL
+needleman_wunsch_gap_extend: -2
+needleman_wunsch_gap_incentive: 1
+needleman_wunsch_gap_open: -20
+no_rerun: False
+output_folder: CRISPRessoRunmai8jzwl
+place_report_in_output_folder: True
+plot_histogram_outliers: False
+plot_window_size: 20
+prime_editing_gap_extend_penalty: 0
+prime_editing_gap_open_penalty: -50
+prime_editing_nicking_guide_seq: CTCAACCATTAAGCAAAACAT
+prime_editing_override_prime_edited_ref_seq: 
+prime_editing_override_sequence_checks: False
+prime_editing_pegRNA_extension_quantification_window_size: 5
+prime_editing_pegRNA_extension_seq: AACGAACACCTCATGTAATGACTAAGATG
+prime_editing_pegRNA_scaffold_min_match_length: 1
+prime_editing_pegRNA_scaffold_seq: GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGC
+prime_editing_pegRNA_spacer_seq: GTCATCTTAGTCATTACCTG
+quantification_window_center: -3
+quantification_window_coordinates: None
+quantification_window_size: 1
+samtools_exclude_flags: 0
+save_also_png: False
+split_interleaved_input: False
+stringent_flash_merging: False
+suppress_amplicon_name_truncation: False
+suppress_plots: False
+suppress_report: False
+trim_sequences: False
+trimmomatic_command: None
+trimmomatic_options_string: 
+use_legacy_insertion_quantification: False
+use_matplotlib: True
+vcf_output: False
+verbosity: 3
+write_cleaned_report: True
+write_detailed_allele_table: False
+zip_output: False</pre></p>
+  
+  <p class='text-center m-0'><small><a href="CRISPResso_RUNNING_LOG.txt">Running log</a></small></p>
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+          </div>
+        </div>
+        
+      
+        
+        <div class='card text-center mb-2 breakinpage'>
+          <div class='card-header'><h5>Allele Assignments</h5></div>
+          <div class='card-body'>
+            
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_1_Allele_Assignments_global_0_btn_Piechart_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_1_Allele_Assignments_global_0_pane_Piechart_0"
+                    role="tab"
+                    aria-controls="tab_section_1_Allele_Assignments_global_0_pane_Piechart_0"
+                    aria-selected="true">Piechart</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_1_Allele_Assignments_global_0_btn_Barplot_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_1_Allele_Assignments_global_0_pane_Barplot_1"
+                    role="tab"
+                    aria-controls="tab_section_1_Allele_Assignments_global_0_pane_Barplot_1"
+                    aria-selected="false">Barplot</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_1_Allele_Assignments_global_0_pane_Piechart_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_1_Allele_Assignments_global_0_btn_Piechart_0">
+            
+              
+  
+<div id="fig_alignment_pie_chart" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="1b.Alignment_pie_chart.pdf">
+            <img src="1b.Alignment_pie_chart.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 1b: Alignment and editing frequency of reads as determined by the percentage and number of sequence reads showing unmodified and modified alleles.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="CRISPResso_quantification_of_editing_frequency.txt">Quantification of editing</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_1_Allele_Assignments_global_0_pane_Barplot_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_1_Allele_Assignments_global_0_btn_Barplot_1">
+            
+              
+  
+<div id="fig_alignment_barplot" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="1c.Alignment_barplot.pdf">
+            <img src="1c.Alignment_barplot.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 1c: Alignment and editing frequency of reads as determined by the percentage and number of sequence reads showing unmodified and modified alleles.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="CRISPResso_quantification_of_editing_frequency.txt">Quantification of editing</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+          </div>
+        </div>
+        
+      
+        
+      
+        
+      
+        
+        <div class='card text-center mb-2 breakinpage'>
+          <div class='card-header'><h5>Prime Editing</h5></div>
+          <div class='card-body'>
+            
+  
+    
+      
+  
+<div id="fig_scaffold_insertion_sizes" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11c.Prime_editing_scaffold_insertion_sizes.pdf">
+            <img src="11c.Prime_editing_scaffold_insertion_sizes.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11c: Scaffold insertion lengths and deletion lengths in reads that contain a scaffold insertion. 'Length matching scaffold' shows the number of basepairs immediately after the pegRNA extension sequence that exactly match the scaffold RNA sequence. 'Insertion length' shows the length of the insertion immediately after the pegRNA extension sequence (including bases that do not match the scaffold sequence).</label>
+    
+    
+</div>
+
+    
+  
+
+          </div>
+        </div>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+
+      
+      
+        <p class="breakinpage">Reads are aligned to each amplicon sequence separately:</p>
+        <div id='amplicons-card' class='card text-center mb-2'>
+          <div class='card-header amp-header'>
+            <h5>Amplicons</h5>
+            <ul class="nav nav-tabs amp-header card-header-tabs" role="tablist">
+              
+              <li class="nav-item">
+                <button class="nav-link active"
+                        data-bs-toggle="tab"
+                        data-bs-target="#div_Reference"
+                        role="tab">Reference</button>
+              </li>
+              
+              <li class="nav-item">
+                <button class="nav-link "
+                        data-bs-toggle="tab"
+                        data-bs-target="#div_Prime-edited"
+                        role="tab">Prime-edited</button>
+              </li>
+              
+              <li class="nav-item">
+                <button class="nav-link "
+                        data-bs-toggle="tab"
+                        data-bs-target="#div_Scaffold-incorporated"
+                        role="tab">Scaffold-incorporated</button>
+              </li>
+              
+            </ul>
+          </div>
+
+          <div class="tab-content pt-3 px-3 amp-body card-body">
+            
+            <div class="tab-pane fade show active breakinpage"
+                 id="div_Reference" role="tabpanel">
+
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Nucleotide Composition for Reference</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+  
+
+
+<div id="fig_nucleotide_quilt_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        
+        <div class="div_zoom_outer d-none d-md-block" data-cr-zoom-strip="2a_Reference_Nucleotide_percentage_quilt"
+     style="height:100px;width:100%;overflow:hidden;position:relative">
+    <img data-cr-zoom-strip-img="2a_Reference_Nucleotide_percentage_quilt" src="2a.Reference.Nucleotide_percentage_quilt.png" alt=""
+         style="height:100%;width:auto;max-width:none;display:block">
+    
+    <div class="d-lg-none" style="overflow-x:auto;overflow-y:hidden;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff">
+        <img src="2a.Reference.Nucleotide_percentage_quilt.png" alt=""
+             style="height:100%;width:auto;max-width:none;display:block">
+    </div>
+</div>
+<div data-cr-zoom-figure="2a_Reference_Nucleotide_percentage_quilt" style="position:relative;display:inline-block;width:95%">
+    <a href="2a.Reference.Nucleotide_percentage_quilt.pdf">
+        <div class="d-none d-lg-block" data-cr-zoom-lens="2a_Reference_Nucleotide_percentage_quilt"
+             style="position:absolute;left:0;top:0;height:100%;width:10%;z-index:1000;border:1px solid var(--cr-border-emphasis, #DDDDDD);pointer-events:none"></div>
+        <img data-cr-zoom-img="2a_Reference_Nucleotide_percentage_quilt" src="2a.Reference.Nucleotide_percentage_quilt.png" width="100%" alt="report figure" style="position:relative;display:block">
+    </a>
+</div>
+<script>
+/* CRISPRessoReports — hover zoom for wide report figures (figure 2a).
+ *
+ * Rendered INLINE by shared/partials/figure_zoom.html (reports must stay
+ * self-contained: downloaded report zips are opened from file://, so we
+ * cannot depend on any external script).
+ *
+ * The handler is deliberately STATELESS: every pointermove re-measures the
+ * figure and the strip and recomputes the lens/pan from scratch. The previous
+ * implementation cached geometry at first hover ("hasWidthSet"), which locked
+ * in zeros/NaN when the first hover happened inside a hidden tab or before
+ * the image loaded — leaving the zoom dead or out of sync for the rest of
+ * the page view. Per-event recomputation makes those failure modes
+ * impossible: a hidden or unloaded figure simply bails out (computeZoom
+ * returns null) and works on the next event once laid out.
+ *
+ * computeZoom() is unit-tested (numeric cases, via a small node harness)
+ * by tests/unit_tests/test_report_figure_zoom.py in this repo.
+ */
+(function () {
+  'use strict';
+
+  /* Pure geometry: given the displayed figure size, the strip size, and the
+   * cursor position (figure-relative px), return the lens size/offset and the
+   * strip-image translation. Returns null when the geometry is unusable
+   * (zero sizes), and {fits: true, ...} when the figure already fits in the
+   * strip at strip height (nothing to zoom; centered). */
+  function computeZoom(imgW, imgH, stripW, stripH, cursorX) {
+    if (!(imgW > 0) || !(imgH > 0) || !(stripW > 0) || !(stripH > 0)) {
+      return null;
+    }
+    var k = stripH / imgH;        /* strip px per figure px */
+    var scaledW = imgW * k;       /* figure width when scaled to strip height */
+    if (scaledW <= stripW) {
+      /* Narrow figure (e.g. a short amplicon quilt): no zoom possible —
+       * center it in the strip and let the lens span the whole figure. */
+      return {
+        fits: true,
+        lensW: imgW,
+        lensX: 0,
+        translateX: Math.round((stripW - scaledW) / 2)
+      };
+    }
+    var lensW = stripW / k;       /* figure px visible through the strip */
+    var lensX = cursorX - lensW / 2;
+    if (lensX < 0) { lensX = 0; }
+    if (lensX > imgW - lensW) { lensX = imgW - lensW; }
+    return {
+      fits: false,
+      lensW: lensW,
+      lensX: lensX,
+      /* 0 - x avoids producing -0 at the left edge (Object.is(-0, 0) is false) */
+      translateX: 0 - Math.round(k * lensX)
+    };
+  }
+
+  /* Build a quoted attribute-value selector for a uid. Amplicon names come
+   * from user FASTA headers and are not guaranteed quote-free; an unescaped
+   * quote or backslash would make querySelector throw (killing wiring for
+   * every figure not yet wired). Escaping " and \\ suffices inside a
+   * quoted CSS string. */
+  function selFor(attr, uid) {
+    return '[' + attr + '="' + uid.replace(/["\\]/g, '\\$&') + '"]';
+  }
+
+  function wireOne(figure) {
+    var uid = figure.getAttribute('data-cr-zoom-figure');
+    var img = figure.querySelector(selFor('data-cr-zoom-img', uid));
+    var lens = figure.querySelector(selFor('data-cr-zoom-lens', uid));
+    var strip = figure.ownerDocument.querySelector(selFor('data-cr-zoom-strip', uid));
+    var stripImg = strip && strip.querySelector(selFor('data-cr-zoom-strip-img', uid));
+    if (!img || !lens || !strip || !stripImg) { return false; }
+
+    function update(e) {
+      var z = computeZoom(
+        img.offsetWidth, img.offsetHeight,
+        strip.offsetWidth, strip.offsetHeight,
+        e.clientX - img.getBoundingClientRect().left
+      );
+      if (!z) { return; }  /* hidden tab / image not laid out yet: retry next event */
+      lens.style.width = z.lensW + 'px';
+      lens.style.left = z.lensX + 'px';
+      stripImg.style.transform = 'translateX(' + z.translateX + 'px)';
+    }
+
+    figure.addEventListener('pointermove', update, { passive: true });
+    return true;
+  }
+
+  function wireAll(doc) {
+    var figures = doc.querySelectorAll('[data-cr-zoom-figure]:not([data-cr-zoom-wired])');
+    for (var i = 0; i < figures.length; i++) {
+      /* stamp only on success: a figure whose elements are missing stays
+       * unwired and gets retried by the next include instead of being
+       * silently skipped forever. */
+      if (wireOne(figures[i])) {
+        figures[i].setAttribute('data-cr-zoom-wired', '1');
+      }
+    }
+  }
+
+  /* Browser: wire every zoom figure rendered so far. figure_zoom.html
+   * includes this file once per figure, right after its markup, so each
+   * inclusion wires any figure not yet wired (idempotent). */
+  if (typeof document !== 'undefined' && document.querySelectorAll) {
+    wireAll(document);
+  }
+
+  /* Test loading: expose the pure function for the node-based geometry
+   * tests (TestComputeZoomGeometry in this repo's unit tests). */
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { computeZoom: computeZoom };
+  }
+})();
+</script>
+    
+    
+    <label class="labelpadding">Figure 2a: Nucleotide distribution across amplicon. At each base in the reference amplicon, the percentage of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black bars show the percentage of reads for which that base was deleted. Brown bars between bases show the percentage of reads having an insertion at that position.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Nucleotide_frequency_table.txt">Nucleotide frequency table</a></small></p>
+    
+</div>
+
+    
+  
+    
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Reference_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Reference.Nucleotide_percentage_quilt_around_PE_Extension.pdf">
+            <img src="2b.Reference.Nucleotide_percentage_quilt_around_PE_Extension.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Reference_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Reference.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.pdf">
+            <img src="2b.Reference.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Reference_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Reference.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.pdf">
+            <img src="2b.Reference.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Modification Lengths for Reference</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_6_Modification_Lengths_amplicon_Reference_0_btn_Summary_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_6_Modification_Lengths_amplicon_Reference_0_pane_Summary_0"
+                    role="tab"
+                    aria-controls="tab_section_6_Modification_Lengths_amplicon_Reference_0_pane_Summary_0"
+                    aria-selected="true">Summary</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_6_Modification_Lengths_amplicon_Reference_0_btn_Indels_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_6_Modification_Lengths_amplicon_Reference_0_pane_Indels_1"
+                    role="tab"
+                    aria-controls="tab_section_6_Modification_Lengths_amplicon_Reference_0_pane_Indels_1"
+                    aria-selected="false">Indels</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_6_Modification_Lengths_amplicon_Reference_0_pane_Summary_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_6_Modification_Lengths_amplicon_Reference_0_btn_Summary_0">
+            
+              
+  
+<div id="fig_indel_size_distribution_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="3a.Reference.Indel_size_distribution.pdf">
+            <img src="3a.Reference.Indel_size_distribution.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 3a: Frequency distribution of alleles with indels (blue) and without indels (red). Note that histograms are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.  (Maximum 57 not shown) (Minimum -84 not shown)</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Indel_histogram.txt">Indel histogram</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_6_Modification_Lengths_amplicon_Reference_0_pane_Indels_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_6_Modification_Lengths_amplicon_Reference_0_btn_Indels_1">
+            
+              
+  
+<div id="fig_insertion_deletion_substitution_sizes_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="3b.Reference.Insertion_deletion_substitutions_size_hist.pdf">
+            <img src="3b.Reference.Insertion_deletion_substitutions_size_hist.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 3b: Left panel, frequency distribution of sequence modifications that increase read length with respect to the reference amplicon, classified as insertions (positive indel size). Middle panel, frequency distribution of sequence modifications that reduce read length with respect to the reference amplicon, classified as deletions (negative indel size). Right panel, frequency distribution of sequence modifications that do not alter read length with respect to the reference amplicon, which are classified as substitutions (number of substituted positions shown). Note that histograms are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.  (Insertion maximum 57 not shown) (Deletion minimum -84 not shown)</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Insertion_histogram.txt">Insertions frequency</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Reference.Deletion_histogram.txt">Deletions Frequency</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Reference.Substitution_histogram.txt">Substitutions Frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Indel Characterization for Reference</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_All_Modifications_Combined_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_All_Modifications_Combined_0"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_All_Modifications_Combined_0"
+                    aria-selected="false">All Modifications Combined</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_All_Modifications_by_Type_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_All_Modifications_by_Type_1"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_All_Modifications_by_Type_1"
+                    aria-selected="true">All Modifications by Type</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_Modifications_in_Quantification_Window_2"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_Modifications_in_Quantification_Window_2"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_Modifications_in_Quantification_Window_2"
+                    aria-selected="false">Modifications in Quantification Window</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_Indel_Lengths_3"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_Indel_Lengths_3"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_Indel_Lengths_3"
+                    aria-selected="false">Indel Lengths</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_All_Modifications_Combined_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_All_Modifications_Combined_0">
+            
+              
+  
+<div id="fig_combined_modification_locations_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4a.Reference.Combined_insertion_deletion_substitution_locations.pdf">
+            <img src="4a.Reference.Combined_insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4a: Combined frequency of any modification across the amplicon. Modifications outside of the quantification window are also shown.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Effect_vector_combined.txt">Combined modification frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_All_Modifications_by_Type_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_All_Modifications_by_Type_1">
+            
+              
+  
+<div id="fig_modification_frequency_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4b.Reference.Insertion_deletion_substitution_locations.pdf">
+            <img src="4b.Reference.Insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4b: Frequency of insertions, deletions, and substitutions across the entire amplicon, including modifications outside of the quantification window.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Modification_count_vectors.txt">Modification frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_Modifications_in_Quantification_Window_2"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_Modifications_in_Quantification_Window_2">
+            
+              
+  
+<div id="fig_quantification_window_modifications_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4c.Reference.Quantification_window_insertion_deletion_substitution_locations.pdf">
+            <img src="4c.Reference.Quantification_window_insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4c: Frequency of insertions, deletions, and substitutions across the entire amplicon, considering only modifications that overlap with the quantification window.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_modification_count_vectors.txt">Modification frequency in quantification window</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Reference_0_pane_Indel_Lengths_3"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Reference_0_btn_Indel_Lengths_3">
+            
+              
+  
+<div id="fig_position_dependent_indels_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4d.Reference.Position_dependent_average_indel_size.pdf">
+            <img src="4d.Reference.Position_dependent_average_indel_size.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4d: Position dependent insertion size(left) and deletion size (right), including only modifications that overlap with the quantification window.</label>
+    
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Allele Plots for Reference</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+        
+  
+<div id="fig_allele_table_around_cut_Reference_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Reference.Alleles_frequency_table_around_PE_Extension.pdf">
+            <img src="9.Reference.Alleles_frequency_table_around_PE_Extension.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE Extension (AACGAACACCTCATGTAATGACTAAGATG). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Alleles_frequency_table_around_PE_Extension.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+        
+  
+<div id="fig_allele_table_around_cut_Reference_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.pdf">
+            <img src="9.Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE spacer sgRNA (GTCATCTTAGTCATTACCTG). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+        
+  
+<div id="fig_allele_table_around_cut_Reference_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Reference.Alleles_frequency_table_around_PE_nicking_sgRNA.pdf">
+            <img src="9.Reference.Alleles_frequency_table_around_PE_nicking_sgRNA.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Alleles_frequency_table_around_PE_nicking_sgRNA.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Prime Editing for Reference</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_Reference" class="d-flex flex-column align-items-center mb-3">
+    
+        
+        <div class="div_zoom_outer d-none d-md-block" data-cr-zoom-strip="11a_Prime_editing_nucleotide_percentage_quilt"
+     style="height:100px;width:100%;overflow:hidden;position:relative">
+    <img data-cr-zoom-strip-img="11a_Prime_editing_nucleotide_percentage_quilt" src="11a.Prime_editing_nucleotide_percentage_quilt.png" alt=""
+         style="height:100%;width:auto;max-width:none;display:block">
+    
+    <div class="d-lg-none" style="overflow-x:auto;overflow-y:hidden;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff">
+        <img src="11a.Prime_editing_nucleotide_percentage_quilt.png" alt=""
+             style="height:100%;width:auto;max-width:none;display:block">
+    </div>
+</div>
+<div data-cr-zoom-figure="11a_Prime_editing_nucleotide_percentage_quilt" style="position:relative;display:inline-block;width:95%">
+    <a href="11a.Prime_editing_nucleotide_percentage_quilt.pdf">
+        <div class="d-none d-lg-block" data-cr-zoom-lens="11a_Prime_editing_nucleotide_percentage_quilt"
+             style="position:absolute;left:0;top:0;height:100%;width:10%;z-index:1000;border:1px solid var(--cr-border-emphasis, #DDDDDD);pointer-events:none"></div>
+        <img data-cr-zoom-img="11a_Prime_editing_nucleotide_percentage_quilt" src="11a.Prime_editing_nucleotide_percentage_quilt.png" width="100%" alt="report figure" style="position:relative;display:block">
+    </a>
+</div>
+<script>
+/* CRISPRessoReports — hover zoom for wide report figures (figure 2a).
+ *
+ * Rendered INLINE by shared/partials/figure_zoom.html (reports must stay
+ * self-contained: downloaded report zips are opened from file://, so we
+ * cannot depend on any external script).
+ *
+ * The handler is deliberately STATELESS: every pointermove re-measures the
+ * figure and the strip and recomputes the lens/pan from scratch. The previous
+ * implementation cached geometry at first hover ("hasWidthSet"), which locked
+ * in zeros/NaN when the first hover happened inside a hidden tab or before
+ * the image loaded — leaving the zoom dead or out of sync for the rest of
+ * the page view. Per-event recomputation makes those failure modes
+ * impossible: a hidden or unloaded figure simply bails out (computeZoom
+ * returns null) and works on the next event once laid out.
+ *
+ * computeZoom() is unit-tested (numeric cases, via a small node harness)
+ * by tests/unit_tests/test_report_figure_zoom.py in this repo.
+ */
+(function () {
+  'use strict';
+
+  /* Pure geometry: given the displayed figure size, the strip size, and the
+   * cursor position (figure-relative px), return the lens size/offset and the
+   * strip-image translation. Returns null when the geometry is unusable
+   * (zero sizes), and {fits: true, ...} when the figure already fits in the
+   * strip at strip height (nothing to zoom; centered). */
+  function computeZoom(imgW, imgH, stripW, stripH, cursorX) {
+    if (!(imgW > 0) || !(imgH > 0) || !(stripW > 0) || !(stripH > 0)) {
+      return null;
+    }
+    var k = stripH / imgH;        /* strip px per figure px */
+    var scaledW = imgW * k;       /* figure width when scaled to strip height */
+    if (scaledW <= stripW) {
+      /* Narrow figure (e.g. a short amplicon quilt): no zoom possible —
+       * center it in the strip and let the lens span the whole figure. */
+      return {
+        fits: true,
+        lensW: imgW,
+        lensX: 0,
+        translateX: Math.round((stripW - scaledW) / 2)
+      };
+    }
+    var lensW = stripW / k;       /* figure px visible through the strip */
+    var lensX = cursorX - lensW / 2;
+    if (lensX < 0) { lensX = 0; }
+    if (lensX > imgW - lensW) { lensX = imgW - lensW; }
+    return {
+      fits: false,
+      lensW: lensW,
+      lensX: lensX,
+      /* 0 - x avoids producing -0 at the left edge (Object.is(-0, 0) is false) */
+      translateX: 0 - Math.round(k * lensX)
+    };
+  }
+
+  /* Build a quoted attribute-value selector for a uid. Amplicon names come
+   * from user FASTA headers and are not guaranteed quote-free; an unescaped
+   * quote or backslash would make querySelector throw (killing wiring for
+   * every figure not yet wired). Escaping " and \\ suffices inside a
+   * quoted CSS string. */
+  function selFor(attr, uid) {
+    return '[' + attr + '="' + uid.replace(/["\\]/g, '\\$&') + '"]';
+  }
+
+  function wireOne(figure) {
+    var uid = figure.getAttribute('data-cr-zoom-figure');
+    var img = figure.querySelector(selFor('data-cr-zoom-img', uid));
+    var lens = figure.querySelector(selFor('data-cr-zoom-lens', uid));
+    var strip = figure.ownerDocument.querySelector(selFor('data-cr-zoom-strip', uid));
+    var stripImg = strip && strip.querySelector(selFor('data-cr-zoom-strip-img', uid));
+    if (!img || !lens || !strip || !stripImg) { return false; }
+
+    function update(e) {
+      var z = computeZoom(
+        img.offsetWidth, img.offsetHeight,
+        strip.offsetWidth, strip.offsetHeight,
+        e.clientX - img.getBoundingClientRect().left
+      );
+      if (!z) { return; }  /* hidden tab / image not laid out yet: retry next event */
+      lens.style.width = z.lensW + 'px';
+      lens.style.left = z.lensX + 'px';
+      stripImg.style.transform = 'translateX(' + z.translateX + 'px)';
+    }
+
+    figure.addEventListener('pointermove', update, { passive: true });
+    return true;
+  }
+
+  function wireAll(doc) {
+    var figures = doc.querySelectorAll('[data-cr-zoom-figure]:not([data-cr-zoom-wired])');
+    for (var i = 0; i < figures.length; i++) {
+      /* stamp only on success: a figure whose elements are missing stays
+       * unwired and gets retried by the next include instead of being
+       * silently skipped forever. */
+      if (wireOne(figures[i])) {
+        figures[i].setAttribute('data-cr-zoom-wired', '1');
+      }
+    }
+  }
+
+  /* Browser: wire every zoom figure rendered so far. figure_zoom.html
+   * includes this file once per figure, right after its markup, so each
+   * inclusion wires any figure not yet wired (idempotent). */
+  if (typeof document !== 'undefined' && document.querySelectorAll) {
+    wireAll(document);
+  }
+
+  /* Test loading: expose the pure function for the node-based geometry
+   * tests (TestComputeZoomGeometry in this repo's unit tests). */
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { computeZoom: computeZoom };
+  }
+})();
+</script>
+    
+    
+    <label class="labelpadding">Figure 11a: Nucleotide distribution across all amplicons. At each base in the reference amplicon, the percentage of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black bars show the percentage of reads for which that base was deleted. Brown bars between bases show the percentage of reads having an insertion at that position.</label>
+    
+    
+</div>
+
+    
+  
+    
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Reference_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_Extension.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_Extension.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Reference_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Reference_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+
+            </div>
+            
+            <div class="tab-pane fade  breakinpage"
+                 id="div_Prime-edited" role="tabpanel">
+
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Nucleotide Composition for Prime-edited</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+  
+
+
+<div id="fig_nucleotide_quilt_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        
+        <div class="div_zoom_outer d-none d-md-block" data-cr-zoom-strip="2a_Prime_edited_Nucleotide_percentage_quilt"
+     style="height:100px;width:100%;overflow:hidden;position:relative">
+    <img data-cr-zoom-strip-img="2a_Prime_edited_Nucleotide_percentage_quilt" src="2a.Prime-edited.Nucleotide_percentage_quilt.png" alt=""
+         style="height:100%;width:auto;max-width:none;display:block">
+    
+    <div class="d-lg-none" style="overflow-x:auto;overflow-y:hidden;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff">
+        <img src="2a.Prime-edited.Nucleotide_percentage_quilt.png" alt=""
+             style="height:100%;width:auto;max-width:none;display:block">
+    </div>
+</div>
+<div data-cr-zoom-figure="2a_Prime_edited_Nucleotide_percentage_quilt" style="position:relative;display:inline-block;width:95%">
+    <a href="2a.Prime-edited.Nucleotide_percentage_quilt.pdf">
+        <div class="d-none d-lg-block" data-cr-zoom-lens="2a_Prime_edited_Nucleotide_percentage_quilt"
+             style="position:absolute;left:0;top:0;height:100%;width:10%;z-index:1000;border:1px solid var(--cr-border-emphasis, #DDDDDD);pointer-events:none"></div>
+        <img data-cr-zoom-img="2a_Prime_edited_Nucleotide_percentage_quilt" src="2a.Prime-edited.Nucleotide_percentage_quilt.png" width="100%" alt="report figure" style="position:relative;display:block">
+    </a>
+</div>
+<script>
+/* CRISPRessoReports — hover zoom for wide report figures (figure 2a).
+ *
+ * Rendered INLINE by shared/partials/figure_zoom.html (reports must stay
+ * self-contained: downloaded report zips are opened from file://, so we
+ * cannot depend on any external script).
+ *
+ * The handler is deliberately STATELESS: every pointermove re-measures the
+ * figure and the strip and recomputes the lens/pan from scratch. The previous
+ * implementation cached geometry at first hover ("hasWidthSet"), which locked
+ * in zeros/NaN when the first hover happened inside a hidden tab or before
+ * the image loaded — leaving the zoom dead or out of sync for the rest of
+ * the page view. Per-event recomputation makes those failure modes
+ * impossible: a hidden or unloaded figure simply bails out (computeZoom
+ * returns null) and works on the next event once laid out.
+ *
+ * computeZoom() is unit-tested (numeric cases, via a small node harness)
+ * by tests/unit_tests/test_report_figure_zoom.py in this repo.
+ */
+(function () {
+  'use strict';
+
+  /* Pure geometry: given the displayed figure size, the strip size, and the
+   * cursor position (figure-relative px), return the lens size/offset and the
+   * strip-image translation. Returns null when the geometry is unusable
+   * (zero sizes), and {fits: true, ...} when the figure already fits in the
+   * strip at strip height (nothing to zoom; centered). */
+  function computeZoom(imgW, imgH, stripW, stripH, cursorX) {
+    if (!(imgW > 0) || !(imgH > 0) || !(stripW > 0) || !(stripH > 0)) {
+      return null;
+    }
+    var k = stripH / imgH;        /* strip px per figure px */
+    var scaledW = imgW * k;       /* figure width when scaled to strip height */
+    if (scaledW <= stripW) {
+      /* Narrow figure (e.g. a short amplicon quilt): no zoom possible —
+       * center it in the strip and let the lens span the whole figure. */
+      return {
+        fits: true,
+        lensW: imgW,
+        lensX: 0,
+        translateX: Math.round((stripW - scaledW) / 2)
+      };
+    }
+    var lensW = stripW / k;       /* figure px visible through the strip */
+    var lensX = cursorX - lensW / 2;
+    if (lensX < 0) { lensX = 0; }
+    if (lensX > imgW - lensW) { lensX = imgW - lensW; }
+    return {
+      fits: false,
+      lensW: lensW,
+      lensX: lensX,
+      /* 0 - x avoids producing -0 at the left edge (Object.is(-0, 0) is false) */
+      translateX: 0 - Math.round(k * lensX)
+    };
+  }
+
+  /* Build a quoted attribute-value selector for a uid. Amplicon names come
+   * from user FASTA headers and are not guaranteed quote-free; an unescaped
+   * quote or backslash would make querySelector throw (killing wiring for
+   * every figure not yet wired). Escaping " and \\ suffices inside a
+   * quoted CSS string. */
+  function selFor(attr, uid) {
+    return '[' + attr + '="' + uid.replace(/["\\]/g, '\\$&') + '"]';
+  }
+
+  function wireOne(figure) {
+    var uid = figure.getAttribute('data-cr-zoom-figure');
+    var img = figure.querySelector(selFor('data-cr-zoom-img', uid));
+    var lens = figure.querySelector(selFor('data-cr-zoom-lens', uid));
+    var strip = figure.ownerDocument.querySelector(selFor('data-cr-zoom-strip', uid));
+    var stripImg = strip && strip.querySelector(selFor('data-cr-zoom-strip-img', uid));
+    if (!img || !lens || !strip || !stripImg) { return false; }
+
+    function update(e) {
+      var z = computeZoom(
+        img.offsetWidth, img.offsetHeight,
+        strip.offsetWidth, strip.offsetHeight,
+        e.clientX - img.getBoundingClientRect().left
+      );
+      if (!z) { return; }  /* hidden tab / image not laid out yet: retry next event */
+      lens.style.width = z.lensW + 'px';
+      lens.style.left = z.lensX + 'px';
+      stripImg.style.transform = 'translateX(' + z.translateX + 'px)';
+    }
+
+    figure.addEventListener('pointermove', update, { passive: true });
+    return true;
+  }
+
+  function wireAll(doc) {
+    var figures = doc.querySelectorAll('[data-cr-zoom-figure]:not([data-cr-zoom-wired])');
+    for (var i = 0; i < figures.length; i++) {
+      /* stamp only on success: a figure whose elements are missing stays
+       * unwired and gets retried by the next include instead of being
+       * silently skipped forever. */
+      if (wireOne(figures[i])) {
+        figures[i].setAttribute('data-cr-zoom-wired', '1');
+      }
+    }
+  }
+
+  /* Browser: wire every zoom figure rendered so far. figure_zoom.html
+   * includes this file once per figure, right after its markup, so each
+   * inclusion wires any figure not yet wired (idempotent). */
+  if (typeof document !== 'undefined' && document.querySelectorAll) {
+    wireAll(document);
+  }
+
+  /* Test loading: expose the pure function for the node-based geometry
+   * tests (TestComputeZoomGeometry in this repo's unit tests). */
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { computeZoom: computeZoom };
+  }
+})();
+</script>
+    
+    
+    <label class="labelpadding">Figure 2a: Nucleotide distribution across amplicon. At each base in the reference amplicon, the percentage of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black bars show the percentage of reads for which that base was deleted. Brown bars between bases show the percentage of reads having an insertion at that position.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Nucleotide_frequency_table.txt">Nucleotide frequency table</a></small></p>
+    
+</div>
+
+    
+  
+    
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Prime-edited_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Prime-edited.Nucleotide_percentage_quilt_around_PE_Extension.pdf">
+            <img src="2b.Prime-edited.Nucleotide_percentage_quilt_around_PE_Extension.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Prime-edited_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Prime-edited.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.pdf">
+            <img src="2b.Prime-edited.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Prime-edited_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Prime-edited.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.pdf">
+            <img src="2b.Prime-edited.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Modification Lengths for Prime-edited</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_btn_Summary_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_pane_Summary_0"
+                    role="tab"
+                    aria-controls="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_pane_Summary_0"
+                    aria-selected="true">Summary</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_btn_Indels_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_pane_Indels_1"
+                    role="tab"
+                    aria-controls="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_pane_Indels_1"
+                    aria-selected="false">Indels</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_pane_Summary_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_btn_Summary_0">
+            
+              
+  
+<div id="fig_indel_size_distribution_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="3a.Prime-edited.Indel_size_distribution.pdf">
+            <img src="3a.Prime-edited.Indel_size_distribution.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 3a: Frequency distribution of alleles with indels (blue) and without indels (red). Note that histograms are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.  (Maximum 61 not shown) (Minimum -84 not shown)</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Indel_histogram.txt">Indel histogram</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_pane_Indels_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_6_Modification_Lengths_amplicon_Prime-edited_0_btn_Indels_1">
+            
+              
+  
+<div id="fig_insertion_deletion_substitution_sizes_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="3b.Prime-edited.Insertion_deletion_substitutions_size_hist.pdf">
+            <img src="3b.Prime-edited.Insertion_deletion_substitutions_size_hist.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 3b: Left panel, frequency distribution of sequence modifications that increase read length with respect to the reference amplicon, classified as insertions (positive indel size). Middle panel, frequency distribution of sequence modifications that reduce read length with respect to the reference amplicon, classified as deletions (negative indel size). Right panel, frequency distribution of sequence modifications that do not alter read length with respect to the reference amplicon, which are classified as substitutions (number of substituted positions shown). Note that histograms are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.  (Insertion maximum 61 not shown) (Deletion minimum -84 not shown)</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Insertion_histogram.txt">Insertions frequency</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Deletion_histogram.txt">Deletions Frequency</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Substitution_histogram.txt">Substitutions Frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Indel Characterization for Prime-edited</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_All_Modifications_Combined_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_All_Modifications_Combined_0"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_All_Modifications_Combined_0"
+                    aria-selected="false">All Modifications Combined</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_All_Modifications_by_Type_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_All_Modifications_by_Type_1"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_All_Modifications_by_Type_1"
+                    aria-selected="true">All Modifications by Type</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_Modifications_in_Quantification_Window_2"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_Modifications_in_Quantification_Window_2"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_Modifications_in_Quantification_Window_2"
+                    aria-selected="false">Modifications in Quantification Window</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_Indel_Lengths_3"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_Indel_Lengths_3"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_Indel_Lengths_3"
+                    aria-selected="false">Indel Lengths</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_All_Modifications_Combined_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_All_Modifications_Combined_0">
+            
+              
+  
+<div id="fig_combined_modification_locations_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4a.Prime-edited.Combined_insertion_deletion_substitution_locations.pdf">
+            <img src="4a.Prime-edited.Combined_insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4a: Combined frequency of any modification across the amplicon. Modifications outside of the quantification window are also shown.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Effect_vector_combined.txt">Combined modification frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_All_Modifications_by_Type_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_All_Modifications_by_Type_1">
+            
+              
+  
+<div id="fig_modification_frequency_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4b.Prime-edited.Insertion_deletion_substitution_locations.pdf">
+            <img src="4b.Prime-edited.Insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4b: Frequency of insertions, deletions, and substitutions across the entire amplicon, including modifications outside of the quantification window.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Modification_count_vectors.txt">Modification frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_Modifications_in_Quantification_Window_2"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_Modifications_in_Quantification_Window_2">
+            
+              
+  
+<div id="fig_quantification_window_modifications_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4c.Prime-edited.Quantification_window_insertion_deletion_substitution_locations.pdf">
+            <img src="4c.Prime-edited.Quantification_window_insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4c: Frequency of insertions, deletions, and substitutions across the entire amplicon, considering only modifications that overlap with the quantification window.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_modification_count_vectors.txt">Modification frequency in quantification window</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_pane_Indel_Lengths_3"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Prime-edited_0_btn_Indel_Lengths_3">
+            
+              
+  
+<div id="fig_position_dependent_indels_Prime-edited" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4d.Prime-edited.Position_dependent_average_indel_size.pdf">
+            <img src="4d.Prime-edited.Position_dependent_average_indel_size.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4d: Position dependent insertion size(left) and deletion size (right), including only modifications that overlap with the quantification window.</label>
+    
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Allele Plots for Prime-edited</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+        
+  
+<div id="fig_allele_table_around_cut_Prime-edited_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Prime-edited.Alleles_frequency_table_around_PE_Extension.pdf">
+            <img src="9.Prime-edited.Alleles_frequency_table_around_PE_Extension.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE Extension (AACGAACACCTCATGTAATGACTAAGATG). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Alleles_frequency_table_around_PE_Extension.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+        
+  
+<div id="fig_allele_table_around_cut_Prime-edited_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.pdf">
+            <img src="9.Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE spacer sgRNA (GTCATCTTAGTCATTACCTG). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+        
+  
+<div id="fig_allele_table_around_cut_Prime-edited_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Prime-edited.Alleles_frequency_table_around_PE_nicking_sgRNA.pdf">
+            <img src="9.Prime-edited.Alleles_frequency_table_around_PE_nicking_sgRNA.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Alleles_frequency_table_around_PE_nicking_sgRNA.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Prime Editing for Prime-edited</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Prime-edited_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_Extension.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_Extension.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Prime-edited_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Prime-edited_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+
+            </div>
+            
+            <div class="tab-pane fade  breakinpage"
+                 id="div_Scaffold-incorporated" role="tabpanel">
+
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Nucleotide Composition for Scaffold-incorporated</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+  
+
+
+<div id="fig_nucleotide_quilt_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        
+        <div class="div_zoom_outer d-none d-md-block" data-cr-zoom-strip="2a_Scaffold_incorporated_Nucleotide_percentage_quilt"
+     style="height:100px;width:100%;overflow:hidden;position:relative">
+    <img data-cr-zoom-strip-img="2a_Scaffold_incorporated_Nucleotide_percentage_quilt" src="2a.Scaffold-incorporated.Nucleotide_percentage_quilt.png" alt=""
+         style="height:100%;width:auto;max-width:none;display:block">
+    
+    <div class="d-lg-none" style="overflow-x:auto;overflow-y:hidden;position:absolute;left:0;top:0;width:100%;height:100%;background:#fff">
+        <img src="2a.Scaffold-incorporated.Nucleotide_percentage_quilt.png" alt=""
+             style="height:100%;width:auto;max-width:none;display:block">
+    </div>
+</div>
+<div data-cr-zoom-figure="2a_Scaffold_incorporated_Nucleotide_percentage_quilt" style="position:relative;display:inline-block;width:95%">
+    <a href="2a.Scaffold-incorporated.Nucleotide_percentage_quilt.pdf">
+        <div class="d-none d-lg-block" data-cr-zoom-lens="2a_Scaffold_incorporated_Nucleotide_percentage_quilt"
+             style="position:absolute;left:0;top:0;height:100%;width:10%;z-index:1000;border:1px solid var(--cr-border-emphasis, #DDDDDD);pointer-events:none"></div>
+        <img data-cr-zoom-img="2a_Scaffold_incorporated_Nucleotide_percentage_quilt" src="2a.Scaffold-incorporated.Nucleotide_percentage_quilt.png" width="100%" alt="report figure" style="position:relative;display:block">
+    </a>
+</div>
+<script>
+/* CRISPRessoReports — hover zoom for wide report figures (figure 2a).
+ *
+ * Rendered INLINE by shared/partials/figure_zoom.html (reports must stay
+ * self-contained: downloaded report zips are opened from file://, so we
+ * cannot depend on any external script).
+ *
+ * The handler is deliberately STATELESS: every pointermove re-measures the
+ * figure and the strip and recomputes the lens/pan from scratch. The previous
+ * implementation cached geometry at first hover ("hasWidthSet"), which locked
+ * in zeros/NaN when the first hover happened inside a hidden tab or before
+ * the image loaded — leaving the zoom dead or out of sync for the rest of
+ * the page view. Per-event recomputation makes those failure modes
+ * impossible: a hidden or unloaded figure simply bails out (computeZoom
+ * returns null) and works on the next event once laid out.
+ *
+ * computeZoom() is unit-tested (numeric cases, via a small node harness)
+ * by tests/unit_tests/test_report_figure_zoom.py in this repo.
+ */
+(function () {
+  'use strict';
+
+  /* Pure geometry: given the displayed figure size, the strip size, and the
+   * cursor position (figure-relative px), return the lens size/offset and the
+   * strip-image translation. Returns null when the geometry is unusable
+   * (zero sizes), and {fits: true, ...} when the figure already fits in the
+   * strip at strip height (nothing to zoom; centered). */
+  function computeZoom(imgW, imgH, stripW, stripH, cursorX) {
+    if (!(imgW > 0) || !(imgH > 0) || !(stripW > 0) || !(stripH > 0)) {
+      return null;
+    }
+    var k = stripH / imgH;        /* strip px per figure px */
+    var scaledW = imgW * k;       /* figure width when scaled to strip height */
+    if (scaledW <= stripW) {
+      /* Narrow figure (e.g. a short amplicon quilt): no zoom possible —
+       * center it in the strip and let the lens span the whole figure. */
+      return {
+        fits: true,
+        lensW: imgW,
+        lensX: 0,
+        translateX: Math.round((stripW - scaledW) / 2)
+      };
+    }
+    var lensW = stripW / k;       /* figure px visible through the strip */
+    var lensX = cursorX - lensW / 2;
+    if (lensX < 0) { lensX = 0; }
+    if (lensX > imgW - lensW) { lensX = imgW - lensW; }
+    return {
+      fits: false,
+      lensW: lensW,
+      lensX: lensX,
+      /* 0 - x avoids producing -0 at the left edge (Object.is(-0, 0) is false) */
+      translateX: 0 - Math.round(k * lensX)
+    };
+  }
+
+  /* Build a quoted attribute-value selector for a uid. Amplicon names come
+   * from user FASTA headers and are not guaranteed quote-free; an unescaped
+   * quote or backslash would make querySelector throw (killing wiring for
+   * every figure not yet wired). Escaping " and \\ suffices inside a
+   * quoted CSS string. */
+  function selFor(attr, uid) {
+    return '[' + attr + '="' + uid.replace(/["\\]/g, '\\$&') + '"]';
+  }
+
+  function wireOne(figure) {
+    var uid = figure.getAttribute('data-cr-zoom-figure');
+    var img = figure.querySelector(selFor('data-cr-zoom-img', uid));
+    var lens = figure.querySelector(selFor('data-cr-zoom-lens', uid));
+    var strip = figure.ownerDocument.querySelector(selFor('data-cr-zoom-strip', uid));
+    var stripImg = strip && strip.querySelector(selFor('data-cr-zoom-strip-img', uid));
+    if (!img || !lens || !strip || !stripImg) { return false; }
+
+    function update(e) {
+      var z = computeZoom(
+        img.offsetWidth, img.offsetHeight,
+        strip.offsetWidth, strip.offsetHeight,
+        e.clientX - img.getBoundingClientRect().left
+      );
+      if (!z) { return; }  /* hidden tab / image not laid out yet: retry next event */
+      lens.style.width = z.lensW + 'px';
+      lens.style.left = z.lensX + 'px';
+      stripImg.style.transform = 'translateX(' + z.translateX + 'px)';
+    }
+
+    figure.addEventListener('pointermove', update, { passive: true });
+    return true;
+  }
+
+  function wireAll(doc) {
+    var figures = doc.querySelectorAll('[data-cr-zoom-figure]:not([data-cr-zoom-wired])');
+    for (var i = 0; i < figures.length; i++) {
+      /* stamp only on success: a figure whose elements are missing stays
+       * unwired and gets retried by the next include instead of being
+       * silently skipped forever. */
+      if (wireOne(figures[i])) {
+        figures[i].setAttribute('data-cr-zoom-wired', '1');
+      }
+    }
+  }
+
+  /* Browser: wire every zoom figure rendered so far. figure_zoom.html
+   * includes this file once per figure, right after its markup, so each
+   * inclusion wires any figure not yet wired (idempotent). */
+  if (typeof document !== 'undefined' && document.querySelectorAll) {
+    wireAll(document);
+  }
+
+  /* Test loading: expose the pure function for the node-based geometry
+   * tests (TestComputeZoomGeometry in this repo's unit tests). */
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { computeZoom: computeZoom };
+  }
+})();
+</script>
+    
+    
+    <label class="labelpadding">Figure 2a: Nucleotide distribution across amplicon. At each base in the reference amplicon, the percentage of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black bars show the percentage of reads for which that base was deleted. Brown bars between bases show the percentage of reads having an insertion at that position.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Nucleotide_frequency_table.txt">Nucleotide frequency table</a></small></p>
+    
+</div>
+
+    
+  
+    
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Scaffold-incorporated_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Scaffold-incorporated.Nucleotide_percentage_quilt_around_PE_Extension.pdf">
+            <img src="2b.Scaffold-incorporated.Nucleotide_percentage_quilt_around_PE_Extension.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Scaffold-incorporated_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Scaffold-incorporated.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.pdf">
+            <img src="2b.Scaffold-incorporated.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_nucleotide_quilt_sgRNA_Scaffold-incorporated_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="2b.Scaffold-incorporated.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.pdf">
+            <img src="2b.Scaffold-incorporated.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 2b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Modification Lengths for Scaffold-incorporated</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_btn_Summary_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_pane_Summary_0"
+                    role="tab"
+                    aria-controls="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_pane_Summary_0"
+                    aria-selected="true">Summary</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_btn_Indels_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_pane_Indels_1"
+                    role="tab"
+                    aria-controls="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_pane_Indels_1"
+                    aria-selected="false">Indels</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_pane_Summary_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_btn_Summary_0">
+            
+              
+  
+<div id="fig_indel_size_distribution_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="3a.Scaffold-incorporated.Indel_size_distribution.pdf">
+            <img src="3a.Scaffold-incorporated.Indel_size_distribution.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 3a: Frequency distribution of alleles with indels (blue) and without indels (red). Note that histograms are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.  (Maximum 60 not shown) (Minimum -50 not shown)</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Indel_histogram.txt">Indel histogram</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_pane_Indels_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_6_Modification_Lengths_amplicon_Scaffold-incorporated_0_btn_Indels_1">
+            
+              
+  
+<div id="fig_insertion_deletion_substitution_sizes_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="3b.Scaffold-incorporated.Insertion_deletion_substitutions_size_hist.pdf">
+            <img src="3b.Scaffold-incorporated.Insertion_deletion_substitutions_size_hist.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 3b: Left panel, frequency distribution of sequence modifications that increase read length with respect to the reference amplicon, classified as insertions (positive indel size). Middle panel, frequency distribution of sequence modifications that reduce read length with respect to the reference amplicon, classified as deletions (negative indel size). Right panel, frequency distribution of sequence modifications that do not alter read length with respect to the reference amplicon, which are classified as substitutions (number of substituted positions shown). Note that histograms are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.  (Insertion maximum 60 not shown) (Deletion minimum -50 not shown)</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Insertion_histogram.txt">Insertions frequency</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Deletion_histogram.txt">Deletions Frequency</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Substitution_histogram.txt">Substitutions Frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Indel Characterization for Scaffold-incorporated</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+      <div class="mb-3">
+        <ul class="nav nav-tabs justify-content-center card-header-tabs" role="tablist">
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_All_Modifications_Combined_0"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_All_Modifications_Combined_0"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_All_Modifications_Combined_0"
+                    aria-selected="false">All Modifications Combined</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link active"
+                    id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_All_Modifications_by_Type_1"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_All_Modifications_by_Type_1"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_All_Modifications_by_Type_1"
+                    aria-selected="true">All Modifications by Type</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_Modifications_in_Quantification_Window_2"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_Modifications_in_Quantification_Window_2"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_Modifications_in_Quantification_Window_2"
+                    aria-selected="false">Modifications in Quantification Window</button>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <button class="nav-link "
+                    id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_Indel_Lengths_3"
+                    data-bs-toggle="tab"
+                    data-bs-target="#tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_Indel_Lengths_3"
+                    role="tab"
+                    aria-controls="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_Indel_Lengths_3"
+                    aria-selected="false">Indel Lengths</button>
+          </li>
+          
+        </ul>
+        <div class="tab-content pt-3">
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_All_Modifications_Combined_0"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_All_Modifications_Combined_0">
+            
+              
+  
+<div id="fig_combined_modification_locations_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4a.Scaffold-incorporated.Combined_insertion_deletion_substitution_locations.pdf">
+            <img src="4a.Scaffold-incorporated.Combined_insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4a: Combined frequency of any modification across the amplicon. Modifications outside of the quantification window are also shown.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Effect_vector_combined.txt">Combined modification frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade show active"
+               id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_All_Modifications_by_Type_1"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_All_Modifications_by_Type_1">
+            
+              
+  
+<div id="fig_modification_frequency_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4b.Scaffold-incorporated.Insertion_deletion_substitution_locations.pdf">
+            <img src="4b.Scaffold-incorporated.Insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4b: Frequency of insertions, deletions, and substitutions across the entire amplicon, including modifications outside of the quantification window.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Modification_count_vectors.txt">Modification frequency</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_Modifications_in_Quantification_Window_2"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_Modifications_in_Quantification_Window_2">
+            
+              
+  
+<div id="fig_quantification_window_modifications_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4c.Scaffold-incorporated.Quantification_window_insertion_deletion_substitution_locations.pdf">
+            <img src="4c.Scaffold-incorporated.Quantification_window_insertion_deletion_substitution_locations.png" width="40%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4c: Frequency of insertions, deletions, and substitutions across the entire amplicon, considering only modifications that overlap with the quantification window.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_modification_count_vectors.txt">Modification frequency in quantification window</a></small></p>
+    
+</div>
+
+            
+          </div>
+          
+          
+          
+          <div class="tab-pane fade "
+               id="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_pane_Indel_Lengths_3"
+               role="tabpanel"
+               aria-labelledby="tab_section_7_Indel_Characterization_amplicon_Scaffold-incorporated_0_btn_Indel_Lengths_3">
+            
+              
+  
+<div id="fig_position_dependent_indels_Scaffold-incorporated" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="4d.Scaffold-incorporated.Position_dependent_average_indel_size.pdf">
+            <img src="4d.Scaffold-incorporated.Position_dependent_average_indel_size.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 4d: Position dependent insertion size(left) and deletion size (right), including only modifications that overlap with the quantification window.</label>
+    
+    
+</div>
+
+            
+          </div>
+          
+        </div>
+      </div>
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Allele Plots for Scaffold-incorporated</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+        
+  
+<div id="fig_allele_table_around_cut_Scaffold-incorporated_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Scaffold-incorporated.Alleles_frequency_table_around_PE_Extension.pdf">
+            <img src="9.Scaffold-incorporated.Alleles_frequency_table_around_PE_Extension.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE Extension (AACGAACACCTCATGTAATGACTAAGATG). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Alleles_frequency_table_around_PE_Extension.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+        
+  
+<div id="fig_allele_table_around_cut_Scaffold-incorporated_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Scaffold-incorporated.Alleles_frequency_table_around_PE_spacer_sgRNA.pdf">
+            <img src="9.Scaffold-incorporated.Alleles_frequency_table_around_PE_spacer_sgRNA.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE spacer sgRNA (GTCATCTTAGTCATTACCTG). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Alleles_frequency_table_around_PE_spacer_sgRNA.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+        
+  
+<div id="fig_allele_table_around_cut_Scaffold-incorporated_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="9.Scaffold-incorporated.Alleles_frequency_table_around_PE_nicking_sgRNA.pdf">
+            <img src="9.Scaffold-incorporated.Alleles_frequency_table_around_PE_nicking_sgRNA.png" width="100%">
+        </a>
+    
+    
+    <label class="labelpadding">Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT). Nucleotides are indicated by unique colors (A = green; C = red; G = yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences. Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted cleavage site.</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Alleles_frequency_table_around_PE_nicking_sgRNA.txt">Allele frequency table</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+                
+              
+                
+                <div class='card text-center mb-2'>
+                  <div class='card-header'>
+                    <h5>Prime Editing for Scaffold-incorporated</h5>
+                  </div>
+                  <div class='card-body'>
+                    
+  
+    
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Scaffold-incorporated_sg0" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_Extension.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_Extension.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Scaffold-incorporated_sg1" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_spacer_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+        
+  
+
+
+<div id="fig_prime_editing_nuc_quilt_sgRNA_Scaffold-incorporated_sg2" class="d-flex flex-column align-items-center mb-3">
+    
+        <a href="11b.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.pdf">
+            <img src="11b.Nucleotide_percentage_quilt_around_PE_nicking_sgRNA.png" width='100%'>
+        </a>
+    
+    
+    <label class="labelpadding">Figure 11b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).</label>
+    
+    
+        <p class="m-0"><small>Data: <a href="Reference.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Reference</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Prime-edited.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Prime-edited</a></small></p>
+    
+        <p class="m-0"><small>Data: <a href="Scaffold-incorporated.Quantification_window_nucleotide_frequency_table.txt">Nucleotide frequency in quantification window for Scaffold-incorporated</a></small></p>
+    
+</div>
+
+      
+    
+  
+
+                  </div>
+                </div>
+                
+              
+
+            </div>
+            
+          </div>
+        </div>
+      
+
+      <div class="text-center p-3">
+  
+  <button class='btn btn-outline-secondary screen-only' onclick='window.print();'><i class="fas fa-print"></i> Print</button>
+</div>
+    </div>
+  </div>
+</div></center>
+<div class="col-sm-1"></div>
+
+
+
+      
+      <div class="row">
+      <div class="col-sm-1"></div>
+      <footer class="col-sm-10 crispresso_body_div screen-only py-5">
+        <p class="text-center">
+      If you like CRISPResso2 please support us by citing it in your work: <br>
+          Clement K, Rees H, Canver MC, Gehrke JM, Farouni R, Hsu JY, Cole MA, Liu DR, Joung JK, Bauer DE, Pinello L.<br>
+          <a href="https://trebuchet.public.springernature.app/get_content/4cae1a9e-9ad5-4d90-a5fb-c1ea5c137bb3?format=pdf&from=springerlink" target="_blank">CRISPResso2 provides accurate and rapid genome editing sequence analysis. </a><br>
+          Nat Biotechnol. 2019 Mar; 37(3):224-226. doi: 10.1038/s41587-019-0032-3. PubMed PMID: 30809026.
+        </p>
+        <p class="text-center"><small> &copy; Copyright <a href="http://pinellolab.org">Kendell Clement and Luca Pinello</a></small></p>
+        <p class="text-center">
+          <small>
+        <a href="https://twitter.com/intent/tweet?text=CRISPResso2%20provides%20accurate%20and%20rapid%20genome%20editing%20sequence%20analysis%20%40kendellclement%20%40lucapinello%20%23CRISPR%20%23CRISPResso2"
+          class="twitter-share-button" data-via="kendellclement" data-size="large" data-count="none" data-hashtags="CRISPR" data-url="http://crispresso2.pinellolab.org">Tweet about CRISPresso2!</a>
+        </small>
+        </p>
+
+      </footer>
+      <div class="col-sm-1"></div>
+    </div>
+    
+    </div>
+    
+  </body>
+
+</html>

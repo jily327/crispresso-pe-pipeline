@@ -1,0 +1,470 @@
+                                 CRISPResso2
+                       _
+                      ' )
+                     .-'
+                    (_____
+                  C)/     \
+                    \     /      Analysis of genome editing outcomes from deep sequencing data
+                     \___/
+
+
+
+uardrails — 5 out of 12 failed                                                                   
+
+                                                      mai8jzwl
+                                                Alignment
+
+
+
+
+    Figure 1a: The number of reads in input fastqs, after preprocessing, and after alignment to amplicons.
+                                              Data: Mapping statistics
+
+
+
+
+   Figure 1e: Distribution of read alignment homology scores, showing the best-scoring alignment of each
+sequencing read to the provided amplicons. The dashed line indicates the minimum alignment score threshold
+                                    used to discard low-quality alignments.
+                                            Data: Alleles frequency table
+                                        Allele Assignments
+
+
+
+
+Figure 1b: Alignment and editing frequency of reads as determined by the percentage and number of sequence
+                               reads showing unmodified and modified alleles.
+                                          Data: Quantification of editing
+
+
+
+
+Figure 1c: Alignment and editing frequency of reads as determined by the percentage and number of sequence
+                               reads showing unmodified and modified alleles.
+                                          Data: Quantification of editing
+                                              Prime Editing
+
+
+
+
+ Figure 11c: Scaffold insertion lengths and deletion lengths in reads that contain a scaffold insertion. 'Length
+  matching scaffold' shows the number of basepairs immediately after the pegRNA extension sequence that
+exactly match the scaffold RNA sequence. 'Insertion length' shows the length of the insertion immediately after
+         the pegRNA extension sequence (including bases that do not match the scaffold sequence).
+Reads are aligned to each amplicon sequence separately:
+
+                   Amplicons
+                               Nucleotide Composition for Reference
+
+
+                                                                                                                  
+
+
+
+
+    Figure 2a: Nucleotide distribution across amplicon. At each base in the reference amplicon, the percentage
+    of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black
+     bars show the percentage of reads for which that base was deleted. Brown bars between bases show the
+                              percentage of reads having an insertion at that position.
+                                               Data: Nucleotide frequency table
+
+
+
+
+       Figure 2b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+
+           Figure 2b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+
+          Figure 2b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+                                 Modification Lengths for Reference
+Figure 3a: Frequency distribution of alleles with indels (blue) and without indels (red). Note that histograms
+are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.
+                            (Maximum 57 not shown) (Minimum -84 not shown)
+                                               Data: Indel histogram
+
+
+
+
+    Figure 3b: Left panel, frequency distribution of sequence modifications that increase read length with
+   respect to the reference amplicon, classified as insertions (positive indel size). Middle panel, frequency
+   distribution of sequence modifications that reduce read length with respect to the reference amplicon,
+ classified as deletions (negative indel size). Right panel, frequency distribution of sequence modifications
+ that do not alter read length with respect to the reference amplicon, which are classified as substitutions
+  (number of substituted positions shown). Note that histograms are clipped to show 99% of the data. To
+   show all data, run using the parameter '--plot_histogram_outliers'. (Insertion maximum 57 not shown)
+                                      (Deletion minimum -84 not shown)
+                                            Data: Insertions frequency
+                                            Data: Deletions Frequency
+                                           Data: Substitutions Frequency
+
+
+
+                             Indel Characterization for Reference
+Figure 4a: Combined frequency of any modification across the amplicon. Modifications outside of the
+                             quantification window are also shown.
+                                    Data: Combined modification frequency
+
+
+
+
+Figure 4b: Frequency of insertions, deletions, and substitutions across the entire amplicon, including
+                         modifications outside of the quantification window.
+                                         Data: Modification frequency
+Figure 4c: Frequency of insertions, deletions, and substitutions across the entire amplicon, considering only
+                         modifications that overlap with the quantification window.
+                                  Data: Modification frequency in quantification window
+
+
+
+
+Figure 4d: Position dependent insertion size(left) and deletion size (right), including only modifications that
+                                 overlap with the quantification window.
+
+
+
+                                     Allele Plots for Reference
+Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE Extension
+(AACGAACACCTCATGTAATGACTAAGATG). Nucleotides are indicated by unique colors (A = green; C = red; G =
+  yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+   Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                  cleavage site.
+                                            Data: Allele frequency table
+
+
+
+
+ Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE spacer
+  sgRNA (GTCATCTTAGTCATTACCTG). Nucleotides are indicated by unique colors (A = green; C = red; G =
+ yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+  Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                 cleavage site.
+                                            Data: Allele frequency table
+
+
+
+
+ Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE nicking
+ sgRNA (CTCAACCATTAAGCAAAACAT). Nucleotides are indicated by unique colors (A = green; C = red; G =
+  yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+      Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                 cleavage site.
+                                                    Data: Allele frequency table
+
+
+
+                                       Prime Editing for Reference
+
+
+                                                                                                              
+
+
+
+
+      Figure 11a: Nucleotide distribution across all amplicons. At each base in the reference amplicon, the
+    percentage of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T =
+    purple). Black bars show the percentage of reads for which that base was deleted. Brown bars between
+                    bases show the percentage of reads having an insertion at that position.
+
+
+
+
+     Figure 11b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).
+                                 Data: Nucleotide frequency in quantification window for Reference
+                               Data: Nucleotide frequency in quantification window for Prime-edited
+                           Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+
+
+
+
+         Figure 11b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).
+                                 Data: Nucleotide frequency in quantification window for Reference
+                               Data: Nucleotide frequency in quantification window for Prime-edited
+                           Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+Figure 11b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).
+                       Data: Nucleotide frequency in quantification window for Reference
+                     Data: Nucleotide frequency in quantification window for Prime-edited
+                 Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+                             Nucleotide Composition for Prime-edited
+
+
+                                                                                                                  
+
+
+
+
+    Figure 2a: Nucleotide distribution across amplicon. At each base in the reference amplicon, the percentage
+    of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black
+     bars show the percentage of reads for which that base was deleted. Brown bars between bases show the
+                              percentage of reads having an insertion at that position.
+                                               Data: Nucleotide frequency table
+
+
+
+
+       Figure 2b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+
+           Figure 2b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+
+          Figure 2b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+                               Modification Lengths for Prime-edited
+Figure 3a: Frequency distribution of alleles with indels (blue) and without indels (red). Note that histograms
+are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.
+                            (Maximum 61 not shown) (Minimum -84 not shown)
+                                               Data: Indel histogram
+
+
+
+
+    Figure 3b: Left panel, frequency distribution of sequence modifications that increase read length with
+   respect to the reference amplicon, classified as insertions (positive indel size). Middle panel, frequency
+   distribution of sequence modifications that reduce read length with respect to the reference amplicon,
+ classified as deletions (negative indel size). Right panel, frequency distribution of sequence modifications
+ that do not alter read length with respect to the reference amplicon, which are classified as substitutions
+  (number of substituted positions shown). Note that histograms are clipped to show 99% of the data. To
+   show all data, run using the parameter '--plot_histogram_outliers'. (Insertion maximum 61 not shown)
+                                      (Deletion minimum -84 not shown)
+                                            Data: Insertions frequency
+                                            Data: Deletions Frequency
+                                           Data: Substitutions Frequency
+
+
+
+                           Indel Characterization for Prime-edited
+Figure 4a: Combined frequency of any modification across the amplicon. Modifications outside of the
+                             quantification window are also shown.
+                                    Data: Combined modification frequency
+
+
+
+
+Figure 4b: Frequency of insertions, deletions, and substitutions across the entire amplicon, including
+                         modifications outside of the quantification window.
+                                         Data: Modification frequency
+Figure 4c: Frequency of insertions, deletions, and substitutions across the entire amplicon, considering only
+                         modifications that overlap with the quantification window.
+                                  Data: Modification frequency in quantification window
+
+
+
+
+Figure 4d: Position dependent insertion size(left) and deletion size (right), including only modifications that
+                                 overlap with the quantification window.
+
+
+
+                                   Allele Plots for Prime-edited
+Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE Extension
+(AACGAACACCTCATGTAATGACTAAGATG). Nucleotides are indicated by unique colors (A = green; C = red; G =
+  yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+   Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                  cleavage site.
+                                            Data: Allele frequency table
+
+
+
+
+ Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE spacer
+  sgRNA (GTCATCTTAGTCATTACCTG). Nucleotides are indicated by unique colors (A = green; C = red; G =
+ yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+  Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                 cleavage site.
+                                            Data: Allele frequency table
+
+
+
+
+ Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE nicking
+ sgRNA (CTCAACCATTAAGCAAAACAT). Nucleotides are indicated by unique colors (A = green; C = red; G =
+  yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                           cleavage site.
+                                              Data: Allele frequency table
+
+
+
+                               Prime Editing for Prime-edited
+
+
+
+
+Figure 11b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).
+                           Data: Nucleotide frequency in quantification window for Reference
+                         Data: Nucleotide frequency in quantification window for Prime-edited
+                     Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+
+
+
+
+   Figure 11b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).
+                           Data: Nucleotide frequency in quantification window for Reference
+                         Data: Nucleotide frequency in quantification window for Prime-edited
+                     Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+
+
+
+
+  Figure 11b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).
+                           Data: Nucleotide frequency in quantification window for Reference
+                         Data: Nucleotide frequency in quantification window for Prime-edited
+                     Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+                       Nucleotide Composition for Scaffold-incorporated
+
+
+                                                                                                                  
+
+
+
+
+    Figure 2a: Nucleotide distribution across amplicon. At each base in the reference amplicon, the percentage
+    of each base as observed in sequencing reads is shown (A = green; C = orange; G = yellow; T = purple). Black
+     bars show the percentage of reads for which that base was deleted. Brown bars between bases show the
+                              percentage of reads having an insertion at that position.
+                                               Data: Nucleotide frequency table
+
+
+
+
+       Figure 2b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+
+           Figure 2b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+
+          Figure 2b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).
+                                      Data: Nucleotide frequency in quantification window
+
+
+
+                         Modification Lengths for Scaffold-incorporated
+Figure 3a: Frequency distribution of alleles with indels (blue) and without indels (red). Note that histograms
+are clipped to show 99% of the data. To show all data, run using the parameter '--plot_histogram_outliers'.
+                            (Maximum 60 not shown) (Minimum -50 not shown)
+                                               Data: Indel histogram
+
+
+
+
+    Figure 3b: Left panel, frequency distribution of sequence modifications that increase read length with
+   respect to the reference amplicon, classified as insertions (positive indel size). Middle panel, frequency
+   distribution of sequence modifications that reduce read length with respect to the reference amplicon,
+ classified as deletions (negative indel size). Right panel, frequency distribution of sequence modifications
+ that do not alter read length with respect to the reference amplicon, which are classified as substitutions
+  (number of substituted positions shown). Note that histograms are clipped to show 99% of the data. To
+   show all data, run using the parameter '--plot_histogram_outliers'. (Insertion maximum 60 not shown)
+                                      (Deletion minimum -50 not shown)
+                                            Data: Insertions frequency
+                                            Data: Deletions Frequency
+                                           Data: Substitutions Frequency
+
+
+
+                    Indel Characterization for Scaffold-incorporated
+Figure 4a: Combined frequency of any modification across the amplicon. Modifications outside of the
+                             quantification window are also shown.
+                                    Data: Combined modification frequency
+
+
+
+
+Figure 4b: Frequency of insertions, deletions, and substitutions across the entire amplicon, including
+                         modifications outside of the quantification window.
+                                         Data: Modification frequency
+Figure 4c: Frequency of insertions, deletions, and substitutions across the entire amplicon, considering only
+                         modifications that overlap with the quantification window.
+                                  Data: Modification frequency in quantification window
+
+
+
+
+Figure 4d: Position dependent insertion size(left) and deletion size (right), including only modifications that
+                                 overlap with the quantification window.
+
+
+
+                             Allele Plots for Scaffold-incorporated
+Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE Extension
+(AACGAACACCTCATGTAATGACTAAGATG). Nucleotides are indicated by unique colors (A = green; C = red; G =
+  yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+   Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                  cleavage site.
+                                            Data: Allele frequency table
+
+
+
+
+ Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE spacer
+  sgRNA (GTCATCTTAGTCATTACCTG). Nucleotides are indicated by unique colors (A = green; C = red; G =
+ yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+  Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                 cleavage site.
+                                            Data: Allele frequency table
+
+
+
+
+ Figure 9: Visualization of the distribution of identified alleles around the cleavage site for the PE nicking
+ sgRNA (CTCAACCATTAAGCAAAACAT). Nucleotides are indicated by unique colors (A = green; C = red; G =
+  yellow; T = purple). Substitutions are shown in bold font. Red rectangles highlight inserted sequences.
+   Horizontal dashed lines indicate deleted sequences. The vertical dashed line indicates the predicted
+                                                  cleavage site.
+                                            Data: Allele frequency table
+
+
+
+                          Prime Editing for Scaffold-incorporated
+Figure 11b: Nucleotide distribution around the PE Extension (AACGAACACCTCATGTAATGACTAAGATG).
+                         Data: Nucleotide frequency in quantification window for Reference
+                       Data: Nucleotide frequency in quantification window for Prime-edited
+                   Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+
+
+
+
+   Figure 11b: Nucleotide distribution around the PE spacer sgRNA (GTCATCTTAGTCATTACCTG).
+                         Data: Nucleotide frequency in quantification window for Reference
+                       Data: Nucleotide frequency in quantification window for Prime-edited
+                   Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+
+
+
+
+  Figure 11b: Nucleotide distribution around the PE nicking sgRNA (CTCAACCATTAAGCAAAACAT).
+                         Data: Nucleotide frequency in quantification window for Reference
+                       Data: Nucleotide frequency in quantification window for Prime-edited
+                   Data: Nucleotide frequency in quantification window for Scaffold-incorporated
+
+
+
+
+                                 Download report              Link to report
+

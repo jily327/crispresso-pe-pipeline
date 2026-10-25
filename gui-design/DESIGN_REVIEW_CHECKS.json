@@ -1,0 +1,64 @@
+{
+  "study": "M9 design-only",
+  "primary_screens": 14,
+  "required_deliverables": [
+    "GUI_DESIGN_SPEC.md",
+    "SCREEN_FLOW.md",
+    "FIELD_BACKEND_MAPPING.md",
+    "RESULTS_INFORMATION_ARCHITECTURE.md",
+    "ERROR_AND_STATUS_UX.md",
+    "TECHNOLOGY_RECOMMENDATION.md",
+    "WIREFRAMES.md"
+  ],
+  "repository_head_observed": "be4222b43db6926e3b89d1d09310e5581bc3f258",
+  "stable_main": "f200e28cfafa398bf8072babf311621bd0af6ff8",
+  "repository_working_tree_unchanged": true,
+  "code_modified": false,
+  "gui_implemented": false,
+  "commit_push_pr_merge_performed": false,
+  "validation": [
+    "required files present",
+    "local Markdown links resolve",
+    "code fences balanced",
+    "14 unique primary wireframe IDs",
+    "repository HEAD/main/status unchanged"
+  ],
+  "files": {
+    "ERROR_AND_STATUS_UX.md": {
+      "size_bytes": 9796,
+      "sha256": "118282002eeeaf15adf7236118a79eb3e2d0099acecb1f600b0257ab4c0bdd9f"
+    },
+    "FIELD_BACKEND_MAPPING.md": {
+      "size_bytes": 17365,
+      "sha256": "ae8a7a6c41bbc5439d7cf242763d1d4a386db0b15022262c3ae80c0b44df3246"
+    },
+    "GUI_DESIGN_SPEC.md": {
+      "size_bytes": 17629,
+      "sha256": "b79cb48877f76dbafb4d01c938cef793a032cbb54fff8bbc5e83c4bea2db6fb2"
+    },
+    "README.md": {
+      "size_bytes": 2300,
+      "sha256": "183e00537343fc359b2799436c687f39310582d3c7e2458f6ec295b73b58414b"
+    },
+    "REFERENCE_REVIEW.md": {
+      "size_bytes": 8586,
+      "sha256": "3076da5a914d39ee531cde52fa282989eef6d8ed390ec10608fec8ef75c900a1"
+    },
+    "RESULTS_INFORMATION_ARCHITECTURE.md": {
+      "size_bytes": 15503,
+      "sha256": "96d33e7d0d1fae20cb7a7664372020da54da19c902b37fb88fa722689a796251"
+    },
+    "SCREEN_FLOW.md": {
+      "size_bytes": 8423,
+      "sha256": "6bf97b2a5a8462e84ecd3489e75c05575cd9b3c0de0bbd4a755aa621f21999c8"
+    },
+    "TECHNOLOGY_RECOMMENDATION.md": {
+      "size_bytes": 14436,
+      "sha256": "be18b6c6da379da9688b72da018d9411c297cc07620048a6ceb566c67a6aa578"
+    },
+    "WIREFRAMES.md": {
+      "size_bytes": 14308,
+      "sha256": "14f4382a5af85f392a373199e31df05644aebff1d29619317400729a931bce8f"
+    }
+  }
+}
