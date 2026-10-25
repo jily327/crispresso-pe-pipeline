@@ -20,3 +20,13 @@ recursive-include docs/validation/m7 *.json *.txt *.py *.sh *.csv *.yaml
 recursive-include docs/validation/readthrough *.json *.csv *.yaml *.txt *.md *.py *.sh
 recursive-include docs/validation/readthrough-singlecopy *.json *.txt *.py *.md
 recursive-include docs/validation/m8 *.json *.txt *.py *.sh *.md *.zip
+
+# Reproducible prebuilt viewer and its build inputs (no Node runtime dependency).
+include viewer_build.py
+include requirements-gui.lock
+include frontend/package.json frontend/package-lock.json frontend/index.html
+include frontend/tsconfig.json frontend/vite.config.ts
+recursive-include frontend/src *.ts *.tsx *.css *.json
+recursive-include src/peanalyzer/gui/static *.json *.html *.js *.css
+
+recursive-include docs/validation/m101 *.json *.md

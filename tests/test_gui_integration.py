@@ -23,6 +23,11 @@ def test_real_verified_workspace_viewer(mode,tmp_path,monkeypatch):
     options.update(output=root/'workflow',crispresso=os.environ.get('M3_CORE_EXECUTABLE','CRISPResso'),contrasts=root/'inputs/contrasts.yaml')
     workflow.execute_workflow(**options)
     before=fingerprint(options['output']);calls=forbid_execution(monkeypatch)
+    import peanalyzer.gui.workspace as viewer_workspace
+    full_verify=viewer_workspace.verify_workflow_output;verification_calls=[]
+    def counted(*a,**k):
+        verification_calls.append(1);return full_verify(*a,**k)
+    monkeypatch.setattr(viewer_workspace,'verify_workflow_output',counted)
     c=TestClient(create_app([(mode,options['output'])],token='test'),base_url='http://127.0.0.1',headers={'X-Viewer-Token':'test'})
     reg=c.get('/api/v1/workspaces').json()[0]['registration_id']
     response=c.post('/api/v1/workspaces/open',json={'registration_id':reg})
@@ -45,6 +50,7 @@ def test_real_verified_workspace_viewer(mode,tmp_path,monkeypatch):
         assert r.content==(options['output']/source['name']).read_bytes()
         assert r.headers['content-disposition'].startswith('attachment;')
     assert c.get(base).status_code==200 and fingerprint(options['output'])==before and calls==[]
+    assert len(verification_calls)==1
     (root/'projection.json').write_text(json.dumps(view,indent=2)+'\n')
     (root/'viewer-evidence.json').write_text(json.dumps(dict(mode=mode,scientific_executor_calls=0,
         unchanged_workspace_and_input_files=len(before),byte_and_mtime_identity=True,verifier='verify_workflow_output',workspace=str(options['output'])),indent=2)+'\n')

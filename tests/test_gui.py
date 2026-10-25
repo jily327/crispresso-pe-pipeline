@@ -161,3 +161,101 @@ def test_generated_frontend_contract_matches_python_models():
     spec=importlib.util.spec_from_file_location('viewer_types',root/'scripts/generate_viewer_types.py')
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     assert (root/'frontend/src/models/api.ts').read_text()==module.generate()
+
+
+def test_full_verifier_only_once_then_cached_navigation(ready,monkeypatch):
+    import peanalyzer.gui.workspace as workspace
+    original=workspace.verify_workflow_output;calls=[]
+    def verify(*a,**k):
+        calls.append(1);return original(*a,**k)
+    monkeypatch.setattr(workspace,'verify_workflow_output',verify)
+    forbidden=forbid_execution(monkeypatch);before=fingerprint(ready)
+    c=client(ready);v=open_view(c).json();base='/api/v1/workspaces/'+v['workspace_id']
+    assert len(calls)==1
+    for _ in range(6):  # five tabs and status polling
+        assert c.get(base).json()==v
+    assert c.get(base+'/observations?limit=1').status_code==200
+    assert c.get(base+'/alleles/bc001').status_code==409  # PE has no typed nuclease detail
+    for source in [s for s in v['artifacts'] if s['downloadable']][:3]:
+        assert c.get(base+'/artifacts/'+source['artifact_id']).content==(ready/source['name']).read_bytes()
+    assert len(calls)==1 and not forbidden and fingerprint(ready)==before
+    # Response mutation must not change the in-memory typed snapshot.
+    item=c.app.state.store.get(v['workspace_id']);item.view.label='not the verified label'
+    assert c.get(base).json()['label']==v['label']
+
+
+@pytest.mark.parametrize('attack',['added','removed','input','symlink'])
+def test_cached_inventory_and_input_changes_invalidate(ready,attack):
+    c=client(ready);v=open_view(c).json();base='/api/v1/workspaces/'+v['workspace_id']
+    if attack=='added':(ready/'unexpected.txt').write_text('unverified')
+    elif attack=='removed':(ready/'report/report.html').unlink()
+    elif attack=='input':
+        plan=json.loads((ready/'workflow/plan.json').read_text())
+        p=Path(plan['inputs']['samples']['source_path']);p.write_bytes(p.read_bytes()+b'\n')
+    else:(ready/'escape').symlink_to('/etc/passwd')
+    assert c.get(base).status_code==409
+    assert c.get(base).json()['error']['code']=='WORKSPACE_NOT_OPEN'
+
+
+@pytest.mark.parametrize('when',['before_read','after_read'])
+def test_download_race_invalidates_handle_and_returns_no_bytes(ready,monkeypatch,when):
+    import peanalyzer.gui.workspace as workspace
+    c=client(ready);v=open_view(c).json();base='/api/v1/workspaces/'+v['workspace_id']
+    source=next(s for s in v['artifacts'] if s['name']=='statistics/result.json')
+    original=workspace.read_bound
+    def race(root,record):
+        path=root/record.path
+        if when=='before_read':path.write_bytes(path.read_bytes()+b' ')
+        data=original(root,record)
+        if when=='after_read':path.write_bytes(path.read_bytes()+b' ')
+        return data
+    monkeypatch.setattr(workspace,'read_bound',race)
+    response=c.get(base+'/artifacts/'+source['artifact_id'])
+    assert response.status_code==409
+    assert response.json()['error']['code']==('ARTIFACT_HASH_MISMATCH' if when=='before_read' else 'WORKSPACE_CHANGED')
+    assert c.get(base).json()['error']['code']=='WORKSPACE_NOT_OPEN'
+
+
+def test_input_mutation_during_initial_verification_rejected(ready,monkeypatch):
+    import peanalyzer.gui.workspace as workspace
+    original=workspace.verify_workflow_output
+    def race(root):
+        result=original(root)
+        plan=json.loads((root/'workflow/plan.json').read_text())
+        p=Path(plan['inputs']['samples']['source_path']);p.write_bytes(p.read_bytes()+b'\n')
+        return result
+    monkeypatch.setattr(workspace,'verify_workflow_output',race)
+    c=client(ready)
+    assert open_view(c).json()['error']['code']=='WORKSPACE_CHANGED'
+    assert not c.app.state.store.opened
+
+
+def test_default_labels_are_unique_compact_and_explicit_labels_preserved(tmp_path):
+    paths=[tmp_path/'A/workflow',tmp_path/'B/workflow',tmp_path/'unique']
+    store=WorkspaceStore([(None,p) for p in paths]+[('My explicit analysis',tmp_path/'C/workflow')])
+    assert [r.label for r in store.catalog()]==['A / workflow','B / workflow','unique','My explicit analysis']
+    assert len({r.registration_id for r in store.catalog()})==4
+    assert [path for _,path in store.registrations.values()]==paths+[tmp_path/'C/workflow']
+    reverse=WorkspaceStore([(None,p) for p in reversed(paths)])
+    assert [r.label for r in reverse.catalog()]==['unique','B / workflow','A / workflow']
+    assert all(str(tmp_path) not in r.label for r in store.catalog())
+
+
+def test_repeated_default_path_and_explicit_collision_are_disambiguated(tmp_path):
+    store=WorkspaceStore([('A / workflow',tmp_path/'explicit'),(None,tmp_path/'A/workflow'),(None,tmp_path/'A/workflow')])
+    labels=[r.label for r in store.catalog()]
+    assert labels[0]=='A / workflow' and len(set(labels))==3
+
+
+def test_analyze_external_archive_inventory_is_part_of_cached_identity(case):
+    from peanalyzer.workflow import execute_workflow
+    options,_=complete(case)
+    external=options['output']/'demux'
+    analyze={**options,'mode':'analyze','r1':None,'r2':None,'demux_root':external,
+             'output':options['output'].parent/'analyzed'}
+    execute_workflow(**analyze)
+    c=client(analyze['output']);v=open_view(c).json();base='/api/v1/workspaces/'+v['workspace_id']
+    assert c.get(base).status_code==200
+    (external/'02_demultiplexed_fastq/unexpected.fastq').write_text('unverified')
+    assert c.get(base).json()['error']['code']=='WORKSPACE_CHANGED'
+    assert c.get(base).json()['error']['code']=='WORKSPACE_NOT_OPEN'

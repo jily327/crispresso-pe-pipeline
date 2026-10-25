@@ -79,3 +79,49 @@ test('a failed revalidation hides an already opened scientific view',async({page
   await expect(page.getByRole('heading',{name:'Exact intended PE',exact:true})).toHaveCount(0);
   await expect(page.getByRole('tab')).toHaveCount(0);
 });
+
+for (const key of ['Enter','Space']) {
+  test(`keyboard Tab → ${key} keeps focus during integrity loading`,async({page})=>{
+    await open(page);
+    await expect(page.getByRole('heading',{name:'PE reference study',exact:true})).toBeFocused();
+    await page.getByRole('tab',{name:'Overview',exact:true}).focus();
+    await page.keyboard.press('Shift+Tab');await page.keyboard.press('Tab');
+    const overview=page.getByRole('tab',{name:'Overview',exact:true});
+    await expect(overview).toBeFocused();
+    let release!:()=>void;
+    const gate=new Promise<void>(resolve=>{release=resolve});
+    await page.route('**/api/v1/workspaces/*',async route=>{await gate;await route.continue()});
+    await page.keyboard.press(key);
+    await expect(page.getByRole('tabpanel')).toHaveAttribute('aria-busy','true');
+    await expect(overview).toBeEnabled();await expect(overview).toBeFocused();
+    release();await expect(page.getByRole('tabpanel')).toHaveAttribute('aria-busy','false');
+    await expect(overview).toBeFocused();
+    await page.keyboard.press('ArrowRight');await expect(page.getByRole('tab',{name:'Samples',exact:true})).toBeFocused();
+    await expect(page.getByRole('tab',{name:'Samples',exact:true})).toHaveAttribute('aria-selected','true');
+    await tab(page,'QC');await expect(page.getByRole('tab',{name:'QC',exact:true})).toBeFocused();
+    await page.keyboard.press('ArrowRight');await expect(page.getByRole('tab',{name:'Statistics',exact:true})).toBeFocused();
+    await expect(page.getByRole('tab',{name:'Statistics',exact:true})).toHaveAttribute('aria-selected','true');
+  });
+}
+
+test('keyboard Open completion intentionally focuses the analysis heading',async({page})=>{
+  await page.goto('/#e2e-local-token');
+  await expect(page.getByRole('button',{name:'Open and verify'})).toBeEnabled();
+  await page.getByLabel('Registered workspace').focus();await page.keyboard.press('Tab');
+  await expect(page.getByRole('button',{name:'Open and verify'})).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('heading',{name:'PE reference study',exact:true})).toBeFocused();
+  await page.keyboard.press('Tab');await expect(page.getByLabel('Biological sample')).toBeFocused();
+});
+
+test('same-basename registrations show unique labels and their correct scientific mode',async({page})=>{
+  await open(page,'precise_edit / workflow');
+  await expect(page.getByRole('heading',{name:'Exact intended PE',exact:true})).toBeVisible();
+  const labels=await page.getByLabel('Registered workspace').locator('option').allTextContents();
+  expect(labels).toContain('unique');expect(new Set(labels).size).toBe(labels.length);
+  await page.getByLabel('Registered workspace').selectOption({label:'indel_nuclease / workflow'});
+  await page.getByRole('button',{name:'Open and verify'}).click();
+  await expect(page.getByRole('heading',{name:'indel_nuclease / workflow',exact:true})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Indel fraction',exact:true})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Exact intended PE',exact:true})).toHaveCount(0);
+});

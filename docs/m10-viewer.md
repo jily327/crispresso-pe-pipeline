@@ -8,8 +8,9 @@ ZIP or incomplete workflow is not a supported substitute.
 
 ## Install and launch
 
-Use Python 3.11+ and Node.js 24 for development/building. Node is not required
-at installed viewer runtime. From the repository root:
+Use Python 3.11+. Node.js 24 is needed only for frontend development or bundle
+regeneration; ordinary Python package builds use committed assets, and installed
+viewer runtime does not require Node. For frontend development, from the repository root:
 
 ```bash
 python -m venv .venv
@@ -29,7 +30,10 @@ that browser tab's session storage. Register multiple explicit workspaces by
 repeating `--workspace`. The browser receives opaque registration IDs and labels;
 it cannot submit arbitrary filesystem paths or browse the filesystem. A missing
 registered folder is shown as a typed open error. Restart with another explicit
-registration to add a workspace. There is no persistent catalog or workspace cache.
+registration to add a workspace. There is no persistent catalog. Verified snapshots
+are held in process memory outside the scientific workspace. Default labels use
+the shortest distinguishing parent suffix when basenames collide; explicit labels
+are preserved. Access always uses opaque IDs, never display labels.
 
 The listener binds **127.0.0.1 only**; `--port` changes the port (default 8765).
 There is no LAN host option. API requests require the launch token, a loopback
@@ -100,17 +104,25 @@ original diagnostics/downloaded source files may contain their recorded paths.
 Open verifies the complete workflow at its recorded location, then strict-loads
 and projects the inventoried M5/metric sources. Files used for projection must
 match the verified hashes. Snapshot identity covers workspace regular-file bytes,
-directory inventory and original input hashes. Symlinks, traversal and special
-files are rejected. Projection is followed by verification and identity checks
-again before publication.
+directory inventory, original input hashes and analyze-mode external demux
+archive inventory. Symlinks, traversal and special
+files are rejected. Full authoritative verification runs **once per successful open**. Workspace and
+original-input identities are captured before verification and checked after
+projection before the immutable in-memory snapshot is published.
 
-Every API read/download rechecks source integrity; scientific results are hidden
+Every API read/download compares current file hashes and directory inventory
+with that snapshot, without rerunning the scientific verifier; scientific results are hidden
 when a request fails. The UI also checks the current snapshot every 15 seconds
 while idle, scheduling the next check only after the prior check completes.
 The badge describes the verified snapshot, not an assertion of continuous
-filesystem locking. Large workspaces incur full verification/hash I/O; the local
-API runs blocking readers outside the event loop. No shortened validation bypass
-or permanent trusted cache is used.
+filesystem locking. Full verification can still be expensive at open; later reads
+perform streaming SHA-256/inventory checks and return cached typed projections.
+A mismatch invalidates the handle and requires reopening. Downloads check exact
+artifact bytes against their recorded hash and recheck the snapshot before returning
+those bytes. The local API runs blocking readers outside the event loop. The cache
+never grants permanent trust to mutable disk files. Tabs remain keyboard-focusable
+while the content region reports `aria-busy`; successful open focuses the analysis
+heading intentionally.
 
 The viewer creates no locks, sessions, indexes, manifests, outputs or caches in
 scientific workspaces. Registration and projected data live in process memory.
@@ -128,18 +140,31 @@ execution. No bundle generation or portable report rewriting is performed.
 
 ## Build and release
 
-Build the frontend before the Python wheel:
+Release policy: committed, reproducible prebuilt frontend assets (Option A).
+A clean checkout can build wheel and sdist without Node. Node is needed only
+when changing the frontend and regenerating its production bundle:
 
 ```bash
 (cd frontend && npm ci && npm run build)
-python -m build --wheel --no-isolation
+```
+
+The build records hashes of production sources, build configuration, lockfile and
+output assets in `gui/static/build-identity.json`. Both wheel and sdist commands
+validate this identity and fail with `VIEWER_ASSET_IDENTITY_MISMATCH` for missing,
+modified or stale assets. They cannot silently produce a viewer-less wheel.
+From a clean checkout (including building a wheel from the sdist):
+
+```bash
+python -m build
 python -m venv /tmp/peanalyzer-viewer-install
 /tmp/peanalyzer-viewer-install/bin/pip install 'dist/crispresso_pe_pipeline-0.8.0-py3-none-any.whl[gui]'
 /tmp/peanalyzer-viewer-install/bin/peanalyzer-viewer --workspace /absolute/path/to/completed-workflow
 ```
 
-Generated assets live in `src/peanalyzer/gui/static` and are ignored by Git but
-included in wheel package data. Runtime needs Python and the `gui` extra, not Node.
+Generated assets live in `src/peanalyzer/gui/static` and are committed and
+included in wheel/sdist package data, alongside the source/build identity.
+Rebuild with the pinned Node/npm environment and compare asset hashes to check
+reproducibility; the Python build gate binds the committed inputs and outputs. Runtime needs Python and the `gui` extra, not Node.
 A source installation without built assets fails launch with an explicit build
 instruction. `requirements-gui.lock` pins the adapter/test dependency closure
 alongside the unchanged scientific/development lock. `frontend/package-lock.json`
@@ -175,7 +200,9 @@ projection → API → browser, with no caller execution during viewing.
 Source and fresh-wheel validation retain every prior test, enable all existing
 real integration flags, and add failure, paging, precision, source-mutation,
 qualification, frontend ownership, keyboard, AA and reflow tests. See
-[validation evidence](validation/m10/README.md) for exact results and identities.
+[M10 validation evidence](validation/m10/README.md) and
+[M10.1 focused remediation evidence](validation/m101/README.md) for exact results
+and identities.
 
 ## Deferred capabilities
 

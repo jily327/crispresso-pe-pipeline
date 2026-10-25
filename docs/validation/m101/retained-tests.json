@@ -1,0 +1,23 @@
+{
+  "prior_retained": 1556,
+  "final": 1572,
+  "added": [
+    "tests/test_gui.py::test_analyze_external_archive_inventory_is_part_of_cached_identity",
+    "tests/test_gui.py::test_cached_inventory_and_input_changes_invalidate[added]",
+    "tests/test_gui.py::test_cached_inventory_and_input_changes_invalidate[input]",
+    "tests/test_gui.py::test_cached_inventory_and_input_changes_invalidate[removed]",
+    "tests/test_gui.py::test_cached_inventory_and_input_changes_invalidate[symlink]",
+    "tests/test_gui.py::test_default_labels_are_unique_compact_and_explicit_labels_preserved",
+    "tests/test_gui.py::test_download_race_invalidates_handle_and_returns_no_bytes[after_read]",
+    "tests/test_gui.py::test_download_race_invalidates_handle_and_returns_no_bytes[before_read]",
+    "tests/test_gui.py::test_full_verifier_only_once_then_cached_navigation",
+    "tests/test_gui.py::test_input_mutation_during_initial_verification_rejected",
+    "tests/test_gui.py::test_repeated_default_path_and_explicit_collision_are_disambiguated",
+    "tests/test_gui_packaging.py::test_viewer_build_identity_gate[asset]",
+    "tests/test_gui_packaging.py::test_viewer_build_identity_gate[inventory]",
+    "tests/test_gui_packaging.py::test_viewer_build_identity_gate[missing]",
+    "tests/test_gui_packaging.py::test_viewer_build_identity_gate[none]",
+    "tests/test_gui_packaging.py::test_viewer_build_identity_gate[source]"
+  ],
+  "removed": []
+}

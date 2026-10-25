@@ -14,7 +14,7 @@ def main():
     if not 1 <= args.port <= 65535:
         parser.error('port must be between 1 and 65535')
     token=secrets.token_urlsafe(32)
-    app=create_app([(Path(p).name,Path(p)) for p in args.workspace],token=token)
+    app=create_app([(None,Path(p)) for p in args.workspace],token=token)
     if not (Path(__file__).parent/'static/index.html').is_file():
         parser.error('Built viewer assets are missing. Run npm ci && npm run build in frontend before packaging.')
     print(f'Open http://127.0.0.1:{args.port}/#{token}',flush=True)
