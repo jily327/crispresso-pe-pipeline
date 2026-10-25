@@ -5,6 +5,7 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_validator
 from peanalyzer.schemas import Identifier, Target
+from peanalyzer.nuclease.targets import NucleaseTarget
 
 Hash = Annotated[str, Field(pattern=r'^[0-9a-f]{64}$')]
 RelativePath = Annotated[str, Field(pattern=r'^[A-Za-z0-9_][A-Za-z0-9_.-]*(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$')]
@@ -97,7 +98,7 @@ class Plan(Model):
     expected_samples: list[Identifier]
     expected_targets: list[Identifier]
     samples: list[dict[str, JsonValue]]
-    targets: list[Target]
+    targets: list[Target | NucleaseTarget]
     nodes: list[Node]
     inputs: dict[str, InputArtifact]
     normalized_options: dict[str, JsonValue]
@@ -179,6 +180,7 @@ class Session(Model):
 
 
 class WorkflowManifest(Model):
+    analysis_modes: list[Literal['precise_edit','indel_nuclease']] = Field(default_factory=lambda: ['precise_edit'])
     schema_version: Literal[1] = 1
     workflow_contract_version: Literal['m7-v1'] = 'm7-v1'
     status: Literal['COMPLETED']

@@ -1,0 +1,62 @@
+{
+  "WT": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "deletion": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "deletion_substitution": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "generic_boundary": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "insertion": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "insertion_deletion": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "insertion_substitution": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "large_deletion": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "left_cut_insertion": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "net_zero": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "outside_window": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "right_cut_insertion": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "substitution": {
+    "configuration_equal": true,
+    "scientific_result_equal": true
+  },
+  "workflow/analyze": {
+    "scientific_results_equal": true,
+    "svg_bytes_equal": true
+  },
+  "workflow/run": {
+    "scientific_results_equal": true,
+    "svg_bytes_equal": true
+  }
+}

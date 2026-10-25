@@ -19,3 +19,4 @@ recursive-include docs/validation/m61 *.json *.txt *.py *.sh
 recursive-include docs/validation/m7 *.json *.txt *.py *.sh *.csv *.yaml
 recursive-include docs/validation/readthrough *.json *.csv *.yaml *.txt *.md *.py *.sh
 recursive-include docs/validation/readthrough-singlecopy *.json *.txt *.py *.md
+recursive-include docs/validation/m8 *.json *.txt *.py *.sh *.md *.zip

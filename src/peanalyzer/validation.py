@@ -9,6 +9,7 @@ from typing import TypeVar
 import yaml
 from pydantic import ValidationError
 
+from peanalyzer.nuclease.targets import NucleaseTarget
 from peanalyzer.schemas import BarcodeSample, Config, Model, Sample, Target, reverse_complement
 
 SAMPLE_COLUMNS = (
@@ -24,6 +25,7 @@ INTEGER_COLUMNS = {
     "prime_editing_pegRNA_scaffold_min_match_length",
 }
 NULLABLE_COLUMNS = {
+    "nuclease_profile", "tigr_target_sequence", "tigr_window",
     "block_id", "nicking_guide", "pegRNA_scaffold", "quantification_window_coordinates",
     "quantification_window_size", "quantification_window_center",
     "prime_editing_pegRNA_scaffold_min_match_length",
@@ -153,7 +155,16 @@ def sample_output_names(sample_ids: list[str]) -> dict[str, tuple[str, str]]:
 
 
 def load_targets(path: Path) -> list[Target]:
-    rows = _load_csv(path, Target, TARGET_COLUMNS)
+    # Dispatch at the CSV compatibility boundary; PE requirements remain exact.
+    with path.open(newline="", encoding="utf-8-sig") as handle:
+        records=list(csv.DictReader(handle))
+    modes={r.get('analysis_mode','precise_edit') for r in records}
+    if modes == {'indel_nuclease'}:
+        rows = _load_csv(path, NucleaseTarget, ('analysis_mode','target_name','copy_name','wt_sequence'))
+    elif modes <= {'precise_edit'}:
+        rows = _load_csv(path, Target, TARGET_COLUMNS)
+    else:
+        raise MetadataError('MIXED_OR_UNKNOWN_ANALYSIS_MODE: use one scientific mode per target file')
     ids = [row.amplicon_id for row in rows]
     if len(set(ids)) != len(ids):
         raise MetadataError(f"{path}: duplicate target_name/copy_name")
@@ -163,7 +174,7 @@ def load_targets(path: Path) -> list[Target]:
         if seq in seen or reverse_complement(seq) in seen:
             raise MetadataError(f"{path}: duplicate or reverse-complement WT amplicon at {row.amplicon_id}")
         # v2.3.4 also rejects a self reverse-complementing reference.
-        if seq == reverse_complement(seq):
+        if row.analysis_mode == "precise_edit" and seq == reverse_complement(seq):
             raise MetadataError(f"{path}: palindromic WT unsupported by CRISPRessoPooled 2.3.4: {row.amplicon_id}")
         seen.add(seq)
     return rows
@@ -184,16 +195,21 @@ def metadata_warnings(samples: list[Sample], targets: list[Target], config: Conf
         if all(overlaps):
             warnings.append(f"barcode matching may be ambiguous: {left.sample_name}, {right.sample_name}")
     for row in targets:
+        if row.analysis_mode == "indel_nuclease":
+            if sum(t.target_name == row.target_name for t in targets)>1:
+                warnings.append("MULTICOPY_NUCLEASE_UNSUPPORTED: backend execution is blocked")
+            continue
         if row.pegRNA_spacer not in row.wt_sequence:
             warnings.append(f"{row.amplicon_id}: spacer is not an exact forward WT substring; confirm strand/homeolog mismatches")
         if reverse_complement(row.pegRNA_extension) not in row.prime_edited_sequence:
             warnings.append(f"{row.amplicon_id}: reverse-complement extension is absent from intended PE; backend orientation/extension checks may fail")
     for left, right in itertools.combinations(targets, 2):
+        if left.analysis_mode != "precise_edit" or right.analysis_mode != "precise_edit": continue
         a = {left.wt_sequence, left.prime_edited_sequence}
         b = {right.wt_sequence, right.prime_edited_sequence}
         if a & (b | {reverse_complement(seq) for seq in b}):
             warnings.append(f"reference collision across copies/targets: {left.amplicon_id}, {right.amplicon_id}")
-    if len(targets) > 1:
+    if len(targets) > 1 and all(t.analysis_mode == "precise_edit" for t in targets):
         warnings.append("multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment")
     if config.statistics.mode != "none":
         column = config.statistics.block_column
@@ -218,5 +234,8 @@ def validate_metadata(samples_path: Path, targets_path: Path, config_path: Path,
         "copy_count": len(targets),
         "warnings": metadata_warnings(samples, targets, config),
         "resolved_config": config.model_dump(mode="json"),
+        "analysis_modes": sorted({t.analysis_mode for t in targets}),
+        "resolved_targets": [t.scientific_identity if t.analysis_mode == "indel_nuclease" else dict(analysis_mode="precise_edit", **t.model_dump(mode="json")) for t in targets],
+        "nuclease_execution_supported": all(sum(t.target_name == r.target_name for t in targets)==1 for r in targets if r.analysis_mode=="indel_nuclease"),
         "scope": "metadata only; FASTQ, CRISPResso execution and biological validity are not checked",
     }

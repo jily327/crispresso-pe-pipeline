@@ -163,7 +163,9 @@ def _contrast(request, summary_a, summary_b, maximum):
 def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATIONS):
     """Return a new result; preserve all observations and explicit sample attrition."""
     _limit(max_permutations)
-    result = StatisticsResult.model_validate(result.model_dump())
+    from peanalyzer.result_dispatch import statistics_model
+    result_model = statistics_model(result.model_dump())
+    result = result_model.model_validate(result.model_dump())
     specification = ContrastSpecification.model_validate(specification.model_dump())
     groups = {(series_key(s), canonical(s.condition)): s for s in result.group_summaries}
     contrasts = []
@@ -191,7 +193,7 @@ def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATI
     data["provenance"]["invocation_parameters"].update(command="stats", max_permutations=max_permutations,
                                                       minimum_biological_replicates=MIN_BIOLOGICAL_REPLICATES,
                                                       contrast_specification_hash_basis="normalized_typed_specification")
-    return StatisticsResult.model_validate(data)
+    return result_model.model_validate(data)
 
 
 def stats(*, manifest_path, samples_path, contrasts_path, output=None, max_permutations=MAX_PERMUTATIONS):

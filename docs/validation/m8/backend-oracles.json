@@ -1,0 +1,949 @@
+{
+  "WT": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "WT",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 0,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 12
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      0,
+      0,
+      0
+    ],
+    "observed": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 0.0,
+      "numerator": 0
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "deletion": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "deletion",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      0,
+      1,
+      0
+    ],
+    "observed": [
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "deletion_substitution": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "deletion_substitution",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 0,
+      "indel_plus_substitution": 12,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      0,
+      1,
+      1
+    ],
+    "observed": [
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "generic_boundary": {
+    "aligned": 12,
+    "coordinates": "0-0_239-239",
+    "derivation": "explicit",
+    "guide": null,
+    "passed": true,
+    "unmodified": 12
+  },
+  "insertion": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "insertion",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      1,
+      0,
+      0
+    ],
+    "observed": [
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "insertion_deletion": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "insertion_deletion",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      1,
+      2,
+      0
+    ],
+    "observed": [
+      [
+        1,
+        2,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "insertion_substitution": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "insertion_substitution",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 0,
+      "indel_plus_substitution": 12,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      1,
+      0,
+      1
+    ],
+    "observed": [
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "large_deletion": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "large_deletion",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      0,
+      42,
+      0
+    ],
+    "observed": [
+      [
+        0,
+        42,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "left_cut_insertion": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "left_cut_insertion",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      1,
+      0,
+      0
+    ],
+    "observed": [
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "net_zero": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "net_zero",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      1,
+      1,
+      0
+    ],
+    "observed": [
+      [
+        1,
+        1,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "outside_window": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "outside_window",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 0,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 12
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      0,
+      0,
+      0
+    ],
+    "observed": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 0.0,
+      "numerator": 0
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "right_cut_insertion": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "right_cut_insertion",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 12,
+      "indel_plus_substitution": 0,
+      "substitution_only": 0,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      1,
+      0,
+      0
+    ],
+    "observed": [
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 1.0,
+      "numerator": 12
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "substitution": {
+    "aligned": 12,
+    "backend_input": 12,
+    "case": "substitution",
+    "counts": {
+      "ambiguous": 0,
+      "discarded": 0,
+      "indel_only": 0,
+      "indel_plus_substitution": 0,
+      "substitution_only": 12,
+      "unmodified": 0
+    },
+    "current_insertion_mode": true,
+    "expected": [
+      0,
+      0,
+      1
+    ],
+    "observed": [
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "passed": true,
+    "primary": {
+      "denominator": 12,
+      "fraction": 0.0,
+      "numerator": 0
+    },
+    "window": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "104-113",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    }
+  },
+  "workflow": {
+    "biological_replicates_per_condition": 2,
+    "conditions": 2,
+    "contrast": {
+      "alternative": "two-sided",
+      "complete_blocks": [],
+      "contrast_id": "indel",
+      "copy_name": null,
+      "difference_in_biological_sample_fraction": 0.6,
+      "excluded_blocks": [],
+      "expected_group_a": [
+        {
+          "biological_replicate": "1",
+          "block_id": null,
+          "dpi": 6,
+          "editor": "synthetic-nuclease",
+          "paired": false,
+          "reason_codes": [],
+          "sample_name": "bio1",
+          "status": "REPORTABLE",
+          "treatment": "A"
+        },
+        {
+          "biological_replicate": "2",
+          "block_id": null,
+          "dpi": 6,
+          "editor": "synthetic-nuclease",
+          "paired": false,
+          "reason_codes": [],
+          "sample_name": "bio2",
+          "status": "REPORTABLE",
+          "treatment": "A"
+        }
+      ],
+      "expected_group_a_count": 2,
+      "expected_group_b": [
+        {
+          "biological_replicate": "1",
+          "block_id": null,
+          "dpi": 6,
+          "editor": "synthetic-nuclease",
+          "paired": false,
+          "reason_codes": [],
+          "sample_name": "bio3",
+          "status": "REPORTABLE",
+          "treatment": "B"
+        },
+        {
+          "biological_replicate": "2",
+          "block_id": null,
+          "dpi": 6,
+          "editor": "synthetic-nuclease",
+          "paired": false,
+          "reason_codes": [],
+          "sample_name": "bio4",
+          "status": "REPORTABLE",
+          "treatment": "B"
+        }
+      ],
+      "expected_group_b_count": 2,
+      "extreme_count": 2,
+      "family_id": "primary",
+      "group_a": {
+        "dpi": 6,
+        "editor": "synthetic-nuclease",
+        "treatment": "A"
+      },
+      "group_b": {
+        "dpi": 6,
+        "editor": "synthetic-nuclease",
+        "treatment": "B"
+      },
+      "metric_name": "indel_fraction",
+      "p_value": 0.3333333333333333,
+      "pairing_mode": "unpaired",
+      "permutation_count": 6,
+      "permutation_space_size": 6,
+      "policy_definition": null,
+      "policy_id": null,
+      "population_scope": "target_all_prepared",
+      "q_value": 0.3333333333333333,
+      "reason_codes": [],
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "target_name": "T1",
+      "used_group_a_count": 2,
+      "used_group_a_sample_ids": [
+        "bio1",
+        "bio2"
+      ],
+      "used_group_b_count": 2,
+      "used_group_b_sample_ids": [
+        "bio3",
+        "bio4"
+      ],
+      "valid_tests_in_family": 1
+    },
+    "passed": true,
+    "precise_edit_executors_called": 0,
+    "primary_counts": [
+      [
+        2,
+        20
+      ],
+      [
+        4,
+        20
+      ],
+      [
+        14,
+        20
+      ],
+      [
+        16,
+        20
+      ]
+    ],
+    "report_force_only": true,
+    "run_analyze_counts_equal": true,
+    "samples": 4,
+    "statistics_force_no_backend": true,
+    "zero_execution_resume": true
+  }
+}

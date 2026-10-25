@@ -1,0 +1,38 @@
+{
+  "all_variant_calls_from_crispresso": true,
+  "both_tigr_boundary_insertions_quantified": true,
+  "historical_scenarios_retained": 63,
+  "large_internal_deletion_called_by_core": true,
+  "multicopy_nuclease_supported": false,
+  "old_pe_contracts_unchanged": true,
+  "pe_result_comparisons": 42,
+  "real_integration_scenarios": 14,
+  "source_wheel_scientific_parity": true,
+  "starting_main": "f200e28cfafa398bf8072babf311621bd0af6ff8",
+  "status": "PASS",
+  "tests": {
+    "source": {
+      "errors": 0,
+      "failures": 0,
+      "historical_integration": 63,
+      "integration": 77,
+      "new_integration": 14,
+      "new_unit": 132,
+      "prior_retained": 1185,
+      "skips": 0,
+      "total": 1331
+    },
+    "wheel": {
+      "errors": 0,
+      "failures": 0,
+      "historical_integration": 63,
+      "integration": 77,
+      "new_integration": 14,
+      "new_unit": 132,
+      "prior_retained": 1185,
+      "skips": 0,
+      "total": 1331
+    }
+  },
+  "version": "0.8.0"
+}
