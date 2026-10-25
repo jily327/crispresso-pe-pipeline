@@ -148,3 +148,9 @@ No biological interpretation or statistical reporting is implied.
 Work is developed on feature branches and integrated into `main`
 only after review. Research use; biological definitions require experiment-specific
 confirmation.
+
+## Local verified-result viewer (M10)
+
+The optional React/FastAPI viewer opens existing completed PE and nuclease
+workspaces after authoritative verification. It is read-only and does not run
+scientific stages. See [installation, launch and verification boundaries](docs/m10-viewer.md).

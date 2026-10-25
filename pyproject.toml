@@ -11,16 +11,18 @@ requires-python = ">=3.11"
 dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0.2,<7", "matplotlib>=3.9,<4", "biopython==1.85"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.3,<9", "build>=1.2,<2"]
+gui = ["fastapi==0.162.0", "uvicorn==0.54.0"]
+dev = ["pytest>=8.3,<9", "build>=1.2,<2", "httpx==0.28.1", "fastapi==0.162.0", "uvicorn==0.54.0"]
 
 [project.scripts]
 peanalyzer = "peanalyzer.cli:main"
+peanalyzer-viewer = "peanalyzer.gui.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-peanalyzer = ["barcode_sets/*.csv", "profiles/*.yaml", "metrics/*.json", "statistics_resources/*.json", "reporting_resources/*.json", "reporting_resources/*.css", "workflow_resources/*.json", "nuclease/*.json"]
+peanalyzer = ["barcode_sets/*.csv", "profiles/*.yaml", "metrics/*.json", "statistics_resources/*.json", "reporting_resources/*.json", "reporting_resources/*.css", "workflow_resources/*.json", "nuclease/*.json", "gui/static/*", "gui/static/assets/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
