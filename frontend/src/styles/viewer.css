@@ -2,3 +2,31 @@
 
 /* Keep the experiment header compact at laptop viewport heights. */
 .analysis{padding-top:1rem}.analysis-header p{margin:.35rem 0}.scope-strip{margin:.8rem 0}.section-heading{margin-top:1rem}.section-heading h2{margin:.6rem 0}.section-heading p{margin:.4rem 0}.table-scroll details{margin:0}
+
+/* Setup shares the local presentation boundary with the verified viewer. */
+.flow-nav,.setup-steps,.setup-actions,.setup-title { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.flow-nav { padding:16px 32px; border-bottom:1px solid #d6dbe1; }
+.flow-nav [aria-pressed=true],.setup-steps [aria-current=step] { border:2px solid #24615a; font-weight:700; background:#e8f4ef; color:#153e38; }
+.setup { max-width:1200px; margin:auto; padding:32px; }
+.setup-title { justify-content:space-between; }
+.setup-steps { margin:24px 0; }
+.setup fieldset { border:1px solid #a5b7b0; border-radius:8px; margin:20px 0; padding:20px; min-width:0; }
+.setup legend { font-weight:700; padding:0 8px; }
+.form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:16px; margin:16px 0; }
+.form-grid label { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.form-grid input,.form-grid select,.form-grid textarea { width:100%; box-sizing:border-box; }
+.form-grid input[type=checkbox] { width:auto; align-self:flex-start; }
+.setup input,.setup textarea,.setup select { font:inherit; padding:10px; border:1px solid #7b8c88; border-radius:4px; background:white; color:#172d28; }
+.wide-field { grid-column:1/-1; }
+.setup textarea,.sequence { font-family:monospace; overflow-wrap:anywhere; white-space:pre-wrap; }
+.sequence { padding:16px; background:#edf4f1; border-left:4px solid #38695b; }
+.mode-choice { display:flex; gap:12px; padding:20px 0; flex-wrap:wrap; align-items:center; }
+.mode-choice span { flex-basis:100%; margin-left:28px; }
+.setup-actions { margin:32px 0; border-top:1px solid #a5b7b0; padding-top:20px; }
+.field-issues { color:#8b2525; display:block; font-size:.92rem; }
+.field-issues span { display:block; }
+[aria-invalid=true] { border:2px solid #9b2929!important; }
+.validation-summary { border-left:4px solid #9b6624; padding:8px 20px; background:#fff8ec; }
+.identities dd { overflow-wrap:anywhere; margin:8px 0 20px; font-family:monospace; }
+.setup .literal { overflow-wrap:anywhere; white-space:pre-wrap; }
+@media(max-width:700px){.setup{padding:16px}.flow-nav{padding:12px}.setup-steps button{flex:1 1 120px}}
