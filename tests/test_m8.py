@@ -16,7 +16,7 @@ from peanalyzer.schemas import Target,reverse_complement
 from peanalyzer.validation import load_targets
 from peanalyzer import workflow as w
 
-EVIDENCE=Path(__file__).resolve().parents[1]/'docs/validation/m8/allele-probe'
+EVIDENCE=Path(__file__).resolve().parents[1]/'docs/validation/m81/allele-probe'
 
 
 @pytest.mark.parametrize('text',['0','','1','-1-2','4-3','1-4_4-5','8-9_2-3','0-240','240-240','1-2__4-5','1.0-2','1-2x'])
@@ -210,25 +210,31 @@ def test_malformed_authoritative_event_fields(archive,field,value):
     with pytest.raises(ValueError):parse_nuclease_child(archive,target(),20)
 
 
-def test_explicit_exceptional_aligned_population(archive):
+@pytest.mark.parametrize('kind',['ambiguous','discarded'])
+def test_explicit_exceptional_aligned_population(archive,kind):
     # An explicit exceptional row is not reclassified or silently removed.
     data=json.loads((archive/'CRISPResso2_info.json').read_text())
     with zipfile.ZipFile(archive/'Alleles_frequency_table.zip') as z:
         rows=list(csv.DictReader(io.StringIO(z.read(z.namelist()[0]).decode()),delimiter='\t'))
     count=int(rows[0]['#Reads']);status=rows[0]['Read_Status']
-    change_rows(archive,lambda rows,fields:rows[0].update(Reference_Name='AMBIGUOUS_Reference'))
+    change_rows(archive,lambda rows,fields:rows[0].update(Reference_Name=kind.upper()+'_Reference'))
     data['results']['alignment_stats']['counts_total']['Reference']-=count
-    data['results']['alignment_stats']['class_counts']['AMBIGUOUS']=count
+    if kind=='ambiguous':data['results']['alignment_stats']['class_counts']['AMBIGUOUS']=count
+    else:data['results']['alignment_stats']['counts_discarded']['Reference']=count
     (archive/'CRISPResso2_info.json').write_text(json.dumps(data))
     p=archive/'CRISPResso_quantification_of_editing_frequency.txt'
     with p.open() as h:reader=csv.DictReader(h,delimiter='\t');fields=reader.fieldnames;quant=list(reader)
     quant[0]['Reads_aligned']=str(int(quant[0]['Reads_aligned'])-count)
+    if kind=='discarded':quant[0]['Discarded']=str(count)
     key='Unmodified' if status=='UNMODIFIED' else 'Modified';quant[0][key]=str(int(quant[0][key])-count)
     with p.open('w') as h:writer=csv.DictWriter(h,fieldnames=fields,delimiter='\t');writer.writeheader();writer.writerows(quant)
-    result=parse_nuclease_child(archive,target(),20)
-    assert result['class_counts']['ambiguous']==count
-    assert sum(result['class_counts'].values())==20
-    assert result['metrics']['indel_fraction'].denominator==20
+    # Generic reconciliation remains available, but this population is unqualified.
+    from peanalyzer.backend.metrics import aligned_partition
+    rows[0]['Reference_Name']=kind.upper()+'_Reference'
+    partition=aligned_partition(data,rows,data['results']['alignment_stats']['counts_total'])
+    assert partition[kind+'_aligned_reads']==count and sum(partition.values())==20
+    with pytest.raises(ValueError,match='UNQUALIFIED_NUCLEASE_POPULATION'):
+        parse_nuclease_child(archive,target(),20)
 
 
 @pytest.mark.parametrize('name',['target','result','statistics','report'])
@@ -369,3 +375,87 @@ def test_nuclease_contract_footer_does_not_rewrite_labels(measurements,tmp_path)
     for path in (tmp_path/'report/figures').glob('*.svg'):
         svg=path.read_text();ET.fromstring(svg)
         assert label in svg and svg in page
+
+
+@pytest.mark.parametrize('field',sorted(target().scientific_identity['backend_settings']))
+@pytest.mark.parametrize('attack',['value','missing','type'])
+def test_closed_resolved_scientific_contract(archive,field,attack):
+    path=archive/'CRISPResso2_info.json';data=json.loads(path.read_text())
+    args=data['running_info']['args']['value'];value=args[field]
+    if attack=='missing':args.pop(field)
+    elif attack=='type':args[field]=0 if type(value) is bool else str(value) if type(value) is int else None
+    else:args[field]=not value if type(value) is bool else value+1 if type(value) is int else value+'__drift'
+    path.write_text(json.dumps(data))
+    with pytest.raises(ValueError,match='UNQUALIFIED_NUCLEASE_CONFIGURATION: '+field):
+        parse_nuclease_child(archive,target(),20)
+
+
+@pytest.mark.parametrize('field,value',[
+    ('output_folder','/another/output'),('name','another-name'),('display_name','Another title'),
+    ('verbosity',1),('plot_window_size',10),('n_processes','4'),('config_file','/another/colors.json'),
+    ('suppress_plots',False),('suppress_report',False)])
+def test_presentation_and_runtime_locations_are_not_scientific_drift(archive,field,value):
+    path=archive/'CRISPResso2_info.json';data=json.loads(path.read_text())
+    data['running_info']['args']['value'][field]=value;path.write_text(json.dumps(data))
+    result=parse_nuclease_child(archive,target(),20)
+    assert result['metrics']['indel_fraction'].numerator==10
+    assert result['class_counts']['ambiguous']==result['class_counts']['discarded']==0
+
+
+@pytest.mark.parametrize('kind',['ambiguous','discarded'])
+def test_serialized_nuclease_results_reject_exceptional_populations(kind):
+    data=json.loads((EVIDENCE/'result.json').read_text());row=data['alleles'][0]
+    row['authoritative_fields']['Reference_Name']=kind.upper()+'_Reference';row['product_class']=kind
+    counts,metrics,sizes=aggregate([allele(a['authoritative_fields']) for a in data['alleles']],data['aligned_reads'])
+    data['class_counts']=counts;data['metrics']={k:v.model_dump() for k,v in metrics.items()}
+    data['fraction_of_indel_reads_by_net_size']={k:v.model_dump() for k,v in sizes.items()}
+    with pytest.raises(ValueError,match='UNQUALIFIED_NUCLEASE_POPULATION'):
+        NucleaseMetricResult.model_validate(data)
+
+
+@pytest.mark.parametrize('field,value',[('discard_indel_reads',True),('min_bp_quality_or_N',30)])
+def test_serialized_nuclease_results_recheck_resolved_arguments(field,value):
+    data=json.loads((EVIDENCE/'result.json').read_text())
+    data['provenance']['execution']['resolved_backend_arguments'][field]=value
+    with pytest.raises(ValueError,match='UNQUALIFIED_NUCLEASE_CONFIGURATION: '+field):
+        NucleaseMetricResult.model_validate(data)
+
+
+def test_pre_remediation_scientific_identity_is_not_reusable():
+    from peanalyzer.metrics.production import digest
+    before=json.loads((EVIDENCE.parents[1]/'m8/allele-probe/result.json').read_text())
+    assert digest(before['provenance']['scientific_identity'])!=digest(target().scientific_identity)
+    with pytest.raises(ValueError,match='nuclease provenance mismatch'):
+        NucleaseMetricResult.model_validate(before)
+
+
+def test_selected_tigr_window_prose_is_not_static_w2(measurements,tmp_path):
+    from peanalyzer.aggregation import summarize
+    from peanalyzer.reporting import generate_report
+    options,_=measurements;t=target(tigr_window='W1')
+    for path in tmp_path.glob('metric*.json'):
+        data=json.loads(path.read_text());data['target']=t.model_dump()
+        from peanalyzer.metrics.production import digest
+        data['provenance']['target_definitions_sha256']=digest([t.model_dump()])
+        data['provenance']['scientific_identity']=t.scientific_identity
+        data['provenance']['execution']['scientific_identity']=t.scientific_identity
+        data['provenance']['execution']['resolved_backend_arguments']['quantification_window_coordinates']=t.window['coordinates']
+        path.write_text(json.dumps(data))
+    summarize(**options,output=tmp_path/'stats')
+    generate_report(result_path=tmp_path/'stats/result.json',output=tmp_path/'report')
+    page=(tmp_path/'report/report.html').read_text()
+    assert 'Selected window: W1; zero-based inclusive coordinates: 104-105_112-113.' in page
+    assert 'primary window is W2' not in page
+
+
+def test_scientific_contract_alone_changes_stage_signatures(tmp_path,monkeypatch):
+    options=fixture(tmp_path/'inputs');options['crispresso']=fake_core(tmp_path)
+    plan=w.build_workflow_plan(**options)
+    old=json.loads((EVIDENCE.parents[1]/'m8/allele-probe/result.json').read_text())['provenance']['scientific_identity']
+    for node in plan.nodes:
+        if node.stage_kind not in ('routing','metrics'):continue
+        current=w.signature(plan,node,{})
+        with monkeypatch.context() as patch:
+            patch.setattr(w,'scientific_target',lambda t:old)
+            previous=w.signature(plan,node,{})
+        assert previous!=current

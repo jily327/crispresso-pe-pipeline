@@ -6,9 +6,12 @@ def extend_html(page,spec):
     start=page.index('<h2>Measurement definitions</h2>');end=page.index('<h2>Biological sample summaries</h2>',start)
     definition='<h2>Measurement definitions</h2><p>Indel/nuclease mode. CRISPResso2 2.3.4 is the authoritative variant caller. Primary indel fraction counts each aligned read with n_inserted &gt; 0 OR n_deleted &gt; 0 once, divided by authoritative aligned reads. Substitutions remain enabled. Biological samples, never reads, are inference units. Net size is inserted minus deleted bases within the CRISPResso quantification-window contract.</p>'
     page=page[:start]+definition+page[end:]
-    parts=['<h2>Nuclease evidence</h2><p>The tigr_tas_v1 primary window is W2: the zero-based inclusive 10-bp cut span s+4 through s+13. W1, W3 and W4 are qualified sensitivity windows unless explicitly selected. Physical cut pairs and orientation-aware labels are recorded separately below.</p>']
+    parts=['<h2>Nuclease evidence</h2><p>The selected quantification window and physical cut geometry are recorded for each result below.</p>']
     for result in spec['nuclease_results']:
         parts.append('<h3>'+html.escape(result['sample_id']+' / '+result['target_id'])+'</h3>')
+        window=result['provenance']['scientific_identity']['resolved_window']
+        label=window.get('selected_window','explicit')
+        parts.append('<p>Selected window: '+html.escape(label)+'; zero-based inclusive coordinates: '+html.escape(window['coordinates'])+'.</p>')
         rows=[dict(metric=k,**v,percentage=percentage(v['fraction'])) for k,v in result['metrics'].items()]
         parts.append(_table('Exact CRISPResso-derived counts',rows,['metric','numerator','denominator','fraction','percentage']))
         parts.append(_table('Scientific configuration',[result['provenance']['scientific_identity']],list(result['provenance']['scientific_identity'])))

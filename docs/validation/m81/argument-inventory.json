@@ -1,0 +1,346 @@
+{
+  "backend_version": "2.3.4",
+  "other_reviewed_fields": [
+    "allele_plot_pcts_only_for_assigned_reference",
+    "amplicon_coordinates",
+    "annotate_wildtype_allele",
+    "base_editor_consider_changes_outside_qw",
+    "base_editor_output",
+    "base_editor_target_ref_skip_allele_count",
+    "bowtie2_index",
+    "coding_seq",
+    "coding_seq_name",
+    "config_file",
+    "conversion_nuc_from",
+    "conversion_nuc_to",
+    "debug",
+    "disable_guardrails",
+    "display_name",
+    "dsODN",
+    "dump",
+    "expand_allele_plots_by_quantification",
+    "fastq_r1",
+    "fastq_r2",
+    "file_prefix",
+    "flash_command",
+    "flexiguide_name",
+    "guide_name",
+    "halt_on_plot_fail",
+    "keep_intermediate",
+    "max_paired_end_reads_overlap",
+    "max_rows_alleles_around_cut_to_plot",
+    "min_frequency_alleles_around_cut_to_plot",
+    "n_processes",
+    "name",
+    "no_rerun",
+    "output_folder",
+    "place_report_in_output_folder",
+    "plot_histogram_outliers",
+    "plot_window_size",
+    "save_also_png",
+    "stringent_flash_merging",
+    "suppress_amplicon_name_truncation",
+    "suppress_plots",
+    "suppress_report",
+    "trimmomatic_command",
+    "trimmomatic_options_string",
+    "use_matplotlib",
+    "vcf_output",
+    "verbosity",
+    "write_cleaned_report",
+    "zip_output"
+  ],
+  "scientific_fields": {
+    "aln_seed_count": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": 5,
+      "selection": "qualified_default"
+    },
+    "aln_seed_len": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": 10,
+      "selection": "qualified_default"
+    },
+    "aln_seed_min": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": 2,
+      "selection": "qualified_default"
+    },
+    "amplicon_min_alignment_score": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "amplicon_name": {
+      "reason": "Single supplied WT reference identity; forbid inferred/additional references.",
+      "required_value": "Reference",
+      "selection": "qualified_default"
+    },
+    "amplicon_seq": {
+      "reason": "Single supplied WT reference identity; forbid inferred/additional references.",
+      "required_value": "TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG",
+      "selection": "explicit"
+    },
+    "assign_ambiguous_alignments_to_first_reference": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "auto": {
+      "reason": "Single supplied WT reference identity; forbid inferred/additional references.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "bam_chr_loc": {
+      "reason": "Alternative input/filtering or Core alignment-processing paths are not the qualified FASTQ path.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "bam_input": {
+      "reason": "Alternative input/filtering or Core alignment-processing paths are not the qualified FASTQ path.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "bam_output": {
+      "reason": "Alternative input/filtering or Core alignment-processing paths are not the qualified FASTQ path.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "crispresso1_mode": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "crispresso_merge": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "default_min_aln_score": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": 60,
+      "selection": "qualified_default"
+    },
+    "discard_guide_positions_overhanging_amplicon_edge": {
+      "reason": "Exact window inclusion and guide-window fallback controls; final include indices are also checked.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "discard_indel_reads": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "exclude_bp_from_left": {
+      "reason": "Exact window inclusion and guide-window fallback controls; final include indices are also checked.",
+      "required_value": 0,
+      "selection": "explicit"
+    },
+    "exclude_bp_from_right": {
+      "reason": "Exact window inclusion and guide-window fallback controls; final include indices are also checked.",
+      "required_value": 0,
+      "selection": "explicit"
+    },
+    "expand_ambiguous_alignments": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "expected_hdr_amplicon_seq": {
+      "reason": "Single supplied WT reference identity; forbid inferred/additional references.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "fastp_command": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": "fastp",
+      "selection": "qualified_default"
+    },
+    "fastp_options_string": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "fastq_output": {
+      "reason": "Alternative input/filtering or Core alignment-processing paths are not the qualified FASTQ path.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "flexiguide_gap_extend_penalty": {
+      "reason": "No guide/flexible-guide inference; prevent guide-dependent cut incentives and window changes.",
+      "required_value": -2,
+      "selection": "qualified_default"
+    },
+    "flexiguide_gap_open_penalty": {
+      "reason": "No guide/flexible-guide inference; prevent guide-dependent cut incentives and window changes.",
+      "required_value": -20,
+      "selection": "qualified_default"
+    },
+    "flexiguide_homology": {
+      "reason": "No guide/flexible-guide inference; prevent guide-dependent cut incentives and window changes.",
+      "required_value": 80,
+      "selection": "qualified_default"
+    },
+    "flexiguide_seq": {
+      "reason": "No guide/flexible-guide inference; prevent guide-dependent cut incentives and window changes.",
+      "required_value": "None",
+      "selection": "qualified_default"
+    },
+    "force_merge_pairs": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "guide_seq": {
+      "reason": "No guide/flexible-guide inference; prevent guide-dependent cut incentives and window changes.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "ignore_deletions": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "ignore_insertions": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "ignore_substitutions": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "min_average_read_quality": {
+      "reason": "Read filtering or N masking can change calls and denominator; retain zero qualified thresholds.",
+      "required_value": 0,
+      "selection": "qualified_default"
+    },
+    "min_bp_quality_or_N": {
+      "reason": "Read filtering or N masking can change calls and denominator; retain zero qualified thresholds.",
+      "required_value": 0,
+      "selection": "qualified_default"
+    },
+    "min_paired_end_reads_overlap": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": 10,
+      "selection": "qualified_default"
+    },
+    "min_single_bp_quality": {
+      "reason": "Read filtering or N masking can change calls and denominator; retain zero qualified thresholds.",
+      "required_value": 0,
+      "selection": "qualified_default"
+    },
+    "needleman_wunsch_aln_matrix_loc": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": "EDNAFULL",
+      "selection": "qualified_default"
+    },
+    "needleman_wunsch_gap_extend": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": -2,
+      "selection": "qualified_default"
+    },
+    "needleman_wunsch_gap_incentive": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": 1,
+      "selection": "qualified_default"
+    },
+    "needleman_wunsch_gap_open": {
+      "reason": "Alignment eligibility, strand/seeds, scoring and gap placement can change authoritative alleles.",
+      "required_value": -20,
+      "selection": "qualified_default"
+    },
+    "prime_editing_gap_extend_penalty": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": 0,
+      "selection": "qualified_default"
+    },
+    "prime_editing_gap_open_penalty": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": -50,
+      "selection": "qualified_default"
+    },
+    "prime_editing_nicking_guide_seq": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "prime_editing_override_prime_edited_ref_seq": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "prime_editing_override_sequence_checks": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "prime_editing_pegRNA_extension_quantification_window_size": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": 5,
+      "selection": "qualified_default"
+    },
+    "prime_editing_pegRNA_extension_seq": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "prime_editing_pegRNA_scaffold_min_match_length": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": 1,
+      "selection": "qualified_default"
+    },
+    "prime_editing_pegRNA_scaffold_seq": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "prime_editing_pegRNA_spacer_seq": {
+      "reason": "Keep prime-editing reference, scaffold classification and PE alignment/window branches disabled at qualified defaults.",
+      "required_value": "",
+      "selection": "qualified_default"
+    },
+    "quantification_window_center": {
+      "reason": "Exact window inclusion and guide-window fallback controls; final include indices are also checked.",
+      "required_value": "-3",
+      "selection": "qualified_default"
+    },
+    "quantification_window_coordinates": {
+      "reason": "Exact window inclusion and guide-window fallback controls; final include indices are also checked.",
+      "required_value": "104-113",
+      "selection": "explicit"
+    },
+    "quantification_window_size": {
+      "reason": "Exact window inclusion and guide-window fallback controls; final include indices are also checked.",
+      "required_value": "1",
+      "selection": "qualified_default"
+    },
+    "samtools_exclude_flags": {
+      "reason": "Alternative input/filtering or Core alignment-processing paths are not the qualified FASTQ path.",
+      "required_value": "0",
+      "selection": "qualified_default"
+    },
+    "split_interleaved_input": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "trim_sequences": {
+      "reason": "Paired-read preparation/merging determines which sequences and reads reach alignment.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "use_legacy_insertion_quantification": {
+      "reason": "Preserve allele classes, insertion semantics, aligned population and no-discard/no-ambiguity policy.",
+      "required_value": false,
+      "selection": "qualified_default"
+    },
+    "write_detailed_allele_table": {
+      "reason": "Required authoritative integer calls and event fields for reconciliation.",
+      "required_value": true,
+      "selection": "explicit"
+    }
+  },
+  "total_resolved_fields": 106
+}

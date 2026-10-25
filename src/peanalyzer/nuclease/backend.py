@@ -17,6 +17,7 @@ from peanalyzer.metrics.production import RUNTIME_DIGEST,digest
 from peanalyzer.provenance import software_provenance
 from peanalyzer.nuclease.models import allele,aggregate,NucleaseMetricResult,Provenance
 from peanalyzer.nuclease.targets import NucleaseTarget
+from peanalyzer.nuclease.qualification import validate_arguments,validate_population
 
 LIMITATIONS=[
     'CRISPResso2 2.3.4 is the sole variant caller. Counts and net sizes are quantification-window specific.',
@@ -35,16 +36,7 @@ def parse_nuclease_child(root,target,expected_pairs):
     namespace=running['args']
     if namespace.get('_type')!='argparse.Namespace':raise ValueError('BACKEND_ARGUMENTS_INVALID')
     arguments=namespace['value']
-    for flag in ('ignore_substitutions','ignore_insertions','ignore_deletions','use_legacy_insertion_quantification',
-                 'expand_ambiguous_alignments','assign_ambiguous_alignments_to_first_reference','crispresso1_mode'):
-        if arguments.get(flag) is not False:raise ValueError('UNQUALIFIED_NUCLEASE_CONFIGURATION: '+flag)
-    if (arguments.get('write_detailed_allele_table') is not True or arguments.get('amplicon_seq')!=target.wt_sequence
-        or arguments.get('quantification_window_coordinates')!=target.window['coordinates']
-        or arguments.get('guide_seq') or any(arguments.get(k) for k in ('prime_editing_pegRNA_spacer_seq',
-            'prime_editing_pegRNA_extension_seq','prime_editing_pegRNA_scaffold_seq','prime_editing_nicking_guide_seq',
-            'prime_editing_override_prime_edited_ref_seq'))):raise ValueError('BACKEND_CONFIGURATION_MISMATCH')
-    if any(arguments.get(k)!=v or type(arguments.get(k)) is not type(v) for k,v in target.scientific_identity['backend_settings'].items()):
-        raise ValueError('BACKEND_CONFIGURATION_MISMATCH')
+    validate_arguments(arguments,target.scientific_identity['backend_settings'])
     refs=data['results']['refs']
     if set(refs)!={'Reference'} or refs['Reference']['sequence']!=target.wt_sequence:raise ValueError('BACKEND_REFERENCE_MISMATCH')
     expected=sorted(p for a,b in target.window['intervals'] for p in range(a,b+1))
@@ -76,6 +68,7 @@ def parse_nuclease_child(root,target,expected_pairs):
     if any(a.authoritative_fields['Reference_Sequence'].replace('-','')!=target.wt_sequence for a in alleles):raise ValueError('ALLELE_REFERENCE_MISMATCH')
     partition=aligned_partition(data,rows,totals)
     if sum(partition.values())!=aligned:raise ValueError('ALIGNED_PARTITION_MISMATCH')
+    validate_population(partition['ambiguous_aligned_reads'],partition['discarded_aligned_reads'])
     counts,metrics,sizes=aggregate(alleles,aligned)
     if counts['unmodified']!=integer(quant[0]['Unmodified']) or sum(counts[k] for k in ('substitution_only','indel_only','indel_plus_substitution'))!=integer(quant[0]['Modified']):
         raise ValueError('ALLELE_MODIFIED_RECONCILIATION_FAILED')
@@ -114,7 +107,14 @@ def run_nuclease_metrics(*,analysis_root,sample_id,targets,analysis_id,output,co
         before={p.relative_to(stage).as_posix():sha256_file(p) for p in sorted(stage.rglob('*')) if p.is_file()}
         parsed=parse_nuclease_child(child,target,sample['pairs'])
         if before!={p.relative_to(stage).as_posix():sha256_file(p) for p in sorted(stage.rglob('*')) if p.is_file()}:raise ValueError('BACKEND_SOURCE_CHANGED')
-        execution['resolved_backend_arguments']=read_json(child/'CRISPResso2_info.json')['running_info']['args']['value']
+        arguments=read_json(child/'CRISPResso2_info.json')['running_info']['args']['value']
+        # Paths may vary, but the resolved inputs must be the verified staged files.
+        for mate in (1,2):
+            resolved=Path(arguments[f'fastq_r{mate}'])
+            if not resolved.is_absolute():resolved=stage/resolved
+            if resolved.resolve()!=(stage/f'input_R{mate}.fastq.gz').resolve():
+                raise ValueError('BACKEND_INPUT_LINEAGE_MISMATCH')
+        execution['resolved_backend_arguments']=arguments
         if verify_analysis_output(Path(analysis_root)).manifest_sha256!=verified.manifest_sha256:raise ValueError('SOURCE_CHANGED')
         execution['status']='completed'
         (stage/'execution.json').write_text(json.dumps(execution,indent=2,sort_keys=True)+'\n')

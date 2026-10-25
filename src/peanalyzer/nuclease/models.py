@@ -10,6 +10,7 @@ from peanalyzer.statistical_models import (Model, Hash, Observation, Provenance 
     StatisticsResult as M5Result)
 from peanalyzer.schemas import Identifier
 from peanalyzer.nuclease.targets import NucleaseTarget
+from peanalyzer.nuclease.qualification import validate_arguments,validate_population
 from peanalyzer.metrics.models import Count
 from peanalyzer.reporting_models import ReportManifest
 
@@ -194,6 +195,7 @@ class NucleaseMetricResult(Model):
         if (p.target_definitions_sha256!=digest([self.target.model_dump()]) or p.wt_sha256!=hashlib.sha256(self.target.wt_sequence.encode()).hexdigest()
             or p.scientific_identity!=self.target.scientific_identity or p.runtime_digest!=RUNTIME_DIGEST
             or p.prepared_sample['pairs']!=self.backend_input_reads):raise ValueError('nuclease provenance mismatch')
+        validate_arguments(p.execution.get('resolved_backend_arguments'),self.target.scientific_identity['backend_settings'])
         if any(a.authoritative_fields['Reference_Sequence'].replace('-','')!=self.target.wt_sequence for a in self.alleles):
             raise ValueError('allele reference identity mismatch')
         stats=self.alignment_counters;m=self.mapping_statistics
@@ -204,6 +206,7 @@ class NucleaseMetricResult(Model):
             or m['READS IN INPUTS']!=self.backend_input_reads or m['READS AFTER PREPROCESSING']!=self.reads_after_preprocessing
             or m['READS ALIGNED']!=self.aligned_reads):raise ValueError('mapping/counter mismatch')
         c,metrics,sizes=aggregate(self.alleles,self.aligned_reads)
+        validate_population(c['ambiguous'],c['discarded'])
         if c!=self.class_counts or metrics!=self.metrics or sizes!=self.fraction_of_indel_reads_by_net_size:
             raise ValueError('nuclease aggregation mismatch')
         if self.aligned_reads:

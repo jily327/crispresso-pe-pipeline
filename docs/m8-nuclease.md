@@ -5,6 +5,10 @@ the authoritative variant caller. The new modules configure Core, validate its
 artifacts, classify its allele rows and aggregate integer counts. They never
 realign FASTQs or aligned allele strings to call variants.
 
+M8.1 strengthens backend qualification without changing the metric contract. See
+[the complete resolved-argument inventory and fail-closed gates](m81-backend-qualification.md).
+Accepted nuclease results require zero ambiguous and zero discarded aligned reads.
+
 ## Inputs and compatibility
 
 Existing target CSVs without `analysis_mode` resolve to `precise_edit`. All PE
@@ -113,11 +117,13 @@ The denominator is **all authoritative aligned reads**. Rounded `%Reads` never
 supplies counts, denominators or reconciliation repairs.
 
 The mutually exclusive ordinary classes are unmodified, substitution-only,
-indel-only and indel-plus-substitution. Ambiguous/discarded aligned categories
-remain separate and in the aligned denominator; they never become unmodified.
-The sum of all ordinary and explicit exceptional row counts must equal aligned
-reads exactly, with reference/discard inventories also matching Core JSON and
-quantification tables. Any unexplained difference fails validation.
+indel-only and indel-plus-substitution. Generic reconciliation keeps
+ambiguous/discarded aligned categories separate and in the aligned denominator;
+they never become unmodified. The sum of ordinary and explicit exceptional row
+counts must equal aligned reads exactly, with reference/discard inventories also
+matching Core JSON and quantification tables. Any unexplained difference fails
+validation. M8.1 additionally rejects any nonzero ambiguous/discarded population
+before publishing a qualified scientific result.
 
 Secondary fractions expose unmodified, substitution-only, indel-only, mixed,
 substitution-containing, insertion-containing, deletion-containing,

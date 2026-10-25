@@ -2,6 +2,7 @@
 import re
 from typing import Literal
 from pydantic import field_validator, model_validator
+from peanalyzer.nuclease.qualification import scientific_arguments
 from peanalyzer.schemas import Model, Identifier, sequence, reverse_complement
 
 
@@ -91,6 +92,4 @@ class NucleaseTarget(Model):
     @property
     def scientific_identity(self):
         return dict(**self.model_dump(mode='json'),resolved_window=self.window,
-            backend_settings=dict(exclude_bp_from_left=0,exclude_bp_from_right=0,
-                ignore_substitutions=False,ignore_insertions=False,ignore_deletions=False,
-                use_legacy_insertion_quantification=False,write_detailed_allele_table=True))
+            backend_settings=scientific_arguments(self.wt_sequence,self.window['coordinates']))
