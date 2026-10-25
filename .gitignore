@@ -11,3 +11,9 @@ results/
 *.fq
 *.fastq.gz
 *.fq.gz
+
+# M10 frontend build and local browser test outputs
+frontend/node_modules/
+frontend/playwright-report/
+frontend/test-results/
+src/peanalyzer/gui/static/
