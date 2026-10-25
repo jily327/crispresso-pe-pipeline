@@ -18,15 +18,27 @@ from peanalyzer.gui.models import (Capabilities, Registration, OpenRequest, Work
 BASE = '9e9a51fb20e56a3421fdfa156375170cd6b257dc'
 
 
-def create_app(registrations=(), token=None):
+def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=()):
     token=token or secrets.token_urlsafe(32)
+    registrations=list(registrations)
     store=WorkspaceStore(registrations)
+    from peanalyzer.gui.drafts import DraftStore, SetupReferences
+    from peanalyzer.gui.setup_models import (SetupCapabilities, DraftView, DraftPatch,
+        DraftRevision, DraftValidation, PlanPreview)
+    from peanalyzer.gui.setup_validation import BASE as SETUP_BASE
+    references=SetupReferences(setup_files,setup_archives,setup_output_roots)
+    drafts=DraftStore(references,[path for _,path in registrations])
     app=FastAPI(title='PEAnalyzer verified result viewer',docs_url=None,redoc_url=None,openapi_url=None)
     app.state.store=store
     app.state.token=token
 
     def error(code,detail,stage_id=None,status=409):
         messages={
+            'DRAFT_NOT_FOUND':'This draft no longer exists.',
+            'STALE_DRAFT_REVISION':'The draft changed. Reload before validating.',
+            'DRAFT_NOT_VALIDATED':'Validate the current draft before Review.',
+            'DRAFT_INPUT_CHANGED':'Inputs or destination changed. Validate the draft again.',
+            'INVALID_FILE_REFERENCE':'Select an input registered by the local launcher.',
             'UNAUTHORIZED':'Open the local launcher URL to authorize this viewer.',
             'UNSAFE_ORIGIN':'This request did not come from the local viewer.',
             'WORKSPACE_CHANGED':'The workspace changed. Results have been hidden; reopen to verify.',
@@ -106,6 +118,35 @@ def create_app(registrations=(), token=None):
         return Response(data,media_type='application/octet-stream',headers={
             'Content-Disposition':"attachment; filename*=UTF-8''"+quote(Path(source.name).name,safe=''),
             'X-Artifact-SHA256':source.sha256,'Content-Security-Policy':"sandbox; default-src 'none'"})
+
+    @app.get('/api/v1/setup/capabilities',response_model=SetupCapabilities)
+    def setup_capabilities():
+        return SetupCapabilities(backend_base=SETUP_BASE,files=list(references.entries.values()))
+
+    @app.post('/api/v1/drafts',response_model=DraftView)
+    def create_draft():
+        return drafts.create()
+
+    @app.get('/api/v1/drafts/{draft_id}',response_model=DraftView)
+    def get_draft(draft_id:str):
+        return drafts.get(draft_id)
+
+    @app.patch('/api/v1/drafts/{draft_id}',response_model=DraftView)
+    def patch_draft(draft_id:str,body:DraftPatch):
+        return drafts.patch(draft_id,body)
+
+    @app.post('/api/v1/drafts/{draft_id}/validate',response_model=DraftValidation)
+    def validate_draft(draft_id:str,body:DraftRevision):
+        return drafts.validate(draft_id,body.revision)
+
+    @app.get('/api/v1/drafts/{draft_id}/preview',response_model=PlanPreview)
+    def preview_draft(draft_id:str,revision:int=Query(ge=0)):
+        return drafts.preview(draft_id,revision)
+
+    @app.delete('/api/v1/drafts/{draft_id}')
+    def delete_draft(draft_id:str,revision:int=Query(ge=0)):
+        drafts.delete(draft_id,revision)
+        return Response(status_code=204)
 
     static=Path(__file__).parent/'static'
     if static.is_dir():

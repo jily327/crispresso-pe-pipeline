@@ -46,7 +46,7 @@ def edit_regions(edits):
 
 
 def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict | None = None,
-             min_distinguishing_sites: int = 2) -> dict:
+             min_distinguishing_sites: int = 2, reference_only: bool = False) -> dict:
     if type(min_distinguishing_sites) is not int or min_distinguishing_sites < 1:
         raise ValueError('minimum diagnostic support must be a positive integer')
     if not targets or len({t.target_name for t in targets}) != 1:
@@ -237,6 +237,11 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
                 status='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if reasons else 'SAFE',
                 reasons=reasons,pairwise=pairwise,diagnostics=diagnostics,copies=copies,primers=primer_report,
                 haplotype_maps={f'{copy}:{state}':cols for (copy,state),cols in maps.items()})
+    # Setup may inspect reference annotations without running synthetic routing trials.
+    # The execution/preflight default retains the complete qualification behavior.
+    if reference_only:
+        report['routing_qualification'] = 'DEFERRED: reference annotations only; no routing trials executed'
+        return report
     if any(e['kind']!='substitution' for edits in events.values() for e in edits):
         # Empirical, target-specific check; no arbitrary maximum PE indel length.
         # It qualifies perfect inward-facing 100/150-nt and full-length mates only,
