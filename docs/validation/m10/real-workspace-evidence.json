@@ -1,0 +1,56 @@
+{
+  "focused-real": {
+    "indel_nuclease": {
+      "byte_and_mtime_identity": true,
+      "mode": "indel_nuclease",
+      "scientific_executor_calls": 0,
+      "unchanged_workspace_and_input_files": 218,
+      "verifier": "verify_workflow_output",
+      "workspace": "/workspace/m10-implementation/focused-real/indel_nuclease/workflow"
+    },
+    "precise_edit": {
+      "byte_and_mtime_identity": true,
+      "mode": "precise_edit",
+      "scientific_executor_calls": 0,
+      "unchanged_workspace_and_input_files": 730,
+      "verifier": "verify_workflow_output",
+      "workspace": "/workspace/m10-implementation/focused-real/precise_edit/workflow"
+    }
+  },
+  "source-tests/m10": {
+    "indel_nuclease": {
+      "byte_and_mtime_identity": true,
+      "mode": "indel_nuclease",
+      "scientific_executor_calls": 0,
+      "unchanged_workspace_and_input_files": 218,
+      "verifier": "verify_workflow_output",
+      "workspace": "/workspace/m10-implementation/source-tests/m10/indel_nuclease/workflow"
+    },
+    "precise_edit": {
+      "byte_and_mtime_identity": true,
+      "mode": "precise_edit",
+      "scientific_executor_calls": 0,
+      "unchanged_workspace_and_input_files": 730,
+      "verifier": "verify_workflow_output",
+      "workspace": "/workspace/m10-implementation/source-tests/m10/precise_edit/workflow"
+    }
+  },
+  "wheel-tests/m10": {
+    "indel_nuclease": {
+      "byte_and_mtime_identity": true,
+      "mode": "indel_nuclease",
+      "scientific_executor_calls": 0,
+      "unchanged_workspace_and_input_files": 218,
+      "verifier": "verify_workflow_output",
+      "workspace": "/workspace/m10-implementation/wheel-tests/m10/indel_nuclease/workflow"
+    },
+    "precise_edit": {
+      "byte_and_mtime_identity": true,
+      "mode": "precise_edit",
+      "scientific_executor_calls": 0,
+      "unchanged_workspace_and_input_files": 730,
+      "verifier": "verify_workflow_output",
+      "workspace": "/workspace/m10-implementation/wheel-tests/m10/precise_edit/workflow"
+    }
+  }
+}
