@@ -20,6 +20,8 @@ from peanalyzer.demux import demultiplex
 from peanalyzer.demux_verify import verify_demux_output
 from peanalyzer.geometry import geometry
 from peanalyzer.metrics import MetricResult, run_metrics
+from peanalyzer.nuclease.backend import run_nuclease_metrics
+from peanalyzer.result_dispatch import metric_model, statistics_model, report_model
 from peanalyzer.provenance import software_provenance
 from peanalyzer.reporting import generate_report
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportManifest
@@ -101,6 +103,8 @@ def build_workflow_plan(*, mode, samples, targets, config, output, crispresso, r
         catalog = load_catalog(Path(inputs['barcodes'].source_path)) if 'barcodes' in inputs else Catalog([], authoritative=False)
         sample_rows = sorted(load_samples(Path(inputs['samples'].source_path), catalog), key=lambda s: s.barcode_id)
         target_rows = sorted(load_targets(Path(inputs['targets'].source_path)), key=lambda t: (t.target_name, t.copy_name))
+        if title == DEFAULT_TITLE and target_rows[0].analysis_mode == 'indel_nuclease':
+            title = 'Indel/nuclease amplicon analysis report'
         expected_samples = [s.barcode_id for s in sample_rows]
         expected_targets = sorted({t.target_name for t in target_rows})
         external = None
@@ -126,7 +130,9 @@ def build_workflow_plan(*, mode, samples, targets, config, output, crispresso, r
             normalized_options=dict(title=title, preparation=trims.model_dump(mode='json'),
                 demux_config=settings.model_dump(mode='json'), external_demux=str(external) if external else None,
                 routing_policy=asdict(RoutingPolicy()), routing_policy_identity=policy_identity(RoutingPolicy()),
-                statistics_mode='stats' if contrasts is not None else 'summarize'),
+                statistics_mode='stats' if contrasts is not None else 'summarize',
+                analysis_modes=sorted({t.analysis_mode for t in target_rows}),
+                scientific_configuration=[scientific_target(t) for t in target_rows]),
             software_identity=software_identity(), backend_identity=backend)
         verify_inputs(inputs)
         return plan
@@ -148,6 +154,16 @@ def _demux_samples(verified, samples):
 
 def stage_manifest_path(node):
     return 'workflow/stages/' + digest(node.stage_id) + '.json'
+
+
+def scientific_target(target):
+    return target.scientific_identity if target.analysis_mode == 'indel_nuclease' else dict(analysis_mode='precise_edit', **target.model_dump(mode='json'))
+
+
+def nuclease_identity(plan, node):
+    return dict(analysis_mode='indel_nuclease', identity_mechanism='single_copy_identity',
+        sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan,node)],
+        analysis_manifest_sha256=sha(Path(plan.output)/'analysis/analysis_manifest.json'))
 
 
 def targets_for(plan, node):
@@ -172,8 +188,8 @@ def parameters_for(plan, node):
     if kind == 'analysis':
         return {'preparation': options['preparation']}
     if kind in ('routing', 'metrics'):
-        return dict(sample_id=node.sample_id, targets=[t.model_dump(mode='json') for t in targets_for(plan, node)],
-                    **({'policy': options['routing_policy'], 'policy_identity': options['routing_policy_identity']} if kind == 'routing' else {}))
+        return dict(sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan, node)],
+                    **({'policy': options['routing_policy'], 'policy_identity': options['routing_policy_identity']} if kind == 'routing' and targets_for(plan,node)[0].analysis_mode == 'precise_edit' else {}))
     if kind == 'statistics':
         return {'mode': options['statistics_mode']}
     if kind == 'report':
@@ -217,7 +233,7 @@ def _metrics_results(plan):
         raise WorkflowError('METRICS_COVERAGE_MISMATCH', 'missing, duplicate or unexpected result paths')
     seen = set()
     for identity, path in expected.items():
-        result = load(path, MetricResult)
+        result = load(path, metric_model(read_json(path)))
         key = result.sample_id, result.target_id
         if key != identity or key in seen:
             raise WorkflowError('METRICS_IDENTITY_MISMATCH', str(identity))
@@ -252,6 +268,10 @@ def validate_stage(plan, node, status):
             raise WorkflowError('ANALYSIS_LINEAGE_MISMATCH', node.stage_id)
     elif kind == 'routing':
         targets = targets_for(plan, node)
+        if targets[0].analysis_mode == 'indel_nuclease':
+            if len(targets)!=1 or status!='COMPLETED' or read_json(output/'identity.json')!=nuclease_identity(plan,node):
+                raise WorkflowError('NUCLEASE_IDENTITY_MISMATCH',node.stage_id)
+            return
         gate = geometry(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
         if gate['status'] == 'BLOCKED':
             if status != 'SKIPPED_SCIENTIFIC_GATE' or canonical(read_json(output / 'scientific_gate.json')) != canonical(gate):
@@ -265,7 +285,9 @@ def validate_stage(plan, node, status):
                     or data['policy_identity'] != policy_identity(RoutingPolicy())):
                 raise WorkflowError('ROUTING_LINEAGE_MISMATCH', node.stage_id)
     elif kind == 'metrics':
-        result = load(output / 'result.json', MetricResult)
+        result = load(output / 'result.json', metric_model(read_json(output / 'result.json')))
+        if getattr(result,'analysis_mode','precise_edit') != targets_for(plan,node)[0].analysis_mode:
+            raise WorkflowError('METRICS_MODE_MISMATCH',node.stage_id)
         if result.sample_id != node.sample_id or result.target_id != node.target_name:
             raise WorkflowError('METRICS_IDENTITY_MISMATCH', node.stage_id)
         from peanalyzer.metrics.production import digest as metric_digest
@@ -277,7 +299,7 @@ def validate_stage(plan, node, status):
         if output.read_text() != _manifest_csv(plan):
             raise WorkflowError('METRICS_COVERAGE_MISMATCH', 'manifest rows differ from the complete inventory')
     elif kind == 'statistics':
-        result = load(output / 'result.json', StatisticsResult)
+        result = load(output / 'result.json', statistics_model(read_json(output / 'result.json')))
         if result.input_manifest_hash != sha(root / 'metrics/manifest.csv') or result.sample_metadata_hash != plan.inputs['samples'].sha256:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', node.stage_id)
         expected = _metrics_results(plan)
@@ -298,7 +320,7 @@ def validate_stage(plan, node, status):
             if not (output / (name + '.tsv')).is_file():
                 raise WorkflowError('MISSING_STAGE_OUTPUT', name)
     elif kind == 'report':
-        manifest = load(output / 'report_manifest.json', ReportManifest)
+        manifest = load(output / 'report_manifest.json', report_model(read_json(output / 'report_manifest.json')))
         source = (root / 'statistics/result.json').read_bytes()
         if (output / 'source/result.json').read_bytes() != source or manifest.source_result_sha256 != sha(root / 'statistics/result.json'):
             raise WorkflowError('REPORT_SOURCE_MISMATCH', node.stage_id)
@@ -335,6 +357,10 @@ def execute_stage(plan, node, completed, argv):
         prepare_analysis_fastqs(_demux_root(plan), output, PreparationConfig.model_validate(plan.normalized_options['preparation']))
     elif kind == 'routing':
         targets = targets_for(plan,node)
+        if targets[0].analysis_mode == 'indel_nuclease':
+            if len(targets)!=1:raise WorkflowError('MULTICOPY_NUCLEASE_UNSUPPORTED',node.stage_id)
+            atomic_json(output/'identity.json',nuclease_identity(plan,node))
+            return status,reasons
         gate = geometry(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
         if gate['status'] == 'BLOCKED':
             atomic_json(output / 'scientific_gate.json', gate)
@@ -346,6 +372,12 @@ def execute_stage(plan, node, completed, argv):
         policies = None
         if 'policies' in plan.inputs:
             policies = yaml.load(_file(plan,'policies').read_text(), Loader=UniqueKeyLoader)
+        if targets_for(plan,node)[0].analysis_mode == 'indel_nuclease':
+            if policies is not None:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',node.stage_id)
+            run_nuclease_metrics(analysis_root=root/'analysis',sample_id=node.sample_id,targets=targets_for(plan,node),
+                analysis_id='m7-'+digest([node.sample_id,node.target_name]),output=output,
+                core=resolve_executable(plan.backend_identity.executable),runtime_digest=plan.backend_identity.runtime_digest)
+            return status,reasons
         run_metrics(analysis_root=root / 'analysis', sample_id=node.sample_id, targets=targets_for(plan,node),
             analysis_id='m7-' + digest([node.sample_id, node.target_name]), output=output,
             core=resolve_executable(plan.backend_identity.executable),
@@ -400,6 +432,8 @@ def force_closure(plan, families):
 
 
 def _graph_change(old, new, force):
+    if {t.analysis_mode for t in old.targets}!={t.analysis_mode for t in new.targets}:
+        raise WorkflowError('ANALYSIS_MODE_MISMATCH','start a new workspace for a different scientific mode')
     if old.mode != new.mode or old.output != new.output:
         raise WorkflowError('WORKFLOW_GRAPH_MISMATCH', 'mode/workspace cannot change')
     required = set()
@@ -439,10 +473,13 @@ def _invalidate(root, old, new, force):
 
 
 def _expected(plan, node, refs):
+    api = API[node.stage_kind]
+    if node.stage_kind in ('routing','metrics') and targets_for(plan,node)[0].analysis_mode=='indel_nuclease':
+        api = 'single_copy_identity' if node.stage_kind=='routing' else 'run_nuclease_metrics'
     return dict(node=node, stage_signature_sha256=signature(plan,node,refs), dependencies=refs,
         input_artifacts=inputs_for(plan,node), normalized_parameters=parameters_for(plan,node),
         software_identity=plan.software_identity,
-        backend_identity=plan.backend_identity if node.stage_kind == 'metrics' else None, api_call=API[node.stage_kind])
+        backend_identity=plan.backend_identity if node.stage_kind == 'metrics' else None, api_call=api)
 
 
 def _validate_completed(plan, node, refs):
@@ -490,6 +527,8 @@ def verify_workflow_output(output):
         plan = load(verify_artifact(root,manifest.plan),Plan)
         if plan.output != str(root) or manifest.mode != plan.mode or manifest.software_identity != plan.software_identity or manifest.input_inventory != plan.inputs:
             raise WorkflowError('INVALID_COMPLETION','plan identity differs')
+        if manifest.analysis_modes != sorted({t.analysis_mode for t in plan.targets}):
+            raise WorkflowError('INVALID_COMPLETION','analysis mode differs')
         _, refs = _verify_stages(plan)
         expected = {key:ref.manifest for key,ref in refs.items()}
         if manifest.stage_inventory != expected:
@@ -504,6 +543,11 @@ def verify_workflow_output(output):
 
 
 def _check_execution_scope(plan):
+    for name in plan.expected_targets:
+        rows=[t for t in plan.targets if t.target_name==name]
+        if rows[0].analysis_mode=='indel_nuclease':
+            if len(rows)!=1:raise WorkflowError('MULTICOPY_NUCLEASE_UNSUPPORTED',name)
+            if 'policies' in plan.inputs:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',name)
     if len(plan.expected_targets) != 1:
         raise WorkflowError('MULTI_TARGET_EXECUTION_UNSUPPORTED',
             'M4 requires target-specific eligible reads; no qualified target-selection contract exists. '
@@ -587,6 +631,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
             verify_workflow_output(root)
         else:
             manifest = WorkflowManifest(status='COMPLETED',mode=plan.mode,software_identity=plan.software_identity,
+                analysis_modes=sorted({t.analysis_mode for t in plan.targets}),
                 plan=artifact(root,owned(root,'workflow/plan.json')),input_inventory=plan.inputs,
                 stage_inventory={key:ref.manifest for key,ref in identities.items()},session=session,
                 statistics_result=artifact(root,owned(root,'statistics/result.json')),

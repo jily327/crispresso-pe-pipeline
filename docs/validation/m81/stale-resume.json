@@ -1,0 +1,64 @@
+{
+  "old_scientific_digest": "7a250e37b291bd5c38eabbcdc78d669371823736a92660e052f12e9a0af17943",
+  "new_scientific_digest": "61a717aed24f2749a125481d28c401e9d30cca58d0a06f071badef9fa317d6e8",
+  "same_software_signature_comparison": {
+    "routing::bc001::T1": {
+      "old_contract_only": "dccfbae8ca4d2086874c9e0ef5b7317fa064359cb755cc4bf0a2a3f47a76c18b",
+      "new_contract_only": "50e1b136cae077acec7d9d8110e25cfcdf4109f37b50d7e980ca571efe9a569a"
+    },
+    "metrics::bc001::T1": {
+      "old_contract_only": "cc13c2e3a180e65deb9e313ab5eb3e13a44ff036b6281fafe8c93732bd4400fd",
+      "new_contract_only": "677137c55dd699995bd9a5af05a27336322dacbd8f0f06e0ccac43516ac59168"
+    }
+  },
+  "rejection": {
+    "code": "STALE_STAGE_IDENTITY",
+    "message": "STALE_STAGE_IDENTITY [raw_inputs]: stage_signature_sha256"
+  },
+  "executor_calls_before_rejection": 0,
+  "forced": {
+    "workflow_contract_version": "m7-v1",
+    "output": "/workspace/m81-remediation/before/deletion50/workflow",
+    "mode": "run",
+    "executed_stages": [
+      "raw_inputs",
+      "demux",
+      "analysis",
+      "routing::bc001::T1",
+      "metrics::bc001::T1",
+      "metrics_manifest",
+      "statistics",
+      "report"
+    ],
+    "reused_stages": [],
+    "metrics_results": 1,
+    "statistics_mode": "summarize",
+    "report_path": "/workspace/m81-remediation/before/deletion50/workflow/report/report.html",
+    "workflow_manifest_sha256": "eb6298f032315741ca95dba7062fda28d511940f11230150e07fefc6ab495777"
+  },
+  "resumed": {
+    "workflow_contract_version": "m7-v1",
+    "output": "/workspace/m81-remediation/before/deletion50/workflow",
+    "mode": "run",
+    "executed_stages": [],
+    "reused_stages": [
+      "raw_inputs",
+      "demux",
+      "analysis",
+      "routing::bc001::T1",
+      "metrics::bc001::T1",
+      "metrics_manifest",
+      "statistics",
+      "report"
+    ],
+    "metrics_results": 1,
+    "statistics_mode": "summarize",
+    "report_path": "/workspace/m81-remediation/before/deletion50/workflow/report/report.html",
+    "workflow_manifest_sha256": "eb6298f032315741ca95dba7062fda28d511940f11230150e07fefc6ab495777"
+  },
+  "primary": {
+    "numerator": 12,
+    "denominator": 12,
+    "fraction": 1.0
+  }
+}

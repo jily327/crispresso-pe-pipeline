@@ -1,0 +1,10 @@
+{
+  "version": "0.8.0",
+  "validate_mode": [
+    "indel_nuclease"
+  ],
+  "window": "104-113",
+  "import_origin": "/workspace/validation/m8/wheel-env-v3/lib/python3.12/site-packages/peanalyzer/__init__.py",
+  "run_cli_available": true,
+  "analyze_cli_available": true
+}

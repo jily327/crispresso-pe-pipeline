@@ -1,0 +1,1734 @@
+{
+  "normalized_windows_equal": true,
+  "sentinel_0_rejected": true,
+  "tigr_geometry": {
+    "forward/0/W1": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "4-5_12-13",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "forward/0/W2": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "4-13",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          4,
+          13
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "forward/0/W3": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "0-17",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          17
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "forward/0/W4": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "0-27",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          27
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "forward/20/W1": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "24-25_32-33",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "forward/20/W2": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "24-33",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          24,
+          33
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "forward/20/W3": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "20-37",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          20,
+          37
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "forward/20/W4": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "10-47",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          10,
+          47
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "forward/3/W1": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "7-8_15-16",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "forward/3/W2": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "7-16",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          7,
+          16
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "forward/3/W3": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "3-20",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          3,
+          20
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "forward/3/W4": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "0-30",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          30
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "forward/40/W1": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "44-45_52-53",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "forward/40/W2": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "44-53",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          44,
+          53
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "forward/40/W3": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "40-57",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          40,
+          57
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "forward/40/W4": {
+      "amplicon_top_strand_between_cuts": "AGTACGAT",
+      "amplicon_top_strand_target": "ACGTCAGTACGATCGATC",
+      "coordinates": "30-57",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          30,
+          57
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "palindromic/0/W1": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "4-5_12-13",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 0
+    },
+    "palindromic/0/W2": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "4-13",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          4,
+          13
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 0
+    },
+    "palindromic/0/W3": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "0-17",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          17
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 0
+    },
+    "palindromic/0/W4": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "0-27",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          27
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 0
+    },
+    "palindromic/20/W1": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "24-25_32-33",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 20
+    },
+    "palindromic/20/W2": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "24-33",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          24,
+          33
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 20
+    },
+    "palindromic/20/W3": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "20-37",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          20,
+          37
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 20
+    },
+    "palindromic/20/W4": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "10-47",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          10,
+          47
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 20
+    },
+    "palindromic/3/W1": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "7-8_15-16",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 3
+    },
+    "palindromic/3/W2": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "7-16",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          7,
+          16
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 3
+    },
+    "palindromic/3/W3": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "3-20",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          3,
+          20
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 3
+    },
+    "palindromic/3/W4": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "0-30",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          30
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 3
+    },
+    "palindromic/40/W1": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "44-45_52-53",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 40
+    },
+    "palindromic/40/W2": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "44-53",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          44,
+          53
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 40
+    },
+    "palindromic/40/W3": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "40-57",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          40,
+          57
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 40
+    },
+    "palindromic/40/W4": {
+      "amplicon_top_strand_between_cuts": "CGTATACG",
+      "amplicon_top_strand_target": "ACGTACGTATACGTACGT",
+      "coordinates": "30-57",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          30,
+          57
+        ]
+      ],
+      "orientation": "palindromic",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": null,
+      "target_oriented_nick_labels": null,
+      "target_sequence": "ACGTACGTATACGTACGT",
+      "target_start": 40
+    },
+    "reverse/0/W1": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "4-5_12-13",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "reverse/0/W2": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "4-13",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          4,
+          13
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "reverse/0/W3": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "0-17",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          17
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "reverse/0/W4": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "0-27",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          27
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          4,
+          5
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        0,
+        17
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 0
+    },
+    "reverse/20/W1": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "24-25_32-33",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "reverse/20/W2": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "24-33",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          24,
+          33
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "reverse/20/W3": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "20-37",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          20,
+          37
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "reverse/20/W4": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "10-47",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          10,
+          47
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          24,
+          25
+        ],
+        [
+          32,
+          33
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        20,
+        37
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 20
+    },
+    "reverse/3/W1": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "7-8_15-16",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "reverse/3/W2": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "7-16",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          7,
+          16
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "reverse/3/W3": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "3-20",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          3,
+          20
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "reverse/3/W4": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "0-30",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          0,
+          30
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        3,
+        20
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 3
+    },
+    "reverse/40/W1": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "44-45_52-53",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W1",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "reverse/40/W2": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "44-53",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          44,
+          53
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W2",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "reverse/40/W3": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "40-57",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          40,
+          57
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    },
+    "reverse/40/W4": {
+      "amplicon_top_strand_between_cuts": "ATCGTACT",
+      "amplicon_top_strand_target": "GATCGATCGTACTGACGT",
+      "coordinates": "30-57",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          30,
+          57
+        ]
+      ],
+      "orientation": "reverse",
+      "physical_nick_boundaries": [
+        [
+          44,
+          45
+        ],
+        [
+          52,
+          53
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W4",
+      "target_interval": [
+        40,
+        57
+      ],
+      "target_oriented_between_cuts": "AGTACGAT",
+      "target_oriented_nick_labels": [
+        "13|14",
+        "5|6"
+      ],
+      "target_sequence": "ACGTCAGTACGATCGATC",
+      "target_start": 40
+    }
+  }
+}

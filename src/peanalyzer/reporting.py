@@ -18,6 +18,7 @@ from matplotlib import pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
 from peanalyzer import __version__
+from peanalyzer.result_dispatch import statistics_model, report_model
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportArtifact, ReportManifest, ReportingError
 from peanalyzer.statistical_models import ContrastResult, GroupSummary, Observation, Series, StatisticsResult
 
@@ -57,7 +58,7 @@ def load_result(data):
     """Parse the same immutable bytes used for source hashing and copying."""
     try:
         raw = json.loads(data, object_pairs_hook=_unique, parse_constant=_nonfinite, parse_float=_finite_float)
-        return StatisticsResult.model_validate(raw)
+        return statistics_model(raw).model_validate(raw)
     except (ValueError, UnicodeError, TypeError) as exc:
         raise ReportingError(f"invalid M5 result: {exc}") from exc
 
@@ -109,7 +110,9 @@ def _ordered(value):
 
 def build_report_spec(result, title=DEFAULT_TITLE):
     """Pure rendering specification. All scientific numbers are direct M5 fields."""
-    result = StatisticsResult.model_validate(result.model_dump(mode="json"))
+    result = statistics_model(result.model_dump()).model_validate(result.model_dump(mode="json"))
+    if hasattr(result, "nuclease_results") and title == DEFAULT_TITLE:
+        title = "Indel/nuclease amplicon analysis report"
     if not isinstance(title, str) or not title.strip():
         raise ReportingError("title must be nonblank text")
     observations = sorted((_ordered(r.model_dump(mode="json")) for r in result.observations),
@@ -149,7 +152,7 @@ def build_report_spec(result, title=DEFAULT_TITLE):
                     contrasts=[c for c in contrasts if c["family_id"] == f["family_id"] and c["status"] == "REPORTABLE"])
                for f in families]
     sample_ids = {a["sample_name"] for g in groups for a in g["sample_assessments"]} | {r["sample_name"] for r in observations}
-    return dict(title=title, observations=observations, group_summaries=groups, contrasts=contrasts,
+    spec = dict(title=title, observations=observations, group_summaries=groups, contrasts=contrasts,
         families=families, series=series, effects=effects,
         unused_metadata_sample_ids=sorted(result.unused_metadata_sample_ids),
         inventory=dict(biological_samples=len(sample_ids), conditions=len(conditions),
@@ -157,6 +160,9 @@ def build_report_spec(result, title=DEFAULT_TITLE):
             copy_series=sum(r["copy_name"] is not None for r in definitions.values()),
             family_policy_series=sum(r["policy_id"] is not None for r in definitions.values()),
             contrasts=len(contrasts), multiple_testing_families=len(families)))
+    if hasattr(result, 'nuclease_results'):
+        spec['nuclease_results'] = [r.model_dump(mode='json') for r in sorted(result.nuclease_results, key=lambda r: (r.sample_id,r.target_id))]
+    return spec
 
 
 def percentage(value):
@@ -310,12 +316,17 @@ def render_html(spec, source_hash, figures):
     for name, model in (("observations", Observation), ("group_summaries", GroupSummary), ("contrasts", ContrastResult)):
         parts.append('<p><a href="tables/' + name + '.tsv">Download ' + name + '.tsv</a></p>')
         parts.append(_table(name, spec[name], list(model.model_fields)))
+    contracts = ('indel-nuclease-report-v1', 'indel-nuclease-stats-v1') if 'nuclease_results' in spec else ('m6-v1', 'm5-v1')
     parts.extend(['<h2>Reproducibility</h2><p>Package version: ', escape(__version__),
-                  '; report contract: m6-v1; source statistics contract: m5-v1; inventoried artifacts: ', str(5+len(figures)),
+                  '; report contract: ' + contracts[0] + '; source statistics contract: ' + contracts[1] + '; inventoried artifacts: ', str(5+len(figures)),
                   ' (manifest excluded). Source SHA-256: <code>', source_hash,
                   '</code>. Scientific values come from the copied M5 result.json. Tables are convenience exports; percentage rounding is presentation only. SVGs are embedded for offline use and also exported separately. No source filesystem links are inferred.</p>',
                   '<h2>Limitations</h2><ul><li>No automatic biological interpretation.</li><li>No confidence intervals in M5/M6; small-n exact p-values may be coarse.</li><li>Copy metrics are routing-conditioned.</li><li>Nonreportable measurements remain nonnumerical.</li><li>M4 upstream observability and read-geometry limitations remain upstream.</li><li>CRISPResso report links are deferred: the current source contract provides no portable verified links.</li></ul></main></body></html>\n'])
-    return ''.join(parts)
+    page = ''.join(parts)
+    if 'nuclease_results' in spec:
+        from peanalyzer.nuclease.reporting import extend_html
+        page = extend_html(page, spec)
+    return page
 
 
 def generate_report(*, result_path, output, title=DEFAULT_TITLE):
@@ -329,6 +340,7 @@ def generate_report(*, result_path, output, title=DEFAULT_TITLE):
         data = source.read_bytes()
         source_hash = digest(data)
         spec = build_report_spec(load_result(data), title)
+        title = spec["title"]
         if output.exists() or output.is_symlink():
             raise ReportingError(f"output already exists: {output}")
         output.parent.mkdir(parents=True, exist_ok=True)
@@ -365,8 +377,11 @@ def generate_report(*, result_path, output, title=DEFAULT_TITLE):
                            '.tsv': ('table', 'text/tab-separated-values'), '.svg': ('figure', 'image/svg+xml')}[path.suffix]
             artifacts.append(ReportArtifact(path=relative, sha256=digest(path.read_bytes()), artifact_kind=kind,
                                             media_type=media, **metadata.get(relative, {})))
-        manifest = ReportManifest(schema_version=1, report_contract_version='m6-v1', package_version=__version__,
-            source_statistics_contract_version='m5-v1', source_result_sha256=source_hash, title=title, artifacts=artifacts)
+        is_nuclease = 'nuclease_results' in spec
+        contract = 'indel-nuclease-report-v1' if is_nuclease else 'm6-v1'
+        manifest = report_model({'report_contract_version':contract})(schema_version=1, report_contract_version=contract, package_version=__version__,
+            source_statistics_contract_version='indel-nuclease-stats-v1' if is_nuclease else 'm5-v1',
+            source_result_sha256=source_hash, title=title, artifacts=artifacts)
         (stage / 'report_manifest.json').write_text(json.dumps(manifest.model_dump(mode='json'), sort_keys=True, indent=2) + '\n', encoding='utf-8')
         if digest((stage / 'source/result.json').read_bytes()) != source_hash:
             raise ReportingError('copied source hash mismatch')

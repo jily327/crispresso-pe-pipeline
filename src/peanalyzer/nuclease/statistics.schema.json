@@ -1,0 +1,1598 @@
+{
+  "$defs": {
+    "Allele": {
+      "additionalProperties": false,
+      "properties": {
+        "authoritative_fields": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Authoritative Fields",
+          "type": "object"
+        },
+        "n_deleted": {
+          "minimum": 0,
+          "title": "N Deleted",
+          "type": "integer"
+        },
+        "n_inserted": {
+          "minimum": 0,
+          "title": "N Inserted",
+          "type": "integer"
+        },
+        "n_mutated": {
+          "minimum": 0,
+          "title": "N Mutated",
+          "type": "integer"
+        },
+        "net_delta_bp": {
+          "title": "Net Delta Bp",
+          "type": "integer"
+        },
+        "product_class": {
+          "enum": [
+            "unmodified",
+            "substitution_only",
+            "indel_only",
+            "indel_plus_substitution",
+            "ambiguous",
+            "discarded"
+          ],
+          "title": "Product Class",
+          "type": "string"
+        },
+        "reads": {
+          "minimum": 0,
+          "title": "Reads",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "authoritative_fields",
+        "reads",
+        "n_inserted",
+        "n_deleted",
+        "n_mutated",
+        "net_delta_bp",
+        "product_class"
+      ],
+      "title": "Allele",
+      "type": "object"
+    },
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "dpi": {
+          "minimum": 0,
+          "title": "Dpi",
+          "type": "integer"
+        },
+        "editor": {
+          "minLength": 1,
+          "title": "Editor",
+          "type": "string"
+        },
+        "treatment": {
+          "minLength": 1,
+          "title": "Treatment",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editor",
+        "treatment",
+        "dpi"
+      ],
+      "title": "Condition",
+      "type": "object"
+    },
+    "ContrastResult": {
+      "additionalProperties": false,
+      "properties": {
+        "alternative": {
+          "const": "two-sided",
+          "title": "Alternative",
+          "type": "string"
+        },
+        "complete_blocks": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Complete Blocks",
+          "type": "array"
+        },
+        "contrast_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Contrast Id",
+          "type": "string"
+        },
+        "copy_name": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Copy Name"
+        },
+        "difference_in_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": -1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Difference In Biological Sample Fraction"
+        },
+        "excluded_blocks": {
+          "items": {
+            "$ref": "#/$defs/ExcludedBlock"
+          },
+          "title": "Excluded Blocks",
+          "type": "array"
+        },
+        "expected_group_a": {
+          "items": {
+            "$ref": "#/$defs/SampleAssessment"
+          },
+          "title": "Expected Group A",
+          "type": "array"
+        },
+        "expected_group_a_count": {
+          "minimum": 0,
+          "title": "Expected Group A Count",
+          "type": "integer"
+        },
+        "expected_group_b": {
+          "items": {
+            "$ref": "#/$defs/SampleAssessment"
+          },
+          "title": "Expected Group B",
+          "type": "array"
+        },
+        "expected_group_b_count": {
+          "minimum": 0,
+          "title": "Expected Group B Count",
+          "type": "integer"
+        },
+        "extreme_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Extreme Count"
+        },
+        "family_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Family Id",
+          "type": "string"
+        },
+        "group_a": {
+          "$ref": "#/$defs/Condition"
+        },
+        "group_b": {
+          "$ref": "#/$defs/Condition"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "p_value": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "P Value"
+        },
+        "pairing_mode": {
+          "enum": [
+            "unpaired",
+            "block"
+          ],
+          "title": "Pairing Mode",
+          "type": "string"
+        },
+        "permutation_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Permutation Count"
+        },
+        "permutation_space_size": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Permutation Space Size"
+        },
+        "policy_definition": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Definition"
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Id"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "q_value": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Q Value"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "routing_conditioned": {
+          "title": "Routing Conditioned",
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        },
+        "used_group_a_count": {
+          "minimum": 0,
+          "title": "Used Group A Count",
+          "type": "integer"
+        },
+        "used_group_a_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Used Group A Sample Ids",
+          "type": "array"
+        },
+        "used_group_b_count": {
+          "minimum": 0,
+          "title": "Used Group B Count",
+          "type": "integer"
+        },
+        "used_group_b_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Used Group B Sample Ids",
+          "type": "array"
+        },
+        "valid_tests_in_family": {
+          "minimum": 0,
+          "title": "Valid Tests In Family",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "target_name",
+        "metric_name",
+        "population_scope",
+        "routing_conditioned",
+        "contrast_id",
+        "family_id",
+        "group_a",
+        "group_b",
+        "pairing_mode",
+        "alternative",
+        "expected_group_a",
+        "expected_group_b",
+        "expected_group_a_count",
+        "expected_group_b_count",
+        "used_group_a_sample_ids",
+        "used_group_b_sample_ids",
+        "used_group_a_count",
+        "used_group_b_count",
+        "complete_blocks",
+        "excluded_blocks",
+        "status",
+        "reason_codes",
+        "difference_in_biological_sample_fraction",
+        "p_value",
+        "q_value",
+        "valid_tests_in_family",
+        "permutation_space_size",
+        "permutation_count",
+        "extreme_count"
+      ],
+      "title": "ContrastResult",
+      "type": "object"
+    },
+    "ExcludedBlock": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Block Id",
+          "type": "string"
+        },
+        "group_a_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Group A Sample Ids",
+          "type": "array"
+        },
+        "group_b_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Group B Sample Ids",
+          "type": "array"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "block_id",
+        "group_a_sample_ids",
+        "group_b_sample_ids",
+        "reason_codes"
+      ],
+      "title": "ExcludedBlock",
+      "type": "object"
+    },
+    "GroupSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_count": {
+          "minimum": 0,
+          "title": "Blocked Count",
+          "type": "integer"
+        },
+        "condition": {
+          "$ref": "#/$defs/Condition"
+        },
+        "copy_name": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Copy Name"
+        },
+        "expected_sample_count": {
+          "minimum": 0,
+          "title": "Expected Sample Count",
+          "type": "integer"
+        },
+        "expected_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Expected Sample Ids",
+          "type": "array"
+        },
+        "maximum_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Maximum Biological Sample Fraction"
+        },
+        "mean_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Biological Sample Fraction"
+        },
+        "median_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Median Biological Sample Fraction"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "minimum_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Minimum Biological Sample Fraction"
+        },
+        "missing_metric_count": {
+          "minimum": 0,
+          "title": "Missing Metric Count",
+          "type": "integer"
+        },
+        "not_assessable_count": {
+          "minimum": 0,
+          "title": "Not Assessable Count",
+          "type": "integer"
+        },
+        "policy_definition": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Definition"
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Id"
+        },
+        "pooled_read_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pooled Read Fraction"
+        },
+        "pooled_read_fraction_label": {
+          "const": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+          "default": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+          "title": "Pooled Read Fraction Label",
+          "type": "string"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "reportable_count": {
+          "minimum": 0,
+          "title": "Reportable Count",
+          "type": "integer"
+        },
+        "reportable_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Reportable Sample Ids",
+          "type": "array"
+        },
+        "routing_conditioned": {
+          "title": "Routing Conditioned",
+          "type": "boolean"
+        },
+        "sample_assessments": {
+          "items": {
+            "$ref": "#/$defs/SampleAssessment"
+          },
+          "title": "Sample Assessments",
+          "type": "array"
+        },
+        "source_fractions": {
+          "items": {
+            "$ref": "#/$defs/SampleFraction"
+          },
+          "title": "Source Fractions",
+          "type": "array"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_name",
+        "metric_name",
+        "population_scope",
+        "routing_conditioned",
+        "condition",
+        "expected_sample_count",
+        "expected_sample_ids",
+        "reportable_count",
+        "blocked_count",
+        "not_assessable_count",
+        "missing_metric_count",
+        "sample_assessments",
+        "reportable_sample_ids",
+        "source_fractions",
+        "mean_biological_sample_fraction",
+        "median_biological_sample_fraction",
+        "minimum_biological_sample_fraction",
+        "maximum_biological_sample_fraction",
+        "pooled_read_fraction"
+      ],
+      "title": "GroupSummary",
+      "type": "object"
+    },
+    "InputResult": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_id": {
+          "minLength": 1,
+          "title": "Analysis Id",
+          "type": "string"
+        },
+        "sample_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "source_result": {
+          "minLength": 1,
+          "title": "Source Result",
+          "type": "string"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_result",
+        "sha256",
+        "sample_id",
+        "target_name",
+        "analysis_id"
+      ],
+      "title": "InputResult",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "MultipleTestingFamily": {
+      "additionalProperties": false,
+      "properties": {
+        "contrast_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Contrast Ids",
+          "type": "array"
+        },
+        "family_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Family Id",
+          "type": "string"
+        },
+        "method": {
+          "const": "Benjamini-Hochberg",
+          "default": "Benjamini-Hochberg",
+          "title": "Method",
+          "type": "string"
+        },
+        "valid_contrast_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Valid Contrast Ids",
+          "type": "array"
+        },
+        "valid_test_count": {
+          "minimum": 0,
+          "title": "Valid Test Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "family_id",
+        "contrast_ids",
+        "valid_contrast_ids",
+        "valid_test_count"
+      ],
+      "title": "MultipleTestingFamily",
+      "type": "object"
+    },
+    "NucleaseMetricResult": {
+      "additionalProperties": false,
+      "properties": {
+        "aligned_reads": {
+          "minimum": 0,
+          "title": "Aligned Reads",
+          "type": "integer"
+        },
+        "alignment_counters": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Alignment Counters",
+          "type": "object"
+        },
+        "alleles": {
+          "items": {
+            "$ref": "#/$defs/Allele"
+          },
+          "title": "Alleles",
+          "type": "array"
+        },
+        "analysis_id": {
+          "minLength": 1,
+          "title": "Analysis Id",
+          "type": "string"
+        },
+        "analysis_mode": {
+          "const": "indel_nuclease",
+          "default": "indel_nuclease",
+          "title": "Analysis Mode",
+          "type": "string"
+        },
+        "backend_input_reads": {
+          "minimum": 0,
+          "title": "Backend Input Reads",
+          "type": "integer"
+        },
+        "class_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Class Counts",
+          "type": "object"
+        },
+        "fraction_of_indel_reads_by_net_size": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Ratio"
+          },
+          "title": "Fraction Of Indel Reads By Net Size",
+          "type": "object"
+        },
+        "identity_mechanism": {
+          "const": "single_copy_identity",
+          "default": "single_copy_identity",
+          "title": "Identity Mechanism",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "mapping_statistics": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Mapping Statistics",
+          "type": "object"
+        },
+        "metric_contract_version": {
+          "const": "indel-nuclease-v1",
+          "default": "indel-nuclease-v1",
+          "title": "Metric Contract Version",
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Ratio"
+          },
+          "title": "Metrics",
+          "type": "object"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "reads_after_preprocessing": {
+          "minimum": 0,
+          "title": "Reads After Preprocessing",
+          "type": "integer"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "sample_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "NOT_ASSESSABLE",
+            "BLOCKED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/$defs/NucleaseTarget"
+        },
+        "target_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Id",
+          "type": "string"
+        },
+        "unaligned_reads": {
+          "minimum": 0,
+          "title": "Unaligned Reads",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sample_id",
+        "target_id",
+        "analysis_id",
+        "target",
+        "status",
+        "reason_codes",
+        "backend_input_reads",
+        "reads_after_preprocessing",
+        "aligned_reads",
+        "unaligned_reads",
+        "alignment_counters",
+        "mapping_statistics",
+        "class_counts",
+        "metrics",
+        "fraction_of_indel_reads_by_net_size",
+        "alleles",
+        "provenance",
+        "limitations"
+      ],
+      "title": "NucleaseMetricResult",
+      "type": "object"
+    },
+    "NucleaseObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_id": {
+          "minLength": 1,
+          "title": "Analysis Id",
+          "type": "string"
+        },
+        "biological_replicate": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Biological Replicate",
+          "type": "string"
+        },
+        "block_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Block Id"
+        },
+        "copy_name": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Copy Name"
+        },
+        "denominator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Denominator"
+        },
+        "dpi": {
+          "minimum": 0,
+          "title": "Dpi",
+          "type": "integer"
+        },
+        "editor": {
+          "minLength": 1,
+          "title": "Editor",
+          "type": "string"
+        },
+        "fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Fraction"
+        },
+        "metric_contract_version": {
+          "const": "indel-nuclease-v1",
+          "title": "Metric Contract Version",
+          "type": "string"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "numerator": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Numerator"
+        },
+        "paired": {
+          "title": "Paired",
+          "type": "boolean"
+        },
+        "policy_definition": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Definition"
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Id"
+        },
+        "population_id": {
+          "minLength": 1,
+          "title": "Population Id",
+          "type": "string"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "routing_conditioned": {
+          "title": "Routing Conditioned",
+          "type": "boolean"
+        },
+        "sample_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "sample_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Name",
+          "type": "string"
+        },
+        "source_result": {
+          "minLength": 1,
+          "title": "Source Result",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        },
+        "treatment": {
+          "minLength": 1,
+          "title": "Treatment",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editor",
+        "treatment",
+        "dpi",
+        "sample_name",
+        "biological_replicate",
+        "block_id",
+        "paired",
+        "target_name",
+        "metric_name",
+        "population_scope",
+        "routing_conditioned",
+        "sample_id",
+        "population_id",
+        "status",
+        "numerator",
+        "denominator",
+        "fraction",
+        "reason_codes",
+        "analysis_id",
+        "metric_contract_version",
+        "source_result"
+      ],
+      "title": "NucleaseObservation",
+      "type": "object"
+    },
+    "NucleaseStatisticsProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "contrast_specification_hash": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Contrast Specification Hash"
+        },
+        "contrast_specification_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Contrast Specification Path"
+        },
+        "input_results": {
+          "items": {
+            "$ref": "#/$defs/InputResult"
+          },
+          "title": "Input Results",
+          "type": "array"
+        },
+        "invocation_parameters": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Invocation Parameters",
+          "type": "object"
+        },
+        "manifest_path": {
+          "minLength": 1,
+          "title": "Manifest Path",
+          "type": "string"
+        },
+        "package_version": {
+          "minLength": 1,
+          "title": "Package Version",
+          "type": "string"
+        },
+        "platform": {
+          "minLength": 1,
+          "title": "Platform",
+          "type": "string"
+        },
+        "python": {
+          "minLength": 1,
+          "title": "Python",
+          "type": "string"
+        },
+        "samples_path": {
+          "minLength": 1,
+          "title": "Samples Path",
+          "type": "string"
+        },
+        "source_metric_contract_versions": {
+          "items": {
+            "const": "indel-nuclease-v1",
+            "type": "string"
+          },
+          "title": "Source Metric Contract Versions",
+          "type": "array"
+        },
+        "statistics_contract_version": {
+          "const": "indel-nuclease-stats-v1",
+          "default": "indel-nuclease-stats-v1",
+          "title": "Statistics Contract Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "package_version",
+        "source_metric_contract_versions",
+        "input_results",
+        "samples_path",
+        "manifest_path",
+        "contrast_specification_path",
+        "contrast_specification_hash",
+        "invocation_parameters",
+        "python",
+        "platform"
+      ],
+      "title": "NucleaseStatisticsProvenance",
+      "type": "object"
+    },
+    "NucleaseTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_mode": {
+          "const": "indel_nuclease",
+          "title": "Analysis Mode",
+          "type": "string"
+        },
+        "copy_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Copy Name",
+          "type": "string"
+        },
+        "insertion_quantification_mode": {
+          "const": "current",
+          "default": "current",
+          "title": "Insertion Quantification Mode",
+          "type": "string"
+        },
+        "nuclease_profile": {
+          "anyOf": [
+            {
+              "const": "tigr_tas_v1",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nuclease Profile"
+        },
+        "quantification_window_coordinates": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quantification Window Coordinates"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        },
+        "tigr_target_sequence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tigr Target Sequence"
+        },
+        "tigr_window": {
+          "anyOf": [
+            {
+              "enum": [
+                "W1",
+                "W2",
+                "W3",
+                "W4"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tigr Window"
+        },
+        "wt_sequence": {
+          "title": "Wt Sequence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "analysis_mode",
+        "target_name",
+        "copy_name",
+        "wt_sequence"
+      ],
+      "title": "NucleaseTarget",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_mode": {
+          "const": "indel_nuclease",
+          "default": "indel_nuclease",
+          "title": "Analysis Mode",
+          "type": "string"
+        },
+        "artifacts": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Artifacts",
+          "type": "object"
+        },
+        "crispresso_version": {
+          "const": "2.3.4",
+          "title": "Crispresso Version",
+          "type": "string"
+        },
+        "execution": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Execution",
+          "type": "object"
+        },
+        "prepared_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Prepared Manifest Sha256",
+          "type": "string"
+        },
+        "prepared_sample": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Prepared Sample",
+          "type": "object"
+        },
+        "runtime_digest": {
+          "title": "Runtime Digest",
+          "type": "string"
+        },
+        "scientific_identity": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Scientific Identity",
+          "type": "object"
+        },
+        "target_definitions_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Target Definitions Sha256",
+          "type": "string"
+        },
+        "wt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Wt Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_definitions_sha256",
+        "wt_sha256",
+        "prepared_manifest_sha256",
+        "prepared_sample",
+        "runtime_digest",
+        "crispresso_version",
+        "scientific_identity",
+        "execution",
+        "artifacts"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Ratio": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Fraction"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "fraction"
+      ],
+      "title": "Ratio",
+      "type": "object"
+    },
+    "SampleAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "biological_replicate": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Biological Replicate",
+          "type": "string"
+        },
+        "block_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Block Id"
+        },
+        "dpi": {
+          "minimum": 0,
+          "title": "Dpi",
+          "type": "integer"
+        },
+        "editor": {
+          "minLength": 1,
+          "title": "Editor",
+          "type": "string"
+        },
+        "paired": {
+          "title": "Paired",
+          "type": "boolean"
+        },
+        "reason_codes": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "sample_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Name",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "BLOCKED",
+            "NOT_ASSESSABLE",
+            "MISSING_METRIC"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "treatment": {
+          "minLength": 1,
+          "title": "Treatment",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editor",
+        "treatment",
+        "dpi",
+        "sample_name",
+        "biological_replicate",
+        "block_id",
+        "paired",
+        "status",
+        "reason_codes"
+      ],
+      "title": "SampleAssessment",
+      "type": "object"
+    },
+    "SampleFraction": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "exclusiveMinimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Fraction",
+          "type": "number"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        },
+        "sample_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sample_name",
+        "numerator",
+        "denominator",
+        "fraction"
+      ],
+      "title": "SampleFraction",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis_mode": {
+      "const": "indel_nuclease",
+      "default": "indel_nuclease",
+      "title": "Analysis Mode",
+      "type": "string"
+    },
+    "contrasts": {
+      "items": {
+        "$ref": "#/$defs/ContrastResult"
+      },
+      "title": "Contrasts",
+      "type": "array"
+    },
+    "group_summaries": {
+      "items": {
+        "$ref": "#/$defs/GroupSummary"
+      },
+      "title": "Group Summaries",
+      "type": "array"
+    },
+    "input_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Input Manifest Hash",
+      "type": "string"
+    },
+    "multiple_testing_families": {
+      "items": {
+        "$ref": "#/$defs/MultipleTestingFamily"
+      },
+      "title": "Multiple Testing Families",
+      "type": "array"
+    },
+    "nuclease_results": {
+      "items": {
+        "$ref": "#/$defs/NucleaseMetricResult"
+      },
+      "title": "Nuclease Results",
+      "type": "array"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/NucleaseObservation"
+      },
+      "title": "Observations",
+      "type": "array"
+    },
+    "provenance": {
+      "$ref": "#/$defs/NucleaseStatisticsProvenance"
+    },
+    "sample_metadata_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Sample Metadata Hash",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "statistics_contract_version": {
+      "const": "indel-nuclease-stats-v1",
+      "title": "Statistics Contract Version",
+      "type": "string"
+    },
+    "unused_metadata_sample_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+        "type": "string"
+      },
+      "title": "Unused Metadata Sample Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "statistics_contract_version",
+    "provenance",
+    "input_manifest_hash",
+    "sample_metadata_hash",
+    "observations",
+    "group_summaries",
+    "contrasts",
+    "multiple_testing_families",
+    "unused_metadata_sample_ids",
+    "nuclease_results"
+  ],
+  "title": "NucleaseStatisticsResult",
+  "type": "object"
+}

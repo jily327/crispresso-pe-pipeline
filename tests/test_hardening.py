@@ -244,7 +244,7 @@ def test_missing_git_is_nonfatal_and_wheel_never_uses_callers_git(tmp_path, monk
     monkeypatch.setattr(provenance.subprocess, "check_output", unavailable)
     report = provenance.software_provenance()
     assert report["git_commit"] is None and report["git_dirty"] is None
-    assert report["pipeline_version"] == "0.7.1"
+    assert report["pipeline_version"] == "0.8.0"
 
 
 def test_reverse_complement_motif_qc_keeps_bridge_in_raw_orientation(run_args, tmp_path):

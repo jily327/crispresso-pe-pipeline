@@ -1,5 +1,9 @@
 # crispresso-pe-pipeline
 
+Version 0.8.0 adds a separate CRISPResso-backed single-copy `indel_nuclease` mode
+while preserving `precise_edit`. See [M8 nuclease contracts](docs/m8-nuclease.md)
+for target schemas, TIGR–Tas windows, integer-count metrics and workflow limits.
+
 **0.7.1 fixes terminal amplicon read-through in routing and exact-product assessment.**
 Identity retains internal-error penalties and a separate conservative ambiguity veto;
 exact WT/PE products require unique, state-symmetric whole-reference support.

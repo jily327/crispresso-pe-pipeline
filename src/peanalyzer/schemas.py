@@ -67,6 +67,8 @@ class Sample(BarcodeSample):
 
 
 class Target(Model):
+    # Input compatibility default; legacy PE evidence serialization stays unchanged.
+    analysis_mode: Literal["precise_edit"] = Field(default="precise_edit", exclude=True)
     target_name: Identifier
     copy_name: Identifier
     wt_sequence: str

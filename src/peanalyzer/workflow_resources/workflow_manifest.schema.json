@@ -221,6 +221,17 @@
   },
   "additionalProperties": false,
   "properties": {
+    "analysis_modes": {
+      "items": {
+        "enum": [
+          "precise_edit",
+          "indel_nuclease"
+        ],
+        "type": "string"
+      },
+      "title": "Analysis Modes",
+      "type": "array"
+    },
     "input_inventory": {
       "additionalProperties": {
         "$ref": "#/$defs/InputArtifact"

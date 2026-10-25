@@ -143,6 +143,11 @@ def collect_observations(manifest_path, samples_path):
     Result paths are relative to the manifest's directory. No directory scan,
     backend execution, count pooling or technical-replicate selection occurs.
     """
+    from peanalyzer.nuclease.aggregation import is_nuclease_manifest, collect
+    try:
+        if is_nuclease_manifest(manifest_path): return collect(manifest_path, samples_path)
+    except (OSError, ValueError, TypeError) as exc:
+        raise AggregationError(str(exc)) from exc
     manifest_path, samples_path = Path(manifest_path).resolve(), Path(samples_path).resolve()
     try:
         manifest_bytes, samples_bytes = manifest_path.read_bytes(), samples_path.read_bytes()
@@ -287,7 +292,8 @@ def summarize_groups(observations):
 
 def publish(result, output):
     """Publish authoritative JSON and derived TSVs by a single sibling rename."""
-    result = StatisticsResult.model_validate(result.model_dump())
+    from peanalyzer.result_dispatch import statistics_model
+    result = statistics_model(result.model_dump()).model_validate(result.model_dump())
     output = Path(output).absolute()
     if output.exists() or output.is_symlink():
         raise AggregationError(f"output already exists: {output}")

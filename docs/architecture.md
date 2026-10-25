@@ -1,5 +1,9 @@
 # Pipeline architecture and contracts
 
+Version 0.8.0 adds a separate CRISPResso-backed single-copy `indel_nuclease` mode
+while preserving `precise_edit`. See [M8 nuclease contracts](m8-nuclease.md)
+for target schemas, TIGR–Tas windows, integer-count metrics and workflow limits.
+
 ## Implemented M5/M6/M7 boundaries
 
 M5 and M5.1 implement biological-sample aggregation and exact contrasts; M6
