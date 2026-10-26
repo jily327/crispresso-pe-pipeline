@@ -1,0 +1,869 @@
+{
+  "authoritative_main": "c5f6272612df06e7f939f58fc567e1c386cc750a",
+  "design_commit": "05cfc68b62215a4c52862e09f081eab1c75ba39f",
+  "source_files": [
+    {
+      "path": "src/peanalyzer/gui/drafts.py",
+      "sha256": "d70f491de8473748a50a8886757de9f704b9d57585903dbcef3b9418a4f21bbe",
+      "size_bytes": 5502,
+      "symbols": [
+        {
+          "symbol": "SetupReferences",
+          "line": 12
+        },
+        {
+          "symbol": "DraftStore",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/setup_models.py",
+      "sha256": "9e6371ee3a50e974ec0e20b8d8c56e98fd1723c229fc0f7ce4cb0cbbc1f28e24",
+      "size_bytes": 3920,
+      "symbols": [
+        {
+          "symbol": "SetupFile",
+          "line": 9
+        },
+        {
+          "symbol": "DraftSample",
+          "line": 15
+        },
+        {
+          "symbol": "PETargetDraft",
+          "line": 28
+        },
+        {
+          "symbol": "NucleaseTargetDraft",
+          "line": 40
+        },
+        {
+          "symbol": "DraftContent",
+          "line": 51
+        },
+        {
+          "symbol": "DraftPatch",
+          "line": 67
+        },
+        {
+          "symbol": "DraftRevision",
+          "line": 72
+        },
+        {
+          "symbol": "SetupIssue",
+          "line": 76
+        },
+        {
+          "symbol": "TargetPreview",
+          "line": 85
+        },
+        {
+          "symbol": "PreviewStage",
+          "line": 95
+        },
+        {
+          "symbol": "PlanPreview",
+          "line": 103
+        },
+        {
+          "symbol": "DraftValidation",
+          "line": 125
+        },
+        {
+          "symbol": "DraftView",
+          "line": 134
+        },
+        {
+          "symbol": "SetupCapabilities",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/setup_validation.py",
+      "sha256": "0235e24c02bc8d5035192192c070187762588e205bf3b02510a2e894436c4487",
+      "size_bytes": 16340,
+      "symbols": [
+        {
+          "symbol": "MemoryCSV",
+          "line": 28
+        },
+        {
+          "symbol": "target_values",
+          "line": 45
+        },
+        {
+          "symbol": "compile_draft",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/app.py",
+      "sha256": "487817caf513674c80acc766bbfa574bfe79e54229d9f3e81e95fe7373e7bab4",
+      "size_bytes": 8482,
+      "symbols": [
+        {
+          "symbol": "create_app",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/workspace.py",
+      "sha256": "30844279843a76b69485eb723f34ef583d6b9a6d6b5b35090a63242997b40473",
+      "size_bytes": 8060,
+      "symbols": [
+        {
+          "symbol": "ViewerError",
+          "line": 21
+        },
+        {
+          "symbol": "safe_registration",
+          "line": 25
+        },
+        {
+          "symbol": "snapshot",
+          "line": 32
+        },
+        {
+          "symbol": "registration_labels",
+          "line": 62
+        },
+        {
+          "symbol": "Opened",
+          "line": 92
+        },
+        {
+          "symbol": "WorkspaceStore",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/projection.py",
+      "sha256": "875d457d40a294a7693f7b09310a8161958c676f700e3291ffca11c3516b718a",
+      "size_bytes": 12214,
+      "symbols": [
+        {
+          "symbol": "percentage",
+          "line": 15
+        },
+        {
+          "symbol": "fields",
+          "line": 20
+        },
+        {
+          "symbol": "ratio",
+          "line": 26
+        },
+        {
+          "symbol": "series",
+          "line": 32
+        },
+        {
+          "symbol": "condition",
+          "line": 37
+        },
+        {
+          "symbol": "label",
+          "line": 41
+        },
+        {
+          "symbol": "strict_result",
+          "line": 45
+        },
+        {
+          "symbol": "project",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/workflow.py",
+      "sha256": "00d60826bbbce308f9f8b6d3f4fda2b6f7a47f3f5db0c0132701575dd1efdcd0",
+      "size_bytes": 38498,
+      "symbols": [
+        {
+          "symbol": "utc",
+          "line": 50
+        },
+        {
+          "symbol": "software_identity",
+          "line": 54
+        },
+        {
+          "symbol": "input_record",
+          "line": 63
+        },
+        {
+          "symbol": "verify_inputs",
+          "line": 72
+        },
+        {
+          "symbol": "build_workflow_plan",
+          "line": 79
+        },
+        {
+          "symbol": "_demux_samples",
+          "line": 145
+        },
+        {
+          "symbol": "stage_manifest_path",
+          "line": 155
+        },
+        {
+          "symbol": "scientific_target",
+          "line": 159
+        },
+        {
+          "symbol": "nuclease_identity",
+          "line": 163
+        },
+        {
+          "symbol": "targets_for",
+          "line": 169
+        },
+        {
+          "symbol": "inputs_for",
+          "line": 173
+        },
+        {
+          "symbol": "parameters_for",
+          "line": 184
+        },
+        {
+          "symbol": "output_identity",
+          "line": 200
+        },
+        {
+          "symbol": "dependency",
+          "line": 205
+        },
+        {
+          "symbol": "signature",
+          "line": 210
+        },
+        {
+          "symbol": "_file",
+          "line": 218
+        },
+        {
+          "symbol": "_demux_root",
+          "line": 223
+        },
+        {
+          "symbol": "_metrics_results",
+          "line": 227
+        },
+        {
+          "symbol": "_manifest_csv",
+          "line": 244
+        },
+        {
+          "symbol": "validate_stage",
+          "line": 253
+        },
+        {
+          "symbol": "execute_stage",
+          "line": 345
+        },
+        {
+          "symbol": "_snapshots",
+          "line": 402
+        },
+        {
+          "symbol": "force_closure",
+          "line": 418
+        },
+        {
+          "symbol": "_graph_change",
+          "line": 434
+        },
+        {
+          "symbol": "_invalidate",
+          "line": 454
+        },
+        {
+          "symbol": "_expected",
+          "line": 475
+        },
+        {
+          "symbol": "_validate_completed",
+          "line": 485
+        },
+        {
+          "symbol": "_verify_stages",
+          "line": 498
+        },
+        {
+          "symbol": "verify_workflow_output",
+          "line": 520
+        },
+        {
+          "symbol": "_check_execution_scope",
+          "line": 545
+        },
+        {
+          "symbol": "execute_workflow",
+          "line": 557
+        },
+        {
+          "symbol": "resume_workflow",
+          "line": 667
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/workflow_models.py",
+      "sha256": "9c759ead2a75fd491e244910bb235d1230d92c566bec6caf6628a2c2d63b20c6",
+      "size_bytes": 7655,
+      "symbols": [
+        {
+          "symbol": "Model",
+          "line": 16
+        },
+        {
+          "symbol": "Artifact",
+          "line": 34
+        },
+        {
+          "symbol": "InputArtifact",
+          "line": 40
+        },
+        {
+          "symbol": "Software",
+          "line": 47
+        },
+        {
+          "symbol": "Backend",
+          "line": 56
+        },
+        {
+          "symbol": "Node",
+          "line": 63
+        },
+        {
+          "symbol": "dag",
+          "line": 72
+        },
+        {
+          "symbol": "Plan",
+          "line": 93
+        },
+        {
+          "symbol": "Dependency",
+          "line": 127
+        },
+        {
+          "symbol": "StageManifest",
+          "line": 133
+        },
+        {
+          "symbol": "Session",
+          "line": 168
+        },
+        {
+          "symbol": "WorkflowManifest",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/workflow_storage.py",
+      "sha256": "bf2da066e52f956e5a7ab19eaf4bf0b21a03273146eeb1ef68fe20597d6080ea",
+      "size_bytes": 3603,
+      "symbols": [
+        {
+          "symbol": "WorkflowError",
+          "line": 12
+        },
+        {
+          "symbol": "canonical",
+          "line": 18
+        },
+        {
+          "symbol": "digest",
+          "line": 24
+        },
+        {
+          "symbol": "sha",
+          "line": 28
+        },
+        {
+          "symbol": "no_symlinks",
+          "line": 33
+        },
+        {
+          "symbol": "owned",
+          "line": 41
+        },
+        {
+          "symbol": "read_json",
+          "line": 52
+        },
+        {
+          "symbol": "load",
+          "line": 65
+        },
+        {
+          "symbol": "atomic_json",
+          "line": 69
+        },
+        {
+          "symbol": "artifact",
+          "line": 85
+        },
+        {
+          "symbol": "inventory",
+          "line": 92
+        },
+        {
+          "symbol": "verify_artifact",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/cli.py",
+      "sha256": "69f09487ee2f473f18e347ebd5a086658efc7c78030ee9944cca076520515666",
+      "size_bytes": 7039,
+      "symbols": [
+        {
+          "symbol": "sigterm_cleanup",
+          "line": 17
+        },
+        {
+          "symbol": "main",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/backend/core.py",
+      "sha256": "7183b2fde5d2edca56e18fa891bdba9da0b2ba35dacc3ff0ff9d8d3e055be887",
+      "size_bytes": 8820,
+      "symbols": [
+        {
+          "symbol": "verify_routing_output",
+          "line": 21
+        },
+        {
+          "symbol": "run_confident_core",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/backend/comparator.py",
+      "sha256": "e7766b933623fc62b18abf1c5b2470e7be5b27cd3bc30fe1ffc5168b2a47123d",
+      "size_bytes": 8842,
+      "symbols": [
+        {
+          "symbol": "normalize_include_idxs",
+          "line": 25
+        },
+        {
+          "symbol": "evaluate_anchors",
+          "line": 36
+        },
+        {
+          "symbol": "run_comparator",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/backend/pooled.py",
+      "sha256": "309fcf514413372eb952fb2cb86b82daf03daa617dbe79029507a5ec7fb113ef",
+      "size_bytes": 10766,
+      "symbols": [
+        {
+          "symbol": "BackendError",
+          "line": 34
+        },
+        {
+          "symbol": "utc_now",
+          "line": 40
+        },
+        {
+          "symbol": "Executable",
+          "line": 45
+        },
+        {
+          "symbol": "resolve_executable",
+          "line": 51
+        },
+        {
+          "symbol": "validate_targets",
+          "line": 69
+        },
+        {
+          "symbol": "preflight_guides",
+          "line": 82
+        },
+        {
+          "symbol": "write_amplicons",
+          "line": 94
+        },
+        {
+          "symbol": "pooled_argv",
+          "line": 103
+        },
+        {
+          "symbol": "check_pooled_output",
+          "line": 116
+        },
+        {
+          "symbol": "run_pooled_diagnostic",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/nuclease/backend.py",
+      "sha256": "a872c22ce142ae373da93be93539ade9f154da61b35c6803014f5ca634140afb",
+      "size_bytes": 10415,
+      "symbols": [
+        {
+          "symbol": "parse_nuclease_child",
+          "line": 32
+        },
+        {
+          "symbol": "run_nuclease_metrics",
+          "line": 80
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/nuclease/targets.py",
+      "sha256": "11f0c80a9909f2d0177be0f3c0e3c7b05c2399af36a698de04cb268d5cee0369",
+      "size_bytes": 4862,
+      "symbols": [
+        {
+          "symbol": "intervals",
+          "line": 9
+        },
+        {
+          "symbol": "coordinate_string",
+          "line": 21
+        },
+        {
+          "symbol": "tigr_geometry",
+          "line": 25
+        },
+        {
+          "symbol": "NucleaseTarget",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/analysis_fastq.py",
+      "sha256": "f48ef7f012b3fbb6124c4fb69487ca7100d4362325213039201455efb3203efa",
+      "size_bytes": 4819,
+      "symbols": [
+        {
+          "symbol": "PreparationError",
+          "line": 14
+        },
+        {
+          "symbol": "PreparationConfig",
+          "line": 18
+        },
+        {
+          "symbol": "resolve_trims",
+          "line": 23
+        },
+        {
+          "symbol": "prepare_analysis_fastqs",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/metrics/production.py",
+      "sha256": "14c6b7a645577c262c56eae88bebc0718d79ba1fba8d5be0211f7070663e4a73",
+      "size_bytes": 28929,
+      "symbols": [
+        {
+          "symbol": "GateError",
+          "line": 45
+        },
+        {
+          "symbol": "digest",
+          "line": 51
+        },
+        {
+          "symbol": "inventory",
+          "line": 55
+        },
+        {
+          "symbol": "window_reasons",
+          "line": 61
+        },
+        {
+          "symbol": "load_backend",
+          "line": 72
+        },
+        {
+          "symbol": "metric",
+          "line": 133
+        },
+        {
+          "symbol": "combined_status",
+          "line": 168
+        },
+        {
+          "symbol": "collect_metrics",
+          "line": 173
+        },
+        {
+          "symbol": "run_metrics",
+          "line": 375
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/reporting.py",
+      "sha256": "fe810fc25d61f823f8be96fc6102fb6032f898fdb3608f6778544a0fc7a160ef",
+      "size_bytes": 24536,
+      "symbols": [
+        {
+          "symbol": "canonical",
+          "line": 29
+        },
+        {
+          "symbol": "digest",
+          "line": 33
+        },
+        {
+          "symbol": "_unique",
+          "line": 37
+        },
+        {
+          "symbol": "_nonfinite",
+          "line": 46
+        },
+        {
+          "symbol": "_finite_float",
+          "line": 50
+        },
+        {
+          "symbol": "load_result",
+          "line": 57
+        },
+        {
+          "symbol": "condition_key",
+          "line": 66
+        },
+        {
+          "symbol": "condition_label",
+          "line": 70
+        },
+        {
+          "symbol": "identity",
+          "line": 74
+        },
+        {
+          "symbol": "series_key",
+          "line": 78
+        },
+        {
+          "symbol": "metric_label",
+          "line": 84
+        },
+        {
+          "symbol": "figure_id",
+          "line": 96
+        },
+        {
+          "symbol": "_ordered",
+          "line": 101
+        },
+        {
+          "symbol": "build_report_spec",
+          "line": 111
+        },
+        {
+          "symbol": "percentage",
+          "line": 168
+        },
+        {
+          "symbol": "_cell",
+          "line": 172
+        },
+        {
+          "symbol": "write_tables",
+          "line": 176
+        },
+        {
+          "symbol": "_series_caption",
+          "line": 185
+        },
+        {
+          "symbol": "render_svg",
+          "line": 195
+        },
+        {
+          "symbol": "_table",
+          "line": 246
+        },
+        {
+          "symbol": "render_html",
+          "line": 261
+        },
+        {
+          "symbol": "generate_report",
+          "line": 332
+        }
+      ]
+    },
+    {
+      "path": "tests/test_m11a1.py",
+      "sha256": "b9faaacf0fe9570d91646dc972f3ca2f86bfd5b9c95ab9f1700657de7bc44df2",
+      "size_bytes": 7340,
+      "symbols": [
+        {
+          "symbol": "replicate_rows",
+          "line": 22
+        },
+        {
+          "symbol": "test_actual_aggregation_replicate_oracle",
+          "line": 32
+        },
+        {
+          "symbol": "test_setup_replicates_match_downstream_rule",
+          "line": 52
+        },
+        {
+          "symbol": "ambiguous_deletion",
+          "line": 72
+        },
+        {
+          "symbol": "test_nonunique_deletion_is_partial_limitation_not_invalid_target",
+          "line": 78
+        },
+        {
+          "symbol": "test_empty_raw_pool_cannot_reach_review",
+          "line": 95
+        },
+        {
+          "symbol": "test_missing_block_error_points_to_block_field",
+          "line": 109
+        },
+        {
+          "symbol": "test_metadata_identity_and_presentation_identity_are_preserved",
+          "line": 121
+        },
+        {
+          "symbol": "test_duplicate_replicate_focus_uses_original_row_after_csv_normalization",
+          "line": 134
+        }
+      ]
+    },
+    {
+      "path": "tests/m11a1_guards.py",
+      "sha256": "ef2e4f4396543a6d3eff51c4cf4045eeec8f55961a2e886146f5e8aacc2048b8",
+      "size_bytes": 4646,
+      "symbols": [
+        {
+          "symbol": "zero_execution",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "path": "tests/test_m11a1_integration.py",
+      "sha256": "16ef137acf43e95cc8ad8102e1f8dd3d62c88b1ea97bb2de27b43a5691e3c146",
+      "size_bytes": 2415,
+      "symbols": [
+        {
+          "symbol": "test_ambiguous_deletion_execution_retains_target_precise_metric",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "path": "tests/m7_fixtures.py",
+      "sha256": "7de50c056e90d5671a443db6b5a991333a9cb1ac521f651caa0420ebfd045ab7",
+      "size_bytes": 4920,
+      "symbols": [
+        {
+          "symbol": "write_csv",
+          "line": 15
+        },
+        {
+          "symbol": "fixture",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "path": "tests/m8_fixtures.py",
+      "sha256": "1f9d09ac00854171dc39cd591a2d7dc038234db23cb9a62cd0b2e7f2fa4099c7",
+      "size_bytes": 3998,
+      "symbols": [
+        {
+          "symbol": "other",
+          "line": 18
+        },
+        {
+          "symbol": "substitute",
+          "line": 19
+        },
+        {
+          "symbol": "insert",
+          "line": 20
+        },
+        {
+          "symbol": "target",
+          "line": 38
+        },
+        {
+          "symbol": "fixture",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "design_files": [
+    {
+      "path": "gui-design-refresh/FINAL_CAPABILITY_GAP_MATRIX.md",
+      "sha256": "eddea59e4cb8410749f31b4937cdbfd3bfa15372e04907c6653b39663c1c186d",
+      "size_bytes": 8147
+    },
+    {
+      "path": "gui-design-refresh/FINAL_FIELD_BACKEND_MAPPING.md",
+      "sha256": "7be683aa813eb6d64b4a14f012bb5da06345b05bc12d1cd25c109138f71396aa",
+      "size_bytes": 15809
+    },
+    {
+      "path": "gui-design-refresh/GUI_DESIGN_REFRESH.md",
+      "sha256": "e0c0b9c38ed8f744b2486dec1996b92df970e33f9323c223d4e193d528d378b2",
+      "size_bytes": 12726
+    },
+    {
+      "path": "gui-design-refresh/GUI_DESIGN_SPEC_FINAL.md",
+      "sha256": "3d402beabfdd1e33f7aca3ea17e90fb8d03fd8a5332284f710b1566cbc75000e",
+      "size_bytes": 19070
+    },
+    {
+      "path": "gui-design-refresh/M10_IMPLEMENTATION_BOUNDARY.md",
+      "sha256": "3cd394aa7a794c07321d94b03903536ab273370525563000c6ab368dd2fc61a3",
+      "size_bytes": 11350
+    },
+    {
+      "path": "gui-design-refresh/README.md",
+      "sha256": "23d00942c211905e9e6cef30ed0bbcf1e1e7c3dabde954b0fcaacae814cdac7f",
+      "size_bytes": 2916
+    },
+    {
+      "path": "gui-design-refresh/RESULTS_INFORMATION_ARCHITECTURE_FINAL.md",
+      "sha256": "960a835a7877ef9599d0bf2233548132b48ea329df95c07d357c9b71058da30b",
+      "size_bytes": 16610
+    }
+  ],
+  "future_implementation_inspected": false
+}

@@ -1,0 +1,8 @@
+{
+  "captured_executor_alias": "AUDIT_EXECUTION_TRIPWIRE: peanalyzer.workflow.execute_workflow",
+  "probing_plan": "AUDIT_EXECUTION_TRIPWIRE: route_pair_or_backend_probing_plan",
+  "forbidden_force": "AUDIT_FORBIDDEN_FORCE",
+  "subprocess": "AUDIT_PROCESS_BEFORE_RUN: subprocess.Popen",
+  "accepted_empty_force_bookkeeping": "allowed; no recovery selected",
+  "accepted_nonempty_force": "AUDIT_FORBIDDEN_FORCE"
+}

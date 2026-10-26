@@ -1,0 +1,54 @@
+{
+  "authoritative_main": "c5f6272612df06e7f939f58fc567e1c386cc750a",
+  "future_implementation_inspected": false,
+  "application_source_modified": false,
+  "adversarial_cases": 70,
+  "race_schedules": 8,
+  "helper_unit_tests": {
+    "passed": 25,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "process_tree_scenarios": 2,
+  "route_protocol_canaries": 3,
+  "baseline_review_fixtures": 2,
+  "execution_tripwire_canaries": 6,
+  "scientific_execution_count": 0,
+  "real_backend_runs": 0,
+  "future_candidate_browser_runs": 0,
+  "full_workflow_identity_check_exercised": false,
+  "review_identity_reconstruction_exercised": true,
+  "results": {
+    "stdlib_helpers": {
+      "exit_code": 0,
+      "stdout": "evidence/stdlib_helpers.stdout.txt",
+      "stderr": "evidence/stdlib_helpers.stderr.txt"
+    },
+    "process_tree": {
+      "exit_code": 0,
+      "stdout": "evidence/process_tree.stdout.txt",
+      "stderr": "evidence/process_tree.stderr.txt"
+    },
+    "route_protocol": {
+      "exit_code": 0,
+      "stdout": "evidence/route_protocol.stdout.txt",
+      "stderr": "evidence/route_protocol.stderr.txt"
+    },
+    "baseline_review": {
+      "exit_code": 0,
+      "stdout": "evidence/baseline_review.stdout.txt",
+      "stderr": "evidence/baseline_review.stderr.txt"
+    },
+    "execution_tripwires": {
+      "exit_code": 0,
+      "stdout": "evidence/execution_tripwires.stdout.txt",
+      "stderr": "evidence/execution_tripwires.stderr.txt"
+    }
+  },
+  "limitations": [
+    "Candidate endpoint adapters intentionally pending",
+    "Real Core/container cancellation and full direct/GUI output parity remain future audit work",
+    "Route protocol self-tests use mock routes; actual browser scenarios are prepared, not executed"
+  ]
+}

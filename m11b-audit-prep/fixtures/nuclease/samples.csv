@@ -1,0 +1,5 @@
+sample_name,barcode_id,forward_barcode,reverse_barcode,editor,treatment,dpi,biological_replicate,block_id,paired
+bio1,bc001,AAAAAAAA,CCCCCCCC,synthetic-nuclease,A,6,1,,false
+bio2,bc002,AAAAAAAC,CCCCCCCC,synthetic-nuclease,A,6,2,,false
+bio3,bc003,AAAAAAAG,CCCCCCCC,synthetic-nuclease,B,6,1,,false
+bio4,bc004,AAAAAAAT,CCCCCCCC,synthetic-nuclease,B,6,2,,false

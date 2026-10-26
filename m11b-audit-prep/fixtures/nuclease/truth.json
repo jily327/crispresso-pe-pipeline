@@ -1,0 +1,158 @@
+{
+  "pairs": 80,
+  "sample_pairs": [
+    20,
+    20,
+    20,
+    20
+  ],
+  "deletion_origin": [
+    2,
+    4,
+    14,
+    16
+  ],
+  "window": {
+    "derivation": "tigr_tas_v1",
+    "profile_version": "tigr_tas_v1",
+    "target_sequence": "TCTATAGGCAGTAAGAAG",
+    "target_start": 100,
+    "target_interval": [
+      100,
+      117
+    ],
+    "orientation": "forward",
+    "physical_nick_boundaries": [
+      [
+        104,
+        105
+      ],
+      [
+        112,
+        113
+      ]
+    ],
+    "target_oriented_nick_labels": [
+      "5|6",
+      "13|14"
+    ],
+    "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+    "amplicon_top_strand_between_cuts": "AGGCAGTA",
+    "target_oriented_between_cuts": "AGGCAGTA",
+    "selected_window": "W2",
+    "intervals": [
+      [
+        104,
+        113
+      ]
+    ],
+    "coordinates": "104-113"
+  },
+  "scientific_identity": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG",
+    "quantification_window_coordinates": null,
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "TCTATAGGCAGTAAGAAG",
+    "tigr_window": "W2",
+    "insertion_quantification_mode": "current",
+    "resolved_window": {
+      "derivation": "tigr_tas_v1",
+      "profile_version": "tigr_tas_v1",
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100,
+      "target_interval": [
+        100,
+        117
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "selected_window": "W2",
+      "intervals": [
+        [
+          104,
+          113
+        ]
+      ],
+      "coordinates": "104-113"
+    },
+    "backend_settings": {
+      "amplicon_name": "Reference",
+      "auto": false,
+      "expected_hdr_amplicon_seq": "",
+      "guide_seq": "",
+      "flexiguide_seq": "None",
+      "flexiguide_homology": 80,
+      "flexiguide_gap_open_penalty": -20,
+      "flexiguide_gap_extend_penalty": -2,
+      "prime_editing_pegRNA_spacer_seq": "",
+      "prime_editing_pegRNA_extension_seq": "",
+      "prime_editing_pegRNA_scaffold_seq": "",
+      "prime_editing_nicking_guide_seq": "",
+      "prime_editing_override_prime_edited_ref_seq": "",
+      "prime_editing_override_sequence_checks": false,
+      "prime_editing_pegRNA_extension_quantification_window_size": 5,
+      "prime_editing_pegRNA_scaffold_min_match_length": 1,
+      "prime_editing_gap_open_penalty": -50,
+      "prime_editing_gap_extend_penalty": 0,
+      "exclude_bp_from_left": 0,
+      "exclude_bp_from_right": 0,
+      "quantification_window_center": "-3",
+      "quantification_window_size": "1",
+      "discard_guide_positions_overhanging_amplicon_edge": false,
+      "ignore_substitutions": false,
+      "ignore_insertions": false,
+      "ignore_deletions": false,
+      "use_legacy_insertion_quantification": false,
+      "discard_indel_reads": false,
+      "expand_ambiguous_alignments": false,
+      "assign_ambiguous_alignments_to_first_reference": false,
+      "crispresso1_mode": false,
+      "write_detailed_allele_table": true,
+      "split_interleaved_input": false,
+      "trim_sequences": false,
+      "crispresso_merge": false,
+      "force_merge_pairs": false,
+      "fastp_command": "fastp",
+      "fastp_options_string": "",
+      "min_paired_end_reads_overlap": 10,
+      "min_average_read_quality": 0,
+      "min_single_bp_quality": 0,
+      "min_bp_quality_or_N": 0,
+      "bam_input": "",
+      "bam_chr_loc": "",
+      "samtools_exclude_flags": "0",
+      "bam_output": false,
+      "fastq_output": false,
+      "amplicon_min_alignment_score": "",
+      "default_min_aln_score": 60,
+      "needleman_wunsch_gap_open": -20,
+      "needleman_wunsch_gap_extend": -2,
+      "needleman_wunsch_gap_incentive": 1,
+      "needleman_wunsch_aln_matrix_loc": "EDNAFULL",
+      "aln_seed_count": 5,
+      "aln_seed_len": 10,
+      "aln_seed_min": 2,
+      "amplicon_seq": "TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG",
+      "quantification_window_coordinates": "104-113"
+    }
+  }
+}

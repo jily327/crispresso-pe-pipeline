@@ -1,0 +1,37 @@
+crispresso:
+  copy_assignment_policy: require_validated
+  core_executable: CRISPResso
+  min_reads_to_use_region: 100
+  pooled_executable: CRISPRessoPooled
+  version: 2.3.4
+demux:
+  ambiguous_policy: unassigned
+  bridge_qc: true
+  forward_bridge: null
+  forward_length: null
+  forward_offset: 0
+  max_mismatches: 0
+  max_open_sample_pairs: 32
+  profile: custom
+  reverse_barcode_orientation: as_read
+  reverse_bridge: null
+  reverse_length: null
+  reverse_offset: 0
+  trim_barcodes: false
+  trim_bridges: false
+n_processes: 1
+qc:
+  discriminating_variant_edit_distance: 5
+  max_ambiguous_fraction: 0.1
+  min_analyzable_reads: 100
+  min_copy_fraction: 0.1
+quantification:
+  denominator: nonambiguous_nondiscarded_aligned
+  primary_metric: precise_full_amplicon
+schema_version: 1
+statistics:
+  block_column: null
+  factors: []
+  include_interaction: false
+  min_biological_replicates: 3
+  mode: none

@@ -1,0 +1,16 @@
+{
+  "group": {
+    "processes": 3,
+    "term_acknowledgements": 3,
+    "reaped_edges": 2,
+    "orphans": 0,
+    "negative_canary": false
+  },
+  "parent_only_negative": {
+    "processes": 3,
+    "term_acknowledgements": 3,
+    "reaped_edges": 2,
+    "orphans": 0,
+    "negative_canary": true
+  }
+}

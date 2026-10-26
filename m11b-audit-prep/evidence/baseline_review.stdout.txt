@@ -1,0 +1,24 @@
+[
+  {
+    "mode": "pe",
+    "status": "VALID",
+    "pairs": "96",
+    "stages": 14,
+    "warning_codes": [
+      "BACKEND_METADATA_WARNING"
+    ],
+    "scientific_calls": {},
+    "writes": [],
+    "identity_reconstructed": true
+  },
+  {
+    "mode": "nuclease",
+    "status": "VALID",
+    "pairs": "80",
+    "stages": 14,
+    "warning_codes": [],
+    "scientific_calls": {},
+    "writes": [],
+    "identity_reconstructed": true
+  }
+]
