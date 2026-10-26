@@ -623,3 +623,15 @@ validates metrics; M5 implements biological aggregation/statistics and M6 implem
 M7 implements local workflow orchestration and a real synthetic raw-to-report
 fixture. Its explicit single-biological-target execution limit is documented above.
 Keep unit and `integration` tests separate.
+
+## Implemented local GUI recovery (M11C)
+
+The 0.8.0 GUI now combines M11A zero-execution setup, M11B new Run, M11C inspected
+recovery and M10 verified viewing. `workflow_recovery.py` performs complete
+read-only preflight before existing M7 invalidation. `gui/recovery.py` exposes
+opaque, revision/hash-bound previews and uses the existing job/worker lifecycle.
+`gui/process_safety.py` and `gui/supervision.py` provide an inherited host/account
+lease, Linux parent-death cancellation, subreaping and pidfd-safe descendant
+cleanup. React displays backend closure/actions and confirms them; it owns no
+recovery science. Scientific modules remain unchanged. See
+[M11C contracts and limitations](m11c-recovery.md).

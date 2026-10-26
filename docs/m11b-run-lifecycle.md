@@ -3,6 +3,9 @@
 M11B supports **NEW execution only**. Resume, force, recovery, rerunning partial
 workspaces and persistent jobs across server restart remain deferred to M11C.
 Existing M10 viewing and M11A validation remain available without probing Core.
+
+This document records the M11B boundary. M11C now implements the deferred
+[recovery and process hardening](m11c-recovery.md) through the same lifecycle.
 Node is a frontend build dependency only; installed execution uses Python.
 
 Launch `peanalyzer-viewer` with the existing `--setup-fastq`, `--setup-demux` and

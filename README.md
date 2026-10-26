@@ -164,3 +164,13 @@ created. See [the setup contract and execution boundary](docs/m11-analysis-setup
 The optional React/FastAPI viewer opens existing completed PE and nuclease
 workspaces after authoritative verification. It is read-only and does not run
 scientific stages. See [installation, launch and verification boundaries](docs/m10-viewer.md).
+
+## Run and recover local analyses (M11B/M11C)
+
+A configured qualified Linux/WSL runtime enables Review → Run → progress →
+verified results. **Recover Analysis** inspects an incomplete workspace before
+any execution. Register it with `--recover-workspace PATH`, or select **Inspect
+Recovery** after cancellation/failure. Resume reuses verified stages; advanced
+force requires the exact backend preview and explicit confirmation. One inherited
+host/account lease protects both run and recovery across server death. See
+[M11B lifecycle](docs/m11b-run-lifecycle.md) and [M11C recovery and containment](docs/m11c-recovery.md).
