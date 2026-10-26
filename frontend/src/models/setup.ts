@@ -114,6 +114,7 @@ export interface SetupCapabilities {
   files: Array<SetupFile>;
   scientific_execution: false;
   statistics: "descriptive_only";
+  run_available: boolean;
 }
 
 export interface SetupFile {

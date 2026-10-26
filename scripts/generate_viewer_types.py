@@ -1,7 +1,7 @@
 """Generate transport types from the Python presentation models, never science."""
 import inspect
 from pathlib import Path
-from peanalyzer.gui import models, setup_models
+from peanalyzer.gui import models, setup_models, job_models
 
 
 def ts(schema):
@@ -36,3 +36,5 @@ def generate(module=models):
 if __name__=='__main__':
     Path('frontend/src/models/api.ts').write_text(generate())
     Path('frontend/src/models/setup.ts').write_text("import type { FieldValue } from './api';\n"+generate(setup_models))
+
+    Path("frontend/src/models/jobs.ts").write_text("import type { FieldValue, ErrorDetail } from './api';\nimport type { SetupIssue } from './setup';\n"+generate(job_models))

@@ -1,8 +1,8 @@
 {
   "assets": {
-    "assets/index-DBZ_Xqjn.css": "4b9cdcd05053f8d542ec06bb610a47ab19357457ca037fa7e428fde80752ff1d",
-    "assets/index-g268xC2G.js": "bdcf2a782691b357583e7f8b03e274ad9ed8de1cc0481a6f79dc7a7e2993bb7d",
-    "index.html": "30072db48f6899b4123b7f0f7cabeaa2df54d7234315125af42c1b6a90017969"
+    "assets/index-DIPPXUF5.js": "30bece4ab2d5a5ae0a487dcc61fa4b1b0b9e9be68f4d6b47c178d375725d8ca4",
+    "assets/index-DMAYIySz.css": "825daa7c1d3c06ee6b0568c0f078e86ae6bedc529f73c0a2b607cb7e3830f55d",
+    "index.html": "ef49b6f07530a8e6767e8f737491a7f3b24c99a66ac06a0110cabdb215741651"
   },
   "schema_version": 1,
   "sources": {
@@ -10,14 +10,16 @@
     "frontend/package-lock.json": "851e0c0b0b9e634297f2158f4633968a22013cd0020cd4c04d864d2beb5125e1",
     "frontend/package.json": "69230a835c2333cf73bc22cad7705de5f8ec416616f77bbb6035da2ab8c68f37",
     "frontend/src/api/client.ts": "e8b12a34f337caf3e2749b915c8ca8eaddb7c5eeac9da739994b741257b83bcd",
-    "frontend/src/app/App.tsx": "99a0e14a931b8a3f838b02ebf4d878d336c69c985e1ed2e39c6818195b784f3c",
+    "frontend/src/app/App.tsx": "26aba6c3d8939cef672c885d90eb079826c7ce58789245423005b60172a75c29",
     "frontend/src/components/Common.tsx": "6257be3c7b40c89097abd98d8418f4ee3e231720844115dc99308b118838155f",
     "frontend/src/main.tsx": "f6d083039d8966c7baa933dcf1754cc4bea1d4f6f509f1414f549bf7f935f7aa",
     "frontend/src/models/api.ts": "7bf4cbdf49dee25926adec0c4888ddb5d6563d8eca435c74b4b61f98e777bff7",
-    "frontend/src/models/setup.ts": "271742a11f49a3e55958739c138075d185eba4e7769a4e600e2e1cb60a0db649",
+    "frontend/src/models/jobs.ts": "bd632db9f24812cb07e2b0f5534cb827c4c7a7249a8dc2d6b7992abd3e79ec04",
+    "frontend/src/models/setup.ts": "563165de441d6b64c953bc6e7a57283fd8faceafc3598a925dfaeb0d669af98b",
     "frontend/src/pages/Results.tsx": "45f6d407afcc411217d1f722dcb7eb28674a5b0cf459f382e6b07b5afe0b2752",
-    "frontend/src/pages/SetupWizard.tsx": "a352ab95e3200dec5fb54f148fd6474fcf8a3a54a8f52da6fed22e5a585334bf",
-    "frontend/src/styles/viewer.css": "9abc5bd067fe79744534a9274814d5d0576511fdc141281c065a23c87045889f",
+    "frontend/src/pages/Run.tsx": "db4070f69a4b99d1cc3d80b2eea12b6cedc15a90f0d5c285c3d517a69c7ee557",
+    "frontend/src/pages/SetupWizard.tsx": "8e79d59035727a39904287ff57b7674e20e2b249bcf235bb280fc5ed4486ad0f",
+    "frontend/src/styles/viewer.css": "0a7fd5ee536d1c6f8ea799288e34c8bd86513a1befd026a8da1f89d490230d95",
     "frontend/tsconfig.json": "41496c21cd58e9d80f8a36187af652c0e15797eb73d2cad754f63561ac116582",
     "frontend/vite.config.ts": "6110656e60f2e196975743a4e0c83fc4e764f7686580811951008a2c21cded64",
     "viewer_build.py": "4abe03ed4a638a08e6e7a2f8a86854f199ad51ae7bc66a9195daf6ca64d1050e"
