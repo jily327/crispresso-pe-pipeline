@@ -12,7 +12,7 @@ from m11b_helpers import application, reviewed, wait_for
 from peanalyzer.gui.execution import ExecutionSpec, revalidate_execution, materialize
 from peanalyzer.gui.job_models import JobSubmission
 from peanalyzer.gui.workspace import ViewerError
-from peanalyzer.workflow_storage import digest
+from peanalyzer.workflow_storage import digest, WorkflowError
 
 
 @pytest.fixture
@@ -295,7 +295,7 @@ def test_private_execution_spec_recompilation_detects_metadata_drift(case,held,m
     else:
         name={'samples':'samples.csv','targets':'targets.csv','config':'config.json','barcodes':'barcodes.csv'}[mutation]
         payload['compiled']['files'][name]+='changed'
-    with pytest.raises(ViewerError.__bases__[0],match='SCIENTIFIC_IDENTITY_CHANGED'):
+    with pytest.raises(WorkflowError,match='SCIENTIFIC_IDENTITY_CHANGED'):
         revalidate_execution(ExecutionSpec.model_validate(payload))
     c.post('/api/v1/jobs/'+j['job_id']+'/cancel');held.set();wait_for(c,j['job_id'])
 
@@ -303,7 +303,7 @@ def test_private_execution_spec_recompilation_detects_metadata_drift(case,held,m
 @pytest.mark.parametrize('phase',['before_submit','after_acceptance'])
 def test_external_archive_change_fails_closed(case,held,phase):
     from peanalyzer.demux import demultiplex
-    from peanalyzer.config import load_config
+    from peanalyzer.validation import load_config
     from peanalyzer.gui.drafts import SetupReferences
     app,c,content,options,out=case;archive=out.parent/'archive'
     demultiplex(r1=options['r1'],r2=options['r2'],samples_path=options['samples'],config=load_config(options['config']),output=archive)

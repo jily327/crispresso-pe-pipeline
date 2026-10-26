@@ -10,7 +10,7 @@ from m11b_helpers import application, reviewed, wait_for
 from peanalyzer.gui.app import create_app
 from peanalyzer.gui.execution import ExecutionSpec
 from peanalyzer.workflow import execute_workflow, verify_workflow_output
-from peanalyzer.workflow_storage import digest, sha
+from peanalyzer.workflow_storage import digest, WorkflowError, sha
 from test_m7_integration import science
 
 pytestmark=[pytest.mark.crispresso_integration,
@@ -101,7 +101,7 @@ def test_real_analyze_archive_and_warning_preservation(tmp_path):
     from peanalyzer.remediation import indel_designs
     from peanalyzer.schemas import reverse_complement
     from peanalyzer.demux import demultiplex
-    from peanalyzer.config import load_config
+    from peanalyzer.validation import load_config
     from peanalyzer.gui.drafts import SetupReferences
     from peanalyzer.gui.setup_models import PETargetDraft
     root=Path(os.environ.get('M11B_RESULTS_DIR',tmp_path/'m11b'))/'archive-warning'
