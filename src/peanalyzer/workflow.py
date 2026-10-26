@@ -554,7 +554,7 @@ def _check_execution_scope(plan):
             'Use one biological target per workflow. Multi-target planning remains supported.')
 
 
-def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expected_plan=None, expected_output_parent=None, **inputs):
+def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expected_plan=None, expected_output_parent=None, expected_recovery_identity=None, **inputs):
     """Run/resume a workspace under one exclusive invocation lock."""
     def observe(status, node=None, reasons=(), code=None):
         # Only detached presentation values cross this boundary; no return value
@@ -600,6 +600,14 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
             if (parent_stat.st_dev,parent_stat.st_ino) != tuple(expected_output_parent):
                 raise WorkflowError('OUTPUT_CHANGED','Output parent identity changed')
         if resume:
+            from peanalyzer.workflow_recovery import preflight_resume, workspace_identity
+            # Failure before commitment leaves every scientific byte/manifest intact.
+            preflight = preflight_resume(old,plan,force)
+            if expected_recovery_identity is not None and digest(preflight)!=expected_recovery_identity:
+                raise WorkflowError('RECOVERY_PLAN_CHANGED','Confirmed recovery no longer matches preflight')
+            verify_inputs(plan.inputs)
+            if workspace_identity(root)!=preflight['workspace_identity']:
+                raise WorkflowError('RECOVERY_PLAN_CHANGED','Workspace changed before recovery commitment')
             workspace_owned=True
         else:
             try:
