@@ -145,5 +145,7 @@ resume and force. M11A does not implement any of them.
 Production frontend assets remain committed and checked by the M10.1 build gate.
 Regenerate transport contracts with `python scripts/generate_viewer_types.py`,
 then run `npm ci && npm run build` in `frontend/` before packaging. A stale or
-missing asset inventory prevents wheel/sdist builds. Runtime serves bundled
+missing asset inventory prevents wheel/sdist builds. Wheel builds refresh their
+owned static staging directory so obsolete hashed bundles from earlier builds
+cannot leak into the package. Runtime serves bundled
 assets without Node.
