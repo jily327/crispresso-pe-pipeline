@@ -176,3 +176,10 @@ def test_external_demux_extra_inventory_rejected_even_in_force_preview(case):
     before=workspace_identity(analyze['output'])
     with pytest.raises(ValueError):inspect(analyze['output'],RuntimeSettings(crispresso=options['crispresso']),['all'])
     assert workspace_identity(analyze['output'])==before
+
+
+def test_generated_recovery_contract_matches_python():
+    from scripts.generate_viewer_types import generate
+    from peanalyzer.gui import recovery_models, job_models
+    assert Path('frontend/src/models/recovery.ts').read_text()=="import type { FieldValue, ErrorDetail } from './api';\n"+generate(recovery_models)
+    assert Path('frontend/src/models/jobs.ts').read_text()=="import type { FieldValue, ErrorDetail } from './api';\nimport type { SetupIssue } from './setup';\n"+generate(job_models)

@@ -113,6 +113,8 @@ export interface SetupCapabilities {
   backend_base: string;
   files: Array<SetupFile>;
   scientific_execution: false;
+  scientific_execution_scope: "setup_and_review_only";
+  recovery_available: boolean;
   statistics: "descriptive_only";
   run_available: boolean;
 }
