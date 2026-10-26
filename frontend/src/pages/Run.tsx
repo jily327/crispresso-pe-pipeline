@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { api, ViewerFailure } from '../api/client';
 import { Fields, Table } from '../components/Common';
+import type {RecoveryView} from '../models/recovery';
 import type { JobEvent, JobEvents, JobView } from '../models/jobs';
 
-export function Run({jobId,onOpen}:{jobId:string,onOpen:(id:string)=>Promise<void>}) {
+export function Run({jobId,onOpen,onRecovery}:{jobId:string,onOpen:(id:string)=>Promise<void>,onRecovery?:(view:RecoveryView)=>void}) {
   const [job,setJob]=useState<JobView|null>(null),[events,setEvents]=useState<JobEvent[]>([]),[error,setError]=useState('');
   const [confirm,setConfirm]=useState(false),[busy,setBusy]=useState(false);
   const dialog=useRef<HTMLDialogElement>(null),cancelButton=useRef<HTMLButtonElement>(null),heading=useRef<HTMLHeadingElement>(null);
@@ -38,7 +39,8 @@ export function Run({jobId,onOpen}:{jobId:string,onOpen:(id:string)=>Promise<voi
       {job.state==='COMPLETED'&&job.workspace_id&&<button className="primary" disabled={busy} onClick={async()=>{setBusy(true);try{await onOpen(job.workspace_id!)}catch(e){setError(String(e))}finally{setBusy(false)}}}>Open Results</button>}
       <details><summary>Ordered job events</summary><ol>{events.map(e=><li key={e.sequence}>{e.sequence} · {e.timestamp} · {e.state} · {e.stage_id} · {e.status}{e.code&&` · ${e.code}`}</li>)}</ol></details>
       <details><summary>Canonical input metadata hashes</summary><Fields values={job.input_metadata} caption="Execution inputs"/></details>
-      <p>New execution only. Resume, force and recovery remain unavailable. Jobs stay available while this local server is running.</p>
+      {onRecovery&&['FAILED','CANCELLED'].includes(job.state)&&<button disabled={busy} onClick={async()=>{setBusy(true);try{onRecovery(await api<RecoveryView>(`jobs/${jobId}/recovery`,{}))}catch(e){setError(e instanceof ViewerFailure?`${e.detail.code}: ${e.detail.detail}`:String(e))}finally{setBusy(false)}}}>Inspect Recovery</button>}
+      <p>Recovery requires a separate read-only preview and explicit confirmation. Job history stays available while this local server is running.</p>
     </>}
     <dialog ref={dialog} aria-labelledby="cancel-title" onCancel={()=>{setConfirm(false);cancelButton.current?.focus()}}><h2 id="cancel-title">Cancel this analysis?</h2><p>The worker and its subprocesses will stop. Any partial output will remain incomplete.</p><button autoFocus onClick={()=>{setConfirm(false);cancelButton.current?.focus()}}>Keep running</button><button onClick={()=>void cancel()}>Confirm cancellation</button></dialog>
   </main>;
