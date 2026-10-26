@@ -1,0 +1,123 @@
+{
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/workspace/crispresso-pe-pipeline-m11c-audit/src",
+    "MPLCONFIGDIR": "/tmp/m11c-audit-mpl",
+    "XDG_CACHE_HOME": "/tmp/m11c-audit-cache"
+  },
+  "successful_controls": [
+    {
+      "argv": [
+        "/workspace/m11b-implementation/venv/bin/python",
+        "/workspace/peanalyzer-m11c-audit-prep/scripts/selftest.py",
+        "--baseline",
+        "/workspace/crispresso-pe-pipeline-m11c-audit",
+        "--output",
+        "/workspace/m11c-audit-runs/selftest-frozen"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/selftest.json"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/peanalyzer-m11c-audit-prep/scripts/process_canaries.py",
+        "/workspace/m11c-audit-runs/process-final"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/process-canaries.json",
+      "environment_override": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    },
+    {
+      "argv": [
+        "/workspace/m11b-implementation/venv/bin/python",
+        "/workspace/peanalyzer-m11c-audit-prep/scripts/server_death_canary.py",
+        "--baseline",
+        "/workspace/crispresso-pe-pipeline-m11c-audit",
+        "--fixtures",
+        "/workspace/peanalyzer-m11c-audit-prep/fixtures/pe",
+        "--output",
+        "/workspace/m11c-audit-runs/server-death"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/server-death.json"
+    },
+    {
+      "argv": [
+        "/workspace/m11b-implementation/venv/bin/python",
+        "/workspace/peanalyzer-m11c-audit-prep/scripts/baseline_science.py",
+        "--baseline",
+        "/workspace/crispresso-pe-pipeline-m11c-audit",
+        "--fixtures",
+        "/workspace/peanalyzer-m11c-audit-prep/fixtures",
+        "--output",
+        "/workspace/m11c-audit-runs/science-qualified",
+        "--core",
+        "/workspace/m421-runtime-tools/CRISPResso"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/baseline-science.json"
+    },
+    {
+      "argv": [
+        "/workspace/m11b-implementation/venv/bin/python",
+        "/workspace/peanalyzer-m11c-audit-prep/scripts/validate_science.py",
+        "--baseline",
+        "/workspace/crispresso-pe-pipeline-m11c-audit",
+        "--runs",
+        "/workspace/m11c-audit-runs/science-qualified",
+        "--output",
+        "/workspace/m11c-audit-runs/science-strengthened-final",
+        "--core",
+        "/workspace/m421-runtime-tools/CRISPResso"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/strengthened-science.json"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/peanalyzer-m11c-audit-prep/scripts/check_reports.py",
+        "/workspace/m11c-audit-runs/science-qualified/pe/fresh/report",
+        "/workspace/m11c-audit-runs/science-qualified/pe/cancelled/report",
+        "/workspace/m11c-audit-runs/science-qualified/nuclease/fresh/report",
+        "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled/report",
+        "--out",
+        "/workspace/m11c-audit-runs/report-checks.json"
+      ],
+      "exit_code": 0,
+      "evidence": "evidence/report-checks.json",
+      "environment_override": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      }
+    }
+  ],
+  "read_only_runtime_checks": [
+    [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Image}} {{.Config.Image}} {{.State.Status}}",
+      "m421-qualified-runtime"
+    ],
+    [
+      "docker",
+      "image",
+      "inspect",
+      "--format",
+      "{{json .RepoDigests}}",
+      "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+    ]
+  ],
+  "development_corrections": [
+    "Initial nuclease parity projection rejected embedded statistics.nuclease_results execution provenance. Inspected exact differences, verified embedded results equal local metric sources, retained all scientific identity, and reran both modes in fresh science-qualified roots.",
+    "Strengthened projector resolved PE provenance labels to their actual comparator/routing/prepared files, decoded the documented argparse.Namespace value in Core JSON, and compared uncompressed scientific tables. Strengthened run passed afterward.",
+    "Purity guard initially rejected _manifest_csv during authoritative verification. Baseline source proves this function builds an in-memory CSV string only. Removed that false-positive target while retaining execute_stage/write guards; warmed verifier and all six negative controls passed.",
+    "Initial missing-argument planning canary raised Python TypeError before function entry. Supplied required arguments so the planning code-object tripwire is exercised.",
+    "Report checker initially assumed index.html/external figure links. Actual report.html embeds exact SVG bytes; checker now verifies the actual unchanged contract."
+  ],
+  "scope": "Preparation controls only; no future candidate tests or new full application regression suite claimed",
+  "baseline_science_projection_note": "baseline-science.json retains the original successful projection results; strengthened-science.json and projections add retained provenance and actual child table/58-setting comparisons. Current reusable scripts contain the strengthened projector."
+}

@@ -1,0 +1,28 @@
+{
+  "contrasts": [
+    {
+      "alternative": "two-sided",
+      "contrast_id": "recovery_parity",
+      "copy_name": null,
+      "family_id": "primary",
+      "group_a": {
+        "dpi": 6,
+        "editor": "synthetic-nuclease",
+        "treatment": "A"
+      },
+      "group_b": {
+        "dpi": 6,
+        "editor": "synthetic-nuclease",
+        "treatment": "B"
+      },
+      "metric_name": "indel_fraction",
+      "pairing_mode": "unpaired",
+      "policy_id": null,
+      "target_name": "T1"
+    }
+  ],
+  "families": [
+    "primary"
+  ],
+  "schema_version": 1
+}

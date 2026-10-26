@@ -1,0 +1,841 @@
+{
+  "counts": {
+    "invalid_analyze_closures": 64,
+    "valid_closures": 192
+  },
+  "single_families": [
+    {
+      "closure": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "workflow/sources/raw_inputs.json",
+        "demux",
+        "analysis",
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/3a8121c518e1d9ff0333aa1f540ba4af73cf8b36901e14bb5e5b6f1c0f42d721.json",
+        "workflow/stages/d0b161e50a0e3c645388573f8172356e9ff62f52680775efb17dc1b0e003a1e1.json",
+        "workflow/stages/bfb86dd898568fbcabbf1a551f062fc68391ff274ea0c10f8c050346001556f0.json",
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [],
+      "requested": [
+        "all"
+      ],
+      "rerun": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": []
+    },
+    {
+      "closure": [
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics"
+      ],
+      "requested": [
+        "report"
+      ],
+      "rerun": [
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics"
+      ]
+    },
+    {
+      "closure": [
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest"
+      ],
+      "requested": [
+        "statistics"
+      ],
+      "rerun": [
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest"
+      ]
+    },
+    {
+      "closure": [
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2"
+      ],
+      "requested": [
+        "metrics"
+      ],
+      "rerun": [
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2"
+      ]
+    },
+    {
+      "closure": [
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ],
+      "requested": [
+        "routing"
+      ],
+      "rerun": [
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ]
+    },
+    {
+      "closure": [
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "analysis",
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/bfb86dd898568fbcabbf1a551f062fc68391ff274ea0c10f8c050346001556f0.json",
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux"
+      ],
+      "requested": [
+        "analysis"
+      ],
+      "rerun": [
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux"
+      ]
+    },
+    {
+      "closure": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "run",
+      "owned_outputs": [
+        "workflow/sources/raw_inputs.json",
+        "demux",
+        "analysis",
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/3a8121c518e1d9ff0333aa1f540ba4af73cf8b36901e14bb5e5b6f1c0f42d721.json",
+        "workflow/stages/d0b161e50a0e3c645388573f8172356e9ff62f52680775efb17dc1b0e003a1e1.json",
+        "workflow/stages/bfb86dd898568fbcabbf1a551f062fc68391ff274ea0c10f8c050346001556f0.json",
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [],
+      "requested": [
+        "demux"
+      ],
+      "rerun": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": []
+    },
+    {
+      "closure": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "analyze",
+      "owned_outputs": [
+        "workflow/sources/external_demux.json",
+        "analysis",
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/c3aa2d627cdb23021127d3ecd0ff7dee42e21d6948ad65a2946c4582e3e39582.json",
+        "workflow/stages/bfb86dd898568fbcabbf1a551f062fc68391ff274ea0c10f8c050346001556f0.json",
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [],
+      "requested": [
+        "all"
+      ],
+      "rerun": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": []
+    },
+    {
+      "closure": [
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "analyze",
+      "owned_outputs": [
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics"
+      ],
+      "requested": [
+        "report"
+      ],
+      "rerun": [
+        "report"
+      ],
+      "reuse_candidates": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics"
+      ]
+    },
+    {
+      "closure": [
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "analyze",
+      "owned_outputs": [
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest"
+      ],
+      "requested": [
+        "statistics"
+      ],
+      "rerun": [
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest"
+      ]
+    },
+    {
+      "closure": [
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "analyze",
+      "owned_outputs": [
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2"
+      ],
+      "requested": [
+        "metrics"
+      ],
+      "rerun": [
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "external_demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2"
+      ]
+    },
+    {
+      "closure": [
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "analyze",
+      "owned_outputs": [
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "external_demux",
+        "analysis"
+      ],
+      "requested": [
+        "routing"
+      ],
+      "rerun": [
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "external_demux",
+        "analysis"
+      ]
+    },
+    {
+      "closure": [
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "mode": "analyze",
+      "owned_outputs": [
+        "analysis",
+        "routing/bc001/T1",
+        "routing/bc001/T2",
+        "routing/bc002/T1",
+        "routing/bc002/T2",
+        "metrics/bc001/T1",
+        "metrics/bc001/T2",
+        "metrics/bc002/T1",
+        "metrics/bc002/T2",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/bfb86dd898568fbcabbf1a551f062fc68391ff274ea0c10f8c050346001556f0.json",
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/04534d46408d4bb93cb0a7a1e12596f9488c1c40af56e26f2f6df6a3e9fca4e4.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/2ace607eb77b8617e6420d77e342d8e60ce33a8dc7b6b02e12b6bebf92c334d5.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/b3abe4382e141081edbe5420881f89870be85a272e91ebe8ad9241f222e87c15.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/c4408c9024188a13cc61f3382458b24bfe02a6d272917f201fafafb5f7083fca.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "external_demux"
+      ],
+      "requested": [
+        "analysis"
+      ],
+      "rerun": [
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc001::T2",
+        "routing::bc002::T1",
+        "routing::bc002::T2",
+        "metrics::bc001::T1",
+        "metrics::bc001::T2",
+        "metrics::bc002::T1",
+        "metrics::bc002::T2",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "external_demux"
+      ]
+    }
+  ]
+}

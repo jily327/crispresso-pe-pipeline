@@ -1,0 +1,5 @@
+sample_name,barcode_id,forward_barcode,reverse_barcode,editor,treatment,dpi,biological_replicate,block_id,paired
+bio1,bc001,AAAAAAAA,CCCCCCCC,synthetic-editor,A,6,1,,false
+bio2,bc002,CAAAAAAA,CCCCCCCC,synthetic-editor,A,6,2,,false
+bio3,bc003,GAAAAAAA,CCCCCCCC,synthetic-editor,B,6,1,,false
+bio4,bc004,TAAAAAAA,CCCCCCCC,synthetic-editor,B,6,2,,false

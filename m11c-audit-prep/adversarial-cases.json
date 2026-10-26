@@ -1,0 +1,1791 @@
+{
+  "schema": 1,
+  "count": 105,
+  "cases": [
+    {
+      "id": "R1",
+      "family": "R",
+      "title": "Completed valid",
+      "setup_or_mutation": "Use untouched verified fresh root",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Historical COMPLETED; current compatible resume reuses all stages; inspection cannot register results automatically",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R2",
+      "family": "R",
+      "title": "Clean incomplete",
+      "setup_or_mutation": "Interrupt after a committed analysis stage, before routing starts",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Valid committed prefix reusable; missing descendants rerun; no invented completion",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R3",
+      "family": "R",
+      "title": "Cancelled",
+      "setup_or_mutation": "Use proven cancellation record plus stopped process births",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Show cancellation history and recoverable inventory separately; do not infer cancellation from missing final marker",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R4",
+      "family": "R",
+      "title": "Failed",
+      "setup_or_mutation": "Inject stage exception and retain canonical failure/session record",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Show failed stage and reusable prefix; no terminal success",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R5",
+      "family": "R",
+      "title": "Stale input",
+      "setup_or_mutation": "Change one raw FASTQ byte after completion",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Source identity invalid; no old-plan execution; force proposal must use backend rules",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R6",
+      "family": "R",
+      "title": "Software changed",
+      "setup_or_mutation": "Same tree, different current package/git/dependency identity",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Historical validity distinct from current reuse; no silent equivalent reuse",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R7",
+      "family": "R",
+      "title": "Tampered stage manifest",
+      "setup_or_mutation": "Change stage signature or dependency hash",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject stage reuse and completion; retain evidence unchanged",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R8",
+      "family": "R",
+      "title": "Tampered metric",
+      "setup_or_mutation": "Change numerator without updating recorded hashes",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Integrity failure; no verified registration or reuse",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R9",
+      "family": "R",
+      "title": "Tampered statistics",
+      "setup_or_mutation": "Change observation/contrast result without lineage update",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Integrity failure; no publication",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R10",
+      "family": "R",
+      "title": "Corrupted snapshot",
+      "setup_or_mutation": "Flip one byte in inputs snapshot",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Invalid snapshot; never silently restore or substitute during inspection",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R11",
+      "family": "R",
+      "title": "Active workflow lock",
+      "setup_or_mutation": "Use demonstrably live owned worker plus sibling lock",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "BUSY; inspect may report state but may not execute or steal lock",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R12",
+      "family": "R",
+      "title": "Foreign lock",
+      "setup_or_mutation": "Create lock not proven owned by this job/server",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Ownership unknown/foreign; fail closed; do not unlink",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "R13",
+      "family": "R",
+      "title": "Unsupported workspace",
+      "setup_or_mutation": "Missing schema, foreign tree, or unsupported manifest version",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Explicit unsupported state without repair or speculative deletion",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P1",
+      "family": "P",
+      "title": "Science entry points",
+      "setup_or_mutation": "Arm profile tripwires in actual inspection process",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Zero stage execution, demux, preparation, routing execution, metrics, aggregation, or rendering",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P2",
+      "family": "P",
+      "title": "Core execution",
+      "setup_or_mutation": "Arm subprocess/fork/exec and backend resolver tripwires",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Zero Core invocation, including --version; build_workflow_plan is forbidden here",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P3",
+      "family": "P",
+      "title": "Invalidation",
+      "setup_or_mutation": "Arm _invalidate and destructive syscall guards",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No invalidate call and no deletion attempt",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P4",
+      "family": "P",
+      "title": "Manifest bytes",
+      "setup_or_mutation": "Snapshot all manifest/snapshot/stage files before inspection",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Byte, mode, inode, mtime and ctime unchanged; no workflow/session writes",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P5",
+      "family": "P",
+      "title": "Transient writes",
+      "setup_or_mutation": "Intercept write/remove/mkdir including create-then-delete",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No write attempt even when final inventory appears identical",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P6",
+      "family": "P",
+      "title": "Repeated inspection",
+      "setup_or_mutation": "Inspect completed/incomplete/tampered roots repeatedly",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Stable classification on unchanged evidence; no scientific side effects",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P7",
+      "family": "P",
+      "title": "Preimported aliases",
+      "setup_or_mutation": "Call captured executor alias in negative control",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Guard rejects code object even if module attribute was patched later",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "P8",
+      "family": "P",
+      "title": "Errors and swallowed attempts",
+      "setup_or_mutation": "Force inspection exceptions and catch a rejected write internally",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No mutation; attempted violation still fails oracle",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S1",
+      "family": "S",
+      "title": "Normal incomplete",
+      "setup_or_mutation": "Use clean incomplete committed prefix",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only absent stages execute; validated prefix reused; verifier passes",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S2",
+      "family": "S",
+      "title": "Cancelled resume",
+      "setup_or_mutation": "Stop owned worker and all descendants then resume same root",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No duplicate processes; science equals fresh; cancellation history preserved",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S3",
+      "family": "S",
+      "title": "Failed resume",
+      "setup_or_mutation": "Recover a controlled stage failure with valid upstream",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only valid stages reused; science equals fresh",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S4",
+      "family": "S",
+      "title": "Missing original",
+      "setup_or_mutation": "Remove required original while keeping valid snapshot",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Baseline requires original sources; reject unless explicit future backend contract changes and is independently qualified",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S5",
+      "family": "S",
+      "title": "Changed original",
+      "setup_or_mutation": "Change samples or raw bytes despite original snapshot",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Do not treat snapshot as authority to override changed original; stale diagnosis before deletion",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S6",
+      "family": "S",
+      "title": "Snapshot reuse",
+      "setup_or_mutation": "Keep original+snapshot byte-valid; do not rerun committed stages",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Backend-authorized reuse only; snapshot presence alone grants no permission",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S7",
+      "family": "S",
+      "title": "Existing scientific gate",
+      "setup_or_mutation": "Create canonical SKIPPED_SCIENTIFIC_GATE stage using unsafe geometry",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Preserve gate/status/reasons/null populations; do not fabricate metrics or rerun it as success",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "S8",
+      "family": "S",
+      "title": "Busy worker",
+      "setup_or_mutation": "Resume root B while live scientific worker owns root A",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Host-global BUSY even with separate output roots",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F1",
+      "family": "F",
+      "title": "Run demux",
+      "setup_or_mutation": "Request demux on fully verified run graph",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Independent closure includes raw_inputs, demux and every descendant",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F2",
+      "family": "F",
+      "title": "Run analysis",
+      "setup_or_mutation": "Request analysis",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Keep source+demux; invalidate analysis and descendants",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F3",
+      "family": "F",
+      "title": "Run routing",
+      "setup_or_mutation": "Request routing",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Keep source+demux+analysis; rerun all routing and downstream",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F4",
+      "family": "F",
+      "title": "Run metrics",
+      "setup_or_mutation": "Request metrics",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Keep upstream routing; rerun metrics, metrics_manifest, statistics, report",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F5",
+      "family": "F",
+      "title": "Run statistics",
+      "setup_or_mutation": "Request statistics",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Keep metrics and metrics_manifest; rerun statistics and report",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F6",
+      "family": "F",
+      "title": "Run report",
+      "setup_or_mutation": "Request report",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only report stage/output invalidated; final marker rewritten after verification",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F7",
+      "family": "F",
+      "title": "Run all",
+      "setup_or_mutation": "Request all",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "All owned stages selected; originals never deleted",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F8",
+      "family": "F",
+      "title": "Analyze analysis",
+      "setup_or_mutation": "Request analysis with external M2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reuse external_demux record; archive unchanged",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F9",
+      "family": "F",
+      "title": "Analyze routing",
+      "setup_or_mutation": "Request routing with external M2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reuse external source record+analysis; rerun routing descendants",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F10",
+      "family": "F",
+      "title": "Analyze metrics",
+      "setup_or_mutation": "Request metrics with external M2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reuse external source+analysis+routing",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F11",
+      "family": "F",
+      "title": "Analyze statistics",
+      "setup_or_mutation": "Request statistics with external M2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only statistics+report rerun",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F12",
+      "family": "F",
+      "title": "Analyze report",
+      "setup_or_mutation": "Request report with external M2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only report rerun",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F13",
+      "family": "F",
+      "title": "Analyze all",
+      "setup_or_mutation": "Request all with external M2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Owned external_demux record selected; external archive never invalidated",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F14",
+      "family": "F",
+      "title": "Analyze forbidden demux",
+      "setup_or_mutation": "Request demux, including demux+all",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject INVALID_FORCE before mutation",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F15",
+      "family": "F",
+      "title": "Union and duplicate families",
+      "setup_or_mutation": "Exhaust all 128 family subsets per mode; include repeated families",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Set-union downstream closure; 192 valid combinations and 64 analyze rejections",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F16",
+      "family": "F",
+      "title": "Changed sample/target graph",
+      "setup_or_mutation": "Add/remove safe sample or target under backend-authorized force",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Invalidate union of exact old/new owned paths; reject mode relocation or unsupported graph change",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "F17",
+      "family": "F",
+      "title": "Partial workspace presentation",
+      "setup_or_mutation": "Omit downstream manifests or retain unmanifested directory",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Distinguish validated reused, selected invalidated, missing rerun, and orphan output requiring rejection",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "PF1",
+      "family": "PF",
+      "title": "Preview stale unforced upstream",
+      "setup_or_mutation": "Completed root; mutate samples; preview routing force",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "BLOCKING if any deletion, invalidation, source/manifest/state write occurs",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "PF2",
+      "family": "PF",
+      "title": "Confirm unchanged stale upstream",
+      "setup_or_mutation": "Confirm partial force despite stale demux evidence",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Full upstream validation must reject BEFORE any destructive commit",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "PF3",
+      "family": "PF",
+      "title": "Late stale upstream",
+      "setup_or_mutation": "Freeze at final preflight entry; alter unforced demux dependency",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Revalidate under effective exclusion; no deletion when stale upstream discovered",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "PF4",
+      "family": "PF",
+      "title": "Failed preflight diagnostic",
+      "setup_or_mutation": "Inject source read permission/IO failure during full preflight",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No partial destructive progress; clear error; evidence remains",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "PF5",
+      "family": "PF",
+      "title": "All force is not an escape hatch",
+      "setup_or_mutation": "Repeat trap with allowed/unallowed family combinations",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No silent escalation to all; only explicit current valid confirmed closure may commit",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T1",
+      "family": "T",
+      "title": "Raw source changes",
+      "setup_or_mutation": "After preview alter one input byte",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Old identity rejected before science/destruction",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T2",
+      "family": "T",
+      "title": "Metadata changes",
+      "setup_or_mutation": "After preview alter sample treatment/target/qwc",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Old identity rejected; no semantic-only bypass",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T3",
+      "family": "T",
+      "title": "Stage output changes",
+      "setup_or_mutation": "After preview flip metric/statistic/routing payload byte",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject old identity even if cached preview still displays valid",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T4",
+      "family": "T",
+      "title": "Manifest changes",
+      "setup_or_mutation": "After preview rewrite plan/stage/completion manifest",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject old identity; duplicate JSON keys also invalid",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T5",
+      "family": "T",
+      "title": "Symlink swap",
+      "setup_or_mutation": "After preview replace owned output or ancestor with symlink",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject before following/deleting destination; target sentinel survives",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T6",
+      "family": "T",
+      "title": "Output directory replacement",
+      "setup_or_mutation": "Rename root/parent then create same-name same-content replacement",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Device/inode/root binding changes; no old-plan mutation",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T7",
+      "family": "T",
+      "title": "Software changes",
+      "setup_or_mutation": "Change current package/source/dependency identity after preview",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject stale plan before worker/force dispatch",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T8",
+      "family": "T",
+      "title": "Backend changes",
+      "setup_or_mutation": "Replace executable bytes/path/runtime digest after preview",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject stale identity; no --version from pure inspection",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "T9",
+      "family": "T",
+      "title": "Final preflight mutation",
+      "setup_or_mutation": "Hold actual worker just before first destructive operation; mutate input or ownership",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Final validation and mutation excluded from races; stale action must not proceed",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "L1",
+      "family": "L",
+      "title": "Normal server worker",
+      "setup_or_mutation": "Launch one accepted worker then submit second on other root",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Exactly one scientific worker; no queued hidden second worker",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L2",
+      "family": "L",
+      "title": "Server SIGTERM",
+      "setup_or_mutation": "Gracefully stop server while Core fixture active",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Owned descendants stopped or truthful retained BUSY state; no early lease release",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L3",
+      "family": "L",
+      "title": "Server SIGKILL",
+      "setup_or_mutation": "Hard-kill server with known worker/Core births alive",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Worker ownership remains discoverable; orphan is not interpreted as idle",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L4",
+      "family": "L",
+      "title": "Restart with old live worker",
+      "setup_or_mutation": "Restart same and separate profile/output-root server",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Refuse second scientific worker until all old owned scientific processes gone",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L5",
+      "family": "L",
+      "title": "PID reuse",
+      "setup_or_mutation": "Change recorded start ticks while real unrelated canary owns numeric PID",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Do not signal unrelated birth; do not mistake PID equality for owner identity",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L6",
+      "family": "L",
+      "title": "Stale metadata no owner",
+      "setup_or_mutation": "Prove old worker+descendants gone, retain lease metadata",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Serialized stale-owner recheck before acquisition; age alone never proof",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L7",
+      "family": "L",
+      "title": "Old worker exits during wait",
+      "setup_or_mutation": "Block restart on BUSY, then release old worker/descendants",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only one contender acquires after verified exit/reap; no double start",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L8",
+      "family": "L",
+      "title": "Two restart contenders",
+      "setup_or_mutation": "Release two independent server submissions at same barrier",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "At most one scientific worker; atomic host-global exclusion",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "L9",
+      "family": "L",
+      "title": "Unknown liveness",
+      "setup_or_mutation": "Deny /proc read or simulate unavailable namespace/ownership evidence",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Fail closed; no signal/deletion or optimistic lease steal",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D1",
+      "family": "D",
+      "title": "Child and grandchild",
+      "setup_or_mutation": "Fixed tree in worker group",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Record each birth/ancestry; cancel escalates and reaps every owned child",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D2",
+      "family": "D",
+      "title": "setsid escape",
+      "setup_or_mutation": "Child calls setsid before grandchild launch",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Owned lineage remains owned across SID/PGID changes",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D3",
+      "family": "D",
+      "title": "setpgid escape",
+      "setup_or_mutation": "Child changes process group only",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "PGID-only cleanup cannot earn clean CANCELLED",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D4",
+      "family": "D",
+      "title": "TERM ignore",
+      "setup_or_mutation": "Child+grandchild ignore SIGTERM",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Bounded escalation, then confirmed exit and reap or truthful containment failure",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D5",
+      "family": "D",
+      "title": "Close stdio",
+      "setup_or_mutation": "Detached descendants close fd 0/1/2",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "EOF cannot prove descendants gone",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D6",
+      "family": "D",
+      "title": "Retain stdio",
+      "setup_or_mutation": "Detached descendants keep inherited pipes open",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No unbounded supervisor join; truthful containment state",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D7",
+      "family": "D",
+      "title": "Late escape",
+      "setup_or_mutation": "Pause child before setsid; start cancel then release escape",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Temporal birth ownership survives cancellation race",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "D8",
+      "family": "D",
+      "title": "Orphan and zombie",
+      "setup_or_mutation": "Worker exits first; children reparent; one child becomes zombie",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reparenting does not erase ownership; zombies observed and reaped where owned",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C1",
+      "family": "C",
+      "title": "Clean CANCELLED",
+      "setup_or_mutation": "Cancel active worker and prove all known scientific births gone",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No later stage starts and no GUI result registration",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C2",
+      "family": "C",
+      "title": "Live worker",
+      "setup_or_mutation": "Report CANCELLED while worker birth still live",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Reject false terminal state",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C3",
+      "family": "C",
+      "title": "Detached survivor",
+      "setup_or_mutation": "Report CANCELLED while tracked detached child lives",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "BLOCKING irrespective of closed log/event pipes",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C4",
+      "family": "C",
+      "title": "Zombie remains",
+      "setup_or_mutation": "Report CANCELLED with known owned unreaped zombie",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No clean claim until reaped, or explicit truthful containment limitation",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C5",
+      "family": "C",
+      "title": "Cancel before spawn",
+      "setup_or_mutation": "Cancel after accepted job but before worker starts",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No worker/Core spawn, no output materialization or registration",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C6",
+      "family": "C",
+      "title": "Cancel versus completion",
+      "setup_or_mutation": "Barrier before final verification/registration; cancel either side",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Linearized truthful outcome; no cancelled job registered completed; existing valid M7 marker need not be deleted",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "C7",
+      "family": "C",
+      "title": "Containment failure",
+      "setup_or_mutation": "Inject permission/signal/reaping failure",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Truthful failed/containment state; retained ownership/BUSY until resolved",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_PROCESS_CONTAINMENT_ORACLE.md"
+    },
+    {
+      "id": "W1",
+      "family": "W",
+      "title": "Symlink ancestor",
+      "setup_or_mutation": "Force output subtree points outside workspace",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No target deletion; fail before invalidation",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W2",
+      "family": "W",
+      "title": "Foreign file inside workspace",
+      "setup_or_mutation": "Place sentinel in force-owned output and another unrelated root location",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Unknown content cannot be deleted merely by directory prefix; refuse or preserve",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W3",
+      "family": "W",
+      "title": "Foreign sibling",
+      "setup_or_mutation": "Sentinel next to workflow root",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Unchanged bytes/inode; no broad sibling cleanup",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W4",
+      "family": "W",
+      "title": "Original FASTQ",
+      "setup_or_mutation": "Force all while originals registered",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Original raw input SHA/metadata unchanged",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W5",
+      "family": "W",
+      "title": "External M2",
+      "setup_or_mutation": "Analyze all force on valid external archive",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "All archive bytes and tree identity unchanged",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W6",
+      "family": "W",
+      "title": "Unrelated lock",
+      "setup_or_mutation": "Different workflow sibling lock and host lease of unrelated owner",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "No unlink or stale takeover without authoritative ownership",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W7",
+      "family": "W",
+      "title": "Unrelated process",
+      "setup_or_mutation": "Canary with similar command/name but independent birth",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Alive after cancel/server shutdown/recovery",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W8",
+      "family": "W",
+      "title": "Traversal and relocation",
+      "setup_or_mutation": "Tamper output paths with .., absolute paths, duplicate IDs or relocate root",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Independent graph and authoritative containment reject; no deletion",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "W9",
+      "family": "W",
+      "title": "Hardlink alias",
+      "setup_or_mutation": "Hardlink a forced output file to external sentinel",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Never truncate external inode; refuse ambiguous ownership; unlink only if independently authorized and safe",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G1",
+      "family": "G",
+      "title": "M10 valid open",
+      "setup_or_mutation": "Open verified recovered root using existing viewer",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Existing full verification, snapshot and projection still required",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G2",
+      "family": "G",
+      "title": "M10 mutation eviction",
+      "setup_or_mutation": "Mutate opened recovered result/source",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Evict stale registration on next read; no stale cached science",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G3",
+      "family": "G",
+      "title": "M11A setup zero execution",
+      "setup_or_mutation": "Create/edit/validate/Review new draft with tripwires",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Zero Core/scientific execution",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G4",
+      "family": "G",
+      "title": "M11A Review identities",
+      "setup_or_mutation": "Alter draft revision/source/output after Review",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Existing plan+science identity binding preserved",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G5",
+      "family": "G",
+      "title": "M11B new Run",
+      "setup_or_mutation": "Valid reviewed new destination",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Canonical executor, immutable acceptance, one worker",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G6",
+      "family": "G",
+      "title": "M11B progress/events",
+      "setup_or_mutation": "Observe recovery plus new Run lifecycle",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Ordered sequence/stage truth; no invented fraction progress or omitted failure",
+      "severity": "MAJOR",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G7",
+      "family": "G",
+      "title": "M11B normal cancel",
+      "setup_or_mutation": "Cancel ordinary non-detached backend",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Bounded stop/reap and truthful terminal state",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "G8",
+      "family": "G",
+      "title": "M11B final verification/Open Results",
+      "setup_or_mutation": "Attempt invalid and valid final publication",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Only verifier-passing result registered; Open Results uses existing viewer",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "A1",
+      "family": "A",
+      "title": "PE recovery parity",
+      "setup_or_mutation": "Fresh vs controlled failure/cancel/resume with frozen PE reads",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Exact/native/copy metrics, routing, statistics, report lineage and final verifier agree",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "A2",
+      "family": "A",
+      "title": "Nuclease recovery parity",
+      "setup_or_mutation": "Fresh vs failure/cancel/resume with frozen nuclease reads",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Full window/qwc/58 settings, counts/fractions/gates and child qualification agree",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "A3",
+      "family": "A",
+      "title": "Routing-force parity",
+      "setup_or_mutation": "Force routing on completed PE and nuclease roots",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Independent selected/executed/reused sets and scientific projection equal fresh",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    },
+    {
+      "id": "A4",
+      "family": "A",
+      "title": "Completed resume",
+      "setup_or_mutation": "Resume completed valid PE and nuclease root",
+      "action": "Inspect/preview, then explicitly confirm only where safe and applicable; instrument the actual worker commit boundary",
+      "expected": "Zero scientific stages; same final manifest bytes; legitimate new session recorded",
+      "severity": "BLOCKING",
+      "evidence": [
+        "before/after forensic inventory",
+        "source SHA-256 and process birth census",
+        "request/response and stage/event trace",
+        "authoritative verifier or explicit refusal"
+      ],
+      "candidate_status": "NOT_RUN_FUTURE_CANDIDATE",
+      "protocol": "M11C_RECOVERY_ORACLE.md"
+    }
+  ]
+}

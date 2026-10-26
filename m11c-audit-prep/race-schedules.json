@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "count": 10,
+  "schedules": [
+    {
+      "id": "Q1",
+      "name": "preview_source",
+      "barrier": "Preview response bound to source hashes",
+      "mutation": "Mutate one raw input byte in disposable source",
+      "release": "Confirm original token",
+      "expected": "Reject stale identity before writes/spawn/deletion",
+      "case": "T1",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q2",
+      "name": "preview_stage",
+      "barrier": "Preview response bound to stage inventory",
+      "mutation": "Flip a routing/metric result byte",
+      "release": "Confirm original token",
+      "expected": "Reject old token before invalidation",
+      "case": "T3",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q3",
+      "name": "preview_lock",
+      "barrier": "Preview response while host idle",
+      "mutation": "Start owned worker on another root and create actual lock/lease",
+      "release": "Confirm original token",
+      "expected": "BUSY/stale refusal; no second worker or lock removal",
+      "case": "L1",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q4",
+      "name": "confirm_final_preflight",
+      "barrier": "Accepted confirm; actual worker paused before final preflight/first destructive operation",
+      "mutation": "Change metadata or replace output ancestor at this worker barrier",
+      "release": "Release worker final check",
+      "expected": "Reject before mutation; no earlier destructive step permitted",
+      "case": "T9",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q5",
+      "name": "server_death_spawn",
+      "barrier": "Supervisor Popen returned and exact worker birth recorded; worker paused before science",
+      "mutation": "SIGKILL only known server birth",
+      "release": "Restart server and submit second independent root",
+      "expected": "Old worker tracked; second worker cannot start while old birth/descendants live",
+      "case": "L3",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q6",
+      "name": "server_death_core",
+      "barrier": "Worker and Core child/grandchild readiness and births recorded",
+      "mutation": "SIGKILL only known server birth",
+      "release": "Restart another server profile and request recovery",
+      "expected": "Host-global ownership survives; no overlapping scientific workers",
+      "case": "L4",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q7",
+      "name": "detach_during_cancel",
+      "barrier": "Child recorded before setsid and blocked on release-escape; cancel accepted",
+      "mutation": "Release child so it changes SID/PGID during escalation",
+      "release": "Allow cancellation supervisor to finish",
+      "expected": "Known escaped births terminated/reaped or truthful non-CANCELLED containment state",
+      "case": "D7",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q8",
+      "name": "force_stale_upstream",
+      "barrier": "Preview routing force; executor held before full unforced-stage validation/destruction",
+      "mutation": "Make unforced demux/source stale",
+      "release": "Release final preflight; record validation and first deletion event order",
+      "expected": "Stale discovered with zero destructive calls; any prior deletion BLOCKING",
+      "case": "PF3",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q9",
+      "name": "cancel_finish",
+      "barrier": "Run twice: held before final verifier and held before result registration",
+      "mutation": "Submit cancel on one side of documented terminal linearization, then reverse order",
+      "release": "Release finish/registration",
+      "expected": "Either verified COMPLETED won or accepted cancel with no registration; never false CANCELLED or forged marker",
+      "case": "C6",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    },
+    {
+      "id": "Q10",
+      "name": "orphan_exit_restart",
+      "barrier": "Restart sees live old worker/descendant and waits/refuses BUSY; second contender also ready",
+      "mutation": "Release old fixture exit and reap all owned births",
+      "release": "Release both server acquisition attempts together",
+      "expected": "At most one new worker after old ownership ends; no stale-record/PID race",
+      "case": "L7",
+      "timeout_seconds": 20,
+      "timeout_outcome": "INCONCLUSIVE_OR_FAIL_NEVER_PASS",
+      "status": "PREPARED_NOT_RUN_AGAINST_FUTURE_CANDIDATE"
+    }
+  ]
+}

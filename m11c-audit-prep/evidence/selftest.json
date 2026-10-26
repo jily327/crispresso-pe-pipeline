@@ -1,0 +1,27 @@
+{
+  "baseline": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "identity_mutations": [
+    "source_bytes",
+    "stage_inventory",
+    "completion_manifest",
+    "lock_appears",
+    "software",
+    "backend_bytes",
+    "plan_bytes",
+    "workspace_symlink",
+    "requested_force"
+  ],
+  "invalid_analyze_closures": 64,
+  "pure_read_and_closure_pass": true,
+  "purity_negative_canaries": [
+    "write",
+    "delete",
+    "subprocess",
+    "preimported_execution_alias",
+    "planning_version_probe",
+    "swallowed_violation"
+  ],
+  "single_family_rows": 13,
+  "source_unchanged": true,
+  "valid_closures": 192
+}

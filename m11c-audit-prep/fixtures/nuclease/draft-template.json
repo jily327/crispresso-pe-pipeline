@@ -1,0 +1,75 @@
+{
+  "analysis_name": "Independent nuclease oracle",
+  "input_mode": "run",
+  "r1": null,
+  "r2": null,
+  "demux": null,
+  "samples": [
+    {
+      "sample_name": "bio1",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAAAAAA",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "paired": false,
+      "block_id": ""
+    },
+    {
+      "sample_name": "bio2",
+      "barcode_id": "bc002",
+      "forward_barcode": "AAAAAAAC",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-nuclease",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "paired": false,
+      "block_id": ""
+    },
+    {
+      "sample_name": "bio3",
+      "barcode_id": "bc003",
+      "forward_barcode": "AAAAAAAG",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "paired": false,
+      "block_id": ""
+    },
+    {
+      "sample_name": "bio4",
+      "barcode_id": "bc004",
+      "forward_barcode": "AAAAAAAT",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-nuclease",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "paired": false,
+      "block_id": ""
+    }
+  ],
+  "analysis_mode": "indel_nuclease",
+  "targets": [
+    {
+      "analysis_mode": "indel_nuclease",
+      "target_name": "T1",
+      "copy_name": "copy1",
+      "wt_sequence": "TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG",
+      "profile": "tigr_tas_v1",
+      "quantification_window_coordinates": "",
+      "tigr_target_sequence": "TCTATAGGCAGTAAGAAG",
+      "tigr_window": "W2"
+    }
+  ],
+  "library_profile": "custom",
+  "trim_r1": "8",
+  "trim_r2": "8",
+  "output_root": null,
+  "workspace_name": "gui-nuclease"
+}

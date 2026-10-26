@@ -1,0 +1,647 @@
+[
+  {
+    "after_group_term": [
+      {
+        "current": null,
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479686,
+          "pid": 479686,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479686,
+          "start_ticks": 27347734,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": true,
+        "live": false,
+        "same_birth": false,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479686,
+          "pid": 479692,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479686,
+          "start_ticks": 27347738,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479686,
+          "pid": 479692,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479686,
+          "sid": 479686,
+          "start_ticks": 27347738,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479686,
+          "pid": 479693,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479692,
+          "sid": 479686,
+          "start_ticks": 27347743,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479686,
+          "pid": 479693,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479692,
+          "sid": 479686,
+          "start_ticks": 27347743,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      }
+    ],
+    "all_fixture_births_reaped": true,
+    "audit_subreaper_adopted": true,
+    "baseline_conclusion": "Group/parent disappearance alone is insufficient; not an M11C candidate verdict",
+    "before_and_ready": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479686,
+        "pid": 479686,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479685,
+        "sid": 479686,
+        "start_ticks": 27347734,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479686,
+        "pid": 479692,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479686,
+        "sid": 479686,
+        "start_ticks": 27347738,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479686,
+        "pid": 479693,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479692,
+        "sid": 479686,
+        "start_ticks": 27347743,
+        "state": "R",
+        "uid": 1000
+      }
+    ],
+    "false_cancel_rejected": true,
+    "mode": "none",
+    "pid_reuse_signal_refused": true,
+    "stdio_pipe_held_open": null,
+    "unrelated_canary_survives": true
+  },
+  {
+    "after_group_term": [
+      {
+        "current": null,
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479694,
+          "pid": 479694,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479694,
+          "start_ticks": 27347755,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": true,
+        "live": false,
+        "same_birth": false,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479696,
+          "pid": 479696,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479696,
+          "start_ticks": 27347760,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479694,
+          "pid": 479696,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479694,
+          "sid": 479694,
+          "start_ticks": 27347760,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479696,
+          "pid": 479697,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479696,
+          "sid": 479696,
+          "start_ticks": 27347765,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479696,
+          "pid": 479697,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479696,
+          "sid": 479696,
+          "start_ticks": 27347765,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      }
+    ],
+    "all_fixture_births_reaped": true,
+    "audit_subreaper_adopted": true,
+    "baseline_conclusion": "Group/parent disappearance alone is insufficient; not an M11C candidate verdict",
+    "before_and_ready": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479694,
+        "pid": 479694,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479685,
+        "sid": 479694,
+        "start_ticks": 27347755,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479696,
+        "pid": 479696,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479694,
+        "sid": 479696,
+        "start_ticks": 27347760,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479696,
+        "pid": 479697,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479696,
+        "sid": 479696,
+        "start_ticks": 27347765,
+        "state": "R",
+        "uid": 1000
+      }
+    ],
+    "false_cancel_rejected": true,
+    "mode": "setsid",
+    "pid_reuse_signal_refused": true,
+    "stdio_pipe_held_open": null,
+    "unrelated_canary_survives": true
+  },
+  {
+    "after_group_term": [
+      {
+        "current": null,
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479698,
+          "pid": 479698,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479698,
+          "start_ticks": 27347774,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": true,
+        "live": false,
+        "same_birth": false,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479700,
+          "pid": 479700,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479698,
+          "start_ticks": 27347779,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479698,
+          "pid": 479700,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479698,
+          "sid": 479698,
+          "start_ticks": 27347779,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479700,
+          "pid": 479701,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479700,
+          "sid": 479698,
+          "start_ticks": 27347784,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479700,
+          "pid": 479701,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479700,
+          "sid": 479698,
+          "start_ticks": 27347784,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      }
+    ],
+    "all_fixture_births_reaped": true,
+    "audit_subreaper_adopted": true,
+    "baseline_conclusion": "Group/parent disappearance alone is insufficient; not an M11C candidate verdict",
+    "before_and_ready": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479698,
+        "pid": 479698,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479685,
+        "sid": 479698,
+        "start_ticks": 27347774,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479700,
+        "pid": 479700,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479698,
+        "sid": 479698,
+        "start_ticks": 27347779,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479700,
+        "pid": 479701,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479700,
+        "sid": 479698,
+        "start_ticks": 27347784,
+        "state": "R",
+        "uid": 1000
+      }
+    ],
+    "false_cancel_rejected": true,
+    "mode": "pgrp",
+    "pid_reuse_signal_refused": true,
+    "stdio_pipe_held_open": null,
+    "unrelated_canary_survives": true
+  },
+  {
+    "after_group_term": [
+      {
+        "current": null,
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479702,
+          "pid": 479702,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479702,
+          "start_ticks": 27347793,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": true,
+        "live": false,
+        "same_birth": false,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479704,
+          "pid": 479704,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479704,
+          "start_ticks": 27347799,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479702,
+          "pid": 479704,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479702,
+          "sid": 479702,
+          "start_ticks": 27347799,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479704,
+          "pid": 479705,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479704,
+          "sid": 479704,
+          "start_ticks": 27347803,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479704,
+          "pid": 479705,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479704,
+          "sid": 479704,
+          "start_ticks": 27347803,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      }
+    ],
+    "all_fixture_births_reaped": true,
+    "audit_subreaper_adopted": true,
+    "baseline_conclusion": "Group/parent disappearance alone is insufficient; not an M11C candidate verdict",
+    "before_and_ready": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479702,
+        "pid": 479702,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479685,
+        "sid": 479702,
+        "start_ticks": 27347793,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479704,
+        "pid": 479704,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479702,
+        "sid": 479704,
+        "start_ticks": 27347799,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479704,
+        "pid": 479705,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479704,
+        "sid": 479704,
+        "start_ticks": 27347803,
+        "state": "R",
+        "uid": 1000
+      }
+    ],
+    "false_cancel_rejected": true,
+    "mode": "late-setsid",
+    "pid_reuse_signal_refused": true,
+    "stdio_pipe_held_open": null,
+    "unrelated_canary_survives": true
+  },
+  {
+    "after_group_term": [
+      {
+        "current": null,
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479706,
+          "pid": 479706,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479706,
+          "start_ticks": 27347814,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": true,
+        "live": false,
+        "same_birth": false,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479708,
+          "pid": 479708,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479685,
+          "sid": 479708,
+          "start_ticks": 27347819,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479706,
+          "pid": 479708,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479706,
+          "sid": 479706,
+          "start_ticks": 27347819,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      },
+      {
+        "current": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479708,
+          "pid": 479709,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479708,
+          "sid": 479708,
+          "start_ticks": 27347824,
+          "state": "S",
+          "uid": 1000
+        },
+        "expected": {
+          "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+          "comm": "python",
+          "pgid": 479708,
+          "pid": 479709,
+          "pid_namespace": "pid:[4026532200]",
+          "ppid": 479708,
+          "sid": 479708,
+          "start_ticks": 27347824,
+          "state": "R",
+          "uid": 1000
+        },
+        "gone": false,
+        "live": true,
+        "same_birth": true,
+        "zombie": false
+      }
+    ],
+    "all_fixture_births_reaped": true,
+    "audit_subreaper_adopted": true,
+    "baseline_conclusion": "Group/parent disappearance alone is insufficient; not an M11C candidate verdict",
+    "before_and_ready": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479706,
+        "pid": 479706,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479685,
+        "sid": 479706,
+        "start_ticks": 27347814,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479708,
+        "pid": 479708,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479706,
+        "sid": 479708,
+        "start_ticks": 27347819,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 479708,
+        "pid": 479709,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 479708,
+        "sid": 479708,
+        "start_ticks": 27347824,
+        "state": "R",
+        "uid": 1000
+      }
+    ],
+    "false_cancel_rejected": true,
+    "mode": "retained-setsid",
+    "pid_reuse_signal_refused": true,
+    "stdio_pipe_held_open": true,
+    "unrelated_canary_survives": true
+  }
+]

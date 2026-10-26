@@ -1,0 +1,90 @@
+{
+  "prior_commit": "5b89009d460eab76b08574664e5c7340684c808a",
+  "all_inherited_bytes_equal": true,
+  "files": [
+    {
+      "path": "fixtures/nuclease/config.yaml",
+      "sha256": "478c20a2642064858a9f1fb66f1054e841ce1d734d6491d55fb2498722ccf910",
+      "prior_path": "fixtures/nuclease/config.yaml"
+    },
+    {
+      "path": "fixtures/nuclease/direct-arguments.json",
+      "sha256": "75842ef3b040a728da08d083fa2f18868ee092c694d2e14d124a32908bd5e4c2",
+      "prior_path": "fixtures/nuclease/direct-arguments.json"
+    },
+    {
+      "path": "fixtures/nuclease/draft-template.json",
+      "sha256": "3b96ba36946c6bf80815cfa88bdd6b79c357140287b68463374433b6d238bbab",
+      "prior_path": "fixtures/nuclease/draft-template.json"
+    },
+    {
+      "path": "fixtures/nuclease/raw_R1.fastq.gz",
+      "sha256": "9f1206c96de16366c41e2c46b8308c7bdfc9228e2bb6bcf6e5efe961cdcdd857",
+      "prior_path": "fixtures/nuclease/raw_R1.fastq.gz"
+    },
+    {
+      "path": "fixtures/nuclease/raw_R2.fastq.gz",
+      "sha256": "b8862a4175d72109a840f3e745d7d1aa438088b1c3a787210ef5d1c7c86f6db5",
+      "prior_path": "fixtures/nuclease/raw_R2.fastq.gz"
+    },
+    {
+      "path": "fixtures/nuclease/samples.csv",
+      "sha256": "f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4",
+      "prior_path": "fixtures/nuclease/samples.csv"
+    },
+    {
+      "path": "fixtures/nuclease/targets.csv",
+      "sha256": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+      "prior_path": "fixtures/nuclease/targets.csv"
+    },
+    {
+      "path": "fixtures/nuclease/truth.json",
+      "sha256": "838ed068651272bb1fff630ea23f366fa07afcba2fbcd8653ae48b52f4a6208f",
+      "prior_path": "fixtures/nuclease/truth.json"
+    },
+    {
+      "path": "fixtures/pe/config.yaml",
+      "sha256": "478c20a2642064858a9f1fb66f1054e841ce1d734d6491d55fb2498722ccf910",
+      "prior_path": "fixtures/pe/config.yaml"
+    },
+    {
+      "path": "fixtures/pe/direct-arguments.json",
+      "sha256": "75842ef3b040a728da08d083fa2f18868ee092c694d2e14d124a32908bd5e4c2",
+      "prior_path": "fixtures/pe/direct-arguments.json"
+    },
+    {
+      "path": "fixtures/pe/draft-template.json",
+      "sha256": "9e5b904ee7fc5b6f24d38ad87041b08bd5548cfb7904c9c367eba2009822c02e",
+      "prior_path": "fixtures/pe/draft-template.json"
+    },
+    {
+      "path": "fixtures/pe/raw_R1.fastq.gz",
+      "sha256": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+      "prior_path": "fixtures/pe/raw_R1.fastq.gz"
+    },
+    {
+      "path": "fixtures/pe/raw_R2.fastq.gz",
+      "sha256": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+      "prior_path": "fixtures/pe/raw_R2.fastq.gz"
+    },
+    {
+      "path": "fixtures/pe/samples.csv",
+      "sha256": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+      "prior_path": "fixtures/pe/samples.csv"
+    },
+    {
+      "path": "fixtures/pe/targets.csv",
+      "sha256": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+      "prior_path": "fixtures/pe/targets.csv"
+    },
+    {
+      "path": "fixtures/pe/truth.json",
+      "sha256": "fc54e95e4d9e76577719de50011868edf5f529f817ead6f88b2e03f7a79eef86",
+      "prior_path": "fixtures/pe/truth.json"
+    }
+  ],
+  "additions": [
+    "fixtures/pe/contrasts.json",
+    "fixtures/nuclease/contrasts.json"
+  ]
+}

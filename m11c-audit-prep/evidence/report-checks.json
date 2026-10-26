@@ -1,0 +1,30 @@
+{
+  "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled/report": {
+    "artifact_hashes_valid": true,
+    "html_includes_all_figures": true,
+    "html_local_resources": [],
+    "limitation": "Structural/resource checks, not browser rendering or full HTML conformance",
+    "svg_xml_count": 11
+  },
+  "/workspace/m11c-audit-runs/science-qualified/nuclease/fresh/report": {
+    "artifact_hashes_valid": true,
+    "html_includes_all_figures": true,
+    "html_local_resources": [],
+    "limitation": "Structural/resource checks, not browser rendering or full HTML conformance",
+    "svg_xml_count": 11
+  },
+  "/workspace/m11c-audit-runs/science-qualified/pe/cancelled/report": {
+    "artifact_hashes_valid": true,
+    "html_includes_all_figures": true,
+    "html_local_resources": [],
+    "limitation": "Structural/resource checks, not browser rendering or full HTML conformance",
+    "svg_xml_count": 7
+  },
+  "/workspace/m11c-audit-runs/science-qualified/pe/fresh/report": {
+    "artifact_hashes_valid": true,
+    "html_includes_all_figures": true,
+    "html_local_resources": [],
+    "limitation": "Structural/resource checks, not browser rendering or full HTML conformance",
+    "svg_xml_count": 7
+  }
+}

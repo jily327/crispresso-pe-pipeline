@@ -1,0 +1,36 @@
+{
+  "baseline": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "candidate_inspected": false,
+  "container_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "container_name": "m421-qualified-runtime",
+  "container_repo_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "containment_runtime": "Local Linux fixed process fixtures; container only used for scientific parity",
+  "core_resolved_version": "2.3.4",
+  "core_wrapper_path": "/workspace/m421-runtime-tools/CRISPResso",
+  "core_wrapper_sha256": "cd49792a99da8fade1225d39601684730f275da251d2ea20c260b78040fcdf6a",
+  "import_origin": "/workspace/crispresso-pe-pipeline-m11c-audit/src/peanalyzer/__init__.py",
+  "kernel": "6.18.55",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "software": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+    "git_dirty": false,
+    "package_code_sha256": "36ffaebb2525300a56c93526d9ad1dc49ee7dd35fa05095ba46035984e6baa65",
+    "pipeline_version": "0.8.0",
+    "python_version": "3.12.14"
+  }
+}

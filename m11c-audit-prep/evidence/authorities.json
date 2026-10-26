@@ -1,0 +1,625 @@
+{
+  "baseline": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "files": [
+    {
+      "path": "src/peanalyzer/workflow.py",
+      "sha256": "a577e0f2406959b7a43da928ab87f515f575487a50a07e51ba56e8ec923fa15f",
+      "symbols": [
+        {
+          "name": "utc",
+          "line": 50
+        },
+        {
+          "name": "software_identity",
+          "line": 54
+        },
+        {
+          "name": "input_record",
+          "line": 63
+        },
+        {
+          "name": "verify_inputs",
+          "line": 72
+        },
+        {
+          "name": "build_workflow_plan",
+          "line": 79
+        },
+        {
+          "name": "_demux_samples",
+          "line": 145
+        },
+        {
+          "name": "stage_manifest_path",
+          "line": 155
+        },
+        {
+          "name": "scientific_target",
+          "line": 159
+        },
+        {
+          "name": "nuclease_identity",
+          "line": 163
+        },
+        {
+          "name": "targets_for",
+          "line": 169
+        },
+        {
+          "name": "inputs_for",
+          "line": 173
+        },
+        {
+          "name": "parameters_for",
+          "line": 184
+        },
+        {
+          "name": "output_identity",
+          "line": 200
+        },
+        {
+          "name": "dependency",
+          "line": 205
+        },
+        {
+          "name": "signature",
+          "line": 210
+        },
+        {
+          "name": "_file",
+          "line": 218
+        },
+        {
+          "name": "_demux_root",
+          "line": 223
+        },
+        {
+          "name": "_metrics_results",
+          "line": 227
+        },
+        {
+          "name": "_manifest_csv",
+          "line": 244
+        },
+        {
+          "name": "validate_stage",
+          "line": 253
+        },
+        {
+          "name": "execute_stage",
+          "line": 345
+        },
+        {
+          "name": "_snapshots",
+          "line": 402
+        },
+        {
+          "name": "force_closure",
+          "line": 418
+        },
+        {
+          "name": "_graph_change",
+          "line": 434
+        },
+        {
+          "name": "_invalidate",
+          "line": 454
+        },
+        {
+          "name": "_expected",
+          "line": 475
+        },
+        {
+          "name": "_validate_completed",
+          "line": 485
+        },
+        {
+          "name": "_verify_stages",
+          "line": 498
+        },
+        {
+          "name": "verify_workflow_output",
+          "line": 520
+        },
+        {
+          "name": "_check_execution_scope",
+          "line": 545
+        },
+        {
+          "name": "execute_workflow",
+          "line": 557
+        },
+        {
+          "name": "observe",
+          "line": 559
+        },
+        {
+          "name": "resume_workflow",
+          "line": 698
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/workflow_storage.py",
+      "sha256": "bf2da066e52f956e5a7ab19eaf4bf0b21a03273146eeb1ef68fe20597d6080ea",
+      "symbols": [
+        {
+          "name": "WorkflowError",
+          "line": 12
+        },
+        {
+          "name": "__init__",
+          "line": 13
+        },
+        {
+          "name": "canonical",
+          "line": 18
+        },
+        {
+          "name": "digest",
+          "line": 24
+        },
+        {
+          "name": "sha",
+          "line": 28
+        },
+        {
+          "name": "no_symlinks",
+          "line": 33
+        },
+        {
+          "name": "owned",
+          "line": 41
+        },
+        {
+          "name": "read_json",
+          "line": 52
+        },
+        {
+          "name": "pairs",
+          "line": 53
+        },
+        {
+          "name": "nonfinite",
+          "line": 60
+        },
+        {
+          "name": "load",
+          "line": 65
+        },
+        {
+          "name": "atomic_json",
+          "line": 69
+        },
+        {
+          "name": "artifact",
+          "line": 85
+        },
+        {
+          "name": "inventory",
+          "line": 92
+        },
+        {
+          "name": "verify_artifact",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/workflow_models.py",
+      "sha256": "9c759ead2a75fd491e244910bb235d1230d92c566bec6caf6628a2c2d63b20c6",
+      "symbols": [
+        {
+          "name": "Model",
+          "line": 16
+        },
+        {
+          "name": "utc_timestamp",
+          "line": 21
+        },
+        {
+          "name": "integer_version",
+          "line": 28
+        },
+        {
+          "name": "Artifact",
+          "line": 34
+        },
+        {
+          "name": "InputArtifact",
+          "line": 40
+        },
+        {
+          "name": "Software",
+          "line": 47
+        },
+        {
+          "name": "Backend",
+          "line": 56
+        },
+        {
+          "name": "Node",
+          "line": 63
+        },
+        {
+          "name": "dag",
+          "line": 72
+        },
+        {
+          "name": "Plan",
+          "line": 93
+        },
+        {
+          "name": "graph",
+          "line": 109
+        },
+        {
+          "name": "Dependency",
+          "line": 127
+        },
+        {
+          "name": "StageManifest",
+          "line": 133
+        },
+        {
+          "name": "inventory",
+          "line": 152
+        },
+        {
+          "name": "Session",
+          "line": 168
+        },
+        {
+          "name": "WorkflowManifest",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/jobs.py",
+      "sha256": "afc741de09784df8b66257485930bff6a54b31c10be0146535c9087c0e794e63",
+      "symbols": [
+        {
+          "name": "timestamp",
+          "line": 23
+        },
+        {
+          "name": "worker_command",
+          "line": 27
+        },
+        {
+          "name": "subreaper",
+          "line": 31
+        },
+        {
+          "name": "signal_group",
+          "line": 39
+        },
+        {
+          "name": "group_alive",
+          "line": 44
+        },
+        {
+          "name": "reap_group",
+          "line": 50
+        },
+        {
+          "name": "Job",
+          "line": 60
+        },
+        {
+          "name": "JobStore",
+          "line": 72
+        },
+        {
+          "name": "__init__",
+          "line": 73
+        },
+        {
+          "name": "available",
+          "line": 79
+        },
+        {
+          "name": "_job",
+          "line": 81
+        },
+        {
+          "name": "_event",
+          "line": 85
+        },
+        {
+          "name": "get",
+          "line": 89
+        },
+        {
+          "name": "catalog",
+          "line": 95
+        },
+        {
+          "name": "events",
+          "line": 98
+        },
+        {
+          "name": "submit",
+          "line": 105
+        },
+        {
+          "name": "cancel",
+          "line": 150
+        },
+        {
+          "name": "_observe",
+          "line": 159
+        },
+        {
+          "name": "_supervise",
+          "line": 172
+        },
+        {
+          "name": "read_events",
+          "line": 184
+        },
+        {
+          "name": "drain",
+          "line": 190
+        },
+        {
+          "name": "close",
+          "line": 265
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/worker.py",
+      "sha256": "053b625b6daa8ed56e835eef95dfdb792525fe82aca48bfa2ce86614a2beb8f8",
+      "symbols": [
+        {
+          "name": "run",
+          "line": 13
+        },
+        {
+          "name": "main",
+          "line": 28
+        },
+        {
+          "name": "emit",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/execution.py",
+      "sha256": "b37d9da02af7359223010a5495390e6d9b37700f7c2acfc9485df3e48fc9cac9",
+      "symbols": [
+        {
+          "name": "RuntimeSettings",
+          "line": 13
+        },
+        {
+          "name": "ExecutionSpec",
+          "line": 19
+        },
+        {
+          "name": "metadata_hashes",
+          "line": 36
+        },
+        {
+          "name": "restore_references",
+          "line": 40
+        },
+        {
+          "name": "check_destination",
+          "line": 49
+        },
+        {
+          "name": "revalidate_execution",
+          "line": 61
+        },
+        {
+          "name": "materialize",
+          "line": 82
+        },
+        {
+          "name": "bind_plan",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/workspace.py",
+      "sha256": "ef218809f5bd529962db150aa434c0f4cf58cba4d070abdee33b62720873fe0f",
+      "symbols": [
+        {
+          "name": "ViewerError",
+          "line": 21
+        },
+        {
+          "name": "safe_registration",
+          "line": 25
+        },
+        {
+          "name": "snapshot",
+          "line": 32
+        },
+        {
+          "name": "registration_labels",
+          "line": 62
+        },
+        {
+          "name": "Opened",
+          "line": 92
+        },
+        {
+          "name": "WorkspaceStore",
+          "line": 102
+        },
+        {
+          "name": "__init__",
+          "line": 103
+        },
+        {
+          "name": "catalog",
+          "line": 108
+        },
+        {
+          "name": "register_completed",
+          "line": 112
+        },
+        {
+          "name": "open",
+          "line": 122
+        },
+        {
+          "name": "read",
+          "line": 148
+        },
+        {
+          "name": "get",
+          "line": 161
+        },
+        {
+          "name": "download",
+          "line": 176
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/gui/app.py",
+      "sha256": "28e3218d064a38498624e2429bf4e52815acaf4e6a8cd39470dd4c8a9d897fb6",
+      "symbols": [
+        {
+          "name": "create_app",
+          "line": 22
+        },
+        {
+          "name": "lifespan",
+          "line": 36
+        },
+        {
+          "name": "error",
+          "line": 46
+        },
+        {
+          "name": "local_boundary",
+          "line": 73
+        },
+        {
+          "name": "workflow_error",
+          "line": 89
+        },
+        {
+          "name": "request_error",
+          "line": 93
+        },
+        {
+          "name": "invalid",
+          "line": 98
+        },
+        {
+          "name": "capabilities",
+          "line": 102
+        },
+        {
+          "name": "catalog",
+          "line": 108
+        },
+        {
+          "name": "open_workspace",
+          "line": 112
+        },
+        {
+          "name": "view",
+          "line": 116
+        },
+        {
+          "name": "observations",
+          "line": 120
+        },
+        {
+          "name": "alleles",
+          "line": 127
+        },
+        {
+          "name": "download",
+          "line": 135
+        },
+        {
+          "name": "setup_capabilities",
+          "line": 142
+        },
+        {
+          "name": "create_draft",
+          "line": 146
+        },
+        {
+          "name": "get_draft",
+          "line": 150
+        },
+        {
+          "name": "patch_draft",
+          "line": 154
+        },
+        {
+          "name": "validate_draft",
+          "line": 158
+        },
+        {
+          "name": "preview_draft",
+          "line": 162
+        },
+        {
+          "name": "delete_draft",
+          "line": 166
+        },
+        {
+          "name": "submit_job",
+          "line": 171
+        },
+        {
+          "name": "list_jobs",
+          "line": 175
+        },
+        {
+          "name": "get_job",
+          "line": 179
+        },
+        {
+          "name": "job_events",
+          "line": 183
+        },
+        {
+          "name": "cancel_job",
+          "line": 187
+        }
+      ]
+    },
+    {
+      "path": "src/peanalyzer/cli.py",
+      "sha256": "69f09487ee2f473f18e347ebd5a086658efc7c78030ee9944cca076520515666",
+      "symbols": [
+        {
+          "name": "sigterm_cleanup",
+          "line": 17
+        },
+        {
+          "name": "terminate",
+          "line": 22
+        },
+        {
+          "name": "main",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "path": "docs/m11b-run-lifecycle.md",
+      "sha256": "54401120aea3769b11a773dbc08bf4e927db9bb99fa0dc5b2b7fa48293977454",
+      "symbols": []
+    },
+    {
+      "path": "docs/validation/m11b/README.md",
+      "sha256": "1ab2f2ae28a5a7271bb1089c9d1c3daf508d5c9062f9ae867fd748bc9e5a3c7b",
+      "symbols": []
+    }
+  ]
+}

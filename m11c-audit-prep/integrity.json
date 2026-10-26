@@ -1,0 +1,261 @@
+{
+  "archive_members": "Every payload file plus integrity.json; excludes ZIP and its external hash sidecar to avoid recursion",
+  "baseline": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "exclusions": [
+    "ARCHIVE_SHA256.txt",
+    "integrity.json",
+    "peanalyzer-m11c-audit-prep.zip"
+  ],
+  "files": {
+    "ADAPTER_CHECKLIST.md": {
+      "sha256": "c131f06764a211f1b2d793c18966024aca4d1c28027f4f65de7a51a5608854e6",
+      "size_bytes": 2283
+    },
+    "M11C_ADVERSARIAL_MATRIX.md": {
+      "sha256": "caf319f77dfc81e673c03b1292b87c6361012178a566748b0f3e2309c8eb5d8c",
+      "size_bytes": 18688
+    },
+    "M11C_AUDIT_PLAN.md": {
+      "sha256": "470b9942fe54e32f71bf427399789370438d9e1d6debd45332c4d615f54465f6",
+      "size_bytes": 5295
+    },
+    "M11C_FORCE_CLOSURE_ORACLE.md": {
+      "sha256": "e6bd7d1f5cd19002d671da2a72aa967797daedc8eaad3cc4d9510ddc25b6b2b3",
+      "size_bytes": 4745
+    },
+    "M11C_FRESH_RECOVERY_PARITY.md": {
+      "sha256": "0284b454842b0b1139491fde04fc108c5a0de1fdc59220f1db36a9dd98278180",
+      "size_bytes": 5866
+    },
+    "M11C_PROCESS_CONTAINMENT_ORACLE.md": {
+      "sha256": "281e2df380d8eac079d2519195f3a571907ad1e9211ae0934119c69fdd816d33",
+      "size_bytes": 5614
+    },
+    "M11C_RECOVERY_ORACLE.md": {
+      "sha256": "b758155fa4a807893954afe59bf2d0d5ea6396bc179a9256fe48501b2d76d1c8",
+      "size_bytes": 6187
+    },
+    "M11C_TOCTOU_MATRIX.md": {
+      "sha256": "9a900904466e3628ca3964e9cbba900d2c3931fe067c320502b6ea90f2559b54",
+      "size_bytes": 4469
+    },
+    "README.md": {
+      "sha256": "05566c57efd90a6b95746bd867830bdb67080084f5a059936cba85f3558a6d78",
+      "size_bytes": 3996
+    },
+    "REPRODUCE.md": {
+      "sha256": "3b7e44cb5976bfa42091da8993285bb40bc6bd11759cb79dca867f064c4caeb3",
+      "size_bytes": 3927
+    },
+    "SOURCE_MAP.md": {
+      "sha256": "8a37118199d20d07530c7968fdd25404e2493b8bf8d30b4ffaeea62d1537246b",
+      "size_bytes": 3865
+    },
+    "adversarial-cases.json": {
+      "sha256": "c6dfde84e684c10643fda9ae02978a54c708caf2f3bb926f71f596efbae3bab0",
+      "size_bytes": 78696
+    },
+    "evidence/authorities.json": {
+      "sha256": "ebb6c0cade6b065b8e4387a7c90ebc24dfce0fef3012c497ff045e9ee39194e4",
+      "size_bytes": 12326
+    },
+    "evidence/baseline-science.json": {
+      "sha256": "03aad096d812a22bb760490fa9a1a579bf70973f0cfe94cb6b47d018706fc061",
+      "size_bytes": 134617
+    },
+    "evidence/commands.json": {
+      "sha256": "2cead20d645c51da4cf3f436016f7491e5921a5e20ebf82866741df773cecd85",
+      "size_bytes": 5358
+    },
+    "evidence/fixture-provenance.json": {
+      "sha256": "a51ec3072af3a59c29a30db013e586f9bc569f792977385db3a81e9b6221469f",
+      "size_bytes": 3354
+    },
+    "evidence/force-closures.json": {
+      "sha256": "59ce2ead2fcd8265d0bc9e09d3b2e55ac23a93694cc088b1949c55daaddc706e",
+      "size_bytes": 27197
+    },
+    "evidence/nuclease-scientific-projection.json": {
+      "sha256": "fab4f9a5f5f43af89d45223bda90b9babc219345978d1edfdf6e427cbca3e8d6",
+      "size_bytes": 219262
+    },
+    "evidence/pe-scientific-projection.json": {
+      "sha256": "014599f07b0343581eccf24430720261bcaf27f99f617e5b60cb883e86dc1fe5",
+      "size_bytes": 312584
+    },
+    "evidence/prior-authorities.json": {
+      "sha256": "681bda44507d93a89fda8b461bf585b1bc3fefe83500b2b59f504114c2ba71a0",
+      "size_bytes": 741
+    },
+    "evidence/process-canaries.json": {
+      "sha256": "ef1bc800da32881b3d1345923dfa78f22fc7288eb8e8fdd0aa121c2fa83d7148",
+      "size_bytes": 17513
+    },
+    "evidence/report-checks.json": {
+      "sha256": "18d829a2914a81755b48daa62367b682d6dbb692efd9eeb50e8a8cc1b4204f94",
+      "size_bytes": 1217
+    },
+    "evidence/runtime-identity.json": {
+      "sha256": "5290a36f9bac433804b1580c6e101d2782543b4a24277ffd3811beb2574aedff",
+      "size_bytes": 1503
+    },
+    "evidence/selftest.json": {
+      "sha256": "3e219719558b05f811459737ba23869fa1ccf6bbc27448b2259eaa270ba509f7",
+      "size_bytes": 610
+    },
+    "evidence/server-death.json": {
+      "sha256": "a07212a66c772286fc19b08b519cceded30f304c8844585065ea805c7d50f065",
+      "size_bytes": 32835
+    },
+    "evidence/strengthened-science.json": {
+      "sha256": "8c57a65f7e9d25075856a61b351696801df9d179969a5128aadfec4c5da755ad",
+      "size_bytes": 12073
+    },
+    "fixtures/nuclease/config.yaml": {
+      "sha256": "478c20a2642064858a9f1fb66f1054e841ce1d734d6491d55fb2498722ccf910",
+      "size_bytes": 897
+    },
+    "fixtures/nuclease/contrasts.json": {
+      "sha256": "8876875229ed28c9956b9160297f1549e390ae0878ca6157622b81967b525cee",
+      "size_bytes": 570
+    },
+    "fixtures/nuclease/direct-arguments.json": {
+      "sha256": "75842ef3b040a728da08d083fa2f18868ee092c694d2e14d124a32908bd5e4c2",
+      "size_bytes": 422
+    },
+    "fixtures/nuclease/draft-template.json": {
+      "sha256": "3b96ba36946c6bf80815cfa88bdd6b79c357140287b68463374433b6d238bbab",
+      "size_bytes": 2069
+    },
+    "fixtures/nuclease/raw_R1.fastq.gz": {
+      "sha256": "9f1206c96de16366c41e2c46b8308c7bdfc9228e2bb6bcf6e5efe961cdcdd857",
+      "size_bytes": 522
+    },
+    "fixtures/nuclease/raw_R2.fastq.gz": {
+      "sha256": "b8862a4175d72109a840f3e745d7d1aa438088b1c3a787210ef5d1c7c86f6db5",
+      "size_bytes": 491
+    },
+    "fixtures/nuclease/samples.csv": {
+      "sha256": "f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4",
+      "size_bytes": 357
+    },
+    "fixtures/nuclease/targets.csv": {
+      "sha256": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+      "size_bytes": 470
+    },
+    "fixtures/nuclease/truth.json": {
+      "sha256": "838ed068651272bb1fff630ea23f366fa07afcba2fbcd8653ae48b52f4a6208f",
+      "size_bytes": 4795
+    },
+    "fixtures/pe/config.yaml": {
+      "sha256": "478c20a2642064858a9f1fb66f1054e841ce1d734d6491d55fb2498722ccf910",
+      "size_bytes": 897
+    },
+    "fixtures/pe/contrasts.json": {
+      "sha256": "fab351ddd2a44db807d3023a82ddc5ffbf3518a2f8a12f8373f711c059dd310b",
+      "size_bytes": 579
+    },
+    "fixtures/pe/direct-arguments.json": {
+      "sha256": "75842ef3b040a728da08d083fa2f18868ee092c694d2e14d124a32908bd5e4c2",
+      "size_bytes": 422
+    },
+    "fixtures/pe/draft-template.json": {
+      "sha256": "9e5b904ee7fc5b6f24d38ad87041b08bd5548cfb7904c9c367eba2009822c02e",
+      "size_bytes": 3154
+    },
+    "fixtures/pe/raw_R1.fastq.gz": {
+      "sha256": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+      "size_bytes": 609
+    },
+    "fixtures/pe/raw_R2.fastq.gz": {
+      "sha256": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+      "size_bytes": 563
+    },
+    "fixtures/pe/samples.csv": {
+      "sha256": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+      "size_bytes": 349
+    },
+    "fixtures/pe/targets.csv": {
+      "sha256": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+      "size_bytes": 1372
+    },
+    "fixtures/pe/truth.json": {
+      "sha256": "fc54e95e4d9e76577719de50011868edf5f529f817ead6f88b2e03f7a79eef86",
+      "size_bytes": 6385
+    },
+    "race-schedules.json": {
+      "sha256": "160f85dc7c6c009f00dd7fc515ca3ffb0f49675516963406929d3070f955069a",
+      "size_bytes": 5487
+    },
+    "scripts/barriers.py": {
+      "sha256": "3cd9d06e13dd9f91cf33fe36a94a489be2f4e0b1203008a5d4414482d2642124",
+      "size_bytes": 587
+    },
+    "scripts/baseline_science.py": {
+      "sha256": "e08709c97715eb9c10832ba78212a9f90cbdf00458f4f00e95ad2005e2a6db6b",
+      "size_bytes": 5367
+    },
+    "scripts/check_reports.py": {
+      "sha256": "0e1656d9d6e821852737cd8576a04d18e47825f533cd2925169b1ce86f9d544e",
+      "size_bytes": 1495
+    },
+    "scripts/common.py": {
+      "sha256": "610d52d652e10dc2ba677f8d9d0281b8657ac9a019d749497fc39bb3d56a8bae",
+      "size_bytes": 3186
+    },
+    "scripts/force_oracle.py": {
+      "sha256": "f9e619b3fceb64eeb7dff8ff772a7c9a341087300ebc9cb170bc914b92a1bf88",
+      "size_bytes": 3762
+    },
+    "scripts/proc_oracle.py": {
+      "sha256": "3479225b363fb730aa7be1531ed15c1e5af3fdf19773edd1bd339288c381b577",
+      "size_bytes": 3530
+    },
+    "scripts/process_canaries.py": {
+      "sha256": "76818fd9c2f8a45c508a667594cdcd0aa720936f68e68f561fc2b9cc9c6cf4ad",
+      "size_bytes": 3873
+    },
+    "scripts/process_fixture.py": {
+      "sha256": "1d1af6482f8a3b52d319ebd62be99c97accab98958e662103f68db11dab137e9",
+      "size_bytes": 2587
+    },
+    "scripts/pure_guard.py": {
+      "sha256": "0c7f5bc0e233be7e078cc8d120949c39a32f4cb12ee22ddf701d3b4a87b492d6",
+      "size_bytes": 2447
+    },
+    "scripts/recovery_identity.py": {
+      "sha256": "552c25c67ecabb6dfae62378bf9198a3fc0a7e8008fecab86ee0b079bcf89c01",
+      "size_bytes": 2890
+    },
+    "scripts/science_oracle.py": {
+      "sha256": "370963c804783a42dc80f87777a239c8dc64f94265138e0b04fa7b8207efd802",
+      "size_bytes": 7324
+    },
+    "scripts/seal_package.py": {
+      "sha256": "e0dde02230bf31ea628b92cd267562afd85a191ef4a7aca4d1c6c72a042dd5fc",
+      "size_bytes": 1372
+    },
+    "scripts/selftest.py": {
+      "sha256": "7acedbdbdfc58351d09002ff99b4b79606607c12e20f35c48c53621b5e0a10d3",
+      "size_bytes": 5915
+    },
+    "scripts/server_death_canary.py": {
+      "sha256": "d0353a3b305ee4393883b84af5a5b1fc978adc549ead66f31d779629904a08fc",
+      "size_bytes": 3049
+    },
+    "scripts/server_fixture.py": {
+      "sha256": "1e0737fef23fdfcb9e5cbdafb2d89ce1b4fcd3de81cddbbc327dea0b087226fb",
+      "size_bytes": 3071
+    },
+    "scripts/validate_science.py": {
+      "sha256": "9ff5c4fe877e880f2b1f5e0f3d435557af90d2485fce88613f332f9b736ae08c",
+      "size_bytes": 3246
+    },
+    "scripts/verify_package.py": {
+      "sha256": "68ca2bfdb5bc2ac0e802dcbabfdde617bb64449534d7357f82ff940b05161cab",
+      "size_bytes": 1810
+    }
+  },
+  "prior_artifact_commit": "5b89009d460eab76b08574664e5c7340684c808a",
+  "schema": 1
+}

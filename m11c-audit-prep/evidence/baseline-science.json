@@ -1,0 +1,2674 @@
+{
+  "baseline": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "import_origin": "/workspace/crispresso-pe-pipeline-m11c-audit/src/peanalyzer/__init__.py",
+  "modes": {
+    "nuclease": {
+      "baseline_partial_force_negative_control": {
+        "downstream_paths_deleted": [
+          "metrics/bc001/T1",
+          "metrics/bc001/T1/execution.json",
+          "metrics/bc001/T1/execution_failures.json",
+          "metrics/bc001/T1/input_R1.fastq.gz",
+          "metrics/bc001/T1/input_R2.fastq.gz",
+          "metrics/bc001/T1/output",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Alleles_frequency_table.zip",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/CRISPResso2_info.json",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/CRISPResso_mapping_statistics.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/CRISPResso_status.json",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Modification_count_vectors.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/fastp_report.html",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/fastp_report.json",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/out.extendedFrags.fastq.gz",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/out.notCombined_1.fastq.gz",
+          "metrics/bc001/T1/output/CRISPResso_on_nuclease/out.notCombined_2.fastq.gz",
+          "metrics/bc001/T1/result.json",
+          "metrics/bc001/T1/stderr.txt",
+          "metrics/bc001/T1/stdout.txt",
+          "metrics/bc002/T1",
+          "metrics/bc002/T1/execution.json",
+          "metrics/bc002/T1/execution_failures.json",
+          "metrics/bc002/T1/input_R1.fastq.gz",
+          "metrics/bc002/T1/input_R2.fastq.gz",
+          "metrics/bc002/T1/output",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Alleles_frequency_table.zip",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/CRISPResso2_info.json",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/CRISPResso_mapping_statistics.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/CRISPResso_status.json",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Modification_count_vectors.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/fastp_report.html",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/fastp_report.json",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/out.extendedFrags.fastq.gz",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/out.notCombined_1.fastq.gz",
+          "metrics/bc002/T1/output/CRISPResso_on_nuclease/out.notCombined_2.fastq.gz",
+          "metrics/bc002/T1/result.json",
+          "metrics/bc002/T1/stderr.txt",
+          "metrics/bc002/T1/stdout.txt",
+          "metrics/bc003/T1",
+          "metrics/bc003/T1/execution.json",
+          "metrics/bc003/T1/execution_failures.json",
+          "metrics/bc003/T1/input_R1.fastq.gz",
+          "metrics/bc003/T1/input_R2.fastq.gz",
+          "metrics/bc003/T1/output",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Alleles_frequency_table.zip",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/CRISPResso2_info.json",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/CRISPResso_mapping_statistics.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/CRISPResso_status.json",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Modification_count_vectors.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/fastp_report.html",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/fastp_report.json",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/out.extendedFrags.fastq.gz",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/out.notCombined_1.fastq.gz",
+          "metrics/bc003/T1/output/CRISPResso_on_nuclease/out.notCombined_2.fastq.gz",
+          "metrics/bc003/T1/result.json",
+          "metrics/bc003/T1/stderr.txt",
+          "metrics/bc003/T1/stdout.txt",
+          "metrics/bc004/T1",
+          "metrics/bc004/T1/execution.json",
+          "metrics/bc004/T1/execution_failures.json",
+          "metrics/bc004/T1/input_R1.fastq.gz",
+          "metrics/bc004/T1/input_R2.fastq.gz",
+          "metrics/bc004/T1/output",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Alleles_frequency_table.zip",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/CRISPResso2_info.json",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/CRISPResso_mapping_statistics.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/CRISPResso_status.json",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Modification_count_vectors.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/fastp_report.html",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/fastp_report.json",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/out.extendedFrags.fastq.gz",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/out.notCombined_1.fastq.gz",
+          "metrics/bc004/T1/output/CRISPResso_on_nuclease/out.notCombined_2.fastq.gz",
+          "metrics/bc004/T1/result.json",
+          "metrics/bc004/T1/stderr.txt",
+          "metrics/bc004/T1/stdout.txt",
+          "metrics/manifest.csv",
+          "report",
+          "report/figures",
+          "report/figures/family-208554bc93f3fe1c9e07ad76d3bd62d030ab066ba154feb215480f2e95d7ca14-contrasts.svg",
+          "report/figures/series-328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a-samples.svg",
+          "report/figures/series-37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c-samples.svg",
+          "report/figures/series-4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d-samples.svg",
+          "report/figures/series-5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493-samples.svg",
+          "report/figures/series-61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec-samples.svg",
+          "report/figures/series-6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944-samples.svg",
+          "report/figures/series-af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540-samples.svg",
+          "report/figures/series-e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962-samples.svg",
+          "report/figures/series-f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3-samples.svg",
+          "report/figures/series-fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654-samples.svg",
+          "report/report.html",
+          "report/report_manifest.json",
+          "report/source",
+          "report/source/result.json",
+          "report/tables",
+          "report/tables/contrasts.tsv",
+          "report/tables/group_summaries.tsv",
+          "report/tables/observations.tsv",
+          "routing/bc001/T1",
+          "routing/bc001/T1/identity.json",
+          "routing/bc002/T1",
+          "routing/bc002/T1/identity.json",
+          "routing/bc003/T1",
+          "routing/bc003/T1/identity.json",
+          "routing/bc004/T1",
+          "routing/bc004/T1/identity.json",
+          "statistics",
+          "statistics/contrasts.tsv",
+          "statistics/group_summaries.tsv",
+          "statistics/observations.tsv",
+          "statistics/result.json",
+          "workflow/stages/469116079d0394b77f469e3e723ff9bfccdd65b896b72cd092025171f157c1ce.json",
+          "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+          "workflow/stages/613c844792ee5d9a288f72a25b796b14912dc592e0d5ae0e485007f508a53822.json",
+          "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+          "workflow/stages/66bbede11d823804aba9ccc450a417b5dae67140e8979ce591560e5acd75cea4.json",
+          "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+          "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+          "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json",
+          "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+          "workflow/stages/a5abdbf01ba0de73ab046a0b8e8a78e5b9a12e000b1ca783923d9185396c93bc.json",
+          "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+          "workflow_manifest.json"
+        ],
+        "error": {
+          "code": "STALE_STAGE_IDENTITY",
+          "message": "STALE_STAGE_IDENTITY [demux]: stage_signature_sha256",
+          "stage": "demux"
+        },
+        "expected_M11C": "Reject before any scientific workspace mutation or invalidation",
+        "raw_change_inventory_sha256": "1f08186ee2ded011d219314ae77185de0111520882bba3d902150128db54fa47"
+      },
+      "completed_resume": {
+        "executed_stages": [],
+        "metrics_results": 4,
+        "mode": "run",
+        "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/failed",
+        "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/failed/report/report.html",
+        "reused_stages": [
+          "raw_inputs",
+          "demux",
+          "analysis",
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "statistics_mode": "stats",
+        "workflow_contract_version": "m7-v1",
+        "workflow_manifest_sha256": "4158cd11bbad16b8796e417e869ec34575f958d830cbecd19d19c5b33f2605d9"
+      },
+      "force_comparison": {
+        "differing_categories": [],
+        "equal": true,
+        "exclusions": [
+          "metric.provenance (lineage independently verified)",
+          "statistics.provenance (source hashes independently verified)",
+          "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+          "population_id",
+          "source_result_sha256",
+          "gzip header timestamps; decompressed payloads compared"
+        ],
+        "left_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36",
+        "report_source_lineage_valid": true,
+        "right_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36"
+      },
+      "force_execution": {
+        "executed_stages": [
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "metrics_results": 4,
+        "mode": "run",
+        "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/failed",
+        "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/failed/report/report.html",
+        "reused_stages": [
+          "raw_inputs",
+          "demux",
+          "analysis"
+        ],
+        "statistics_mode": "stats",
+        "workflow_contract_version": "m7-v1",
+        "workflow_manifest_sha256": "4158cd11bbad16b8796e417e869ec34575f958d830cbecd19d19c5b33f2605d9"
+      },
+      "force_oracle": {
+        "closure": [
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "completion_marker": [
+          "workflow_manifest.json"
+        ],
+        "owned_outputs": [
+          "routing/bc001/T1",
+          "routing/bc002/T1",
+          "routing/bc003/T1",
+          "routing/bc004/T1",
+          "metrics/bc001/T1",
+          "metrics/bc002/T1",
+          "metrics/bc003/T1",
+          "metrics/bc004/T1",
+          "metrics/manifest.csv",
+          "statistics",
+          "report"
+        ],
+        "owned_stage_manifests": [
+          "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+          "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+          "workflow/stages/613c844792ee5d9a288f72a25b796b14912dc592e0d5ae0e485007f508a53822.json",
+          "workflow/stages/66bbede11d823804aba9ccc450a417b5dae67140e8979ce591560e5acd75cea4.json",
+          "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+          "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+          "workflow/stages/a5abdbf01ba0de73ab046a0b8e8a78e5b9a12e000b1ca783923d9185396c93bc.json",
+          "workflow/stages/469116079d0394b77f469e3e723ff9bfccdd65b896b72cd092025171f157c1ce.json",
+          "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+          "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+          "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+        ],
+        "proven_reused": [
+          "raw_inputs",
+          "demux",
+          "analysis"
+        ],
+        "requested": [
+          "routing"
+        ],
+        "rerun": [
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "reuse_candidates": [
+          "raw_inputs",
+          "demux",
+          "analysis"
+        ]
+      },
+      "fresh": {
+        "executed_stages": [
+          "raw_inputs",
+          "demux",
+          "analysis",
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "metrics_results": 4,
+        "mode": "run",
+        "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/fresh",
+        "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/fresh/report/report.html",
+        "reused_stages": [],
+        "statistics_mode": "stats",
+        "workflow_contract_version": "m7-v1",
+        "workflow_manifest_sha256": "e7e64a1949bf5ad84c4fb28102d21f7a0b1cdd853795569ca0343ba7dbe6eeb5"
+      },
+      "input_hashes": {
+        "config": {
+          "sha256": "478c20a2642064858a9f1fb66f1054e841ce1d734d6491d55fb2498722ccf910",
+          "size_bytes": 897
+        },
+        "contrasts": {
+          "sha256": "8876875229ed28c9956b9160297f1549e390ae0878ca6157622b81967b525cee",
+          "size_bytes": 570
+        },
+        "r1": {
+          "sha256": "9f1206c96de16366c41e2c46b8308c7bdfc9228e2bb6bcf6e5efe961cdcdd857",
+          "size_bytes": 522
+        },
+        "r2": {
+          "sha256": "b8862a4175d72109a840f3e745d7d1aa438088b1c3a787210ef5d1c7c86f6db5",
+          "size_bytes": 491
+        },
+        "samples": {
+          "sha256": "f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4",
+          "size_bytes": 357
+        },
+        "targets": {
+          "sha256": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+          "size_bytes": 470
+        }
+      },
+      "metrics": {
+        "bc001/T1/result.json": {
+          "any_modification_fraction": {
+            "denominator": 20,
+            "fraction": 0.1,
+            "numerator": 2
+          },
+          "deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.1,
+            "numerator": 2
+          },
+          "indel_fraction": {
+            "denominator": 20,
+            "fraction": 0.1,
+            "numerator": 2
+          },
+          "indel_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.1,
+            "numerator": 2
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 20,
+            "fraction": 0.9,
+            "numerator": 18
+          }
+        },
+        "bc002/T1/result.json": {
+          "any_modification_fraction": {
+            "denominator": 20,
+            "fraction": 0.2,
+            "numerator": 4
+          },
+          "deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.2,
+            "numerator": 4
+          },
+          "indel_fraction": {
+            "denominator": 20,
+            "fraction": 0.2,
+            "numerator": 4
+          },
+          "indel_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.2,
+            "numerator": 4
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 20,
+            "fraction": 0.8,
+            "numerator": 16
+          }
+        },
+        "bc003/T1/result.json": {
+          "any_modification_fraction": {
+            "denominator": 20,
+            "fraction": 0.7,
+            "numerator": 14
+          },
+          "deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.7,
+            "numerator": 14
+          },
+          "indel_fraction": {
+            "denominator": 20,
+            "fraction": 0.7,
+            "numerator": 14
+          },
+          "indel_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.7,
+            "numerator": 14
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 20,
+            "fraction": 0.3,
+            "numerator": 6
+          }
+        },
+        "bc004/T1/result.json": {
+          "any_modification_fraction": {
+            "denominator": 20,
+            "fraction": 0.8,
+            "numerator": 16
+          },
+          "deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.8,
+            "numerator": 16
+          },
+          "indel_fraction": {
+            "denominator": 20,
+            "fraction": 0.8,
+            "numerator": 16
+          },
+          "indel_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.8,
+            "numerator": 16
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 20,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 20,
+            "fraction": 0.2,
+            "numerator": 4
+          }
+        }
+      },
+      "recovery": {
+        "cancelled": {
+          "comparison": {
+            "differing_categories": [],
+            "equal": true,
+            "exclusions": [
+              "metric.provenance (lineage independently verified)",
+              "statistics.provenance (source hashes independently verified)",
+              "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+              "population_id",
+              "source_result_sha256",
+              "gzip header timestamps; decompressed payloads compared"
+            ],
+            "left_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36",
+            "report_source_lineage_valid": true,
+            "right_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36"
+          },
+          "interruption": {
+            "code": 143,
+            "error": "SystemExit"
+          },
+          "resume": {
+            "executed_stages": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1",
+              "metrics_manifest",
+              "statistics",
+              "report"
+            ],
+            "metrics_results": 4,
+            "mode": "run",
+            "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled",
+            "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled/report/report.html",
+            "reused_stages": [
+              "raw_inputs",
+              "demux",
+              "analysis",
+              "routing::bc001::T1",
+              "routing::bc002::T1",
+              "routing::bc003::T1",
+              "routing::bc004::T1"
+            ],
+            "statistics_mode": "stats",
+            "workflow_contract_version": "m7-v1",
+            "workflow_manifest_sha256": "e16c7c14218c4c2c1f701e1f166f1f553f10f61039de1edfcabd8d8f93f3d6d1"
+          }
+        },
+        "failed": {
+          "comparison": {
+            "differing_categories": [],
+            "equal": true,
+            "exclusions": [
+              "metric.provenance (lineage independently verified)",
+              "statistics.provenance (source hashes independently verified)",
+              "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+              "population_id",
+              "source_result_sha256",
+              "gzip header timestamps; decompressed payloads compared"
+            ],
+            "left_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36",
+            "report_source_lineage_valid": true,
+            "right_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36"
+          },
+          "interruption": {
+            "code": "AUDIT_INJECTED_FAILURE",
+            "error": "WorkflowError"
+          },
+          "resume": {
+            "executed_stages": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1",
+              "metrics_manifest",
+              "statistics",
+              "report"
+            ],
+            "metrics_results": 4,
+            "mode": "run",
+            "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/failed",
+            "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/failed/report/report.html",
+            "reused_stages": [
+              "raw_inputs",
+              "demux",
+              "analysis",
+              "routing::bc001::T1",
+              "routing::bc002::T1",
+              "routing::bc003::T1",
+              "routing::bc004::T1"
+            ],
+            "statistics_mode": "stats",
+            "workflow_contract_version": "m7-v1",
+            "workflow_manifest_sha256": "5743781b77a669a05db969f8590ba6f2147bb53aa83095b242bb68ddcedeb017"
+          }
+        }
+      },
+      "science_sha256": "96cdb04bc7d382c1cf83d54e07c4477fa50e7b411109f7b71ced3e4b98d14e36",
+      "truth": {
+        "deletion_origin": [
+          2,
+          4,
+          14,
+          16
+        ],
+        "pairs": 80,
+        "sample_pairs": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "scientific_identity": {
+          "analysis_mode": "indel_nuclease",
+          "backend_settings": {
+            "aln_seed_count": 5,
+            "aln_seed_len": 10,
+            "aln_seed_min": 2,
+            "amplicon_min_alignment_score": "",
+            "amplicon_name": "Reference",
+            "amplicon_seq": "TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG",
+            "assign_ambiguous_alignments_to_first_reference": false,
+            "auto": false,
+            "bam_chr_loc": "",
+            "bam_input": "",
+            "bam_output": false,
+            "crispresso1_mode": false,
+            "crispresso_merge": false,
+            "default_min_aln_score": 60,
+            "discard_guide_positions_overhanging_amplicon_edge": false,
+            "discard_indel_reads": false,
+            "exclude_bp_from_left": 0,
+            "exclude_bp_from_right": 0,
+            "expand_ambiguous_alignments": false,
+            "expected_hdr_amplicon_seq": "",
+            "fastp_command": "fastp",
+            "fastp_options_string": "",
+            "fastq_output": false,
+            "flexiguide_gap_extend_penalty": -2,
+            "flexiguide_gap_open_penalty": -20,
+            "flexiguide_homology": 80,
+            "flexiguide_seq": "None",
+            "force_merge_pairs": false,
+            "guide_seq": "",
+            "ignore_deletions": false,
+            "ignore_insertions": false,
+            "ignore_substitutions": false,
+            "min_average_read_quality": 0,
+            "min_bp_quality_or_N": 0,
+            "min_paired_end_reads_overlap": 10,
+            "min_single_bp_quality": 0,
+            "needleman_wunsch_aln_matrix_loc": "EDNAFULL",
+            "needleman_wunsch_gap_extend": -2,
+            "needleman_wunsch_gap_incentive": 1,
+            "needleman_wunsch_gap_open": -20,
+            "prime_editing_gap_extend_penalty": 0,
+            "prime_editing_gap_open_penalty": -50,
+            "prime_editing_nicking_guide_seq": "",
+            "prime_editing_override_prime_edited_ref_seq": "",
+            "prime_editing_override_sequence_checks": false,
+            "prime_editing_pegRNA_extension_quantification_window_size": 5,
+            "prime_editing_pegRNA_extension_seq": "",
+            "prime_editing_pegRNA_scaffold_min_match_length": 1,
+            "prime_editing_pegRNA_scaffold_seq": "",
+            "prime_editing_pegRNA_spacer_seq": "",
+            "quantification_window_center": "-3",
+            "quantification_window_coordinates": "104-113",
+            "quantification_window_size": "1",
+            "samtools_exclude_flags": "0",
+            "split_interleaved_input": false,
+            "trim_sequences": false,
+            "use_legacy_insertion_quantification": false,
+            "write_detailed_allele_table": true
+          },
+          "copy_name": "copy1",
+          "insertion_quantification_mode": "current",
+          "nuclease_profile": "tigr_tas_v1",
+          "quantification_window_coordinates": null,
+          "resolved_window": {
+            "amplicon_top_strand_between_cuts": "AGGCAGTA",
+            "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+            "coordinates": "104-113",
+            "derivation": "tigr_tas_v1",
+            "intervals": [
+              [
+                104,
+                113
+              ]
+            ],
+            "orientation": "forward",
+            "physical_nick_boundaries": [
+              [
+                104,
+                105
+              ],
+              [
+                112,
+                113
+              ]
+            ],
+            "profile_version": "tigr_tas_v1",
+            "selected_window": "W2",
+            "target_interval": [
+              100,
+              117
+            ],
+            "target_oriented_between_cuts": "AGGCAGTA",
+            "target_oriented_nick_labels": [
+              "5|6",
+              "13|14"
+            ],
+            "target_sequence": "TCTATAGGCAGTAAGAAG",
+            "target_start": 100
+          },
+          "target_name": "T1",
+          "tigr_target_sequence": "TCTATAGGCAGTAAGAAG",
+          "tigr_window": "W2",
+          "wt_sequence": "TCCTTAGGCGTAAAATGGGCTTCTCACTGATTTTAGGACAGACGTAAATGGTCGCTCGTCATTCTCAATTATCGCCCACCCGACAAGTCGCGGATACTAATCTATAGGCAGTAAGAAGCAACCGGTGCAGAAAATTCGTCACATGTCTCTTTATGCTGTACCTTACCAACGGCTTGAATTGATCGATGCATCCCATCTCGGCTCTCTGACTCCGGGGCAGATCAACCGAGTCTTCACACG"
+        },
+        "window": {
+          "amplicon_top_strand_between_cuts": "AGGCAGTA",
+          "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+          "coordinates": "104-113",
+          "derivation": "tigr_tas_v1",
+          "intervals": [
+            [
+              104,
+              113
+            ]
+          ],
+          "orientation": "forward",
+          "physical_nick_boundaries": [
+            [
+              104,
+              105
+            ],
+            [
+              112,
+              113
+            ]
+          ],
+          "profile_version": "tigr_tas_v1",
+          "selected_window": "W2",
+          "target_interval": [
+            100,
+            117
+          ],
+          "target_oriented_between_cuts": "AGGCAGTA",
+          "target_oriented_nick_labels": [
+            "5|6",
+            "13|14"
+          ],
+          "target_sequence": "TCTATAGGCAGTAAGAAG",
+          "target_start": 100
+        }
+      }
+    },
+    "pe": {
+      "baseline_partial_force_negative_control": {
+        "downstream_paths_deleted": [
+          "metrics/bc001/T1",
+          "metrics/bc001/T1/comparator",
+          "metrics/bc001/T1/comparator/comparator.json",
+          "metrics/bc001/T1/comparator/copy1",
+          "metrics/bc001/T1/comparator/copy1/execution.json",
+          "metrics/bc001/T1/comparator/copy1/input_R1.fastq.gz",
+          "metrics/bc001/T1/comparator/copy1/input_R2.fastq.gz",
+          "metrics/bc001/T1/comparator/copy1/output",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc001/T1/comparator/copy1/stderr.txt",
+          "metrics/bc001/T1/comparator/copy1/stdout.txt",
+          "metrics/bc001/T1/comparator/copy2",
+          "metrics/bc001/T1/comparator/copy2/execution.json",
+          "metrics/bc001/T1/comparator/copy2/input_R1.fastq.gz",
+          "metrics/bc001/T1/comparator/copy2/input_R2.fastq.gz",
+          "metrics/bc001/T1/comparator/copy2/output",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc001/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc001/T1/comparator/copy2/stderr.txt",
+          "metrics/bc001/T1/comparator/copy2/stdout.txt",
+          "metrics/bc001/T1/copies",
+          "metrics/bc001/T1/copies/copy1",
+          "metrics/bc001/T1/copies/copy1/execution.json",
+          "metrics/bc001/T1/copies/copy1/input_R1.fastq.gz",
+          "metrics/bc001/T1/copies/copy1/input_R2.fastq.gz",
+          "metrics/bc001/T1/copies/copy1/metrics.json",
+          "metrics/bc001/T1/copies/copy1/output",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc001/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc001/T1/copies/copy1/stderr.txt",
+          "metrics/bc001/T1/copies/copy1/stdout.txt",
+          "metrics/bc001/T1/copies/copy2",
+          "metrics/bc001/T1/copies/copy2/execution.json",
+          "metrics/bc001/T1/copies/copy2/input_R1.fastq.gz",
+          "metrics/bc001/T1/copies/copy2/input_R2.fastq.gz",
+          "metrics/bc001/T1/copies/copy2/metrics.json",
+          "metrics/bc001/T1/copies/copy2/output",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc001/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc001/T1/copies/copy2/stderr.txt",
+          "metrics/bc001/T1/copies/copy2/stdout.txt",
+          "metrics/bc001/T1/execution_failures.json",
+          "metrics/bc001/T1/result.json",
+          "metrics/bc002/T1",
+          "metrics/bc002/T1/comparator",
+          "metrics/bc002/T1/comparator/comparator.json",
+          "metrics/bc002/T1/comparator/copy1",
+          "metrics/bc002/T1/comparator/copy1/execution.json",
+          "metrics/bc002/T1/comparator/copy1/input_R1.fastq.gz",
+          "metrics/bc002/T1/comparator/copy1/input_R2.fastq.gz",
+          "metrics/bc002/T1/comparator/copy1/output",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc002/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc002/T1/comparator/copy1/stderr.txt",
+          "metrics/bc002/T1/comparator/copy1/stdout.txt",
+          "metrics/bc002/T1/comparator/copy2",
+          "metrics/bc002/T1/comparator/copy2/execution.json",
+          "metrics/bc002/T1/comparator/copy2/input_R1.fastq.gz",
+          "metrics/bc002/T1/comparator/copy2/input_R2.fastq.gz",
+          "metrics/bc002/T1/comparator/copy2/output",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc002/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc002/T1/comparator/copy2/stderr.txt",
+          "metrics/bc002/T1/comparator/copy2/stdout.txt",
+          "metrics/bc002/T1/copies",
+          "metrics/bc002/T1/copies/copy1",
+          "metrics/bc002/T1/copies/copy1/execution.json",
+          "metrics/bc002/T1/copies/copy1/input_R1.fastq.gz",
+          "metrics/bc002/T1/copies/copy1/input_R2.fastq.gz",
+          "metrics/bc002/T1/copies/copy1/metrics.json",
+          "metrics/bc002/T1/copies/copy1/output",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc002/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc002/T1/copies/copy1/stderr.txt",
+          "metrics/bc002/T1/copies/copy1/stdout.txt",
+          "metrics/bc002/T1/copies/copy2",
+          "metrics/bc002/T1/copies/copy2/execution.json",
+          "metrics/bc002/T1/copies/copy2/input_R1.fastq.gz",
+          "metrics/bc002/T1/copies/copy2/input_R2.fastq.gz",
+          "metrics/bc002/T1/copies/copy2/metrics.json",
+          "metrics/bc002/T1/copies/copy2/output",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc002/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc002/T1/copies/copy2/stderr.txt",
+          "metrics/bc002/T1/copies/copy2/stdout.txt",
+          "metrics/bc002/T1/execution_failures.json",
+          "metrics/bc002/T1/result.json",
+          "metrics/bc003/T1",
+          "metrics/bc003/T1/comparator",
+          "metrics/bc003/T1/comparator/comparator.json",
+          "metrics/bc003/T1/comparator/copy1",
+          "metrics/bc003/T1/comparator/copy1/execution.json",
+          "metrics/bc003/T1/comparator/copy1/input_R1.fastq.gz",
+          "metrics/bc003/T1/comparator/copy1/input_R2.fastq.gz",
+          "metrics/bc003/T1/comparator/copy1/output",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc003/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc003/T1/comparator/copy1/stderr.txt",
+          "metrics/bc003/T1/comparator/copy1/stdout.txt",
+          "metrics/bc003/T1/comparator/copy2",
+          "metrics/bc003/T1/comparator/copy2/execution.json",
+          "metrics/bc003/T1/comparator/copy2/input_R1.fastq.gz",
+          "metrics/bc003/T1/comparator/copy2/input_R2.fastq.gz",
+          "metrics/bc003/T1/comparator/copy2/output",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc003/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc003/T1/comparator/copy2/stderr.txt",
+          "metrics/bc003/T1/comparator/copy2/stdout.txt",
+          "metrics/bc003/T1/copies",
+          "metrics/bc003/T1/copies/copy1",
+          "metrics/bc003/T1/copies/copy1/execution.json",
+          "metrics/bc003/T1/copies/copy1/input_R1.fastq.gz",
+          "metrics/bc003/T1/copies/copy1/input_R2.fastq.gz",
+          "metrics/bc003/T1/copies/copy1/metrics.json",
+          "metrics/bc003/T1/copies/copy1/output",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc003/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc003/T1/copies/copy1/stderr.txt",
+          "metrics/bc003/T1/copies/copy1/stdout.txt",
+          "metrics/bc003/T1/copies/copy2",
+          "metrics/bc003/T1/copies/copy2/execution.json",
+          "metrics/bc003/T1/copies/copy2/input_R1.fastq.gz",
+          "metrics/bc003/T1/copies/copy2/input_R2.fastq.gz",
+          "metrics/bc003/T1/copies/copy2/metrics.json",
+          "metrics/bc003/T1/copies/copy2/output",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc003/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc003/T1/copies/copy2/stderr.txt",
+          "metrics/bc003/T1/copies/copy2/stdout.txt",
+          "metrics/bc003/T1/execution_failures.json",
+          "metrics/bc003/T1/result.json",
+          "metrics/bc004/T1",
+          "metrics/bc004/T1/comparator",
+          "metrics/bc004/T1/comparator/comparator.json",
+          "metrics/bc004/T1/comparator/copy1",
+          "metrics/bc004/T1/comparator/copy1/execution.json",
+          "metrics/bc004/T1/comparator/copy1/input_R1.fastq.gz",
+          "metrics/bc004/T1/comparator/copy1/input_R2.fastq.gz",
+          "metrics/bc004/T1/comparator/copy1/output",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc004/T1/comparator/copy1/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc004/T1/comparator/copy1/stderr.txt",
+          "metrics/bc004/T1/comparator/copy1/stdout.txt",
+          "metrics/bc004/T1/comparator/copy2",
+          "metrics/bc004/T1/comparator/copy2/execution.json",
+          "metrics/bc004/T1/comparator/copy2/input_R1.fastq.gz",
+          "metrics/bc004/T1/comparator/copy2/input_R2.fastq.gz",
+          "metrics/bc004/T1/comparator/copy2/output",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Alleles_frequency_table.zip",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso2_info.json",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_mapping_statistics.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/CRISPResso_status.json",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.html",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/fastp_report.json",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.extendedFrags.fastq.gz",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_1.fastq.gz",
+          "metrics/bc004/T1/comparator/copy2/output/CRISPResso_on_unrouted/out.notCombined_2.fastq.gz",
+          "metrics/bc004/T1/comparator/copy2/stderr.txt",
+          "metrics/bc004/T1/comparator/copy2/stdout.txt",
+          "metrics/bc004/T1/copies",
+          "metrics/bc004/T1/copies/copy1",
+          "metrics/bc004/T1/copies/copy1/execution.json",
+          "metrics/bc004/T1/copies/copy1/input_R1.fastq.gz",
+          "metrics/bc004/T1/copies/copy1/input_R2.fastq.gz",
+          "metrics/bc004/T1/copies/copy1/metrics.json",
+          "metrics/bc004/T1/copies/copy1/output",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc004/T1/copies/copy1/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc004/T1/copies/copy1/stderr.txt",
+          "metrics/bc004/T1/copies/copy1/stdout.txt",
+          "metrics/bc004/T1/copies/copy2",
+          "metrics/bc004/T1/copies/copy2/execution.json",
+          "metrics/bc004/T1/copies/copy2/input_R1.fastq.gz",
+          "metrics/bc004/T1/copies/copy2/input_R2.fastq.gz",
+          "metrics/bc004/T1/copies/copy2/metrics.json",
+          "metrics/bc004/T1/copies/copy2/output",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Alleles_frequency_table.zip",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso2_info.json",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_RUNNING_LOG.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_mapping_statistics.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_quantification_of_editing_frequency.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/CRISPResso_status.json",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Prime-edited.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_Extension.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Alleles_frequency_table_around_PE_spacer_sgRNA.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_modification_count_vectors.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_frequency_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/Reference.Quantification_window_nucleotide_percentage_table.txt",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.html",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/fastp_report.json",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/out.extendedFrags.fastq.gz",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_1.fastq.gz",
+          "metrics/bc004/T1/copies/copy2/output/CRISPResso_on_confident/out.notCombined_2.fastq.gz",
+          "metrics/bc004/T1/copies/copy2/stderr.txt",
+          "metrics/bc004/T1/copies/copy2/stdout.txt",
+          "metrics/bc004/T1/execution_failures.json",
+          "metrics/bc004/T1/result.json",
+          "metrics/manifest.csv",
+          "report",
+          "report/figures",
+          "report/figures/family-208554bc93f3fe1c9e07ad76d3bd62d030ab066ba154feb215480f2e95d7ca14-contrasts.svg",
+          "report/figures/series-02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea-samples.svg",
+          "report/figures/series-039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad-samples.svg",
+          "report/figures/series-0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da-samples.svg",
+          "report/figures/series-5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad-samples.svg",
+          "report/figures/series-7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9-samples.svg",
+          "report/figures/series-9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658-samples.svg",
+          "report/report.html",
+          "report/report_manifest.json",
+          "report/source",
+          "report/source/result.json",
+          "report/tables",
+          "report/tables/contrasts.tsv",
+          "report/tables/group_summaries.tsv",
+          "report/tables/observations.tsv",
+          "routing/bc001/T1",
+          "routing/bc001/T1/copy1_R1.fastq.gz",
+          "routing/bc001/T1/copy1_R2.fastq.gz",
+          "routing/bc001/T1/copy2_R1.fastq.gz",
+          "routing/bc001/T1/copy2_R2.fastq.gz",
+          "routing/bc001/T1/geometry.json",
+          "routing/bc001/T1/quarantine_R1.fastq.gz",
+          "routing/bc001/T1/quarantine_R2.fastq.gz",
+          "routing/bc001/T1/routing_ledger.jsonl",
+          "routing/bc001/T1/routing_manifest.json",
+          "routing/bc002/T1",
+          "routing/bc002/T1/copy1_R1.fastq.gz",
+          "routing/bc002/T1/copy1_R2.fastq.gz",
+          "routing/bc002/T1/copy2_R1.fastq.gz",
+          "routing/bc002/T1/copy2_R2.fastq.gz",
+          "routing/bc002/T1/geometry.json",
+          "routing/bc002/T1/quarantine_R1.fastq.gz",
+          "routing/bc002/T1/quarantine_R2.fastq.gz",
+          "routing/bc002/T1/routing_ledger.jsonl",
+          "routing/bc002/T1/routing_manifest.json",
+          "routing/bc003/T1",
+          "routing/bc003/T1/copy1_R1.fastq.gz",
+          "routing/bc003/T1/copy1_R2.fastq.gz",
+          "routing/bc003/T1/copy2_R1.fastq.gz",
+          "routing/bc003/T1/copy2_R2.fastq.gz",
+          "routing/bc003/T1/geometry.json",
+          "routing/bc003/T1/quarantine_R1.fastq.gz",
+          "routing/bc003/T1/quarantine_R2.fastq.gz",
+          "routing/bc003/T1/routing_ledger.jsonl",
+          "routing/bc003/T1/routing_manifest.json",
+          "routing/bc004/T1",
+          "routing/bc004/T1/copy1_R1.fastq.gz",
+          "routing/bc004/T1/copy1_R2.fastq.gz",
+          "routing/bc004/T1/copy2_R1.fastq.gz",
+          "routing/bc004/T1/copy2_R2.fastq.gz",
+          "routing/bc004/T1/geometry.json",
+          "routing/bc004/T1/quarantine_R1.fastq.gz",
+          "routing/bc004/T1/quarantine_R2.fastq.gz",
+          "routing/bc004/T1/routing_ledger.jsonl",
+          "routing/bc004/T1/routing_manifest.json",
+          "statistics",
+          "statistics/contrasts.tsv",
+          "statistics/group_summaries.tsv",
+          "statistics/observations.tsv",
+          "statistics/result.json",
+          "workflow/stages/469116079d0394b77f469e3e723ff9bfccdd65b896b72cd092025171f157c1ce.json",
+          "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+          "workflow/stages/613c844792ee5d9a288f72a25b796b14912dc592e0d5ae0e485007f508a53822.json",
+          "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+          "workflow/stages/66bbede11d823804aba9ccc450a417b5dae67140e8979ce591560e5acd75cea4.json",
+          "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+          "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+          "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json",
+          "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+          "workflow/stages/a5abdbf01ba0de73ab046a0b8e8a78e5b9a12e000b1ca783923d9185396c93bc.json",
+          "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+          "workflow_manifest.json"
+        ],
+        "error": {
+          "code": "STALE_STAGE_IDENTITY",
+          "message": "STALE_STAGE_IDENTITY [demux]: stage_signature_sha256",
+          "stage": "demux"
+        },
+        "expected_M11C": "Reject before any scientific workspace mutation or invalidation",
+        "raw_change_inventory_sha256": "1f08186ee2ded011d219314ae77185de0111520882bba3d902150128db54fa47"
+      },
+      "completed_resume": {
+        "executed_stages": [],
+        "metrics_results": 4,
+        "mode": "run",
+        "output": "/workspace/m11c-audit-runs/science-qualified/pe/failed",
+        "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/failed/report/report.html",
+        "reused_stages": [
+          "raw_inputs",
+          "demux",
+          "analysis",
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "statistics_mode": "stats",
+        "workflow_contract_version": "m7-v1",
+        "workflow_manifest_sha256": "9173e1105e03a985f754af975641cb6f7a2d3ef29aea93baa928191240bb37d4"
+      },
+      "force_comparison": {
+        "differing_categories": [],
+        "equal": true,
+        "exclusions": [
+          "metric.provenance (lineage independently verified)",
+          "statistics.provenance (source hashes independently verified)",
+          "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+          "population_id",
+          "source_result_sha256",
+          "gzip header timestamps; decompressed payloads compared"
+        ],
+        "left_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa",
+        "report_source_lineage_valid": true,
+        "right_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa"
+      },
+      "force_execution": {
+        "executed_stages": [
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "metrics_results": 4,
+        "mode": "run",
+        "output": "/workspace/m11c-audit-runs/science-qualified/pe/failed",
+        "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/failed/report/report.html",
+        "reused_stages": [
+          "raw_inputs",
+          "demux",
+          "analysis"
+        ],
+        "statistics_mode": "stats",
+        "workflow_contract_version": "m7-v1",
+        "workflow_manifest_sha256": "9173e1105e03a985f754af975641cb6f7a2d3ef29aea93baa928191240bb37d4"
+      },
+      "force_oracle": {
+        "closure": [
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "completion_marker": [
+          "workflow_manifest.json"
+        ],
+        "owned_outputs": [
+          "routing/bc001/T1",
+          "routing/bc002/T1",
+          "routing/bc003/T1",
+          "routing/bc004/T1",
+          "metrics/bc001/T1",
+          "metrics/bc002/T1",
+          "metrics/bc003/T1",
+          "metrics/bc004/T1",
+          "metrics/manifest.csv",
+          "statistics",
+          "report"
+        ],
+        "owned_stage_manifests": [
+          "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+          "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+          "workflow/stages/613c844792ee5d9a288f72a25b796b14912dc592e0d5ae0e485007f508a53822.json",
+          "workflow/stages/66bbede11d823804aba9ccc450a417b5dae67140e8979ce591560e5acd75cea4.json",
+          "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+          "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+          "workflow/stages/a5abdbf01ba0de73ab046a0b8e8a78e5b9a12e000b1ca783923d9185396c93bc.json",
+          "workflow/stages/469116079d0394b77f469e3e723ff9bfccdd65b896b72cd092025171f157c1ce.json",
+          "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+          "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+          "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+        ],
+        "proven_reused": [
+          "raw_inputs",
+          "demux",
+          "analysis"
+        ],
+        "requested": [
+          "routing"
+        ],
+        "rerun": [
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "reuse_candidates": [
+          "raw_inputs",
+          "demux",
+          "analysis"
+        ]
+      },
+      "fresh": {
+        "executed_stages": [
+          "raw_inputs",
+          "demux",
+          "analysis",
+          "routing::bc001::T1",
+          "routing::bc002::T1",
+          "routing::bc003::T1",
+          "routing::bc004::T1",
+          "metrics::bc001::T1",
+          "metrics::bc002::T1",
+          "metrics::bc003::T1",
+          "metrics::bc004::T1",
+          "metrics_manifest",
+          "statistics",
+          "report"
+        ],
+        "metrics_results": 4,
+        "mode": "run",
+        "output": "/workspace/m11c-audit-runs/science-qualified/pe/fresh",
+        "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/fresh/report/report.html",
+        "reused_stages": [],
+        "statistics_mode": "stats",
+        "workflow_contract_version": "m7-v1",
+        "workflow_manifest_sha256": "a998f6cb8ae7b8b8738da1e95d96db81e5e21b1bcb4b5caae815d9144298f735"
+      },
+      "input_hashes": {
+        "config": {
+          "sha256": "478c20a2642064858a9f1fb66f1054e841ce1d734d6491d55fb2498722ccf910",
+          "size_bytes": 897
+        },
+        "contrasts": {
+          "sha256": "fab351ddd2a44db807d3023a82ddc5ffbf3518a2f8a12f8373f711c059dd310b",
+          "size_bytes": 579
+        },
+        "r1": {
+          "sha256": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+          "size_bytes": 609
+        },
+        "r2": {
+          "sha256": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+          "size_bytes": 563
+        },
+        "samples": {
+          "sha256": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+          "size_bytes": 349
+        },
+        "targets": {
+          "sha256": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+          "size_bytes": 1372
+        }
+      },
+      "metrics": {
+        "bc001/T1/result.json": {
+          "target_crispresso_native_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "backend_aligned_products",
+            "backend_counts_role": "metric_filter",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "native",
+            "metric_name": "target_crispresso_native_pe",
+            "numerator": 4,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": null,
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          },
+          "total_precise_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "prepared_pairs",
+            "backend_counts_role": "parallel_native_analysis",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "precise",
+            "metric_name": "total_precise_pe",
+            "numerator": 4,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": {
+              "classification_input_reads": 24,
+              "contradictory_state": 0,
+              "denominator_exclusions": 0,
+              "exact_pe": 4,
+              "exact_wt": 20,
+              "exclusion_reason_counts": {},
+              "other_nonexact_assessable": 0,
+              "pe_plus_extra_change": 0,
+              "unresolved_unassessable": 0
+            },
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          }
+        },
+        "bc002/T1/result.json": {
+          "target_crispresso_native_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "backend_aligned_products",
+            "backend_counts_role": "metric_filter",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "native",
+            "metric_name": "target_crispresso_native_pe",
+            "numerator": 8,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": null,
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          },
+          "total_precise_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "prepared_pairs",
+            "backend_counts_role": "parallel_native_analysis",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "precise",
+            "metric_name": "total_precise_pe",
+            "numerator": 8,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": {
+              "classification_input_reads": 24,
+              "contradictory_state": 0,
+              "denominator_exclusions": 0,
+              "exact_pe": 8,
+              "exact_wt": 16,
+              "exclusion_reason_counts": {},
+              "other_nonexact_assessable": 0,
+              "pe_plus_extra_change": 0,
+              "unresolved_unassessable": 0
+            },
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          }
+        },
+        "bc003/T1/result.json": {
+          "target_crispresso_native_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "backend_aligned_products",
+            "backend_counts_role": "metric_filter",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "native",
+            "metric_name": "target_crispresso_native_pe",
+            "numerator": 16,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": null,
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          },
+          "total_precise_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "prepared_pairs",
+            "backend_counts_role": "parallel_native_analysis",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "precise",
+            "metric_name": "total_precise_pe",
+            "numerator": 16,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": {
+              "classification_input_reads": 24,
+              "contradictory_state": 0,
+              "denominator_exclusions": 0,
+              "exact_pe": 16,
+              "exact_wt": 8,
+              "exclusion_reason_counts": {},
+              "other_nonexact_assessable": 0,
+              "pe_plus_extra_change": 0,
+              "unresolved_unassessable": 0
+            },
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          }
+        },
+        "bc004/T1/result.json": {
+          "target_crispresso_native_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "backend_aligned_products",
+            "backend_counts_role": "metric_filter",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "native",
+            "metric_name": "target_crispresso_native_pe",
+            "numerator": 20,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": null,
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          },
+          "total_precise_pe": {
+            "aligned_reads": 24,
+            "ambiguous_aligned_reads": 0,
+            "assessment_stage": "prepared_pairs",
+            "backend_counts_role": "parallel_native_analysis",
+            "backend_input_reads": 24,
+            "confident_input_reads": null,
+            "copy_id": null,
+            "denominator": 24,
+            "discarded_aligned_reads": 0,
+            "metric_family": "precise",
+            "metric_name": "total_precise_pe",
+            "numerator": 20,
+            "ordinary_classified_aligned_reads": 24,
+            "population_denominator_exclusions": 0,
+            "population_input_reads": 24,
+            "population_scope": "target_all_prepared",
+            "preprocessing_count_delta": 0,
+            "products": {
+              "classification_input_reads": 24,
+              "contradictory_state": 0,
+              "denominator_exclusions": 0,
+              "exact_pe": 20,
+              "exact_wt": 4,
+              "exclusion_reason_counts": {},
+              "other_nonexact_assessable": 0,
+              "pe_plus_extra_change": 0,
+              "unresolved_unassessable": 0
+            },
+            "reads_after_preprocessing": 24,
+            "reason_codes": [],
+            "routing_conditioned": false,
+            "status": "REPORTABLE",
+            "unaligned_reads": 0,
+            "unaligned_reason_counts": {
+              "unknown_backend_alignment_failure": 0
+            }
+          }
+        }
+      },
+      "recovery": {
+        "cancelled": {
+          "comparison": {
+            "differing_categories": [],
+            "equal": true,
+            "exclusions": [
+              "metric.provenance (lineage independently verified)",
+              "statistics.provenance (source hashes independently verified)",
+              "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+              "population_id",
+              "source_result_sha256",
+              "gzip header timestamps; decompressed payloads compared"
+            ],
+            "left_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa",
+            "report_source_lineage_valid": true,
+            "right_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa"
+          },
+          "interruption": {
+            "code": 143,
+            "error": "SystemExit"
+          },
+          "resume": {
+            "executed_stages": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1",
+              "metrics_manifest",
+              "statistics",
+              "report"
+            ],
+            "metrics_results": 4,
+            "mode": "run",
+            "output": "/workspace/m11c-audit-runs/science-qualified/pe/cancelled",
+            "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/cancelled/report/report.html",
+            "reused_stages": [
+              "raw_inputs",
+              "demux",
+              "analysis",
+              "routing::bc001::T1",
+              "routing::bc002::T1",
+              "routing::bc003::T1",
+              "routing::bc004::T1"
+            ],
+            "statistics_mode": "stats",
+            "workflow_contract_version": "m7-v1",
+            "workflow_manifest_sha256": "e414b2b57ff900b1d9563fbe6eb0480d7f7274e4fef929f29c98263304142a1d"
+          }
+        },
+        "failed": {
+          "comparison": {
+            "differing_categories": [],
+            "equal": true,
+            "exclusions": [
+              "metric.provenance (lineage independently verified)",
+              "statistics.provenance (source hashes independently verified)",
+              "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+              "population_id",
+              "source_result_sha256",
+              "gzip header timestamps; decompressed payloads compared"
+            ],
+            "left_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa",
+            "report_source_lineage_valid": true,
+            "right_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa"
+          },
+          "interruption": {
+            "code": "AUDIT_INJECTED_FAILURE",
+            "error": "WorkflowError"
+          },
+          "resume": {
+            "executed_stages": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1",
+              "metrics_manifest",
+              "statistics",
+              "report"
+            ],
+            "metrics_results": 4,
+            "mode": "run",
+            "output": "/workspace/m11c-audit-runs/science-qualified/pe/failed",
+            "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/failed/report/report.html",
+            "reused_stages": [
+              "raw_inputs",
+              "demux",
+              "analysis",
+              "routing::bc001::T1",
+              "routing::bc002::T1",
+              "routing::bc003::T1",
+              "routing::bc004::T1"
+            ],
+            "statistics_mode": "stats",
+            "workflow_contract_version": "m7-v1",
+            "workflow_manifest_sha256": "47f8dcd291c17aa94da3e0165cc070ddc1999f0a8495edd35fc177e22422d9b1"
+          }
+        }
+      },
+      "science_sha256": "7298b369a483736702a77601659ae1221e28fe75bb79f16dadf350712b387caa",
+      "truth": [
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc001",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc002",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc003",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy1",
+          "pe": false,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": true,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc004",
+          "target": "T1"
+        },
+        {
+          "copy": "copy2",
+          "pe": false,
+          "sample": "bc004",
+          "target": "T1"
+        }
+      ]
+    }
+  },
+  "software": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+    "git_dirty": false,
+    "package_code_sha256": "36ffaebb2525300a56c93526d9ad1dc49ee7dd35fa05095ba46035984e6baa65",
+    "pipeline_version": "0.8.0",
+    "python_version": "3.12.14"
+  }
+}

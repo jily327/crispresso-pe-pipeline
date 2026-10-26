@@ -1,0 +1,87 @@
+{
+  "analysis_name": "Independent pe oracle",
+  "input_mode": "run",
+  "r1": null,
+  "r2": null,
+  "demux": null,
+  "samples": [
+    {
+      "sample_name": "bio1",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAAAAAA",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-editor",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "paired": false,
+      "block_id": ""
+    },
+    {
+      "sample_name": "bio2",
+      "barcode_id": "bc002",
+      "forward_barcode": "CAAAAAAA",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-editor",
+      "treatment": "A",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "paired": false,
+      "block_id": ""
+    },
+    {
+      "sample_name": "bio3",
+      "barcode_id": "bc003",
+      "forward_barcode": "GAAAAAAA",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-editor",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "1",
+      "paired": false,
+      "block_id": ""
+    },
+    {
+      "sample_name": "bio4",
+      "barcode_id": "bc004",
+      "forward_barcode": "TAAAAAAA",
+      "reverse_barcode": "CCCCCCCC",
+      "editor": "synthetic-editor",
+      "treatment": "B",
+      "dpi": "6",
+      "biological_replicate": "2",
+      "paired": false,
+      "block_id": ""
+    }
+  ],
+  "analysis_mode": "precise_edit",
+  "targets": [
+    {
+      "analysis_mode": "precise_edit",
+      "target_name": "T1",
+      "copy_name": "copy1",
+      "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+      "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "nicking_guide": "",
+      "pegRNA_scaffold": ""
+    },
+    {
+      "analysis_mode": "precise_edit",
+      "target_name": "T1",
+      "copy_name": "copy2",
+      "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+      "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "nicking_guide": "",
+      "pegRNA_scaffold": ""
+    }
+  ],
+  "library_profile": "custom",
+  "trim_r1": "8",
+  "trim_r2": "8",
+  "output_root": null,
+  "workspace_name": "gui-pe"
+}

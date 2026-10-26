@@ -1,0 +1,1073 @@
+{
+  "after-restart": {
+    "accepted": {
+      "job": {
+        "analysis_mode": "precise_edit",
+        "analysis_name": "Independent pe oracle",
+        "cancellable": true,
+        "current_stage_id": "raw_inputs",
+        "draft_id": "d6ac7237088d4b13b41007b3d971569f",
+        "elapsed_seconds": 0.8,
+        "ended_at": null,
+        "error": null,
+        "execution_spec_sha256": "626d44a51e5f25441550aa946580f418b12cb4e8647b207937cfc357517e0b4b",
+        "finished_stages": 0,
+        "input_metadata": [
+          {
+            "name": "samples.csv",
+            "value": "cc1ab9db61d68dcfd04720c8ca0bba556fd2b65d63e5093e717d080c5d6e4814"
+          },
+          {
+            "name": "targets.csv",
+            "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+          },
+          {
+            "name": "config.json",
+            "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+          },
+          {
+            "name": "barcodes.csv",
+            "value": "63aed886f16b3cec6480e23fc0ae3d13d8b1cebd51ae4dde4f520614a2cf8693"
+          }
+        ],
+        "job_contract": "analysis-job-v1",
+        "job_id": "a1eda6fa2e254ebbb302e75dfe50c8dd",
+        "latest_sequence": 3,
+        "output_proposal": "outputs / audit-job",
+        "plan_identity_sha256": "781442376c365435fb33351b29cb9d041f5f50d983f02a4ce260f69989e268ca",
+        "revision": 1,
+        "scientific_identity_sha256": "8a0ad2918a644ce8d935a47718d0f09f62de3c434ff9a3f99e7f0b3ecb0963f3",
+        "stages": [
+          {
+            "dependencies": [],
+            "kind": "raw_inputs",
+            "label": "raw_inputs",
+            "output_path": "workflow/sources/raw_inputs.json",
+            "reason_codes": [],
+            "stage_id": "raw_inputs",
+            "status": "RUNNING"
+          },
+          {
+            "dependencies": [
+              "raw_inputs"
+            ],
+            "kind": "demux",
+            "label": "demux",
+            "output_path": "demux",
+            "reason_codes": [],
+            "stage_id": "demux",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "demux"
+            ],
+            "kind": "analysis",
+            "label": "analysis",
+            "output_path": "analysis",
+            "reason_codes": [],
+            "stage_id": "analysis",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc001::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc002::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc003::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc004::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1"
+            ],
+            "kind": "metrics_manifest",
+            "label": "metrics_manifest",
+            "output_path": "metrics/manifest.csv",
+            "reason_codes": [],
+            "stage_id": "metrics_manifest",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics_manifest"
+            ],
+            "kind": "statistics",
+            "label": "statistics",
+            "output_path": "statistics",
+            "reason_codes": [],
+            "stage_id": "statistics",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "statistics"
+            ],
+            "kind": "report",
+            "label": "report",
+            "output_path": "report",
+            "reason_codes": [],
+            "stage_id": "report",
+            "status": "PENDING"
+          }
+        ],
+        "started_at": "2026-10-26T17:52:38.044974+00:00",
+        "state": "RUNNING",
+        "target_name": "T1",
+        "total_stages": 14,
+        "warnings": [
+          {
+            "code": "BACKEND_METADATA_WARNING",
+            "detail": null,
+            "field": "targets",
+            "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+            "severity": "WARNING",
+            "step": "target"
+          }
+        ],
+        "workspace_id": null
+      },
+      "request": {
+        "draft_id": "d6ac7237088d4b13b41007b3d971569f",
+        "plan_identity_sha256": "781442376c365435fb33351b29cb9d041f5f50d983f02a4ce260f69989e268ca",
+        "revision": 1,
+        "scientific_identity_sha256": "8a0ad2918a644ce8d935a47718d0f09f62de3c434ff9a3f99e7f0b3ecb0963f3"
+      },
+      "response": {
+        "analysis_mode": "precise_edit",
+        "analysis_name": "Independent pe oracle",
+        "cancellable": true,
+        "current_stage_id": null,
+        "draft_id": "d6ac7237088d4b13b41007b3d971569f",
+        "elapsed_seconds": 0.0,
+        "ended_at": null,
+        "error": null,
+        "execution_spec_sha256": "626d44a51e5f25441550aa946580f418b12cb4e8647b207937cfc357517e0b4b",
+        "finished_stages": 0,
+        "input_metadata": [
+          {
+            "name": "samples.csv",
+            "value": "cc1ab9db61d68dcfd04720c8ca0bba556fd2b65d63e5093e717d080c5d6e4814"
+          },
+          {
+            "name": "targets.csv",
+            "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+          },
+          {
+            "name": "config.json",
+            "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+          },
+          {
+            "name": "barcodes.csv",
+            "value": "63aed886f16b3cec6480e23fc0ae3d13d8b1cebd51ae4dde4f520614a2cf8693"
+          }
+        ],
+        "job_contract": "analysis-job-v1",
+        "job_id": "a1eda6fa2e254ebbb302e75dfe50c8dd",
+        "latest_sequence": 1,
+        "output_proposal": "outputs / audit-job",
+        "plan_identity_sha256": "781442376c365435fb33351b29cb9d041f5f50d983f02a4ce260f69989e268ca",
+        "revision": 1,
+        "scientific_identity_sha256": "8a0ad2918a644ce8d935a47718d0f09f62de3c434ff9a3f99e7f0b3ecb0963f3",
+        "stages": [
+          {
+            "dependencies": [],
+            "kind": "raw_inputs",
+            "label": "raw_inputs",
+            "output_path": "workflow/sources/raw_inputs.json",
+            "reason_codes": [],
+            "stage_id": "raw_inputs",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "raw_inputs"
+            ],
+            "kind": "demux",
+            "label": "demux",
+            "output_path": "demux",
+            "reason_codes": [],
+            "stage_id": "demux",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "demux"
+            ],
+            "kind": "analysis",
+            "label": "analysis",
+            "output_path": "analysis",
+            "reason_codes": [],
+            "stage_id": "analysis",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc001::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc002::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc003::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc004::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1"
+            ],
+            "kind": "metrics_manifest",
+            "label": "metrics_manifest",
+            "output_path": "metrics/manifest.csv",
+            "reason_codes": [],
+            "stage_id": "metrics_manifest",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics_manifest"
+            ],
+            "kind": "statistics",
+            "label": "statistics",
+            "output_path": "statistics",
+            "reason_codes": [],
+            "stage_id": "statistics",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "statistics"
+            ],
+            "kind": "report",
+            "label": "report",
+            "output_path": "report",
+            "reason_codes": [],
+            "stage_id": "report",
+            "status": "PENDING"
+          }
+        ],
+        "started_at": "2026-10-26T17:52:38.044974+00:00",
+        "state": "STARTING",
+        "target_name": "T1",
+        "total_stages": 14,
+        "warnings": [
+          {
+            "code": "BACKEND_METADATA_WARNING",
+            "detail": null,
+            "field": "targets",
+            "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+            "severity": "WARNING",
+            "step": "target"
+          }
+        ],
+        "workspace_id": null
+      },
+      "transport": "FastAPI TestClient inside a killable server process; real JobStore and worker envelope"
+    },
+    "server": {
+      "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+      "comm": "python",
+      "pgid": 477851,
+      "pid": 477851,
+      "pid_namespace": "pid:[4026532200]",
+      "ppid": 477759,
+      "sid": 477851,
+      "start_ticks": 27341320,
+      "state": "S",
+      "uid": 1000
+    },
+    "tree": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477913,
+        "pid": 477913,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477851,
+        "sid": 477913,
+        "start_ticks": 27341497,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477968,
+        "pid": 477968,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477913,
+        "sid": 477968,
+        "start_ticks": 27341571,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477968,
+        "pid": 477969,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477968,
+        "sid": 477968,
+        "start_ticks": 27341575,
+        "state": "R",
+        "uid": 1000
+      }
+    ]
+  },
+  "after_server_sigkill": [
+    {
+      "current": {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477842,
+        "pid": 477842,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477759,
+        "sid": 477842,
+        "start_ticks": 27341207,
+        "state": "S",
+        "uid": 1000
+      },
+      "expected": {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477842,
+        "pid": 477842,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477762,
+        "sid": 477842,
+        "start_ticks": 27341207,
+        "state": "R",
+        "uid": 1000
+      },
+      "gone": false,
+      "live": true,
+      "same_birth": true,
+      "zombie": false
+    },
+    {
+      "current": {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477849,
+        "pid": 477849,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477842,
+        "sid": 477849,
+        "start_ticks": 27341309,
+        "state": "S",
+        "uid": 1000
+      },
+      "expected": {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477849,
+        "pid": 477849,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477842,
+        "sid": 477849,
+        "start_ticks": 27341309,
+        "state": "R",
+        "uid": 1000
+      },
+      "gone": false,
+      "live": true,
+      "same_birth": true,
+      "zombie": false
+    },
+    {
+      "current": {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477849,
+        "pid": 477850,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477849,
+        "sid": 477849,
+        "start_ticks": 27341313,
+        "state": "S",
+        "uid": 1000
+      },
+      "expected": {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477849,
+        "pid": 477850,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477849,
+        "sid": 477849,
+        "start_ticks": 27341313,
+        "state": "R",
+        "uid": 1000
+      },
+      "gone": false,
+      "live": true,
+      "same_birth": true,
+      "zombie": false
+    }
+  ],
+  "all_known_fixture_births_reaped": true,
+  "baseline_two_live_workers_reproduced": true,
+  "before-restart": {
+    "accepted": {
+      "job": {
+        "analysis_mode": "precise_edit",
+        "analysis_name": "Independent pe oracle",
+        "cancellable": true,
+        "current_stage_id": "raw_inputs",
+        "draft_id": "953d9fb2fc6a4f248616f6a722959715",
+        "elapsed_seconds": 1.1,
+        "ended_at": null,
+        "error": null,
+        "execution_spec_sha256": "0c1e5e912d22c84331bcb85694f87a0106a3b2cdd0fdb42157f333fdcc6bcb78",
+        "finished_stages": 0,
+        "input_metadata": [
+          {
+            "name": "samples.csv",
+            "value": "cc1ab9db61d68dcfd04720c8ca0bba556fd2b65d63e5093e717d080c5d6e4814"
+          },
+          {
+            "name": "targets.csv",
+            "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+          },
+          {
+            "name": "config.json",
+            "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+          },
+          {
+            "name": "barcodes.csv",
+            "value": "63aed886f16b3cec6480e23fc0ae3d13d8b1cebd51ae4dde4f520614a2cf8693"
+          }
+        ],
+        "job_contract": "analysis-job-v1",
+        "job_id": "1afc5929044649eb8600b54afd64e1e2",
+        "latest_sequence": 3,
+        "output_proposal": "outputs / audit-job",
+        "plan_identity_sha256": "3c40ae6bf0cfeaacd5bee323efa82d4a40a894888728425b803c14f9c077b481",
+        "revision": 1,
+        "scientific_identity_sha256": "8a0ad2918a644ce8d935a47718d0f09f62de3c434ff9a3f99e7f0b3ecb0963f3",
+        "stages": [
+          {
+            "dependencies": [],
+            "kind": "raw_inputs",
+            "label": "raw_inputs",
+            "output_path": "workflow/sources/raw_inputs.json",
+            "reason_codes": [],
+            "stage_id": "raw_inputs",
+            "status": "RUNNING"
+          },
+          {
+            "dependencies": [
+              "raw_inputs"
+            ],
+            "kind": "demux",
+            "label": "demux",
+            "output_path": "demux",
+            "reason_codes": [],
+            "stage_id": "demux",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "demux"
+            ],
+            "kind": "analysis",
+            "label": "analysis",
+            "output_path": "analysis",
+            "reason_codes": [],
+            "stage_id": "analysis",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc001::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc002::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc003::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc004::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1"
+            ],
+            "kind": "metrics_manifest",
+            "label": "metrics_manifest",
+            "output_path": "metrics/manifest.csv",
+            "reason_codes": [],
+            "stage_id": "metrics_manifest",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics_manifest"
+            ],
+            "kind": "statistics",
+            "label": "statistics",
+            "output_path": "statistics",
+            "reason_codes": [],
+            "stage_id": "statistics",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "statistics"
+            ],
+            "kind": "report",
+            "label": "report",
+            "output_path": "report",
+            "reason_codes": [],
+            "stage_id": "report",
+            "status": "PENDING"
+          }
+        ],
+        "started_at": "2026-10-26T17:52:35.146177+00:00",
+        "state": "RUNNING",
+        "target_name": "T1",
+        "total_stages": 14,
+        "warnings": [
+          {
+            "code": "BACKEND_METADATA_WARNING",
+            "detail": null,
+            "field": "targets",
+            "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+            "severity": "WARNING",
+            "step": "target"
+          }
+        ],
+        "workspace_id": null
+      },
+      "request": {
+        "draft_id": "953d9fb2fc6a4f248616f6a722959715",
+        "plan_identity_sha256": "3c40ae6bf0cfeaacd5bee323efa82d4a40a894888728425b803c14f9c077b481",
+        "revision": 1,
+        "scientific_identity_sha256": "8a0ad2918a644ce8d935a47718d0f09f62de3c434ff9a3f99e7f0b3ecb0963f3"
+      },
+      "response": {
+        "analysis_mode": "precise_edit",
+        "analysis_name": "Independent pe oracle",
+        "cancellable": true,
+        "current_stage_id": null,
+        "draft_id": "953d9fb2fc6a4f248616f6a722959715",
+        "elapsed_seconds": 0.0,
+        "ended_at": null,
+        "error": null,
+        "execution_spec_sha256": "0c1e5e912d22c84331bcb85694f87a0106a3b2cdd0fdb42157f333fdcc6bcb78",
+        "finished_stages": 0,
+        "input_metadata": [
+          {
+            "name": "samples.csv",
+            "value": "cc1ab9db61d68dcfd04720c8ca0bba556fd2b65d63e5093e717d080c5d6e4814"
+          },
+          {
+            "name": "targets.csv",
+            "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+          },
+          {
+            "name": "config.json",
+            "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+          },
+          {
+            "name": "barcodes.csv",
+            "value": "63aed886f16b3cec6480e23fc0ae3d13d8b1cebd51ae4dde4f520614a2cf8693"
+          }
+        ],
+        "job_contract": "analysis-job-v1",
+        "job_id": "1afc5929044649eb8600b54afd64e1e2",
+        "latest_sequence": 1,
+        "output_proposal": "outputs / audit-job",
+        "plan_identity_sha256": "3c40ae6bf0cfeaacd5bee323efa82d4a40a894888728425b803c14f9c077b481",
+        "revision": 1,
+        "scientific_identity_sha256": "8a0ad2918a644ce8d935a47718d0f09f62de3c434ff9a3f99e7f0b3ecb0963f3",
+        "stages": [
+          {
+            "dependencies": [],
+            "kind": "raw_inputs",
+            "label": "raw_inputs",
+            "output_path": "workflow/sources/raw_inputs.json",
+            "reason_codes": [],
+            "stage_id": "raw_inputs",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "raw_inputs"
+            ],
+            "kind": "demux",
+            "label": "demux",
+            "output_path": "demux",
+            "reason_codes": [],
+            "stage_id": "demux",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "demux"
+            ],
+            "kind": "analysis",
+            "label": "analysis",
+            "output_path": "analysis",
+            "reason_codes": [],
+            "stage_id": "analysis",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis"
+            ],
+            "kind": "routing",
+            "label": "routing",
+            "output_path": "routing/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "routing::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc001::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc001/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc001::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc002::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc002/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc002::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc003::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc003/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc003::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "analysis",
+              "routing::bc004::T1"
+            ],
+            "kind": "metrics",
+            "label": "metrics",
+            "output_path": "metrics/bc004/T1",
+            "reason_codes": [],
+            "stage_id": "metrics::bc004::T1",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics::bc001::T1",
+              "metrics::bc002::T1",
+              "metrics::bc003::T1",
+              "metrics::bc004::T1"
+            ],
+            "kind": "metrics_manifest",
+            "label": "metrics_manifest",
+            "output_path": "metrics/manifest.csv",
+            "reason_codes": [],
+            "stage_id": "metrics_manifest",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "metrics_manifest"
+            ],
+            "kind": "statistics",
+            "label": "statistics",
+            "output_path": "statistics",
+            "reason_codes": [],
+            "stage_id": "statistics",
+            "status": "PENDING"
+          },
+          {
+            "dependencies": [
+              "statistics"
+            ],
+            "kind": "report",
+            "label": "report",
+            "output_path": "report",
+            "reason_codes": [],
+            "stage_id": "report",
+            "status": "PENDING"
+          }
+        ],
+        "started_at": "2026-10-26T17:52:35.146177+00:00",
+        "state": "STARTING",
+        "target_name": "T1",
+        "total_stages": 14,
+        "warnings": [
+          {
+            "code": "BACKEND_METADATA_WARNING",
+            "detail": null,
+            "field": "targets",
+            "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+            "severity": "WARNING",
+            "step": "target"
+          }
+        ],
+        "workspace_id": null
+      },
+      "transport": "FastAPI TestClient inside a killable server process; real JobStore and worker envelope"
+    },
+    "server": {
+      "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+      "comm": "python",
+      "pgid": 477762,
+      "pid": 477762,
+      "pid_namespace": "pid:[4026532200]",
+      "ppid": 477759,
+      "sid": 477762,
+      "start_ticks": 27340999,
+      "state": "S",
+      "uid": 1000
+    },
+    "tree": [
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477842,
+        "pid": 477842,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477762,
+        "sid": 477842,
+        "start_ticks": 27341207,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477849,
+        "pid": 477849,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477842,
+        "sid": 477849,
+        "start_ticks": 27341309,
+        "state": "R",
+        "uid": 1000
+      },
+      {
+        "boot_id": "b36b7a6d-eb1c-4584-985b-4501b77c9045",
+        "comm": "python",
+        "pgid": 477849,
+        "pid": 477850,
+        "pid_namespace": "pid:[4026532200]",
+        "ppid": 477849,
+        "sid": 477849,
+        "start_ticks": 27341313,
+        "state": "R",
+        "uid": 1000
+      }
+    ]
+  },
+  "expected_M11C": "Restart remains BUSY while any prior owned scientific worker or descendant is live",
+  "limitation": "TestClient transport; fixed synthetic worker tree replaces scientific run; auditor subreaper adopts orphans, not PID 1; no candidate tested",
+  "unrelated_canary_survives": true
+}

@@ -1,0 +1,29 @@
+# Fresh versus recovery scientific parity
+
+## Frozen synthetic inputs
+
+`fixtures/pe` and `fixtures/nuclease` inherit raw reads, samples, targets, configuration, direct arguments, draft template and truth byte-for-byte from prior independent prep at `5b89009d460eab76b08574664e5c7340684c808a`. Inherited hashes are independently checked in `evidence/fixture-provenance.json`. This package adds one explicit A-vs-B biological-sample contrast per mode for backend stats parity; the M11A draft templates remain descriptive-only.
+
+PE has 96 raw paired molecules, four samples with 24 each, two distinguishable copies, exact PE/native numerators `[4,8,16,20]` and denominator 24. Nuclease has 80 pairs, four samples with 20 each and deletion-origin/indel numerators `[2,4,14,16]`, denominator 20, TIGR W2 coordinates `104-113` and the complete 58-field qualified settings. These are synthetic qualification controls, not ALSW real-data requalification.
+
+## Arms and interruption
+
+A: uninterrupted raw-to-completed execution. B1: controlled exception before the first metrics dispatch after routing commits, then canonical resume. B2: SIGTERM at that same boundary under canonical sigterm cleanup, then resume after exit/lock cleanup. C: routing force on a completed recovered root. D: completed resume executes zero stages and retains completion-marker bytes. Failed/cancelled setup is test-only and does not add production hooks. Mid-Core hard-kill, orphan containment and orphan-output rejection are separate process/recovery cases; this parity control does not claim to exercise them.
+
+`baseline_science.py` refuses imports outside the exact baseline checkout. All Core calls use the qualified 2.3.4 runtime digest recorded in evidence. Keep the checkout clean and unchanged during execution because git identity is part of reuse validation. Preserve permanent original sources for every arm. Backend commands use explicit fresh output roots; never reuse results from another candidate. `validate_science.py` strengthens the comparison with frozen numerical truth, full retained scientific provenance, Core scientific tables and actual child 58-setting checks, followed by another independent routing-force dispatch/reuse check.
+
+## Equality and explicit exclusions
+
+`scripts/science_oracle.py` imports no pipeline helper. It reads typed scientific JSON structure as strict JSON, compares every metric field including exact/native/copy counts, denominators, fractions, statuses, eligibility, products, reasons and nuclease allele/class tables. It retains scientific provenance: target hashes, routing policy, prepared sample populations, version/runtime digest and full nuclease scientific identity. It rejects unknown top-level provenance keys pending explicit review. Nuclease execution scientific identity must equal result identity, and every one of 58 settings must match actual child `CRISPResso2_info.json` resolved arguments.
+
+It compares complete plan samples/targets/options/input SHA+size; original and snapshot hashes; decompressed analysis/routing FASTQ payloads; routing ledger/gate bytes; all stage statuses/reasons; all metric values; Core mapping/quantification tables and uncompressed allele ZIP member bytes; statistics observations/groups/contrasts; and SVG bytes. SVG/HTML parse/inventory and canonical final verification are also required by the execution harness and future adapter. A new schema/unknown difference fails for review, never silently drops fields.
+
+Permitted differences are narrowly scoped: software/execution provenance (record actual identity separately), root-bound prepared/routing manifest hashes and artifact inventories after every referenced hash is verified against the actual corresponding local file, population_id and source_result_sha256 after lineage verification, top-level statistics source-path provenance, embedded nuclease execution provenance after exact equality with the local metric result, gzip/ZIP container headers while uncompressed records/members are compared. Scientific identity is retained when execution provenance is excluded. These are semantic projections, not a byte-identical whole-workspace claim. Unexpected formatting/numeric/allele/settings differences must not be normalized away.
+
+Statistics must reference actual local M4 result hashes; metrics manifest and sample metadata hashes must match local sources. Embedded nuclease results must equal the exact local result objects before projection. Report source/result must be byte-identical to its own statistics result and report source hash must match. Within-root canonical verifier checks stage/dependency/software/artifact lineage before and after recovery. Do not compare unrelated hash schemas for equality or demand identical path-bound provenance across roots.
+
+For candidate schemas, compare raw JSON first and preserve a leaf-difference record. Any additional waiver must name exact pointer, left/right value hashes, reason and independent evidence. Do not broaden this projector to make a regression disappear. Scientific gates are never waived: null/unassessable/blocked observations remain absent or explicitly excluded, not zero-valued fabricated measurements.
+
+## Execution evidence interpretation
+
+`evidence/baseline-science.json` records baseline fresh, B1/B2, force and completed-resume results plus PF negative controls in both modes. `evidence/strengthened-science.json` records stronger child/provenance/truth comparisons and repeated force/zero-stage resume. `*-scientific-projection.json` preserves the science compared, not merely PASS strings. No future candidate is tested. Initial comparator development exposed embedded M5 execution-provenance differences; they were traced to actual source copies before introducing the explicit exclusion. No numerical threshold, routing or scientific parameter was changed.

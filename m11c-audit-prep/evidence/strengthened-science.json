@@ -1,0 +1,332 @@
+{
+  "nuclease": {
+    "completed_resume": {
+      "executed_stages": [],
+      "metrics_results": 4,
+      "mode": "run",
+      "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled",
+      "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled/report/report.html",
+      "reused_stages": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "statistics_mode": "stats",
+      "workflow_contract_version": "m7-v1",
+      "workflow_manifest_sha256": "6d871596964542120f4912b7283870679e093b939ab0cb473bee71a3eb3bca9b"
+    },
+    "expected_denominator": 20,
+    "expected_numerators": [
+      2,
+      4,
+      14,
+      16
+    ],
+    "force_comparison": {
+      "differing_categories": [],
+      "equal": true,
+      "exclusions": [
+        "metric.provenance software/execution and locally verified artifact/prepared/routing hashes only; scientific provenance retained",
+        "statistics.provenance (source hashes independently verified)",
+        "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+        "population_id",
+        "source_result_sha256",
+        "gzip header timestamps; decompressed payloads compared"
+      ],
+      "left_sha256": "d1c109c7eae3070e3537541d3f3dbb8a7c66e239c1e0eee4fcaaf3cf0bedfffb",
+      "report_source_lineage_valid": true,
+      "right_sha256": "d1c109c7eae3070e3537541d3f3dbb8a7c66e239c1e0eee4fcaaf3cf0bedfffb"
+    },
+    "force_execution": {
+      "executed_stages": [
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "metrics_results": 4,
+      "mode": "run",
+      "output": "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled",
+      "report_path": "/workspace/m11c-audit-runs/science-qualified/nuclease/cancelled/report/report.html",
+      "reused_stages": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ],
+      "statistics_mode": "stats",
+      "workflow_contract_version": "m7-v1",
+      "workflow_manifest_sha256": "6d871596964542120f4912b7283870679e093b939ab0cb473bee71a3eb3bca9b"
+    },
+    "force_oracle": {
+      "closure": [
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "owned_outputs": [
+        "routing/bc001/T1",
+        "routing/bc002/T1",
+        "routing/bc003/T1",
+        "routing/bc004/T1",
+        "metrics/bc001/T1",
+        "metrics/bc002/T1",
+        "metrics/bc003/T1",
+        "metrics/bc004/T1",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/613c844792ee5d9a288f72a25b796b14912dc592e0d5ae0e485007f508a53822.json",
+        "workflow/stages/66bbede11d823804aba9ccc450a417b5dae67140e8979ce591560e5acd75cea4.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/a5abdbf01ba0de73ab046a0b8e8a78e5b9a12e000b1ca783923d9185396c93bc.json",
+        "workflow/stages/469116079d0394b77f469e3e723ff9bfccdd65b896b72cd092025171f157c1ce.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ],
+      "requested": [
+        "routing"
+      ],
+      "rerun": [
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ]
+    },
+    "fresh_verifier": "COMPLETED",
+    "full_projection_comparison": {
+      "differing_categories": [],
+      "equal": true,
+      "exclusions": [
+        "metric.provenance software/execution and locally verified artifact/prepared/routing hashes only; scientific provenance retained",
+        "statistics.provenance (source hashes independently verified)",
+        "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+        "population_id",
+        "source_result_sha256",
+        "gzip header timestamps; decompressed payloads compared"
+      ],
+      "left_sha256": "d1c109c7eae3070e3537541d3f3dbb8a7c66e239c1e0eee4fcaaf3cf0bedfffb",
+      "report_source_lineage_valid": true,
+      "right_sha256": "d1c109c7eae3070e3537541d3f3dbb8a7c66e239c1e0eee4fcaaf3cf0bedfffb"
+    },
+    "read_only_authoritative_verifier_guard": "PASS",
+    "recovery_verifier": "COMPLETED"
+  },
+  "pe": {
+    "completed_resume": {
+      "executed_stages": [],
+      "metrics_results": 4,
+      "mode": "run",
+      "output": "/workspace/m11c-audit-runs/science-qualified/pe/cancelled",
+      "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/cancelled/report/report.html",
+      "reused_stages": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "statistics_mode": "stats",
+      "workflow_contract_version": "m7-v1",
+      "workflow_manifest_sha256": "029f2cd47702471974ab9557f24612eefe1ca293f9c80c0dfe38fb52cb269789"
+    },
+    "expected_denominator": 24,
+    "expected_numerators": [
+      4,
+      8,
+      16,
+      20
+    ],
+    "force_comparison": {
+      "differing_categories": [],
+      "equal": true,
+      "exclusions": [
+        "metric.provenance software/execution and locally verified artifact/prepared/routing hashes only; scientific provenance retained",
+        "statistics.provenance (source hashes independently verified)",
+        "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+        "population_id",
+        "source_result_sha256",
+        "gzip header timestamps; decompressed payloads compared"
+      ],
+      "left_sha256": "a822113ad2771759fff60d2f32dd3a91654072441cbd66b0d143aa038d44566b",
+      "report_source_lineage_valid": true,
+      "right_sha256": "a822113ad2771759fff60d2f32dd3a91654072441cbd66b0d143aa038d44566b"
+    },
+    "force_execution": {
+      "executed_stages": [
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "metrics_results": 4,
+      "mode": "run",
+      "output": "/workspace/m11c-audit-runs/science-qualified/pe/cancelled",
+      "report_path": "/workspace/m11c-audit-runs/science-qualified/pe/cancelled/report/report.html",
+      "reused_stages": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ],
+      "statistics_mode": "stats",
+      "workflow_contract_version": "m7-v1",
+      "workflow_manifest_sha256": "029f2cd47702471974ab9557f24612eefe1ca293f9c80c0dfe38fb52cb269789"
+    },
+    "force_oracle": {
+      "closure": [
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "completion_marker": [
+        "workflow_manifest.json"
+      ],
+      "owned_outputs": [
+        "routing/bc001/T1",
+        "routing/bc002/T1",
+        "routing/bc003/T1",
+        "routing/bc004/T1",
+        "metrics/bc001/T1",
+        "metrics/bc002/T1",
+        "metrics/bc003/T1",
+        "metrics/bc004/T1",
+        "metrics/manifest.csv",
+        "statistics",
+        "report"
+      ],
+      "owned_stage_manifests": [
+        "workflow/stages/c32ca3e44615f7dc59e957b62572d7021ac1896ecd9c8f9beb8b2df99edb71d1.json",
+        "workflow/stages/7bc3a981fd1305486131a182abde955f9e36d6bbc1127c3d14fd2caad439e49b.json",
+        "workflow/stages/613c844792ee5d9a288f72a25b796b14912dc592e0d5ae0e485007f508a53822.json",
+        "workflow/stages/66bbede11d823804aba9ccc450a417b5dae67140e8979ce591560e5acd75cea4.json",
+        "workflow/stages/9bb3b8b1cd5e0dd46c8ffeeea7f6be6c8e9eb6352a1a90bdb2ce90b527cbd2c3.json",
+        "workflow/stages/64b1cc732ffb8b73b857d21397d4fd10f458a0c6fa402457fcb5c12c811d53fe.json",
+        "workflow/stages/a5abdbf01ba0de73ab046a0b8e8a78e5b9a12e000b1ca783923d9185396c93bc.json",
+        "workflow/stages/469116079d0394b77f469e3e723ff9bfccdd65b896b72cd092025171f157c1ce.json",
+        "workflow/stages/838682e7b1e4e1933eabfb8e31f811b38226712addd75f5534969564cb344187.json",
+        "workflow/stages/4940126b7794c7a1af285decaf7bc23c1014e3af37611a9d66bdb3a84dfd5c9f.json",
+        "workflow/stages/8d0ccb734a265b631becd953b550e449e730498de4ee931d4ada5a3ce3783ae1.json"
+      ],
+      "proven_reused": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ],
+      "requested": [
+        "routing"
+      ],
+      "rerun": [
+        "routing::bc001::T1",
+        "routing::bc002::T1",
+        "routing::bc003::T1",
+        "routing::bc004::T1",
+        "metrics::bc001::T1",
+        "metrics::bc002::T1",
+        "metrics::bc003::T1",
+        "metrics::bc004::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "reuse_candidates": [
+        "raw_inputs",
+        "demux",
+        "analysis"
+      ]
+    },
+    "fresh_verifier": "COMPLETED",
+    "full_projection_comparison": {
+      "differing_categories": [],
+      "equal": true,
+      "exclusions": [
+        "metric.provenance software/execution and locally verified artifact/prepared/routing hashes only; scientific provenance retained",
+        "statistics.provenance (source hashes independently verified)",
+        "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+        "population_id",
+        "source_result_sha256",
+        "gzip header timestamps; decompressed payloads compared"
+      ],
+      "left_sha256": "a822113ad2771759fff60d2f32dd3a91654072441cbd66b0d143aa038d44566b",
+      "report_source_lineage_valid": true,
+      "right_sha256": "a822113ad2771759fff60d2f32dd3a91654072441cbd66b0d143aa038d44566b"
+    },
+    "read_only_authoritative_verifier_guard": "PASS",
+    "recovery_verifier": "COMPLETED"
+  }
+}
