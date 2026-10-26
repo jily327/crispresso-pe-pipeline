@@ -1,0 +1,2268 @@
+{
+  "parent": "41a5ff9e9e290cebcfdb515b9158ff76f43a3780",
+  "method": "Unmodified audited parent collect_metrics on deterministic test_m422.fixture populations, before applying production changes. Raw product QC is retained.",
+  "cases": {
+    "fixed": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "7e27129d0fd26e7a139ee6aaab77618c12f0d84b1464233d9fb2de9aeccceaad",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 20,
+          "exact_pe": 20,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 0,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 0
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "7e27129d0fd26e7a139ee6aaab77618c12f0d84b1464233d9fb2de9aeccceaad",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 20,
+          "denominator": 40,
+          "wt_family": 20,
+          "pe_family": 20,
+          "family_ambiguous": 0,
+          "excluded": 0,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "7e27129d0fd26e7a139ee6aaab77618c12f0d84b1464233d9fb2de9aeccceaad",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 20,
+          "denominator": 40,
+          "wt_family": 20,
+          "pe_family": 20,
+          "family_ambiguous": 0,
+          "excluded": 0,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "safe_mixed": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "583f7736a279a91d767d2db8c287fd74cf49748d44ab62bf7d176749d84f81af",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 20,
+        "denominator": 40,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 20,
+          "exact_pe": 20,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 0,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 0
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "583f7736a279a91d767d2db8c287fd74cf49748d44ab62bf7d176749d84f81af",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 20,
+          "denominator": 40,
+          "wt_family": 20,
+          "pe_family": 20,
+          "family_ambiguous": 0,
+          "excluded": 0,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "583f7736a279a91d767d2db8c287fd74cf49748d44ab62bf7d176749d84f81af",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 20,
+          "denominator": 40,
+          "wt_family": 20,
+          "pe_family": 20,
+          "family_ambiguous": 0,
+          "excluded": 0,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "symmetric_unobservable": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "6ae2cfeb4c2d20a08abcde5d31726f0ff7ab92a76c29b8dee2b3aa567c59d16c",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "reason_codes": [
+          "ZERO_EXACT_DENOMINATOR"
+        ],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 0,
+          "exact_pe": 0,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 40,
+          "contradictory_state": 0,
+          "denominator_exclusions": 40,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "INSUFFICIENT_EXACT_PAIR_OVERLAP": 40
+          }
+        },
+        "population_denominator_exclusions": 40
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "6ae2cfeb4c2d20a08abcde5d31726f0ff7ab92a76c29b8dee2b3aa567c59d16c",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "NOT_ASSESSABLE",
+          "numerator": null,
+          "denominator": null,
+          "wt_family": 0,
+          "pe_family": 0,
+          "family_ambiguous": 0,
+          "excluded": 40,
+          "classification_input_reads": 40,
+          "reason_codes": [
+            "ZERO_FAMILY_DENOMINATOR"
+          ]
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "6ae2cfeb4c2d20a08abcde5d31726f0ff7ab92a76c29b8dee2b3aa567c59d16c",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "NOT_ASSESSABLE",
+          "numerator": null,
+          "denominator": null,
+          "wt_family": 0,
+          "pe_family": 0,
+          "family_ambiguous": 0,
+          "excluded": 40,
+          "classification_input_reads": 40,
+          "reason_codes": [
+            "ZERO_FAMILY_DENOMINATOR"
+          ]
+        }
+      }
+    },
+    "ordinary_snp": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "d655e1fa8999aa5700cfd88baab1114aa942103a73392aa6332d6927b62a797f",
+        "population_input_reads": 22,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 10,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 10,
+          "exact_pe": 10,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 2,
+          "contradictory_state": 0,
+          "denominator_exclusions": 2,
+          "classification_input_reads": 22,
+          "exclusion_reason_counts": {}
+        },
+        "population_denominator_exclusions": 2
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "d655e1fa8999aa5700cfd88baab1114aa942103a73392aa6332d6927b62a797f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 20,
+          "wt_family": 10,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 2,
+          "classification_input_reads": 22,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "d655e1fa8999aa5700cfd88baab1114aa942103a73392aa6332d6927b62a797f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 11,
+          "denominator": 22,
+          "wt_family": 11,
+          "pe_family": 11,
+          "family_ambiguous": 0,
+          "excluded": 0,
+          "classification_input_reads": 22,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_1_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "c8ab7a5f52950f3148dfdedfdaae13140ab5508f568607ce31d9175eb6cbd9c9",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 18,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 2,
+          "exact_pe": 18,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "c8ab7a5f52950f3148dfdedfdaae13140ab5508f568607ce31d9175eb6cbd9c9",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "c8ab7a5f52950f3148dfdedfdaae13140ab5508f568607ce31d9175eb6cbd9c9",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_2_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "317bb7c388b07d5d1225663b70c561b380608a56cc577815cbd02507f814c9cc",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 18,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 2,
+          "exact_pe": 18,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "317bb7c388b07d5d1225663b70c561b380608a56cc577815cbd02507f814c9cc",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "317bb7c388b07d5d1225663b70c561b380608a56cc577815cbd02507f814c9cc",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_3_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "640cd54556ae9e76e3acdf80a613dd1c3031484a9dca9af64253e295ea34309c",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 18,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 2,
+          "exact_pe": 18,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "640cd54556ae9e76e3acdf80a613dd1c3031484a9dca9af64253e295ea34309c",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "640cd54556ae9e76e3acdf80a613dd1c3031484a9dca9af64253e295ea34309c",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_4_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "20d0d2b9675f5d39e6fd8a419fbd1f46e437048ead0c33e23b118d684901603f",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 18,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 2,
+          "exact_pe": 18,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "20d0d2b9675f5d39e6fd8a419fbd1f46e437048ead0c33e23b118d684901603f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "20d0d2b9675f5d39e6fd8a419fbd1f46e437048ead0c33e23b118d684901603f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_5_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "8b86f618d4641ffebd8a2d3fdc7918179edf4b77d47d69b13b7dc268b66e0de3",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 18,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 2,
+          "exact_pe": 18,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "8b86f618d4641ffebd8a2d3fdc7918179edf4b77d47d69b13b7dc268b66e0de3",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "8b86f618d4641ffebd8a2d3fdc7918179edf4b77d47d69b13b7dc268b66e0de3",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_6_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "a961f2ac0e3be536d74fb62d85235e98c86611da1ea2d29dba46bf7fbc014365",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 18,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 2,
+          "exact_pe": 18,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "a961f2ac0e3be536d74fb62d85235e98c86611da1ea2d29dba46bf7fbc014365",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "a961f2ac0e3be536d74fb62d85235e98c86611da1ea2d29dba46bf7fbc014365",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 18,
+          "denominator": 20,
+          "wt_family": 2,
+          "pe_family": 18,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_1_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "4ce0d70da57637a44e6a9f959896745790fb4c2811229fec68ecb4eddb038b2f",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 2,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 18,
+          "exact_pe": 2,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "4ce0d70da57637a44e6a9f959896745790fb4c2811229fec68ecb4eddb038b2f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "4ce0d70da57637a44e6a9f959896745790fb4c2811229fec68ecb4eddb038b2f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_2_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "2018b593827914d4dbf1d5460932c1a6a599c2e0577568f3c531f2569b883f8b",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 2,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 18,
+          "exact_pe": 2,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "2018b593827914d4dbf1d5460932c1a6a599c2e0577568f3c531f2569b883f8b",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "2018b593827914d4dbf1d5460932c1a6a599c2e0577568f3c531f2569b883f8b",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_3_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "9ef64c021e3e7fb873d84f4b336f1f438323d759501da65efdf61a3e826d27cb",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 2,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 18,
+          "exact_pe": 2,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "9ef64c021e3e7fb873d84f4b336f1f438323d759501da65efdf61a3e826d27cb",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "9ef64c021e3e7fb873d84f4b336f1f438323d759501da65efdf61a3e826d27cb",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_4_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "0a28942ba10590830067780816cf827801b49f8de61f78ade718c1a0e41804c5",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 2,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 18,
+          "exact_pe": 2,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "0a28942ba10590830067780816cf827801b49f8de61f78ade718c1a0e41804c5",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "0a28942ba10590830067780816cf827801b49f8de61f78ade718c1a0e41804c5",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_5_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "d59622c550e249ae442782614faf95a085cab344ff7875d31bca8447e46d1eeb",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 2,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 18,
+          "exact_pe": 2,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "d59622c550e249ae442782614faf95a085cab344ff7875d31bca8447e46d1eeb",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "d59622c550e249ae442782614faf95a085cab344ff7875d31bca8447e46d1eeb",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_6_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "1f13523bd186c6b65c3bde9e9596f76d2bb86f559db354da6af68b5ea000f2ac",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 2,
+        "denominator": 20,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 18,
+          "exact_pe": 2,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 20,
+          "contradictory_state": 0,
+          "denominator_exclusions": 20,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 20
+          }
+        },
+        "population_denominator_exclusions": 20
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "1f13523bd186c6b65c3bde9e9596f76d2bb86f559db354da6af68b5ea000f2ac",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "1f13523bd186c6b65c3bde9e9596f76d2bb86f559db354da6af68b5ea000f2ac",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 20,
+          "wt_family": 18,
+          "pe_family": 2,
+          "family_ambiguous": 0,
+          "excluded": 20,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy1_3_half": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "034dbe2f36f43687d8c11348413866b920f90755798b7382f18a7333da7a5f99",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 19,
+        "denominator": 30,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 11,
+          "exact_pe": 19,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 10,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 10
+          }
+        },
+        "population_denominator_exclusions": 10
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "034dbe2f36f43687d8c11348413866b920f90755798b7382f18a7333da7a5f99",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 19,
+          "denominator": 30,
+          "wt_family": 11,
+          "pe_family": 19,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "034dbe2f36f43687d8c11348413866b920f90755798b7382f18a7333da7a5f99",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 19,
+          "denominator": 30,
+          "wt_family": 11,
+          "pe_family": 19,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "copy2_3_half": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "cc4f28a59b7058c89419bccecef590f66a5277aea2b4564da9304084435eab6f",
+        "population_input_reads": 40,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 11,
+        "denominator": 30,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 19,
+          "exact_pe": 11,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 10,
+          "classification_input_reads": 40,
+          "exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 10
+          }
+        },
+        "population_denominator_exclusions": 10
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "cc4f28a59b7058c89419bccecef590f66a5277aea2b4564da9304084435eab6f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 11,
+          "denominator": 30,
+          "wt_family": 19,
+          "pe_family": 11,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "cc4f28a59b7058c89419bccecef590f66a5277aea2b4564da9304084435eab6f",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 11,
+          "denominator": 30,
+          "wt_family": 19,
+          "pe_family": 11,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 40,
+          "reason_codes": []
+        }
+      }
+    },
+    "deletion_WT_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "79510d081f0aa8784bd4692a433aead72e73f70e65ce4ec49b1a99856403b02a",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 10,
+        "denominator": 10,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 0,
+          "exact_pe": 10,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 10,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 10
+          }
+        },
+        "population_denominator_exclusions": 10
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "79510d081f0aa8784bd4692a433aead72e73f70e65ce4ec49b1a99856403b02a",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 10,
+          "wt_family": 0,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "79510d081f0aa8784bd4692a433aead72e73f70e65ce4ec49b1a99856403b02a",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 10,
+          "wt_family": 0,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "deletion_WT_half": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "312ba2a65afa4fd463837c3417b3799b172687271d07df7b33ac848d30a84277",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 10,
+        "denominator": 15,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 5,
+          "exact_pe": 10,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 5,
+          "contradictory_state": 0,
+          "denominator_exclusions": 5,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 5
+          }
+        },
+        "population_denominator_exclusions": 5
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "312ba2a65afa4fd463837c3417b3799b172687271d07df7b33ac848d30a84277",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 15,
+          "wt_family": 5,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "312ba2a65afa4fd463837c3417b3799b172687271d07df7b33ac848d30a84277",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 15,
+          "wt_family": 5,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "deletion_PE_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "f8055c5739e1fd5d2c04cb89483410a43714d4770d71ba920d4edcb49f16c929",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 0,
+        "denominator": 10,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 10,
+          "exact_pe": 0,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 10,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 10
+          }
+        },
+        "population_denominator_exclusions": 10
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "f8055c5739e1fd5d2c04cb89483410a43714d4770d71ba920d4edcb49f16c929",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 0,
+          "denominator": 10,
+          "wt_family": 10,
+          "pe_family": 0,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "f8055c5739e1fd5d2c04cb89483410a43714d4770d71ba920d4edcb49f16c929",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 0,
+          "denominator": 10,
+          "wt_family": 10,
+          "pe_family": 0,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "deletion_PE_half": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "b7e7d2fca00469a81e29d6e91357706ff20c75bd0abbaf4217648664491e01ad",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 5,
+        "denominator": 15,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 10,
+          "exact_pe": 5,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 5,
+          "contradictory_state": 0,
+          "denominator_exclusions": 5,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 5
+          }
+        },
+        "population_denominator_exclusions": 5
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "b7e7d2fca00469a81e29d6e91357706ff20c75bd0abbaf4217648664491e01ad",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 5,
+          "denominator": 15,
+          "wt_family": 10,
+          "pe_family": 5,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "b7e7d2fca00469a81e29d6e91357706ff20c75bd0abbaf4217648664491e01ad",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 5,
+          "denominator": 15,
+          "wt_family": 10,
+          "pe_family": 5,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "insertion_WT_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "0424d2d648a8f10255d571ac41b8dd4c871c71fbed8d5c29e957abd68d2b6ee8",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 10,
+        "denominator": 10,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 0,
+          "exact_pe": 10,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 10,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 10
+          }
+        },
+        "population_denominator_exclusions": 10
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "0424d2d648a8f10255d571ac41b8dd4c871c71fbed8d5c29e957abd68d2b6ee8",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 10,
+          "wt_family": 0,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "0424d2d648a8f10255d571ac41b8dd4c871c71fbed8d5c29e957abd68d2b6ee8",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 10,
+          "wt_family": 0,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "insertion_WT_half": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "d93458acca80adb78e81da0c1926336378ac37a8350506bacab5fadda5818628",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 10,
+        "denominator": 15,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 5,
+          "exact_pe": 10,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 5,
+          "contradictory_state": 0,
+          "denominator_exclusions": 5,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 5
+          }
+        },
+        "population_denominator_exclusions": 5
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "d93458acca80adb78e81da0c1926336378ac37a8350506bacab5fadda5818628",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 15,
+          "wt_family": 5,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "d93458acca80adb78e81da0c1926336378ac37a8350506bacab5fadda5818628",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 10,
+          "denominator": 15,
+          "wt_family": 5,
+          "pe_family": 10,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "insertion_PE_all": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "2bceca7f6d83f04584de842919f2bb824f1cb25e6234a3eefabd28501713959b",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 0,
+        "denominator": 10,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 10,
+          "exact_pe": 0,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 10,
+          "contradictory_state": 0,
+          "denominator_exclusions": 10,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 10
+          }
+        },
+        "population_denominator_exclusions": 10
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "2bceca7f6d83f04584de842919f2bb824f1cb25e6234a3eefabd28501713959b",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 0,
+          "denominator": 10,
+          "wt_family": 10,
+          "pe_family": 0,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "2bceca7f6d83f04584de842919f2bb824f1cb25e6234a3eefabd28501713959b",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 0,
+          "denominator": 10,
+          "wt_family": 10,
+          "pe_family": 0,
+          "family_ambiguous": 0,
+          "excluded": 10,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    },
+    "insertion_PE_half": {
+      "exact": {
+        "metric_name": "total_precise_pe",
+        "metric_family": "precise",
+        "population_scope": "target_all_prepared",
+        "population_id": "6ca239f1e6591f1266d6c227bef4cf4a13e60218fe1704e3ac3510ff06a150aa",
+        "population_input_reads": 20,
+        "copy_id": null,
+        "routing_conditioned": false,
+        "assessment_stage": "prepared_pairs",
+        "status": "REPORTABLE",
+        "numerator": 5,
+        "denominator": 15,
+        "reason_codes": [],
+        "confident_input_reads": null,
+        "backend_input_reads": null,
+        "reads_after_preprocessing": null,
+        "aligned_reads": null,
+        "unaligned_reads": null,
+        "ordinary_classified_aligned_reads": null,
+        "ambiguous_aligned_reads": null,
+        "discarded_aligned_reads": null,
+        "backend_counts_role": "unavailable",
+        "preprocessing_count_delta": null,
+        "unaligned_reason_counts": {},
+        "products": {
+          "exact_wt": 10,
+          "exact_pe": 5,
+          "pe_plus_extra_change": 0,
+          "other_nonexact_assessable": 0,
+          "unresolved_unassessable": 5,
+          "contradictory_state": 0,
+          "denominator_exclusions": 5,
+          "classification_input_reads": 20,
+          "exclusion_reason_counts": {
+            "STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY": 5
+          }
+        },
+        "population_denominator_exclusions": 5
+      },
+      "family": {
+        "0": {
+          "metric_name": "total_pe_family",
+          "policy_id": "0",
+          "policy": {
+            "policy_id": "0",
+            "max_extra_substitutions": 0,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "6ca239f1e6591f1266d6c227bef4cf4a13e60218fe1704e3ac3510ff06a150aa",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 5,
+          "denominator": 15,
+          "wt_family": 10,
+          "pe_family": 5,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        },
+        "1": {
+          "metric_name": "total_pe_family",
+          "policy_id": "1",
+          "policy": {
+            "policy_id": "1",
+            "max_extra_substitutions": 1,
+            "max_extra_indel_events": 0,
+            "allowed_extra_substitution_positions": null
+          },
+          "population_id": "6ca239f1e6591f1266d6c227bef4cf4a13e60218fe1704e3ac3510ff06a150aa",
+          "population_scope": "target_all_prepared",
+          "copy_id": null,
+          "status": "REPORTABLE",
+          "numerator": 5,
+          "denominator": 15,
+          "wt_family": 10,
+          "pe_family": 5,
+          "family_ambiguous": 0,
+          "excluded": 5,
+          "classification_input_reads": 20,
+          "reason_codes": []
+        }
+      }
+    }
+  }
+}

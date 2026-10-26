@@ -1,0 +1,9 @@
+{
+  "pure_model_allowed": true,
+  "captured_alias_intercepted_before_execution": true,
+  "forbidden_attempts": [
+    "peanalyzer.routing.route_pair"
+  ],
+  "scientific_executions": 0,
+  "scope": "Audit instrumentation self-check; not candidate result"
+}

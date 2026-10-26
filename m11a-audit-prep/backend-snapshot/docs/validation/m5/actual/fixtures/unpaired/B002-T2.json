@@ -1,0 +1,601 @@
+{
+  "analysis_id": "synthetic-barcode-B002-T2",
+  "anchor_evidence": {},
+  "copies": {
+    "copy1": {
+      "copy_id": "copy1",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "aligned_reads": 50,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 50,
+        "confident_input_reads": 50,
+        "copy_id": "copy1",
+        "denominator": 50,
+        "discarded_aligned_reads": 0,
+        "metric_family": "native",
+        "metric_name": "copy1_crispresso_native_pe",
+        "numerator": 45,
+        "ordinary_classified_aligned_reads": 50,
+        "population_denominator_exclusions": 0,
+        "population_id": "23cfe842471aec7c328147fae1610b83a103f5bb03a445c50039515ff4d5f79e",
+        "population_input_reads": 50,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": null,
+        "reads_after_preprocessing": 50,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      },
+      "precise": {
+        "aligned_reads": 50,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 50,
+        "confident_input_reads": 50,
+        "copy_id": "copy1",
+        "denominator": 50,
+        "discarded_aligned_reads": 0,
+        "metric_family": "precise",
+        "metric_name": "copy1_precise_pe",
+        "numerator": 45,
+        "ordinary_classified_aligned_reads": 50,
+        "population_denominator_exclusions": 0,
+        "population_id": "23cfe842471aec7c328147fae1610b83a103f5bb03a445c50039515ff4d5f79e",
+        "population_input_reads": 50,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": {
+          "classification_input_reads": 50,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "exact_pe": 45,
+          "exact_wt": 5,
+          "exclusion_reason_counts": {},
+          "other_nonexact_assessable": 0,
+          "pe_plus_extra_change": 0,
+          "unresolved_unassessable": 0
+        },
+        "reads_after_preprocessing": 50,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      }
+    },
+    "copy2": {
+      "copy_id": "copy2",
+      "copy_metric_status": "REPORTABLE",
+      "native": {
+        "aligned_reads": 50,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 50,
+        "confident_input_reads": 50,
+        "copy_id": "copy2",
+        "denominator": 50,
+        "discarded_aligned_reads": 0,
+        "metric_family": "native",
+        "metric_name": "copy2_crispresso_native_pe",
+        "numerator": 45,
+        "ordinary_classified_aligned_reads": 50,
+        "population_denominator_exclusions": 0,
+        "population_id": "fc0b071e72008edc9260c472669ec52c9524c1af35dfda683bae3877e2f640e4",
+        "population_input_reads": 50,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": null,
+        "reads_after_preprocessing": 50,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      },
+      "precise": {
+        "aligned_reads": 50,
+        "ambiguous_aligned_reads": 0,
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "backend_input_reads": 50,
+        "confident_input_reads": 50,
+        "copy_id": "copy2",
+        "denominator": 50,
+        "discarded_aligned_reads": 0,
+        "metric_family": "precise",
+        "metric_name": "copy2_precise_pe",
+        "numerator": 45,
+        "ordinary_classified_aligned_reads": 50,
+        "population_denominator_exclusions": 0,
+        "population_id": "fc0b071e72008edc9260c472669ec52c9524c1af35dfda683bae3877e2f640e4",
+        "population_input_reads": 50,
+        "population_scope": "confident_copy",
+        "preprocessing_count_delta": 0,
+        "products": {
+          "classification_input_reads": 50,
+          "contradictory_state": 0,
+          "denominator_exclusions": 0,
+          "exact_pe": 45,
+          "exact_wt": 5,
+          "exclusion_reason_counts": {},
+          "other_nonexact_assessable": 0,
+          "pe_plus_extra_change": 0,
+          "unresolved_unassessable": 0
+        },
+        "reads_after_preprocessing": 50,
+        "reason_codes": [],
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "unaligned_reads": 0,
+        "unaligned_reason_counts": {}
+      }
+    }
+  },
+  "derived_metrics": {
+    "copy1": {
+      "policy0": {
+        "classification_input_reads": 50,
+        "copy_id": "copy1",
+        "denominator": 50,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy1_pe_family",
+        "numerator": 45,
+        "pe_family": 45,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 0,
+          "policy_id": "policy0"
+        },
+        "policy_id": "policy0",
+        "population_id": "23cfe842471aec7c328147fae1610b83a103f5bb03a445c50039515ff4d5f79e",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 5
+      },
+      "policy1": {
+        "classification_input_reads": 50,
+        "copy_id": "copy1",
+        "denominator": 50,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy1_pe_family",
+        "numerator": 45,
+        "pe_family": 45,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 1,
+          "policy_id": "policy1"
+        },
+        "policy_id": "policy1",
+        "population_id": "23cfe842471aec7c328147fae1610b83a103f5bb03a445c50039515ff4d5f79e",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 5
+      }
+    },
+    "copy2": {
+      "policy0": {
+        "classification_input_reads": 50,
+        "copy_id": "copy2",
+        "denominator": 50,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy2_pe_family",
+        "numerator": 45,
+        "pe_family": 45,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 0,
+          "policy_id": "policy0"
+        },
+        "policy_id": "policy0",
+        "population_id": "fc0b071e72008edc9260c472669ec52c9524c1af35dfda683bae3877e2f640e4",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 5
+      },
+      "policy1": {
+        "classification_input_reads": 50,
+        "copy_id": "copy2",
+        "denominator": 50,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "copy2_pe_family",
+        "numerator": 45,
+        "pe_family": 45,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 1,
+          "policy_id": "policy1"
+        },
+        "policy_id": "policy1",
+        "population_id": "fc0b071e72008edc9260c472669ec52c9524c1af35dfda683bae3877e2f640e4",
+        "population_scope": "confident_copy",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 5
+      }
+    },
+    "target": {
+      "policy0": {
+        "classification_input_reads": 100,
+        "copy_id": null,
+        "denominator": 100,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "total_pe_family",
+        "numerator": 90,
+        "pe_family": 90,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 0,
+          "policy_id": "policy0"
+        },
+        "policy_id": "policy0",
+        "population_id": "1cb8bc7f9866888e4b0dc4b09595db80068ce4ed441d85283fbef92e435a01d6",
+        "population_scope": "target_all_prepared",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 10
+      },
+      "policy1": {
+        "classification_input_reads": 100,
+        "copy_id": null,
+        "denominator": 100,
+        "excluded": 0,
+        "family_ambiguous": 0,
+        "metric_name": "total_pe_family",
+        "numerator": 90,
+        "pe_family": 90,
+        "policy": {
+          "allowed_extra_substitution_positions": null,
+          "max_extra_indel_events": 0,
+          "max_extra_substitutions": 1,
+          "policy_id": "policy1"
+        },
+        "policy_id": "policy1",
+        "population_id": "1cb8bc7f9866888e4b0dc4b09595db80068ce4ed441d85283fbef92e435a01d6",
+        "population_scope": "target_all_prepared",
+        "reason_codes": [],
+        "status": "REPORTABLE",
+        "wt_family": 10
+      }
+    }
+  },
+  "eligibility": {
+    "anchor_invariant": true,
+    "block_reason_codes": [],
+    "comparator_status": "REPORTABLE",
+    "routing_geometry_status": "SAFE",
+    "target_metric_status": "REPORTABLE"
+  },
+  "metric_contract_version": "m4-v1",
+  "product_evidence": {
+    "copy1": {
+      "assessment_stage": "backend_aligned_products",
+      "blocking_reasons": [],
+      "classification_input_reads": 50,
+      "coordinate_contract": "zero_based_anchor_wt_forward",
+      "copy_id": "copy1",
+      "evidence_version": 1,
+      "population_id": "23cfe842471aec7c328147fae1610b83a103f5bb03a445c50039515ff4d5f79e",
+      "population_scope": "confident_copy",
+      "products": [
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": false,
+          "canonical_exact_wt": true,
+          "count": 5,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": true,
+          "canonical_exact_wt": false,
+          "count": 45,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ],
+      "source_input_reads": 50,
+      "targets": [
+        {
+          "copy_name": "copy1",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "copy_name": "copy2",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ]
+    },
+    "copy2": {
+      "assessment_stage": "backend_aligned_products",
+      "blocking_reasons": [],
+      "classification_input_reads": 50,
+      "coordinate_contract": "zero_based_anchor_wt_forward",
+      "copy_id": "copy2",
+      "evidence_version": 1,
+      "population_id": "fc0b071e72008edc9260c472669ec52c9524c1af35dfda683bae3877e2f640e4",
+      "population_scope": "confident_copy",
+      "products": [
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": false,
+          "canonical_exact_wt": true,
+          "count": 5,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": true,
+          "canonical_exact_wt": false,
+          "count": 45,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ],
+      "source_input_reads": 50,
+      "targets": [
+        {
+          "copy_name": "copy1",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "copy_name": "copy2",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ]
+    },
+    "target": {
+      "assessment_stage": "prepared_pairs",
+      "blocking_reasons": [],
+      "classification_input_reads": 100,
+      "coordinate_contract": "zero_based_anchor_wt_forward",
+      "copy_id": null,
+      "evidence_version": 1,
+      "population_id": "1cb8bc7f9866888e4b0dc4b09595db80068ce4ed441d85283fbef92e435a01d6",
+      "population_scope": "target_all_prepared",
+      "products": [
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": false,
+          "canonical_exact_wt": true,
+          "count": 10,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "assessable": true,
+          "candidates": [],
+          "canonical_exact_pe": true,
+          "canonical_exact_wt": false,
+          "count": 90,
+          "eligible_copies": [],
+          "intended_state": "neither",
+          "observed_mates": null,
+          "reason_codes": [],
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ],
+      "source_input_reads": 100,
+      "targets": [
+        {
+          "copy_name": "copy1",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        },
+        {
+          "copy_name": "copy2",
+          "nicking_guide": null,
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "pegRNA_scaffold": null,
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_editing_pegRNA_scaffold_min_match_length": null,
+          "quantification_window_center": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "target_name": "T2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "artifacts": {},
+    "crispresso_version": "2.3.4",
+    "prepared_manifest_sha256": "9c748590722fa5aaed4b6a902bbac0a5081a6ceb36d11256801d08bfffcef286",
+    "prepared_sample": {
+      "pairs": 100
+    },
+    "routing_manifest_sha256": "f476085df0eefc0e1a48431232bbfde642ff47fca3e202a2adb4c1fb53ca7330",
+    "routing_policy_identity": {},
+    "runtime_digest": null,
+    "software": {
+      "fixture": "synthetic M5 count contract"
+    },
+    "target_definitions_sha256": "bfa57a6bc0a7e49908ebb703b7d7f99aaa264dbc22d22d29d06cc27fbaa158ba"
+  },
+  "qc": {
+    "exact_assessable_reads": 100,
+    "exact_product_exclusions": 0,
+    "limitations": [],
+    "per_copy_confident_counts": {
+      "copy1": 50,
+      "copy2": 50
+    },
+    "prepared_input_reads": 100,
+    "routing_assigned_reads": 100,
+    "routing_quarantine_fraction": {
+      "denominator": 100,
+      "numerator": 0
+    },
+    "routing_quarantine_reasons": {},
+    "routing_quarantined_reads": 0,
+    "target_backend_aligned_reads": 100,
+    "target_backend_input_reads": 100,
+    "target_backend_unaligned_fraction": {
+      "denominator": 100,
+      "numerator": 0
+    },
+    "target_backend_unaligned_reads": 0
+  },
+  "sample_id": "barcode-B002",
+  "schema_version": 1,
+  "target_id": "T2",
+  "target_metrics": {
+    "target_crispresso_native_pe": {
+      "aligned_reads": 100,
+      "ambiguous_aligned_reads": 0,
+      "assessment_stage": "backend_aligned_products",
+      "backend_counts_role": "metric_filter",
+      "backend_input_reads": 100,
+      "confident_input_reads": null,
+      "copy_id": null,
+      "denominator": 100,
+      "discarded_aligned_reads": 0,
+      "metric_family": "native",
+      "metric_name": "target_crispresso_native_pe",
+      "numerator": 90,
+      "ordinary_classified_aligned_reads": 100,
+      "population_denominator_exclusions": 0,
+      "population_id": "1cb8bc7f9866888e4b0dc4b09595db80068ce4ed441d85283fbef92e435a01d6",
+      "population_input_reads": 100,
+      "population_scope": "target_all_prepared",
+      "preprocessing_count_delta": 0,
+      "products": null,
+      "reads_after_preprocessing": 100,
+      "reason_codes": [],
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "unaligned_reads": 0,
+      "unaligned_reason_counts": {}
+    },
+    "total_precise_pe": {
+      "aligned_reads": 100,
+      "ambiguous_aligned_reads": 0,
+      "assessment_stage": "prepared_pairs",
+      "backend_counts_role": "metric_filter",
+      "backend_input_reads": 100,
+      "confident_input_reads": null,
+      "copy_id": null,
+      "denominator": 100,
+      "discarded_aligned_reads": 0,
+      "metric_family": "precise",
+      "metric_name": "total_precise_pe",
+      "numerator": 90,
+      "ordinary_classified_aligned_reads": 100,
+      "population_denominator_exclusions": 0,
+      "population_id": "1cb8bc7f9866888e4b0dc4b09595db80068ce4ed441d85283fbef92e435a01d6",
+      "population_input_reads": 100,
+      "population_scope": "target_all_prepared",
+      "preprocessing_count_delta": 0,
+      "products": {
+        "classification_input_reads": 100,
+        "contradictory_state": 0,
+        "denominator_exclusions": 0,
+        "exact_pe": 90,
+        "exact_wt": 10,
+        "exclusion_reason_counts": {},
+        "other_nonexact_assessable": 0,
+        "pe_plus_extra_change": 0,
+        "unresolved_unassessable": 0
+      },
+      "reads_after_preprocessing": 100,
+      "reason_codes": [],
+      "routing_conditioned": false,
+      "status": "REPORTABLE",
+      "unaligned_reads": 0,
+      "unaligned_reason_counts": {}
+    }
+  }
+}

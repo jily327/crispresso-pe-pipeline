@@ -1,0 +1,28 @@
+{
+  "historical_products": {
+    "m3": {
+      "changed_assessments": 0,
+      "changed_records": 0,
+      "pairs": 350
+    },
+    "m31": {
+      "changed_assessments": 0,
+      "changed_records": 0,
+      "pairs": 125
+    }
+  },
+  "multi_copy": {
+    "allowed": 13,
+    "blocked": 23,
+    "changed": 0,
+    "designs": 36,
+    "trial_decisions": 432
+  },
+  "single_copy": {
+    "allowed": 15,
+    "blocked": 57,
+    "changed": 0,
+    "panels": 72,
+    "trial_decisions": 432
+  }
+}

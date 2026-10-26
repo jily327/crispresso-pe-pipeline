@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "scope": "routing_only_not_scientific_qualification",
+  "analysis_root": "/workspace/m312-final/partial/analysis",
+  "analysis_manifest_sha256": "0dd794b8c3529a6c159a9e460a5970c85eacc8b46ee3c0f46d7b24c83e8ff33c",
+  "sample_id": "1B",
+  "policy": {
+    "diagnostic_min_quality": 30,
+    "min_distinguishing_sites": 2,
+    "max_equivalent_alignments": 16,
+    "min_alignment_identity": 0.8
+  },
+  "policy_identity": {
+    "id": "m312-diagnostic-q30-sites2-cap16-identity08-observed-flanks-v1",
+    "qualified": true,
+    "placement_contract": "copy-collapsed-state-qc-v1",
+    "edit_coverage_contract": "observed-pair-flanks-v1"
+  },
+  "targets": [
+    {
+      "target_name": "SYN",
+      "copy_name": "copy1",
+      "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+      "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": null,
+      "quantification_window_size": null,
+      "quantification_window_center": null,
+      "prime_editing_pegRNA_scaffold_min_match_length": null
+    },
+    {
+      "target_name": "SYN",
+      "copy_name": "copy2",
+      "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+      "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": null,
+      "quantification_window_size": null,
+      "quantification_window_center": null,
+      "prime_editing_pegRNA_scaffold_min_match_length": null
+    }
+  ],
+  "input_pairs": 28,
+  "categories": {
+    "EDIT_COVERAGE_NOT_FLANKED_BY_OBSERVED_DIAGNOSTICS": 16,
+    "CONFLICTING_DIAGNOSTIC_EVIDENCE": 4,
+    "ASSIGNED_COPY": 8
+  },
+  "cohorts": {
+    "copy1": {
+      "pairs": 4,
+      "files": {
+        "r1": {
+          "path": "copy1_R1.fastq.gz",
+          "sha256": "43aa963bfc73ffe144744a77f6517b87c1bc11e65aec7ba3a15e83b63c61c498",
+          "size_bytes": 264
+        },
+        "r2": {
+          "path": "copy1_R2.fastq.gz",
+          "sha256": "34b33f81e6f177a55404e915584b98d477061023e710127b97d47640df4dc7d8",
+          "size_bytes": 254
+        }
+      }
+    },
+    "copy2": {
+      "pairs": 4,
+      "files": {
+        "r1": {
+          "path": "copy2_R1.fastq.gz",
+          "sha256": "7edf2eae81407f931e2f65136ab2ec92a08cb6f36b669f5e04121e2661446ad3",
+          "size_bytes": 261
+        },
+        "r2": {
+          "path": "copy2_R2.fastq.gz",
+          "sha256": "b1b538f921aa65d534c6fae8110f7198f5f9c163d1e9ea0b294f735df8ffa281",
+          "size_bytes": 250
+        }
+      }
+    },
+    "quarantine": {
+      "pairs": 20,
+      "files": {
+        "r1": {
+          "path": "quarantine_R1.fastq.gz",
+          "sha256": "ac01d763be8bbdd5edd85b46ac53e7eb681541d5c0100532be0ccb51e361575a",
+          "size_bytes": 379
+        },
+        "r2": {
+          "path": "quarantine_R2.fastq.gz",
+          "sha256": "037ec6a310fb77ef2d40b17f489845327938ee57fd5d8bb151ddff06ad719613",
+          "size_bytes": 373
+        }
+      }
+    }
+  },
+  "ledger_sha256": "95c9ea1a8ba194ae916a2d9d41fdc44e45fff322989a740f230833bc32038e2a"
+}

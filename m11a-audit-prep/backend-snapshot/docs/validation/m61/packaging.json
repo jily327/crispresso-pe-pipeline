@@ -1,0 +1,26 @@
+{
+  "cli_version": "peanalyzer 0.6.1",
+  "dependency_check": "No broken requirements found.",
+  "evidence_distribution": "sdist only",
+  "installed": {
+    "import_path": "/workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "public_apis_importable": true,
+    "resources": [
+      "barcode_sets/qi_hitom_v1.csv",
+      "profiles/qi_hitom_v1.yaml",
+      "metrics/result.schema.json",
+      "statistics_resources/result.schema.json",
+      "statistics_resources/contrasts.schema.json",
+      "reporting_resources/report_manifest.schema.json",
+      "reporting_resources/report.css"
+    ],
+    "schemas_match": true,
+    "version": "0.6.1"
+  },
+  "installed_cli_execution": [
+    "report"
+  ],
+  "payload_reference": "tested-wheel-payload.json",
+  "sdist_verification_command": "Run this script without --record after rebuilding the sdist with recorded evidence",
+  "tested_and_final_wheel_payload_equal": true
+}

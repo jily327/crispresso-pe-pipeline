@@ -1,0 +1,22 @@
+CRISPResso version 2.3.4
+[Command used]:
+/CRISPResso2/.pixi/envs/default/bin/CRISPResso --fastq_r1 /tmp/peanalyzer-backend-vhac3dqs/output/CRISPRessoPooled_on_diagnostic/AMPL_SYN_copy2.fastq.gz --amplicon_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGGCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC --name SYN_copy2 --display_name SYN__copy2 --output_folder /tmp/peanalyzer-backend-vhac3dqs/output/CRISPRessoPooled_on_diagnostic --fastp_options_string  --disable_adapter_trimming --disable_trim_poly_g --disable_quality_filtering --disable_length_filtering --keep_intermediate --write_detailed_allele_table --suppress_report --suppress_plots --prime_editing_pegRNA_spacer_seq TAGTGCCGACGGACCAGAAC --prime_editing_pegRNA_extension_seq TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC --prime_editing_override_prime_edited_ref_seq TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGGCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC
+
+[Execution log]:
+CRISPRessoPro not installed
+Computing quantification windows
+Added 0 guides with flexible matching
+	Original flexiguides: ['None']
+	Found guides: []
+	Mismatch locations: []
+Traceback (most recent call last):
+  File "/CRISPResso2/CRISPResso2/CRISPRessoCORE.py", line 3251, in main
+    pe_guides, pe_orig_guide_seqs, pe_guide_mismatches, pe_guide_names, pe_guide_qw_centers, pe_guide_qw_sizes, pe_guide_plot_cut_points = get_prime_editing_guides(this_seq, amplicon_seq_arr[0],
+                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/CRISPResso2/CRISPResso2/CRISPRessoCORE.py", line 613, in get_prime_editing_guides
+    raise CRISPRessoShared.BadParameterException('The given prime editing pegRNA spacer is not found in the reference sequence')
+CRISPResso2.CRISPRessoShared.BadParameterException: The given prime editing pegRNA spacer is not found in the reference sequence
+
+Parameter error, please check your input.
+
+ERROR: The given prime editing pegRNA spacer is not found in the reference sequence

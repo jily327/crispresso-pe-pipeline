@@ -1,0 +1,37 @@
+{
+  "reports": {
+    "paired": {
+      "accessible_svg_labels": true,
+      "artifacts": 31,
+      "embedded_svg_count": 26,
+      "every_artifact_source_wheel_byte_identical": true,
+      "every_hash_verified": true,
+      "exact_source_copy": true,
+      "figure_points_and_stored_means_match_oracle": true,
+      "no_external_resources": true,
+      "no_scripts": true,
+      "no_svg_date_metadata": true,
+      "parsed_html": true,
+      "source_sha256": "19e831d8caaca55729e96c48cf0dc8174aef20112484e191b44fba2fc9d99b14",
+      "status": "PASS",
+      "tables": 9
+    },
+    "unpaired": {
+      "accessible_svg_labels": true,
+      "artifacts": 31,
+      "embedded_svg_count": 26,
+      "every_artifact_source_wheel_byte_identical": true,
+      "every_hash_verified": true,
+      "exact_source_copy": true,
+      "figure_points_and_stored_means_match_oracle": true,
+      "no_external_resources": true,
+      "no_scripts": true,
+      "no_svg_date_metadata": true,
+      "parsed_html": true,
+      "source_sha256": "b0ac3e3f13c1f25953d1603f7a10ae8f3424ffed3fcbd1f5e307eeb953abbd30",
+      "status": "PASS",
+      "tables": 9
+    }
+  },
+  "status": "PASS"
+}

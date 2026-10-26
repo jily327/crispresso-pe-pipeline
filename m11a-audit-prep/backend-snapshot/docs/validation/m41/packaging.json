@@ -1,0 +1,18 @@
+{
+  "installed": {
+    "import_path": "/workspace/m41-final-wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "version": "0.4.1",
+    "api_schema_resources": true
+  },
+  "source_test_directory": "/workspace/crispresso-pe-pipeline",
+  "wheel_test_directory": "/workspace/m41-final-wheel-suite/crispresso_pe_pipeline-0.4.1",
+  "sdist_build": "PASS",
+  "wheel_build": "PASS",
+  "test_import": "installed wheel outside source checkout",
+  "historical_m4_json_model_compatibility": true,
+  "payload_reference": "tested-wheel-payload.json",
+  "final_payload_comparison": "PASS",
+  "validation_evidence_distribution": "sdist only",
+  "source_dependency_check": "No broken requirements found.",
+  "wheel_dependency_check": "No broken requirements found."
+}

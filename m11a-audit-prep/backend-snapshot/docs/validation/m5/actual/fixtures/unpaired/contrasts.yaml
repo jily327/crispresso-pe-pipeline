@@ -1,0 +1,85 @@
+contrasts:
+- alternative: two-sided
+  contrast_id: native
+  copy_name: null
+  family_id: primary
+  group_a:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: A
+  group_b:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: B
+  metric_name: target_crispresso_native_pe
+  pairing_mode: unpaired
+  policy_id: null
+  target_name: T1
+- alternative: two-sided
+  contrast_id: precise
+  copy_name: null
+  family_id: primary
+  group_a:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: A
+  group_b:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: B
+  metric_name: total_precise_pe
+  pairing_mode: unpaired
+  policy_id: null
+  target_name: T1
+- alternative: two-sided
+  contrast_id: copy
+  copy_name: copy1
+  family_id: primary
+  group_a:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: A
+  group_b:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: B
+  metric_name: copy1_precise_pe
+  pairing_mode: unpaired
+  policy_id: null
+  target_name: T1
+- alternative: two-sided
+  contrast_id: family
+  copy_name: null
+  family_id: primary
+  group_a:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: A
+  group_b:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: B
+  metric_name: total_pe_family
+  pairing_mode: unpaired
+  policy_id: policy1
+  target_name: T1
+- alternative: two-sided
+  contrast_id: copy-family
+  copy_name: copy1
+  family_id: secondary
+  group_a:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: A
+  group_b:
+    dpi: 6
+    editor: synthetic-editor
+    treatment: B
+  metric_name: copy1_pe_family
+  pairing_mode: unpaired
+  policy_id: policy0
+  target_name: T1
+families:
+- primary
+- secondary
+schema_version: 1

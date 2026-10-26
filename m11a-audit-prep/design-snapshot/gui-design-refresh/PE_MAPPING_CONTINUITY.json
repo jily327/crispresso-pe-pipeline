@@ -1,0 +1,12 @@
+{
+  "scope": "Source continuity supporting unchanged GUI contracts, not a backend re-audit",
+  "unchanged_since_reviewed_M8": {
+    "src/peanalyzer/metrics/models.py": true,
+    "src/peanalyzer/metrics/production.py": true,
+    "src/peanalyzer/metrics/products.py": true,
+    "src/peanalyzer/routing.py": true,
+    "src/peanalyzer/geometry.py": true,
+    "src/peanalyzer/statistical_models.py": true,
+    "src/peanalyzer/statistics.py": true
+  }
+}

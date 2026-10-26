@@ -1,0 +1,1529 @@
+{
+  "authority": "40bd8ad8844fd07ce8a138b5520f7f0ec948030f",
+  "package_import": "/workspace/m11a-independent-audit-prep/backend-snapshot/src/peanalyzer/__init__.py",
+  "checks": 85,
+  "matched": 85,
+  "scientific_executions": 0,
+  "subprocess_calls": 0,
+  "notes": "Two intentional tripwire canaries stopped before routing/probing. No candidate verdict.",
+  "observations": [
+    {
+      "id": "PE_SNP",
+      "contract": "Target schema only; indel routing qualification NOT run",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_SUBSTITUTIONS",
+      "contract": "Target schema only; indel routing qualification NOT run",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_INSERTION",
+      "contract": "Target schema only; indel routing qualification NOT run",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_DELETION",
+      "contract": "Target schema only; indel routing qualification NOT run",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_MULTIPLE",
+      "contract": "Target schema only; indel routing qualification NOT run",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_DNA_N",
+      "contract": "Target rejection",
+      "expected": "sequence must contain",
+      "observed": null,
+      "error": "1 validation error for Target\nwt_sequence\n  Value error, sequence must contain only A/C/G/T [type=value_error, input_value='NCAGGGAAGCCGCCCGGCGCTGGT...ATTTTCCCGAGCTCCACTGACAG', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "PE_IDENTICAL",
+      "contract": "Target rejection",
+      "expected": "must differ",
+      "observed": null,
+      "error": "1 validation error for Target\n  Value error, WT and intended prime-edited reference must differ [type=value_error, input_value={'target_name': 'T1', 'co..._coordinates': '70-105'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "PE_BAD_SPACER",
+      "contract": "Target rejection",
+      "expected": "sequence must contain",
+      "observed": null,
+      "error": "1 validation error for Target\npegRNA_spacer\n  Value error, sequence must contain only A/C/G/T (U accepted for RNA) [type=value_error, input_value='ACNT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "PE_MISSING_SPACER",
+      "contract": "Target rejection",
+      "expected": "valid string",
+      "observed": null,
+      "error": "1 validation error for Target\npegRNA_spacer\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_type",
+      "matched": true
+    },
+    {
+      "id": "PE_MISSING_EXTENSION",
+      "contract": "Target rejection",
+      "expected": "valid string",
+      "observed": null,
+      "error": "1 validation error for Target\npegRNA_extension\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_type",
+      "matched": true
+    },
+    {
+      "id": "PE_RESERVED_COPY",
+      "contract": "Target rejection",
+      "expected": "reserved",
+      "observed": null,
+      "error": "1 validation error for Target\ncopy_name\n  Value error, double underscore is reserved for generated amplicon IDs [type=value_error, input_value='copy__1', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "PE_SCAFFOLD_LENGTH",
+      "contract": "Target rejection",
+      "expected": "requires pegRNA_scaffold",
+      "observed": null,
+      "error": "1 validation error for Target\n  Value error, scaffold minimum match length requires pegRNA_scaffold [type=value_error, input_value={'target_name': 'T1', 'co...ld_min_match_length': 1}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "PE_OPTIONAL_NICK",
+      "contract": "Target",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_SENTINEL_ZERO",
+      "contract": "legacy PE Target only",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "0"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "0"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_RNA_U",
+      "contract": "RNA normalization",
+      "expected": "GGCGCTGGTTTGCGACTCCG",
+      "observed": "GGCGCTGGTTTGCGACTCCG",
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_REVERSE_MODEL",
+      "contract": "schema accepts reverse-only spacer",
+      "expected": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "observed": {
+        "mode": "precise_edit",
+        "nick": null,
+        "qwc": "70-105"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_REVERSE_PREFLIGHT",
+      "contract": "pure PE preflight",
+      "expected": "PE_GUIDE_ORIENTATION_UNSUPPORTED",
+      "observed": null,
+      "error": "PE_GUIDE_ORIENTATION_UNSUPPORTED: T1__copy1: reverse-only spacer rejected by validated 2.3.4 PE orientation checks; do not reverse the experimental guide",
+      "matched": true
+    },
+    {
+      "id": "PE_ABSENT_GUIDE",
+      "contract": "pure PE preflight",
+      "expected": "PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED",
+      "observed": null,
+      "error": "PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED: T1__copy1: actual experimental spacer is absent from WT in both orientations; CRISPResso2 2.3.4 rejects this configuration",
+      "matched": true
+    },
+    {
+      "id": "PE_EXTENSION_ABSENT",
+      "contract": "pure target validation",
+      "expected": "PE_EXTENSION_REFERENCE_INCOMPATIBLE",
+      "observed": null,
+      "error": "PE_EXTENSION_REFERENCE_INCOMPATIBLE: T1__copy1",
+      "matched": true
+    },
+    {
+      "id": "PE_SNP_ANNOTATION",
+      "contract": "geometry substitution-only branch",
+      "expected": [
+        {
+          "wt_position": 87,
+          "pe_position": 87,
+          "old": "G",
+          "new": "A",
+          "kind": "substitution"
+        }
+      ],
+      "observed": [
+        {
+          "wt_position": 87,
+          "pe_position": 87,
+          "old": "G",
+          "new": "A",
+          "kind": "substitution"
+        }
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PE_DUPLICATE_COPY",
+      "contract": "CSV collection / geometry identity",
+      "expected": "duplicate",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/PE_DUPLICATE_COPY.csv: duplicate target_name/copy_name",
+      "matched": true
+    },
+    {
+      "id": "PE_DUPLICATE_WT",
+      "contract": "CSV collection / geometry identity",
+      "expected": "duplicate",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/PE_DUPLICATE_WT.csv: duplicate or reverse-complement WT amplicon at T1__copy2",
+      "matched": true
+    },
+    {
+      "id": "PE_CASEFOLD_COPY",
+      "contract": "CSV collection / geometry identity",
+      "expected": "duplicate",
+      "observed": null,
+      "error": "duplicate copy identity",
+      "matched": true
+    },
+    {
+      "id": "PE_HOMELOG_TOO_FEW_DIAGNOSTICS",
+      "contract": "pure substitution geometry",
+      "expected": "BLOCKED",
+      "observed": "BLOCKED",
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TRAP_GEOMETRY_INDEL",
+      "contract": "geometry has hidden scientific trial",
+      "expected": "TRAPPED_EXPERIMENTAL_ROUTE_PAIR",
+      "observed": null,
+      "error": "TRAPPED_EXPERIMENTAL_ROUTE_PAIR",
+      "matched": true
+    },
+    {
+      "id": "TRAP_BUILD_PLAN",
+      "contract": "builder probes despite no output writing",
+      "expected": "TRAPPED_EXECUTABLE_PROBE",
+      "observed": null,
+      "error": "TRAPPED_EXECUTABLE_PROBE",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_SHARED_REVERSE",
+      "contract": "load_samples",
+      "expected": 2,
+      "observed": 2,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_DUPLICATE_CONDITION",
+      "contract": "different biological replicates",
+      "expected": 2,
+      "observed": 2,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_DUP_ID",
+      "contract": "load_samples collection",
+      "expected": "duplicate barcode_id",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/rows.csv: duplicate barcode_id",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_DUP_LABEL",
+      "contract": "load_samples collection",
+      "expected": "duplicate sample_name",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/rows.csv: duplicate sample_name",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_DUP_PAIR",
+      "contract": "load_samples collection",
+      "expected": "duplicate forward/reverse barcode pair",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/rows.csv: duplicate forward/reverse barcode pair",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_CASEFOLD",
+      "contract": "load_samples collection",
+      "expected": "collision",
+      "observed": null,
+      "error": "case-insensitive output filename collision: BC001_R1.fastq.gz",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_BLANK_EDITOR",
+      "contract": "load_samples collection",
+      "expected": "at least 1 character",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/rows.csv: row 3: 1 validation error for Sample\neditor\n  String should have at least 1 character [type=string_too_short, input_value='', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_too_short",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_BLANK_DPI",
+      "contract": "load_samples collection",
+      "expected": "dpi must be an integer",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/rows.csv: row 3: dpi must be an integer",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_PAIRED_BLOCK",
+      "contract": "load_samples collection",
+      "expected": "require block_id",
+      "observed": null,
+      "error": "/workspace/m11a-independent-audit-prep/oracles-ztwekqn0/rows.csv: row 3: 1 validation error for Sample\n  Value error, paired samples require block_id [type=value_error, input_value={'sample_name': 'bioB', '...': None, 'paired': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "SAMPLE_DUP_BIO_REP_METADATA",
+      "contract": "metadata accepts; downstream M5 rejects per condition/target",
+      "expected": 2,
+      "observed": 2,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "FASTQ_SYNCHRONIZED",
+      "contract": "paired_fastq read-only",
+      "expected": 1,
+      "observed": 1,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "FASTQ_SWAPPED_MARKED",
+      "contract": "paired_fastq",
+      "expected": "wrong mate suffix",
+      "observed": null,
+      "error": "pair 1: wrong mate suffix on R1: b'r/2'",
+      "matched": true
+    },
+    {
+      "id": "FASTQ_UNMARKED_IDENTICAL_INPUT",
+      "contract": "iterator alone DOES NOT reject same file; separate identity gate required",
+      "expected": 1,
+      "observed": 1,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "FASTQ_SWAPPED_UNMARKED",
+      "contract": "file roles cannot be proved from unmarked matching IDs",
+      "expected": 1,
+      "observed": 1,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TRIM_ONE_ONLY",
+      "contract": "resolve_trims",
+      "expected": "supply both",
+      "observed": null,
+      "error": "supply both analysis trim sizes",
+      "matched": true
+    },
+    {
+      "id": "TRIM_EXPLICIT",
+      "contract": "resolve_trims does not inspect read length",
+      "expected": [
+        8,
+        8
+      ],
+      "observed": [
+        8,
+        8
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TRIM_AUTOMATIC",
+      "contract": "recorded library layout only",
+      "expected": [
+        13,
+        12
+      ],
+      "observed": [
+        13,
+        12
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_QWC_10-20",
+      "contract": "NucleaseTarget explicit",
+      "expected": [
+        [
+          10,
+          20
+        ]
+      ],
+      "observed": [
+        [
+          10,
+          20
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_QWC_0-0",
+      "contract": "NucleaseTarget explicit",
+      "expected": [
+        [
+          0,
+          0
+        ]
+      ],
+      "observed": [
+        [
+          0,
+          0
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_QWC_0-59",
+      "contract": "NucleaseTarget explicit",
+      "expected": [
+        [
+          0,
+          59
+        ]
+      ],
+      "observed": [
+        [
+          0,
+          59
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_QWC_59-59",
+      "contract": "NucleaseTarget explicit",
+      "expected": [
+        [
+          59,
+          59
+        ]
+      ],
+      "observed": [
+        [
+          59,
+          59
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_QWC_1-3_8-10",
+      "contract": "NucleaseTarget explicit",
+      "expected": [
+        [
+          1,
+          3
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "observed": [
+        [
+          1,
+          3
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_QWC_010-020",
+      "contract": "NucleaseTarget explicit",
+      "expected": [
+        [
+          10,
+          20
+        ]
+      ],
+      "observed": [
+        [
+          10,
+          20
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_'0'",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_REQUIRED",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_REQUIRED: nonempty zero-based inclusive ranges; sentinel 0 is not a window [type=value_error, input_value={'analysis_mode': 'indel_...indow_coordinates': '0'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_'20-10'",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_INVALID",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_INVALID: ordered disjoint in-bounds intervals required [type=value_error, input_value={'analysis_mode': 'indel_...w_coordinates': '20-10'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_'59-60'",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_INVALID",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_INVALID: ordered disjoint in-bounds intervals required [type=value_error, input_value={'analysis_mode': 'indel_...w_coordinates': '59-60'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_'1-4_4-8'",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_INVALID",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_INVALID: ordered disjoint in-bounds intervals required [type=value_error, input_value={'analysis_mode': 'indel_...coordinates': '1-4_4-8'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_'8-10_1-3'",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_INVALID",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_INVALID: ordered disjoint in-bounds intervals required [type=value_error, input_value={'analysis_mode': 'indel_...oordinates': '8-10_1-3'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_'-1-3'",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_REQUIRED",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_REQUIRED: nonempty zero-based inclusive ranges; sentinel 0 is not a window [type=value_error, input_value={'analysis_mode': 'indel_...ow_coordinates': '-1-3'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "NUC_BAD_QWC_''",
+      "contract": "NucleaseTarget explicit",
+      "expected": "NUCLEASE_WINDOW_REQUIRED",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, NUCLEASE_WINDOW_REQUIRED: nonempty zero-based inclusive ranges; sentinel 0 is not a window [type=value_error, input_value={'analysis_mode': 'indel_...window_coordinates': ''}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_forward_W1",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "selected_window": "W1"
+      },
+      "observed": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "selected_window": "W1"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_forward_W2",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            24,
+            33
+          ]
+        ],
+        "selected_window": "W2"
+      },
+      "observed": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            24,
+            33
+          ]
+        ],
+        "selected_window": "W2"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_forward_W3",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            20,
+            37
+          ]
+        ],
+        "selected_window": "W3"
+      },
+      "observed": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            20,
+            37
+          ]
+        ],
+        "selected_window": "W3"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_forward_W4",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            10,
+            47
+          ]
+        ],
+        "selected_window": "W4"
+      },
+      "observed": {
+        "orientation": "forward",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "5|6",
+          "13|14"
+        ],
+        "intervals": [
+          [
+            10,
+            47
+          ]
+        ],
+        "selected_window": "W4"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_reverse_W1",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "selected_window": "W1"
+      },
+      "observed": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "selected_window": "W1"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_reverse_W2",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            24,
+            33
+          ]
+        ],
+        "selected_window": "W2"
+      },
+      "observed": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            24,
+            33
+          ]
+        ],
+        "selected_window": "W2"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_reverse_W3",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            20,
+            37
+          ]
+        ],
+        "selected_window": "W3"
+      },
+      "observed": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            20,
+            37
+          ]
+        ],
+        "selected_window": "W3"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_reverse_W4",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            10,
+            47
+          ]
+        ],
+        "selected_window": "W4"
+      },
+      "observed": {
+        "orientation": "reverse",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": [
+          "13|14",
+          "5|6"
+        ],
+        "intervals": [
+          [
+            10,
+            47
+          ]
+        ],
+        "selected_window": "W4"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_palindromic_W1",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "selected_window": "W1"
+      },
+      "observed": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "selected_window": "W1"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_palindromic_W2",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            24,
+            33
+          ]
+        ],
+        "selected_window": "W2"
+      },
+      "observed": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            24,
+            33
+          ]
+        ],
+        "selected_window": "W2"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_palindromic_W3",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            20,
+            37
+          ]
+        ],
+        "selected_window": "W3"
+      },
+      "observed": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            20,
+            37
+          ]
+        ],
+        "selected_window": "W3"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_palindromic_W4",
+      "contract": "exact independent physical-locus golden",
+      "expected": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            10,
+            47
+          ]
+        ],
+        "selected_window": "W4"
+      },
+      "observed": {
+        "orientation": "palindromic",
+        "target_interval": [
+          20,
+          37
+        ],
+        "physical_nick_boundaries": [
+          [
+            24,
+            25
+          ],
+          [
+            32,
+            33
+          ]
+        ],
+        "target_oriented_nick_labels": null,
+        "intervals": [
+          [
+            10,
+            47
+          ]
+        ],
+        "selected_window": "W4"
+      },
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_DEFAULT_W2",
+      "contract": "omitted selection",
+      "expected": [
+        [
+          24,
+          33
+        ]
+      ],
+      "observed": [
+        [
+          24,
+          33
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_W4_LEFT_CLIP",
+      "contract": "edge fixture",
+      "expected": [
+        [
+          0,
+          27
+        ]
+      ],
+      "observed": [
+        [
+          0,
+          27
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_W4_RIGHT_CLIP",
+      "contract": "edge fixture",
+      "expected": [
+        [
+          32,
+          59
+        ]
+      ],
+      "observed": [
+        [
+          32,
+          59
+        ]
+      ],
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "TIGR_MISSING",
+      "contract": "NucleaseTarget rejection",
+      "expected": "TIGR_TARGET_MISSING",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, TIGR_TARGET_MISSING [type=value_error, input_value={'analysis_mode': 'indel_...': 'AAAAAAAAAAAAAAAAAA'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_MULTIPLE",
+      "contract": "NucleaseTarget rejection",
+      "expected": "TIGR_TARGET_NOT_UNIQUE",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, TIGR_TARGET_NOT_UNIQUE [type=value_error, input_value={'analysis_mode': 'indel_...': 'ACGTTGCAAGTCGATCGA'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_SHORT",
+      "contract": "NucleaseTarget rejection",
+      "expected": "TIGR_TARGET_LENGTH",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, TIGR_TARGET_LENGTH: target must be exactly 18 nt [type=value_error, input_value={'analysis_mode': 'indel_...e': 'ACGTTGCAAGTCGATCG'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_BAD_DNA",
+      "contract": "NucleaseTarget rejection",
+      "expected": "sequence must contain",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\ntigr_target_sequence\n  Value error, sequence must contain only A/C/G/T [type=value_error, input_value='NCGTTGCAAGTCGATCGA', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_BOTH",
+      "contract": "NucleaseTarget rejection",
+      "expected": "not both",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\n  Value error, choose explicit window or profile, not both [type=value_error, input_value={'analysis_mode': 'indel_...w_coordinates': '10-20'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_LEGACY",
+      "contract": "NucleaseTarget rejection",
+      "expected": "current",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\ninsertion_quantification_mode\n  Input should be 'current' [type=literal_error, input_value='legacy', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/literal_error",
+      "matched": true
+    },
+    {
+      "id": "TIGR_PE_CONTAMINATION",
+      "contract": "NucleaseTarget rejection",
+      "expected": "Extra inputs",
+      "observed": null,
+      "error": "1 validation error for NucleaseTarget\nprime_edited_sequence\n  Extra inputs are not permitted [type=extra_forbidden, input_value='TCAGGGAAGCCGCCCGGCGCTGGT...ATTTTCCCGAGCTCCACTGACAG', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden",
+      "matched": true
+    },
+    {
+      "id": "QUALIFIED_ARGUMENT_COUNT",
+      "contract": "expected map, not executed/verified runtime",
+      "expected": 58,
+      "observed": 58,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "DAG_RUN_2X2",
+      "contract": "two samples/two targets independent of copy count",
+      "expected": 14,
+      "observed": 14,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "DAG_ANALYZE_2X2",
+      "contract": "external source, no demux node",
+      "expected": 13,
+      "observed": 13,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "IDENTITY_W2_DEFAULT",
+      "contract": "backend scientific identity canonicalization",
+      "expected": true,
+      "observed": true,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "IDENTITY_WINDOW_CHANGE",
+      "contract": "backend scientific identity",
+      "expected": true,
+      "observed": true,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PATH_DOTDOT_HELPER",
+      "contract": "no_symlinks normalizes traversal; not a registration allowlist",
+      "expected": true,
+      "observed": true,
+      "error": null,
+      "matched": true
+    },
+    {
+      "id": "PATH_OWNED_REJECTS",
+      "contract": "owned relative artifact boundary",
+      "expected": "UNSAFE_PATH",
+      "observed": null,
+      "error": "UNSAFE_PATH: ../outside",
+      "matched": true
+    }
+  ]
+}

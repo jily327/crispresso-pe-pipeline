@@ -1,0 +1,71 @@
+{
+  "scope": "qualification_only_unrouted_all_prepared_reads",
+  "argv": [
+    "/workspace/validation/m3/bin/CRISPResso",
+    "-r1",
+    "input_R1.fastq.gz",
+    "-r2",
+    "input_R2.fastq.gz",
+    "--amplicon_seq",
+    "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+    "--name",
+    "unrouted",
+    "--output_folder",
+    "output",
+    "--write_detailed_allele_table",
+    "--keep_intermediate",
+    "--suppress_report",
+    "--suppress_plots",
+    "--prime_editing_pegRNA_spacer_seq",
+    "TAGTGCCGACGGACCAGAAC",
+    "--prime_editing_pegRNA_extension_seq",
+    "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+    "--prime_editing_override_prime_edited_ref_seq",
+    "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTCACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGGGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACAGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTGGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+  ],
+  "started_at": "2026-10-22T05:17:06.975859+00:00",
+  "runtime_identity": {
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+  },
+  "software": {
+    "pipeline_version": "0.4.0",
+    "git_commit": "550df70f9f9627c7218b9f047d0b6bf3023b8d25",
+    "git_dirty": true,
+    "python_version": "3.12.14",
+    "python_executable": "/workspace/peanalyzer-venv/bin/python",
+    "dependencies": {
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "PyYAML": "6.0.3",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "pillow": "13.0.0",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "packaging": "26.3",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    }
+  },
+  "analysis_manifest_sha256": "d83ea4424ba2061294c64e1c23bf11a0ca07cb33f8612198df6f70a27127e64e",
+  "inputs": {
+    "files": {
+      "r1": {
+        "path": "03_analysis_fastq/1B_R1.analysis.fastq.gz",
+        "sha256": "ac4dd5a47572a49a3e3bc2384bc9581a1a1780e0a55af92d82392aa66325e6b3",
+        "size_bytes": 1005
+      },
+      "r2": {
+        "path": "03_analysis_fastq/1B_R2.analysis.fastq.gz",
+        "sha256": "0bbf493c6e3ed518b048bec8c109eb48b54ebb3f9df01647c464bcbab5a81b2a",
+        "size_bytes": 1017
+      }
+    },
+    "pairs": 125
+  },
+  "status": "completed",
+  "return_code": 0,
+  "ended_at": "2026-10-22T05:17:15.931370+00:00"
+}

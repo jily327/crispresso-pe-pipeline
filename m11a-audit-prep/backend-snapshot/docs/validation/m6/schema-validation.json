@@ -1,0 +1,17 @@
+{
+  "cross_field_checks": "Pydantic and runtime artifact/hash verification",
+  "dependency_role": "independent audit tool; not a package runtime dependency",
+  "rejected_mutations": [
+    "unknown_field",
+    "wrong_contract",
+    "boolean_version",
+    "hash_pattern",
+    "media_type",
+    "missing_required"
+  ],
+  "schema_draft": "2020-12",
+  "status": "PASS",
+  "valid_manifests": 2,
+  "validator": "jsonschema",
+  "validator_version": "4.26.0"
+}

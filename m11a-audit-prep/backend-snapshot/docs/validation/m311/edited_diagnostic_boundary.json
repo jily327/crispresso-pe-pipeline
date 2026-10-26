@@ -1,0 +1,136 @@
+{
+  "population": "separate edited-diagnostic 50-read fixture; not original 125",
+  "before_geometry": "WARN",
+  "after_geometry": "BLOCKED",
+  "after_reasons": [
+    {
+      "code": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "severity": "WARN"
+    },
+    {
+      "code": "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+      "severity": "BLOCKED",
+      "copies": [
+        "copy1",
+        "copy2"
+      ],
+      "copy": "copy1",
+      "region": {
+        "start": 40,
+        "end": 41,
+        "kinds": [
+          "substitution"
+        ]
+      },
+      "upstream": [],
+      "downstream": [
+        80,
+        165,
+        205
+      ],
+      "upstream_distance": null,
+      "downstream_distance": 40
+    },
+    {
+      "code": "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+      "severity": "BLOCKED",
+      "copies": [
+        "copy1",
+        "copy2"
+      ],
+      "copy": "copy2",
+      "region": {
+        "start": 40,
+        "end": 41,
+        "kinds": [
+          "substitution"
+        ]
+      },
+      "upstream": [],
+      "downstream": [
+        80,
+        165,
+        205
+      ],
+      "upstream_distance": null,
+      "downstream_distance": 40
+    }
+  ],
+  "raw_assigned_before": 40,
+  "raw_assigned_after": 40,
+  "raw_quarantined_before": 10,
+  "raw_quarantined_after": 10,
+  "changed_raw_categories": [
+    {
+      "read_id": "copy1_edit_loss_WT_000",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy1_edit_loss_WT_001",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy1_edit_loss_WT_002",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy1_edit_loss_PE_000",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy1_edit_loss_PE_001",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy1_edit_loss_PE_002",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy2_edit_loss_WT_000",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy2_edit_loss_WT_001",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy2_edit_loss_PE_000",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    },
+    {
+      "read_id": "copy2_edit_loss_PE_001",
+      "before_category": "EDIT_DEPENDENT_DIAGNOSTIC_LOSS",
+      "after_category": "NO_DIAGNOSTIC_COVERAGE",
+      "before_copy": null,
+      "after_copy": null
+    }
+  ],
+  "production_admission": "BLOCKED"
+}

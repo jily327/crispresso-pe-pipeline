@@ -1,0 +1,30 @@
+{
+  "metric_gate": "PASS",
+  "base": "550df70f9f9627c7218b9f047d0b6bf3023b8d25",
+  "tests": {
+    "source": {
+      "total": 506,
+      "failed": 0,
+      "skipped": 0,
+      "actual_backend_tests": 18
+    },
+    "wheel": {
+      "total": 506,
+      "failed": 0,
+      "skipped": 0,
+      "actual_backend_tests": 18
+    }
+  },
+  "checks": {
+    "all_historical_integers_preserved": true,
+    "all_required_negative_gates_passed": true,
+    "actual_core_qualification": true,
+    "populations_separate": true,
+    "source_and_wheel_passed": true,
+    "packaging_passed": true,
+    "installed_resources_passed": true,
+    "final_payload_matches_tested": true
+  },
+  "expected_blocked_result": "M3 historical Pooled is not a qualified copy cohort; its M4 copy metrics stay BLOCKED",
+  "audit_readiness": "SAFE FOR INDEPENDENT M4 AUDIT"
+}

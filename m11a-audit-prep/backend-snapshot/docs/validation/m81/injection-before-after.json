@@ -1,0 +1,431 @@
+{
+  "all_prior_m8_test_functions_retained": true,
+  "before_after": {
+    "deletion50/discard": {
+      "after": {
+        "accepted": false,
+        "error": "UNQUALIFIED_NUCLEASE_CONFIGURATION: discard_indel_reads",
+        "error_type": "ValueError",
+        "injected_argv": [
+          "--discard_indel_reads"
+        ],
+        "published_result": false
+      },
+      "before": {
+        "accepted": true,
+        "class_counts": {
+          "ambiguous": 0,
+          "discarded": 12,
+          "indel_only": 0,
+          "indel_plus_substitution": 0,
+          "substitution_only": 0,
+          "unmodified": 0
+        },
+        "injected_argv": [
+          "--discard_indel_reads"
+        ],
+        "metrics": {
+          "any_modification_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          }
+        },
+        "status": "REPORTABLE"
+      }
+    },
+    "deletion50/qualified": {
+      "after": {
+        "accepted": true,
+        "class_counts": {
+          "ambiguous": 0,
+          "discarded": 0,
+          "indel_only": 12,
+          "indel_plus_substitution": 0,
+          "substitution_only": 0,
+          "unmodified": 0
+        },
+        "injected_argv": [],
+        "metrics": {
+          "any_modification_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "indel_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "indel_only_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          }
+        },
+        "status": "REPORTABLE"
+      },
+      "before": {
+        "accepted": true,
+        "class_counts": {
+          "ambiguous": 0,
+          "discarded": 0,
+          "indel_only": 12,
+          "indel_plus_substitution": 0,
+          "substitution_only": 0,
+          "unmodified": 0
+        },
+        "injected_argv": [],
+        "metrics": {
+          "any_modification_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "indel_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "indel_only_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          }
+        },
+        "status": "REPORTABLE"
+      }
+    },
+    "substitution/qualified": {
+      "after": {
+        "accepted": true,
+        "class_counts": {
+          "ambiguous": 0,
+          "discarded": 0,
+          "indel_only": 0,
+          "indel_plus_substitution": 0,
+          "substitution_only": 12,
+          "unmodified": 0
+        },
+        "injected_argv": [],
+        "metrics": {
+          "any_modification_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "substitution_only_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "unmodified_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          }
+        },
+        "status": "REPORTABLE"
+      },
+      "before": {
+        "accepted": true,
+        "class_counts": {
+          "ambiguous": 0,
+          "discarded": 0,
+          "indel_only": 0,
+          "indel_plus_substitution": 0,
+          "substitution_only": 12,
+          "unmodified": 0
+        },
+        "injected_argv": [],
+        "metrics": {
+          "any_modification_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "substitution_only_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          },
+          "unmodified_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          }
+        },
+        "status": "REPORTABLE"
+      }
+    },
+    "substitution/quality_N": {
+      "after": {
+        "accepted": false,
+        "error": "UNQUALIFIED_NUCLEASE_CONFIGURATION: min_bp_quality_or_N",
+        "error_type": "ValueError",
+        "injected_argv": [
+          "--min_bp_quality_or_N",
+          "30"
+        ],
+        "published_result": false
+      },
+      "before": {
+        "accepted": true,
+        "class_counts": {
+          "ambiguous": 0,
+          "discarded": 0,
+          "indel_only": 0,
+          "indel_plus_substitution": 0,
+          "substitution_only": 0,
+          "unmodified": 12
+        },
+        "injected_argv": [
+          "--min_bp_quality_or_N",
+          "30"
+        ],
+        "metrics": {
+          "any_modification_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "indel_plus_substitution_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_and_deletion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "insertion_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_containing_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "substitution_only_fraction": {
+            "denominator": 12,
+            "fraction": 0.0,
+            "numerator": 0
+          },
+          "unmodified_fraction": {
+            "denominator": 12,
+            "fraction": 1.0,
+            "numerator": 12
+          }
+        },
+        "status": "REPORTABLE"
+      }
+    }
+  },
+  "previous_candidate": "be4222b43db6926e3b89d1d09310e5581bc3f258",
+  "qualified_primary_and_secondary_metric_parity": true,
+  "unchanged_prior_source_and_evidence_files": 1395,
+  "version": "0.8.0"
+}

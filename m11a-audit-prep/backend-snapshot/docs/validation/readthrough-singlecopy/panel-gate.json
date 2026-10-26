@@ -1,0 +1,18 @@
+{
+  "single_copy": {
+    "panels": 72,
+    "allowed": 15,
+    "blocked": 57,
+    "trials": 432,
+    "changed_from_070": 0,
+    "restored_safe_regressions": 3,
+    "restored_routing_regressions": 4
+  },
+  "multi_copy": {
+    "designs": 36,
+    "allowed": 13,
+    "blocked": 23,
+    "trials": 432,
+    "changed": 0
+  }
+}

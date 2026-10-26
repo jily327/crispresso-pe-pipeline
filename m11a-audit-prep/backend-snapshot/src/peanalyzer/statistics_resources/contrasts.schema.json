@@ -1,0 +1,144 @@
+{
+  "$defs": {
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "dpi": {
+          "minimum": 0,
+          "title": "Dpi",
+          "type": "integer"
+        },
+        "editor": {
+          "minLength": 1,
+          "title": "Editor",
+          "type": "string"
+        },
+        "treatment": {
+          "minLength": 1,
+          "title": "Treatment",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editor",
+        "treatment",
+        "dpi"
+      ],
+      "title": "Condition",
+      "type": "object"
+    },
+    "Contrast": {
+      "additionalProperties": false,
+      "properties": {
+        "alternative": {
+          "const": "two-sided",
+          "title": "Alternative",
+          "type": "string"
+        },
+        "contrast_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Contrast Id",
+          "type": "string"
+        },
+        "copy_name": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Copy Name"
+        },
+        "family_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Family Id",
+          "type": "string"
+        },
+        "group_a": {
+          "$ref": "#/$defs/Condition"
+        },
+        "group_b": {
+          "$ref": "#/$defs/Condition"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "pairing_mode": {
+          "enum": [
+            "unpaired",
+            "block"
+          ],
+          "title": "Pairing Mode",
+          "type": "string"
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Id"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_name",
+        "metric_name",
+        "contrast_id",
+        "family_id",
+        "group_a",
+        "group_b",
+        "pairing_mode",
+        "alternative"
+      ],
+      "title": "Contrast",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contrasts": {
+      "items": {
+        "$ref": "#/$defs/Contrast"
+      },
+      "minItems": 1,
+      "title": "Contrasts",
+      "type": "array"
+    },
+    "families": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Families",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "families",
+    "contrasts"
+  ],
+  "title": "ContrastSpecification",
+  "type": "object"
+}

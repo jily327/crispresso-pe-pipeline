@@ -1,0 +1,48 @@
+{
+  "ambiguity_policy": {
+    "assign_ambiguous_alignments_to_first_reference": false,
+    "expand_ambiguous_alignments": false,
+    "pooled_routing": "default Bowtie2 primary-hit routing; no wrapper filtering"
+  },
+  "artifacts": {
+    "bam_sha256": "abf1609d6eda12b8545d367e6e8b22f966efbafbe99f28cbb7b84879b02a8458",
+    "pooled_info_sha256": "a0a417072d5fa9c4d9b75239c77988001a26cf92848ff697640af82e72173cfc",
+    "sam_sha256": "bbf2814814e84e7c4fe490bda64ee888aaaf69ea9118a18aa732ff2a426dcca3"
+  },
+  "correct_informative_routes": 310,
+  "cross_routed_read_ids": [],
+  "deliberately_noninformative_reads": 40,
+  "design_sha256": "5d6cb8f1379b22245e4dc203a8939ae9e83d9bdfdfb3370e8f7ceacebdd2ec3a",
+  "explicit_backend_ambiguous_read_count": null,
+  "incorrect_cross_routes": 0,
+  "informative_reads": 310,
+  "multiply_routed_reads": 0,
+  "noninformative_reads_assigned_to_copies": 40,
+  "per_copy_routed_counts": {
+    "SYN__copy1": 211,
+    "SYN__copy2": 139
+  },
+  "reference_smoke": {
+    "SYN__copy1": {
+      "exact_synthetic_pe_allele_reads_assigned_to_pe_reference": 60,
+      "pe_reference_verified": true,
+      "precise_pe_routed_correctly": 60,
+      "precise_pe_truth_reads": 60,
+      "scope": "synthetic reference smoke test, not a production efficiency metric",
+      "wt_reference_verified": true
+    },
+    "SYN__copy2": {
+      "exact_synthetic_pe_allele_reads_assigned_to_pe_reference": 40,
+      "pe_reference_verified": true,
+      "precise_pe_routed_correctly": 40,
+      "precise_pe_truth_reads": 40,
+      "scope": "synthetic reference smoke test, not a production efficiency metric",
+      "wt_reference_verified": true
+    }
+  },
+  "routing_gate": "FAIL",
+  "schema_version": 1,
+  "score_tied_routed_reads": 40,
+  "total_synthetic_reads": 350,
+  "unassigned_reads": 0
+}

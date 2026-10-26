@@ -1,0 +1,32 @@
+include requirements-dev.lock
+recursive-include docs *.md
+recursive-include docs/validation/m3 *.json *.csv *.tsv *.txt
+recursive-include docs/validation/m31 *.json *.jsonl *.csv *.tsv *.txt
+recursive-include docs/validation/m311 *.json *.jsonl *.csv *.tsv *.txt
+recursive-include docs/validation/m312 *.json *.jsonl *.csv *.tsv *.txt
+recursive-include docs/validation/m4 *.json *.jsonl *.csv *.tsv *.txt
+recursive-include docs/validation/m4 *.py
+recursive-include examples *.csv *.yaml
+recursive-include tests *.py
+recursive-include docs/validation/m41 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
+recursive-include docs/validation/m42 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
+recursive-include docs/validation/m421 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
+recursive-include docs/validation/m422 *.json *.jsonl *.csv *.tsv *.txt *.py *.sh
+recursive-include docs/validation/m5 *.json *.csv *.tsv *.txt *.py *.sh *.yaml
+recursive-include docs/validation/m51 *.json *.txt *.py *.sh
+recursive-include docs/validation/m6 *.json *.txt *.py *.sh *.html *.svg *.tsv
+recursive-include docs/validation/m61 *.json *.txt *.py *.sh
+recursive-include docs/validation/m7 *.json *.txt *.py *.sh *.csv *.yaml
+recursive-include docs/validation/readthrough *.json *.csv *.yaml *.txt *.md *.py *.sh
+recursive-include docs/validation/readthrough-singlecopy *.json *.txt *.py *.md
+recursive-include docs/validation/m8 *.json *.txt *.py *.sh *.md *.zip
+
+# Reproducible prebuilt viewer and its build inputs (no Node runtime dependency).
+include viewer_build.py
+include requirements-gui.lock
+include frontend/package.json frontend/package-lock.json frontend/index.html
+include frontend/tsconfig.json frontend/vite.config.ts
+recursive-include frontend/src *.ts *.tsx *.css *.json
+recursive-include src/peanalyzer/gui/static *.json *.html *.js *.css
+
+recursive-include docs/validation/m101 *.json *.md

@@ -1,0 +1,30 @@
+{
+  "backend": "40bd8ad8844fd07ce8a138b5520f7f0ec948030f",
+  "design": "05cfc68b62215a4c52862e09f081eab1c75ba39f",
+  "package_version": "0.8.0",
+  "classified_symbols": 64,
+  "source_sha256": {
+    "src/peanalyzer/schemas.py": "b76b731c605e3f773dd7a6b2d2615f3a8c417f26a1f0b3fede219526db85a68c",
+    "src/peanalyzer/validation.py": "46e9c196ebdb5a2bf749f463a70e9e281d101960c2becd738eec26af3555f7fe",
+    "src/peanalyzer/barcodes.py": "690e5677c245ab8a1fb67448a2996e3b17b95c236202025f87dff939c7a179ce",
+    "src/peanalyzer/fastq.py": "aec342f796eaa33228313cf94ba55bd26b0494b10ac34c4b78d9de71aba41598",
+    "src/peanalyzer/demux_verify.py": "3e374110a72b5dd44bc22b3e414acd6c269db77ef1bfb3bdd98dbf319a537fc3",
+    "src/peanalyzer/analysis_fastq.py": "f48ef7f012b3fbb6124c4fb69487ca7100d4362325213039201455efb3203efa",
+    "src/peanalyzer/backend/pooled.py": "309fcf514413372eb952fb2cb86b82daf03daa617dbe79029507a5ec7fb113ef",
+    "src/peanalyzer/geometry.py": "ac9dddd35e28bdeb817d5b3e7786a2960f0b308ce6d8a03bf4ded01898b796fe",
+    "src/peanalyzer/routing.py": "8e04123514927aba9db5c4616d3d073a334f3f98632ae1f5ac3005dc7e8dbd92",
+    "src/peanalyzer/nuclease/targets.py": "11f0c80a9909f2d0177be0f3c0e3c7b05c2399af36a698de04cb268d5cee0369",
+    "src/peanalyzer/nuclease/qualification.py": "7b4f2cca0d005f565a8bda14e573b7f3c9788910f96681a06e07f41fc8dd4edb",
+    "src/peanalyzer/workflow_models.py": "9c759ead2a75fd491e244910bb235d1230d92c566bec6caf6628a2c2d63b20c6",
+    "src/peanalyzer/workflow.py": "00d60826bbbce308f9f8b6d3f4fda2b6f7a47f3f5db0c0132701575dd1efdcd0",
+    "src/peanalyzer/provenance.py": "422b8ae092d1f50489a53beddf0a320ea417b8b4889209fdbbdaba39862eff2a",
+    "src/peanalyzer/workflow_storage.py": "bf2da066e52f956e5a7ab19eaf4bf0b21a03273146eeb1ef68fe20597d6080ea",
+    "src/peanalyzer/statistics.py": "e39c594ea01c7e15ea894b7ba51f83b520e7e542405d0d8edc6df26d90ec3d26",
+    "src/peanalyzer/metrics/policy_requests.py": "541b4962dcdda81a908427467e639251155dc6f7156e8f30febf0b3dbefa7cba",
+    "src/peanalyzer/demux.py": "64ec514b068c19877e813675b0fc17ea1fda9b0d48e3a936cca86ca01c5bc6bf",
+    "src/peanalyzer/metrics/production.py": "14c6b7a645577c262c56eae88bebc0718d79ba1fba8d5be0211f7070663e4a73",
+    "src/peanalyzer/nuclease/backend.py": "a872c22ce142ae373da93be93539ade9f154da61b35c6803014f5ca634140afb",
+    "src/peanalyzer/aggregation.py": "641ee9dbd3f1da255d534695541ec30ff55b551d4f7b1588852f8c53ddc8dd6a",
+    "src/peanalyzer/reporting.py": "fe810fc25d61f823f8be96fc6102fb6032f898fdb3608f6778544a0fc7a160ef"
+  }
+}

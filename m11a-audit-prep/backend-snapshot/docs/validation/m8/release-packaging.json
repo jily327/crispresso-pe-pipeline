@@ -1,0 +1,16 @@
+{
+  "required_files_verified": [
+    "src/peanalyzer/nuclease/backend.py",
+    "src/peanalyzer/nuclease/result.schema.json",
+    "docs/m8-nuclease.md",
+    "docs/validation/m8/gate.json",
+    "docs/validation/m8/backend-oracles.json",
+    "docs/validation/m8/pe-routing-and-products.json",
+    "tests/test_m8_integration.py",
+    "docs/validation/m8/coordinate-oracles.json",
+    "docs/validation/m8/unchanged-scientific-functions.json"
+  ],
+  "private_fastqs_included": false,
+  "package_version": "0.8.0",
+  "archive_digest_note": "Archive SHA-256 recorded outside the sdist to avoid self-hash recursion."
+}

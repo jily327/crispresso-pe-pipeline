@@ -1,0 +1,40 @@
+{
+  "backend_executing_scenarios": 61,
+  "baseline_fresh_wheel_tests": 735,
+  "baseline_source_tests": 735,
+  "exact_only": true,
+  "final_fresh_wheel_tests": 849,
+  "final_source_tests": 849,
+  "geometry": {
+    "allowed": 13,
+    "blocked": 23,
+    "total": 36
+  },
+  "historical_pair_classifications_unchanged": 475,
+  "installed_version_api_cli_schemas_resources_verified": true,
+  "integration_scenarios": 62,
+  "limitations": [
+    "Exact enumeration is capped; no Monte Carlo fallback.",
+    "Small biological n retains coarse exact p-value resolution.",
+    "Exchangeability and sign symmetry remain scientific design assumptions.",
+    "No confidence intervals, causal interpretation or reporting.",
+    "Existing M4 structural read-geometry limitation remains upstream; M4.2.3 is not implemented."
+  ],
+  "m4_results_equal_across_four_runs": 42,
+  "m5_tests_added": 114,
+  "maximum_permutations": 100000,
+  "minimum_complete_blocks": 2,
+  "minimum_unpaired_samples_per_group": 2,
+  "package_version": "0.5.0",
+  "preflight_only_scenarios": 1,
+  "prior_tests_preserved": 735,
+  "qualification_matrix_cases": 17,
+  "required_branch": "feat/m5-biological-statistics",
+  "required_parent": "53bb7fe3e5d6f2bb6f3d67e0c22e4239929f5274",
+  "same_input_artifacts_byte_identical": true,
+  "schema_version": 1,
+  "statistics_contract_version": "m5-v1",
+  "status": "PASS",
+  "tested_and_final_wheel_payload_equal": true,
+  "upstream_m4_scientific_code_and_historical_evidence_unchanged": true
+}

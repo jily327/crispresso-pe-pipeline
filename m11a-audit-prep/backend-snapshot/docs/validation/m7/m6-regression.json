@@ -1,0 +1,588 @@
+{
+  "cases": {
+    "source": [
+      {
+        "classname": "tests.test_m6",
+        "name": "test_figure_data_independent_oracle"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_no_scientific_recomputation"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_modes_and_pairing[unpaired]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_modes_and_pairing[paired]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_summarize_only"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_reportability_inventory_and_no_zero_points"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_one_of_four_numerical_samples"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_all_nonreportable_series_and_family"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rounding_preserves_raw_numbers[1-3-33.33%]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rounding_preserves_raw_numbers[2-7-28.57%]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rounding_preserves_raw_numbers[37-100-37.00%]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[duplicate]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[nan]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[infinity]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[negative_infinity]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[overflow]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[malformed]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[unknown]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[schema_bool]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[schema_old]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[contract]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[tsv]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_html_structure_offline_accessibility"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_injection_literal_svg_and_private_paths"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_network_disabled"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_source_copy_hash_and_inventory"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[duplicate]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[unsorted]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[missing]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[source_hash]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[absolute]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[traversal]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[backslash]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[media]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[figure_id]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[kind]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[unknown]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[version_bool]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_packaged_schema_and_resource"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[directory]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[symlink]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[dangling_symlink]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[lock]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[parent_file]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[render]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[mutation]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[race]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[permission]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_byte_determinism_and_figures_closed"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_input_order_invariance"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_series_identity_separation_and_hashes"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_cli_success_and_stderr"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rendered_geometry_uses_exact_spec[samples]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rendered_geometry_uses_exact_spec[contrasts]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_figure_cleanup_on_save_failure"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_every_scientific_field_in_tsv[observations]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_every_scientific_field_in_tsv[group_summaries]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_every_scientific_field_in_tsv[contrasts]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_condition_structured_sorting_and_color_stability"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_policy_definition_list_order_is_preserved_as_identity"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[U0001]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[U000B]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[UFFFE]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[UFFFF]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_cli"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_xml_safe_unusual_editor[U007F]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_xml_safe_unusual_editor[U2028]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_validates_after_accessibility_attributes[samples]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_validates_after_accessibility_attributes[contrasts]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_contrast_failure_removes_previously_staged_sample_figures"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_all_ordinary_exported_and_embedded_svg_valid[unpaired]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_all_ordinary_exported_and_embedded_svg_valid[paired]"
+      }
+    ],
+    "wheel": [
+      {
+        "classname": "tests.test_m6",
+        "name": "test_figure_data_independent_oracle"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_no_scientific_recomputation"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_modes_and_pairing[unpaired]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_modes_and_pairing[paired]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_summarize_only"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_reportability_inventory_and_no_zero_points"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_one_of_four_numerical_samples"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_all_nonreportable_series_and_family"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rounding_preserves_raw_numbers[1-3-33.33%]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rounding_preserves_raw_numbers[2-7-28.57%]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rounding_preserves_raw_numbers[37-100-37.00%]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[duplicate]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[nan]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[infinity]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[negative_infinity]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[overflow]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[malformed]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[unknown]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[schema_bool]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[schema_old]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[contract]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_strict_input_rejection[tsv]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_html_structure_offline_accessibility"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_injection_literal_svg_and_private_paths"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_network_disabled"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_source_copy_hash_and_inventory"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[duplicate]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[unsorted]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[missing]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[source_hash]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[absolute]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[traversal]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[backslash]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[media]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[figure_id]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[kind]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[unknown]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_manifest_rejections[version_bool]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_packaged_schema_and_resource"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[directory]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[symlink]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[dangling_symlink]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[lock]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[parent_file]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[render]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[mutation]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[race]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_atomic_failure[permission]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_byte_determinism_and_figures_closed"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_input_order_invariance"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_series_identity_separation_and_hashes"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_cli_success_and_stderr"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rendered_geometry_uses_exact_spec[samples]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_rendered_geometry_uses_exact_spec[contrasts]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_figure_cleanup_on_save_failure"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_every_scientific_field_in_tsv[observations]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_every_scientific_field_in_tsv[group_summaries]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_every_scientific_field_in_tsv[contrasts]"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_condition_structured_sorting_and_color_stability"
+      },
+      {
+        "classname": "tests.test_m6",
+        "name": "test_policy_definition_list_order_is_preserved_as_identity"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[U0001]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[U000B]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[UFFFE]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_fails_closed[UFFFF]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_invalid_editor_cli"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_xml_safe_unusual_editor[U007F]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_xml_safe_unusual_editor[U2028]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_validates_after_accessibility_attributes[samples]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_validates_after_accessibility_attributes[contrasts]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_contrast_failure_removes_previously_staged_sample_figures"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_all_ordinary_exported_and_embedded_svg_valid[unpaired]"
+      },
+      {
+        "classname": "tests.test_m61",
+        "name": "test_all_ordinary_exported_and_embedded_svg_valid[paired]"
+      }
+    ]
+  },
+  "passed_cases_per_environment": 72,
+  "scientific_recomputation_absent": true,
+  "source_copy_and_determinism_preserved": true,
+  "svg_gate_preserved": true
+}

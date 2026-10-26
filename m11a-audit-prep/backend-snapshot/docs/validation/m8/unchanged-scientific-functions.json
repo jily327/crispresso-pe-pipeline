@@ -1,0 +1,17 @@
+{
+  "aggregation.py": {
+    "_validate_populations": "64a54f31057e0010deb53c1f0e3df0bb8760c35a1dc8533abb4ca6e459347ae7",
+    "summarize_groups": "3e042307f001c82b66c24f7b6a724b89bc59bebf4dbeca32e1679b06c59b212b"
+  },
+  "reporting.py": {
+    "_ordered": "e5688d070496b99ab1a0cbe181df4e0708596f1aabe814cdbf89f1832f8843b9",
+    "render_svg": "65d797a092b8a0639d473d78bd37d13bc5966495120d6284659b3cf7dbcf0698",
+    "write_tables": "b9f1fe44f1300f44f63e3b73aac99fa11c60982efb50af547a3ef4c58c78d930"
+  },
+  "statistics.py": {
+    "_contrast": "8b99962fc2367d977bb1acbd9d20d26388242e9cd98aabe6bd7b2777954f4a32",
+    "benjamini_hochberg": "d1b7cdb2da4211e287c23cce3b8e35724b3d8d63da6abedae81538db2cf3cfb0",
+    "exact_paired": "3c54f2f874de46b29ad4d6f8e674152ee6747d8f8473921dad7dbf4676c94d43",
+    "exact_unpaired": "ea3fa4ae33cfba6eaa11e978c57bebe4f98efa6316b179ab462528024fce2c49"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "cross_copy_lengths/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "3a77c22938dac71bf07163e14acf0d922b94af3afe8a33a88c174bf8be11bd6c"
+  },
+  "cross_copy_lengths/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "332f040b1d5eafa0b435d96ec8e714dd13700204e290a22261bfdb9436dc28b2"
+  },
+  "cross_copy_lengths/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "f091fab81c1321a52872701428072f1a169fc7731fa2dbc220b89a1db0ccc00c"
+  },
+  "deletion_boundary/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "d9bfdb65c36c5a4f8391af220b5b88694c9f46638077e4cbf9afda71b826853e"
+  },
+  "deletion_boundary/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "a14eb0e3e2a1d527c3a3ef2ade853adbf71ca2aa868eeb3cf512ead5fcd9828a"
+  },
+  "deletion_boundary/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "635b134a5125b55fbadde27248185214cb7908e36738b8341b3c97e4f7192b56"
+  },
+  "deletion_exact_boundary/metrics/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "c5a93dbf32a511e65c663330ee6b4bdbfe417a4390c5e45f07e85b42d7f7596c"
+  },
+  "deletion_exact_boundary/metrics/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "27b160f7a8b18fd29dd5177abadb50b9b53dde9faaa9c9d6fa2e29be61b8e8b1"
+  },
+  "deletion_exact_boundary/metrics/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "46f9a97fb468b2569ac90abbaa1e780fcb63589ccf66ce7cf087da19912285d1"
+  },
+  "insertion_long/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "1181305798709ee247ced4888a1ab47752d38d542b8d84b091a1495b06135de9"
+  },
+  "insertion_long/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "5e656c91c12218595523b9a0a04157adf9252b79850eed9d51e02d371b157573"
+  },
+  "insertion_long/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "1196fb2897d4715f69bc5b2c51d08a317f20445aecd40d2bb2c28fd39c412615"
+  },
+  "insertion_short/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "d870ea96199971f108fc4ccebd15ae99501d6dee1ccc49132f9b99327ae9e215"
+  },
+  "insertion_short/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "e9f2b3e752b10125c00e680aa8a171ae0495cd38f6604084a3e8453bd1e6bf8c"
+  },
+  "insertion_short/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "e7d6d52635431f3797d58910cdd885071c2b3140586099db7aa99d32567415b6"
+  },
+  "repeat/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "065f86461a9898a434f0ce5d0a1e5de0b3df22617e094d6d119b5da8f06acc76"
+  },
+  "repeat/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "9db23ba258636acad6e6a27495e8f903ecab29ed5d84bdc1a94bc772a0056ee4"
+  },
+  "repeat/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "b77153c2e2eba4ad8576d4706e1619c08187831d6e8329c923f946e36e2cbbdc"
+  },
+  "substitution/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "3c5619bef9b2d1cd7d68e70536702a5d6c8f03f1e5629422f805e1c6e716920a"
+  },
+  "substitution/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "6f85ec6492da9b3eea047760a95573d7c420a097b62da3a2c1f9f920c600b093"
+  },
+  "substitution/result.json::copy2": {
+    "equal": true,
+    "evidence_sha256": "de74bd2026578ef94610d4723445090ecaef2be0d2a33fde61bfc78e68d34043"
+  },
+  "tolerance/metrics/result.json::target": {
+    "equal": true,
+    "evidence_sha256": "b3abb80d6046a96b96c3f7abd8cd537f164fa055354286ea14a02efb1744b1fa"
+  },
+  "tolerance/metrics/result.json::copy1": {
+    "equal": true,
+    "evidence_sha256": "f961db17ee05736b7436c938fab1e0e59904a9b01b62906c42ed9b57f714f52f"
+  }
+}

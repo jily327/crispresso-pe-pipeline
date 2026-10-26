@@ -1,0 +1,542 @@
+{
+  "unequal": {
+    "evidence": {
+      "evidence_version": 1,
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 7,
+      "classification_input_reads": 7,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATAGTGGGAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATAGTGGTAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGGTGGTAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 7,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "PE",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 3,
+              "extra_substitutions": [
+                {
+                  "position": 119,
+                  "wt_position": 119,
+                  "anchor_position": 119,
+                  "reference": "T",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 120,
+                  "wt_position": 120,
+                  "anchor_position": 120,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 123,
+                  "wt_position": 123,
+                  "anchor_position": 123,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": false,
+              "complete_intended_state": false,
+              "reason": "NONUNIQUE_PRODUCT_ALIGNMENT",
+              "extra_substitutions": [],
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 118,
+                  "wt_position": 118,
+                  "anchor_position": null,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 123,
+                  "wt_position": 123,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 1,
+              "extra_substitutions": [
+                {
+                  "position": 118,
+                  "wt_position": 118,
+                  "anchor_position": null,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "results": {
+      "0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 7,
+        "classification_input_reads": 7,
+        "reason_codes": [
+          "ZERO_FAMILY_DENOMINATOR"
+        ]
+      },
+      "1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 7,
+        "denominator": 7,
+        "wt_family": 0,
+        "pe_family": 7,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": []
+      },
+      "2": {
+        "metric_name": "total_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 7,
+        "denominator": 7,
+        "wt_family": 0,
+        "pe_family": 7,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": []
+      },
+      "3": {
+        "metric_name": "total_pe_family",
+        "policy_id": "3",
+        "policy": {
+          "policy_id": "3",
+          "max_extra_substitutions": 3,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 7,
+        "denominator": 7,
+        "wt_family": 0,
+        "pe_family": 7,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": []
+      },
+      "4": {
+        "metric_name": "total_pe_family",
+        "policy_id": "4",
+        "policy": {
+          "policy_id": "4",
+          "max_extra_substitutions": 4,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "REPORTABLE",
+        "numerator": 7,
+        "denominator": 7,
+        "wt_family": 0,
+        "pe_family": 7,
+        "family_ambiguous": 0,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": []
+      }
+    }
+  },
+  "tie": {
+    "evidence": {
+      "evidence_version": 1,
+      "population_id": "synthetic-population",
+      "population_scope": "target_all_prepared",
+      "copy_id": null,
+      "assessment_stage": "prepared_pairs",
+      "source_input_reads": 7,
+      "classification_input_reads": 7,
+      "targets": [
+        {
+          "target_name": "SYN",
+          "copy_name": "copy1",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        },
+        {
+          "target_name": "SYN",
+          "copy_name": "copy2",
+          "wt_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATAGTGGGAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "prime_edited_sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATAGTGGTAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "pegRNA_spacer": "TAGTGCCGACGGACCAGAAC",
+          "pegRNA_extension": "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+          "nicking_guide": null,
+          "pegRNA_scaffold": null,
+          "quantification_window_coordinates": null,
+          "quantification_window_size": null,
+          "quantification_window_center": null,
+          "prime_editing_pegRNA_scaffold_min_match_length": null
+        }
+      ],
+      "products": [
+        {
+          "sequence": "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTTGGTAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+          "count": 7,
+          "assessable": true,
+          "reason_codes": [],
+          "canonical_exact_wt": false,
+          "canonical_exact_pe": false,
+          "intended_state": "ambiguous",
+          "candidates": [
+            {
+              "copy": "copy1",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 120,
+                  "wt_position": 120,
+                  "anchor_position": 120,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 123,
+                  "wt_position": 123,
+                  "anchor_position": 123,
+                  "reference": "C",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy1",
+              "family": "PE",
+              "full_product": false,
+              "complete_intended_state": false,
+              "reason": "NONUNIQUE_PRODUCT_ALIGNMENT",
+              "extra_substitutions": [],
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "WT",
+              "full_product": true,
+              "complete_intended_state": false,
+              "extra_substitution_count": 3,
+              "extra_substitutions": [
+                {
+                  "position": 118,
+                  "wt_position": 118,
+                  "anchor_position": null,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 119,
+                  "wt_position": 119,
+                  "anchor_position": 118,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 123,
+                  "wt_position": 123,
+                  "anchor_position": 122,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": true
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            },
+            {
+              "copy": "copy2",
+              "family": "PE",
+              "full_product": true,
+              "complete_intended_state": true,
+              "extra_substitution_count": 2,
+              "extra_substitutions": [
+                {
+                  "position": 118,
+                  "wt_position": 118,
+                  "anchor_position": null,
+                  "reference": "A",
+                  "observed": "G",
+                  "at_intended_position": false
+                },
+                {
+                  "position": 119,
+                  "wt_position": 119,
+                  "anchor_position": 118,
+                  "reference": "G",
+                  "observed": "T",
+                  "at_intended_position": false
+                }
+              ],
+              "extra_indel_events": 0,
+              "extra_indels": []
+            }
+          ],
+          "observed_mates": null,
+          "eligible_copies": []
+        }
+      ],
+      "blocking_reasons": [],
+      "coordinate_contract": "zero_based_anchor_wt_forward"
+    },
+    "results": {
+      "0": {
+        "metric_name": "total_pe_family",
+        "policy_id": "0",
+        "policy": {
+          "policy_id": "0",
+          "max_extra_substitutions": 0,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 7,
+        "classification_input_reads": 7,
+        "reason_codes": [
+          "ZERO_FAMILY_DENOMINATOR"
+        ]
+      },
+      "1": {
+        "metric_name": "total_pe_family",
+        "policy_id": "1",
+        "policy": {
+          "policy_id": "1",
+          "max_extra_substitutions": 1,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 0,
+        "excluded": 7,
+        "classification_input_reads": 7,
+        "reason_codes": [
+          "ZERO_FAMILY_DENOMINATOR"
+        ]
+      },
+      "2": {
+        "metric_name": "total_pe_family",
+        "policy_id": "2",
+        "policy": {
+          "policy_id": "2",
+          "max_extra_substitutions": 2,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 7,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": [
+          "ZERO_FAMILY_DENOMINATOR"
+        ]
+      },
+      "3": {
+        "metric_name": "total_pe_family",
+        "policy_id": "3",
+        "policy": {
+          "policy_id": "3",
+          "max_extra_substitutions": 3,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 7,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": [
+          "ZERO_FAMILY_DENOMINATOR"
+        ]
+      },
+      "4": {
+        "metric_name": "total_pe_family",
+        "policy_id": "4",
+        "policy": {
+          "policy_id": "4",
+          "max_extra_substitutions": 4,
+          "max_extra_indel_events": 0,
+          "allowed_extra_substitution_positions": null
+        },
+        "population_id": "synthetic-population",
+        "population_scope": "target_all_prepared",
+        "copy_id": null,
+        "status": "NOT_ASSESSABLE",
+        "numerator": null,
+        "denominator": null,
+        "wt_family": 0,
+        "pe_family": 0,
+        "family_ambiguous": 7,
+        "excluded": 0,
+        "classification_input_reads": 7,
+        "reason_codes": [
+          "ZERO_FAMILY_DENOMINATOR"
+        ]
+      }
+    }
+  }
+}

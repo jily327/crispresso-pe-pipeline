@@ -1,0 +1,45 @@
+{
+  "source_unit_suite": {
+    "command": "/workspace/peanalyzer-venv/bin/python -m pytest -q -m 'not crispresso_integration'",
+    "passed": 267,
+    "deselected": 4
+  },
+  "final_installed_wheel_suite": {
+    "cwd": "/tmp",
+    "command": "/workspace/validation/m3/wheel-env/bin/python -m pytest -q /workspace/crispresso-pe-pipeline/tests",
+    "passed": 267,
+    "skipped_opt_in_real_backend": 4,
+    "seconds": 13.79
+  },
+  "actual_backend_integration": {
+    "command_reference": "README.md",
+    "passed": 4,
+    "deselected": 267,
+    "seconds": 47.85,
+    "scientific_routing_gate": "FAIL"
+  },
+  "build": {
+    "command": "/workspace/peanalyzer-venv/bin/python -m build --no-isolation",
+    "sdist": "crispresso_pe_pipeline-0.3.0.tar.gz",
+    "wheel": "crispresso_pe_pipeline-0.3.0-py3-none-any.whl",
+    "passed": true
+  },
+  "wheel_smoke": {
+    "installed_module": "/workspace/validation/m3/wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "version": "0.3.0",
+    "verified_synthetic_pairs": 350,
+    "forward_barcodes": 12,
+    "reverse_barcodes": 8,
+    "profile_bridge_lengths": {
+      "forward": 18,
+      "reverse": 18
+    },
+    "wheel_does_not_claim_source_git": true
+  },
+  "read_only_existing_m2_sanity": {
+    "assigned_pairs_recounted": 85878,
+    "samples": 12,
+    "real_reads_committed": false,
+    "used_for_crispresso": false
+  }
+}

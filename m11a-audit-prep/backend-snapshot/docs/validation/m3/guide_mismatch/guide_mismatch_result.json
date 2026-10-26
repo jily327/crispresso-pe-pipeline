@@ -1,0 +1,11 @@
+{
+  "backend_sequence_check_override": false,
+  "design_sha256": "38362e250999f5e28659845bb7038f975524ab5ec548fbd4b9d1b081908cbd20",
+  "downstream_analysis_permitted": false,
+  "error_code": "PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED",
+  "error_text": "The given prime editing pegRNA spacer is not found in the reference sequence",
+  "guide_sequences_unchanged": true,
+  "return_code": 255,
+  "status": "rejected",
+  "stderr_sha256": "b19d5b7f4fc9f91cee95905165831093b168277139b4c91f330cf0ded55608dd"
+}

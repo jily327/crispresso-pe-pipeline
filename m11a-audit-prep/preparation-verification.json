@@ -1,0 +1,31 @@
+{
+  "local_repository_unchanged": true,
+  "local_working_tree_clean": true,
+  "exports": [
+    {
+      "sha": "40bd8ad8844fd07ce8a138b5520f7f0ec948030f",
+      "root": "backend-snapshot",
+      "regular_files": 1544,
+      "byte_identity": true,
+      "unexpected_files": 0
+    },
+    {
+      "sha": "05cfc68b62215a4c52862e09f081eab1c75ba39f",
+      "root": "design-snapshot",
+      "regular_files": 45,
+      "byte_identity": true,
+      "unexpected_files": 0
+    }
+  ],
+  "primary_documents": [
+    "M11A_BACKEND_CONTRACT_AUDIT.md",
+    "M11A_ADVERSARIAL_TEST_MATRIX.md",
+    "M11A_ORACLE_FIXTURES.md",
+    "M11A_FINAL_AUDIT_CHECKLIST.md"
+  ],
+  "unique_prepared_cases": 128,
+  "baseline_checks_matched": 85,
+  "scientific_executions": 0,
+  "subprocess_calls_during_oracles": 0,
+  "candidate_tested": false
+}

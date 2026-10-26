@@ -1,0 +1,1154 @@
+[
+  {
+    "id": "Z01",
+    "group": "Z \u2014 Zero execution",
+    "title": "Open New Analysis with Core absent",
+    "expected": "Setup loads; no executable/version probe, subprocess or runtime-qualified claim",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z02",
+    "group": "Z \u2014 Zero execution",
+    "title": "Validate complete raw PE draft",
+    "expected": "Strict metadata/file validation only; all scientific executor traps remain zero",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z03",
+    "group": "Z \u2014 Zero execution",
+    "title": "Validate complete nuclease draft",
+    "expected": "Pure NucleaseTarget/window/expected-argument helpers allowed; no Core",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z04",
+    "group": "Z \u2014 Zero execution",
+    "title": "Preview PE insertion/deletion",
+    "expected": "No geometry-triggered route_pair trials; honest annotation-unavailable state if no safe helper",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z05",
+    "group": "Z \u2014 Zero execution",
+    "title": "Preview M2 analyze draft",
+    "expected": "Read-only archive verification allowed; no preparation, route, metrics, locks or sessions",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z06",
+    "group": "Z \u2014 Zero execution",
+    "title": "Repeat preview many times",
+    "expected": "No background execution, demux dry-run or automatic native report creation",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z07",
+    "group": "Z \u2014 Zero execution",
+    "title": "Trap captured aliases/default arguments",
+    "expected": "Patch bindings and trace original function code; swallowed exceptions still count as forbidden attempts",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z08",
+    "group": "Z \u2014 Zero execution",
+    "title": "Trap subprocess from provenance/capabilities",
+    "expected": "Request-scoped git/version probes fail the zero-subprocess rule; bootstrap provenance must be distinguished and documented",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z09",
+    "group": "Z \u2014 Zero execution",
+    "title": "Attempt resume/force/submit via forged setup request",
+    "expected": "Unsupported operation rejected; no recovery or workflow mutation",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "Z10",
+    "group": "Z \u2014 Zero execution",
+    "title": "Check expected versus observed runtime fields",
+    "expected": "Expected 2.3.4/profile/digest may be displayed; actual installed version/resolved Core args cannot be certified without execution",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R01",
+    "group": "R \u2014 Draft revision races",
+    "title": "A valid validation arrives after a newer invalid edit",
+    "expected": "Immediately invalidate current validation/Review; late valid A never enables it",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R02",
+    "group": "R \u2014 Draft revision races",
+    "title": "A invalid validation arrives after a newer valid edit",
+    "expected": "Late A cannot overwrite new errors or new validation status",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R03",
+    "group": "R \u2014 Draft revision races",
+    "title": "Preview PE A pending then switch to nuclease",
+    "expected": "A is ignored; no PE geometry or identity appears under nuclease",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R04",
+    "group": "R \u2014 Draft revision races",
+    "title": "Review visible then target changes",
+    "expected": "Plan unavailable synchronously on edit, before debounce/network reply",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R05",
+    "group": "R \u2014 Draft revision races",
+    "title": "Sample identity changed after validation",
+    "expected": "Revision advances; old source mapping/plan cannot be current",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R06",
+    "group": "R \u2014 Draft revision races",
+    "title": "File bytes change with same path/size/mtime",
+    "expected": "Content hash changes or source-change failure; stat-only identity is insufficient",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R07",
+    "group": "R \u2014 Draft revision races",
+    "title": "Two preview responses return in reverse order",
+    "expected": "Only response matching current draft ID/revision and submitted content identity is accepted",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R08",
+    "group": "R \u2014 Draft revision races",
+    "title": "Close draft and create a new one before old response returns",
+    "expected": "A response from old draft ID cannot attach to new draft even when revision numbers match",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R09",
+    "group": "R \u2014 Draft revision races",
+    "title": "Abort request but server completes anyway",
+    "expected": "Abort is not the correctness mechanism; stale response checks still hold",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "R10",
+    "group": "R \u2014 Draft revision races",
+    "title": "Repeated identical draft requests",
+    "expected": "Same scientific identity; request IDs/revisions may differ without changing science digest",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M01",
+    "group": "M \u2014 Mode contamination",
+    "title": "PE\u2192nuclease\u2192PE",
+    "expected": "Preserve or discard inactive data deliberately; only active-mode payload affects preview",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M02",
+    "group": "M \u2014 Mode contamination",
+    "title": "Nuclease\u2192PE\u2192nuclease",
+    "expected": "Restored active window/profile must be explicitly revalidated, never restored as current validity",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M03",
+    "group": "M \u2014 Mode contamination",
+    "title": "Forge nuclease request carrying PE references/guides",
+    "expected": "Active nuclease payload rejects PE extras; explicitly separate saved inactive draft data may be retained but never enters identity",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M04",
+    "group": "M \u2014 Mode contamination",
+    "title": "Forge PE request carrying TIGR fields",
+    "expected": "Inactive TIGR/qwc selection cannot change PE target, preview or plan",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M05",
+    "group": "M \u2014 Mode contamination",
+    "title": "Switch TIGR\u2192explicit window",
+    "expected": "Clear active profile/target/window binding; backend rejects both selectors submitted as active",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M06",
+    "group": "M \u2014 Mode contamination",
+    "title": "Switch explicit\u2192TIGR",
+    "expected": "Old explicit qwc cannot override backend-selected W1\u2013W4",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M07",
+    "group": "M \u2014 Mode contamination",
+    "title": "Switch multicopy PE\u2192single-copy nuclease",
+    "expected": "No silent merge or leftover copies; explicitly valid single-copy target or blocking error",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "M08",
+    "group": "M \u2014 Mode contamination",
+    "title": "Edit inactive saved mode fields",
+    "expected": "Active scientific identity unchanged; switching back requires fresh validation",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S01",
+    "group": "S \u2014 Samples and input source",
+    "title": "Missing R1",
+    "expected": "BLOCKING INVALID for raw mode; no valid plan",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S02",
+    "group": "S \u2014 Samples and input source",
+    "title": "Missing R2",
+    "expected": "BLOCKING INVALID for raw mode; no valid plan",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S03",
+    "group": "S \u2014 Samples and input source",
+    "title": "R1 equals R2 or same inode/hardlink",
+    "expected": "BLOCKING INVALID; identity checked before execution, not by calling demultiplex",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S04",
+    "group": "S \u2014 Samples and input source",
+    "title": "Nonexistent input",
+    "expected": "BLOCKING INVALID; do not manufacture file hash or accept basename alone",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S05",
+    "group": "S \u2014 Samples and input source",
+    "title": "Swapped mates with /1 /2 or CASAVA annotations",
+    "expected": "BLOCKING INVALID after read-only paired_fastq check; wrong mate annotation",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S06",
+    "group": "S \u2014 Samples and input source",
+    "title": "Swapped unmarked mates",
+    "expected": "VALID WITH WARNING when otherwise synchronized; orientation cannot be inferred from filenames; explicit role confirmation",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S07",
+    "group": "S \u2014 Samples and input source",
+    "title": "Malformed CSV header/row/barcode DNA/duplicate column",
+    "expected": "BLOCKING INVALID with row/column evidence from loader",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S08",
+    "group": "S \u2014 Samples and input source",
+    "title": "Duplicate forward/reverse pair",
+    "expected": "BLOCKING INVALID; shared one-sided barcode alone remains allowed",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S09",
+    "group": "S \u2014 Samples and input source",
+    "title": "Duplicate stable barcode_id, including casefold collision",
+    "expected": "BLOCKING INVALID; do not silently sanitize/renumber",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S10",
+    "group": "S \u2014 Samples and input source",
+    "title": "Duplicate biological display sample_name",
+    "expected": "BLOCKING INVALID under current load_samples, despite being a display-facing field",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S11",
+    "group": "S \u2014 Samples and input source",
+    "title": "Repeated editor/treatment/dpi condition with distinct biological replicates",
+    "expected": "VALID; presentation may group it; must not merge biological rows",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S12",
+    "group": "S \u2014 Samples and input source",
+    "title": "Repeated biological_replicate within condition and target",
+    "expected": "BLOCKING INVALID for end-to-end readiness; metadata loader accepts but M5 later rejects; do not run M5 to check it",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S13",
+    "group": "S \u2014 Samples and input source",
+    "title": "Blank editor/treatment/dpi",
+    "expected": "BLOCKING INVALID; no implicit control dpi or editor default",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S14",
+    "group": "S \u2014 Samples and input source",
+    "title": "Extra valid expected sample-sheet row absent from reads",
+    "expected": "VALID WITH WARNING or explicitly unassessed assignment; no invented assigned counts; do not auto-drop the sample",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S15",
+    "group": "S \u2014 Samples and input source",
+    "title": "Unused authoritative barcode catalog entry",
+    "expected": "VALID, normally PRESENTATION-ONLY; full catalog is deliberately broader than expected sample pairs",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S16",
+    "group": "S \u2014 Samples and input source",
+    "title": "Unknown catalog ID or conflicting barcode sequence",
+    "expected": "BLOCKING INVALID; no fuzzy correction/rescue of metadata",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S17",
+    "group": "S \u2014 Samples and input source",
+    "title": "FASTQ expected-barcode mismatch without running demux",
+    "expected": "VALID WITH WARNING that assignment is unassessed; no Ready badge claiming barcode coverage was proved",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S18",
+    "group": "S \u2014 Samples and input source",
+    "title": "Read length at/below preparation trim",
+    "expected": "BLOCKING INVALID once established for the relevant prepared population; length==trim produces empty reads; no preparation execution",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S19",
+    "group": "S \u2014 Samples and input source",
+    "title": "Valid verified M2 archive",
+    "expected": "VALID input source analyze; source files remain immutable; raw R1/R2 inactive",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S20",
+    "group": "S \u2014 Samples and input source",
+    "title": "M2 read length at/below requested trim",
+    "expected": "BLOCKING INVALID for that archived sample; read-only inspection only",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S21",
+    "group": "S \u2014 Samples and input source",
+    "title": "Mutated source after validation",
+    "expected": "BLOCKING INVALID until refreshed identity and current validation; no stale plan reuse",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S22",
+    "group": "S \u2014 Samples and input source",
+    "title": "Symlink or source path outside approved roots",
+    "expected": "BLOCKING INVALID; opaque input handles cannot be forged into arbitrary paths",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S23",
+    "group": "S \u2014 Samples and input source",
+    "title": "Same basename inputs from different directories",
+    "expected": "PRESENTATION-ONLY disambiguation; IDs/hashes map each source correctly",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "S24",
+    "group": "S \u2014 Samples and input source",
+    "title": "Paired-end sequencing versus paired statistical design",
+    "expected": "Independent controls; paired=true requires block_id, not inferred from R1/R2",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P01",
+    "group": "P \u2014 PE target",
+    "title": "Simple SNP",
+    "expected": "Target accepts; pure geometry substitution annotation must equal PE_SNP_ANNOTATION golden",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P02",
+    "group": "P \u2014 PE target",
+    "title": "Multiple substitutions",
+    "expected": "Model accepts; exact supplied intended reference remains authoritative",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P03",
+    "group": "P \u2014 PE target",
+    "title": "Insertion",
+    "expected": "Model accepts; do not execute experimental routing qualification to preview",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P04",
+    "group": "P \u2014 PE target",
+    "title": "Deletion",
+    "expected": "Model accepts; no arbitrary indel-length cutoff or frontend reconstruction",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P05",
+    "group": "P \u2014 PE target",
+    "title": "Mixed multiple intended differences",
+    "expected": "Model accepts; preserve exact intended product; missing safe annotation is explicit",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P06",
+    "group": "P \u2014 PE target",
+    "title": "Invalid DNA ambiguity/gap/internal space",
+    "expected": "BLOCKING INVALID; only A/C/G/T reference alphabet; RNA U normalization is guide-specific",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P07",
+    "group": "P \u2014 PE target",
+    "title": "WT identical to intended",
+    "expected": "BLOCKING INVALID; no intentional edit exists under Target contract",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P08",
+    "group": "P \u2014 PE target",
+    "title": "Missing spacer",
+    "expected": "BLOCKING INVALID even though other fields look complete",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P09",
+    "group": "P \u2014 PE target",
+    "title": "Malformed spacer",
+    "expected": "BLOCKING INVALID for alphabet; a well-formed absent spacer is a separate preflight issue",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P10",
+    "group": "P \u2014 PE target",
+    "title": "Missing extension",
+    "expected": "BLOCKING INVALID; no inferred PBS/RTT/extension",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P11",
+    "group": "P \u2014 PE target",
+    "title": "Missing nicking guide",
+    "expected": "VALID under Target; do not invent a requirement or a guide",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P12",
+    "group": "P \u2014 PE target",
+    "title": "Reverse-only spacer",
+    "expected": "Model accepts but qualified pure preflight rejects PE_GUIDE_ORIENTATION_UNSUPPORTED; do not reverse supplied experiment to rescue",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P13",
+    "group": "P \u2014 PE target",
+    "title": "Wrong shared guide/extension across copies",
+    "expected": "Backend geometry rejects inconsistent experiment; no silent per-copy guide synthesis",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P14",
+    "group": "P \u2014 PE target",
+    "title": "Duplicate copy, casefold identity, duplicate/reverse-complement WT",
+    "expected": "BLOCKING INVALID at the appropriate collection/geometry gate",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P15",
+    "group": "P \u2014 PE target",
+    "title": "Homeolog ambiguity with insufficient pair diagnostics",
+    "expected": "Schema-valid does not mean copy routing SAFE; display backend-supported unresolved/blocked state, never claim eligibility",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "P16",
+    "group": "P \u2014 PE target",
+    "title": "PE qwc sentinel 0",
+    "expected": "Legacy PE model accepts it; not a nuclease explicit coordinate; scope/qualification caveat must remain visible",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N01",
+    "group": "N \u2014 Nuclease target",
+    "title": "Normal explicit 10-20",
+    "expected": "Valid, zero-based inclusive; expected intervals [[10,20]]",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N02",
+    "group": "N \u2014 Nuclease target",
+    "title": "Literal explicit sentinel 0",
+    "expected": "BLOCKING INVALID with NUCLEASE_WINDOW_REQUIRED",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N03",
+    "group": "N \u2014 Nuclease target",
+    "title": "Real explicit 0-0",
+    "expected": "Valid one-base coordinate, no false sentinel rejection",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N04",
+    "group": "N \u2014 Nuclease target",
+    "title": "Reversed 20-10",
+    "expected": "BLOCKING INVALID",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N05",
+    "group": "N \u2014 Nuclease target",
+    "title": "Out of range 59-60 on 60nt WT",
+    "expected": "BLOCKING INVALID",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N06",
+    "group": "N \u2014 Nuclease target",
+    "title": "Ordered disjoint multi-interval 1-3_8-10",
+    "expected": "Valid; not a single-window-only GUI rule",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N07",
+    "group": "N \u2014 Nuclease target",
+    "title": "Overlapping/unordered intervals",
+    "expected": "BLOCKING INVALID, no frontend sorting/repair",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N08",
+    "group": "N \u2014 Nuclease target",
+    "title": "Boundary 0-59 or 59-59",
+    "expected": "Valid within 60nt WT; no PE end-exclusion rule applied",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N09",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR forward target",
+    "expected": "Exact golden physical locus, forward labels and intervals",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N10",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR reverse target",
+    "expected": "Same physical-locus coordinate rules; target-oriented labels swap; no frontend reverse math",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N11",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR palindrome",
+    "expected": "One physical locus; orientation palindromic, directional labels and between-cut target-oriented sequence null",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N12",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR absent target",
+    "expected": "BLOCKING INVALID, TIGR_TARGET_MISSING",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N13",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR multiple physical matches",
+    "expected": "BLOCKING INVALID, TIGR_TARGET_NOT_UNIQUE",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N14",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR W1/W2/W3/W4 and omitted W2",
+    "expected": "All four advertised choices match independent goldens; W2 only default",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N15",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR length not 18 or non-DNA target",
+    "expected": "BLOCKING INVALID; U not accepted for nuclease DNA",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N16",
+    "group": "N \u2014 Nuclease target",
+    "title": "TIGR W4 clipped at left/right edge",
+    "expected": "Match clipped golden intervals exactly, not negative/out-of-bounds coordinates",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "N17",
+    "group": "N \u2014 Nuclease target",
+    "title": "Multiple nuclease copies or PE tolerance policies",
+    "expected": "Production scope unsupported; schema/model validity cannot be promoted to a supported plan",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I01",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Same normalized scientific draft twice",
+    "expected": "Identical canonical scientific payload/digest; response revision/request metadata separate",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I02",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change UI step/filter/selection/zoom/sort",
+    "expected": "Scientific identity unchanged",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I03",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change input bytes preserving name/path/size",
+    "expected": "Scientific source identity changes or mutation invalidates",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I04",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change barcode assignment",
+    "expected": "Input/scientific identity changes, stable sample join remains barcode_id",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I05",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change WT/intended/copy/target identity",
+    "expected": "Active target scientific identity changes",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I06",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change TIGR window or explicit qwc",
+    "expected": "Active normalized scientific identity changes",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I07",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Omitted W2 versus explicit W2, 010-020 versus 10-20",
+    "expected": "Equivalent normalized nuclease identity; exact source-file identity may still differ",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I08",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Reorder semantically equivalent sample/copy rows",
+    "expected": "Sorted DAG semantics stable; source byte hashes may change and must not be erased",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I09",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change report title/output destination",
+    "expected": "Distinguish report/execution identity from science-only subset; do not falsely require full M7 Plan hash invariance",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "I10",
+    "group": "I \u2014 Deterministic identity",
+    "title": "Change sample_name/editor/treatment/dpi/biological replicate",
+    "expected": "Real metadata is not presentation-only; current conservative lineage/statistical grouping changes",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O01",
+    "group": "O \u2014 Destination safety",
+    "title": "Nonexistent destination",
+    "expected": "VALID if authorized/separate with suitable existing ancestor; preview creates no path or parent",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O02",
+    "group": "O \u2014 Destination safety",
+    "title": "Existing empty directory",
+    "expected": "BLOCKING INVALID for a new run, because execute_workflow rejects any existing root",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O03",
+    "group": "O \u2014 Destination safety",
+    "title": "Existing unrelated nonempty directory",
+    "expected": "BLOCKING INVALID; no adoption/overwrite/deletion",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O04",
+    "group": "O \u2014 Destination safety",
+    "title": "Existing PEAnalyzer workspace",
+    "expected": "BLOCKING INVALID as a new output; may offer Open Existing, never implicit resume/force",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O05",
+    "group": "O \u2014 Destination safety",
+    "title": "Symlink destination or ancestor",
+    "expected": "BLOCKING INVALID; no follow-through creation",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O06",
+    "group": "O \u2014 Destination safety",
+    "title": "Traversal/absolute child/backslash attack",
+    "expected": "BLOCKING INVALID at approved-root/path gate; no_symlinks alone is not traversal rejection",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O07",
+    "group": "O \u2014 Destination safety",
+    "title": "Read-only parent",
+    "expected": "BLOCKING INVALID when demonstrable; use non-root OS oracle; no create/delete writability probe in science destination",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "O08",
+    "group": "O \u2014 Destination safety",
+    "title": "Destination equals or contains inputs/source directory",
+    "expected": "BLOCKING INVALID; no output/input overlap, no archive mutation",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "V01",
+    "group": "V \u2014 Review fidelity",
+    "title": "Mode/sample count/stable IDs",
+    "expected": "Render exact backend preview values; count biological rows, not files or reads",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "V02",
+    "group": "V \u2014 Review fidelity",
+    "title": "Target and PE copy count",
+    "expected": "Group one target with its real copies, not one target per row",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "V03",
+    "group": "V \u2014 Review fidelity",
+    "title": "Nuclease profile/window/qwc/configuration",
+    "expected": "Render backend-normalized fields/expected profile; no generic hardcoded W2",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "V04",
+    "group": "V \u2014 Review fidelity",
+    "title": "Scientific identity and validation revision",
+    "expected": "Show only latest validated payload and matching revision; never derive a second JS identity",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "V05",
+    "group": "V \u2014 Review fidelity",
+    "title": "Stage graph",
+    "expected": "Match backend nodes/dependencies; nuclease routing slot labelled single-copy identity",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "V06",
+    "group": "V \u2014 Review fidelity",
+    "title": "Marked backend response oracle",
+    "expected": "Inject distinctive valid preview fields/coordinates/IDs; Review uses supplied values, not independently reconstructed geometry",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "U01",
+    "group": "U \u2014 Hidden errors and accessibility",
+    "title": "Invalid sample filtered out",
+    "expected": "Global blocking summary remains; error action clears/reveals filter and focuses correct row",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "U02",
+    "group": "U \u2014 Hidden errors and accessibility",
+    "title": "Invalid row below viewport/page",
+    "expected": "Error navigation reveals the row and usable focused field, not an offscreen node",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "U03",
+    "group": "U \u2014 Hidden errors and accessibility",
+    "title": "Invalid field on another step",
+    "expected": "Review blocked; summary takes user to that step and field without deleting draft",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "U04",
+    "group": "U \u2014 Hidden errors and accessibility",
+    "title": "Several invalid fields",
+    "expected": "Stable useful first error, remaining errors discoverable; focus not trapped",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "U05",
+    "group": "U \u2014 Hidden errors and accessibility",
+    "title": "Press Review immediately after edit",
+    "expected": "Invalidation synchronous; cannot outrun debounce or reuse cached prior validity",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "G01",
+    "group": "G \u2014 Small M10 regression boundary",
+    "title": "Open existing PE fixture",
+    "expected": "Existing full-open verification and viewer remain usable; setup executors still unavailable",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "G02",
+    "group": "G \u2014 Small M10 regression boundary",
+    "title": "Open existing nuclease fixture/Overview",
+    "expected": "Stored data and mode remain unchanged",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "G03",
+    "group": "G \u2014 Small M10 regression boundary",
+    "title": "Navigate five result tabs",
+    "expected": "Existing snapshot-based navigation retained; no broad re-audit",
+    "severity_if_violated": "MINOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "G04",
+    "group": "G \u2014 Small M10 regression boundary",
+    "title": "Mutate one opened artifact",
+    "expected": "Existing changed-workspace failure and hide-results behavior retained",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "G05",
+    "group": "G \u2014 Small M10 regression boundary",
+    "title": "Edit setup draft while viewer has an open workspace",
+    "expected": "Draft mutations cannot change cached result, source handles or selected workspace identity",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "G06",
+    "group": "G \u2014 Small M10 regression boundary",
+    "title": "Switch New Analysis\u2194Open Existing repeatedly",
+    "expected": "State namespaces stay separate; stale preview cannot be shown as existing scientific result",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K01",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Record stable candidate HEAD",
+    "expected": "No final PASS until implementer declares stability; record exact parent/diff/version",
+    "severity_if_violated": "INFO",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K02",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Validate production source/asset identity",
+    "expected": "Existing build gate remains active after setup frontend changes",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K03",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Build clean checkout wheel",
+    "expected": "Includes setup and reader production assets; no editable-source leakage",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K04",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Build sdist and wheel from sdist",
+    "expected": "Required frontend inputs, build script and assets all present",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K05",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Missing/stale asset attack",
+    "expected": "Packaging fails explicitly instead of making viewer-less/old-setup wheel",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K06",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Install into fresh environment outside checkout",
+    "expected": "Imports/assets come from site-packages; load setup and existing viewer",
+    "severity_if_violated": "MAJOR",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K07",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Runtime PATH without Node and CRISPResso",
+    "expected": "Both modes load and setup validates/previews without subprocess/backend attempts",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  },
+  {
+    "id": "K08",
+    "group": "K \u2014 Packaging and offline",
+    "title": "Offline browser/no arbitrary filesystem access",
+    "expected": "Local assets only; foreign Origin/Host and forged file handles rejected; no new unrestricted file server",
+    "severity_if_violated": "BLOCKING",
+    "candidate_status": "NOT RUN \u2014 no stable candidate",
+    "basis": "User M11A scope plus pinned backend/design; see contract and oracle documents"
+  }
+]

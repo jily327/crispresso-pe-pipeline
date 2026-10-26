@@ -1,0 +1,745 @@
+{
+  "PE_SNP": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_SUBSTITUTIONS": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTAACCCGCGACCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGTCGCGGGTTAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_INSERTION": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCATGGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "CCTGCCACAGGCCGCCATGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_DELETION": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "GACATGCCTGCCACAGGCGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_MULTIPLE": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCATGGCGGCCTGTGGCAGGCATGTACCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "CCTGCCACAGGCCGCCATGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_DNA_N": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "NCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_IDENTICAL": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_BAD_SPACER": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "ACNT",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_MISSING_SPACER": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": null,
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_MISSING_EXTENSION": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": null,
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_RESERVED_COPY": {
+    "target_name": "T1",
+    "copy_name": "copy__1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_SCAFFOLD_LENGTH": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105",
+    "prime_editing_pegRNA_scaffold_min_match_length": 1
+  },
+  "PE_OPTIONAL_NICK": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_REVERSE_MODEL": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "CGGAGTCGCAAACCAGCGCC",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_ABSENT_GUIDE": {
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+    "pegRNA_spacer": "AAAAAAAAAAAAAAAAAAAA",
+    "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+    "nicking_guide": null,
+    "pegRNA_scaffold": null,
+    "quantification_window_coordinates": "70-105"
+  },
+  "PE_DUPLICATE_COPY": [
+    {
+      "target_name": "T1",
+      "copy_name": "copy1",
+      "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+      "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": "70-105"
+    },
+    {
+      "target_name": "T1",
+      "copy_name": "copy1",
+      "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+      "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": "70-105"
+    }
+  ],
+  "PE_DUPLICATE_WT": [
+    {
+      "target_name": "T1",
+      "copy_name": "copy1",
+      "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+      "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": "70-105"
+    },
+    {
+      "target_name": "T1",
+      "copy_name": "copy2",
+      "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+      "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": "70-105"
+    }
+  ],
+  "PE_CASEFOLD_COPY": [
+    {
+      "target_name": "T1",
+      "copy_name": "copy1",
+      "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+      "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": "70-105"
+    },
+    {
+      "target_name": "T1",
+      "copy_name": "COPY1",
+      "wt_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCGCGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTAGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTAGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG",
+      "pegRNA_spacer": "GGCGCTGGTTTGCGACTCCG",
+      "pegRNA_extension": "ATGCCTGCCACAGGCCGTGGGTGAGGGAGACCCAA",
+      "nicking_guide": null,
+      "pegRNA_scaffold": null,
+      "quantification_window_coordinates": "70-105"
+    }
+  ],
+  "SAMPLE_SHARED_REVERSE": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "bc002",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_DUP_ID": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "bc001",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_DUP_LABEL": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc002",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_DUP_PAIR": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "bc002",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_CASEFOLD": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "BC001",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_BLANK_EDITOR": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "bc002",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_BLANK_DPI": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "bc002",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": "",
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": false
+    }
+  ],
+  "SAMPLE_PAIRED_BLOCK": [
+    {
+      "sample_name": "bioA",
+      "barcode_id": "bc001",
+      "forward_barcode": "AAAACCCC",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "1",
+      "block_id": null,
+      "paired": false
+    },
+    {
+      "sample_name": "bioB",
+      "barcode_id": "bc002",
+      "forward_barcode": "CCCCAAAA",
+      "reverse_barcode": "GGGGTTTT",
+      "editor": "editor1",
+      "treatment": "control",
+      "dpi": 6,
+      "biological_replicate": "2",
+      "block_id": null,
+      "paired": true
+    }
+  ],
+  "TRIM_AUTOMATIC": {
+    "resolved_config": {
+      "demux": {
+        "profile": "qi_hitom_v1",
+        "trim_barcodes": false,
+        "trim_bridges": false
+      }
+    },
+    "extraction_profile": {
+      "rules": {
+        "forward": {
+          "start": 2,
+          "bridge": "AAA"
+        },
+        "reverse": {
+          "start": 0,
+          "bridge": "CCCC"
+        }
+      }
+    },
+    "barcode_catalog": {
+      "matching_safety": {
+        "forward": {
+          "barcode_length": 8
+        },
+        "reverse": {
+          "barcode_length": 8
+        }
+      }
+    }
+  },
+  "NUC_QWC_10-20": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "10-20"
+  },
+  "NUC_QWC_0-0": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "0-0"
+  },
+  "NUC_QWC_0-59": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "0-59"
+  },
+  "NUC_QWC_59-59": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "59-59"
+  },
+  "NUC_QWC_1-3_8-10": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "1-3_8-10"
+  },
+  "NUC_QWC_010-020": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "010-020"
+  },
+  "NUC_BAD_QWC_'0'": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "0"
+  },
+  "NUC_BAD_QWC_'20-10'": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "20-10"
+  },
+  "NUC_BAD_QWC_'59-60'": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "59-60"
+  },
+  "NUC_BAD_QWC_'1-4_4-8'": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "1-4_4-8"
+  },
+  "NUC_BAD_QWC_'8-10_1-3'": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "8-10_1-3"
+  },
+  "NUC_BAD_QWC_'-1-3'": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": "-1-3"
+  },
+  "NUC_BAD_QWC_''": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "quantification_window_coordinates": ""
+  },
+  "TIGR_forward_W1": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W1"
+  },
+  "TIGR_forward_W2": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W2"
+  },
+  "TIGR_forward_W3": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W3"
+  },
+  "TIGR_forward_W4": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W4"
+  },
+  "TIGR_reverse_W1": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGTCGATCGACTTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W1"
+  },
+  "TIGR_reverse_W2": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGTCGATCGACTTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W2"
+  },
+  "TIGR_reverse_W3": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGTCGATCGACTTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W3"
+  },
+  "TIGR_reverse_W4": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGTCGATCGACTTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "tigr_window": "W4"
+  },
+  "TIGR_palindromic_W1": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAATTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAATTGCAACGT",
+    "tigr_window": "W1"
+  },
+  "TIGR_palindromic_W2": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAATTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAATTGCAACGT",
+    "tigr_window": "W2"
+  },
+  "TIGR_palindromic_W3": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAATTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAATTGCAACGT",
+    "tigr_window": "W3"
+  },
+  "TIGR_palindromic_W4": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAATTGCAACGTCCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAATTGCAACGT",
+    "tigr_window": "W4"
+  },
+  "TIGR_DEFAULT_W2": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA"
+  },
+  "TIGR_MISSING": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "AAAAAAAAAAAAAAAAAA"
+  },
+  "TIGR_MULTIPLE": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "ACGTTGCAAGTCGATCGAGGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGA",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA"
+  },
+  "TIGR_SHORT": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCG"
+  },
+  "TIGR_BAD_DNA": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "NCGTTGCAAGTCGATCGA"
+  },
+  "TIGR_BOTH": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "quantification_window_coordinates": "10-20"
+  },
+  "TIGR_LEGACY": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "insertion_quantification_mode": "legacy"
+  },
+  "TIGR_PE_CONTAMINATION": {
+    "analysis_mode": "indel_nuclease",
+    "target_name": "T1",
+    "copy_name": "copy1",
+    "wt_sequence": "GGGGGGGGGGGGGGGGGGGGACGTTGCAAGTCGATCGACCCCCCCCCCCCCCCCCCCCCC",
+    "nuclease_profile": "tigr_tas_v1",
+    "tigr_target_sequence": "ACGTTGCAAGTCGATCGA",
+    "prime_edited_sequence": "TCAGGGAAGCCGCCCGGCGCTGGTTTGCGACTCCGTATAGTGTGAAACCGCTGCAAAGTCGTGTATTAAATTGGGTCTCCCTCACCCACGGCCTGTGGCAGGCATGTCCCCGCCATCTAAGTGCACCTCCGTTGTTGCGGCGAAACCGGGTGCTAGGATTTTCCCGAGCTCCACTGACAG"
+  }
+}

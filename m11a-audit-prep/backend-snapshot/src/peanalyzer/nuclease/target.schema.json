@@ -1,0 +1,93 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "analysis_mode": {
+      "const": "indel_nuclease",
+      "title": "Analysis Mode",
+      "type": "string"
+    },
+    "copy_name": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+      "title": "Copy Name",
+      "type": "string"
+    },
+    "insertion_quantification_mode": {
+      "const": "current",
+      "default": "current",
+      "title": "Insertion Quantification Mode",
+      "type": "string"
+    },
+    "nuclease_profile": {
+      "anyOf": [
+        {
+          "const": "tigr_tas_v1",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Nuclease Profile"
+    },
+    "quantification_window_coordinates": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quantification Window Coordinates"
+    },
+    "target_name": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+      "title": "Target Name",
+      "type": "string"
+    },
+    "tigr_target_sequence": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tigr Target Sequence"
+    },
+    "tigr_window": {
+      "anyOf": [
+        {
+          "enum": [
+            "W1",
+            "W2",
+            "W3",
+            "W4"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tigr Window"
+    },
+    "wt_sequence": {
+      "title": "Wt Sequence",
+      "type": "string"
+    }
+  },
+  "required": [
+    "analysis_mode",
+    "target_name",
+    "copy_name",
+    "wt_sequence"
+  ],
+  "title": "NucleaseTarget",
+  "type": "object"
+}

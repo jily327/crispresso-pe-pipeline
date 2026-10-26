@@ -1,0 +1,40 @@
+{
+  "copy1": {
+    "evidence": "independent synthetic origin + actual allele sequence multiplicities",
+    "aligned_exact_denominator_excluded": {
+      "WT_derived": 36,
+      "PE_derived": 12,
+      "origin_unresolved": 11
+    },
+    "backend_unaligned": {
+      "WT_derived": 12,
+      "PE_derived": 0,
+      "origin_unresolved": 0
+    },
+    "all_backend_input_exact_denominator_excluded": {
+      "WT_derived": 48,
+      "PE_derived": 12,
+      "origin_unresolved": 11
+    },
+    "failure_reason": "unknown_backend_alignment_failure"
+  },
+  "copy2": {
+    "evidence": "independent synthetic origin + actual allele sequence multiplicities",
+    "aligned_exact_denominator_excluded": {
+      "WT_derived": 24,
+      "PE_derived": 8,
+      "origin_unresolved": 9
+    },
+    "backend_unaligned": {
+      "WT_derived": 8,
+      "PE_derived": 0,
+      "origin_unresolved": 0
+    },
+    "all_backend_input_exact_denominator_excluded": {
+      "WT_derived": 32,
+      "PE_derived": 8,
+      "origin_unresolved": 9
+    },
+    "failure_reason": "unknown_backend_alignment_failure"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "backend_executing": 61,
+  "baseline_source_tests": 849,
+  "complete_parent_scientific_parity": true,
+  "coverage_failure": "AggregationError: PARTIAL_SAMPLE_TARGET_COVERAGE",
+  "finding": "M5-1",
+  "fresh_wheel_tests": 880,
+  "integration_scenarios": 62,
+  "m4_unchanged": true,
+  "new_tests": 31,
+  "nonblocking_findings_intentionally_unchanged": [
+    "M5-2",
+    "M5-3",
+    "M5-4"
+  ],
+  "package_version": "0.5.1",
+  "parent": "e133a480a26ab2e54c16596170b4de9345500bba",
+  "preflight_only": 1,
+  "prior_cases_preserved": 849,
+  "source_tests": 880,
+  "source_wheel_byte_identical_artifacts": 16,
+  "statistics_unchanged": true,
+  "status": "PASS",
+  "unchanged_remote_main": "53bb7fe3e5d6f2bb6f3d67e0c22e4239929f5274"
+}

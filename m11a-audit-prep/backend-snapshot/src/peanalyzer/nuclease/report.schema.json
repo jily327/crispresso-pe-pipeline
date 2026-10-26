@@ -1,0 +1,223 @@
+{
+  "$defs": {
+    "JsonValue": {},
+    "ReportArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_kind": {
+          "enum": [
+            "html",
+            "source",
+            "table",
+            "figure"
+          ],
+          "title": "Artifact Kind",
+          "type": "string"
+        },
+        "copy_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Copy Name"
+        },
+        "family_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Family Id"
+        },
+        "figure_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Figure Id"
+        },
+        "figure_type": {
+          "anyOf": [
+            {
+              "enum": [
+                "samples",
+                "contrasts"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Figure Type"
+        },
+        "media_type": {
+          "enum": [
+            "text/html",
+            "application/json",
+            "text/tab-separated-values",
+            "image/svg+xml"
+          ],
+          "title": "Media Type",
+          "type": "string"
+        },
+        "metric_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Metric Name"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "policy_definition": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Definition"
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Id"
+        },
+        "population_scope": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Population Scope"
+        },
+        "routing_conditioned": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Routing Conditioned"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "target_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Name"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "media_type",
+        "artifact_kind"
+      ],
+      "title": "ReportArtifact",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "$ref": "#/$defs/ReportArtifact"
+      },
+      "title": "Artifacts",
+      "type": "array"
+    },
+    "package_version": {
+      "title": "Package Version",
+      "type": "string"
+    },
+    "report_contract_version": {
+      "const": "indel-nuclease-report-v1",
+      "title": "Report Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "source_result_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Result Sha256",
+      "type": "string"
+    },
+    "source_statistics_contract_version": {
+      "const": "indel-nuclease-stats-v1",
+      "title": "Source Statistics Contract Version",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "report_contract_version",
+    "package_version",
+    "source_statistics_contract_version",
+    "source_result_sha256",
+    "title",
+    "artifacts"
+  ],
+  "title": "NucleaseReportManifest",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "executed_stages": [
+    "raw_inputs",
+    "demux",
+    "analysis",
+    "routing::bc001::T1",
+    "routing::bc002::T1",
+    "metrics::bc001::T1",
+    "metrics::bc002::T1",
+    "metrics_manifest",
+    "statistics",
+    "report"
+  ],
+  "metrics_results": 2,
+  "mode": "run",
+  "output": "/workspace/validation/readthrough/stale-proof/workspace",
+  "report_path": "/workspace/validation/readthrough/stale-proof/workspace/report/report.html",
+  "reused_stages": [],
+  "statistics_mode": "summarize",
+  "workflow_contract_version": "m7-v1",
+  "workflow_manifest_sha256": "6bff2bb7c00e21475fce8c87457d7f3f8204685bdeb4801b135243a223b0069a"
+}

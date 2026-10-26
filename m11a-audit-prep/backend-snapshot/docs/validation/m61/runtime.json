@@ -1,0 +1,14 @@
+{
+  "backend_versions": {
+    "CRISPResso": "CRISPResso 2.3.4",
+    "CRISPRessoPooled": "CRISPRessoPooled 2.3.4",
+    "samtools": "samtools 1.23.1"
+  },
+  "dependency_lock": "requirements-dev.lock (unchanged)",
+  "matplotlib": "3.11.2",
+  "package": "0.6.1",
+  "pinned_image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "pytest": "8.4.2",
+  "python": "3.12.14",
+  "role": "Historical regression only; reporter never runs backend"
+}

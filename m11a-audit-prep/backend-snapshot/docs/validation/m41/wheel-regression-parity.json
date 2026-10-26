@@ -1,0 +1,26 @@
+{
+  "m4/m3/m4": {
+    "equal": true,
+    "compared": "all metric records, QC, eligibility and anchor failure codes; population hashes excluded"
+  },
+  "m4/m31/m4": {
+    "equal": true,
+    "compared": "all metric records, QC, eligibility and anchor failure codes; population hashes excluded"
+  },
+  "m41/ambiguous/metrics": {
+    "equal": true,
+    "compared": "all metric records, QC, eligibility and anchor failure codes; population hashes excluded"
+  },
+  "m41/preprocessing/metrics": {
+    "equal": true,
+    "compared": "all metric records, QC, eligibility and anchor failure codes; population hashes excluded"
+  },
+  "m41/nonexact_only/metrics": {
+    "equal": true,
+    "compared": "all metric records, QC, eligibility and anchor failure codes; population hashes excluded"
+  },
+  "m41/routing_blocked/metrics": {
+    "equal": true,
+    "compared": "all metric records, QC, eligibility and anchor failure codes; population hashes excluded"
+  }
+}

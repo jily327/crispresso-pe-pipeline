@@ -1,0 +1,29 @@
+{
+  "containers": {
+    "m311-runtime": {
+      "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+      "mount_destinations": [
+        "/tmp",
+        "/workspace"
+      ],
+      "running": true
+    },
+    "m421-qualified-runtime": {
+      "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+      "mount_destinations": [
+        "/tmp",
+        "/workspace"
+      ],
+      "running": true
+    }
+  },
+  "pinned_image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "role": "Historical regression integration only; M6 reporting has no backend execution",
+  "versions": {
+    "CRISPResso": "CRISPResso 2.3.4",
+    "CRISPRessoPooled": "CRISPRessoPooled 2.3.4",
+    "bowtie2": "/CRISPResso2/.pixi/envs/default/bin/bowtie2-align-s version 2.5.5",
+    "fastp": "fastp 1.3.3",
+    "samtools": "samtools 1.23.1"
+  }
+}

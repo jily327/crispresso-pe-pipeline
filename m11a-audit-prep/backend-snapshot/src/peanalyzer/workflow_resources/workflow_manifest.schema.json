@@ -1,0 +1,311 @@
+{
+  "$defs": {
+    "Artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "Artifact",
+      "type": "object"
+    },
+    "InputArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "snapshot": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]*(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot"
+        },
+        "source_path": {
+          "title": "Source Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_path",
+        "sha256",
+        "size_bytes"
+      ],
+      "title": "InputArtifact",
+      "type": "object"
+    },
+    "Session": {
+      "additionalProperties": false,
+      "properties": {
+        "argv": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Argv",
+          "type": "array"
+        },
+        "cwd": {
+          "title": "Cwd",
+          "type": "string"
+        },
+        "ended_at": {
+          "title": "Ended At",
+          "type": "string"
+        },
+        "executed_stages": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Executed Stages",
+          "type": "array"
+        },
+        "failed_stage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Failed Stage"
+        },
+        "force": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Force",
+          "type": "array"
+        },
+        "mode": {
+          "enum": [
+            "run",
+            "analyze"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "resume": {
+          "title": "Resume",
+          "type": "boolean"
+        },
+        "reused_stages": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reused Stages",
+          "type": "array"
+        },
+        "session_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Session Id",
+          "type": "string"
+        },
+        "started_at": {
+          "title": "Started At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "session_id",
+        "mode",
+        "resume",
+        "force",
+        "started_at",
+        "ended_at",
+        "executed_stages",
+        "reused_stages",
+        "failed_stage",
+        "argv",
+        "cwd"
+      ],
+      "title": "Session",
+      "type": "object"
+    },
+    "Software": {
+      "additionalProperties": false,
+      "properties": {
+        "dependencies": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Dependencies",
+          "type": "object"
+        },
+        "git_commit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Git Commit"
+        },
+        "git_dirty": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Git Dirty"
+        },
+        "package_code_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Package Code Sha256",
+          "type": "string"
+        },
+        "pipeline_version": {
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "python_version": {
+          "title": "Python Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pipeline_version",
+        "git_commit",
+        "git_dirty",
+        "python_version",
+        "dependencies",
+        "package_code_sha256"
+      ],
+      "title": "Software",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis_modes": {
+      "items": {
+        "enum": [
+          "precise_edit",
+          "indel_nuclease"
+        ],
+        "type": "string"
+      },
+      "title": "Analysis Modes",
+      "type": "array"
+    },
+    "input_inventory": {
+      "additionalProperties": {
+        "$ref": "#/$defs/InputArtifact"
+      },
+      "title": "Input Inventory",
+      "type": "object"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "mode": {
+      "enum": [
+        "run",
+        "analyze"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "plan": {
+      "$ref": "#/$defs/Artifact"
+    },
+    "report_manifest": {
+      "$ref": "#/$defs/Artifact"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "session": {
+      "$ref": "#/$defs/Session"
+    },
+    "software_identity": {
+      "$ref": "#/$defs/Software"
+    },
+    "stage_inventory": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Artifact"
+      },
+      "title": "Stage Inventory",
+      "type": "object"
+    },
+    "statistics_result": {
+      "$ref": "#/$defs/Artifact"
+    },
+    "status": {
+      "const": "COMPLETED",
+      "title": "Status",
+      "type": "string"
+    },
+    "workflow_contract_version": {
+      "const": "m7-v1",
+      "default": "m7-v1",
+      "title": "Workflow Contract Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "mode",
+    "software_identity",
+    "plan",
+    "input_inventory",
+    "stage_inventory",
+    "session",
+    "statistics_result",
+    "report_manifest",
+    "limitations"
+  ],
+  "title": "WorkflowManifest",
+  "type": "object"
+}

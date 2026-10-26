@@ -1,0 +1,182 @@
+[
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-0",
+    "policy": {
+      "policy_id": "invalid-0",
+      "max_extra_substitutions": -1
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-1",
+    "policy": {
+      "policy_id": "invalid-1",
+      "max_extra_substitutions": 1.0
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-2",
+    "policy": {
+      "policy_id": "invalid-2",
+      "max_extra_substitutions": true
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-3",
+    "policy": {
+      "policy_id": "invalid-3",
+      "max_extra_indel_events": 1
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-4",
+    "policy": {
+      "policy_id": "invalid-4",
+      "max_extra_indel_events": false
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-5",
+    "policy": {
+      "policy_id": "invalid-5",
+      "allowed_extra_substitution_positions": [
+        999
+      ]
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-6",
+    "policy": {
+      "policy_id": "invalid-6",
+      "allowed_extra_substitution_positions": [
+        false
+      ]
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  },
+  {
+    "metric_name": "total_pe_family",
+    "policy_id": "invalid-7",
+    "policy": {
+      "policy_id": "invalid-7",
+      "min_haplotype_count": 2
+    },
+    "population_id": "synthetic-population",
+    "population_scope": "target_all_prepared",
+    "copy_id": null,
+    "status": "BLOCKED",
+    "numerator": null,
+    "denominator": null,
+    "wt_family": 0,
+    "pe_family": 0,
+    "family_ambiguous": 0,
+    "excluded": 1380,
+    "classification_input_reads": 1380,
+    "reason_codes": [
+      "UNSUPPORTED_TOLERANCE_POLICY"
+    ]
+  }
+]

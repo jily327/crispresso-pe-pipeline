@@ -1,0 +1,40 @@
+........................................................................ [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 22%]
+........................................................................ [ 30%]
+........................................................................ [ 37%]
+........................................................................ [ 45%]
+........................................................................ [ 52%]
+........................................................................ [ 60%]
+........................................................................ [ 68%]
+........................................................................ [ 75%]
+........................................................................ [ 83%]
+........................................................................ [ 90%]
+........................................................................ [ 98%]
+................                                                         [100%]
+=============================== warnings summary ===============================
+tests/test_m61.py::test_invalid_editor_fails_closed[U0001]
+tests/test_m61.py::test_contrast_failure_removes_previously_staged_sample_figures
+  /workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/reporting.py:225: UserWarning: Glyph 1 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U000B]
+  /workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/reporting.py:225: UserWarning: Glyph 11 (
+  ) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFE]
+  /workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/reporting.py:225: UserWarning: Glyph 65534 (\ufffe) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFF]
+  /workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/reporting.py:225: UserWarning: Glyph 65535 (\uffff) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py: 12 warnings
+  /workspace/validation/m61/wheel-env/lib/python3.12/site-packages/peanalyzer/reporting.py:225: UserWarning: Glyph 127 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+-------- generated xml file: /workspace/validation/m61/wheel/tests.xml ---------
+952 passed, 17 warnings in 396.46s (0:06:36)

@@ -1,0 +1,169 @@
+--- historical/GUI_DESIGN_SPEC.md
++++ GUI_DESIGN_SPEC_FINAL.md
+@@ -1,19 +1,18 @@
+-# PEAnalyzer GUI design specification — M9 design study
++# PEAnalyzer GUI design specification — final merged contract
+ 
+-Status: design proposal for human review; no GUI or backend implementation. All outputs are outside the repository. Implementation must wait for M8.1 focused re-audit and merge.
++Status: human-reviewed M9 architecture, narrowly refreshed against merged M8/M8.1. No GUI or backend implementation. All outputs remain outside the repository. The backend merge prerequisite is satisfied. M10_IMPLEMENTATION_BOUNDARY.md defines the first read-only subset; the full future design below is preserved.
+ 
+ ## 1. Evidence and contract authority
+ 
+-Stable reference: `f200e28cfafa398bf8072babf311621bd0af6ff8` (audited PE 0.7.1). Provisional nuclease snapshot inspected: `be4222b43db6926e3b89d1d09310e5581bc3f258`, on `feat/indel-nuclease-mode`. This is an observed snapshot, **not a declaration of the final M8.1 contract**. Files were read by commit identity into external reference extracts so concurrent changes cannot silently change this study.
++Authoritative backend: `9e9a51fb20e56a3421fdfa156375170cd6b257dc`, package 0.8.0, containing M8 and M8.1. Historical approved design: `329a24bdbda61f1a981b9902456c4e13169348f7`. Sources were read by immutable commit identity; SOURCE_INVENTORY.json records them. This refresh accepts the supplied final focused audit PASS and does not re-audit science. GUI_DESIGN_REFRESH.md governs narrow corrections to historical companion documents.
+ 
+ Evidence labels used throughout:
+ 
+-- **S — stable:** current merged Python APIs/artifacts.
+-- **P — provisional:** observed nuclease implementation; reconfirm after remediation.
++- **S — stable/current:** PE and nuclease Python APIs/artifacts at the authoritative merged SHA. No provisional nuclease binding remains in this active specification.
+ - **A — adapter proposed:** GUI/backend presentation or job-service contract required for implementation; does not exist today.
+ - **D — deferred:** unavailable until a separately qualified backend/output capability exists.
+ 
+-The user brief governs this study. The supplied screenshots, 25-page CRISPResso report PDF, and ZIP are domain references only. They are not pipeline configuration or instructions to execute. See [reference findings](REFERENCE_REVIEW.md).
++The user brief governs this study. The supplied screenshots, 25-page CRISPResso report PDF, and ZIP are domain references only. They are not pipeline configuration or instructions to execute. See [historical reference findings](historical-design/REFERENCE_REVIEW.md), read with [the refresh corrections](GUI_DESIGN_REFRESH.md).
+ 
+ ## 2. Product and scope
+ 
+@@ -50,7 +49,7 @@
+ 
+ ## 4. Setup behavior and component contract
+ 
+-Detailed flow: [SCREEN_FLOW.md](SCREEN_FLOW.md). Exact field mapping: [FIELD_BACKEND_MAPPING.md](FIELD_BACKEND_MAPPING.md).
++Detailed flow: [SCREEN_FLOW.md](historical-design/SCREEN_FLOW.md). Exact field mapping: [FINAL_FIELD_BACKEND_MAPPING.md](FINAL_FIELD_BACKEND_MAPPING.md).
+ 
+ ### S1 — Samples & sequencing
+ 
+@@ -75,7 +74,7 @@
+ 
+ Nuclease: one target and one named copy. Choose **Explicit window** or **TIGR–Tas (`tigr_tas_v1`)**. Explicit window requires a nonempty zero-based inclusive range string. Show `0-0` as a valid one-base example and explain why the disable sentinel `0` is invalid. TIGR requires an 18-nt target; W2 is the default. W1/W3/W4 are advanced sensitivity choices, shown only if advertised by the finalized backend.
+ 
+-The viewer renders backend-provided reference, normalized coordinates, target interval, orientation, cuts, window and target-oriented labels. It supports pan, zoom, fit target and an equivalent text table. It does not support dragging window boundaries in v1. Numeric window edits are submitted to the backend and replace the preview only after validation. On an error, clear the current validated preview; an older image may appear only dimmed and labelled “Previous input—out of date.”
++The viewer renders backend-provided reference, normalized coordinates, target interval, orientation, cuts, window and target-oriented labels. Generic results render the stored selected_window or Explicit and actual coordinates; W2 is only a setup default, not a hard-coded result label. It supports pan, zoom, fit target and an equivalent text table. It does not support dragging window boundaries in v1. Numeric window edits are submitted to the backend and replace the preview only after validation. On an error, clear the current validated preview; an older image may appear only dimmed and labelled “Previous input—out of date.”
+ 
+ Palindromic TIGR loci show “Physical locus resolved; target-oriented nick labels unavailable,” not an arbitrary forward arrow. Coordinates are always labelled “0-based, inclusive; amplicon top strand.” No implicit 1-based display conversion in v1.
+ 
+@@ -87,7 +86,7 @@
+ 
+ Comparisons: descriptive summaries by default; optional explicit contrast specification. The builder offers only backend-returned valid series/condition tuples; direction is B−A, two-sided, unpaired or explicit blocks, with explicit BH family membership. It must not expose the legacy config's generalized `factorial`/interaction options as implemented M5 modeling.
+ 
+-Read-only configuration: actual runtime/version/digest, mode, profile, active window, insertion semantics, substitution policy, end exclusions, backend-default settings and qualified routing policy where applicable. PE and nuclease settings are distinct. Do not assume nuclease zero end-exclusion settings apply to PE. “View full scientific configuration” displays backend-returned resolved data and origin of each setting. There is no Additional CRISPResso Parameters box, ignore-event checkbox or alignment-threshold slider.
++Read-only configuration: actual runtime/version/digest, mode, profile, active window, insertion semantics, substitution policy, end exclusions, backend-default settings and qualified routing policy where applicable. PE and nuclease settings are distinct. Do not assume nuclease zero end-exclusion settings apply to PE. Nuclease qualification checks 58 resolved scientific fields for presence, exact type and exact value, including discard_indel_reads=false and min_bp_quality_or_N=0. Show the backend-returned expected map and actual resolved arguments read-only; never duplicate this validator in React. “View full scientific configuration” displays backend-returned resolved data and origin of each setting. There is no Additional CRISPResso Parameters box, ignore-event checkbox or alignment-threshold slider.
+ 
+ ### S5 — Review
+ 
+@@ -99,21 +98,21 @@
+ 
+ X1 distinguishes ephemeral job state from scientific result status. No fabricated time estimates or percentages. Show stage labels and counts of completed/reused nodes, plus elapsed time from backend timestamps. Collapse per-sample nodes under stages without merging their scientific populations.
+ 
+-PE routing is visible when applicable. The provisional nuclease DAG's routing ownership slot appears as **Single-copy identity check**, never “PE copy routing.” Core execution and metric collection remain one metrics node unless the adapter can reliably report sub-events; do not pretend two completed stages exist.
++PE routing is visible when applicable. The current nuclease DAG's routing ownership slot appears as **Single-copy identity check**, never “PE copy routing.” Core execution and metric collection remain one metrics node unless the adapter can reliably report sub-events; do not pretend two completed stages exist.
+ 
+ A successful process exit alone does not show Completed. Require verified final workflow completion. Handled failures retain validated upstream work. Reconnect reloads session/manifests; a lost browser connection is not cancellation. Cancel sends a worker cancellation request, displays “Cancelling,” and waits for backend acknowledgement. Hard-kill remnants require explicit recovery; the browser never clears locks or deletes stage directories.
+ 
+-Resume validation, selective force impact and ownership rules are specified in ERROR_AND_STATUS_UX.md. Reused is shown distinctly from executed. Unavailable scientific results remain visible in a completed workflow.
++Resume validation, selective force impact and ownership rules retain the historical ERROR_AND_STATUS_UX design, with GUI_DESIGN_REFRESH.md supplying the final qualification/stale error wording. Full qualified arguments participate in scientific identity: pre-M8.1 workspaces can fail STALE_STAGE_IDENTITY even though the nominal version remains 0.8.0. Backend/M7 determines any recomputation and force closure; the GUI never chooses a bypass. Reused is shown distinctly from executed. Unavailable scientific results remain visible in a completed workflow.
+ 
+ ## 6. Result hierarchy and denominator rules
+ 
+-Use stored M5 observations/means/contrasts and verified M4/nuclease evidence. See [RESULTS_INFORMATION_ARCHITECTURE.md](RESULTS_INFORMATION_ARCHITECTURE.md).
++Use stored M5 observations/means/contrasts and verified M4/nuclease evidence. See [RESULTS_INFORMATION_ARCHITECTURE_FINAL.md](RESULTS_INFORMATION_ARCHITECTURE_FINAL.md).
+ 
+ At experiment scope the primary value is the backend's unweighted biological-sample mean with reportable/expected biological n and sample points. It is **not** a ratio of pooled counts. Each selected sample card shows stored percentage plus exact numerator/denominator and status. Do not fabricate a numerator/denominator for a condition mean.
+ 
+ PE exact and native are separate cards with explicit denominator definitions. Exact is not called a conservative lower bound. Target exact prepared-pair assessment may be parallel to native Core alignment; QC must use `assessment_stage` and `backend_counts_role`, not a universal aligned→exact funnel. Copy results are routing-conditioned.
+ 
+-Nuclease's four ordinary classes are exclusive, while insertion/deletion/substitution membership metrics overlap. If exceptional aligned populations are present, show them separately in the all-aligned partition. Never renormalize the four ordinary classes to hide exceptions. Confirm final M8.1 behavior before binding fields.
++Nuclease's four ordinary classes are exclusive and exhaust the aligned population of a verified REPORTABLE 0.8.0 result. Insertion/deletion/substitution membership metrics overlap and remain separate. The backend requires ambiguous and discarded aligned counts to be zero; nonzero exceptions fail qualification. Only an error/details view may show backend-reconciled exception counts as diagnostic evidence. Never normalize them away or publish an altered indel percentage.
+ 
+ No numerical zero for BLOCKED/NOT_ASSESSABLE/MISSING_METRIC. A valid zero fraction is displayed only for a reportable, positive-denominator result. No automatic biological interpretation, significance stars or invented confidence intervals.
+ 
+@@ -129,22 +128,22 @@
+ 
+ ## 8. Ownership, implementation gates and acceptance
+ 
+-The recommended local React/TypeScript + Python API architecture and proposed adapter interfaces are in TECHNOLOGY_RECOMMENDATION.md. They are not existing endpoints. All scientific validation and configuration resolution remains in Python. GUI models must never broaden PE/nuclease result validators.
++The approved local React/TypeScript + Python API architecture remains in historical-design/TECHNOLOGY_RECOMMENDATION.md. FINAL_CAPABILITY_GAP_MATRIX.md and M10_IMPLEMENTATION_BOUNDARY.md now define adapter availability and the first implementation scope. Proposed interfaces are not existing endpoints. All scientific validation and configuration resolution remains in Python. GUI models must never broaden PE/nuclease result validators.
+ 
+ Implementation gates:
+ 
+-1. M8.1 re-audit and merge; refresh this mapping against exact merged SHA and schemas.
++1. Use the exact merged backend SHA and final runtime validators; the M8.1 re-audit/merge prerequisite is fulfilled. No new scientific audit is required for this refresh.
+ 2. Agree versioned capability, preview, verified-result and job-event adapters; test failures and unavailable data as well as success.
+ 3. Approve visual defaults/file-source UX; then implement a read-only verified result viewer first.
+ 4. Add draft/setup/run UI only after job isolation, cancellation and force-impact contracts pass.
+ 5. Native HTML and position plots remain unavailable until their separate output/projection capabilities qualify.
+ 
+-Acceptance scenarios for the future GUI: legacy PE import; explicit nuclease mode; duplicate/missing/palindromic TIGR; boundary qwc and sentinel rejection; blocked copy/available target PE; exceptional aligned counts; no aligned reads; exact/native different denominators; reportable zero vs unavailable; four-sample 2-vs-2 contrast without read pooling; summaries without tests; verified no-execution resume; title-only report force; wrong-force rejection; stale mode/software; interrupted run; foreign lock; source mutation; XML-invalid labels; offline and keyboard operation; missing native HTML; unsupported schema and unknown statuses.
++Acceptance scenarios for the future GUI: legacy PE import; explicit nuclease mode; duplicate/missing/palindromic TIGR; boundary qwc and sentinel rejection; blocked copy/available target PE; exceptional aligned-population rejection and diagnostic counts; no aligned reads; exact/native different denominators; reportable zero vs unavailable; four-sample 2-vs-2 contrast without read pooling; summaries without tests; verified no-execution resume; title-only report force; wrong-force rejection; stale mode/software; interrupted run; foreign lock; source mutation; XML-invalid labels; offline and keyboard operation; missing native HTML; unsupported schema and unknown statuses.
+ 
+ ## 9. Final design review decisions
+ 
+ **Safe to lock now:** backend ownership; two distinct scientific modes; one biological target per execution; biological sample inferential unit; exact integer evidence; typed unavailable states; PE/native denominator distinction; no unrestricted backend flags; immutable inputs; verified completion/reuse; deterministic, noninterpretive presentation; native artifact provenance.
+ 
+-**User preference before implementation (recommended defaults are proposals):** compact light theme; five setup steps and seven result tabs; English labels; side drawer versus full-width sample detail; server-folder selection as primary input method with explicit local upload secondary; whether lab workflows need more than one display grouping for analyses. These preferences cannot expand scientific scope.
++**Reviewed UI choices retained:** compact light theme, five setup steps and seven result tabs, sample-detail presentation and local file-source approach remain as human-reviewed. This contract refresh does not reopen visual/layout preferences. M10 includes only the read-only subset; setup/upload controls remain later work.
+ 
+-**Backend dependencies in flight:** final M8.1 schemas/count and exceptional-population semantics, error taxonomy, resolved qwc/annotation envelope, actual native artifact inventories and resume identity. No unobserved M8.1 fix is assumed. Additional GUI-only dependencies are structured validation locations, safe artifact-serving/packaging, read-only result projection, progress/cancellation events and force-impact preview. Their absence is an implementation gate, not a reason to emulate science in the browser.
++**Remaining adapter dependencies:** scientific schemas, qualification/population gates, selected-window representation and stale identity are current at the merged SHA. GUI work still needs typed read-only result projection, safe artifact access and capability/availability envelopes. Structured draft errors, rich annotations, progress/cancellation and force-impact preview remain later adapter work. Their absence never justifies frontend science. M10 can begin with the bounded verified reader specified in M10_IMPLEMENTATION_BOUNDARY.md.
+--- historical/RESULTS_INFORMATION_ARCHITECTURE.md
++++ RESULTS_INFORMATION_ARCHITECTURE_FINAL.md
+@@ -1,4 +1,6 @@
+-# Results information architecture
++# Results information architecture — final merged contract
++
++Authority: `9e9a51fb20e56a3421fdfa156375170cd6b257dc`, package 0.8.0. This is a narrow refresh of the approved M9 result structure. M10_IMPLEMENTATION_BOUNDARY.md selects five tabs plus safe detail panels for the first release; the full seven-tab architecture remains unchanged.
+ 
+ Seven primary result screens (R1–R7). These render validated, versioned backend outputs; they are not alternate scientific calculators. The supplied native report is a reference case, not a qualified PEAnalyzer analysis to import automatically.
+ 
+@@ -28,7 +30,7 @@
+ 
+ Primary: **Indel fraction**, with stored fraction and exact integer numerator/aligned denominator. Subtitle: “Reads with CRISPResso-called insertion or deletion in the selected window; each counted once.” Show qwc/profile/orientation beside the metric, not hidden in provenance.
+ 
+-An outcome-partition chart shows four ordinary classes: Unmodified, Substitution only, Indel only, Indel + substitution. These are exclusive. If ambiguous/discarded exceptional aligned classes exist, include distinctly labelled hatched segments in the **all-aligned** inventory or a clearly adjacent exception section with the same denominator. The four ordinary classes sum to 100% only when the backend establishes that they exhaust the aligned population. Do not drop exceptions or normalize the four to 100%. Final M8.1 exception semantics are an adapter acceptance dependency.
++For a verified REPORTABLE 0.8.0 nuclease result, the outcome-partition chart has exactly four ordinary classes: Unmodified, Substitution only, Indel only, Indel + substitution. Their counts exhaust the authoritative aligned population and their stored fractions define the 100% partition (display rounding may differ). Accepted results require class_counts.ambiguous = class_counts.discarded = 0. Nonzero exceptions fail qualification with UNQUALIFIED_NUCLEASE_POPULATION; show available backend-reconciled counts only in an error/details view, never as normal biological categories or an adjusted primary percentage. Do not normalize or rescue a rejected result.
+ 
+ Use a separate unstacked table or small-multiple bars for overlapping memberships: insertion-containing, deletion-containing, substitution-containing, insertion-and-deletion-containing and any modification. Label “Overlapping descriptions—do not sum.” Those metrics are not a second exclusive pie chart.
+ 
+@@ -53,7 +55,7 @@
+ 
+ Neither view changes scientific settings. “Change window” starts a new draft or backend-approved rerun, never recalculates the displayed metric in JavaScript. Position plots require a typed backend artifact adapter that validates reference identity, coordinate units, vector length, numerator/denominator basis and source hash. Current result models do not universally expose these vectors; default to “Position plot not available from this result contract.” Raw vector files can remain downloadable if inventoried. Do not infer substitution spectra from FASTQs, gaps or rounded quilt images.
+ 
+-Nuclease profile view displays W2 as primary when selected, and labels W1/W3/W4 as explicit sensitivity selections. The frontend renders returned physical cuts and orientation labels. Palindromic targets retain physical tracks but omit directional nick names with an explanation. A plot-window zoom never changes qwc.
++Nuclease result labels use provenance.scientific_identity.resolved_window.selected_window, or Explicit when absent, and the actual coordinates. W2 is the setup default only. W1/W3/W4 remain labelled sensitivity selections when actually selected. The frontend renders returned physical cuts and orientation labels. Palindromic targets retain physical tracks but omit directional nick names with an explanation. A plot-window zoom never changes qwc.
+ 
+ ### Nuclease net-size visualization
+ 
+@@ -66,7 +68,7 @@
+ - Summary table: stable source-row identity; display rank; backend class; #Reads; original CRISPResso %Reads with its documented denominator; n_inserted, n_deleted, n_mutated; backend net delta; reference name and read status. Label counts/events as window-aware where the backend contract says so. Rank and pagination are display operations; rows are never scientifically collapsed.
+ - Sequence detail: exact authoritative `Aligned_Sequence` and `Reference_Sequence`, plus backend-projected glyph annotations and coordinate map. Use monospace columns, `-` for gaps, bold/underline for substitutions, outlines for insertions and labelled cut/window tracks. No frontend realignment, gap calling or reference-switching inference.
+ 
+-The provisional nuclease result preserves authoritative fields. Stable PE native alleles require an adapter to inventoried Core ZIPs; exact PE `product_evidence` is a separate prepared/aligned product source and must be labelled as such. When detailed event positions are unavailable, show literal aligned strings and source context without invented colored event calls. Existing native static allele plots may be browsed separately.
++The final nuclease result preserves authoritative fields. Stable PE native alleles require an adapter to inventoried Core ZIPs; exact PE `product_evidence` is a separate prepared/aligned product source and must be labelled as such. When detailed event positions are unavailable, show literal aligned strings and source context without invented colored event calls. Existing native static allele plots may be browsed separately.
+ 
+ The uploaded native ZIP has only nine allele columns, without detailed event lists. Do not treat every native report as if it satisfies the richer nuclease schema. The backend capability response decides which details can be shown.
+ 
+@@ -92,7 +94,7 @@
+ 
+ This relationship is selected from backend `assessment_stage` and `backend_counts_role`; no universal prepared-exact or aligned-exact rule is hardcoded for all future metrics. For copy exact/native, backend filtering may be sequential. Show comparison population identity and current contract description.
+ 
+-Nuclease: prepared single-copy population → Core input → preprocessing → aligned + unaligned → exclusive ordinary/exceptional aligned classes. There is no PE routing-loss node. Show “Experimental single-copy identity; no copy-routing partition.” Large-deletion losses are not assigned a cause by the UI.
++Nuclease: prepared single-copy population → Core input → preprocessing → aligned + unaligned → four exclusive ordinary classes in an accepted result. Nonzero ambiguous/discarded aligned populations cause failed qualification and belong only in diagnostic details, not a successful QC outcome partition. There is no PE routing-loss node. Show “Experimental single-copy identity; no copy-routing partition.” Large-deletion losses are not assigned a cause by the UI.
+ 
+ Alignment/preprocessing percentages must be supplied with exact count bases by a qualified backend presentation adapter, or remain integer ratios. Unaligned reasons default to backend-provided unknown when evidence is absent. Native CRISPResso guardrails are separately attributed diagnostics; their thresholds do not become PEAnalyzer validity gates or override them.
+ 
+@@ -106,7 +108,7 @@
+ 
+ ## R7 — Provenance and native output
+ 
+-Default concise summary: PEAnalyzer version/software hash, scientific mode/contracts, CRISPResso 2.3.4 and actual runtime digest, target identity, active window/profile, validation state, source hashes and executed/reused stage inventory. Expand to exact normalized configuration, backend resolved args, source paths (local authorized view), timestamps/session argv, plan/stage/report manifests and artifact hashes.
++Default concise summary: PEAnalyzer version/software hash, scientific mode/contracts, CRISPResso 2.3.4 and actual runtime digest, target identity, active window/profile, validation state, source hashes and executed/reused stage inventory. Expand to exact normalized configuration, backend resolved args, source paths (local authorized view), timestamps/session argv, plan/stage/report manifests and artifact hashes. Nuclease Qualified scientific configuration displays the full 58-field expected map at provenance.scientific_identity.backend_settings and actual provenance.execution.resolved_backend_arguments, read-only. Backend validators, not UI comparisons, establish presence/type/value qualification. Old pre-M8.1 identity can fail validation despite the same nominal 0.8.0 version; no automatic reuse, resume or force is performed by the viewer.
+ 
+ Two output layers:
+ 
+@@ -123,4 +125,4 @@
+ 
+ A user should be able to answer without opening raw JSON: What biological samples were used? What exactly is measured? What is this denominator? Which values are unavailable and why? Which window/reference was active? Was work newly run or reused? Where is the authoritative source artifact?
+ 
+-No screen should imply: native PE = exact PE; zero = missing; reads = biological n; four ordinary classes always exhaust aligned reads; an indel of net size zero = WT; existing folder = completed; displayed preview = validated latest input; native-report availability = guaranteed offline portability.
++No screen should imply: native PE = exact PE; zero = missing; reads = biological n; an exception-bearing nuclease result is accepted; an indel of net size zero = WT; existing folder = completed; displayed preview = validated latest input; native-report availability = guaranteed offline portability.

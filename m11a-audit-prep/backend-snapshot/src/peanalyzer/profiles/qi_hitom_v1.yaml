@@ -1,0 +1,12 @@
+forward:
+  start: 0
+  length: 9
+  expected_prefix: GCTT
+  expected_suffix: T
+  bridge: GGAGTGAGTACGGTGTGC
+reverse:
+  start: 0
+  length: 9
+  expected_prefix: CTGT
+  expected_suffix: T
+  bridge: GAGTTGGATGCTGGATGG

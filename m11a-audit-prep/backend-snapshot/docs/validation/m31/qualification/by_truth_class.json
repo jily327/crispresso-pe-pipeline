@@ -1,0 +1,116 @@
+{
+  "WT": {
+    "total": 20,
+    "ASSIGNED_COPY": 20,
+    "correctly_assigned": 20,
+    "cross_assigned": 0
+  },
+  "precise_PE": {
+    "total": 20,
+    "ASSIGNED_COPY": 20,
+    "correctly_assigned": 20,
+    "cross_assigned": 0
+  },
+  "PE_extra_substitution": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "PE_sequencing_error": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "indel": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "Q20": {
+    "total": 5,
+    "LOW_QUALITY_DIAGNOSTICS_ONLY": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "Q30": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "Q40": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "one_diagnostic_error": {
+    "total": 5,
+    "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "two_diagnostic_errors": {
+    "total": 5,
+    "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "one_site": {
+    "total": 5,
+    "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "two_sites": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "terminal_truncation": {
+    "total": 5,
+    "ASSIGNED_COPY": 5,
+    "correctly_assigned": 5,
+    "cross_assigned": 0
+  },
+  "mosaic_3_1": {
+    "total": 5,
+    "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "mosaic_2_2": {
+    "total": 5,
+    "CONFLICTING_DIAGNOSTIC_EVIDENCE": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "low_quality_conflict": {
+    "total": 5,
+    "LOW_QUALITY_CONFLICT": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "mate_conflict": {
+    "total": 5,
+    "MATE_CONFLICT": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "edit_loss_WT": {
+    "total": 5,
+    "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  },
+  "edit_loss_PE": {
+    "total": 5,
+    "INSUFFICIENT_DIAGNOSTIC_SUPPORT": 5,
+    "correctly_assigned": 0,
+    "cross_assigned": 0
+  }
+}
