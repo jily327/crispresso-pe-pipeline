@@ -1,0 +1,163 @@
+{
+  "archive_unchanged": true,
+  "stages": [
+    {
+      "dependencies": [],
+      "kind": "external_demux",
+      "label": "external_demux",
+      "output_path": "workflow/sources/external_demux.json",
+      "reason_codes": [],
+      "stage_id": "external_demux",
+      "status": "COMPLETED"
+    },
+    {
+      "dependencies": [
+        "external_demux"
+      ],
+      "kind": "analysis",
+      "label": "analysis",
+      "output_path": "analysis",
+      "reason_codes": [],
+      "stage_id": "analysis",
+      "status": "COMPLETED"
+    },
+    {
+      "dependencies": [
+        "analysis"
+      ],
+      "kind": "routing",
+      "label": "routing",
+      "output_path": "routing/bc001/SYN",
+      "reason_codes": [
+        "ROUTING_GEOMETRY_BLOCKED"
+      ],
+      "stage_id": "routing::bc001::SYN",
+      "status": "SKIPPED_SCIENTIFIC_GATE"
+    },
+    {
+      "dependencies": [
+        "analysis",
+        "routing::bc001::SYN"
+      ],
+      "kind": "metrics",
+      "label": "metrics",
+      "output_path": "metrics/bc001/SYN",
+      "reason_codes": [],
+      "stage_id": "metrics::bc001::SYN",
+      "status": "COMPLETED"
+    },
+    {
+      "dependencies": [
+        "metrics::bc001::SYN"
+      ],
+      "kind": "metrics_manifest",
+      "label": "metrics_manifest",
+      "output_path": "metrics/manifest.csv",
+      "reason_codes": [],
+      "stage_id": "metrics_manifest",
+      "status": "COMPLETED"
+    },
+    {
+      "dependencies": [
+        "metrics_manifest"
+      ],
+      "kind": "statistics",
+      "label": "statistics",
+      "output_path": "statistics",
+      "reason_codes": [],
+      "stage_id": "statistics",
+      "status": "COMPLETED"
+    },
+    {
+      "dependencies": [
+        "statistics"
+      ],
+      "kind": "report",
+      "label": "report",
+      "output_path": "report",
+      "reason_codes": [],
+      "stage_id": "report",
+      "status": "COMPLETED"
+    }
+  ],
+  "state": "COMPLETED",
+  "target_precise": {
+    "aligned_reads": null,
+    "ambiguous_aligned_reads": null,
+    "assessment_stage": "prepared_pairs",
+    "backend_counts_role": "unavailable",
+    "backend_input_reads": null,
+    "confident_input_reads": null,
+    "copy_id": null,
+    "denominator": 24,
+    "discarded_aligned_reads": null,
+    "metric_family": "precise",
+    "metric_name": "total_precise_pe",
+    "numerator": 12,
+    "ordinary_classified_aligned_reads": null,
+    "population_denominator_exclusions": 0,
+    "population_id": "34cf15ab85a6af5a346a62cdb5672af51f81aeb2eedd81b94d2123b2f12d1b41",
+    "population_input_reads": 24,
+    "population_scope": "target_all_prepared",
+    "preprocessing_count_delta": null,
+    "products": {
+      "classification_input_reads": 24,
+      "contradictory_state": 0,
+      "denominator_exclusions": 0,
+      "exact_pe": 12,
+      "exact_wt": 12,
+      "exclusion_reason_counts": {},
+      "other_nonexact_assessable": 0,
+      "pe_plus_extra_change": 0,
+      "unresolved_unassessable": 0
+    },
+    "reads_after_preprocessing": null,
+    "reason_codes": [],
+    "routing_conditioned": false,
+    "status": "REPORTABLE",
+    "unaligned_reads": null,
+    "unaligned_reason_counts": {}
+  },
+  "warnings": [
+    {
+      "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+      "detail": "{\"code\": \"NONUNIQUE_REFERENCE_ALIGNMENT\", \"copy\": \"copy1\", \"severity\": \"BLOCKED\", \"state\": \"PE\"}",
+      "field": "targets",
+      "message": "Backend reference geometry: NONUNIQUE_REFERENCE_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+      "severity": "WARNING",
+      "step": "target"
+    },
+    {
+      "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+      "detail": "{\"code\": \"NONUNIQUE_REFERENCE_ALIGNMENT\", \"copy\": \"copy2\", \"severity\": \"BLOCKED\", \"state\": \"PE\"}",
+      "field": "targets",
+      "message": "Backend reference geometry: NONUNIQUE_REFERENCE_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+      "severity": "WARNING",
+      "step": "target"
+    },
+    {
+      "code": "NONUNIQUE_EDIT_ALIGNMENT",
+      "detail": "{\"code\": \"NONUNIQUE_EDIT_ALIGNMENT\", \"copy\": \"copy1\", \"severity\": \"BLOCKED\"}",
+      "field": "targets",
+      "message": "Backend reference geometry: NONUNIQUE_EDIT_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+      "severity": "WARNING",
+      "step": "target"
+    },
+    {
+      "code": "NONUNIQUE_EDIT_ALIGNMENT",
+      "detail": "{\"code\": \"NONUNIQUE_EDIT_ALIGNMENT\", \"copy\": \"copy2\", \"severity\": \"BLOCKED\"}",
+      "field": "targets",
+      "message": "Backend reference geometry: NONUNIQUE_EDIT_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+      "severity": "WARNING",
+      "step": "target"
+    },
+    {
+      "code": "BACKEND_METADATA_WARNING",
+      "detail": null,
+      "field": "targets",
+      "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+      "severity": "WARNING",
+      "step": "target"
+    }
+  ]
+}

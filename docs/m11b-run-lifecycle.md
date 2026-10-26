@@ -104,7 +104,11 @@ without a verified-success event is insufficient. The supervisor then registers
 and opens the output through unchanged M10 verification, snapshot and projection
 logic. Only after that succeeds does the job become COMPLETED with an opaque
 `workspace_id`. A failure at either boundary produces FAILED and no viewer
-registration. Cancelled outputs remain incomplete and unpublished. Open Results
+registration. Cancelled jobs remain unpublished. In the finish/cancel race, science may already
+have committed a valid M7 completion marker before cancellation wins the GUI
+publication boundary. Those valid files are preserved; the job stays CANCELLED
+and receives no viewer registration. Incomplete outputs never become successful
+results. Open Results
 uses the existing M10 pages and mutation eviction/artifact safety checks.
 
 ## API and browser session

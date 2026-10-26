@@ -1,0 +1,17 @@
+
+> peanalyzer-verified-viewer@0.8.0 test:e2e
+> playwright test --config playwright.run.config.ts
+
+
+Running 6 tests using 1 worker
+
+(node:434339) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 e2e-run/run.spec.ts:28:37 › pe: real Review → Run → verified completion → existing M10 (22.7s)
+  ✓  2 e2e-run/run.spec.ts:28:37 › nuclease: real Review → Run → verified completion → existing M10 (12.8s)
+  ✓  3 e2e-run/run.spec.ts:38:1 › stale Review refuses Run before science (1.7s)
+  ✓  4 e2e-run/run.spec.ts:42:1 › live job reload reconnects without a second submission; cancel cleans child (5.8s)
+  ✓  5 e2e-run/run.spec.ts:52:1 › busy worker refuses a second reviewed Run without queueing (5.2s)
+  ✓  6 e2e-run/run.spec.ts:58:1 › backend failure retains actual code, failing stage and message (3.0s)
+
+  6 passed (52.2s)

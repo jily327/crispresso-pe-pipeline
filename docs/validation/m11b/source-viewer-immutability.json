@@ -1,0 +1,11 @@
+{
+  "full_verifier_calls": 11,
+  "guarded_functions": "See gui_helpers.forbid_execution",
+  "scientific_executor_calls": 0,
+  "setup_inputs_and_proposed_output_unchanged": true,
+  "workspace_and_input_bytes_and_mtimes_unchanged": true,
+  "workspaces": [
+    "/workspace/m11b-implementation/source-tests/m10/precise_edit/workflow",
+    "/workspace/m11b-implementation/source-tests/m10/indel_nuclease/workflow"
+  ]
+}

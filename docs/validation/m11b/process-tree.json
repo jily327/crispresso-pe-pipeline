@@ -1,0 +1,128 @@
+{
+  "actual_m7_executor": true,
+  "backend": "test-only long-running local process fixture; no biological inference",
+  "cancel_elapsed_seconds": 5.200615218025632,
+  "canonical_lock_removed": true,
+  "completion_marker_absent": true,
+  "configured_grace_seconds": 5.0,
+  "incomplete_workspace_retained": true,
+  "ordered_events": [
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 1,
+      "stage_id": null,
+      "stage_kind": null,
+      "state": "STARTING",
+      "status": "ACCEPTED",
+      "timestamp": "2026-10-26T12:30:04.404615+00:00"
+    },
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 2,
+      "stage_id": null,
+      "stage_kind": null,
+      "state": "RUNNING",
+      "status": "WORKER_READY",
+      "timestamp": "2026-10-26T12:30:05.441414+00:00"
+    },
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 3,
+      "stage_id": "raw_inputs",
+      "stage_kind": "raw_inputs",
+      "state": "RUNNING",
+      "status": "RUNNING",
+      "timestamp": "2026-10-26T12:30:05.549146+00:00"
+    },
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 4,
+      "stage_id": "raw_inputs",
+      "stage_kind": "raw_inputs",
+      "state": "RUNNING",
+      "status": "COMPLETED",
+      "timestamp": "2026-10-26T12:30:05.580575+00:00"
+    },
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 5,
+      "stage_id": "demux",
+      "stage_kind": "demux",
+      "state": "RUNNING",
+      "status": "RUNNING",
+      "timestamp": "2026-10-26T12:30:05.580634+00:00"
+    },
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 6,
+      "stage_id": null,
+      "stage_kind": null,
+      "state": "CANCELLING",
+      "status": "CANCEL_REQUESTED",
+      "timestamp": "2026-10-26T12:30:05.651141+00:00"
+    },
+    {
+      "code": null,
+      "reason_codes": [],
+      "sequence": 7,
+      "stage_id": null,
+      "stage_kind": null,
+      "state": "CANCELLED",
+      "status": "CANCELLED",
+      "timestamp": "2026-10-26T12:30:10.831958+00:00"
+    }
+  ],
+  "processes": 3,
+  "readiness_after_sigterm_ignored": true,
+  "signal_sequence": [
+    "SIGTERM",
+    "SIGTERM",
+    "SIGKILL",
+    "SIGKILL",
+    "SIGKILL"
+  ],
+  "stage_statuses": [
+    {
+      "stage": "raw_inputs",
+      "status": "COMPLETED"
+    },
+    {
+      "stage": "demux",
+      "status": "CANCELLED"
+    },
+    {
+      "stage": "analysis",
+      "status": "PENDING"
+    },
+    {
+      "stage": "routing::bc001::T1",
+      "status": "PENDING"
+    },
+    {
+      "stage": "metrics::bc001::T1",
+      "status": "PENDING"
+    },
+    {
+      "stage": "metrics_manifest",
+      "status": "PENDING"
+    },
+    {
+      "stage": "statistics",
+      "status": "PENDING"
+    },
+    {
+      "stage": "report",
+      "status": "PENDING"
+    }
+  ],
+  "state": "CANCELLED",
+  "viewer_registration_absent": true,
+  "worker_architecture": "fixed Python worker / POSIX session / Linux subreaper",
+  "worker_child_and_grandchild_all_gone": true
+}

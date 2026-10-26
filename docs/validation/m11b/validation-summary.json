@@ -1,0 +1,64 @@
+{
+  "base_sha": "c5f6272612df06e7f939f58fc567e1c386cc750a",
+  "fresh_wheel": {
+    "errors": 0,
+    "failures": 0,
+    "seconds": 1063.3,
+    "skipped": 0,
+    "tests": 1722
+  },
+  "frontend_passed": 38,
+  "initial_source_attempt": {
+    "action": "No scientific guard or old test changed. Focused original five-case group passed; full stable-source rerun passed 1722/1722.",
+    "code": "SOFTWARE_CHANGED",
+    "context": "Concurrent packaging and source validation; exact transient identity component was not captured. Stored and current identities matched afterward.",
+    "errors": 1,
+    "passed": 1721,
+    "stage": "demux",
+    "test": "test_changed_workspace_invalidates_open_view_and_artifacts[report/source/result.json]"
+  },
+  "integration_cases": 85,
+  "new_python_cases": 64,
+  "nodefree_runtime": {
+    "core_configured_by_absolute_path": true,
+    "node_available": false,
+    "path": "/workspace/m11b-implementation/wheel-nodefree-bin"
+  },
+  "original_frontend_cases": 31,
+  "original_integration_cases": 82,
+  "original_python_cases": 1658,
+  "original_tests_unmodified": true,
+  "package": {
+    "all_three_wheel_members_identical": true,
+    "clean_checkout_wheel": true,
+    "crispresso_available_during_build": false,
+    "node_available_during_build": false,
+    "sdist_rebuilt_wheel": true,
+    "source_commit": "ba10511348c00c321dae4862914a3549e4297818",
+    "wheel_member_count": 86,
+    "worker_packaged": true
+  },
+  "python_source": {
+    "errors": 0,
+    "failures": 0,
+    "seconds": 1032.02,
+    "skipped": 0,
+    "tests": 1722
+  },
+  "source_e2e": {
+    "existing": 18,
+    "run": 6,
+    "total": 24
+  },
+  "tested_code_commit": "ba10511348c00c321dae4862914a3549e4297818",
+  "wheel_e2e": {
+    "existing": 18,
+    "run": 6,
+    "total": 24
+  },
+  "wheel_install": {
+    "import_path": "/workspace/m11b-implementation/wheel-venv/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "version": "0.8.0",
+    "worker_path": "/workspace/m11b-implementation/wheel-venv/lib/python3.12/site-packages/peanalyzer/gui/worker.py"
+  }
+}

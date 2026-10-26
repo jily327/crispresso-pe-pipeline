@@ -1,0 +1,15 @@
+
+> peanalyzer-verified-viewer@0.8.0 test
+> vitest run
+
+
+ RUN  v5.0.5 /workspace/crispresso-pe-pipeline-m11b/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  38 passed (38)
+   Start at  07:43:02
+   Duration  2.87s (tests 47%, environment 40%, setup 6%, import 3%, transform 3%)
+
+    Isolate  4 workers spawned · ~804ms startup each (spawn + environment, per file)
+             at least ~268ms faster with isolate: false — reuses workers across files instead of one per file
