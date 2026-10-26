@@ -1,5 +1,6 @@
 """Compile previews with existing metadata, geometry and DAG authorities only."""
 import csv
+import hashlib
 import io
 import json
 from pydantic import ValidationError
@@ -207,6 +208,7 @@ def compile_draft(content, revision, references, protected):
         for warning in metadata_warnings(sample_rows,target_rows,config):
             issue('target','targets','BACKEND_METADATA_WARNING',warning,'WARNING')
     preview=None
+    compiled=None
     if not any(i.severity=='ERROR' for i in issues):
         backend=dict(package_version=__version__,backend_base=BASE,crispresso_required='2.3.4',runtime_digest_required=RUNTIME_DIGEST,
             executable_probed=False,qualification='Expected contract only; resolved execution must be verified in M11B')
@@ -214,7 +216,19 @@ def compile_draft(content, revision, references, protected):
             targets=[scientific_target(t) for t in target_rows],inputs=input_evidence,
             demux_config=config.model_dump(),preparation=dict(r1_analysis_trim_5p=trims[0],r2_analysis_trim_5p=trims[1]),
             routing_policy=policy_identity(RoutingPolicy()) if content.analysis_mode=='precise_edit' else 'single_copy_identity',statistics='summarize',backend=backend)
+        # The same validated compiler output feeds both Review and execution.
+        # Full effective catalogs matter even when some barcodes are not samples.
+        catalog_rows=[dict(direction=direction,barcode_id=key,sequence=value)
+            for direction in sorted(catalog.ends) for key,value in sorted(catalog.ends[direction].items())]
+        def csv_text(rows):
+            return MemoryCSV([{key:'' if value is None else value for key,value in row.items()} for row in rows],'Canonical execution metadata').text
+        files={'samples.csv':csv_text([r.model_dump() for r in sample_rows]),
+            'targets.csv':csv_text([t.model_dump() for t in target_rows]),
+            'config.json':json.dumps(config.model_dump(),sort_keys=True,separators=(',',':'))+'\n',
+            'barcodes.csv':csv_text(catalog_rows)}
+        normalized['catalog_sha256']=hashlib.sha256(files['barcodes.csv'].encode()).hexdigest()
         science=digest(normalized)
+        compiled=dict(science=normalized,files=files)
         nodes=dag(content.input_mode,[s.barcode_id for s in sample_rows],sorted({t.target_name for t in target_rows}))
         stages=[PreviewStage(stage_id=n.stage_id,kind=n.stage_kind,label='Single-copy identity check' if content.analysis_mode=='indel_nuclease' and n.stage_kind=='routing' else n.stage_kind,dependencies=n.dependencies,output_path=n.output_path) for n in nodes]
         preview=PlanPreview(analysis_name=content.analysis_name,analysis_mode=content.analysis_mode,source_mode=content.input_mode,
@@ -222,5 +236,7 @@ def compile_draft(content, revision, references, protected):
             inputs=fields(input_evidence),target_name=target_rows[0].target_name,copy_count=str(len(target_rows)),targets=target_previews,
             configuration=fields({k:normalized[k] for k in ('demux_config','preparation','routing_policy','statistics')}),stages=stages,output_proposal=output,
             scientific_identity_sha256=science,plan_identity_sha256=digest(dict(scientific_identity=science,analysis_name=content.analysis_name,output=output_identity)),
-            backend_identity=fields(backend),deferred=['Scientific execution','Core executable/runtime verification','Resolved argument and population qualification','Progress / cancel / resume / force','Contrast creation','PE empirical routing qualification'])
-    return DraftValidation(revision=revision,draft_digest=digest(content),status='VALID' if preview else 'INVALID',issues=issues,targets=target_previews if not errors('target') else [],preview=preview)
+            backend_identity=fields(backend),deferred=['Resume / force / recovery','Contrast creation','Runtime, population and PE routing qualification at execution'])
+    result=DraftValidation(revision=revision,draft_digest=digest(content),status='VALID' if preview else 'INVALID',issues=issues,targets=target_previews if not errors('target') else [],preview=preview)
+    result._compiled=compiled
+    return result

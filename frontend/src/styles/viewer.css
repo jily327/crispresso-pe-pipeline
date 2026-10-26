@@ -30,3 +30,7 @@
 .identities dd { overflow-wrap:anywhere; margin:8px 0 20px; font-family:monospace; }
 .setup .literal { overflow-wrap:anywhere; white-space:pre-wrap; }
 @media(max-width:700px){.setup{padding:16px}.flow-nav{padding:12px}.setup-steps button{flex:1 1 120px}}
+.setup-editing { border: 0; padding: 0; margin: 0; min-width: 0; }
+dialog { max-width: min(36rem, 90vw); border: 2px solid var(--border, #64748b); border-radius: .5rem; padding: 1.5rem; }
+dialog::backdrop { background: #0f172a88; }
+dialog button { margin: .5rem .5rem 0 0; }
