@@ -1,0 +1,12 @@
+{
+  "wheel": "crispresso_pe_pipeline-0.8.0-py3-none-any.whl",
+  "sha256": "49276300abacaebefc6fb366dab119bfd43616e739352ee08bf2db94f72313b0",
+  "package_members": 77,
+  "all_package_members_match_source_and_installed_bytes": true,
+  "installed_import_origin": "/workspace/validation/m11a1/wheel-venv/lib/python3.12/site-packages/peanalyzer/__init__.py",
+  "version": "0.8.0",
+  "changed_production_files": [
+    "src/peanalyzer/gui/setup_validation.py"
+  ],
+  "production_sha256": "0235e24c02bc8d5035192192c070187762588e205bf3b02510a2e894436c4487"
+}

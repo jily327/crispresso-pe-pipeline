@@ -15,8 +15,10 @@ async function checked(path: string, options?: RequestInit) {
   }
   return response;
 }
-export async function api<T>(path: string, body?: unknown): Promise<T> {
-  return (await checked(path, body === undefined ? undefined : { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })).json();
+export async function api<T>(path: string, body?: unknown, method?: string): Promise<T> {
+  const response = await checked(path, { method: method || (body === undefined ? 'GET' : 'POST'),
+    ...(body === undefined ? {} : { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }) });
+  return response.status === 204 ? undefined as T : response.json();
 }
 export async function download(workspace: string, id: string, name: string) {
   const response = await checked(`workspaces/${workspace}/artifacts/${id}`);

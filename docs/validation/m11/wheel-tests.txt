@@ -1,0 +1,56 @@
+........................................................................ [  4%]
+........................................................................ [  8%]
+........................................................................ [ 13%]
+........................................................................ [ 17%]
+........................................................................ [ 22%]
+........................................................................ [ 26%]
+........................................................................ [ 30%]
+........................................................................ [ 35%]
+........................................................................ [ 39%]
+........................................................................ [ 44%]
+........................................................................ [ 48%]
+........................................................................ [ 52%]
+........................................................................ [ 57%]
+........................................................................ [ 61%]
+........................................................................ [ 66%]
+........................................................................ [ 70%]
+........................................................................ [ 74%]
+........................................................................ [ 79%]
+........................................................................ [ 83%]
+........................................................................ [ 88%]
+........................................................................ [ 92%]
+........................................................................ [ 96%]
+....................................................                     [100%]
+=============================== warnings summary ===============================
+../release-wheel-venv/lib/python3.12/site-packages/starlette/testclient.py:37
+  /workspace/m11-implementation/release-wheel-venv/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U0001]
+tests/test_m61.py::test_contrast_failure_removes_previously_staged_sample_figures
+tests/test_m7.py::test_m61_invalid_svg_fails_workflow_closed
+tests/test_m8.py::test_nuclease_keeps_m61_fail_closed[\x01]
+  /workspace/m11-implementation/release-wheel-venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 1 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U000B]
+tests/test_m8.py::test_nuclease_keeps_m61_fail_closed[\x0b]
+  /workspace/m11-implementation/release-wheel-venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 11 (
+  ) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFE]
+  /workspace/m11-implementation/release-wheel-venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 65534 (\ufffe) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFF]
+  /workspace/m11-implementation/release-wheel-venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 65535 (\uffff) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py: 12 warnings
+  /workspace/m11-implementation/release-wheel-venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 127 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /workspace/m11-implementation/wheel-release-tests/tests.xml -
+1636 passed, 21 warnings in 890.99s (0:14:50)

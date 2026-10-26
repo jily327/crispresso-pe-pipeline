@@ -149,6 +149,16 @@ Work is developed on feature branches and integrated into `main`
 only after review. Research use; biological definitions require experiment-specific
 confirmation.
 
+## Local analysis setup (M11A)
+
+**M11A validates and previews analyses but does not execute them.** Choose
+**New Analysis** for Samples → Mode → Target → Configuration → Review, or
+**Open Existing Analysis** for the verified result viewer. Register paired-pool
+FASTQs with repeatable `--setup-fastq PATH`, M2 archives with `--setup-demux PATH`,
+and optional output parents with `--setup-output-root PATH`. File selections use
+opaque local capabilities. Drafts are ephemeral; no scientific workspace is
+created. See [the setup contract and execution boundary](docs/m11-analysis-setup.md).
+
 ## Local verified-result viewer (M10)
 
 The optional React/FastAPI viewer opens existing completed PE and nuclease

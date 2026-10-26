@@ -1,0 +1,52 @@
+{
+  "milestone": "M11A",
+  "status": "PASS",
+  "branch": "feat/m11-analysis-setup",
+  "base": "40bd8ad8844fd07ce8a138b5520f7f0ec948030f",
+  "implementation_head": "86c5bbf93fa5246bd5fbfbb4633d8623471e01de",
+  "package_version": "0.8.0",
+  "python": {
+    "source": {
+      "passed": 1636,
+      "failed": 0,
+      "skipped": 0,
+      "xml_sha256": "7ad6aefcbaf3da5cedde90ec400e04304c6ab1f5e4be88e786c88d3b21c048d0"
+    },
+    "wheel": {
+      "passed": 1636,
+      "failed": 0,
+      "skipped": 0,
+      "xml_sha256": "245bf93c4e882c19350a973dd7984a09e6698914943d309cfcaa1e622f838bc8"
+    },
+    "existing_tests": 1572,
+    "new_setup_tests": 64,
+    "final_source_setup_and_packaging_tests": 69
+  },
+  "frontend": {
+    "passed": 29,
+    "existing_tests": 17,
+    "new_tests": 12
+  },
+  "browser": {
+    "source_passed": 14,
+    "wheel_passed": 14,
+    "existing_tests_per_environment": 10,
+    "new_tests_per_environment": 4
+  },
+  "zero_scientific_execution": true,
+  "package_validation": {
+    "clean_checkout_commit": "86c5bbf93fa5246bd5fbfbb4633d8623471e01de",
+    "node_available_during_build": false,
+    "crispresso_available_during_build": false,
+    "clean_checkout_wheel": true,
+    "clean_checkout_sdist": true,
+    "sdist_rebuilt_wheel": true,
+    "all_three_wheel_members_identical": true,
+    "wheel_member_count": 82,
+    "incremental_build_removes_obsolete_assets": true,
+    "incremental_wheel_members_identical": true,
+    "source_directed_staging_rejected_without_source_changes": true
+  },
+  "remaining_blocking_findings": [],
+  "remaining_major_findings": []
+}

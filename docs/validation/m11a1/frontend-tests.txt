@@ -1,0 +1,13 @@
+
+> peanalyzer-verified-viewer@0.8.0 test
+> vitest run --run
+
+
+ RUN  v5.0.5 /workspace/m11a-remediation/frontend
+
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  05:21:55
+   Duration  2.61s (tests 46%, environment 35%, transform 10%, setup 6%, import 3%)
+

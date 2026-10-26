@@ -1,0 +1,17 @@
+{
+  "source_working_directory": "/workspace/crispresso-pe-pipeline-m11",
+  "wheel_working_directory": "/workspace/m11-implementation/final-wheel-tests-input",
+  "full_suite_environment_script": "#!/usr/bin/env bash\nset -euo pipefail\nlabel=\"$1\"\npython_bin=\"$2\"\nresults_root=\"/workspace/m11-implementation/${label}-tests\"\nmkdir \"$results_root\"\nexport PATH=/workspace/m421-runtime-tools:$PATH\nexport MPLCONFIGDIR=/tmp/m11-mpl XDG_CACHE_HOME=/tmp/m11-cache\nexport M3_CORE_EXECUTABLE=/workspace/m421-runtime-tools/CRISPResso\nexport M3_POOLED_EXECUTABLE=/workspace/m421-runtime-tools/CRISPRessoPooled\nexport M3_SAMTOOLS_EXECUTABLE=/workspace/m421-runtime-tools/samtools\nexport M3_CHILD_CORE_COMMAND=/CRISPResso2/.pixi/envs/default/bin/CRISPResso\nexport M31_RUNTIME_IMAGE=pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c\nexport M10_INTEGRATION=1 M10_RESULTS_DIR=\"$results_root/m10\"\nexport M8_INTEGRATION=1\nexport M8_RESULTS_DIR=\"$results_root/m8\" M81_RESULTS_DIR=\"$results_root/m81\"\nexport M3_INTEGRATION=1 M31_INTEGRATION=1 M311_INTEGRATION=1 M312_INTEGRATION=1\nexport M4_INTEGRATION=1 M41_INTEGRATION=1 M42_INTEGRATION=1 M421_INTEGRATION=1 M422_INTEGRATION=1 M7_INTEGRATION=1\nexport M3_RESULTS_DIR=\"$results_root/m3\" M31_RESULTS_DIR=\"$results_root/m31\"\nexport M311_RESULTS_DIR=\"$results_root/m311\" M312_RESULTS_DIR=\"$results_root/m312\"\nexport M4_RESULTS_DIR=\"$results_root/m4\" M41_RESULTS_DIR=\"$results_root/m41\"\nexport M42_RESULTS_DIR=\"$results_root/m42\" M421_RESULTS_DIR=\"$results_root/m421\"\nexport M422_RESULTS_DIR=\"$results_root/m422\" M7_RESULTS_DIR=\"$results_root/m7\"\n\"$python_bin\" -m pytest -q --basetemp=\"$results_root/pytest\" --junitxml=\"$results_root/tests.xml\" > \"$results_root/tests.txt\" 2>&1\n",
+  "commands": [
+    "bash /workspace/m11-implementation/run-tests.sh source-final /workspace/m11-implementation/venv/bin/python",
+    "python /workspace/m11-implementation/run-release-wheel.py",
+    "npm --prefix frontend run build",
+    "npm --prefix frontend test -- --run",
+    "python /workspace/m11-implementation/check-release-packages.py",
+    "python /workspace/m11-implementation/check-incremental-package.py",
+    "M10_E2E_URL=http://127.0.0.1:8766 M11_SETUP_ROOT=/workspace/m11-implementation/final-source-e2e-inputs PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:e2e",
+    "M10_E2E_URL=http://127.0.0.1:8767 M11_SETUP_ROOT=/workspace/m11-implementation/release-wheel-e2e-inputs PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:e2e"
+  ],
+  "runtime_image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "explanation": "Full regression fixtures execute the qualified scientific backend. Setup and viewer actions run only after executor guards are installed. Node-free runtime applies to the Python GUI server, not the separate Playwright browser test driver."
+}
