@@ -64,3 +64,7 @@ class JobView(Model):
     error: ErrorDetail | None = None
     workspace_id: str | None = None
     latest_sequence: int = 0
+
+
+class CancelRequest(Model):
+    pass

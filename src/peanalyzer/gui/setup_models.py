@@ -145,5 +145,7 @@ class SetupCapabilities(Model):
     backend_base: str
     files: list[SetupFile]
     scientific_execution: Literal[False] = False
+    scientific_execution_scope: Literal['setup_and_review_only'] = 'setup_and_review_only'
+    recovery_available: bool = False
     statistics: Literal['descriptive_only'] = 'descriptive_only'
     run_available: bool = False
