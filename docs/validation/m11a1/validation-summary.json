@@ -1,0 +1,44 @@
+{
+  "source": {
+    "tests": 1658,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_e2e": {
+    "expected": 18,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "wheel": {
+    "tests": 1658,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "wheel_e2e": {
+    "expected": 18,
+    "unexpected": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "frontend": {
+    "passed": 31,
+    "failed": 0
+  },
+  "historical_python_cases": 1636,
+  "new_unit_cases": 21,
+  "new_integration_cases": 1,
+  "historical_integrations": 81,
+  "total_integrations": 82,
+  "previous_audited_head": "d9bddb6e106d5d9b50d04479a39c55d75e9ef65b",
+  "branch": "feat/m11-analysis-setup",
+  "package_version": "0.8.0",
+  "production_files_changed": [
+    "src/peanalyzer/gui/setup_validation.py"
+  ],
+  "scientific_modules_unchanged": true,
+  "setup_guarded_execution_attempts": 0,
+  "setup_filesystem_write_attempts": 0
+}

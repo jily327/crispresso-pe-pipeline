@@ -20,3 +20,42 @@ test('PE setup through real Python validation → deterministic Review without e
 test('explicit nuclease window 0-0 → locked full contract → Review',async({page})=>{await start(page,'nuclease');await page.getByLabel(/Quantification window coordinates/).fill('0-0');await configuration(page);await page.getByRole('button',{name:'Validate draft',exact:true}).click();await expect(page.getByRole('status').filter({hasText:'VALID · revision'})).toBeVisible();await page.getByText('View full qualified scientific configuration',{exact:true}).click();const table=page.getByRole('table',{name:'Backend resolved scientific configuration (read-only)'});await expect(table.locator('tbody tr')).toHaveCount(58);await expect(table.getByRole('textbox')).toHaveCount(0);await review(page);await expect(page.getByText('"0-0"',{exact:true}).first()).toBeVisible()});
 test('TIGR W2 and W1 annotations come from backend; accessible and responsive',async({page})=>{page.on('dialog',d=>d.accept());await start(page,'nuclease');await page.getByLabel('Target profile').selectOption('tigr_tas_v1');await expect(page.getByLabel('Selected window')).toHaveValue('W2');await page.getByLabel('18-nt TIGR target').fill(fields().targets[0].wt_sequence.slice(30,48));await configuration(page);await page.getByRole('button',{name:'3. Target'}).click();await page.getByRole('button',{name:'Validate draft',exact:true}).click();const annotations=page.getByRole('region',{name:'Backend target preview'});await expect(annotations.getByText('"34-43"',{exact:true})).toBeVisible();await page.getByLabel('Selected window').selectOption('W1');await expect(annotations).toHaveCount(0);await page.getByRole('button',{name:'Validate draft',exact:true}).click();await expect(annotations.getByText('"34-35_42-43"',{exact:true})).toBeVisible();await expect(annotations.getByText('"W1"',{exact:true})).toBeVisible();for(const width of [1920,1366,683]){await page.setViewportSize({width,height:768});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true)}const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(results.violations).toEqual([]);await page.getByRole('button',{name:'4. Configuration'}).click();await review(page)});
 test('invalid sentinel cannot reach Review and first error is focusable',async({page})=>{await start(page,'nuclease');await page.getByLabel(/Quantification window coordinates/).fill('0');await configuration(page);await page.getByRole('button',{name:'Validate & Review'}).click();const field=page.locator('[id="targets.0.quantification_window_coordinates"]');await expect(field).toHaveAttribute('aria-invalid','true');await expect(field).toBeFocused();await expect(page.getByRole('region',{name:'Validated plan preview'})).toHaveCount(0);await field.fill('0-0');await page.getByRole('button',{name:'5. Review'}).click();await expect(page.getByRole('region',{name:'Validated plan preview'})).toBeVisible()});
+
+test('duplicate biological replicate blocks Review and focuses replicate metadata',async({page})=>{
+  await start(page,'PE');await configuration(page);
+  await page.getByRole('button',{name:'1. Samples'}).click();
+  await page.getByRole('button',{name:'Add sample',exact:true}).click();
+  const first=fields().samples[0],second={...fields().samples[1],editor:first.editor,treatment:first.treatment,dpi:first.dpi,biological_replicate:first.biological_replicate};
+  for(const key of ['sample_name','barcode_id','forward_barcode','reverse_barcode','editor','treatment','dpi','biological_replicate'])await page.locator(`[id="samples.1.${key}"]`).fill(second[key]);
+  await page.getByRole('button',{name:'5. Review'}).click();
+  await expect(page.locator('[id="samples.0.biological_replicate"]')).toBeFocused();
+  await expect(page.locator('[id="samples.1.biological_replicate"]')).toHaveAttribute('aria-invalid','true');
+  await expect(page.getByRole('region',{name:'Validated plan preview'})).toHaveCount(0);
+  await page.locator('[id="samples.1.biological_replicate"]').fill('2');await page.getByRole('button',{name:'4. Configuration'}).click();await review(page);
+});
+test('paired metadata error focuses Block ID rather than sample name',async({page})=>{
+  await start(page,'PE');await configuration(page);
+  await page.getByRole('button',{name:'1. Samples'}).click();
+  await page.getByLabel('Paired biological design (requires Block ID)').check();
+  await page.getByRole('button',{name:'5. Review'}).click();
+  await expect(page.locator('[id="samples.0.block_id"]')).toBeFocused();
+  await expect(page.getByRole('region',{name:'Validated plan preview'})).toHaveCount(0);
+  await page.locator('[id="samples.0.block_id"]').fill('block1');await page.getByRole('button',{name:'4. Configuration'}).click();await review(page);
+});
+test('ambiguous deletion reaches Review with authoritative limitation warnings',async({page})=>{
+  await start(page,'PE');const target=fields().ambiguous_deletion[0];
+  for(const key of ['target_name','copy_name','wt_sequence','prime_edited_sequence','pegRNA_spacer','pegRNA_extension','nicking_guide','pegRNA_scaffold'])await page.locator(`[id="targets.0.${key}"]`).fill(target[key]||'');
+  await configuration(page);await review(page);
+  await expect(page.getByText(/WARNING.*NONUNIQUE_REFERENCE_ALIGNMENT/).first()).toBeVisible();
+  await expect(page.getByText(/WARNING.*NONUNIQUE_EDIT_ALIGNMENT/).first()).toBeVisible();
+});
+test('zero-pair raw pool blocks Review with an input error',async({page})=>{
+  await start(page,'PE');await configuration(page);
+  await page.getByRole('button',{name:'1. Samples'}).click();
+  await page.getByLabel('Pool R1').selectOption({label:'empty_R1.fastq.gz'});
+  await page.getByLabel('Pool R2').selectOption({label:'empty_R2.fastq.gz'});
+  await page.getByRole('button',{name:'5. Review'}).click();
+  await expect(page.getByLabel('Pool R1')).toBeFocused();
+  await expect(page.getByLabel('Pool R1')).toHaveAttribute('aria-invalid','true');
+  await expect(page.getByRole('region',{name:'Validated plan preview'})).toHaveCount(0);
+});

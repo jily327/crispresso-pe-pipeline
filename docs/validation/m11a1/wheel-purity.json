@@ -1,0 +1,131 @@
+{
+  "import_origin": "/workspace/validation/m11a1/wheel-venv/lib/python3.12/site-packages/peanalyzer/__init__.py",
+  "cases": {
+    "valid": {
+      "status": "VALID",
+      "issues": [
+        {
+          "severity": "WARNING",
+          "code": "BACKEND_METADATA_WARNING",
+          "step": "target",
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "detail": null
+        }
+      ]
+    },
+    "duplicate": {
+      "status": "INVALID",
+      "issues": [
+        {
+          "severity": "ERROR",
+          "code": "DUPLICATE_BIOLOGICAL_REPLICATE",
+          "step": "samples",
+          "field": "samples.0.biological_replicate",
+          "message": "Duplicate biological_replicate '1' within condition and target 'T1': bc001 (bio1), bc002 (bio2).",
+          "detail": null
+        },
+        {
+          "severity": "ERROR",
+          "code": "DUPLICATE_BIOLOGICAL_REPLICATE",
+          "step": "samples",
+          "field": "samples.1.biological_replicate",
+          "message": "Duplicate biological_replicate '1' within condition and target 'T1': bc001 (bio1), bc002 (bio2).",
+          "detail": null
+        },
+        {
+          "severity": "WARNING",
+          "code": "BACKEND_METADATA_WARNING",
+          "step": "target",
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "detail": null
+        }
+      ]
+    },
+    "ambiguous": {
+      "status": "VALID",
+      "issues": [
+        {
+          "severity": "WARNING",
+          "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "step": "target",
+          "field": "targets",
+          "message": "Backend reference geometry: NONUNIQUE_REFERENCE_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+          "detail": "{\"code\": \"NONUNIQUE_REFERENCE_ALIGNMENT\", \"copy\": \"copy1\", \"severity\": \"BLOCKED\", \"state\": \"PE\"}"
+        },
+        {
+          "severity": "WARNING",
+          "code": "NONUNIQUE_REFERENCE_ALIGNMENT",
+          "step": "target",
+          "field": "targets",
+          "message": "Backend reference geometry: NONUNIQUE_REFERENCE_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+          "detail": "{\"code\": \"NONUNIQUE_REFERENCE_ALIGNMENT\", \"copy\": \"copy2\", \"severity\": \"BLOCKED\", \"state\": \"PE\"}"
+        },
+        {
+          "severity": "WARNING",
+          "code": "NONUNIQUE_EDIT_ALIGNMENT",
+          "step": "target",
+          "field": "targets",
+          "message": "Backend reference geometry: NONUNIQUE_EDIT_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+          "detail": "{\"code\": \"NONUNIQUE_EDIT_ALIGNMENT\", \"copy\": \"copy1\", \"severity\": \"BLOCKED\"}"
+        },
+        {
+          "severity": "WARNING",
+          "code": "NONUNIQUE_EDIT_ALIGNMENT",
+          "step": "target",
+          "field": "targets",
+          "message": "Backend reference geometry: NONUNIQUE_EDIT_ALIGNMENT \u2014 Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.",
+          "detail": "{\"code\": \"NONUNIQUE_EDIT_ALIGNMENT\", \"copy\": \"copy2\", \"severity\": \"BLOCKED\"}"
+        },
+        {
+          "severity": "WARNING",
+          "code": "BACKEND_METADATA_WARNING",
+          "step": "target",
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "detail": null
+        }
+      ]
+    },
+    "empty": {
+      "status": "INVALID",
+      "issues": [
+        {
+          "severity": "ERROR",
+          "code": "EMPTY_INPUT",
+          "step": "samples",
+          "field": "r1",
+          "message": "The paired FASTQ population is empty.",
+          "detail": null
+        },
+        {
+          "severity": "WARNING",
+          "code": "BACKEND_METADATA_WARNING",
+          "step": "target",
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "detail": null
+        }
+      ]
+    },
+    "block": {
+      "status": "INVALID",
+      "issues": [
+        {
+          "severity": "ERROR",
+          "code": "SCHEMA_VALIDATION",
+          "step": "samples",
+          "field": "samples.0.block_id",
+          "message": "Value error, paired samples require block_id",
+          "detail": null
+        }
+      ]
+    }
+  },
+  "guarded_executor_attempts": 0,
+  "filesystem_write_attempts": 0,
+  "input_output_bytes_and_mtimes_unchanged": true,
+  "existing_workspace_and_sources_unchanged": true,
+  "proposed_output_absent": true
+}

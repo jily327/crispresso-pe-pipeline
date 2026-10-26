@@ -29,3 +29,16 @@ it('renders arbitrary backend annotations without deriving coordinates',()=>{ren
 it('keeps Review non-executable without a launch endpoint',()=>{render(<Review plan={preview}/>);expect(screen.getByRole('button',{name:'Run Analysis'})).toBeDisabled();expect(calls.api).not.toHaveBeenCalled()});
 
 it('reveals a filtered-out sample before focusing its backend error',async()=>{const user=await ready();await user.click(screen.getByRole('button',{name:'Add sample'}));await user.type(screen.getByLabelText('Filter sample names'),'hidden');const normal=calls.api.getMockImplementation()!;calls.api.mockImplementation((path,...args)=>path.endsWith('/validate')?Promise.resolve({revision:current.revision,draft_digest:'bad',status:'INVALID',preview:null,targets:[],issues:[{severity:'ERROR',step:'samples',field:'samples.0.sample_name',code:'REQUIRED',message:'Sample name required',detail:null}]}):normal(path,...args));await user.click(screen.getByRole('button',{name:'5. Review'}));await waitFor(()=>expect(document.getElementById('samples.0.sample_name')).toHaveFocus());expect(screen.getByLabelText('Filter sample names')).toHaveValue('')});
+
+it.each(['biological_replicate','block_id'])('focuses backend sample %s errors without allowing Review',async field=>{
+  const user=await ready();await user.click(screen.getByRole('button',{name:'Add sample'}));
+  await user.type(screen.getByLabelText('Filter sample names'),'hidden');
+  const normal=calls.api.getMockImplementation()!;
+  calls.api.mockImplementation((path,...args)=>path.endsWith('/validate')?Promise.resolve({revision:current.revision,draft_digest:'invalid',status:'INVALID',preview:null,targets:[],issues:[{severity:'ERROR',step:'samples',field:`samples.0.${field}`,code:field==='block_id'?'SCHEMA_VALIDATION':'DUPLICATE_BIOLOGICAL_REPLICATE',message:'Backend metadata constraint',detail:null}]}):normal(path,...args));
+  await user.click(screen.getByRole('button',{name:'5. Review'}));
+  await waitFor(()=>expect(document.getElementById(`samples.0.${field}`)).toHaveFocus());
+  expect(document.getElementById(`samples.0.${field}`)).toHaveAttribute('aria-invalid','true');
+  expect(screen.getByLabelText('Filter sample names')).toHaveValue('');
+  expect(screen.queryByRole('region',{name:'Validated plan preview'})).not.toBeInTheDocument();
+  expect(calls.api.mock.calls.some(([p])=>p.includes('/preview?'))).toBe(false);
+});

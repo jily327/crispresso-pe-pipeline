@@ -1,0 +1,137 @@
+.....FF........FFFF.                                                     [100%]
+=================================== FAILURES ===================================
+__ test_setup_replicates_match_downstream_rule[duplicate-False-precise_edit] ___
+
+setup = (<peanalyzer.gui.drafts.DraftStore object at 0x7fd7bdb0f500>, {'analysis_mode': 'precise_edit', 'analysis_name': 'Setu... 'crispresso': 'CRISPResso', ...}, PosixPath('/tmp/pytest-of-agent/pytest-68/test_setup_replicates_match_do0/outputs'))
+mode = 'precise_edit', change = 'duplicate', allowed = False
+
+    @pytest.mark.parametrize('mode', ['precise_edit', 'indel_nuclease'])
+    @pytest.mark.parametrize('change,allowed', CASES)
+    def test_setup_replicates_match_downstream_rule(setup, mode, change, allowed):
+        data = copy.deepcopy(setup[1]) if mode == 'precise_edit' else nuclease(setup[1])
+        data['samples'] = replicate_rows(data['samples'], change)
+        before = inventory(setup[3].parent)
+        with zero_execution():
+            draft, result = validate(setup, data)
+>           assert result.status == ('VALID' if allowed else 'INVALID')
+E           AssertionError: assert 'VALID' == 'INVALID'
+E             
+E             - INVALID
+E             ? --
+E             + VALID
+
+tests/test_m11a1.py:58: AssertionError
+_ test_setup_replicates_match_downstream_rule[duplicate-False-indel_nuclease] __
+
+setup = (<peanalyzer.gui.drafts.DraftStore object at 0x7fd7bdb0ffe0>, {'analysis_mode': 'precise_edit', 'analysis_name': 'Setu... 'crispresso': 'CRISPResso', ...}, PosixPath('/tmp/pytest-of-agent/pytest-68/test_setup_replicates_match_do1/outputs'))
+mode = 'indel_nuclease', change = 'duplicate', allowed = False
+
+    @pytest.mark.parametrize('mode', ['precise_edit', 'indel_nuclease'])
+    @pytest.mark.parametrize('change,allowed', CASES)
+    def test_setup_replicates_match_downstream_rule(setup, mode, change, allowed):
+        data = copy.deepcopy(setup[1]) if mode == 'precise_edit' else nuclease(setup[1])
+        data['samples'] = replicate_rows(data['samples'], change)
+        before = inventory(setup[3].parent)
+        with zero_execution():
+            draft, result = validate(setup, data)
+>           assert result.status == ('VALID' if allowed else 'INVALID')
+E           AssertionError: assert 'VALID' == 'INVALID'
+E             
+E             - INVALID
+E             ? --
+E             + VALID
+
+tests/test_m11a1.py:58: AssertionError
+_______ test_nonunique_deletion_is_partial_limitation_not_invalid_target _______
+
+setup = (<peanalyzer.gui.drafts.DraftStore object at 0x7fd7bdb2bfe0>, {'analysis_mode': 'precise_edit', 'analysis_name': 'Setu... 'crispresso': 'CRISPResso', ...}, PosixPath('/tmp/pytest-of-agent/pytest-68/test_nonunique_deletion_is_par0/outputs'))
+
+    def test_nonunique_deletion_is_partial_limitation_not_invalid_target(setup):
+        data = copy.deepcopy(setup[1]); data['targets'] = ambiguous_deletion()
+        before = inventory(setup[3].parent)
+        with zero_execution():
+            draft, result = validate(setup, data)
+>           assert result.status == 'VALID'
+E           AssertionError: assert 'INVALID' == 'VALID'
+E             
+E             - VALID
+E             + INVALID
+E             ? ++
+
+tests/test_m11a1.py:83: AssertionError
+____________ test_empty_raw_pool_cannot_reach_review[precise_edit] _____________
+
+setup = (<peanalyzer.gui.drafts.DraftStore object at 0x7fd7bdb0eae0>, {'analysis_mode': 'precise_edit', 'analysis_name': 'Setu... 'crispresso': 'CRISPResso', ...}, PosixPath('/tmp/pytest-of-agent/pytest-68/test_empty_raw_pool_cannot_rea0/outputs'))
+mode = 'precise_edit'
+
+    @pytest.mark.parametrize('mode', ['precise_edit', 'indel_nuclease'])
+    def test_empty_raw_pool_cannot_reach_review(setup, mode):
+        data = copy.deepcopy(setup[1]) if mode == 'precise_edit' else nuclease(setup[1])
+        for mate in ('r1', 'r2'):
+            setup[2][mate].write_bytes(gzip.compress(b'', mtime=0))
+        before = inventory(setup[3].parent)
+        with zero_execution():
+            draft, result = validate(setup, data)
+>           assert result.status == 'INVALID' and result.preview is None
+E           AssertionError: assert ('VALID' == 'INVALID'
+E             
+E             - INVALID
+E             ? --
+E             + VALID)
+
+tests/test_m11a1.py:102: AssertionError
+___________ test_empty_raw_pool_cannot_reach_review[indel_nuclease] ____________
+
+setup = (<peanalyzer.gui.drafts.DraftStore object at 0x7fd7bdb2a1b0>, {'analysis_mode': 'precise_edit', 'analysis_name': 'Setu... 'crispresso': 'CRISPResso', ...}, PosixPath('/tmp/pytest-of-agent/pytest-68/test_empty_raw_pool_cannot_rea1/outputs'))
+mode = 'indel_nuclease'
+
+    @pytest.mark.parametrize('mode', ['precise_edit', 'indel_nuclease'])
+    def test_empty_raw_pool_cannot_reach_review(setup, mode):
+        data = copy.deepcopy(setup[1]) if mode == 'precise_edit' else nuclease(setup[1])
+        for mate in ('r1', 'r2'):
+            setup[2][mate].write_bytes(gzip.compress(b'', mtime=0))
+        before = inventory(setup[3].parent)
+        with zero_execution():
+            draft, result = validate(setup, data)
+>           assert result.status == 'INVALID' and result.preview is None
+E           AssertionError: assert ('VALID' == 'INVALID'
+E             
+E             - INVALID
+E             ? --
+E             + VALID)
+
+tests/test_m11a1.py:102: AssertionError
+________________ test_missing_block_error_points_to_block_field ________________
+
+setup = (<peanalyzer.gui.drafts.DraftStore object at 0x7fd7bdb29580>, {'analysis_mode': 'precise_edit', 'analysis_name': 'Setu... 'crispresso': 'CRISPResso', ...}, PosixPath('/tmp/pytest-of-agent/pytest-68/test_missing_block_error_point0/outputs'))
+
+    def test_missing_block_error_points_to_block_field(setup):
+        data = copy.deepcopy(setup[1]); data['samples'][0]['paired'] = True
+        data['samples'][0]['block_id'] = ''
+        before = inventory(setup[3].parent)
+        with zero_execution():
+            _, result = validate(setup, data)
+            issues = [i for i in result.issues if 'paired samples require block_id' in i.message]
+            assert result.status == 'INVALID' and result.preview is None
+>           assert len(issues) == 1 and issues[0].field == 'samples.0.block_id'
+E           AssertionError: assert (1 == 1 and 'samples.0.sample_name' == 'samples.0.block_id'
+E            +  where 1 = len([SetupIssue(severity='ERROR', code='SCHEMA_VALIDATION', step='samples', field='samples.0.sample_name', message='Value error, paired samples require block_id', detail=None)])
+E             
+E             - samples.0.block_id
+E             + samples.0.sample_name)
+
+tests/test_m11a1.py:117: AssertionError
+=============================== warnings summary ===============================
+../validation/m101/venv/lib/python3.12/site-packages/starlette/testclient.py:37
+  /workspace/validation/m101/venv/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_m11a1.py::test_setup_replicates_match_downstream_rule[duplicate-False-precise_edit]
+FAILED tests/test_m11a1.py::test_setup_replicates_match_downstream_rule[duplicate-False-indel_nuclease]
+FAILED tests/test_m11a1.py::test_nonunique_deletion_is_partial_limitation_not_invalid_target
+FAILED tests/test_m11a1.py::test_empty_raw_pool_cannot_reach_review[precise_edit]
+FAILED tests/test_m11a1.py::test_empty_raw_pool_cannot_reach_review[indel_nuclease]
+FAILED tests/test_m11a1.py::test_missing_block_error_points_to_block_field - ...
+6 failed, 14 passed, 1 warning in 2.00s

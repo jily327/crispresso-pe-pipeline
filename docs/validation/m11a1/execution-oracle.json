@@ -1,0 +1,58 @@
+{
+  "fixture": "deletion_1_seed11",
+  "target_precise": {
+    "metric_name": "total_precise_pe",
+    "metric_family": "precise",
+    "population_scope": "target_all_prepared",
+    "population_id": "79ab7321a1df906b157fa1adfd5a06a07356b94158eecdf3bd7fbe415d8026e1",
+    "population_input_reads": 24,
+    "copy_id": null,
+    "routing_conditioned": false,
+    "assessment_stage": "prepared_pairs",
+    "status": "REPORTABLE",
+    "numerator": 12,
+    "denominator": 24,
+    "reason_codes": [],
+    "confident_input_reads": null,
+    "backend_input_reads": null,
+    "reads_after_preprocessing": null,
+    "aligned_reads": null,
+    "unaligned_reads": null,
+    "ordinary_classified_aligned_reads": null,
+    "ambiguous_aligned_reads": null,
+    "discarded_aligned_reads": null,
+    "backend_counts_role": "unavailable",
+    "preprocessing_count_delta": null,
+    "unaligned_reason_counts": {},
+    "products": {
+      "exact_wt": 12,
+      "exact_pe": 12,
+      "pe_plus_extra_change": 0,
+      "other_nonexact_assessable": 0,
+      "unresolved_unassessable": 0,
+      "contradictory_state": 0,
+      "denominator_exclusions": 0,
+      "classification_input_reads": 24,
+      "exclusion_reason_counts": {}
+    },
+    "population_denominator_exclusions": 0
+  },
+  "eligibility": {
+    "target_metric_status": "BLOCKED",
+    "routing_geometry_status": "BLOCKED",
+    "comparator_status": "BLOCKED",
+    "anchor_invariant": false,
+    "block_reason_codes": [
+      "COPY_COHORT_UNAVAILABLE",
+      "EDIT_COORDINATES_NOT_COMPARABLE",
+      "MISSING_ANCHOR_RESULT",
+      "NONUNIQUE_EDIT_ALIGNMENT",
+      "NONUNIQUE_REFERENCE_ALIGNMENT",
+      "UNSUPPORTED_ROUTING_GEOMETRY"
+    ]
+  },
+  "copy_statuses": {
+    "copy1": "BLOCKED",
+    "copy2": "BLOCKED"
+  }
+}

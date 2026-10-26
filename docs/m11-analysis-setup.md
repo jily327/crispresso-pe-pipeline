@@ -149,3 +149,22 @@ missing asset inventory prevents wheel/sdist builds. Wheel builds refresh their
 owned static staging directory so obsolete hashed bundles from earlier builds
 cannot leak into the package. Runtime serves bundled
 assets without Node.
+
+## M11A.1 validation alignment
+
+Setup checks biological replicate uniqueness with aggregation's own condition
+identity (editor, treatment, dpi), target and normalized biological replicate.
+Duplicate rows receive errors on their biological-replicate fields; different
+conditions may reuse replicate labels. A missing paired-design block points to
+Block ID. A raw pool with zero readable pairs blocks Review.
+
+Nonunique reference/edit alignments retain their backend reason codes as Review
+warnings rather than globally rejecting a supported target. Copy/native
+routing-related metric families may remain unavailable; target-level metrics
+still require execution validation. Fatal reference/guide errors remain errors.
+Default execution geometry is unchanged, and setup performs no science or writes.
+
+Nonzero pools are not demultiplexed during setup, so sample-specific zero coverage
+is not established. Synchronized unmarked mates do not establish read orientation;
+swapping them cannot be diagnosed without evidence. These remain limitations,
+not new heuristic checks. See `validation/m11a1/README.md` for focused evidence.

@@ -20,6 +20,12 @@ setup_options=fixture(setup_root/'inputs',samples=2,copies=2)
 (setup_root/'outputs').mkdir(parents=True,exist_ok=True)
 setup_fields=dict(samples=list(csv.DictReader(setup_options['samples'].open())),
     targets=[{k:v for k,v in row.items() if k in PETargetDraft.model_fields} for row in csv.DictReader(setup_options['targets'].open())])
+from peanalyzer.remediation import indel_designs
+setup_fields['ambiguous_deletion']=[{k:'' if v is None else v for k,v in t.model_dump().items() if k in PETargetDraft.model_fields}
+    for t in next(ts for d,ts in indel_designs() if d['id']=='deletion_1_seed11')]
+import gzip
+empty_files=[setup_root/f'empty_R{mate}.fastq.gz' for mate in (1,2)]
+for path in empty_files:path.write_bytes(gzip.compress(b'',mtime=0))
 (setup_root/'draft-fields.json').write_text(json.dumps(setup_fields))
 def setup_inventory():
     return {str(p.relative_to(setup_root)):(p.read_bytes(),p.stat().st_mtime_ns) if p.is_file() else 'directory' for p in setup_root.rglob('*')}
@@ -35,7 +41,7 @@ verification_calls=[]
 def counted_verify(*a,**k):
     verification_calls.append(1);return original_verifier(*a,**k)
 patch.setattr(workspace,'verify_workflow_output',counted_verify)
-app=create_app([('PE reference study',paths[0]),('Nuclease reference study',paths[1]),('Invalid workspace',root/'missing'),(None,paths[0]),(None,paths[1]),(None,root/'unique')],token='e2e-local-token',setup_files=[setup_options['r1'],setup_options['r2']],setup_output_roots=[setup_root/'outputs'])
+app=create_app([('PE reference study',paths[0]),('Nuclease reference study',paths[1]),('Invalid workspace',root/'missing'),(None,paths[0]),(None,paths[1]),(None,root/'unique')],token='e2e-local-token',setup_files=[setup_options['r1'],setup_options['r2'],*empty_files],setup_output_roots=[setup_root/'outputs'])
 def record_audit():
     unchanged=all(fingerprint(p)==original[str(p)] for p in paths) and setup_inventory()==setup_before
     evidence=dict(full_verifier_calls=len(verification_calls),scientific_executor_calls=len(calls),workspace_and_input_bytes_and_mtimes_unchanged=unchanged,

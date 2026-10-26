@@ -9,6 +9,7 @@ from peanalyzer.nuclease.targets import NucleaseTarget
 from peanalyzer.validation import load_samples, load_targets, _csv_value, metadata_warnings
 from peanalyzer.barcodes import Catalog, bundled_catalog, load_catalog, validate_catalog_matching, extraction_rules
 from peanalyzer.analysis_fastq import PreparationConfig, resolve_trims
+from peanalyzer.aggregation import condition_key
 from peanalyzer.fastq import paired_fastq
 from peanalyzer.demux_verify import verify_demux_output
 from peanalyzer.geometry import geometry
@@ -63,6 +64,8 @@ def compile_draft(content, revision, references, protected):
         if isinstance(exc,ValidationError):
             for e in exc.errors(include_url=False,include_input=False):
                 suffix='.'.join(map(str,e['loc']))
+                if step=='samples' and not suffix and e['msg']=='Value error, paired samples require block_id':
+                    suffix='block_id'
                 field=prefix+('.'+suffix if suffix else '.'+fallback)
                 issue(step,field,'SCHEMA_VALIDATION',e['msg'])
         else:
@@ -113,8 +116,11 @@ def compile_draft(content, revision, references, protected):
                 # Preserve backend routing gates: a blocked copy route can still permit target metrics.
                 for reason in g['reasons']:
                     code=reason['code']
-                    target_error=code in {'NONUNIQUE_REFERENCE_ALIGNMENT','NONUNIQUE_EDIT_ALIGNMENT','PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED','PE_GUIDE_ORIENTATION_UNSUPPORTED','NONUNIQUE_SPACER_LOCATION','PE_EXTENSION_LOCATION_UNSUPPORTED'}
-                    issue('target','targets',code,'Backend reference geometry: '+code,'ERROR' if target_error else 'WARNING',json.dumps(reason,sort_keys=True))
+                    target_error=code in {'PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED','PE_GUIDE_ORIENTATION_UNSUPPORTED','NONUNIQUE_SPACER_LOCATION','PE_EXTENSION_LOCATION_UNSUPPORTED'}
+                    message='Backend reference geometry: '+code
+                    if code in {'NONUNIQUE_REFERENCE_ALIGNMENT','NONUNIQUE_EDIT_ALIGNMENT'}:
+                        message+=' — Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.'
+                    issue('target','targets',code,message,'ERROR' if target_error else 'WARNING',json.dumps(reason,sort_keys=True))
                 for t in target_rows:
                     target_previews.append(TargetPreview(target_name=t.target_name,copy_name=t.copy_name,wt_sequence=t.wt_sequence,intended_sequence=t.prime_edited_sequence,
                         annotation=fields(g['copies'][t.copy_name]),scientific_configuration=fields(scientific_target(t))))
@@ -153,7 +159,7 @@ def compile_draft(content, revision, references, protected):
                     if trims and any(len(r.sequence)<=n for r,n in zip(pair,trims)):raise ValueError('Read length must exceed configured analysis trim.')
                     pairs+=1
                 input_evidence['paired_records']=str(pairs)
-                if pairs==0:issue('samples','r1','EMPTY_INPUT','The paired FASTQ population is empty.','WARNING')
+                if pairs==0:issue('samples','r1','EMPTY_INPUT','The paired FASTQ population is empty.')
         else:
             if content.r1 or content.r2:raise ValueError('Verified demux input cannot also select raw R1/R2.')
             if not content.demux:issue('samples','demux','REQUIRED','Select a verified demux archive.')
@@ -184,6 +190,20 @@ def compile_draft(content, revision, references, protected):
             output_identity=digest(str(destination))
         except (OSError,ValueError) as exc:issue('configuration','workspace_name','OUTPUT_PROPOSAL',str(exc))
     if sample_rows and target_rows:
+        # Same metadata key as PE and nuclease aggregation; no statistics execution.
+        replicates={}
+        indices={_csv_value('barcode_id',row.barcode_id):index for index,row in enumerate(content.samples)}
+        for target_name in sorted({t.target_name for t in target_rows}):
+            for sample in sample_rows:
+                key=(condition_key(sample),target_name,sample.biological_replicate)
+                replicates.setdefault(key,[]).append(sample)
+        for (_,target_name,replicate),samples in replicates.items():
+            if len(samples)>1:
+                affected=', '.join(f'{s.barcode_id} ({s.sample_name})' for s in samples)
+                message=f'Duplicate biological_replicate {replicate!r} within condition and target {target_name!r}: {affected}.'
+                for sample in samples:
+                    issue('samples',f'samples.{indices[sample.barcode_id]}.biological_replicate',
+                        'DUPLICATE_BIOLOGICAL_REPLICATE',message)
         for warning in metadata_warnings(sample_rows,target_rows,config):
             issue('target','targets','BACKEND_METADATA_WARNING',warning,'WARNING')
     preview=None
