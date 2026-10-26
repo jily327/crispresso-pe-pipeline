@@ -1,4 +1,5 @@
 """Loopback-only authenticated presentation API and bundled static viewer."""
+from contextlib import asynccontextmanager
 import secrets
 from pathlib import Path
 from urllib.parse import urlsplit, quote
@@ -18,7 +19,7 @@ from peanalyzer.gui.models import (Capabilities, Registration, OpenRequest, Work
 BASE = '9e9a51fb20e56a3421fdfa156375170cd6b257dc'
 
 
-def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=()):
+def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None):
     token=token or secrets.token_urlsafe(32)
     registrations=list(registrations)
     store=WorkspaceStore(registrations)
@@ -28,12 +29,30 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     from peanalyzer.gui.setup_validation import BASE as SETUP_BASE
     references=SetupReferences(setup_files,setup_archives,setup_output_roots)
     drafts=DraftStore(references,[path for _,path in registrations])
-    app=FastAPI(title='PEAnalyzer verified result viewer',docs_url=None,redoc_url=None,openapi_url=None)
+    from peanalyzer.gui.jobs import JobStore
+    from peanalyzer.gui.job_models import JobSubmission, JobView, JobEvents
+    jobs=JobStore(drafts,store,runtime)
+    @asynccontextmanager
+    async def lifespan(app):
+        yield
+        import asyncio
+        await asyncio.to_thread(jobs.close)
+    app=FastAPI(lifespan=lifespan,title='PEAnalyzer verified result viewer',docs_url=None,redoc_url=None,openapi_url=None)
     app.state.store=store
+    app.state.jobs=jobs
+    app.state.drafts=drafts
     app.state.token=token
 
     def error(code,detail,stage_id=None,status=409):
         messages={
+            'WORKER_BUSY':'Another analysis is active. No job was queued.',
+            'RUN_UNAVAILABLE':'Scientific execution is not configured for this local server.',
+            'JOB_NOT_FOUND':'This job is not available in this application session.',
+            'DRAFT_LOCKED':'This draft belongs to an accepted analysis.',
+            'OUTPUT_CHANGED':'The output destination changed. New execution was refused.',
+            'PLAN_IDENTITY_CHANGED':'Review the changed plan before Run.',
+            'SCIENTIFIC_IDENTITY_CHANGED':'The reviewed scientific identity changed.',
+            'INPUT_CHANGED':'Accepted inputs changed before execution.',
             'DRAFT_NOT_FOUND':'This draft no longer exists.',
             'STALE_DRAFT_REVISION':'The draft changed. Reload before validating.',
             'DRAFT_NOT_VALIDATED':'Validate the current draft before Review.',
@@ -121,7 +140,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
 
     @app.get('/api/v1/setup/capabilities',response_model=SetupCapabilities)
     def setup_capabilities():
-        return SetupCapabilities(backend_base=SETUP_BASE,files=list(references.entries.values()))
+        return SetupCapabilities(backend_base=SETUP_BASE,files=list(references.entries.values()),run_available=jobs.available)
 
     @app.post('/api/v1/drafts',response_model=DraftView)
     def create_draft():
@@ -147,6 +166,26 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     def delete_draft(draft_id:str,revision:int=Query(ge=0)):
         drafts.delete(draft_id,revision)
         return Response(status_code=204)
+
+    @app.post('/api/v1/jobs',response_model=JobView)
+    def submit_job(body:JobSubmission):
+        return jobs.submit(body)
+
+    @app.get('/api/v1/jobs',response_model=list[JobView])
+    def list_jobs():
+        return jobs.catalog()
+
+    @app.get('/api/v1/jobs/{job_id}',response_model=JobView)
+    def get_job(job_id:str):
+        return jobs.get(job_id)
+
+    @app.get('/api/v1/jobs/{job_id}/events',response_model=JobEvents)
+    def job_events(job_id:str,after:int=Query(0,ge=0),limit:int=Query(200,ge=1,le=1000)):
+        return jobs.events(job_id,after,limit)
+
+    @app.post('/api/v1/jobs/{job_id}/cancel',response_model=JobView)
+    def cancel_job(job_id:str):
+        return jobs.cancel(job_id)
 
     static=Path(__file__).parent/'static'
     if static.is_dir():

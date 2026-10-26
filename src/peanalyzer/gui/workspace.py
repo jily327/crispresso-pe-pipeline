@@ -106,7 +106,18 @@ class WorkspaceStore:
         self.lock=threading.RLock()
 
     def catalog(self):
-        return [Registration(registration_id=k,label=v[0]) for k,v in self.registrations.items()]
+        with self.lock:
+            return [Registration(registration_id=k,label=v[0]) for k,v in self.registrations.items()]
+
+    def register_completed(self,label,path):
+        """Publish only after the unchanged M10 verification/projection boundary."""
+        with self.lock:
+            key=uuid.uuid4().hex
+            self.registrations[key]=(label,safe_registration(path))
+            try:return self.open(key)
+            except BaseException:
+                self.registrations.pop(key,None)
+                raise
 
     def open(self, registration_id):
         with self.lock:

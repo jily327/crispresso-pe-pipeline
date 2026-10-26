@@ -554,8 +554,17 @@ def _check_execution_scope(plan):
             'Use one biological target per workflow. Multi-target planning remains supported.')
 
 
-def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
+def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expected_plan=None, expected_output_parent=None, **inputs):
     """Run/resume a workspace under one exclusive invocation lock."""
+    def observe(status, node=None, reasons=(), code=None):
+        # Only detached presentation values cross this boundary; no return value
+        # affects execution, and observer failures do not change scientific work.
+        if observer is not None:
+            try:
+                observer(dict(status=status,stage_id=node.stage_id if node else None,
+                    stage_kind=node.stage_kind if node else None,reason_codes=list(reasons),code=code))
+            except Exception:
+                pass
     if force and not resume:
         raise WorkflowError('INVALID_FORCE','force requires resume')
     root = no_symlinks(inputs['output'])
@@ -567,6 +576,8 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
         raise WorkflowError('WORKFLOW_LOCKED',str(lock)) from exc
     os.close(descriptor)
     plan, session, active = None, None, None
+    workspace_owned = False
+    active_node = None
     started = utc()
     executed, reused = [], []
     session_id = uuid.uuid4().hex
@@ -578,10 +589,24 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
             raise WorkflowError('INVALID_WORKSPACE','resume requires an existing workspace')
         candidate = build_workflow_plan(**inputs)
         _check_execution_scope(candidate)
+        if expected_plan is not None and candidate != expected_plan:
+            raise WorkflowError('ACCEPTED_PLAN_CHANGED','Resolved execution no longer matches the accepted plan')
         plan = candidate
         old = load(owned(root,'workflow/plan.json'),Plan) if resume else plan
         _graph_change(old,plan,force)
-        root.mkdir(parents=True,exist_ok=True)
+        no_symlinks(root)
+        if expected_output_parent is not None:
+            parent_stat=root.parent.stat()
+            if (parent_stat.st_dev,parent_stat.st_ino) != tuple(expected_output_parent):
+                raise WorkflowError('OUTPUT_CHANGED','Output parent identity changed')
+        if resume:
+            workspace_owned=True
+        else:
+            try:
+                root.mkdir()
+            except FileExistsError as exc:
+                raise WorkflowError('OUTPUT_EXISTS','Output appeared before execution; new execution only') from exc
+            workspace_owned=True
         if force:
             _invalidate(root,old,plan,force)
         _snapshots(plan)
@@ -592,6 +617,8 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
         completed, identities = {}, {}
         for node in plan.nodes:
             active = node.stage_id
+            active_node = node
+            observe('RUNNING',node)
             refs = {key:identities[key] for key in node.dependencies}
             path = owned(root,stage_manifest_path(node))
             if path.exists():
@@ -622,7 +649,10 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
                 executed.append(node.stage_id)
             completed[node.stage_id] = result
             identities[node.stage_id] = dependency(root,node,result)
+            observe(result.status,node,result.reason_codes)
         active = 'final_validation'
+        active_node = None
+        observe('FINAL_VALIDATION')
         _, identities = _verify_stages(plan)
         session = Session(session_id=session_id,mode=plan.mode,resume=resume,force=sorted(set(force)),started_at=started,
             ended_at=utc(),executed_stages=executed,reused_stages=reused,failed_stage=None,argv=supplied_argv,cwd=os.getcwd())
@@ -644,7 +674,8 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
             workflow_manifest_sha256=sha(final))
     except BaseException as exc:
         # Initial OUTPUT_EXISTS and foreign-lock failures must never alter that workspace.
-        if plan is not None:
+        observe('FAILED',active_node,code=getattr(exc,'code','STAGE_EXECUTION_FAILED'))
+        if plan is not None and workspace_owned:
             owned(root,'workflow_manifest.json').unlink(missing_ok=True)
             if root.is_dir():
                 atomic_json(owned(root,f'workflow/failures/{session_id}.json'),dict(stage_id=active,
@@ -655,7 +686,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, **inputs):
         raise WorkflowError('STAGE_EXECUTION_FAILED',str(exc),active) from exc
     finally:
         try:
-            if plan is not None and root.is_dir():
+            if plan is not None and workspace_owned and root.is_dir():
                 if session is None:
                     session = Session(session_id=session_id,mode=plan.mode,resume=resume,force=sorted(set(force)),started_at=started,
                         ended_at=utc(),executed_stages=executed,reused_stages=reused,failed_stage=active,argv=supplied_argv,cwd=os.getcwd())

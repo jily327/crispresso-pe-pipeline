@@ -1,6 +1,6 @@
 """Editable drafts and non-executable, backend-owned setup previews."""
 from typing import Literal
-from pydantic import Field
+from pydantic import Field, PrivateAttr
 from peanalyzer.gui.models import Model, FieldValue
 
 Step = Literal['samples', 'mode', 'target', 'configuration', 'review']
@@ -123,6 +123,8 @@ class PlanPreview(Model):
 
 
 class DraftValidation(Model):
+    # Server-only compiler output; excluded from all HTTP/schema serialization.
+    _compiled: dict | None = PrivateAttr(default=None)
     revision: int
     draft_digest: str
     status: Literal['VALID', 'INVALID']
@@ -144,3 +146,4 @@ class SetupCapabilities(Model):
     files: list[SetupFile]
     scientific_execution: Literal[False] = False
     statistics: Literal['descriptive_only'] = 'descriptive_only'
+    run_available: bool = False

@@ -50,6 +50,7 @@ class SetupReferences:
                 result[role]=self.identity(key)
         if content.output_root:
             parent=self.resolve(content.output_root,'output_root')
+            result['output_parent_identity']=[parent.stat().st_dev,parent.stat().st_ino]
             from peanalyzer.workflow_storage import owned
             if content.workspace_name:
                 result['output_exists']=owned(parent,content.workspace_name).exists()
@@ -59,7 +60,7 @@ class SetupReferences:
 class DraftStore:
     def __init__(self,references,protected=()):
         self.references=references;self.protected=tuple(Path(p) for p in protected)
-        self.drafts={};self.identities={};self.lock=threading.RLock()
+        self.drafts={};self.identities={};self.frozen={};self.lock=threading.RLock()
 
     def create(self):
         with self.lock:
@@ -76,8 +77,12 @@ class DraftStore:
         if revision!=view.revision:raise ViewerError('STALE_DRAFT_REVISION','Reload the current draft before updating or validating')
         return view
 
+    def editable(self,key):
+        if key in self.frozen:raise ViewerError('DRAFT_LOCKED','This draft belongs to an accepted job; start a new analysis to edit.')
+
     def patch(self,key,request):
         with self.lock:
+            self.editable(key)
             view=self.check(key,request.revision)
             view.content=request.content.model_copy(deep=True);view.revision+=1;view.validation=None
             self.drafts[key]=view;self.identities.pop(key,None)
@@ -85,6 +90,7 @@ class DraftStore:
 
     def validate(self,key,revision):
         with self.lock:
+            self.editable(key)
             view=self.check(key,revision)
             self.drafts[key].validation=None
             self.identities.pop(key,None)
@@ -114,4 +120,5 @@ class DraftStore:
 
     def delete(self,key,revision):
         with self.lock:
+            self.editable(key)
             self.check(key,revision);self.drafts.pop(key);self.identities.pop(key,None)
