@@ -114,6 +114,8 @@ open descriptor to the supervisor. Server death cannot release the supervisor's
 copy. A restarted server cannot accept another run/recovery until cleanup releases
 all holders. This guarantee covers instances using the same UID and shared `/tmp`;
 it is not a multi-user, container-namespace or distributed scheduler lock.
+The lease coordinates GUI supervisors; independently launched CLI workflows are
+not enrolled in this GUI lease.
 
 The private Linux supervisor installs CHILD_SUBREAPER and PDEATHSIG(SIGTERM),
 then rechecks parent PID/start ticks to close the installation race. It forks the
