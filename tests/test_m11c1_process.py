@@ -59,15 +59,12 @@ supervision.census=census
         (tmp_path/'cancel-sent').touch()
         until(lambda:any(e.status=='CONTAINMENT_ERROR' for e in app.state.jobs.jobs[key].events))
         assert process_identity(pid) is not None and lease_busy()
-        state=c.get('/api/v1/jobs/'+key).json();assert state['state']!='CANCELLED' and state['error']['code']=='CANCELLATION_INCOMPLETE'
+        state=c.get('/api/v1/jobs/'+key).json();assert state['state']=='CANCELLING' and state['error'] is None
         second=reviewed(c,content.model_copy(update={'workspace_name':'second'}))
         assert c.post('/api/v1/jobs',json=second).json()['error']['code']=='WORKER_BUSY'
         assert canary.poll() is None
-        # Resolve the injected fault; failed KILL attempts remain one-shot, so the
-        # test explicitly terminates its own recorded births before release.
+        # Resolve the fault; the supervisor must retry failed deliveries itself.
         (tmp_path/'fault').unlink()
-        for identity in owned:
-            if identity:signal_owned(identity,signal.SIGKILL)
         until(lambda:not lease_busy(),timeout=15)
         job=wait_for(c,key,lambda value:value['ended_at'] is not None);assert job['state']=='CANCELLED'
         assert all(process_identity(i['pid']) is None for i in owned if i)

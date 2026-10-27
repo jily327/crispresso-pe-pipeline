@@ -89,6 +89,16 @@ class JobStore:
         event=JobEvent(sequence=len(job.events)+1,timestamp=timestamp(),state=job.view.state,status=status,**values)
         job.events.append(event);job.view.latest_sequence=event.sequence
 
+    def _finish(self,job,state,error=None):
+        """Commit one terminal result; caller holds the lifecycle lock."""
+        if job.view.state in TERMINAL:return False
+        if state not in TERMINAL:raise ValueError('A terminal result is required')
+        job.view.state=state;job.view.error=error;job.view.cancellable=False
+        if state!='COMPLETED':job.view.workspace_id=None
+        job.finishing=True;job.ended=time.monotonic();job.view.ended_at=timestamp()
+        self._event(job,state,code=error.code if error else None)
+        return True
+
     def get(self,key):
         with self.lock:
             job=self._job(key);view=job.view.model_copy(deep=True)
@@ -194,12 +204,15 @@ class JobStore:
     def _observe(self,job,event):
         with self.lock:
             status=event.get('status');stage_id=event.get('stage_id')
+            if job.view.state in TERMINAL:return
             stage=next((s for s in job.view.stages if s.stage_id==stage_id),None)
             if status=='WORKER_READY' and not job.cancel.is_set():job.view.state='RUNNING'
-            if status=='CONTAINMENT_ERROR':
-                job.view.state='FAILED';job.view.cancellable=False
-                job.view.error=ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment is incomplete.',
-                    detail=event.get('message','The host worker lease remains held.'))
+            if status=='CONTAINMENT_FAILED':
+                self._finish(job,'FAILED',ErrorDetail(code='CANCELLATION_INCOMPLETE',
+                    message='Scientific process containment is incomplete.',detail='Scientific child stopped; host worker lease remains held.'))
+                return
+            # CONTAINMENT_ERROR is event history, never a terminal decision or
+            # final error. RUNNING remains cancellable while inspection recovers.
             if stage and status in {'RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED','FAILED'}:
                 stage.status=status;stage.reason_codes=list(event.get('reason_codes') or [])
                 job.view.current_stage_id=stage_id
@@ -271,13 +284,15 @@ class JobStore:
                 failure=ErrorDetail(code='WORKER_EXITED',message='The worker did not produce verified completion.',
                     detail=logs.decode('utf-8','replace') or f'Worker exit code: {process.returncode}')
             with self.lock:
-                if job.cancel.is_set():return
+                if job.cancel.is_set() or job.view.state in TERMINAL:return
                 job.finishing=True;job.view.cancellable=False
                 self._event(job,'VIEWER_VERIFICATION')
             if verified:
                 payload=json.loads(job.payload)
-                opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']))
-                with self.lock:job.view.workspace_id=opened.workspace_id
+                with self.lock:
+                    if job.view.state in TERMINAL:return
+                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']))
+                    job.view.workspace_id=opened.workspace_id
         except Exception as exc:
             failure=ErrorDetail(code=getattr(exc,'code','WORKER_FAILED'),message='Analysis could not be completed and verified.',
                 detail=str(exc),stage_id=getattr(exc,'stage_id',None))
@@ -306,18 +321,15 @@ class JobStore:
                 os.close(job.lease_fd);job.lease_fd=None
             with self.lock:
                 if not contained:
-                    job.view.state='FAILED';job.view.workspace_id=None
-                    job.view.error=ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment could not be confirmed.',
-                        detail='The host worker lease remains held; supervisor exit is not proof of cleanup.')
+                    self._finish(job,'FAILED',ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment could not be confirmed.',
+                        detail='The host worker lease remains held; supervisor exit is not proof of cleanup.'))
                 elif job.cancel.is_set():
-                    job.view.state='CANCELLED';job.view.workspace_id=None;job.view.error=None
+                    self._finish(job,'CANCELLED')
                     for stage in job.view.stages:
                         if stage.stage_id==job.view.current_stage_id and stage.status in {'RUNNING','FAILED'}:stage.status='CANCELLED'
                 elif failure is not None or not job.view.workspace_id:
-                    job.view.state='FAILED';job.view.error=failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail='')
-                else:job.view.state='COMPLETED'
-                job.view.cancellable=False;job.ended=time.monotonic();job.view.ended_at=timestamp()
-                self._event(job,job.view.state,code=job.view.error.code if job.view.error else None)
+                    self._finish(job,'FAILED',failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail=''))
+                else:self._finish(job,'COMPLETED')
                 if contained:self.active=None
 
     def close(self):
