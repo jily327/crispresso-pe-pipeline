@@ -35,7 +35,13 @@ def opening(pid,*args):
     if flag.exists() and fault=='pidfd_open':raise PermissionError(errno.EPERM,'Injected pidfd refusal')
     return original_open(pid,*args)
 def census(root,known):
-    if flag.exists() and fault=='census':raise PermissionError(errno.EPERM,'Injected census refusal')
+    if flag.exists() and fault=='census':
+        # Do not let the injected error overtake the cancellation HTTP request.
+        deadline=time.monotonic()+10
+        while not (flag.parent/'cancel-sent').exists():
+            if time.monotonic()>deadline:raise TimeoutError('Cancellation barrier not released')
+            time.sleep(.01)
+        raise PermissionError(errno.EPERM,'Injected census refusal')
     return original_census(root,known)
 process_safety.signal.pidfd_send_signal=send
 process_safety.os.pidfd_open=opening
@@ -50,6 +56,7 @@ supervision.census=census
         key=response.json()['job_id'];until(lambda:(output/'detached-pid').exists())
         pid=int((output/'detached-pid').read_text());owned=[process_identity(pid),process_identity(int((output/'science-pid').read_text()))]
         (tmp_path/'fault').touch();c.post('/api/v1/jobs/'+key+'/cancel',json={})
+        (tmp_path/'cancel-sent').touch()
         until(lambda:any(e.status=='CONTAINMENT_ERROR' for e in app.state.jobs.jobs[key].events))
         assert process_identity(pid) is not None and lease_busy()
         state=c.get('/api/v1/jobs/'+key).json();assert state['state']!='CANCELLED' and state['error']['code']=='CANCELLATION_INCOMPLETE'
@@ -68,6 +75,7 @@ supervision.census=census
         assert any(e.status=='CONTAINMENT_CONFIRMED' for e in events)
         assert not app.state.store.opened and canary.poll() is None
     finally:
+        (tmp_path/'cancel-sent').touch()
         (tmp_path/'fault').unlink(missing_ok=True)
         for item in owned:
             if item:signal_owned(item,signal.SIGKILL)
