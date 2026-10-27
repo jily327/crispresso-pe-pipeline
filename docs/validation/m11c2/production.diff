@@ -1,0 +1,364 @@
+diff --git a/src/peanalyzer/gui/jobs.py b/src/peanalyzer/gui/jobs.py
+index 7df765c..81af876 100644
+--- a/src/peanalyzer/gui/jobs.py
++++ b/src/peanalyzer/gui/jobs.py
+@@ -89,6 +89,16 @@ class JobStore:
+         event=JobEvent(sequence=len(job.events)+1,timestamp=timestamp(),state=job.view.state,status=status,**values)
+         job.events.append(event);job.view.latest_sequence=event.sequence
+ 
++    def _finish(self,job,state,error=None):
++        """Commit one terminal result; caller holds the lifecycle lock."""
++        if job.view.state in TERMINAL:return False
++        if state not in TERMINAL:raise ValueError('A terminal result is required')
++        job.view.state=state;job.view.error=error;job.view.cancellable=False
++        if state!='COMPLETED':job.view.workspace_id=None
++        job.finishing=True;job.ended=time.monotonic();job.view.ended_at=timestamp()
++        self._event(job,state,code=error.code if error else None)
++        return True
++
+     def get(self,key):
+         with self.lock:
+             job=self._job(key);view=job.view.model_copy(deep=True)
+@@ -194,12 +204,15 @@ class JobStore:
+     def _observe(self,job,event):
+         with self.lock:
+             status=event.get('status');stage_id=event.get('stage_id')
++            if job.view.state in TERMINAL:return
+             stage=next((s for s in job.view.stages if s.stage_id==stage_id),None)
+             if status=='WORKER_READY' and not job.cancel.is_set():job.view.state='RUNNING'
+-            if status=='CONTAINMENT_ERROR':
+-                job.view.state='FAILED';job.view.cancellable=False
+-                job.view.error=ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment is incomplete.',
+-                    detail=event.get('message','The host worker lease remains held.'))
++            if status=='CONTAINMENT_FAILED':
++                self._finish(job,'FAILED',ErrorDetail(code='CANCELLATION_INCOMPLETE',
++                    message='Scientific process containment is incomplete.',detail='Scientific child stopped; host worker lease remains held.'))
++                return
++            # CONTAINMENT_ERROR is event history, never a terminal decision or
++            # final error. RUNNING remains cancellable while inspection recovers.
+             if stage and status in {'RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED','FAILED'}:
+                 stage.status=status;stage.reason_codes=list(event.get('reason_codes') or [])
+                 job.view.current_stage_id=stage_id
+@@ -271,13 +284,15 @@ class JobStore:
+                 failure=ErrorDetail(code='WORKER_EXITED',message='The worker did not produce verified completion.',
+                     detail=logs.decode('utf-8','replace') or f'Worker exit code: {process.returncode}')
+             with self.lock:
+-                if job.cancel.is_set():return
++                if job.cancel.is_set() or job.view.state in TERMINAL:return
+                 job.finishing=True;job.view.cancellable=False
+                 self._event(job,'VIEWER_VERIFICATION')
+             if verified:
+                 payload=json.loads(job.payload)
+-                opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']))
+-                with self.lock:job.view.workspace_id=opened.workspace_id
++                with self.lock:
++                    if job.view.state in TERMINAL:return
++                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']))
++                    job.view.workspace_id=opened.workspace_id
+         except Exception as exc:
+             failure=ErrorDetail(code=getattr(exc,'code','WORKER_FAILED'),message='Analysis could not be completed and verified.',
+                 detail=str(exc),stage_id=getattr(exc,'stage_id',None))
+@@ -306,18 +321,15 @@ class JobStore:
+                 os.close(job.lease_fd);job.lease_fd=None
+             with self.lock:
+                 if not contained:
+-                    job.view.state='FAILED';job.view.workspace_id=None
+-                    job.view.error=ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment could not be confirmed.',
+-                        detail='The host worker lease remains held; supervisor exit is not proof of cleanup.')
++                    self._finish(job,'FAILED',ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment could not be confirmed.',
++                        detail='The host worker lease remains held; supervisor exit is not proof of cleanup.'))
+                 elif job.cancel.is_set():
+-                    job.view.state='CANCELLED';job.view.workspace_id=None;job.view.error=None
++                    self._finish(job,'CANCELLED')
+                     for stage in job.view.stages:
+                         if stage.stage_id==job.view.current_stage_id and stage.status in {'RUNNING','FAILED'}:stage.status='CANCELLED'
+                 elif failure is not None or not job.view.workspace_id:
+-                    job.view.state='FAILED';job.view.error=failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail='')
+-                else:job.view.state='COMPLETED'
+-                job.view.cancellable=False;job.ended=time.monotonic();job.view.ended_at=timestamp()
+-                self._event(job,job.view.state,code=job.view.error.code if job.view.error else None)
++                    self._finish(job,'FAILED',failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail=''))
++                else:self._finish(job,'COMPLETED')
+                 if contained:self.active=None
+ 
+     def close(self):
+diff --git a/src/peanalyzer/gui/recovery.py b/src/peanalyzer/gui/recovery.py
+index d4ce8c5..4ffe9b7 100644
+--- a/src/peanalyzer/gui/recovery.py
++++ b/src/peanalyzer/gui/recovery.py
+@@ -35,10 +35,16 @@ def inspect(root,runtime,force=(),*,check_active=True):
+     before=workspace_identity(root)
+     old=load(owned(root,'workflow/plan.json'),Plan)
+     if old.output!=str(root):raise WorkflowError('INVALID_WORKSPACE','Workspace relocation is unsupported')
++    from peanalyzer.workflow_integrity import authenticate, RECEIPT
++    # Legacy completed results remain subject to the portable final verifier.
++    # Recovery never retroactively authenticates their mutable metadata.
++    if owned(root,RECEIPT).exists():authenticate(root,old)
+     if owned(root,'workflow_manifest.json').exists():
+         try:
+             w.verify_workflow_output(root)
+-        except (ValueError,OSError):pass  # Incomplete/corrupted marker is NOT completion.
++        except (ValueError,OSError):
++            if not owned(root,RECEIPT).exists():
++                raise WorkflowError('TAMPERED_COMPLETION_MARKER','Unanchored completion cannot be reconciled')
+         else:return old,None,'COMPLETED'
+     if check_active and lease_busy():raise WorkflowError('WORKER_BUSY','An active scientific supervisor holds the host lease')
+     lock=no_symlinks(root.with_name('.'+root.name+'.m7-lock'))
+@@ -140,7 +146,10 @@ class RecoveryStore:
+                 'SOFTWARE_CHANGED':'SOFTWARE_CHANGED','RUN_UNAVAILABLE':'UNSUPPORTED','BACKEND_UNAVAILABLE':'UNSUPPORTED',
+                 'ORPHANED_STAGE_OUTPUT':'RESUMABLE_WITH_FORCE','STALE_STAGE_IDENTITY':'RESUMABLE_WITH_FORCE',
+                 'CORRUPTED_STAGE_OUTPUT':'TAMPERED','SNAPSHOT_CORRUPTED':'TAMPERED','UNSAFE_PATH':'TAMPERED',
+-                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'TAMPERED'}.get(code,'INVALID_WORKSPACE')
++                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'TAMPERED',
++                'TAMPERED_WORKFLOW_PLAN':'TAMPERED','TAMPERED_COMPLETION_MARKER':'TAMPERED',
++                'TAMPERED_RECOVERY_INTEGRITY':'TAMPERED','UNSAFE_RECOVERY_KEY':'TAMPERED',
++                'UNANCHORED_RECOVERY_OWNERSHIP':'UNSUPPORTED'}.get(code,'INVALID_WORKSPACE')
+             view.classification=classification
+             view.reasons=[ErrorDetail(code=code,message='Recovery requires inspection or a different explicit choice.',detail=str(exc),stage_id=getattr(exc,'stage_id',None))]
+         return view
+diff --git a/src/peanalyzer/gui/supervision.py b/src/peanalyzer/gui/supervision.py
+index 573017e..4c9effe 100644
+--- a/src/peanalyzer/gui/supervision.py
++++ b/src/peanalyzer/gui/supervision.py
+@@ -5,7 +5,22 @@ import time
+ from peanalyzer.gui.process_safety import prctl, process_identity, census, signal_owned
+ 
+ 
+-def supervise(action,emit,parent_pid,parent_start,grace=5.0):
++class SignalPhases:
++    """One successful delivery per birth/phase; rate-limit failed attempts."""
++    def __init__(self,retry_interval=.25):
++        self.sent=set();self.retry_at={};self.retry_interval=retry_interval
++
++    def send(self,item,sig,now):
++        birth=(item['pid'],item['start_ticks'],sig)
++        if birth in self.sent or now<self.retry_at.get(birth,0):return
++        try:signal_owned(item,sig)
++        except Exception:
++            self.retry_at[birth]=now+self.retry_interval
++            raise
++        self.sent.add(birth);self.retry_at.pop(birth,None)
++
++
++def supervise(action,emit,parent_pid,parent_start,grace=5.0,uncertainty_timeout=30.0):
+     cancelled=False
+     def stop(sig,frame):
+         nonlocal cancelled
+@@ -28,7 +43,9 @@ def supervise(action,emit,parent_pid,parent_start,grace=5.0):
+         code=1
+         try:code=action()
+         finally:os._exit(code)
+-    known={};result=None;deadline=None;warned=False;sent=set();reported=set()
++    child_birth=process_identity(child)
++    known={};result=None;deadline=None;warned=False;signals=SignalPhases();reported=set()
++    uncertain_since=None;containment_failed=False;failure_emitted=False;last_owned={}
+     def error(operation,exc):
+         key=(operation,type(exc).__name__,getattr(exc,'errno',None))
+         if key not in reported:
+@@ -37,9 +54,10 @@ def supervise(action,emit,parent_pid,parent_start,grace=5.0):
+                 reason_codes=[f'{operation}:{type(exc).__name__}:{getattr(exc,"errno",None)}'],
+                 message=f'{operation}: {type(exc).__name__} (errno={getattr(exc,"errno",None)})'))
+     while True:
+-        try:owned=census(os.getpid(),known)
++        census_failed=False
++        try:owned=census(os.getpid(),known);last_owned=owned
+         except Exception as exc:
+-            error('census',exc);time.sleep(.02);continue
++            error('census',exc);census_failed=True;owned=last_owned
+         reap_failed=False
+         while True:
+             try:pid,status=os.waitpid(-1,os.WNOHANG)
+@@ -48,24 +66,33 @@ def supervise(action,emit,parent_pid,parent_start,grace=5.0):
+                 error('reap',exc);reap_failed=True;break
+             if not pid:break
+             if pid==child:result=os.waitstatus_to_exitcode(status)
+-        try:owned=census(os.getpid(),known)
++        try:owned=census(os.getpid(),known);last_owned=owned
+         except Exception as exc:
+-            error('census',exc);time.sleep(.02);continue
+-        if cancelled or result is not None:
++            error('census',exc);census_failed=True
++        if census_failed or reap_failed:
++            if uncertain_since is None:uncertain_since=time.monotonic()
++            if time.monotonic()-uncertain_since>=uncertainty_timeout:containment_failed=True
++        else:uncertain_since=None
++        if containment_failed and child_birth and result is None:
++            # An unavailable census cannot authorize completion. Stop only births
++            # already observed, using pidfds, while the guardian retains its lease.
++            owned=dict(owned);owned[child]=child_birth
++        if cancelled or result is not None or containment_failed:
+             if deadline is None:deadline=time.monotonic()+grace
+             sig=signal.SIGKILL if time.monotonic()>=deadline else signal.SIGTERM
+             for item in owned.values():
+-                birth=(item['pid'],item['start_ticks'],sig)
+-                if birth in sent:continue
+-                sent.add(birth)
+-                try:signal_owned(item,sig)
++                try:signals.send(item,sig,time.monotonic())
+                 except Exception as exc:error('signal',exc)
+             if owned and sig==signal.SIGKILL and not warned:
+                 emit(dict(status='CONTAINMENT_WAIT',code='CANCELLATION_INCOMPLETE'));warned=True
+-        if result is not None and not owned and not reap_failed:
++        if containment_failed and result is not None and not failure_emitted:
++            # Authoritative failure only after the scientific child has exited.
++            # The guardian stays alive and holds the lease until cleanup is known.
++            emit(dict(status='CONTAINMENT_FAILED',code='CANCELLATION_INCOMPLETE'));failure_emitted=True
++        if result is not None and not owned and not reap_failed and not census_failed:
+             # Only the supervisor can attest that its scientific child exited and
+             # every adopted/known descendant was reaped. Exit alone is not proof.
+             emit(dict(status='CONTAINMENT_CONFIRMED'))
+-            return 1 if cancelled else max(0,result) if result>=0 else 1
++            return 1 if cancelled or containment_failed else max(0,result) if result>=0 else 1
+         # An unkillable descendant holds this supervisor AND its inherited lease.
+         time.sleep(.02)
+diff --git a/src/peanalyzer/workflow.py b/src/peanalyzer/workflow.py
+index 04f29da..09f4845 100644
+--- a/src/peanalyzer/workflow.py
++++ b/src/peanalyzer/workflow.py
+@@ -615,6 +615,8 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
+             except FileExistsError as exc:
+                 raise WorkflowError('OUTPUT_EXISTS','Output appeared before execution; new execution only') from exc
+             workspace_owned=True
++        from peanalyzer.workflow_integrity import RecoveryIntegrity, authenticate, signing_key
++        integrity = authenticate(root,old) if resume else RecoveryIntegrity(root,signing_key(create=True),{})
+         if force:
+             _invalidate(root,old,plan,force)
+         _snapshots(plan)
+@@ -622,6 +624,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
+         for item in (old,plan):
+             atomic_json(owned(root,'workflow/plans/'+digest(item)+'.json'),item)
+         atomic_json(owned(root,'workflow/plan.json'),plan)
++        integrity.record('workflow/plan.json',plan)
+         completed, identities = {}, {}
+         for node in plan.nodes:
+             active = node.stage_id
+@@ -654,6 +657,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
+                     output_artifacts=inventory(root,node.output_path),started_at=stage_start,ended_at=utc(),
+                     validation=['stage_contract','output_inventory_sha256','source_identity','dependency_identity'])
+                 atomic_json(path,result)
++                integrity.record(stage_manifest_path(node),result)
+                 executed.append(node.stage_id)
+             completed[node.stage_id] = result
+             identities[node.stage_id] = dependency(root,node,result)
+@@ -675,6 +679,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
+                 statistics_result=artifact(root,owned(root,'statistics/result.json')),
+                 report_manifest=artifact(root,owned(root,'report/report_manifest.json')),limitations=LIMITATIONS)
+             atomic_json(final,manifest)
++            integrity.record('workflow_manifest.json',manifest)
+         return dict(workflow_contract_version='m7-v1',output=str(root),mode=plan.mode,
+             executed_stages=executed,reused_stages=reused,
+             metrics_results=len([n for n in plan.nodes if n.stage_kind=='metrics']),
+diff --git a/src/peanalyzer/workflow_integrity.py b/src/peanalyzer/workflow_integrity.py
+new file mode 100644
+index 0000000..de1e15e
+--- /dev/null
++++ b/src/peanalyzer/workflow_integrity.py
+@@ -0,0 +1,95 @@
++"""Local recovery authentication, separate from portable scientific verification.
++
++The signing key lives outside all workspaces in a private host/account directory.
++Workspace JSON agreement is not authentication. Missing keys/receipts fail closed;
++legacy results remain readable by the existing scientific verifier. This protects
++workspace edits, not an attacker executing code as the signing account or root.
++"""
++import hashlib
++import hmac
++import os
++from pathlib import Path
++import stat
++
++from peanalyzer.workflow_storage import WorkflowError, atomic_json, canonical, no_symlinks, owned, read_json, sha
++
++RECEIPT = 'workflow/recovery-integrity.json'
++
++
++def key_path():
++    return Path('/tmp') / f'peanalyzer-{os.getuid()}-recovery' / 'key'
++
++
++def signing_key(create=False):
++    path=no_symlinks(key_path());parent=path.parent
++    if create:parent.mkdir(mode=0o700,exist_ok=True)
++    if not parent.exists():
++        raise WorkflowError('UNANCHORED_RECOVERY_OWNERSHIP','Local recovery key is unavailable')
++    s=parent.stat()
++    if s.st_uid!=os.getuid() or stat.S_IMODE(s.st_mode)!=0o700:
++        raise WorkflowError('UNSAFE_RECOVERY_KEY','Recovery key directory must be private to this account')
++    if create:
++        # Publish complete key bytes atomically; another workflow may initialize
++        # the account key concurrently. Hard-link creation never replaces a key.
++        import tempfile
++        fd,tmp=tempfile.mkstemp(dir=parent,prefix='.key-')
++        try:
++            with os.fdopen(fd,'wb') as handle:
++                handle.write(os.urandom(32));handle.flush();os.fsync(handle.fileno())
++            try:os.link(tmp,path)
++            except FileExistsError:pass
++        finally:os.unlink(tmp)
++    try:fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC)
++    except FileNotFoundError as exc:
++        raise WorkflowError('UNANCHORED_RECOVERY_OWNERSHIP','Local recovery key is unavailable') from exc
++    with os.fdopen(fd,'rb') as handle:
++        s=os.fstat(handle.fileno());key=handle.read()
++    if not stat.S_ISREG(s.st_mode) or s.st_uid!=os.getuid() or stat.S_IMODE(s.st_mode)!=0o600 or s.st_nlink!=1 or len(key)!=32:
++        raise WorkflowError('UNSAFE_RECOVERY_KEY','Invalid local recovery signing key')
++    return key
++
++
++def binding(root):
++    root=no_symlinks(root);s=root.stat()
++    return dict(path=str(root),device=s.st_dev,inode=s.st_ino)
++
++
++class RecoveryIntegrity:
++    """Authenticate existing metadata; sign only values just produced by execution."""
++    def __init__(self,root,key,records):
++        self.root=Path(root);self.key=key;self.records=dict(records)
++
++    def record(self,relative,value):
++        expected=hashlib.sha256((canonical(value)+'\n').encode()).hexdigest()
++        if sha(owned(self.root,relative))!=expected:
++            raise WorkflowError('RECOVERY_COMMIT_CHANGED','Metadata changed before authentication: '+relative)
++        self.records[relative]=expected
++        payload=dict(version=1,workspace=binding(self.root),records=self.records)
++        atomic_json(owned(self.root,RECEIPT),dict(payload=payload,
++            mac=hmac.new(self.key,canonical(payload).encode(),'sha256').hexdigest()))
++
++
++def authenticate(root,plan):
++    """Read-only verification. Never infer missing historical authentication."""
++    from peanalyzer.workflow import stage_manifest_path
++    path=owned(root,RECEIPT)
++    if not path.is_file():
++        raise WorkflowError('UNANCHORED_RECOVERY_OWNERSHIP','No authenticated recovery history; use a new workspace')
++    key=signing_key()
++    try:
++        receipt=read_json(path);payload=receipt['payload']
++        mac=hmac.new(key,canonical(payload).encode(),'sha256').hexdigest()
++        if set(receipt)!={'payload','mac'} or not hmac.compare_digest(mac,receipt['mac']):raise ValueError('Invalid authentication')
++        if set(payload)!={'version','workspace','records'} or payload['version']!=1 or payload['workspace']!=binding(root):raise ValueError('Invalid binding')
++        records=payload['records']
++        if not isinstance(records,dict):raise ValueError('Invalid inventory')
++    except (ValueError,KeyError,TypeError) as exc:
++        raise WorkflowError('TAMPERED_RECOVERY_INTEGRITY','Recovery history authentication failed') from exc
++    paths=[('workflow/plan.json','TAMPERED_WORKFLOW_PLAN',None),
++        *[(stage_manifest_path(n),'TAMPERED_STAGE_MANIFEST',n.stage_id) for n in plan.nodes],
++        ('workflow_manifest.json','TAMPERED_COMPLETION_MARKER',None)]
++    for relative,code,stage in paths:
++        p=owned(root,relative)
++        if p.exists() and records.get(relative)!=sha(p):
++            raise WorkflowError(code,'Metadata lacks its original authenticated identity: '+relative,stage)
++    return RecoveryIntegrity(root,key,records)
+diff --git a/src/peanalyzer/workflow_recovery.py b/src/peanalyzer/workflow_recovery.py
+index 4aa4a11..8d0f48f 100644
+--- a/src/peanalyzer/workflow_recovery.py
++++ b/src/peanalyzer/workflow_recovery.py
+@@ -79,6 +79,8 @@ def preflight_resume(old, new, force=()):
+     root=no_symlinks(new.output)
+     if old.output!=str(root):raise WorkflowError('WORKFLOW_GRAPH_MISMATCH','Workspace was moved')
+     before=workspace_identity(root)
++    from peanalyzer.workflow_integrity import authenticate
++    authenticate(root,old)
+     manifests=stored_manifests(old)
+     w._graph_change(old,new,force);w._check_execution_scope(new);w.verify_inputs(new.inputs)
+     for item in old.inputs.values():

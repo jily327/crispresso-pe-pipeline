@@ -1,0 +1,54 @@
+{
+  "CHECKPOINT_HANDOFF.txt": {
+    "sha256": "e3870dedefb0db09d8d03e1bb33072d1df39776c769cf6fa23a12e3441d2e8fd",
+    "size_bytes": 6438
+  },
+  "README.md": {
+    "sha256": "b678bb23bd1fd1eb3f6c0a15e5d3a06c41ef0857011ae8eb6ea74c0221d6f0b3",
+    "size_bytes": 6450
+  },
+  "packaging.json": {
+    "sha256": "837e14ae2a3862b5520be467400f291bc4c0776a400bdf9bfa1cd3a4a483109e",
+    "size_bytes": 10300
+  },
+  "production.diff": {
+    "sha256": "73104e6ac21940003d909c2608b4dc5b90339c76f4618ab02719ac58bc65cc8f",
+    "size_bytes": 21532
+  },
+  "qualification.json": {
+    "sha256": "7c6ef11e8e7e6e7147973524aa16fbdfb14e489a7ca24febb236532bd9140712",
+    "size_bytes": 1476
+  },
+  "run-tests.sh": {
+    "sha256": "91594f382f18a84f320b99e182c368d8fd6156288284a31e8bd472ca4e6a77d4",
+    "size_bytes": 1755
+  },
+  "source-case-inventory.json": {
+    "sha256": "9c558b84000357688197d5a4e9f58c46e601967b9297ebaa657a0e2c71b35483",
+    "size_bytes": 248991
+  },
+  "source-lifecycle-traces.json": {
+    "sha256": "3a55447d6dc1b1839f2fdcd03ce23e0815e4c8e000bdccce4d0b350f4bb63875",
+    "size_bytes": 32998
+  },
+  "source-science-parity.json": {
+    "sha256": "0e16771e5f810cf23fde64e6b97175fa1955e72110426ad97970ef683cb1a567",
+    "size_bytes": 10857
+  },
+  "source-tests.txt": {
+    "sha256": "72d7a2c49e751e3a28d36d87dbf4b077c6b532c2636f21bdf4a6993ea78308e0",
+    "size_bytes": 4542
+  },
+  "source-tests.xml": {
+    "sha256": "989191ee238b00fda0ad36da2e153c4eab1026f16981f168479a6ab600e46642",
+    "size_bytes": 236370
+  },
+  "static-checks.json": {
+    "sha256": "bec9ad7638a9e59610fb8dd39046626e64ad4e55585fe695a00c86217e46163d",
+    "size_bytes": 9806
+  },
+  "wheel-import.json": {
+    "sha256": "a233b8511ec5b026b5f6c2b429cc76544aa3387ca29762e880d55016978a054f",
+    "size_bytes": 405
+  }
+}
