@@ -1,5 +1,6 @@
 """Workspace-only tampering cannot manufacture destructive ownership authority."""
 import json
+import shutil
 from pathlib import Path
 import pytest
 from test_m7 import case, complete, plan, stage_path
@@ -138,3 +139,14 @@ def test_forged_ownership_and_matching_receipt_hash_still_fail_authentication(ca
     receipt=root/RECEIPT;v=json.loads(receipt.read_text());v['payload']['records'][str(p.relative_to(root))]=w.sha(p)
     receipt.write_text(json.dumps(v));refused(options,monkeypatch,'TAMPERED_RECOVERY_INTEGRITY','routing')
     assert victim.read_text()=='do not delete'
+
+
+def test_authenticated_receipt_rejects_actual_root_replacement(case,monkeypatch):
+    options,_=interrupted(case,monkeypatch);root=options['output']
+    original=root.with_name('original-workspace');root.rename(original)
+    shutil.copytree(original,root)
+    assert root.stat().st_ino!=original.stat().st_ino
+    # All receipt/metadata bytes agree, but their original directory no longer
+    # occupies the accepted path. No synthetic binding is used in this test.
+    assert (root/RECEIPT).read_bytes()==(original/RECEIPT).read_bytes()
+    refused(options,monkeypatch,'TAMPERED_RECOVERY_INTEGRITY')
