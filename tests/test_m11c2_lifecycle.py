@@ -56,7 +56,7 @@ raise SystemExit(worker.main())
 
 def evidence(name,events,final):
     if os.environ.get('M11C_RESULTS_DIR'):
-        root=Path(os.environ['M11C_RESULTS_DIR'])/'m11c2';root.mkdir(exist_ok=True)
+        root=Path(os.environ['M11C_RESULTS_DIR'])/'m11c2';root.mkdir(parents=True,exist_ok=True)
         (root/(name+'.json')).write_text(json.dumps(dict(events=[e.model_dump() for e in events],final=final),indent=2)+'\n')
 
 
