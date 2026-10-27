@@ -1,0 +1,46 @@
+{
+  "source": {
+    "detached-cancellation": {
+      "completion_present": false,
+      "detached_alive_after": false,
+      "detached_fixture": "double-fork setsid SIGTERM ignored",
+      "invocation_lock_present": false,
+      "lease_busy_after": false,
+      "state": "CANCELLED",
+      "unrelated_canary_alive": true
+    },
+    "server-sigkill": {
+      "busy_during_cleanup": true,
+      "completion_present": false,
+      "detached_alive_after": false,
+      "invocation_lock_present": false,
+      "lease_busy_after": false,
+      "recovery_classification": "RESUMABLE",
+      "scientific_child_alive_after": false,
+      "server_signal": "SIGKILL",
+      "unrelated_canary_alive": true
+    }
+  },
+  "wheel": {
+    "detached-cancellation": {
+      "completion_present": false,
+      "detached_alive_after": false,
+      "detached_fixture": "double-fork setsid SIGTERM ignored",
+      "invocation_lock_present": false,
+      "lease_busy_after": false,
+      "state": "CANCELLED",
+      "unrelated_canary_alive": true
+    },
+    "server-sigkill": {
+      "busy_during_cleanup": true,
+      "completion_present": false,
+      "detached_alive_after": false,
+      "invocation_lock_present": false,
+      "lease_busy_after": false,
+      "recovery_classification": "RESUMABLE",
+      "scientific_child_alive_after": false,
+      "server_signal": "SIGKILL",
+      "unrelated_canary_alive": true
+    }
+  }
+}

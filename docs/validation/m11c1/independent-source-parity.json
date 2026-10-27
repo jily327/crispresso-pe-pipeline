@@ -1,0 +1,32 @@
+{
+  "precise_edit": {
+    "equal": true,
+    "differing_categories": [],
+    "left_sha256": "b9c7d589ec6a9aace0fae700ca351f52a2aef10b41744cae2a2a67aeca7d93bf",
+    "right_sha256": "b9c7d589ec6a9aace0fae700ca351f52a2aef10b41744cae2a2a67aeca7d93bf",
+    "exclusions": [
+      "metric.provenance software/execution and locally verified artifact/prepared/routing hashes only; scientific provenance retained",
+      "statistics.provenance (source hashes independently verified)",
+      "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+      "population_id",
+      "source_result_sha256",
+      "gzip header timestamps; decompressed payloads compared"
+    ],
+    "report_source_lineage_valid": true
+  },
+  "indel_nuclease": {
+    "equal": true,
+    "differing_categories": [],
+    "left_sha256": "36dc18c8d00fe132909e0c931d0a5974a84ab1e518008e746b27908f02bb66ee",
+    "right_sha256": "36dc18c8d00fe132909e0c931d0a5974a84ab1e518008e746b27908f02bb66ee",
+    "exclusions": [
+      "metric.provenance software/execution and locally verified artifact/prepared/routing hashes only; scientific provenance retained",
+      "statistics.provenance (source hashes independently verified)",
+      "statistics.nuclease_results[].provenance (exact local metric copies verified; scientific identity retained)",
+      "population_id",
+      "source_result_sha256",
+      "gzip header timestamps; decompressed payloads compared"
+    ],
+    "report_source_lineage_valid": true
+  }
+}

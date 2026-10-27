@@ -1,0 +1,134 @@
+{
+  "audited_head": "9738100edea8edc8645d9f3d87526c8670f56312",
+  "base_main": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "browsers": {
+    "source": {
+      "groups": {
+        "recovery": {
+          "duration": 67754.592,
+          "expected": 8,
+          "flaky": 0,
+          "skipped": 0,
+          "startTime": "2026-10-27T06:12:14.512Z",
+          "unexpected": 0
+        },
+        "run": {
+          "duration": 59648.212,
+          "expected": 6,
+          "flaky": 0,
+          "skipped": 0,
+          "startTime": "2026-10-27T06:09:36.151Z",
+          "unexpected": 0
+        },
+        "viewer": {
+          "duration": 38410.313,
+          "expected": 18,
+          "flaky": 0,
+          "skipped": 0,
+          "startTime": "2026-10-27T06:01:19.619Z",
+          "unexpected": 0
+        }
+      },
+      "total": 32,
+      "viewer_immutability": {
+        "full_verifier_calls": 11,
+        "guarded_functions": "See gui_helpers.forbid_execution",
+        "scientific_executor_calls": 0,
+        "setup_inputs_and_proposed_output_unchanged": true,
+        "workspace_and_input_bytes_and_mtimes_unchanged": true,
+        "workspaces": [
+          "/workspace/m11c1-remediation/source-full-final/m10/precise_edit/workflow",
+          "/workspace/m11c1-remediation/source-full-final/m10/indel_nuclease/workflow"
+        ]
+      }
+    },
+    "wheel": {
+      "groups": {
+        "recovery": {
+          "duration": 65426.015999999996,
+          "expected": 8,
+          "flaky": 0,
+          "skipped": 0,
+          "startTime": "2026-10-27T06:15:58.667Z",
+          "unexpected": 0
+        },
+        "run": {
+          "duration": 56818.144,
+          "expected": 6,
+          "flaky": 0,
+          "skipped": 0,
+          "startTime": "2026-10-27T06:13:24.035Z",
+          "unexpected": 0
+        },
+        "viewer": {
+          "duration": 35460.486,
+          "expected": 18,
+          "flaky": 0,
+          "skipped": 0,
+          "startTime": "2026-10-27T06:04:19.471Z",
+          "unexpected": 0
+        }
+      },
+      "total": 32,
+      "viewer_immutability": {
+        "full_verifier_calls": 11,
+        "guarded_functions": "See gui_helpers.forbid_execution",
+        "scientific_executor_calls": 0,
+        "setup_inputs_and_proposed_output_unchanged": true,
+        "workspace_and_input_bytes_and_mtimes_unchanged": true,
+        "workspaces": [
+          "/workspace/m11c1-remediation/wheel-full/m10/precise_edit/workflow",
+          "/workspace/m11c1-remediation/wheel-full/m10/indel_nuclease/workflow"
+        ]
+      }
+    }
+  },
+  "cancellation_stress": {
+    "canary_losses": 0,
+    "false_completion": 0,
+    "installed_wheel": 80,
+    "live_children": 0,
+    "missing_failure_records": 0,
+    "missing_session_records": 0,
+    "source": 80,
+    "stale_locks": 0
+  },
+  "focused_faults": [
+    "TERM EPERM",
+    "KILL EPERM",
+    "pidfd open EPERM",
+    "pidfd send EPERM",
+    "census EPERM",
+    "missing containment acknowledgement",
+    "process disappearance"
+  ],
+  "frontend": 48,
+  "full_suite_logs": {
+    "source": {
+      "junit_sha256": "278d56e59aaba0926673b29291b2e90eca9fbd1791a65c25618d571ab2184e7e",
+      "text_sha256": "6c9d31e7505e4aa1b3f78e3b96906b37a2fa82492aac23e5519b2b87bf171625"
+    },
+    "wheel": {
+      "junit_sha256": "8a25ae701de9e98b5a34c58c21f05fa7f342c93a5df5e90582f2cdf0f2dcc028",
+      "text_sha256": "b5f1dc0a83047aef7b7c5d4fce8e3886433f6e7cb3417b47c26b8867263d47d0"
+    }
+  },
+  "installed_wheel": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 1876,
+    "skipped": 0
+  },
+  "integration_cases_per_suite": 88,
+  "new_python_cases": 106,
+  "original_cases_retained": 1770,
+  "production_commit": "5589db9cdf1e717d88e26d827b8515c1260cc6b7",
+  "remaining_findings_in_requested_scope": [],
+  "source": {
+    "errors": 0,
+    "failures": 0,
+    "passed": 1876,
+    "skipped": 0
+  },
+  "test_barrier_commit": "f0a4adc63fbb5db239a29334bcc8e1065d2e11b9"
+}

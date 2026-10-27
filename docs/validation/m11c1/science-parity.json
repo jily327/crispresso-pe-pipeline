@@ -1,0 +1,596 @@
+{
+  "source": {
+    "ambiguous_pe": {
+      "cancelled": "CANCELLED",
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "report/figures/series-8d30da2faa098278c82c802deec783438b17708a7888cc0c4bd0768f79473e25-samples.svg"
+      ],
+      "executed": [
+        "metrics::bc001::SYN",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "fresh_science_sha256": "bd23b63c2ee876c786f480721650ea3073d312e83d56d01b09a025c02b633c1d",
+      "m10_open": true,
+      "metric": {
+        "target_crispresso_native_pe": {
+          "aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "assessment_stage": "backend_aligned_products",
+          "backend_counts_role": "unavailable",
+          "backend_input_reads": null,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": null,
+          "discarded_aligned_reads": null,
+          "metric_family": "native",
+          "metric_name": "target_crispresso_native_pe",
+          "numerator": null,
+          "ordinary_classified_aligned_reads": null,
+          "population_denominator_exclusions": null,
+          "population_id": "30e63fd801cfcb270b9a682b306b3790b54ee49f35ccd3f29e610fa187323286",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": null,
+          "products": null,
+          "reads_after_preprocessing": null,
+          "reason_codes": [
+            "EDIT_COORDINATES_NOT_COMPARABLE",
+            "MISSING_ANCHOR_RESULT"
+          ],
+          "routing_conditioned": false,
+          "status": "BLOCKED",
+          "unaligned_reads": null,
+          "unaligned_reason_counts": {}
+        },
+        "total_precise_pe": {
+          "aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "assessment_stage": "prepared_pairs",
+          "backend_counts_role": "unavailable",
+          "backend_input_reads": null,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": 24,
+          "discarded_aligned_reads": null,
+          "metric_family": "precise",
+          "metric_name": "total_precise_pe",
+          "numerator": 12,
+          "ordinary_classified_aligned_reads": null,
+          "population_denominator_exclusions": 0,
+          "population_id": "30e63fd801cfcb270b9a682b306b3790b54ee49f35ccd3f29e610fa187323286",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": null,
+          "products": {
+            "classification_input_reads": 24,
+            "contradictory_state": 0,
+            "denominator_exclusions": 0,
+            "exact_pe": 12,
+            "exact_wt": 12,
+            "exclusion_reason_counts": {},
+            "other_nonexact_assessable": 0,
+            "pe_plus_extra_change": 0,
+            "unresolved_unassessable": 0
+          },
+          "reads_after_preprocessing": null,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "unaligned_reads": null,
+          "unaligned_reason_counts": {}
+        }
+      },
+      "metrics_force": true,
+      "mode": "ambiguous_pe",
+      "recovered": "COMPLETED",
+      "recovered_science_sha256": "bd23b63c2ee876c786f480721650ea3073d312e83d56d01b09a025c02b633c1d",
+      "recovery_cancelled": "CANCELLED",
+      "report_force": true,
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::SYN"
+      ]
+    },
+    "indel_nuclease": {
+      "cancelled": "CANCELLED",
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "report/figures/series-328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a-samples.svg",
+        "report/figures/series-37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c-samples.svg",
+        "report/figures/series-4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d-samples.svg",
+        "report/figures/series-5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493-samples.svg",
+        "report/figures/series-61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec-samples.svg",
+        "report/figures/series-6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944-samples.svg",
+        "report/figures/series-af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540-samples.svg",
+        "report/figures/series-e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962-samples.svg",
+        "report/figures/series-f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3-samples.svg",
+        "report/figures/series-fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654-samples.svg"
+      ],
+      "executed": [
+        "metrics::bc001::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "fresh_science_sha256": "4b457372f4f0f0425e8a635d6e2b108ee030fec668d4b5b0429772ee28d18821",
+      "m10_open": true,
+      "metric": {
+        "any_modification_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "deletion_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "indel_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "indel_only_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "indel_plus_substitution_fraction": {
+          "denominator": 20,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "insertion_and_deletion_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.2,
+          "numerator": 4
+        },
+        "insertion_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.2,
+          "numerator": 4
+        },
+        "substitution_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "substitution_only_fraction": {
+          "denominator": 20,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "unmodified_fraction": {
+          "denominator": 20,
+          "fraction": 0.6,
+          "numerator": 12
+        }
+      },
+      "metrics_force": true,
+      "mode": "indel_nuclease",
+      "recovered": "COMPLETED",
+      "recovered_science_sha256": "4b457372f4f0f0425e8a635d6e2b108ee030fec668d4b5b0429772ee28d18821",
+      "recovery_cancelled": "CANCELLED",
+      "report_force": true,
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1"
+      ]
+    },
+    "precise_edit": {
+      "cancelled": "CANCELLED",
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "routing/bc001/T1/copy1_R1.fastq.gz",
+        "routing/bc001/T1/copy1_R2.fastq.gz",
+        "routing/bc001/T1/copy2_R1.fastq.gz",
+        "routing/bc001/T1/copy2_R2.fastq.gz",
+        "routing/bc001/T1/quarantine_R1.fastq.gz",
+        "routing/bc001/T1/quarantine_R2.fastq.gz",
+        "report/figures/series-02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea-samples.svg",
+        "report/figures/series-039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad-samples.svg",
+        "report/figures/series-0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da-samples.svg",
+        "report/figures/series-5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad-samples.svg",
+        "report/figures/series-7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9-samples.svg",
+        "report/figures/series-9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658-samples.svg"
+      ],
+      "executed": [
+        "metrics::bc001::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "fresh_science_sha256": "5940507412e2f5e986b28e646216308dcf3970566a90ac78e534e79f7935003a",
+      "m10_open": true,
+      "metric": {
+        "target_crispresso_native_pe": {
+          "aligned_reads": 24,
+          "ambiguous_aligned_reads": 0,
+          "assessment_stage": "backend_aligned_products",
+          "backend_counts_role": "metric_filter",
+          "backend_input_reads": 24,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": 24,
+          "discarded_aligned_reads": 0,
+          "metric_family": "native",
+          "metric_name": "target_crispresso_native_pe",
+          "numerator": 2,
+          "ordinary_classified_aligned_reads": 24,
+          "population_denominator_exclusions": 0,
+          "population_id": "aabaff2f427244cc42939e99ef1c817ee9c8a12a36a59404ff8b244f2efa23a0",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": 0,
+          "products": null,
+          "reads_after_preprocessing": 24,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "unaligned_reads": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          }
+        },
+        "total_precise_pe": {
+          "aligned_reads": 24,
+          "ambiguous_aligned_reads": 0,
+          "assessment_stage": "prepared_pairs",
+          "backend_counts_role": "parallel_native_analysis",
+          "backend_input_reads": 24,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": 24,
+          "discarded_aligned_reads": 0,
+          "metric_family": "precise",
+          "metric_name": "total_precise_pe",
+          "numerator": 2,
+          "ordinary_classified_aligned_reads": 24,
+          "population_denominator_exclusions": 0,
+          "population_id": "aabaff2f427244cc42939e99ef1c817ee9c8a12a36a59404ff8b244f2efa23a0",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": 0,
+          "products": {
+            "classification_input_reads": 24,
+            "contradictory_state": 0,
+            "denominator_exclusions": 0,
+            "exact_pe": 2,
+            "exact_wt": 22,
+            "exclusion_reason_counts": {},
+            "other_nonexact_assessable": 0,
+            "pe_plus_extra_change": 0,
+            "unresolved_unassessable": 0
+          },
+          "reads_after_preprocessing": 24,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "unaligned_reads": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          }
+        }
+      },
+      "metrics_force": true,
+      "mode": "precise_edit",
+      "recovered": "COMPLETED",
+      "recovered_science_sha256": "5940507412e2f5e986b28e646216308dcf3970566a90ac78e534e79f7935003a",
+      "recovery_cancelled": "CANCELLED",
+      "report_force": true,
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1"
+      ]
+    }
+  },
+  "wheel": {
+    "ambiguous_pe": {
+      "cancelled": "CANCELLED",
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "report/figures/series-8d30da2faa098278c82c802deec783438b17708a7888cc0c4bd0768f79473e25-samples.svg"
+      ],
+      "executed": [
+        "metrics::bc001::SYN",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "fresh_science_sha256": "bd23b63c2ee876c786f480721650ea3073d312e83d56d01b09a025c02b633c1d",
+      "m10_open": true,
+      "metric": {
+        "target_crispresso_native_pe": {
+          "aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "assessment_stage": "backend_aligned_products",
+          "backend_counts_role": "unavailable",
+          "backend_input_reads": null,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": null,
+          "discarded_aligned_reads": null,
+          "metric_family": "native",
+          "metric_name": "target_crispresso_native_pe",
+          "numerator": null,
+          "ordinary_classified_aligned_reads": null,
+          "population_denominator_exclusions": null,
+          "population_id": "d3b2607e7b281ae271b34d3c2a5e91f4f359433fa677951c3ebf78b3e76c68f4",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": null,
+          "products": null,
+          "reads_after_preprocessing": null,
+          "reason_codes": [
+            "EDIT_COORDINATES_NOT_COMPARABLE",
+            "MISSING_ANCHOR_RESULT"
+          ],
+          "routing_conditioned": false,
+          "status": "BLOCKED",
+          "unaligned_reads": null,
+          "unaligned_reason_counts": {}
+        },
+        "total_precise_pe": {
+          "aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "assessment_stage": "prepared_pairs",
+          "backend_counts_role": "unavailable",
+          "backend_input_reads": null,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": 24,
+          "discarded_aligned_reads": null,
+          "metric_family": "precise",
+          "metric_name": "total_precise_pe",
+          "numerator": 12,
+          "ordinary_classified_aligned_reads": null,
+          "population_denominator_exclusions": 0,
+          "population_id": "d3b2607e7b281ae271b34d3c2a5e91f4f359433fa677951c3ebf78b3e76c68f4",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": null,
+          "products": {
+            "classification_input_reads": 24,
+            "contradictory_state": 0,
+            "denominator_exclusions": 0,
+            "exact_pe": 12,
+            "exact_wt": 12,
+            "exclusion_reason_counts": {},
+            "other_nonexact_assessable": 0,
+            "pe_plus_extra_change": 0,
+            "unresolved_unassessable": 0
+          },
+          "reads_after_preprocessing": null,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "unaligned_reads": null,
+          "unaligned_reason_counts": {}
+        }
+      },
+      "metrics_force": true,
+      "mode": "ambiguous_pe",
+      "recovered": "COMPLETED",
+      "recovered_science_sha256": "bd23b63c2ee876c786f480721650ea3073d312e83d56d01b09a025c02b633c1d",
+      "recovery_cancelled": "CANCELLED",
+      "report_force": true,
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::SYN"
+      ]
+    },
+    "indel_nuclease": {
+      "cancelled": "CANCELLED",
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "report/figures/series-328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a-samples.svg",
+        "report/figures/series-37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c-samples.svg",
+        "report/figures/series-4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d-samples.svg",
+        "report/figures/series-5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493-samples.svg",
+        "report/figures/series-61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec-samples.svg",
+        "report/figures/series-6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944-samples.svg",
+        "report/figures/series-af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540-samples.svg",
+        "report/figures/series-e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962-samples.svg",
+        "report/figures/series-f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3-samples.svg",
+        "report/figures/series-fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654-samples.svg"
+      ],
+      "executed": [
+        "metrics::bc001::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "fresh_science_sha256": "4b457372f4f0f0425e8a635d6e2b108ee030fec668d4b5b0429772ee28d18821",
+      "m10_open": true,
+      "metric": {
+        "any_modification_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "deletion_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "indel_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "indel_only_fraction": {
+          "denominator": 20,
+          "fraction": 0.4,
+          "numerator": 8
+        },
+        "indel_plus_substitution_fraction": {
+          "denominator": 20,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "insertion_and_deletion_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.2,
+          "numerator": 4
+        },
+        "insertion_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.2,
+          "numerator": 4
+        },
+        "substitution_containing_fraction": {
+          "denominator": 20,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "substitution_only_fraction": {
+          "denominator": 20,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "unmodified_fraction": {
+          "denominator": 20,
+          "fraction": 0.6,
+          "numerator": 12
+        }
+      },
+      "metrics_force": true,
+      "mode": "indel_nuclease",
+      "recovered": "COMPLETED",
+      "recovered_science_sha256": "4b457372f4f0f0425e8a635d6e2b108ee030fec668d4b5b0429772ee28d18821",
+      "recovery_cancelled": "CANCELLED",
+      "report_force": true,
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1"
+      ]
+    },
+    "precise_edit": {
+      "cancelled": "CANCELLED",
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "routing/bc001/T1/copy1_R1.fastq.gz",
+        "routing/bc001/T1/copy1_R2.fastq.gz",
+        "routing/bc001/T1/copy2_R1.fastq.gz",
+        "routing/bc001/T1/copy2_R2.fastq.gz",
+        "routing/bc001/T1/quarantine_R1.fastq.gz",
+        "routing/bc001/T1/quarantine_R2.fastq.gz",
+        "report/figures/series-02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea-samples.svg",
+        "report/figures/series-039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad-samples.svg",
+        "report/figures/series-0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da-samples.svg",
+        "report/figures/series-5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad-samples.svg",
+        "report/figures/series-7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9-samples.svg",
+        "report/figures/series-9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658-samples.svg"
+      ],
+      "executed": [
+        "metrics::bc001::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "fresh_science_sha256": "5940507412e2f5e986b28e646216308dcf3970566a90ac78e534e79f7935003a",
+      "m10_open": true,
+      "metric": {
+        "target_crispresso_native_pe": {
+          "aligned_reads": 24,
+          "ambiguous_aligned_reads": 0,
+          "assessment_stage": "backend_aligned_products",
+          "backend_counts_role": "metric_filter",
+          "backend_input_reads": 24,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": 24,
+          "discarded_aligned_reads": 0,
+          "metric_family": "native",
+          "metric_name": "target_crispresso_native_pe",
+          "numerator": 2,
+          "ordinary_classified_aligned_reads": 24,
+          "population_denominator_exclusions": 0,
+          "population_id": "9a202c16815ebf95d7727ab8510e2268b5c84eacda260545ff00494063793be6",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": 0,
+          "products": null,
+          "reads_after_preprocessing": 24,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "unaligned_reads": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          }
+        },
+        "total_precise_pe": {
+          "aligned_reads": 24,
+          "ambiguous_aligned_reads": 0,
+          "assessment_stage": "prepared_pairs",
+          "backend_counts_role": "parallel_native_analysis",
+          "backend_input_reads": 24,
+          "confident_input_reads": null,
+          "copy_id": null,
+          "denominator": 24,
+          "discarded_aligned_reads": 0,
+          "metric_family": "precise",
+          "metric_name": "total_precise_pe",
+          "numerator": 2,
+          "ordinary_classified_aligned_reads": 24,
+          "population_denominator_exclusions": 0,
+          "population_id": "9a202c16815ebf95d7727ab8510e2268b5c84eacda260545ff00494063793be6",
+          "population_input_reads": 24,
+          "population_scope": "target_all_prepared",
+          "preprocessing_count_delta": 0,
+          "products": {
+            "classification_input_reads": 24,
+            "contradictory_state": 0,
+            "denominator_exclusions": 0,
+            "exact_pe": 2,
+            "exact_wt": 22,
+            "exclusion_reason_counts": {},
+            "other_nonexact_assessable": 0,
+            "pe_plus_extra_change": 0,
+            "unresolved_unassessable": 0
+          },
+          "reads_after_preprocessing": 24,
+          "reason_codes": [],
+          "routing_conditioned": false,
+          "status": "REPORTABLE",
+          "unaligned_reads": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          }
+        }
+      },
+      "metrics_force": true,
+      "mode": "precise_edit",
+      "recovered": "COMPLETED",
+      "recovered_science_sha256": "5940507412e2f5e986b28e646216308dcf3970566a90ac78e534e79f7935003a",
+      "recovery_cancelled": "CANCELLED",
+      "report_force": true,
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1"
+      ]
+    }
+  }
+}
