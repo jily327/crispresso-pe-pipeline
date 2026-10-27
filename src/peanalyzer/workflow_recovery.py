@@ -79,6 +79,8 @@ def preflight_resume(old, new, force=()):
     root=no_symlinks(new.output)
     if old.output!=str(root):raise WorkflowError('WORKFLOW_GRAPH_MISMATCH','Workspace was moved')
     before=workspace_identity(root)
+    from peanalyzer.workflow_integrity import authenticate
+    authenticate(root,old)
     manifests=stored_manifests(old)
     w._graph_change(old,new,force);w._check_execution_scope(new);w.verify_inputs(new.inputs)
     for item in old.inputs.values():

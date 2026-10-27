@@ -35,10 +35,16 @@ def inspect(root,runtime,force=(),*,check_active=True):
     before=workspace_identity(root)
     old=load(owned(root,'workflow/plan.json'),Plan)
     if old.output!=str(root):raise WorkflowError('INVALID_WORKSPACE','Workspace relocation is unsupported')
+    from peanalyzer.workflow_integrity import authenticate, RECEIPT
+    # Legacy completed results remain subject to the portable final verifier.
+    # Recovery never retroactively authenticates their mutable metadata.
+    if owned(root,RECEIPT).exists():authenticate(root,old)
     if owned(root,'workflow_manifest.json').exists():
         try:
             w.verify_workflow_output(root)
-        except (ValueError,OSError):pass  # Incomplete/corrupted marker is NOT completion.
+        except (ValueError,OSError):
+            if not owned(root,RECEIPT).exists():
+                raise WorkflowError('TAMPERED_COMPLETION_MARKER','Unanchored completion cannot be reconciled')
         else:return old,None,'COMPLETED'
     if check_active and lease_busy():raise WorkflowError('WORKER_BUSY','An active scientific supervisor holds the host lease')
     lock=no_symlinks(root.with_name('.'+root.name+'.m7-lock'))
@@ -140,7 +146,10 @@ class RecoveryStore:
                 'SOFTWARE_CHANGED':'SOFTWARE_CHANGED','RUN_UNAVAILABLE':'UNSUPPORTED','BACKEND_UNAVAILABLE':'UNSUPPORTED',
                 'ORPHANED_STAGE_OUTPUT':'RESUMABLE_WITH_FORCE','STALE_STAGE_IDENTITY':'RESUMABLE_WITH_FORCE',
                 'CORRUPTED_STAGE_OUTPUT':'TAMPERED','SNAPSHOT_CORRUPTED':'TAMPERED','UNSAFE_PATH':'TAMPERED',
-                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'TAMPERED'}.get(code,'INVALID_WORKSPACE')
+                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'TAMPERED',
+                'TAMPERED_WORKFLOW_PLAN':'TAMPERED','TAMPERED_COMPLETION_MARKER':'TAMPERED',
+                'TAMPERED_RECOVERY_INTEGRITY':'TAMPERED','UNSAFE_RECOVERY_KEY':'TAMPERED',
+                'UNANCHORED_RECOVERY_OWNERSHIP':'UNSUPPORTED'}.get(code,'INVALID_WORKSPACE')
             view.classification=classification
             view.reasons=[ErrorDetail(code=code,message='Recovery requires inspection or a different explicit choice.',detail=str(exc),stage_id=getattr(exc,'stage_id',None))]
         return view

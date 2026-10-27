@@ -615,6 +615,8 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
             except FileExistsError as exc:
                 raise WorkflowError('OUTPUT_EXISTS','Output appeared before execution; new execution only') from exc
             workspace_owned=True
+        from peanalyzer.workflow_integrity import RecoveryIntegrity, authenticate, signing_key
+        integrity = authenticate(root,old) if resume else RecoveryIntegrity(root,signing_key(create=True),{})
         if force:
             _invalidate(root,old,plan,force)
         _snapshots(plan)
@@ -622,6 +624,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
         for item in (old,plan):
             atomic_json(owned(root,'workflow/plans/'+digest(item)+'.json'),item)
         atomic_json(owned(root,'workflow/plan.json'),plan)
+        integrity.record('workflow/plan.json',plan)
         completed, identities = {}, {}
         for node in plan.nodes:
             active = node.stage_id
@@ -654,6 +657,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
                     output_artifacts=inventory(root,node.output_path),started_at=stage_start,ended_at=utc(),
                     validation=['stage_contract','output_inventory_sha256','source_identity','dependency_identity'])
                 atomic_json(path,result)
+                integrity.record(stage_manifest_path(node),result)
                 executed.append(node.stage_id)
             completed[node.stage_id] = result
             identities[node.stage_id] = dependency(root,node,result)
@@ -675,6 +679,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
                 statistics_result=artifact(root,owned(root,'statistics/result.json')),
                 report_manifest=artifact(root,owned(root,'report/report_manifest.json')),limitations=LIMITATIONS)
             atomic_json(final,manifest)
+            integrity.record('workflow_manifest.json',manifest)
         return dict(workflow_contract_version='m7-v1',output=str(root),mode=plan.mode,
             executed_stages=executed,reused_stages=reused,
             metrics_results=len([n for n in plan.nodes if n.stage_kind=='metrics']),
