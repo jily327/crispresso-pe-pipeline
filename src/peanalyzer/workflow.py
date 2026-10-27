@@ -626,13 +626,13 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
         for node in plan.nodes:
             active = node.stage_id
             active_node = node
-            observe('RUNNING',node)
             refs = {key:identities[key] for key in node.dependencies}
             path = owned(root,stage_manifest_path(node))
             if path.exists():
                 result = _validate_completed(plan,node,refs)
                 reused.append(node.stage_id)
             else:
+                observe('RUNNING',node)
                 if owned(root,node.output_path).exists():
                     raise WorkflowError('ORPHANED_STAGE_OUTPUT',node.output_path,node.stage_id)
                 stage_start = utc()
@@ -657,7 +657,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
                 executed.append(node.stage_id)
             completed[node.stage_id] = result
             identities[node.stage_id] = dependency(root,node,result)
-            observe(result.status,node,result.reason_codes)
+            observe('REUSED' if node.stage_id in reused else result.status,node,result.reason_codes)
         active = 'final_validation'
         active_node = None
         observe('FINAL_VALIDATION')

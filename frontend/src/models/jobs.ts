@@ -28,7 +28,7 @@ export interface JobStage {
   label: string;
   dependencies: Array<string>;
   output_path: string;
-  status: "PENDING" | "RUNNING" | "COMPLETED" | "SKIPPED_SCIENTIFIC_GATE" | "FAILED" | "CANCELLED";
+  status: "PENDING" | "RUNNING" | "COMPLETED" | "SKIPPED_SCIENTIFIC_GATE" | "REUSED" | "FAILED" | "CANCELLED";
   reason_codes: Array<string>;
 }
 

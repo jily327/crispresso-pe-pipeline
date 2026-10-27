@@ -6,7 +6,7 @@ from peanalyzer.gui.setup_models import SetupIssue, PreviewStage
 from peanalyzer.workflow_models import Hash
 
 JobState = Literal['STARTING','RUNNING','CANCELLING','CANCELLED','FAILED','COMPLETED']
-StageState = Literal['PENDING','RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','FAILED','CANCELLED']
+StageState = Literal['PENDING','RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED','FAILED','CANCELLED']
 
 
 class JobSubmission(Model):

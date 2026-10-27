@@ -7,7 +7,51 @@ import os
 from pathlib import Path
 import stat
 from peanalyzer.workflow_storage import WorkflowError, no_symlinks, owned, sha, digest, load
-from peanalyzer.workflow_models import Plan
+from peanalyzer.workflow_models import Plan, StageManifest
+
+
+def stored_manifests(plan):
+    """Check internal identity against the stored plan, not current source/software.
+
+    A force request cannot authorize an inconsistent ownership record. External
+    drift is checked separately against the proposed plan by the reuse validator.
+    """
+    from peanalyzer import workflow as w
+    root=Path(plan.output);refs={};records={}
+    for node in plan.nodes:
+        path=owned(root,w.stage_manifest_path(node))
+        if not path.exists():continue
+        try:
+            manifest=load(path,StageManifest)
+            dependencies={key:refs[key] for key in node.dependencies}
+            if any(getattr(manifest,key)!=value for key,value in w._expected(plan,node,dependencies).items()):
+                raise ValueError('Stored stage identity is internally inconsistent')
+            # Ownership entries must remain confined to this node's output.
+            for entry in manifest.output_artifacts:
+                if not Path(entry.path).is_relative_to(node.output_path):
+                    raise ValueError('Stage artifact escapes its output')
+            records[node.stage_id]=manifest
+            refs[node.stage_id]=w.dependency(root,node,manifest)
+        except (ValueError,KeyError,OSError) as exc:
+            raise WorkflowError('TAMPERED_STAGE_MANIFEST','Inconsistent stored manifest',node.stage_id) from exc
+    return records
+
+
+def check_removal_contents(root,node,manifest):
+    """Refuse recursive removal of anything not covered by committed ownership."""
+    path=owned(root,node.output_path)
+    if not path.exists():return
+    expected={owned(root,a.path) for a in manifest.output_artifacts} if manifest else set()
+    directories={path} if path.is_dir() else set()
+    for entry in expected:
+        directories.update(p for p in entry.parents if p==path or p.is_relative_to(path))
+    unknown=[]
+    for entry in [path,*sorted(path.rglob('*'))] if path.is_dir() else [path]:
+        no_symlinks(entry)
+        if (entry.is_dir() and entry not in directories) or (not entry.is_dir() and entry not in expected):
+            unknown.append(entry.relative_to(root).as_posix())
+    if unknown:
+        raise WorkflowError('FOREIGN_CONTENT_PRESENT','Unowned removal entries: '+', '.join(unknown),node.stage_id)
 
 
 def workspace_identity(root):
@@ -35,6 +79,7 @@ def preflight_resume(old, new, force=()):
     root=no_symlinks(new.output)
     if old.output!=str(root):raise WorkflowError('WORKFLOW_GRAPH_MISMATCH','Workspace was moved')
     before=workspace_identity(root)
+    manifests=stored_manifests(old)
     w._graph_change(old,new,force);w._check_execution_scope(new);w.verify_inputs(new.inputs)
     for item in old.inputs.values():
         if item.snapshot:
@@ -53,8 +98,7 @@ def preflight_resume(old, new, force=()):
         for plan in (old,new):
             if any(Path(i.source_path)==path or Path(i.source_path).is_relative_to(path) for i in plan.inputs.values()):
                 raise WorkflowError('EXTERNAL_INPUT_PROTECTION','Recovery would remove an original source')
-        if path.exists() and path.is_dir():
-            for child in path.rglob('*'):no_symlinks(child)
+        check_removal_contents(root,n,manifests.get(n.stage_id))
     refs={};stages=[]
     for node in new.nodes:
         manifest=owned(root,w.stage_manifest_path(node));output=owned(root,node.output_path)

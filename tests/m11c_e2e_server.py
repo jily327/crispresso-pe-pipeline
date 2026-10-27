@@ -26,7 +26,8 @@ for name in names:
         (output/'workflow_manifest.json').unlink()
         node=next(n for n in plan.nodes if n.stage_kind=='report')
         (output/w.stage_manifest_path(node)).unlink()
-        if name!='force':shutil.rmtree(output/'report')
+        shutil.rmtree(output/'report')
+        if name=='force':(output/'report').mkdir()  # Empty owned orphan; no unproven files.
     if name in ('cancel','detached','kill'):(root/name/'pause-report').write_text('pause')
     if name in ('detached','kill'):(root/name/'detach-test').write_text('test-only')
 (root/'server-pid').write_text(str(os.getpid()))

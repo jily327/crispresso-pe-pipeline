@@ -111,6 +111,12 @@ def test_orphan_requires_force_and_wrong_force_does_not_authorize(case):
     app,c=client_for(options);v=open_preview(c)
     assert v['classification']=='RESUMABLE_WITH_FORCE' and not v['executable']
     r=c.post(f"/api/v1/recovery/{v['recovery_id']}/preview",json=dict(revision=v['revision'],force=['report']))
+    assert not r.json()['executable']
+    assert r.json()['reasons'][0]['code']=='FOREIGN_CONTENT_PRESENT'
+    assert (root/'report/partial').read_text()=='partial'
+    # An empty, canonically named orphan directory has no unknown content.
+    (root/'report/partial').unlink()
+    r=c.post(f"/api/v1/recovery/{v['recovery_id']}/preview",json=dict(revision=r.json()['revision'],force=['report']))
     assert r.json()['executable'] and 'report' in r.json()['removal_paths']
 
 

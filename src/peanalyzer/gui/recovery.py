@@ -139,7 +139,8 @@ class RecoveryStore:
             classification={'WORKER_BUSY':'ACTIVE','WORKFLOW_LOCKED':'ACTIVE','SOURCE_CHANGED':'STALE_INPUT',
                 'SOFTWARE_CHANGED':'SOFTWARE_CHANGED','RUN_UNAVAILABLE':'UNSUPPORTED','BACKEND_UNAVAILABLE':'UNSUPPORTED',
                 'ORPHANED_STAGE_OUTPUT':'RESUMABLE_WITH_FORCE','STALE_STAGE_IDENTITY':'RESUMABLE_WITH_FORCE',
-                'CORRUPTED_STAGE_OUTPUT':'TAMPERED','SNAPSHOT_CORRUPTED':'TAMPERED','UNSAFE_PATH':'TAMPERED'}.get(code,'INVALID_WORKSPACE')
+                'CORRUPTED_STAGE_OUTPUT':'TAMPERED','SNAPSHOT_CORRUPTED':'TAMPERED','UNSAFE_PATH':'TAMPERED',
+                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'TAMPERED'}.get(code,'INVALID_WORKSPACE')
             view.classification=classification
             view.reasons=[ErrorDetail(code=code,message='Recovery requires inspection or a different explicit choice.',detail=str(exc),stage_id=getattr(exc,'stage_id',None))]
         return view

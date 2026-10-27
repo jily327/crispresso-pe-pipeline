@@ -95,6 +95,8 @@ def test_native_cancel_resume_force_and_clean_parity(tmp_path,monkeypatch,mode):
     (workspace/'workflow_manifest.json').unlink()
     report_node=next(n for n in stored.nodes if n.stage_kind=='report')
     (workspace/w.stage_manifest_path(report_node)).unlink()
+    # Without a manifest, nonempty output has no proven file ownership.
+    shutil.rmtree(workspace/'report');(workspace/'report').mkdir()
     registration=next(k for k,p in app.state.recovery.registrations.items() if p==workspace)
     v=c.post('/api/v1/recovery',json={'registration_id':registration}).json()
     assert not v['executable']

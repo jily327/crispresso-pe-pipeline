@@ -196,10 +196,14 @@ class JobStore:
             status=event.get('status');stage_id=event.get('stage_id')
             stage=next((s for s in job.view.stages if s.stage_id==stage_id),None)
             if status=='WORKER_READY' and not job.cancel.is_set():job.view.state='RUNNING'
-            if stage and status in {'RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','FAILED'}:
+            if status=='CONTAINMENT_ERROR':
+                job.view.state='FAILED';job.view.cancellable=False
+                job.view.error=ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment is incomplete.',
+                    detail=event.get('message','The host worker lease remains held.'))
+            if stage and status in {'RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED','FAILED'}:
                 stage.status=status;stage.reason_codes=list(event.get('reason_codes') or [])
                 job.view.current_stage_id=stage_id
-                job.view.finished_stages=sum(s.status in {'COMPLETED','SKIPPED_SCIENTIFIC_GATE'} for s in job.view.stages)
+                job.view.finished_stages=sum(s.status in {'COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED'} for s in job.view.stages)
             if status=='FINAL_VALIDATION':job.view.current_stage_id=None
             self._event(job,str(status),stage_id=stage_id,stage_kind=event.get('stage_kind'),
                 reason_codes=event.get('reason_codes') or [],code=event.get('code'))
@@ -208,6 +212,7 @@ class JobStore:
         process=None;reader=None;drainer=None;read_fd=None;write_fd=None
         received=[];logs=bytearray();failure=None;verified=False
         def hardened():return any(e.get('status')=='SUPERVISOR_READY' for e in received)
+        def confirmed():return any(e.get('status')=='CONTAINMENT_CONFIRMED' for e in received)
         try:
             with self.lock:
                 if job.cancel.is_set():return
@@ -238,9 +243,8 @@ class JobStore:
             except BrokenPipeError:pass
             deadline=None
             while process.poll() is None:
-                if job.cancel.is_set():
-                    if deadline is None:signal_group(process.pid,signal.SIGTERM);deadline=time.monotonic()+self.grace_seconds
-                    elif time.monotonic()>=deadline and not any(e.get('status')=='SUPERVISOR_READY' for e in received):signal_group(process.pid,signal.SIGKILL)
+                if job.cancel.is_set() and hardened():
+                    if deadline is None:process.send_signal(signal.SIGTERM);deadline=time.monotonic()+self.grace_seconds
                 job.cancel.wait(.05) if not job.cancel.is_set() else time.sleep(.05)
             process.wait()
             # A leader can exit before its backend children. Do not release the slot
@@ -254,7 +258,9 @@ class JobStore:
                     if not group_alive(process.pid):break
                     time.sleep(.02)
                 reap_group(process.pid)
-            reader.join();drainer.join()
+            reader.join(timeout=1);drainer.join(timeout=1)
+            if not confirmed():
+                raise ViewerError('CANCELLATION_INCOMPLETE','Supervisor exited without positive containment acknowledgement; host lease retained.')
             verified=process.returncode==0 and any(e.get('status')=='VERIFIED_SUCCESS' for e in received)
             errors=[e for e in received if e.get('status')=='WORKER_ERROR']
             if errors:
@@ -280,7 +286,7 @@ class JobStore:
             if process is not None:
                 if process.poll() is None:
                     if any(e.get('status')=='SUPERVISOR_READY' for e in received):
-                        signal_group(process.pid,signal.SIGTERM)
+                        process.send_signal(signal.SIGTERM)
                         process.wait()  # Supervisor retains lease until owned descendants are reaped.
                     else:
                         signal_group(process.pid,signal.SIGKILL);process.wait()
@@ -292,14 +298,19 @@ class JobStore:
                         if group_alive(process.pid):time.sleep(.02)
                     reap_group(process.pid)
                 if process.stdin and not process.stdin.closed:process.stdin.close()
-                if reader:reader.join()
-                if drainer:drainer.join()
+                if reader:reader.join(timeout=1)
+                if drainer:drainer.join(timeout=1)
             if read_fd is not None and reader is None:os.close(read_fd)
-            if job.lease_fd is not None:
+            contained=process is None or (process.poll() is not None and confirmed())
+            if job.lease_fd is not None and contained:
                 os.close(job.lease_fd);job.lease_fd=None
             with self.lock:
-                if job.cancel.is_set():
-                    job.view.state='CANCELLED';job.view.workspace_id=None
+                if not contained:
+                    job.view.state='FAILED';job.view.workspace_id=None
+                    job.view.error=ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment could not be confirmed.',
+                        detail='The host worker lease remains held; supervisor exit is not proof of cleanup.')
+                elif job.cancel.is_set():
+                    job.view.state='CANCELLED';job.view.workspace_id=None;job.view.error=None
                     for stage in job.view.stages:
                         if stage.stage_id==job.view.current_stage_id and stage.status in {'RUNNING','FAILED'}:stage.status='CANCELLED'
                 elif failure is not None or not job.view.workspace_id:
@@ -307,7 +318,7 @@ class JobStore:
                 else:job.view.state='COMPLETED'
                 job.view.cancellable=False;job.ended=time.monotonic();job.view.ended_at=timestamp()
                 self._event(job,job.view.state,code=job.view.error.code if job.view.error else None)
-                self.active=None
+                if contained:self.active=None
 
     def close(self):
         with self.lock:

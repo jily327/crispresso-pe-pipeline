@@ -38,6 +38,9 @@ A classification alone never authorizes execution. `executable`, current revisio
 recovery-plan hash and explicit boolean confirmation must all agree. A force
 preview can validate replacement of corrupt *owned forced stage outputs*; it does
 not legalize corrupt unforced dependencies, snapshots or original sources.
+M11C.1 also validates stored stage identities against the stored plan before
+considering current inputs/software. Internally inconsistent signatures, dependency
+references or stage schemas are TAMPERED, never ordinary resumable drift.
 
 ## Read-only preflight and commitment
 
@@ -73,7 +76,13 @@ Force families come directly from `workflow.FORCE_FAMILIES`: demux, analysis,
 routing, metrics, statistics, report, all. Analyze mode excludes demux. Descendant
 closure and exact plan-owned paths are computed in Python. Original sources,
 external demux archives and siblings are never deletion targets. Symlinks and
-non-regular workspace entries fail closed. Filesystem safety assumes no hostile
+non-regular workspace entries fail closed. Before recursively deleting any forced
+output, M11C.1 compares its actual entries with committed stage artifact paths and
+their ancestor directories. Unknown files, hidden files, directories or nested
+content cause FOREIGN_CONTENT_PRESENT with blocking relative paths. No unknown
+content is silently preserved or deleted. A nonempty orphan without a committed
+inventory cannot prove file ownership and is refused; an empty plan-owned orphan
+directory can still be explicitly forced. Filesystem safety assumes no hostile
 same-account writer races filesystem operations after the final check; this is
 not an OS sandbox or transactional filesystem.
 
@@ -95,7 +104,10 @@ ordered events, cancel route and M10 final registration. Recovery calls existing
 requires successful resume, `verify_workflow_output`, and M10 registration before
 COMPLETED. Cancellation leaves a partial workspace for a new inspection, never
 an automatic retry. Retained progress events describe actual stage outcomes;
-scientific SKIPPED_SCIENTIFIC_GATE is not an execution failure.
+scientific SKIPPED_SCIENTIFIC_GATE is not an execution failure. M11C.1 emits REUSED
+for validated reused stages, with their retained scientific reason codes, instead
+of fabricated RUNNING/COMPLETED events. Executed new-run stages are unchanged.
+The UI renders backend status; the underlying scientific gate manifest is unchanged.
 
 The qualified digest displayed in Review is now required in RuntimeSettings and
 bound to execution; an alternate launcher digest cannot silently substitute for
@@ -125,11 +137,25 @@ double forks. Owned identities include PID/start ticks; signalling uses pidfds
 with a fresh identity check. No name-based or stale-PID kill exists.
 
 On cancellation, server death, or science-child exit, the supervisor terminates
-remaining owned descendants, escalates to SIGKILL after five seconds and reaps
+remaining owned descendants, sends TERM once per process birth, escalates to
+KILL once per surviving birth after five seconds and reaps
 adopted children. It exits only when the scientific child and all owned descendants
 are gone. If they remain (e.g. uninterruptible kernel sleep), it emits
 CONTAINMENT_WAIT / CANCELLATION_INCOMPLETE, retains the lease and does not announce
-clean CANCELLED. Cancellation may therefore take longer than five seconds.
+clean CANCELLED. M11C.1 records signalling/census/reaping errors, keeps the
+supervisor and inherited lease alive, and continues observation. Permission failure
+is not treated as process disappearance. The server signals only the supervisor;
+it does not also interrupt scientific cleanup handlers with group TERM.
+
+The supervisor emits CONTAINMENT_CONFIRMED only after the scientific child exited,
+the owned census is empty and reaping succeeded. Server-side CANCELLED and lease
+release require that acknowledgement plus supervisor exit. CONTAINMENT_ERROR
+surfaces FAILED / CANCELLATION_INCOMPLETE while safety remains held. If containment
+later resolves, acknowledgement permits clean cancellation and lease release; the
+ordered error events remain recorded. Supervisor exit without acknowledgement
+retains the server lease and active slot, reports containment failure and never
+registers completion. It is not automatic permission to start another worker.
+Cancellation may therefore take longer than five seconds.
 Unrelated canary processes and mismatched start-tick identities are never signalled.
 
 Persistent replay of old in-memory jobs is not implemented. After restart, inspect
