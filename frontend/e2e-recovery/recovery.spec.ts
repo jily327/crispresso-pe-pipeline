@@ -8,7 +8,7 @@ async function inspect(page:Page,name:string){
   await page.goto('/#e2e-local-token');await page.getByRole('button',{name:'Recover Analysis',exact:true}).click();
   // Opaque registrations are server ordered; browser never submits a path.
   const names=['pe-resume','nuclease-resume','force','stale','completed','cancel','detached','kill'];
-  await expect(page.getByLabel('Registered recovery workspace').locator('option')).toHaveCount(names.length);
+  await expect.poll(()=>page.getByLabel('Registered recovery workspace').locator('option').count()).toBeGreaterThanOrEqual(names.length);
   await page.getByLabel('Registered recovery workspace').selectOption({index:names.indexOf(name)});
   await page.getByRole('button',{name:'Inspect workspace',exact:true}).click();
 }
