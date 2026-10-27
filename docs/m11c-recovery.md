@@ -31,7 +31,7 @@ The existing CLI can still deliberately force a completed workspace.
 | SOFTWARE_CHANGED | Incompatible package identity; only explicit full rebuild can replace all stage identities |
 | TAMPERED | Corrupt artifacts/snapshots or unsafe paths; no automatic repair |
 | ACTIVE | Host scientific lease or existing workspace invocation lock |
-| UNSUPPORTED | Runtime is unavailable/unqualified for execution |
+| UNSUPPORTED | Runtime unavailable/unqualified, or historical recovery ownership is unanchored |
 | INVALID_WORKSPACE | Invalid graph/schema/ownership or other authoritative failure |
 
 A classification alone never authorizes execution. `executable`, current revision,
@@ -150,9 +150,11 @@ it does not also interrupt scientific cleanup handlers with group TERM.
 The supervisor emits CONTAINMENT_CONFIRMED only after the scientific child exited,
 the owned census is empty and reaping succeeded. Server-side CANCELLED and lease
 release require that acknowledgement plus supervisor exit. CONTAINMENT_ERROR
-surfaces FAILED / CANCELLATION_INCOMPLETE while safety remains held. If containment
-later resolves, acknowledgement permits clean cancellation and lease release; the
-ordered error events remain recorded. Supervisor exit without acknowledgement
+records a diagnostic while the active lifecycle state remains unchanged. If the
+diagnostic resolves before authoritative terminal adjudication, acknowledgement
+permits clean cancellation and lease release; ordered diagnostic events remain.
+An authoritative terminal failure is never replaced by a later cancellation or
+success. Supervisor exit without acknowledgement
 retains the server lease and active slot, reports containment failure and never
 registers completion. It is not automatic permission to start another worker.
 Cancellation may therefore take longer than five seconds.
@@ -178,3 +180,51 @@ improve setup/inspection UX. Recovery inventory hashing reads all workspace file
 and can be expensive for large workspaces. There is no concurrent science, cloud
 execution, alternate aligner, automatic biological interpretation or automatic
 recovery. See [qualification evidence](validation/m11c/README.md).
+
+## M11C.2 recovery integrity and lifecycle
+
+New executions additionally authenticate exact plan, stage-manifest and completion
+bytes in `workflow/recovery-integrity.json`. HMAC-SHA256 uses a random 32-byte key
+in `/tmp/peanalyzer-UID-recovery/key`, outside the workspace, under a private 0700
+account directory with a 0600 regular key file. The receipt is bound to the absolute
+workspace path, device and inode. Execution signs only metadata values it has just
+produced, after scientific validation; inspection never signs existing workspace
+claims. Changing two agreeing JSON files cannot produce a valid authenticator.
+This receipt is separate from M7 scientific identity and portable final verification.
+
+Recovery distinguishes authenticated history, independently verified scientific
+outputs, unanchored legacy history and tampered metadata. A downstream hash alone
+is not an independent trust root. Authenticated ownership is still checked against
+actual recursive contents: unknown names, directories and links remain forbidden.
+The authenticated inventory permits rebuilding corrupted owned outputs, but a
+forged inventory or edited frontier reason/status/parameter cannot authorize force.
+
+No authentication is retroactively invented for older workspaces. Missing receipts
+or unavailable local keys produce `UNANCHORED_RECOVERY_OWNERSHIP`: resume/force is
+refused and a new workspace is required. Legacy completed results remain readable
+through the existing final verifier. Losing `/tmp` state, moving hosts/accounts or
+replacing the workspace inode can therefore reduce recovery capability without
+changing scientific results. Missing stage/marker files do not manufacture ownership;
+present metadata must match its authenticated record, and orphan content still fails
+closed. A crash between metadata publication and receipt publication can require a
+fresh workspace. Key access failure never falls back to trusting unsigned JSON.
+
+The threat boundary is workspace-data editing, not code execution by the signing
+account/root or compromise of the private key. Signed historical rollback is not
+prevented by a trusted monotonic counter. The documented concurrent same-account
+writer window after final deletion preflight remains. Do not publish the local key.
+
+`CONTAINMENT_ERROR` is diagnostic event history, not a job result. RUNNING remains
+cancellable; CANCELLING remains active, without a premature final error. Only the
+lifecycle owner commits terminal state, once. Registration requires verified success
+and positive containment, and cannot follow an authoritative FAILED/CANCELLED result.
+After 30 seconds of continuous census/reaping uncertainty, the supervisor stops
+already observed process births using pidfds. Once the scientific child has exited,
+it adjudicates `CONTAINMENT_FAILED`; its guardian remains alive with the lease until
+containment can be proved. Later cleanup can release the lease but cannot rewrite
+that FAILED result. An unkillable child may keep containment pending indefinitely.
+
+Successful TERM/KILL delivery remains once per process birth and phase. Failed
+delivery is retried no more than once per 250 ms for that birth/phase while supervision
+continues; pidfds and start ticks guard against PID reuse. No test fault hook is
+available through the application API.

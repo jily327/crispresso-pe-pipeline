@@ -244,7 +244,9 @@ def execute(plan,node,completed,argv):
             p=Path(plan.inputs['r1'].source_path);p.write_bytes(p.read_bytes()+b'changed')
             return result
         child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(100)'])
-        (Path(plan.output).parent/'early-child-pid').write_text(str(child.pid))
+        temporary=Path(plan.output).parent/'early-child-pid.tmp'
+        temporary.write_text(str(child.pid))
+        os.replace(temporary,Path(plan.output).parent/'early-child-pid')
         while True:time.sleep(.02)
     return original(plan,node,completed,argv)
 w.execute_stage=execute
