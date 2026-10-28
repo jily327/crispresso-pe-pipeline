@@ -40,6 +40,17 @@
       "m11c2_passed": 34,
       "skipped": 0,
       "tests": 1910
+    },
+    "wheel": {
+      "cancellation_stress_passed": 80,
+      "duration_seconds": 1112.649,
+      "errors": 0,
+      "failures": 0,
+      "integration_passed": 88,
+      "junit_sha256": "f22ce06fd1b1a6d1d1d6490395da7d72dca7444947d40f1f321090f9c1773d20",
+      "m11c2_passed": 34,
+      "skipped": 0,
+      "tests": 1910
     }
   },
   "package_version": "0.8.0",

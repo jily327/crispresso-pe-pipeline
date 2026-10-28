@@ -112,8 +112,9 @@ No PR, merge, rebase, force push, science change, or redesign is part of this
 qualification. The checkpoint branch is retained. Only after all remaining gates
 pass may the feature branch fast-forward to the final evidence-bearing descendant.
 
-## Qualification checkpoint — source complete
+## Qualification checkpoint — full Python suites complete
 
-Source: **1,910 passed, 0 failures/errors/skips**, including **88 integrations**,
-**34 M11C.2 cases**, and **80 cancellation-stress cases**. Wheel Python and
-installed-wheel browser gates remain pending. **Do not promote yet.**
+Source and fresh installed wheel: **1,910 passed each, 0 failures/errors/skips**,
+including **88 integrations**, **34 M11C.2 cases**, and **80 cancellation-stress
+cases** in each suite. Installed-wheel browser qualification remains pending.
+**Do not promote yet.**

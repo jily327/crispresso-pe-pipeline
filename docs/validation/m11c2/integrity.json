@@ -4,8 +4,8 @@
     "size_bytes": 6438
   },
   "README.md": {
-    "sha256": "b678bb23bd1fd1eb3f6c0a15e5d3a06c41ef0857011ae8eb6ea74c0221d6f0b3",
-    "size_bytes": 6450
+    "sha256": "19f9b13fccb8a0241289f9e8900ab7aad8098cc3fae708e80e4f276eda489469",
+    "size_bytes": 6499
   },
   "packaging.json": {
     "sha256": "837e14ae2a3862b5520be467400f291bc4c0776a400bdf9bfa1cd3a4a483109e",
@@ -16,8 +16,8 @@
     "size_bytes": 21532
   },
   "qualification.json": {
-    "sha256": "7c6ef11e8e7e6e7147973524aa16fbdfb14e489a7ca24febb236532bd9140712",
-    "size_bytes": 1476
+    "sha256": "89246ffd5977013ddf14fcea168f8b56ca8479b3d99f880dcb9afe0deadb18e3",
+    "size_bytes": 1802
   },
   "run-tests.sh": {
     "sha256": "91594f382f18a84f320b99e182c368d8fd6156288284a31e8bd472ca4e6a77d4",
@@ -47,8 +47,28 @@
     "sha256": "bec9ad7638a9e59610fb8dd39046626e64ad4e55585fe695a00c86217e46163d",
     "size_bytes": 9806
   },
+  "wheel-case-inventory.json": {
+    "sha256": "06e221e2bcfea44dbd3fc5f81de06bab5bb7e1459e56ca5b907a02f5c8ab11b8",
+    "size_bytes": 248997
+  },
   "wheel-import.json": {
     "sha256": "a233b8511ec5b026b5f6c2b429cc76544aa3387ca29762e880d55016978a054f",
     "size_bytes": 405
+  },
+  "wheel-lifecycle-traces.json": {
+    "sha256": "087324d6d811ba58ac80dba639c5b6898b15f141731654080ca5d88b4a15221e",
+    "size_bytes": 32998
+  },
+  "wheel-science-parity.json": {
+    "sha256": "7ae4396b36124a55e72fa03a876f8e19f80b8942186f37d149934f2b252aef2d",
+    "size_bytes": 10857
+  },
+  "wheel-tests.txt": {
+    "sha256": "1f35707583e2dc2ba0c7197049d6aec0980fcc39f40bae451f97cc204f7e2185",
+    "size_bytes": 4753
+  },
+  "wheel-tests.xml": {
+    "sha256": "f22ce06fd1b1a6d1d1d6490395da7d72dca7444947d40f1f321090f9c1773d20",
+    "size_bytes": 236373
   }
 }
