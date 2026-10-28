@@ -1,0 +1,42 @@
+{
+  "final_doctor": {
+    "os": "Linux",
+    "kernel": "6.18.55",
+    "architecture": "x86_64",
+    "wsl": false,
+    "python_executable": "/home/ubuntu/.venvs/peanalyzer/bin/python3",
+    "python_version": "3.12.3",
+    "virtualenv": true,
+    "viewer_executable": "/home/ubuntu/.venvs/peanalyzer/bin/peanalyzer-viewer",
+    "package_version": "0.8.0",
+    "gui_import_location": "/home/ubuntu/.venvs/peanalyzer/lib/python3.12/site-packages/peanalyzer/gui/__init__.py",
+    "proc_available": true,
+    "pidfd_open_api": true,
+    "pidfd_signal_api": true,
+    "pidfd_self_open": true,
+    "prctl_get_subreaper": true,
+    "output_root": "/workspace/validation/practical-setup/ubuntu-smoke/analyses",
+    "output_root_exists": true,
+    "output_access_hint": true,
+    "filesystem_type": "overlayfs",
+    "inputs": [
+      {
+        "path": "/workspace/validation/practical-setup/ubuntu-smoke/inputs/pe/raw_R1.fastq.gz",
+        "exists": true,
+        "symlink_component": false
+      }
+    ],
+    "core_executable": "/workspace/validation/practical-setup/runtime/bin/CRISPResso",
+    "core_reported_version": "CRISPResso 2.3.4",
+    "core_exact_2_3_4": true,
+    "port": 8765,
+    "port_occupied": false,
+    "warnings": [],
+    "failures": [],
+    "status": "PASS",
+    "scope": "Prerequisite inspection only; not a scientific qualification or filesystem write test. No recovery key is read."
+  },
+  "missing_input_exit": 2,
+  "occupied_port_status": "PASS_WITH_NOTES",
+  "input_output_runtime_cache_bytes_and_mtimes_unchanged": true
+}

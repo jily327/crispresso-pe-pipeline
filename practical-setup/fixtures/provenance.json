@@ -1,0 +1,38 @@
+{
+  "candidate": "232d380c73f456181bade0e5c11138c8c5ec6570",
+  "source_generators": {
+    "tests/m7_fixtures.py": "7de50c056e90d5671a443db6b5a991333a9cb1ac521f651caa0420ebfd045ab7",
+    "tests/m8_fixtures.py": "1f9d09ac00854171dc39cd591a2d7dc038234db23cb9a62cd0b2e7f2fa4099c7",
+    "tests/m11b_helpers.py": "96e679912a8d355b06cba5c61c9591fb213eb51b70cf600b04235f42e1e198e5"
+  },
+  "parameters": {
+    "pe": {
+      "samples": 1,
+      "copies": 2,
+      "reads_per_copy": 12
+    },
+    "nuclease": {
+      "populations": [
+        [
+          [
+            "WT",
+            12
+          ],
+          [
+            "deletion",
+            4
+          ],
+          [
+            "net_zero",
+            4
+          ]
+        ]
+      ]
+    }
+  },
+  "expected": {
+    "pe": "2/24 total_precise_pe",
+    "nuclease": "8/20 indel_fraction"
+  },
+  "authority": "Unchanged M11B/M11C real-Core lifecycle fixtures"
+}

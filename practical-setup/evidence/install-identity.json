@@ -1,0 +1,22 @@
+{
+  "candidate_sha": "232d380c73f456181bade0e5c11138c8c5ec6570",
+  "artifact_branch": "artifacts/practical-gui-setup",
+  "package_version": "0.8.0",
+  "wheel_sha256": "2db7bdb62e883c85883e88a3e29294e13ba7a40d4c1b9987902a7f48cea19a9e",
+  "native_runtime_image_reference": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "native_runtime_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "ubuntu_image_digest": "sha256:24737cef17f4e22b1977df7d9a05e77c4e28b7da5b8911f8d8ccda136bf3573c",
+  "actual_windows_wsl_tested": false,
+  "application_source_modified": false,
+  "authority_sha256": {
+    "README.md": "f310cd6f7c21e0f8109bd21e5e19afe7e44999e36721c5a94815ffab9097c345",
+    "docs/m10-viewer.md": "4202d9884c97d835dc90d55479131498b5f33237bb5509a27b702a8c70333d10",
+    "docs/m11-analysis-setup.md": "60d73bc9531e2a84bbfd6f10a9a7ed7c735b2c5f631af8e507063abf6b540f2a",
+    "docs/m11b-run-lifecycle.md": "0275ca72f8a061dc816125f2c0a69235e79ac24511584f732293fc56d6c7b932",
+    "docs/m11c-recovery.md": "a1a8e4481d0eaebf9f224468ba43c4741db5e4403b9eee3758f7df449b345a31",
+    "pyproject.toml": "848f9452daae3383986c45bb262a817657cf3a5db341022b0f0570a54142f9f0",
+    "src/peanalyzer/gui/__main__.py": "8d59800b2b66a7f5aa807aac67e3b18e837a66e99d99a4d92c2ada33b2f3f405",
+    "requirements-dev.lock": "9250b5bb5ef9bf9c98b4068381cb3143defd6168340131b940374e606ff1201a",
+    "requirements-gui.lock": "9ce0ac67048aa6de8eeff3343a75cd328c5b77db2ec92f7ba10c8a88d72819f9"
+  }
+}
