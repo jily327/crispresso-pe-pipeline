@@ -51,6 +51,32 @@
       "m11c2_passed": 34,
       "skipped": 0,
       "tests": 1910
+    },
+    "wheel_browser": {
+      "recovery": {
+        "duration": 52123.274000000005,
+        "expected": 8,
+        "flaky": 0,
+        "skipped": 0,
+        "startTime": "2026-10-28T01:01:18.084Z",
+        "unexpected": 0
+      },
+      "run": {
+        "duration": 53382.804,
+        "expected": 6,
+        "flaky": 0,
+        "skipped": 0,
+        "startTime": "2026-10-28T00:59:09.272Z",
+        "unexpected": 0
+      },
+      "viewer": {
+        "duration": 29595.561999999998,
+        "expected": 18,
+        "flaky": 0,
+        "skipped": 0,
+        "startTime": "2026-10-28T00:58:38.134Z",
+        "unexpected": 0
+      }
     }
   },
   "package_version": "0.8.0",

@@ -1,0 +1,20 @@
+[
+  {
+    "branch": "work/m11c2-remediation",
+    "sha": "b4aee11b1f4ba56791a5d36629a14c3e154ae4d8",
+    "gate": "published candidate preserved before remaining full qualification",
+    "remote_verified": true
+  },
+  {
+    "branch": "work/m11c2-remediation",
+    "sha": "6aad8ab91c8e112a43bb41d58f3e3f1a94102292",
+    "gate": "full source 1910/0/0/0 including 88 integrations; feature unchanged",
+    "remote_verified": true
+  },
+  {
+    "branch": "work/m11c2-remediation",
+    "sha": "6c88c11a05a50ea1667fc5475360084597c73aae",
+    "gate": "full installed-wheel 1910/0/0/0 including 88 integrations; feature unchanged",
+    "remote_verified": true
+  }
+]

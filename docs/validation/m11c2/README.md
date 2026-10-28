@@ -112,9 +112,46 @@ No PR, merge, rebase, force push, science change, or redesign is part of this
 qualification. The checkpoint branch is retained. Only after all remaining gates
 pass may the feature branch fast-forward to the final evidence-bearing descendant.
 
-## Qualification checkpoint — full Python suites complete
+## Final qualification — PASS
 
-Source and fresh installed wheel: **1,910 passed each, 0 failures/errors/skips**,
-including **88 integrations**, **34 M11C.2 cases**, and **80 cancellation-stress
-cases** in each suite. Installed-wheel browser qualification remains pending.
-**Do not promote yet.**
+| Gate | Terminal result | Authority |
+|---|---|---|
+| Source Python | 1,910 passed; 0 failures/errors/skips | Current terminal JUnit |
+| Installed-wheel Python | 1,910 passed; 0 failures/errors/skips | Current terminal JUnit; site-packages origin |
+| Integrations | 88 passed in each full suite | Marker inventory matched to terminal cases |
+| M11C.2 tests | 34 passed in each full suite | Current terminal cases |
+| Repeated cancellation | 80 passed in each full suite | Current terminal cases |
+| Frontend | 48 passed | Completed checkpoint handoff |
+| Source browser | 32 passed | Completed checkpoint handoff |
+| Wheel browser | 32 passed (18 viewer/setup + 6 Run + 8 Recovery); no skips/failures/flaky cases | Current Playwright terminal reports |
+| Three-way package parity | 92 identical wheel members | Completed checkpoint handoff; fresh candidate wheel package bytes rechecked |
+| Force closure | 192 allowed / 64 blocked / 0 mismatches | Current frozen independent oracle comparison |
+| Science / frozen audit bytes | 62 / 65 unchanged | Current byte checks |
+
+The 21 warnings in each Python suite are the retained deliberate SVG-invalid/
+unusual-character font warnings and Starlette's AnyIO deprecation warning, not
+unexplained skipped scenarios. There were no product/test failures in this
+continuation and no production or test modifications.
+
+`source-wheel-science.json` proves the full scientific projection hashes match
+across source/wheel and fresh/resume/force, beyond matching the headline fractions.
+`wheel-browser-immutability.json` records 11 final-verifier calls, zero scientific
+executors during Setup/Review/viewing, and unchanged input/workspace bytes/mtimes.
+All browser servers, tests, workers and backend processes exited; the host lease
+was verified free before publication. Terminated zombie records are not treated
+as active scientific workers.
+
+### Durable publication and lineage
+
+The protected feature remained at `7df52db461b719ee0370c8e4b2416d7f6382a4af`
+through all measured gates. Working-branch checkpoints were pushed and remotely
+verified before promotion: initial `b4aee11`, source evidence `6aad8ab`, wheel
+evidence `6c88c11`, followed by this final evidence commit. The feature may now
+fast-forward to this exact commit; no force push, PR, merge or rebase is needed.
+The immutable implementation checkpoint branch remains at `b4aee11`.
+
+The exact evidence/publication commit is the Git commit containing this document;
+it is intentionally not embedded in its own hashed payload. `lineage.json` records
+the measured implementation SHA and prior durable commit SHAs. All subsequent
+changes are under this evidence directory. The final response and remote branch
+refs report the exact promoted SHA.
