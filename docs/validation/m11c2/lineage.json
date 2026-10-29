@@ -1,0 +1,19 @@
+{
+  "measured_candidate_sha": "b4aee11b1f4ba56791a5d36629a14c3e154ae4d8",
+  "protected_feature_before_promotion": "7df52db461b719ee0370c8e4b2416d7f6382a4af",
+  "main": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "checkpoint_branch": "checkpoint/m11c2-remediation-b4aee11",
+  "working_branch": "work/m11c2-remediation",
+  "production_tests_frontend_unchanged_since_measured_candidate": true,
+  "final_package_files_equal_candidate_wheel": 87,
+  "prior_commits": [
+    "eef2d601c3b8c856b7af2c1d028c3100941ce9cc fix: authenticate recovery ownership outside mutable workspace claims",
+    "f7841db5da3b6c382fb5eb8613aa0bcd859c169b fix: adjudicate containment once and retry failed signal deliveries",
+    "88526d5ca358875f1c36dd74110c1c21e7e70d34 test: publish cancellation fixture PID atomically and document recovery trust",
+    "5f84be558f27d1a8d545444c5891bd3df3664c6b test: create lifecycle evidence parent directories before recording",
+    "b4aee11b1f4ba56791a5d36629a14c3e154ae4d8 test: control workspace binding in observer parity and reject root replacement",
+    "6aad8ab91c8e112a43bb41d58f3e3f1a94102292 docs: preserve M11C.2 complete source qualification",
+    "6c88c11a05a50ea1667fc5475360084597c73aae docs: preserve M11C.2 complete installed-wheel qualification"
+  ],
+  "promotion_requires_all_gates_pass": true
+}

@@ -1,0 +1,16 @@
+{
+  "production_commit": "5589db9cdf1e717d88e26d827b8515c1260cc6b7",
+  "final_test_commit": "f0a4adc63fbb5db239a29334bcc8e1065d2e11b9",
+  "wheel_members": 91,
+  "all_five_wheel_member_bytes_identical": true,
+  "final_sdist_contains_current_tests": true,
+  "node_available_during_build": false,
+  "archives": {
+    "/workspace/m11c1-remediation/dist/crispresso_pe_pipeline-0.8.0-py3-none-any.whl": "93177dcec009d302e7ce09ce23d618b9800e4d4df3e0da44b98083c67c49aa58",
+    "/workspace/m11c1-remediation/sdist-wheel/crispresso_pe_pipeline-0.8.0-py3-none-any.whl": "ee0556b62d5e3f4a7a5f716c47713566bd8319f84be2eb4e54f24d44e243d9b0",
+    "/workspace/m11c1-remediation/clean-dist/crispresso_pe_pipeline-0.8.0-py3-none-any.whl": "0b003b60bfed74b28db336c47263dbb67d836d0d32e76c8b535f265809b5af40",
+    "/workspace/m11c1-remediation/final-dist/crispresso_pe_pipeline-0.8.0-py3-none-any.whl": "b6e1e12eea4d4ddfaa80918775e360bc1a886d07bf926eab1444df6f5b594862",
+    "/workspace/m11c1-remediation/final-sdist-wheel/crispresso_pe_pipeline-0.8.0-py3-none-any.whl": "dc437105eeae9e6521f9a8c1fccf81db01d91016b3a7255ae13a7e302dca7fc7",
+    "/workspace/m11c1-remediation/final-dist/crispresso_pe_pipeline-0.8.0.tar.gz": "22d12ad2b710a4dc737e022f249480b55b027154f5b2b7633aad03e194163f60"
+  }
+}

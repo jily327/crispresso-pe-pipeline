@@ -1,0 +1,22 @@
+{
+  "server-sigkill": {
+    "server_signal": "SIGKILL",
+    "busy_during_cleanup": true,
+    "scientific_child_alive_after": false,
+    "detached_alive_after": false,
+    "lease_busy_after": false,
+    "unrelated_canary_alive": true,
+    "invocation_lock_present": false,
+    "completion_present": false,
+    "recovery_classification": "RESUMABLE"
+  },
+  "detached-cancellation": {
+    "state": "CANCELLED",
+    "detached_alive_after": false,
+    "lease_busy_after": false,
+    "unrelated_canary_alive": true,
+    "invocation_lock_present": false,
+    "completion_present": false,
+    "detached_fixture": "double-fork setsid SIGTERM ignored"
+  }
+}

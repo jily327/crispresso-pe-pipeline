@@ -1,0 +1,19 @@
+{
+  "member_bytes_identical": true,
+  "member_count": 91,
+  "wheels": {
+    "final-dist": "9a84008900f9ab5458e375f043da959a35c78e2881602e8e231bda34ca601134",
+    "final-direct-dist": "9a84008900f9ab5458e375f043da959a35c78e2881602e8e231bda34ca601134"
+  },
+  "version": "0.8.0",
+  "production_commit": "d93a9cf",
+  "installed_imports": {
+    "peanalyzer": "/workspace/validation/m11c/wheel-venv/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "peanalyzer.gui.recovery": "/workspace/validation/m11c/wheel-venv/lib/python3.12/site-packages/peanalyzer/gui/recovery.py",
+    "peanalyzer.gui.supervision": "/workspace/validation/m11c/wheel-venv/lib/python3.12/site-packages/peanalyzer/gui/supervision.py",
+    "peanalyzer.workflow_recovery": "/workspace/validation/m11c/wheel-venv/lib/python3.12/site-packages/peanalyzer/workflow_recovery.py"
+  },
+  "qualified_source_commit": "57456d21daee38300f770b567f11be8077443fca",
+  "sdist_rebuild": "python -m build builds the sdist, then builds its wheel in a separate temporary extraction; separately compared with direct --wheel build",
+  "current_production_files_equal_qualified_wheel": 86
+}

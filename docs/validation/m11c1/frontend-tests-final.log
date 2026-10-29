@@ -1,0 +1,22 @@
+
+> peanalyzer-verified-viewer@0.8.0 test
+> vitest run
+
+
+ RUN  v5.0.5 /workspace/crispresso-pe-pipeline-m11c/frontend
+
+
+ Test Files  5 passed (5)
+      Tests  48 passed (48)
+   Start at  03:35:42
+   Duration  3.85s (tests 51%, environment 36%, setup 7%, import 3%, transform 2%)
+
+Environment  jsdom was created 5 times · 3.58s total, 36% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

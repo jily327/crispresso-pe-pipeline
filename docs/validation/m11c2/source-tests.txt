@@ -1,0 +1,60 @@
+........................................................................ [  3%]
+........................................................................ [  7%]
+........................................................................ [ 11%]
+........................................................................ [ 15%]
+........................................................................ [ 18%]
+........................................................................ [ 22%]
+........................................................................ [ 26%]
+........................................................................ [ 30%]
+........................................................................ [ 33%]
+........................................................................ [ 37%]
+........................................................................ [ 41%]
+........................................................................ [ 45%]
+........................................................................ [ 49%]
+........................................................................ [ 52%]
+........................................................................ [ 56%]
+........................................................................ [ 60%]
+........................................................................ [ 64%]
+........................................................................ [ 67%]
+........................................................................ [ 71%]
+........................................................................ [ 75%]
+........................................................................ [ 79%]
+........................................................................ [ 82%]
+........................................................................ [ 86%]
+........................................................................ [ 90%]
+........................................................................ [ 94%]
+........................................................................ [ 98%]
+......................................                                   [100%]
+=============================== warnings summary ===============================
+../validation/m11a1/source-venv/lib/python3.12/site-packages/starlette/testclient.py:37
+  /workspace/validation/m11a1/source-venv/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U0001]
+tests/test_m61.py::test_contrast_failure_removes_previously_staged_sample_figures
+tests/test_m7.py::test_m61_invalid_svg_fails_workflow_closed
+tests/test_m8.py::test_nuclease_keeps_m61_fail_closed[\x01]
+  /workspace/m11c2-qualification/src/peanalyzer/reporting.py:231: UserWarning: Glyph 1 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U000B]
+tests/test_m8.py::test_nuclease_keeps_m61_fail_closed[\x0b]
+  /workspace/m11c2-qualification/src/peanalyzer/reporting.py:231: UserWarning: Glyph 11 (
+  ) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFE]
+  /workspace/m11c2-qualification/src/peanalyzer/reporting.py:231: UserWarning: Glyph 65534 (\ufffe) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFF]
+  /workspace/m11c2-qualification/src/peanalyzer/reporting.py:231: UserWarning: Glyph 65535 (\uffff) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py: 12 warnings
+  /workspace/m11c2-qualification/src/peanalyzer/reporting.py:231: UserWarning: Glyph 127 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /workspace/validation/m11c2-checkpoint/source-tests/tests.xml -
+1910 passed, 21 warnings in 1117.17s (0:18:37)

@@ -1,0 +1,86 @@
+{
+  "adopted_checkpoint_evidence": {
+    "authority": "User-provided checkpoint handoff for exact b4aee11; previous untracked evidence is unavailable in this environment. These gates were not rerun.",
+    "cancellation_stress": 80,
+    "focused_regressions": "PASS per handoff; also covered by both full suites below",
+    "frontend": {
+      "failures": 0,
+      "passed": 48
+    },
+    "packaging_three_way": {
+      "byte_identical": true,
+      "members": 92,
+      "paths": [
+        "direct wheel",
+        "clean-checkout wheel",
+        "sdist to wheel"
+      ]
+    },
+    "real_core_PE": "2/24; fresh = resume = force",
+    "real_core_nuclease": "8/20; fresh = resume = force",
+    "source_browser": {
+      "failures": 0,
+      "passed": 32,
+      "recovery": 8,
+      "run": 6,
+      "viewer_setup": 18
+    }
+  },
+  "candidate_sha": "b4aee11b1f4ba56791a5d36629a14c3e154ae4d8",
+  "expected_collected": 1910,
+  "new_m11c2_cases": 34,
+  "observed": {
+    "source": {
+      "cancellation_stress_passed": 80,
+      "duration_seconds": 1117.127,
+      "errors": 0,
+      "failures": 0,
+      "integration_passed": 88,
+      "junit_sha256": "989191ee238b00fda0ad36da2e153c4eab1026f16981f168479a6ab600e46642",
+      "m11c2_passed": 34,
+      "skipped": 0,
+      "tests": 1910
+    },
+    "wheel": {
+      "cancellation_stress_passed": 80,
+      "duration_seconds": 1112.649,
+      "errors": 0,
+      "failures": 0,
+      "integration_passed": 88,
+      "junit_sha256": "f22ce06fd1b1a6d1d1d6490395da7d72dca7444947d40f1f321090f9c1773d20",
+      "m11c2_passed": 34,
+      "skipped": 0,
+      "tests": 1910
+    },
+    "wheel_browser": {
+      "recovery": {
+        "duration": 52123.274000000005,
+        "expected": 8,
+        "flaky": 0,
+        "skipped": 0,
+        "startTime": "2026-10-28T01:01:18.084Z",
+        "unexpected": 0
+      },
+      "run": {
+        "duration": 53382.804,
+        "expected": 6,
+        "flaky": 0,
+        "skipped": 0,
+        "startTime": "2026-10-28T00:59:09.272Z",
+        "unexpected": 0
+      },
+      "viewer": {
+        "duration": 29595.561999999998,
+        "expected": 18,
+        "flaky": 0,
+        "skipped": 0,
+        "startTime": "2026-10-28T00:58:38.134Z",
+        "unexpected": 0
+      }
+    }
+  },
+  "package_version": "0.8.0",
+  "production_modified_during_continuation": false,
+  "retained_python_cases": 1876,
+  "starting_feature_sha": "7df52db461b719ee0370c8e4b2416d7f6382a4af"
+}

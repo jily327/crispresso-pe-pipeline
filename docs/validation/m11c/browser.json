@@ -1,0 +1,75 @@
+{
+  "source-browser-run": {
+    "stats": {
+      "startTime": "2026-10-26T18:34:19.834Z",
+      "duration": 48445.647,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "report_sha256": "72ad88224f5b78da2fcc6ccc0eb41cf1c1a48065f65d550bdb40ae14fb876002"
+  },
+  "source-browser-final": {
+    "stats": {
+      "startTime": "2026-10-27T01:02:13.553Z",
+      "duration": 57011.538,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "report_sha256": "c9d2ad0e3c60ac89c16a46026e322187bac75e62ff1916021a63c3725715e85a"
+  },
+  "wheel-browser-run": {
+    "stats": {
+      "startTime": "2026-10-27T01:03:52.980Z",
+      "duration": 48118.195999999996,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "report_sha256": "a088945e07a22fff7c3cc19c08860f6474da7e6cfc07722e04e3ad907f001f32"
+  },
+  "wheel-browser-recovery": {
+    "stats": {
+      "startTime": "2026-10-27T01:07:50.616Z",
+      "duration": 52297.054000000004,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "report_sha256": "a9c79198780d71c794525b51af5da4f8100b180ad870da421c49dc618a137759"
+  },
+  "wheel-browser-viewer-final": {
+    "stats": {
+      "startTime": "2026-10-27T01:02:37.148Z",
+      "duration": 33347.305,
+      "expected": 18,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "report_sha256": "d9834c0d064ad50014d630afb0fbfa1608cc8572cec216fe0bf63912632be25c"
+  },
+  "source-browser-viewer": {
+    "passed": 18,
+    "log_sha256": "5f5d0303ab7ed33820dc66afca8982971fac53d593af33661188f406c24757e9"
+  },
+  "source-viewer-setup-guards": {
+    "full_verifier_calls": 11,
+    "scientific_executor_calls": 0,
+    "workspace_and_input_bytes_and_mtimes_unchanged": true,
+    "setup_inputs_and_proposed_output_unchanged": true,
+    "guarded_functions": "See gui_helpers.forbid_execution"
+  },
+  "wheel-viewer-setup-guards": {
+    "full_verifier_calls": 11,
+    "scientific_executor_calls": 0,
+    "workspace_and_input_bytes_and_mtimes_unchanged": true,
+    "setup_inputs_and_proposed_output_unchanged": true,
+    "guarded_functions": "See gui_helpers.forbid_execution"
+  }
+}

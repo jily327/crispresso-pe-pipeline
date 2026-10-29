@@ -1,0 +1,1150 @@
+{
+  "cancel": {
+    "events": [
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 1,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "ACCEPTED",
+        "timestamp": "2026-10-27T22:00:11.612512+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 2,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "SUPERVISOR_READY",
+        "timestamp": "2026-10-27T22:00:12.080833+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 3,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "WORKER_READY",
+        "timestamp": "2026-10-27T22:00:12.101022+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 4,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:12.178478+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 5,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:12.205039+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 6,
+        "stage_id": "demux",
+        "stage_kind": "demux",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:12.205212+00:00"
+      },
+      {
+        "code": "CANCELLATION_INCOMPLETE",
+        "reason_codes": [
+          "census:PermissionError:1"
+        ],
+        "sequence": 7,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "CONTAINMENT_ERROR",
+        "timestamp": "2026-10-27T22:00:12.229043+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 8,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "CANCELLING",
+        "status": "CANCEL_REQUESTED",
+        "timestamp": "2026-10-27T22:00:12.256143+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 9,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "CANCELLING",
+        "status": "CONTAINMENT_CONFIRMED",
+        "timestamp": "2026-10-27T22:00:12.291235+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 10,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "CANCELLED",
+        "status": "CANCELLED",
+        "timestamp": "2026-10-27T22:00:12.406896+00:00"
+      }
+    ],
+    "final": {
+      "analysis_mode": "precise_edit",
+      "analysis_name": "Lifecycle precise_edit",
+      "cancellable": false,
+      "current_stage_id": "demux",
+      "draft_id": "15238147b1634933a9def16c02d60bdc",
+      "elapsed_seconds": 0.8,
+      "ended_at": "2026-10-27T22:00:12.406877+00:00",
+      "error": null,
+      "execution_spec_sha256": "7af23d7b0292e694ba078c6695e6dd67a9ac4b53725da02bb0d269065f3499b2",
+      "finished_stages": 1,
+      "input_metadata": [
+        {
+          "name": "samples.csv",
+          "value": "997a056d5fc02b9f4bba35f795c635dcdc6837439ee4735617ff7e6d068c4373"
+        },
+        {
+          "name": "targets.csv",
+          "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+        },
+        {
+          "name": "config.json",
+          "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+        },
+        {
+          "name": "barcodes.csv",
+          "value": "6695d7a1120bd9eebc2087ff5e95973cea4bb1723a37b3c5148f3f04a6a277d1"
+        }
+      ],
+      "job_contract": "analysis-job-v1",
+      "job_id": "9bbf917ff77a403580954d92cdb559c1",
+      "latest_sequence": 10,
+      "output_proposal": "outputs / analysis",
+      "plan_identity_sha256": "d8bb6a1cf21805ee727a3b95822afa91fb80180a6875e1c5019115f8ac660f37",
+      "revision": 1,
+      "scientific_identity_sha256": "8d34d796583124cb0156bec175f5c0657d8b0265bc3b74902bf9a1fbf7f0be81",
+      "stages": [
+        {
+          "dependencies": [],
+          "kind": "raw_inputs",
+          "label": "raw_inputs",
+          "output_path": "workflow/sources/raw_inputs.json",
+          "reason_codes": [],
+          "stage_id": "raw_inputs",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "raw_inputs"
+          ],
+          "kind": "demux",
+          "label": "demux",
+          "output_path": "demux",
+          "reason_codes": [],
+          "stage_id": "demux",
+          "status": "CANCELLED"
+        },
+        {
+          "dependencies": [
+            "demux"
+          ],
+          "kind": "analysis",
+          "label": "analysis",
+          "output_path": "analysis",
+          "reason_codes": [],
+          "stage_id": "analysis",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "analysis"
+          ],
+          "kind": "routing",
+          "label": "routing",
+          "output_path": "routing/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "routing::bc001::T1",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "analysis",
+            "routing::bc001::T1"
+          ],
+          "kind": "metrics",
+          "label": "metrics",
+          "output_path": "metrics/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "metrics::bc001::T1",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "metrics::bc001::T1"
+          ],
+          "kind": "metrics_manifest",
+          "label": "metrics_manifest",
+          "output_path": "metrics/manifest.csv",
+          "reason_codes": [],
+          "stage_id": "metrics_manifest",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "metrics_manifest"
+          ],
+          "kind": "statistics",
+          "label": "statistics",
+          "output_path": "statistics",
+          "reason_codes": [],
+          "stage_id": "statistics",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "statistics"
+          ],
+          "kind": "report",
+          "label": "report",
+          "output_path": "report",
+          "reason_codes": [],
+          "stage_id": "report",
+          "status": "PENDING"
+        }
+      ],
+      "started_at": "2026-10-27T22:00:11.612417+00:00",
+      "state": "CANCELLED",
+      "target_name": "T1",
+      "total_stages": 8,
+      "warnings": [
+        {
+          "code": "BACKEND_METADATA_WARNING",
+          "detail": null,
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "severity": "WARNING",
+          "step": "target"
+        }
+      ],
+      "workspace_id": null
+    }
+  },
+  "failure": {
+    "events": [
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 1,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "ACCEPTED",
+        "timestamp": "2026-10-27T22:00:12.468557+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 2,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "SUPERVISOR_READY",
+        "timestamp": "2026-10-27T22:00:12.962511+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 3,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "WORKER_READY",
+        "timestamp": "2026-10-27T22:00:12.985550+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 4,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:13.060870+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 5,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:13.094076+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 6,
+        "stage_id": "demux",
+        "stage_kind": "demux",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:13.094231+00:00"
+      },
+      {
+        "code": "CANCELLATION_INCOMPLETE",
+        "reason_codes": [
+          "census:PermissionError:1"
+        ],
+        "sequence": 7,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "CONTAINMENT_ERROR",
+        "timestamp": "2026-10-27T22:00:13.130370+00:00"
+      },
+      {
+        "code": "STAGE_EXECUTION_FAILED",
+        "reason_codes": [],
+        "sequence": 8,
+        "stage_id": "demux",
+        "stage_kind": "demux",
+        "state": "RUNNING",
+        "status": "FAILED",
+        "timestamp": "2026-10-27T22:00:13.155435+00:00"
+      },
+      {
+        "code": "STAGE_EXECUTION_FAILED",
+        "reason_codes": [],
+        "sequence": 9,
+        "stage_id": "demux",
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "WORKER_ERROR",
+        "timestamp": "2026-10-27T22:00:13.158552+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 10,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "CONTAINMENT_CONFIRMED",
+        "timestamp": "2026-10-27T22:00:13.172488+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 11,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "VIEWER_VERIFICATION",
+        "timestamp": "2026-10-27T22:00:13.275261+00:00"
+      },
+      {
+        "code": "STAGE_EXECUTION_FAILED",
+        "reason_codes": [],
+        "sequence": 12,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "FAILED",
+        "status": "FAILED",
+        "timestamp": "2026-10-27T22:00:13.275313+00:00"
+      }
+    ],
+    "final": {
+      "analysis_mode": "precise_edit",
+      "analysis_name": "Lifecycle precise_edit",
+      "cancellable": false,
+      "current_stage_id": "demux",
+      "draft_id": "0e5e4d9de5f24820876c967895683026",
+      "elapsed_seconds": 0.8,
+      "ended_at": "2026-10-27T22:00:13.275308+00:00",
+      "error": {
+        "code": "STAGE_EXECUTION_FAILED",
+        "detail": "STAGE_EXECUTION_FAILED [demux]: Real stage failure after diagnostic",
+        "message": "The scientific workflow stopped.",
+        "stage_id": "demux"
+      },
+      "execution_spec_sha256": "784fe96d95b6f091501d4c4605115c5dfb1ac0a35f07fb17ba0405c61f5dbf79",
+      "finished_stages": 1,
+      "input_metadata": [
+        {
+          "name": "samples.csv",
+          "value": "997a056d5fc02b9f4bba35f795c635dcdc6837439ee4735617ff7e6d068c4373"
+        },
+        {
+          "name": "targets.csv",
+          "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+        },
+        {
+          "name": "config.json",
+          "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+        },
+        {
+          "name": "barcodes.csv",
+          "value": "6695d7a1120bd9eebc2087ff5e95973cea4bb1723a37b3c5148f3f04a6a277d1"
+        }
+      ],
+      "job_contract": "analysis-job-v1",
+      "job_id": "d1710c1603f34cf69c6fb48a3c971130",
+      "latest_sequence": 12,
+      "output_proposal": "outputs / analysis",
+      "plan_identity_sha256": "73480dbc3b99936d5d4ac3c30520f2616fbabcaf831596effbcbeab6e6b09c0d",
+      "revision": 1,
+      "scientific_identity_sha256": "8d34d796583124cb0156bec175f5c0657d8b0265bc3b74902bf9a1fbf7f0be81",
+      "stages": [
+        {
+          "dependencies": [],
+          "kind": "raw_inputs",
+          "label": "raw_inputs",
+          "output_path": "workflow/sources/raw_inputs.json",
+          "reason_codes": [],
+          "stage_id": "raw_inputs",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "raw_inputs"
+          ],
+          "kind": "demux",
+          "label": "demux",
+          "output_path": "demux",
+          "reason_codes": [],
+          "stage_id": "demux",
+          "status": "FAILED"
+        },
+        {
+          "dependencies": [
+            "demux"
+          ],
+          "kind": "analysis",
+          "label": "analysis",
+          "output_path": "analysis",
+          "reason_codes": [],
+          "stage_id": "analysis",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "analysis"
+          ],
+          "kind": "routing",
+          "label": "routing",
+          "output_path": "routing/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "routing::bc001::T1",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "analysis",
+            "routing::bc001::T1"
+          ],
+          "kind": "metrics",
+          "label": "metrics",
+          "output_path": "metrics/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "metrics::bc001::T1",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "metrics::bc001::T1"
+          ],
+          "kind": "metrics_manifest",
+          "label": "metrics_manifest",
+          "output_path": "metrics/manifest.csv",
+          "reason_codes": [],
+          "stage_id": "metrics_manifest",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "metrics_manifest"
+          ],
+          "kind": "statistics",
+          "label": "statistics",
+          "output_path": "statistics",
+          "reason_codes": [],
+          "stage_id": "statistics",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "statistics"
+          ],
+          "kind": "report",
+          "label": "report",
+          "output_path": "report",
+          "reason_codes": [],
+          "stage_id": "report",
+          "status": "PENDING"
+        }
+      ],
+      "started_at": "2026-10-27T22:00:12.468464+00:00",
+      "state": "FAILED",
+      "target_name": "T1",
+      "total_stages": 8,
+      "warnings": [
+        {
+          "code": "BACKEND_METADATA_WARNING",
+          "detail": null,
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "severity": "WARNING",
+          "step": "target"
+        }
+      ],
+      "workspace_id": null
+    }
+  },
+  "persistent": {
+    "events": [
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 1,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "ACCEPTED",
+        "timestamp": "2026-10-27T22:00:13.367087+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 2,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "SUPERVISOR_READY",
+        "timestamp": "2026-10-27T22:00:13.917498+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 3,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "WORKER_READY",
+        "timestamp": "2026-10-27T22:00:13.937725+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 4,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:14.016260+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 5,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:14.042906+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 6,
+        "stage_id": "demux",
+        "stage_kind": "demux",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:14.043071+00:00"
+      },
+      {
+        "code": "CANCELLATION_INCOMPLETE",
+        "reason_codes": [
+          "census:PermissionError:1"
+        ],
+        "sequence": 7,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "CONTAINMENT_ERROR",
+        "timestamp": "2026-10-27T22:00:14.086172+00:00"
+      },
+      {
+        "code": "CANCELLATION_INCOMPLETE",
+        "reason_codes": [],
+        "sequence": 8,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "FAILED",
+        "status": "FAILED",
+        "timestamp": "2026-10-27T22:00:15.114704+00:00"
+      }
+    ],
+    "final": {
+      "analysis_mode": "precise_edit",
+      "analysis_name": "Lifecycle precise_edit",
+      "cancellable": false,
+      "current_stage_id": "demux",
+      "draft_id": "1aa5598095c147ba91a914f15a9ca5f4",
+      "elapsed_seconds": 1.7,
+      "ended_at": "2026-10-27T22:00:15.114696+00:00",
+      "error": {
+        "code": "CANCELLATION_INCOMPLETE",
+        "detail": "Scientific child stopped; host worker lease remains held.",
+        "message": "Scientific process containment is incomplete.",
+        "stage_id": null
+      },
+      "execution_spec_sha256": "6607b1835d8d4b475ab49781261e00c1827505f4e0d50c37c6590f75e182a5fc",
+      "finished_stages": 1,
+      "input_metadata": [
+        {
+          "name": "samples.csv",
+          "value": "997a056d5fc02b9f4bba35f795c635dcdc6837439ee4735617ff7e6d068c4373"
+        },
+        {
+          "name": "targets.csv",
+          "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+        },
+        {
+          "name": "config.json",
+          "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+        },
+        {
+          "name": "barcodes.csv",
+          "value": "6695d7a1120bd9eebc2087ff5e95973cea4bb1723a37b3c5148f3f04a6a277d1"
+        }
+      ],
+      "job_contract": "analysis-job-v1",
+      "job_id": "0859a45a7a6e447bb72908cc674a690f",
+      "latest_sequence": 8,
+      "output_proposal": "outputs / analysis",
+      "plan_identity_sha256": "d52673fe2c87b4c4fcf33e69982aecd4f9b0b2fda49660f7d35b4504eb96ddde",
+      "revision": 1,
+      "scientific_identity_sha256": "8d34d796583124cb0156bec175f5c0657d8b0265bc3b74902bf9a1fbf7f0be81",
+      "stages": [
+        {
+          "dependencies": [],
+          "kind": "raw_inputs",
+          "label": "raw_inputs",
+          "output_path": "workflow/sources/raw_inputs.json",
+          "reason_codes": [],
+          "stage_id": "raw_inputs",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "raw_inputs"
+          ],
+          "kind": "demux",
+          "label": "demux",
+          "output_path": "demux",
+          "reason_codes": [],
+          "stage_id": "demux",
+          "status": "FAILED"
+        },
+        {
+          "dependencies": [
+            "demux"
+          ],
+          "kind": "analysis",
+          "label": "analysis",
+          "output_path": "analysis",
+          "reason_codes": [],
+          "stage_id": "analysis",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "analysis"
+          ],
+          "kind": "routing",
+          "label": "routing",
+          "output_path": "routing/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "routing::bc001::T1",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "analysis",
+            "routing::bc001::T1"
+          ],
+          "kind": "metrics",
+          "label": "metrics",
+          "output_path": "metrics/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "metrics::bc001::T1",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "metrics::bc001::T1"
+          ],
+          "kind": "metrics_manifest",
+          "label": "metrics_manifest",
+          "output_path": "metrics/manifest.csv",
+          "reason_codes": [],
+          "stage_id": "metrics_manifest",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "metrics_manifest"
+          ],
+          "kind": "statistics",
+          "label": "statistics",
+          "output_path": "statistics",
+          "reason_codes": [],
+          "stage_id": "statistics",
+          "status": "PENDING"
+        },
+        {
+          "dependencies": [
+            "statistics"
+          ],
+          "kind": "report",
+          "label": "report",
+          "output_path": "report",
+          "reason_codes": [],
+          "stage_id": "report",
+          "status": "PENDING"
+        }
+      ],
+      "started_at": "2026-10-27T22:00:13.366951+00:00",
+      "state": "FAILED",
+      "target_name": "T1",
+      "total_stages": 8,
+      "warnings": [
+        {
+          "code": "BACKEND_METADATA_WARNING",
+          "detail": null,
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "severity": "WARNING",
+          "step": "target"
+        }
+      ],
+      "workspace_id": null
+    }
+  },
+  "success": {
+    "events": [
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 1,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "ACCEPTED",
+        "timestamp": "2026-10-27T22:00:09.805790+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 2,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "STARTING",
+        "status": "SUPERVISOR_READY",
+        "timestamp": "2026-10-27T22:00:10.291613+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 3,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "WORKER_READY",
+        "timestamp": "2026-10-27T22:00:10.311804+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 4,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:10.390491+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 5,
+        "stage_id": "raw_inputs",
+        "stage_kind": "raw_inputs",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:10.416651+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 6,
+        "stage_id": "demux",
+        "stage_kind": "demux",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:10.416798+00:00"
+      },
+      {
+        "code": "CANCELLATION_INCOMPLETE",
+        "reason_codes": [
+          "census:PermissionError:1"
+        ],
+        "sequence": 7,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "CONTAINMENT_ERROR",
+        "timestamp": "2026-10-27T22:00:10.460392+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 8,
+        "stage_id": "demux",
+        "stage_kind": "demux",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:10.632448+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 9,
+        "stage_id": "analysis",
+        "stage_kind": "analysis",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:10.632585+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 10,
+        "stage_id": "analysis",
+        "stage_kind": "analysis",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:10.667634+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 11,
+        "stage_id": "routing::bc001::T1",
+        "stage_kind": "routing",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:10.667776+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 12,
+        "stage_id": "routing::bc001::T1",
+        "stage_kind": "routing",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:10.924939+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 13,
+        "stage_id": "metrics::bc001::T1",
+        "stage_kind": "metrics",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:10.925100+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 14,
+        "stage_id": "metrics::bc001::T1",
+        "stage_kind": "metrics",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:11.028014+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 15,
+        "stage_id": "metrics_manifest",
+        "stage_kind": "metrics_manifest",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:11.028160+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 16,
+        "stage_id": "metrics_manifest",
+        "stage_kind": "metrics_manifest",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:11.055737+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 17,
+        "stage_id": "statistics",
+        "stage_kind": "statistics",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:11.055972+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 18,
+        "stage_id": "statistics",
+        "stage_kind": "statistics",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:11.088622+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 19,
+        "stage_id": "report",
+        "stage_kind": "report",
+        "state": "RUNNING",
+        "status": "RUNNING",
+        "timestamp": "2026-10-27T22:00:11.088762+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 20,
+        "stage_id": "report",
+        "stage_kind": "report",
+        "state": "RUNNING",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:11.181705+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 21,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "FINAL_VALIDATION",
+        "timestamp": "2026-10-27T22:00:11.181779+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 22,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "VERIFIED_SUCCESS",
+        "timestamp": "2026-10-27T22:00:11.297888+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 23,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "CONTAINMENT_CONFIRMED",
+        "timestamp": "2026-10-27T22:00:11.312856+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 24,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "RUNNING",
+        "status": "VIEWER_VERIFICATION",
+        "timestamp": "2026-10-27T22:00:11.418137+00:00"
+      },
+      {
+        "code": null,
+        "reason_codes": [],
+        "sequence": 25,
+        "stage_id": null,
+        "stage_kind": null,
+        "state": "COMPLETED",
+        "status": "COMPLETED",
+        "timestamp": "2026-10-27T22:00:11.516348+00:00"
+      }
+    ],
+    "final": {
+      "analysis_mode": "precise_edit",
+      "analysis_name": "Lifecycle precise_edit",
+      "cancellable": false,
+      "current_stage_id": null,
+      "draft_id": "07d86fc38f5b46c0a9dad2cdebdb05b1",
+      "elapsed_seconds": 1.7,
+      "ended_at": "2026-10-27T22:00:11.516337+00:00",
+      "error": null,
+      "execution_spec_sha256": "f9dae64d2f5295889c29875437c4465d890e8904dd3e324637d6a2829eb909c1",
+      "finished_stages": 8,
+      "input_metadata": [
+        {
+          "name": "samples.csv",
+          "value": "997a056d5fc02b9f4bba35f795c635dcdc6837439ee4735617ff7e6d068c4373"
+        },
+        {
+          "name": "targets.csv",
+          "value": "da4eeb6c4d3d61f1d3520f3436f27046e0871f33e5802cc6e768f68714042fdb"
+        },
+        {
+          "name": "config.json",
+          "value": "338ebf3297364b6290664fe484fd4b09f114643726e50163dfb6583b236e7061"
+        },
+        {
+          "name": "barcodes.csv",
+          "value": "6695d7a1120bd9eebc2087ff5e95973cea4bb1723a37b3c5148f3f04a6a277d1"
+        }
+      ],
+      "job_contract": "analysis-job-v1",
+      "job_id": "dfeea3ebd32f495bb46122f004fe0a52",
+      "latest_sequence": 25,
+      "output_proposal": "outputs / analysis",
+      "plan_identity_sha256": "ea178b1ff44d78053bd64b8b0b5f12fb0cc6833ce37794c63f9ddc68067f9691",
+      "revision": 1,
+      "scientific_identity_sha256": "8d34d796583124cb0156bec175f5c0657d8b0265bc3b74902bf9a1fbf7f0be81",
+      "stages": [
+        {
+          "dependencies": [],
+          "kind": "raw_inputs",
+          "label": "raw_inputs",
+          "output_path": "workflow/sources/raw_inputs.json",
+          "reason_codes": [],
+          "stage_id": "raw_inputs",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "raw_inputs"
+          ],
+          "kind": "demux",
+          "label": "demux",
+          "output_path": "demux",
+          "reason_codes": [],
+          "stage_id": "demux",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "demux"
+          ],
+          "kind": "analysis",
+          "label": "analysis",
+          "output_path": "analysis",
+          "reason_codes": [],
+          "stage_id": "analysis",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "analysis"
+          ],
+          "kind": "routing",
+          "label": "routing",
+          "output_path": "routing/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "routing::bc001::T1",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "analysis",
+            "routing::bc001::T1"
+          ],
+          "kind": "metrics",
+          "label": "metrics",
+          "output_path": "metrics/bc001/T1",
+          "reason_codes": [],
+          "stage_id": "metrics::bc001::T1",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "metrics::bc001::T1"
+          ],
+          "kind": "metrics_manifest",
+          "label": "metrics_manifest",
+          "output_path": "metrics/manifest.csv",
+          "reason_codes": [],
+          "stage_id": "metrics_manifest",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "metrics_manifest"
+          ],
+          "kind": "statistics",
+          "label": "statistics",
+          "output_path": "statistics",
+          "reason_codes": [],
+          "stage_id": "statistics",
+          "status": "COMPLETED"
+        },
+        {
+          "dependencies": [
+            "statistics"
+          ],
+          "kind": "report",
+          "label": "report",
+          "output_path": "report",
+          "reason_codes": [],
+          "stage_id": "report",
+          "status": "COMPLETED"
+        }
+      ],
+      "started_at": "2026-10-27T22:00:09.805657+00:00",
+      "state": "COMPLETED",
+      "target_name": "T1",
+      "total_stages": 8,
+      "warnings": [
+        {
+          "code": "BACKEND_METADATA_WARNING",
+          "detail": null,
+          "field": "targets",
+          "message": "multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment",
+          "severity": "WARNING",
+          "step": "target"
+        }
+      ],
+      "workspace_id": "e1fc89775d064846b4a94baa51fdaf69"
+    }
+  }
+}

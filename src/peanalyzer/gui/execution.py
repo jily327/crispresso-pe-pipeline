@@ -1,7 +1,7 @@
 """Bind validated GUI compiler output to existing M7 inputs and identities."""
 import hashlib
 from pathlib import Path
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, field_validator
 from peanalyzer.gui.setup_models import DraftContent, SetupFile
 from peanalyzer.gui.drafts import SetupReferences
 from peanalyzer.gui.setup_validation import compile_draft
@@ -14,6 +14,12 @@ class RuntimeSettings(BaseModel):
     model_config=ConfigDict(extra='forbid',frozen=True,strict=True)
     crispresso: str = 'CRISPResso'
     runtime_digest: str = RUNTIME_DIGEST
+
+    @field_validator('runtime_digest')
+    @classmethod
+    def qualified_digest(cls,value):
+        if value!=RUNTIME_DIGEST:raise ValueError('Runtime digest must match the qualified identity shown in Review')
+        return value
 
 
 class ExecutionSpec(BaseModel):
@@ -125,6 +131,6 @@ def bind_plan(spec,plan):
                 raise WorkflowError('INPUT_CHANGED','Raw FASTQ identity changed: '+role)
     if 'contrasts' in plan.inputs or 'policies' in plan.inputs:
         raise WorkflowError('SCIENTIFIC_IDENTITY_CHANGED','Unreviewed contrasts/policies are not allowed.')
-    if plan.backend_identity.runtime_digest!=spec.runtime.runtime_digest:
+    if plan.backend_identity.runtime_digest!=science['backend']['runtime_digest_required']:
         raise WorkflowError('SCIENTIFIC_IDENTITY_CHANGED','Backend runtime identity changed.')
     check_destination(spec)

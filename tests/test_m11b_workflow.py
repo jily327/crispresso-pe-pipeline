@@ -19,6 +19,14 @@ def test_observer_preserves_every_workspace_byte(case,monkeypatch):
     monkeypatch.setattr(w,'utc',lambda:'2026-01-01T00:00:00+00:00')
     class FixedUUID:hex='1234567890abcdef1234567890abcdef'
     monkeypatch.setattr(w.uuid,'uuid4',lambda:FixedUUID())
+    from peanalyzer import workflow_integrity
+    actual_binding=workflow_integrity.binding;fixed_binding=[]
+    def frozen_binding(root):
+        # Recreating the root changes its inode independently of observation.
+        # Freeze that external input, like time/UUID, and compare EVERY byte.
+        if not fixed_binding:fixed_binding.append(actual_binding(root))
+        return dict(fixed_binding[0])
+    monkeypatch.setattr(workflow_integrity,'binding',frozen_binding)
     snapshots=w._snapshots
     def frozen_snapshots(plan):
         import os

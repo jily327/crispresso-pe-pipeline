@@ -5,6 +5,8 @@ import { Status } from '../components/Common';
 import { Overview, Samples, QC, Statistics, Provenance } from '../pages/Results';
 import { SetupWizard } from '../pages/SetupWizard';
 import { Run } from '../pages/Run';
+import { Recovery } from '../pages/Recovery';
+import type {RecoveryView} from '../models/recovery';
 import type { JobView } from '../models/jobs';
 const tabs=['Overview','Samples','QC','Statistics','Provenance'] as const;
 type Tab=typeof tabs[number];
@@ -13,7 +15,8 @@ const pages={Overview,Samples,QC,Statistics,Provenance};
 export default function App() {
   const [jobId,setJobId]=useState(''),[wizardKey,setWizardKey]=useState(0);
   const [started,setStarted]=useState(false);
-  const [flow,setFlow]=useState<'existing'|'new'|'run'>('existing');
+  const [recovery,setRecovery]=useState<RecoveryView|null>(null);
+  const [flow,setFlow]=useState<'existing'|'new'|'run'|'recovery'>('existing');
   const [catalog,setCatalog]=useState<Registration[]>([]);const [cap,setCap]=useState<Capabilities|null>(null);const [selected,setSelected]=useState('');
   const [view,setView]=useState<WorkspaceView|null>(null);const [error,setError]=useState<ErrorDetail|null>(null);const [busy,setBusy]=useState(false);
   const [tab,setTab]=useState<Tab>('Overview');const [sample,setSample]=useState('');const [series,setSeries]=useState('');const generation=useRef(0);const openedHeading=useRef<HTMLHeadingElement>(null);const focusOpened=useRef(false);
@@ -44,9 +47,9 @@ export default function App() {
   const Component=pages[tab];
   const sampleChoices=view?[...new Map(view.observations.map(o=>[o.sample_id,o])).values()]:[];
   const seriesChoices=view?[...new Map(view.observations.map(o=>[o.series_id,o])).values()]:[];
-  return <><a className="skip-link" href="#main">Skip to results</a><header className="app-header"><div className="brand"><span className="brand-mark" aria-hidden="true">PE</span><strong>PEAnalyzer</strong><span className="muted">Local analysis</span></div><span className="read-only">Local · {cap?.package_version||'Local'}</span></header>
-    <nav className="flow-nav" aria-label="Analysis paths"><button aria-pressed={flow==='new'} onClick={()=>{setStarted(true);setFlow('new')}}>New Analysis</button><button aria-pressed={flow==='existing'} onClick={()=>setFlow('existing')}>Open Existing Analysis</button>{jobId&&<button aria-pressed={flow==='run'} onClick={()=>setFlow('run')}>Run status</button>}</nav>
-    <div hidden={flow!=='new'}>{started&&<SetupWizard key={wizardKey} onAccepted={accepted}/>}</div>{flow==='run'&&jobId&&<Run jobId={jobId} onOpen={openResult}/>}<div hidden={flow!=='existing'}>
+  return <><a className="skip-link" href={flow==='recovery'?'#recovery-main':flow==='run'?'#run-main':'#main'}>Skip to content</a><header className="app-header"><div className="brand"><span className="brand-mark" aria-hidden="true">PE</span><strong>PEAnalyzer</strong><span className="muted">Local analysis</span></div><span className="read-only">Local · {cap?.package_version||'Local'}</span></header>
+    <nav className="flow-nav" aria-label="Analysis paths"><button aria-pressed={flow==='new'} onClick={()=>{setStarted(true);setFlow('new')}}>New Analysis</button><button aria-pressed={flow==='existing'} onClick={()=>setFlow('existing')}>Open Existing Analysis</button><button aria-pressed={flow==='recovery'} onClick={()=>{setRecovery(null);setFlow('recovery')}}>Recover Analysis</button>{jobId&&<button aria-pressed={flow==='run'} onClick={()=>setFlow('run')}>Run status</button>}</nav>
+    <div hidden={flow!=='new'}>{started&&<SetupWizard key={wizardKey} onAccepted={accepted}/>}</div>{flow==='run'&&jobId&&<Run jobId={jobId} onOpen={openResult} onRecovery={value=>{setRecovery(value);setFlow('recovery')}}/>}{flow==='recovery'&&<Recovery initial={recovery} onAccepted={accepted} onOpen={openResult}/>}<div hidden={flow!=='existing'}>
     <div className="workspace-bar"><label>Registered workspace<select value={selected} disabled={busy} onChange={e=>{setSelected(e.target.value);setView(null);setError(null)}}>{catalog.map(c=><option key={c.registration_id} value={c.registration_id}>{c.label}</option>)}</select></label><button className="primary" disabled={!selected} aria-disabled={busy} onClick={open}>Open and verify</button>{view&&<button disabled={busy} onClick={()=>{generation.current++;setView(null)}}>Close workspace</button>}<span role="status">{busy?'Verifying source integrity…':view?'✓ Verified snapshot':'Select an existing completed analysis'}</span></div>
     {error&&<section className="error-panel" role="alert"><h2>{error.message}</h2><p>No scientific results are displayed.</p><details><summary>Technical details</summary><p>{error.code}{error.stage_id&&` · ${error.stage_id}`}</p><pre>{error.detail}</pre></details></section>}
     {!view&&!error&&<main id="main" className="welcome"><p className="eyebrow">EXISTING ANALYSES</p><h1>Inspect verified results.</h1><p>Open a registered, completed PEAnalyzer workspace to explore biological outcomes, population evidence and provenance.</p><div className="panel"><h2>One scientific source of truth</h2><p>Stored results are verified by Python before display. This viewer performs no analysis and leaves scientific workspaces unchanged.</p><p>Register another workspace with <code>peanalyzer-viewer --workspace PATH</code>.</p></div></main>}

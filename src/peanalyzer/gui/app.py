@@ -19,7 +19,7 @@ from peanalyzer.gui.models import (Capabilities, Registration, OpenRequest, Work
 BASE = '9e9a51fb20e56a3421fdfa156375170cd6b257dc'
 
 
-def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None):
+def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None, recovery_workspaces=()):
     token=token or secrets.token_urlsafe(32)
     registrations=list(registrations)
     store=WorkspaceStore(registrations)
@@ -30,8 +30,11 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     references=SetupReferences(setup_files,setup_archives,setup_output_roots)
     drafts=DraftStore(references,[path for _,path in registrations])
     from peanalyzer.gui.jobs import JobStore
-    from peanalyzer.gui.job_models import JobSubmission, JobView, JobEvents
+    from peanalyzer.gui.job_models import JobSubmission, JobView, JobEvents, CancelRequest
     jobs=JobStore(drafts,store,runtime)
+    from peanalyzer.gui.recovery import RecoveryStore
+    from peanalyzer.gui.recovery_models import RecoveryOpen, RecoverySelection, RecoveryRequest, RecoveryView
+    recovery=RecoveryStore([*[p for _,p in registrations],*recovery_workspaces],jobs,store)
     @asynccontextmanager
     async def lifespan(app):
         yield
@@ -40,6 +43,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     app=FastAPI(lifespan=lifespan,title='PEAnalyzer verified result viewer',docs_url=None,redoc_url=None,openapi_url=None)
     app.state.store=store
     app.state.jobs=jobs
+    app.state.recovery=recovery
     app.state.drafts=drafts
     app.state.token=token
 
@@ -140,7 +144,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
 
     @app.get('/api/v1/setup/capabilities',response_model=SetupCapabilities)
     def setup_capabilities():
-        return SetupCapabilities(backend_base=SETUP_BASE,files=list(references.entries.values()),run_available=jobs.available)
+        return SetupCapabilities(backend_base=SETUP_BASE,files=list(references.entries.values()),run_available=jobs.available,recovery_available=jobs.available)
 
     @app.post('/api/v1/drafts',response_model=DraftView)
     def create_draft():
@@ -184,8 +188,27 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
         return jobs.events(job_id,after,limit)
 
     @app.post('/api/v1/jobs/{job_id}/cancel',response_model=JobView)
-    def cancel_job(job_id:str):
+    def cancel_job(job_id:str,body:CancelRequest=CancelRequest()):
         return jobs.cancel(job_id)
+
+    @app.get('/api/v1/recovery/workspaces',response_model=list[Registration])
+    def recovery_catalog():return recovery.catalog()
+
+    @app.post('/api/v1/recovery',response_model=RecoveryView)
+    def recovery_open(body:RecoveryOpen):return recovery.open(body.registration_id)
+
+    @app.post('/api/v1/jobs/{job_id}/recovery',response_model=RecoveryView)
+    def recovery_job(job_id:str,body:CancelRequest=CancelRequest()):return recovery.from_job(job_id)
+
+    @app.post('/api/v1/recovery/{recovery_id}/preview',response_model=RecoveryView)
+    def recovery_preview(recovery_id:str,body:RecoverySelection):
+        return recovery.preview(recovery_id,body.revision,body.force)
+
+    @app.post('/api/v1/recovery/{recovery_id}/execute',response_model=JobView)
+    def recovery_execute(recovery_id:str,body:RecoveryRequest):return recovery.execute(recovery_id,body)
+
+    @app.post('/api/v1/recovery/{recovery_id}/open',response_model=WorkspaceView)
+    def recovery_results(recovery_id:str,body:CancelRequest=CancelRequest()):return recovery.open_results(recovery_id)
 
     static=Path(__file__).parent/'static'
     if static.is_dir():

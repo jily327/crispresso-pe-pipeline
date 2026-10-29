@@ -54,3 +54,10 @@ it.each([null,'registered output'])('Review Run requires a backend validated out
   if(output){await userEvent.setup().click(screen.getByRole('button',{name:'Run Analysis'}));expect(run).toHaveBeenCalledOnce()}
   else expect(screen.getByRole('button',{name:'Run Analysis'})).toBeDisabled();
 });
+it('renders backend reuse distinctly without inventing execution',async()=>{
+  job.stages[0].status='REUSED';
+  render(<Run jobId="opaque-job" onOpen={vi.fn()}/>);
+  expect(await screen.findByText('REUSED')).toBeVisible();
+  expect(screen.getByText('BACKEND_REASON')).toBeVisible();
+  expect(screen.queryByText('SKIPPED_SCIENTIFIC_GATE')).not.toBeInTheDocument();
+});

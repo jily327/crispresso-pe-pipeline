@@ -554,7 +554,7 @@ def _check_execution_scope(plan):
             'Use one biological target per workflow. Multi-target planning remains supported.')
 
 
-def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expected_plan=None, expected_output_parent=None, **inputs):
+def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expected_plan=None, expected_output_parent=None, expected_recovery_identity=None, **inputs):
     """Run/resume a workspace under one exclusive invocation lock."""
     def observe(status, node=None, reasons=(), code=None):
         # Only detached presentation values cross this boundary; no return value
@@ -600,6 +600,14 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
             if (parent_stat.st_dev,parent_stat.st_ino) != tuple(expected_output_parent):
                 raise WorkflowError('OUTPUT_CHANGED','Output parent identity changed')
         if resume:
+            from peanalyzer.workflow_recovery import preflight_resume, workspace_identity
+            # Failure before commitment leaves every scientific byte/manifest intact.
+            preflight = preflight_resume(old,plan,force)
+            if expected_recovery_identity is not None and digest(preflight)!=expected_recovery_identity:
+                raise WorkflowError('RECOVERY_PLAN_CHANGED','Confirmed recovery no longer matches preflight')
+            verify_inputs(plan.inputs)
+            if workspace_identity(root)!=preflight['workspace_identity']:
+                raise WorkflowError('RECOVERY_PLAN_CHANGED','Workspace changed before recovery commitment')
             workspace_owned=True
         else:
             try:
@@ -607,6 +615,8 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
             except FileExistsError as exc:
                 raise WorkflowError('OUTPUT_EXISTS','Output appeared before execution; new execution only') from exc
             workspace_owned=True
+        from peanalyzer.workflow_integrity import RecoveryIntegrity, authenticate, signing_key
+        integrity = authenticate(root,old) if resume else RecoveryIntegrity(root,signing_key(create=True),{})
         if force:
             _invalidate(root,old,plan,force)
         _snapshots(plan)
@@ -614,17 +624,18 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
         for item in (old,plan):
             atomic_json(owned(root,'workflow/plans/'+digest(item)+'.json'),item)
         atomic_json(owned(root,'workflow/plan.json'),plan)
+        integrity.record('workflow/plan.json',plan)
         completed, identities = {}, {}
         for node in plan.nodes:
             active = node.stage_id
             active_node = node
-            observe('RUNNING',node)
             refs = {key:identities[key] for key in node.dependencies}
             path = owned(root,stage_manifest_path(node))
             if path.exists():
                 result = _validate_completed(plan,node,refs)
                 reused.append(node.stage_id)
             else:
+                observe('RUNNING',node)
                 if owned(root,node.output_path).exists():
                     raise WorkflowError('ORPHANED_STAGE_OUTPUT',node.output_path,node.stage_id)
                 stage_start = utc()
@@ -646,10 +657,11 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
                     output_artifacts=inventory(root,node.output_path),started_at=stage_start,ended_at=utc(),
                     validation=['stage_contract','output_inventory_sha256','source_identity','dependency_identity'])
                 atomic_json(path,result)
+                integrity.record(stage_manifest_path(node),result)
                 executed.append(node.stage_id)
             completed[node.stage_id] = result
             identities[node.stage_id] = dependency(root,node,result)
-            observe(result.status,node,result.reason_codes)
+            observe('REUSED' if node.stage_id in reused else result.status,node,result.reason_codes)
         active = 'final_validation'
         active_node = None
         observe('FINAL_VALIDATION')
@@ -667,6 +679,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
                 statistics_result=artifact(root,owned(root,'statistics/result.json')),
                 report_manifest=artifact(root,owned(root,'report/report_manifest.json')),limitations=LIMITATIONS)
             atomic_json(final,manifest)
+            integrity.record('workflow_manifest.json',manifest)
         return dict(workflow_contract_version='m7-v1',output=str(root),mode=plan.mode,
             executed_stages=executed,reused_stages=reused,
             metrics_results=len([n for n in plan.nodes if n.stage_kind=='metrics']),

@@ -1,0 +1,306 @@
+Continue M11C.2 qualification from the already-published checkpoint.
+
+Repository:
+
+`jily327/crispresso-pe-pipeline`
+
+Qualified candidate checkpoint branch:
+
+`checkpoint/m11c2-remediation-b4aee11`
+
+Exact candidate SHA:
+
+`b4aee11b1f4ba56791a5d36629a14c3e154ae4d8`
+
+Do NOT redesign or reimplement M11C.2.
+
+Do NOT modify production code unless an actual remaining release-gate failure proves a production defect.
+
+Do NOT create a PR.
+Do NOT merge.
+Do NOT rebase.
+
+
+# 1. Start from the checkpoint
+
+Checkout exactly:
+
+`b4aee11b1f4ba56791a5d36629a14c3e154ae4d8`
+
+Verify remote:
+
+`checkpoint/m11c2-remediation-b4aee11`
+
+points to the same SHA.
+
+Remote:
+
+`feat/m11c-recovery`
+
+must remain unchanged until ALL remaining qualification gates pass.
+
+
+# 2. Existing candidate status
+
+Production code is already checkpointed and considered implementation-complete pending qualification.
+
+Previously verified PASS:
+
+- focused M11C.2 regressions
+- 80 repeated-cancellation stress
+- frontend: 48 passed
+- source browser: 32 passed total
+  - viewer/setup 18
+  - Run 6
+  - Recovery 8
+- packaging: 92 wheel members byte-identical across direct wheel, clean checkout and sdist→wheel
+- installed-wheel import from `site-packages`
+- 62 science files byte-identical
+- 65 frozen M11C audit-prep files byte-identical
+- PE real-Core recovery parity: 2/24
+- nuclease real-Core recovery parity: 8/20
+- fresh = resume = force
+- lifecycle diagnostic → success/cancel/failure behavior
+- R7/ownership remediation focused tests
+- directory-replacement rejection regression
+- signal/cancellation supervision regressions
+
+Do not rerun expensive completed gates unless candidate-relevant bytes change.
+
+
+# 3. Previous environment stopped cleanly
+
+At handoff:
+
+- no active tests
+- no worker
+- no Core process
+- no server
+- host lease released
+
+A PID-1-owned terminated zombie record existed but was not an active scientific process.
+
+Do not treat that historical zombie record as an active product worker.
+
+
+# 4. Untracked validation evidence
+
+The previous workspace had untracked:
+
+`docs/validation/m11c2/`
+
+If the original workspace still exists, recover those files before running new qualification.
+
+Inspect them as partial evidence only.
+
+If they are unavailable, regenerate final evidence from the completed qualification.
+
+Do NOT reconstruct production code because evidence files were lost.
+
+
+# 5. Remaining release gates
+
+Only these gates remain incomplete.
+
+## A. Full source Python suite
+
+Previous interrupted run had reached:
+
+`1,357 passed`
+
+before intentional handoff.
+
+Run the COMPLETE suite from scratch to terminal completion.
+
+Expected collection is approximately:
+
+`1,910`
+
+based on 1,876 retained tests plus M11C.2 additions.
+
+Use actual collection count as authority.
+
+Require:
+
+- 0 failures
+- 0 errors
+- 0 unexplained skips
+
+
+## B. Full installed-wheel Python suite
+
+Previous interrupted wheel run had reached:
+
+`494 passed`
+
+before intentional handoff.
+
+Build/use a fresh wheel from exact candidate:
+
+`b4aee11...`
+
+Install into a clean environment.
+
+Confirm import comes from `site-packages`.
+
+Run the COMPLETE wheel suite to terminal completion.
+
+Require zero failures/errors/unexplained skips.
+
+
+## C. Integration suite
+
+Complete the full integration suite.
+
+Previous expected retained count:
+
+`88`
+
+Report exact final count and outcome.
+
+
+## D. Wheel browser tests
+
+Source browser is already complete at 32/32.
+
+Still required from installed wheel:
+
+- Run browser: 6
+- Recovery browser: 8
+
+Together with wheel viewer/setup, final wheel browser total should retain at least the previous 32-case coverage.
+
+Report exact final wheel-browser count.
+
+
+## E. Final evidence aggregation
+
+Complete:
+
+`docs/validation/m11c2/`
+
+with the final terminal outcomes.
+
+
+# 6. Qualification execution discipline
+
+Do not run lease-owning scientific/process suites concurrently.
+
+Especially do not overlap:
+
+- source process-supervision tests
+- wheel process-supervision tests
+- real Core integrations
+- browser jobs using the same host lease
+
+Serialize these.
+
+Do not create artificial `WORKER_BUSY` failures through the qualification harness itself.
+
+
+# 7. If a remaining suite fails
+
+Classify the failure before modifying anything:
+
+1. production defect
+2. test race
+3. environment / host-lease contention
+4. evidence-generation bug
+
+Do not change production code for categories 2–4.
+
+If production code must change:
+
+- create a new candidate SHA
+- identify every affected prior qualification gate
+- rerun all gates invalidated by those changed bytes
+
+
+# 8. Final evidence requirements
+
+Record exact final values for:
+
+- candidate SHA
+- production diff
+- full source Python count/result
+- full wheel Python count/result
+- integration count/result
+- frontend 48 result
+- source browser 32 result
+- wheel browser result
+- packaging 92-member parity
+- site-packages import proof
+- science-module byte preservation
+- audit-prep byte preservation
+- 80-cancel stress
+- R7 tamper/forged ownership
+- lifecycle terminal-state invariants
+- signal retry
+- W2/C7/SIGTERM/G6 preservation
+- PE 2/24
+- nuclease 8/20
+- ambiguous PE semantics
+- fresh/resume/force parity
+
+
+# 9. Only after every remaining gate passes
+
+Fast-forward:
+
+`feat/m11c-recovery`
+
+from its current remote HEAD to:
+
+the exact fully qualified candidate SHA.
+
+No force push.
+
+Verify:
+
+remote `feat/m11c-recovery`
+=
+qualified candidate SHA
+
+Keep the checkpoint branch.
+
+
+# 10. Final repository state
+
+Require:
+
+- clean working tree
+- no active scientific/test processes
+- host lease released
+- final evidence committed
+- feature branch remote SHA verified
+
+Do NOT create a PR or merge.
+
+
+# Final response
+
+Report:
+
+- recovered checkpoint SHA
+- final qualified SHA
+- source Python result
+- wheel Python result
+- integration result
+- frontend result
+- source browser result
+- wheel browser result
+- packaging parity
+- science-byte preservation
+- final feature-branch SHA
+- clean working tree
+- remaining limitations
+
+If everything passes, end EXACTLY:
+
+`M11C.2 FOCUSED REMEDIATION: PASS`
+`READY FOR FINAL FOCUSED M11C.2 RE-AUDIT`
+
+Otherwise:
+
+`M11C.2 FOCUSED REMEDIATION: FAIL`
+`DO NOT PROCEED TO RE-AUDIT`

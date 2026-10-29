@@ -1,0 +1,551 @@
+{
+  "baseline": {
+    "tests": 1722,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "source": {
+    "tests": 1770,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "wheel": {
+    "tests": 1770,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "prior_cases_retained": 1722,
+  "new_cases": [
+    [
+      "tests.test_m11c_integration",
+      "test_native_cancel_resume_force_and_clean_parity[ambiguous_pe]"
+    ],
+    [
+      "tests.test_m11c_integration",
+      "test_native_cancel_resume_force_and_clean_parity[indel_nuclease]"
+    ],
+    [
+      "tests.test_m11c_integration",
+      "test_native_cancel_resume_force_and_clean_parity[precise_edit]"
+    ],
+    [
+      "tests.test_m11c_process",
+      "test_detached_term_ignoring_descendant_is_reaped_before_cancelled"
+    ],
+    [
+      "tests.test_m11c_process",
+      "test_host_lease_survives_acquiring_process_exit"
+    ],
+    [
+      "tests.test_m11c_process",
+      "test_pid_reuse_guard_never_signals_wrong_identity"
+    ],
+    [
+      "tests.test_m11c_process",
+      "test_server_sigkill_cleans_tree_and_blocks_second_science"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_backend_digest_is_same_qualified_identity_as_review"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_completed_is_open_results_not_recovery"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_cross_server_host_lease_blocks_recovery"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_external_demux_extra_inventory_rejected_even_in_force_preview"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[all]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[analysis]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[demux]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[metrics]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[report]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[routing]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_force_preview_exact_backend_closure[statistics]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_generated_recovery_contract_matches_python"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_invocation_lock_is_never_stolen"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_orphan_requires_force_and_wrong_force_does_not_authorize"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_partial_force_preflight_failure_deletes_nothing[dependency]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_partial_force_preflight_failure_deletes_nothing[metadata]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_partial_force_preflight_failure_deletes_nothing[snapshot]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_partial_force_preflight_failure_deletes_nothing[upstream_output]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_api_strict_confirmation[command]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_api_strict_confirmation[executable]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_api_strict_confirmation[output]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_api_strict_confirmation[pid]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_api_strict_confirmation[removal_paths]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_api_strict_confirmation[signal]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_preview_is_read_only_no_probe_or_executor"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_registration_labels_reuse_viewer_disambiguation"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_requires_actual_explicit_boolean[1]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_requires_actual_explicit_boolean[False]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_requires_actual_explicit_boolean[None]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_requires_actual_explicit_boolean[true]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_security[host]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_security[origin]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_recovery_security[token]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_software_change_requires_explicit_full_rebuild"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[metadata]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[output]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[raw]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[snapshot]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[software]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[stage]"
+    ],
+    [
+      "tests.test_m11c_recovery",
+      "test_stale_recovery_confirmation_has_zero_destructive_effect[symlink]"
+    ]
+  ],
+  "new_m11c_unit_cases": 45,
+  "new_m11c_integration_cases": 3,
+  "historical_integration": 85,
+  "total_integration": 88,
+  "frontend": 47,
+  "source_e2e": 32,
+  "wheel_e2e": 32,
+  "parity": [
+    {
+      "mode": "precise_edit",
+      "cancelled": "CANCELLED",
+      "recovered": "COMPLETED",
+      "fresh_science_sha256": "5940507412e2f5e986b28e646216308dcf3970566a90ac78e534e79f7935003a",
+      "recovered_science_sha256": "5940507412e2f5e986b28e646216308dcf3970566a90ac78e534e79f7935003a",
+      "report_force": true,
+      "metrics_force": true,
+      "recovery_cancelled": "CANCELLED",
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1"
+      ],
+      "executed": [
+        "metrics::bc001::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "m10_open": true,
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "routing/bc001/T1/copy1_R1.fastq.gz",
+        "routing/bc001/T1/copy1_R2.fastq.gz",
+        "routing/bc001/T1/copy2_R1.fastq.gz",
+        "routing/bc001/T1/copy2_R2.fastq.gz",
+        "routing/bc001/T1/quarantine_R1.fastq.gz",
+        "routing/bc001/T1/quarantine_R2.fastq.gz",
+        "report/figures/series-02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea-samples.svg",
+        "report/figures/series-039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad-samples.svg",
+        "report/figures/series-0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da-samples.svg",
+        "report/figures/series-5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad-samples.svg",
+        "report/figures/series-7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9-samples.svg",
+        "report/figures/series-9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658-samples.svg"
+      ],
+      "metric": {
+        "target_crispresso_native_pe": {
+          "metric_name": "target_crispresso_native_pe",
+          "metric_family": "native",
+          "population_scope": "target_all_prepared",
+          "population_id": "e10738fb00debb9b9322d193679e3b0183f93422fc9d3a542f0a37ce3f10c76d",
+          "population_input_reads": 24,
+          "copy_id": null,
+          "routing_conditioned": false,
+          "assessment_stage": "backend_aligned_products",
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 24,
+          "reason_codes": [],
+          "confident_input_reads": null,
+          "backend_input_reads": 24,
+          "reads_after_preprocessing": 24,
+          "aligned_reads": 24,
+          "unaligned_reads": 0,
+          "ordinary_classified_aligned_reads": 24,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_counts_role": "metric_filter",
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "products": null,
+          "population_denominator_exclusions": 0
+        },
+        "total_precise_pe": {
+          "metric_name": "total_precise_pe",
+          "metric_family": "precise",
+          "population_scope": "target_all_prepared",
+          "population_id": "e10738fb00debb9b9322d193679e3b0183f93422fc9d3a542f0a37ce3f10c76d",
+          "population_input_reads": 24,
+          "copy_id": null,
+          "routing_conditioned": false,
+          "assessment_stage": "prepared_pairs",
+          "status": "REPORTABLE",
+          "numerator": 2,
+          "denominator": 24,
+          "reason_codes": [],
+          "confident_input_reads": null,
+          "backend_input_reads": 24,
+          "reads_after_preprocessing": 24,
+          "aligned_reads": 24,
+          "unaligned_reads": 0,
+          "ordinary_classified_aligned_reads": 24,
+          "ambiguous_aligned_reads": 0,
+          "discarded_aligned_reads": 0,
+          "backend_counts_role": "parallel_native_analysis",
+          "preprocessing_count_delta": 0,
+          "unaligned_reason_counts": {
+            "unknown_backend_alignment_failure": 0
+          },
+          "products": {
+            "exact_wt": 22,
+            "exact_pe": 2,
+            "pe_plus_extra_change": 0,
+            "other_nonexact_assessable": 0,
+            "unresolved_unassessable": 0,
+            "contradictory_state": 0,
+            "denominator_exclusions": 0,
+            "classification_input_reads": 24,
+            "exclusion_reason_counts": {}
+          },
+          "population_denominator_exclusions": 0
+        }
+      },
+      "source_wheel_science_equal": true
+    },
+    {
+      "mode": "indel_nuclease",
+      "cancelled": "CANCELLED",
+      "recovered": "COMPLETED",
+      "fresh_science_sha256": "4b457372f4f0f0425e8a635d6e2b108ee030fec668d4b5b0429772ee28d18821",
+      "recovered_science_sha256": "4b457372f4f0f0425e8a635d6e2b108ee030fec668d4b5b0429772ee28d18821",
+      "report_force": true,
+      "metrics_force": true,
+      "recovery_cancelled": "CANCELLED",
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::T1"
+      ],
+      "executed": [
+        "metrics::bc001::T1",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "m10_open": true,
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "report/figures/series-328908db9576fd87fda4eeae123c0cfdd0023aa1e2894fa640f5f2d2e73b732a-samples.svg",
+        "report/figures/series-37daebd6947884da9ff85d5865723cb3fb3ccf6501f979365ac68e3f7bfd739c-samples.svg",
+        "report/figures/series-4e7bce82774027b6e011cbd315c6a9b9557e30c3b48ee69873a8cdc01569845d-samples.svg",
+        "report/figures/series-5e82d027684b3d81640d3bf117940dd5d60c4f9ee8e5aed084800e42f6743493-samples.svg",
+        "report/figures/series-61eed31e7c0ae4573f81c93e0c1eb75a528daea510f8cfdcd1b031a9e02d8bec-samples.svg",
+        "report/figures/series-6b598f84cdbf03f5404b7dcadd07c8fdd1930a88ad5f1426f04ced2e2b686944-samples.svg",
+        "report/figures/series-af8de13c1ffa99fa99c742d92e2440c8df3c6d3e6f82bfa27598b96968116540-samples.svg",
+        "report/figures/series-e668fa313d1d6baed3efeaf5e3fe5f47b05e4510b389ff8be772b4c121b1d962-samples.svg",
+        "report/figures/series-f5d2b2996a3c1c4ec13c995e9f4d4bab64d3f31ddc12f45829a9ec640c64caa3-samples.svg",
+        "report/figures/series-fe6dc0f54c86fcec42dc0d7c0fca823fcebb95900926f6e81edb5d9a9b545654-samples.svg"
+      ],
+      "metric": {
+        "indel_fraction": {
+          "numerator": 8,
+          "denominator": 20,
+          "fraction": 0.4
+        },
+        "unmodified_fraction": {
+          "numerator": 12,
+          "denominator": 20,
+          "fraction": 0.6
+        },
+        "substitution_only_fraction": {
+          "numerator": 0,
+          "denominator": 20,
+          "fraction": 0.0
+        },
+        "indel_only_fraction": {
+          "numerator": 8,
+          "denominator": 20,
+          "fraction": 0.4
+        },
+        "indel_plus_substitution_fraction": {
+          "numerator": 0,
+          "denominator": 20,
+          "fraction": 0.0
+        },
+        "substitution_containing_fraction": {
+          "numerator": 0,
+          "denominator": 20,
+          "fraction": 0.0
+        },
+        "insertion_containing_fraction": {
+          "numerator": 4,
+          "denominator": 20,
+          "fraction": 0.2
+        },
+        "deletion_containing_fraction": {
+          "numerator": 8,
+          "denominator": 20,
+          "fraction": 0.4
+        },
+        "insertion_and_deletion_containing_fraction": {
+          "numerator": 4,
+          "denominator": 20,
+          "fraction": 0.2
+        },
+        "any_modification_fraction": {
+          "numerator": 8,
+          "denominator": 20,
+          "fraction": 0.4
+        }
+      },
+      "source_wheel_science_equal": true
+    },
+    {
+      "mode": "ambiguous_pe",
+      "cancelled": "CANCELLED",
+      "recovered": "COMPLETED",
+      "fresh_science_sha256": "bd23b63c2ee876c786f480721650ea3073d312e83d56d01b09a025c02b633c1d",
+      "recovered_science_sha256": "bd23b63c2ee876c786f480721650ea3073d312e83d56d01b09a025c02b633c1d",
+      "report_force": true,
+      "metrics_force": true,
+      "recovery_cancelled": "CANCELLED",
+      "reused": [
+        "raw_inputs",
+        "demux",
+        "analysis",
+        "routing::bc001::SYN"
+      ],
+      "executed": [
+        "metrics::bc001::SYN",
+        "metrics_manifest",
+        "statistics",
+        "report"
+      ],
+      "m10_open": true,
+      "equal_payloads": [
+        "analysis/03_analysis_fastq/bc001_R1.analysis.fastq.gz",
+        "analysis/03_analysis_fastq/bc001_R2.analysis.fastq.gz",
+        "report/figures/series-8d30da2faa098278c82c802deec783438b17708a7888cc0c4bd0768f79473e25-samples.svg"
+      ],
+      "metric": {
+        "target_crispresso_native_pe": {
+          "metric_name": "target_crispresso_native_pe",
+          "metric_family": "native",
+          "population_scope": "target_all_prepared",
+          "population_id": "1e41882c3b8895de8f3f80f2a62fdf19497f0722cdc445b4ad9284fa2e8098ba",
+          "population_input_reads": 24,
+          "copy_id": null,
+          "routing_conditioned": false,
+          "assessment_stage": "backend_aligned_products",
+          "status": "BLOCKED",
+          "numerator": null,
+          "denominator": null,
+          "reason_codes": [
+            "EDIT_COORDINATES_NOT_COMPARABLE",
+            "MISSING_ANCHOR_RESULT"
+          ],
+          "confident_input_reads": null,
+          "backend_input_reads": null,
+          "reads_after_preprocessing": null,
+          "aligned_reads": null,
+          "unaligned_reads": null,
+          "ordinary_classified_aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "discarded_aligned_reads": null,
+          "backend_counts_role": "unavailable",
+          "preprocessing_count_delta": null,
+          "unaligned_reason_counts": {},
+          "products": null,
+          "population_denominator_exclusions": null
+        },
+        "total_precise_pe": {
+          "metric_name": "total_precise_pe",
+          "metric_family": "precise",
+          "population_scope": "target_all_prepared",
+          "population_id": "1e41882c3b8895de8f3f80f2a62fdf19497f0722cdc445b4ad9284fa2e8098ba",
+          "population_input_reads": 24,
+          "copy_id": null,
+          "routing_conditioned": false,
+          "assessment_stage": "prepared_pairs",
+          "status": "REPORTABLE",
+          "numerator": 12,
+          "denominator": 24,
+          "reason_codes": [],
+          "confident_input_reads": null,
+          "backend_input_reads": null,
+          "reads_after_preprocessing": null,
+          "aligned_reads": null,
+          "unaligned_reads": null,
+          "ordinary_classified_aligned_reads": null,
+          "ambiguous_aligned_reads": null,
+          "discarded_aligned_reads": null,
+          "backend_counts_role": "unavailable",
+          "preprocessing_count_delta": null,
+          "unaligned_reason_counts": {},
+          "products": {
+            "exact_wt": 12,
+            "exact_pe": 12,
+            "pe_plus_extra_change": 0,
+            "other_nonexact_assessable": 0,
+            "unresolved_unassessable": 0,
+            "contradictory_state": 0,
+            "denominator_exclusions": 0,
+            "classification_input_reads": 24,
+            "exclusion_reason_counts": {}
+          },
+          "population_denominator_exclusions": 0
+        }
+      },
+      "source_wheel_science_equal": true
+    }
+  ],
+  "process": {
+    "server-sigkill": {
+      "server_signal": "SIGKILL",
+      "busy_during_cleanup": true,
+      "scientific_child_alive_after": false,
+      "detached_alive_after": false,
+      "lease_busy_after": false,
+      "unrelated_canary_alive": true,
+      "invocation_lock_present": false,
+      "completion_present": false,
+      "recovery_classification": "RESUMABLE"
+    },
+    "detached-cancellation": {
+      "state": "CANCELLED",
+      "detached_alive_after": false,
+      "lease_busy_after": false,
+      "unrelated_canary_alive": true,
+      "invocation_lock_present": false,
+      "completion_present": false,
+      "detached_fixture": "double-fork setsid SIGTERM ignored"
+    }
+  },
+  "qualified_source_commit": "57456d21daee38300f770b567f11be8077443fca",
+  "junit_sha256": {
+    "baseline-final": "1349f7c304e8e50b14b598c44f0b3721ab0ae30020d4dcf3e27cc243cc216e3e",
+    "source-final": "7e3576f69855307e47d535f80416a4dd1cbd852540bf79daa17bd8463d7855cb",
+    "wheel-final": "884436b56f4a1a44f5e7947e5df97b59c6cedcb7d4954b5587dbdfae1af3962f"
+  },
+  "browser_checks": "All 24 retained + 8 new browser cases per installation; recovery cases include axe, responsive widths, keyboard, server SIGKILL and detached children."
+}

@@ -1,0 +1,11 @@
+{
+  "execution_transport": "native Linux subprocess, no Docker transport",
+  "crispresso_version": "2.3.4",
+  "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "extracted_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "native_content": "Complete /CRISPResso2 directory, including pinned pixi environment, extracted from the existing qualified image",
+  "python": "3.12",
+  "package": "0.8.0",
+  "browser": "Chromium through Playwright 1.64.1",
+  "dependency_files": ["requirements-dev.lock", "requirements-gui.lock", "frontend/package-lock.json"]
+}

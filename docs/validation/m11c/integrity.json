@@ -1,0 +1,54 @@
+{
+  "algorithm": "SHA-256",
+  "self_excluded": true,
+  "files": {
+    "README.md": {
+      "size_bytes": 8321,
+      "sha256": "33b87990c2512379d9c8305ef46675fabffb05330bb58c9091281260c7bca448"
+    },
+    "browser.json": {
+      "size_bytes": 2225,
+      "sha256": "c34139f87e3d474ec40f0985351e64572206eb75795c0da3dd8db52acccdc2a3"
+    },
+    "late-recovery-probe.json": {
+      "size_bytes": 370,
+      "sha256": "f91347e8b066250107062204008b43fae86632683dc930c6bbd639c0ed8ef35a"
+    },
+    "late-recovery-probe.py": {
+      "size_bytes": 4408,
+      "sha256": "0fa876f566faa17d6090ac95f64ea8b7a481caab74736db23e515ca2b9d8e51a"
+    },
+    "lineage.json": {
+      "size_bytes": 2425,
+      "sha256": "caf2a9d13e350f8942f15c69fb70468d8ce43e10bed83b6d718b2862b6911b6d"
+    },
+    "packaging.json": {
+      "size_bytes": 1141,
+      "sha256": "363037a21aa7e59c3131126a14343a7e611a1b8935ed5b3275f51c2c1cca9650"
+    },
+    "process-census.json": {
+      "size_bytes": 648,
+      "sha256": "242c5cd8fe0820b48011110a92631e17546c925bd793a978080f7584eace1083"
+    },
+    "qualification.json": {
+      "size_bytes": 18555,
+      "sha256": "a8d65f34d4c1c9c34d0f03b41132af8630c9c77f69aacf997013c0643f752982"
+    },
+    "run-tests.sh": {
+      "size_bytes": 1684,
+      "sha256": "30b5eb9735a456f9be2a340644621614a7989cc469abf61afcbc19422f020a03"
+    },
+    "runtime.json": {
+      "size_bytes": 658,
+      "sha256": "66a2685ef8c0f81981cd371d69c3a27ccae452404da216a6bf470182980ca3a8"
+    },
+    "scientific-scope.json": {
+      "size_bytes": 9547,
+      "sha256": "ae3ffac1c51aabb53e1f6ba1d9ef68ada05b3bc420d7db459d085da8d8e07114"
+    },
+    "source-wheel-science.json": {
+      "size_bytes": 701,
+      "sha256": "2cd64c17913fb27311c3b862cbfdfab67e357d67088a3a8acf8300be75b72cc4"
+    }
+  }
+}

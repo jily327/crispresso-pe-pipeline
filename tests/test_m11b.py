@@ -122,7 +122,10 @@ from peanalyzer.cli import sigterm_cleanup
 fd=int(sys.argv[-1]);events=os.fdopen(fd,'w',buffering=1)
 envelope=json.load(sys.stdin);spec=envelope['spec'];out=Path(spec['output'])
 def emit(**value):events.write(json.dumps(value)+'\\n')
-with sigterm_cleanup():
+def action():
+    with sigterm_cleanup():
+        return fixture()
+def fixture():
     emit(status='WORKER_READY')
     emit(status='RUNNING',stage_id='demux',stage_kind='demux')
     behavior='''+repr(behavior)+'''
@@ -136,6 +139,11 @@ with sigterm_cleanup():
     child=subprocess.Popen([sys.executable,'-c','import signal,time;signal.signal(signal.SIGTERM,signal.SIG_IGN);time.sleep(100)'])
     (out.parent/'child-pid').write_text(str(child.pid))
     while True:time.sleep(.02)
+from peanalyzer.gui.supervision import supervise
+def execute():
+    try:return action() or 0
+    except SystemExit as exc:return int(exc.code or 0)
+raise SystemExit(supervise(execute,lambda event:emit(**event),int(os.environ['PEANALYZER_SUPERVISOR_PARENT']),int(os.environ['PEANALYZER_SUPERVISOR_PARENT_START']),grace=.15))
 ''')
     monkeypatch.setattr('peanalyzer.gui.jobs.worker_command',lambda fd:[sys.executable,str(p),'--events-fd',str(fd)])
     return p
@@ -236,7 +244,9 @@ def execute(plan,node,completed,argv):
             p=Path(plan.inputs['r1'].source_path);p.write_bytes(p.read_bytes()+b'changed')
             return result
         child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(100)'])
-        (Path(plan.output).parent/'early-child-pid').write_text(str(child.pid))
+        temporary=Path(plan.output).parent/'early-child-pid.tmp'
+        temporary.write_text(str(child.pid))
+        os.replace(temporary,Path(plan.output).parent/'early-child-pid')
         while True:time.sleep(.02)
     return original(plan,node,completed,argv)
 w.execute_stage=execute

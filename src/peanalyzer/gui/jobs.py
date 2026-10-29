@@ -1,4 +1,4 @@
-"""One local process-group worker, immutable accepted jobs, verified publication."""
+"""One leased Linux supervisor, immutable accepted jobs, verified publication."""
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 import hashlib
@@ -67,6 +67,7 @@ class Job:
     thread: threading.Thread | None = None
     process: object = None
     finishing: bool = False
+    lease_fd: int | None = None
 
 
 class JobStore:
@@ -76,7 +77,9 @@ class JobStore:
         self.grace_seconds=5.0
 
     @property
-    def available(self):return self.runtime is not None and os.name=='posix'
+    def available(self):
+        from peanalyzer.gui.process_safety import supported
+        return self.runtime is not None and supported()
 
     def _job(self,key):
         if key not in self.jobs:raise ViewerError('JOB_NOT_FOUND','The job is not owned by this application session.')
@@ -85,6 +88,16 @@ class JobStore:
     def _event(self,job,status,**values):
         event=JobEvent(sequence=len(job.events)+1,timestamp=timestamp(),state=job.view.state,status=status,**values)
         job.events.append(event);job.view.latest_sequence=event.sequence
+
+    def _finish(self,job,state,error=None):
+        """Commit one terminal result; caller holds the lifecycle lock."""
+        if job.view.state in TERMINAL:return False
+        if state not in TERMINAL:raise ValueError('A terminal result is required')
+        job.view.state=state;job.view.error=error;job.view.cancellable=False
+        if state!='COMPLETED':job.view.workspace_id=None
+        job.finishing=True;job.ended=time.monotonic();job.view.ended_at=timestamp()
+        self._event(job,state,code=error.code if error else None)
+        return True
 
     def get(self,key):
         with self.lock:
@@ -139,13 +152,45 @@ class JobStore:
                 input_metadata=[FieldValue(name=name,value=hashlib.sha256(value.encode()).hexdigest())
                     for name,value in spec.compiled['files'].items()],warnings=[i for i in validation.issues if i.severity=='WARNING'],
                 stages=[JobStage(**s.model_dump()) for s in preview.stages],total_stages=len(preview.stages),started_at=timestamp())
-            job=Job(summary,payload)
+            from peanalyzer.gui.process_safety import acquire_lease
+            job=Job(summary,payload,lease_fd=acquire_lease())
             self.jobs[job_id]=job;self.active=job_id;drafts.frozen[view.draft_id]=job_id
             drafts.protected=(*drafts.protected,output)
             self._event(job,'ACCEPTED')
             job.thread=threading.Thread(target=self._supervise,args=(job,),name='peanalyzer-job-'+job_id,daemon=True)
-            job.thread.start()
+            try:job.thread.start()
+            except Exception:
+                os.close(job.lease_fd);job.lease_fd=None
+                self.jobs.pop(job_id);self.active=None;drafts.frozen.pop(view.draft_id,None)
+                raise
             return self.get(job_id)
+
+    def submit_recovery(self,key,item,preview):
+        from peanalyzer.gui.recovery import RecoveryExecution
+        from peanalyzer.gui.process_safety import acquire_lease
+        if self.closing:raise ViewerError('SERVER_STOPPING','The application is stopping')
+        if self.active is not None:raise ViewerError('WORKER_BUSY','Another analysis is active')
+        job_id=uuid.uuid4().hex
+        plan=item['plan']
+        spec=RecoveryExecution(job_id=job_id,recovery_id=key,revision=item['revision'],output=str(item['root']),
+            runtime=self.runtime,force=item['force'],recovery_plan_sha256=preview.recovery_plan_sha256,workflow_plan=plan)
+        payload=canonical(spec.model_dump()).encode()
+        summary=JobView(job_id=job_id,draft_id=key,revision=item['revision'],state='STARTING',
+            analysis_name=plan.normalized_options['title'],analysis_mode=plan.targets[0].analysis_mode,
+            target_name=plan.expected_targets[0],output_proposal=item['root'].name,
+            plan_identity_sha256=preview.recovery_plan_sha256,scientific_identity_sha256=preview.scientific_identity_sha256,
+            execution_spec_sha256=hashlib.sha256(payload).hexdigest(),input_metadata=[],warnings=[],
+            stages=[JobStage(stage_id=n.stage_id,kind=n.stage_kind,label=n.stage_kind,dependencies=n.dependencies,output_path=n.output_path) for n in plan.nodes],
+            total_stages=len(plan.nodes),started_at=timestamp())
+        job=Job(summary,payload,lease_fd=acquire_lease())
+        self.jobs[job_id]=job;self.active=job_id;self._event(job,'ACCEPTED')
+        job.thread=threading.Thread(target=self._supervise,args=(job,),name='peanalyzer-job-'+job_id,daemon=True)
+        try:job.thread.start()
+        except Exception:
+            os.close(job.lease_fd);job.lease_fd=None
+            self.jobs.pop(job_id);self.active=None
+            raise
+        return self.get(job_id)
 
     def cancel(self,key):
         with self.lock:
@@ -159,12 +204,19 @@ class JobStore:
     def _observe(self,job,event):
         with self.lock:
             status=event.get('status');stage_id=event.get('stage_id')
+            if job.view.state in TERMINAL:return
             stage=next((s for s in job.view.stages if s.stage_id==stage_id),None)
             if status=='WORKER_READY' and not job.cancel.is_set():job.view.state='RUNNING'
-            if stage and status in {'RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','FAILED'}:
+            if status=='CONTAINMENT_FAILED':
+                self._finish(job,'FAILED',ErrorDetail(code='CANCELLATION_INCOMPLETE',
+                    message='Scientific process containment is incomplete.',detail='Scientific child stopped; host worker lease remains held.'))
+                return
+            # CONTAINMENT_ERROR is event history, never a terminal decision or
+            # final error. RUNNING remains cancellable while inspection recovers.
+            if stage and status in {'RUNNING','COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED','FAILED'}:
                 stage.status=status;stage.reason_codes=list(event.get('reason_codes') or [])
                 job.view.current_stage_id=stage_id
-                job.view.finished_stages=sum(s.status in {'COMPLETED','SKIPPED_SCIENTIFIC_GATE'} for s in job.view.stages)
+                job.view.finished_stages=sum(s.status in {'COMPLETED','SKIPPED_SCIENTIFIC_GATE','REUSED'} for s in job.view.stages)
             if status=='FINAL_VALIDATION':job.view.current_stage_id=None
             self._event(job,str(status),stage_id=stage_id,stage_kind=event.get('stage_kind'),
                 reason_codes=event.get('reason_codes') or [],code=event.get('code'))
@@ -172,13 +224,18 @@ class JobStore:
     def _supervise(self,job):
         process=None;reader=None;drainer=None;read_fd=None;write_fd=None
         received=[];logs=bytearray();failure=None;verified=False
+        def hardened():return any(e.get('status')=='SUPERVISOR_READY' for e in received)
+        def confirmed():return any(e.get('status')=='CONTAINMENT_CONFIRMED' for e in received)
         try:
             with self.lock:
                 if job.cancel.is_set():return
                 subreaper()
                 read_fd,write_fd=os.pipe()
+                from peanalyzer.gui.process_safety import process_identity
+                env=dict(os.environ,PEANALYZER_SUPERVISOR_PARENT=str(os.getpid()),
+                    PEANALYZER_SUPERVISOR_PARENT_START=str(process_identity(os.getpid())['start_ticks']))
                 process=subprocess.Popen(worker_command(write_fd),stdin=subprocess.PIPE,stdout=subprocess.PIPE,
-                    stderr=subprocess.STDOUT,pass_fds=(write_fd,),start_new_session=True)
+                    stderr=subprocess.STDOUT,pass_fds=(write_fd,job.lease_fd),start_new_session=True,env=env)
                 job.process=process
                 os.close(write_fd);write_fd=None
             def read_events():
@@ -199,22 +256,24 @@ class JobStore:
             except BrokenPipeError:pass
             deadline=None
             while process.poll() is None:
-                if job.cancel.is_set():
-                    if deadline is None:signal_group(process.pid,signal.SIGTERM);deadline=time.monotonic()+self.grace_seconds
-                    elif time.monotonic()>=deadline:signal_group(process.pid,signal.SIGKILL)
+                if job.cancel.is_set() and hardened():
+                    if deadline is None:process.send_signal(signal.SIGTERM);deadline=time.monotonic()+self.grace_seconds
                 job.cancel.wait(.05) if not job.cancel.is_set() else time.sleep(.05)
             process.wait()
             # A leader can exit before its backend children. Do not release the slot
             # or publish completion until every member of its process group is gone.
-            signal_group(process.pid,signal.SIGTERM)
-            deadline=time.monotonic()+self.grace_seconds
-            while group_alive(process.pid):
+            if not hardened():
+                signal_group(process.pid,signal.SIGTERM)
+                deadline=time.monotonic()+self.grace_seconds
+                while group_alive(process.pid):
+                    reap_group(process.pid)
+                    if time.monotonic()>=deadline:signal_group(process.pid,signal.SIGKILL)
+                    if not group_alive(process.pid):break
+                    time.sleep(.02)
                 reap_group(process.pid)
-                if time.monotonic()>=deadline:signal_group(process.pid,signal.SIGKILL)
-                if not group_alive(process.pid):break
-                time.sleep(.02)
-            reap_group(process.pid)
-            reader.join();drainer.join()
+            reader.join(timeout=1);drainer.join(timeout=1)
+            if not confirmed():
+                raise ViewerError('CANCELLATION_INCOMPLETE','Supervisor exited without positive containment acknowledgement; host lease retained.')
             verified=process.returncode==0 and any(e.get('status')=='VERIFIED_SUCCESS' for e in received)
             errors=[e for e in received if e.get('status')=='WORKER_ERROR']
             if errors:
@@ -225,13 +284,15 @@ class JobStore:
                 failure=ErrorDetail(code='WORKER_EXITED',message='The worker did not produce verified completion.',
                     detail=logs.decode('utf-8','replace') or f'Worker exit code: {process.returncode}')
             with self.lock:
-                if job.cancel.is_set():return
+                if job.cancel.is_set() or job.view.state in TERMINAL:return
                 job.finishing=True;job.view.cancellable=False
                 self._event(job,'VIEWER_VERIFICATION')
             if verified:
-                spec=ExecutionSpec.model_validate_json(job.payload)
-                opened=self.workspaces.register_completed(spec.content.analysis_name,Path(spec.output))
-                with self.lock:job.view.workspace_id=opened.workspace_id
+                payload=json.loads(job.payload)
+                with self.lock:
+                    if job.view.state in TERMINAL:return
+                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']))
+                    job.view.workspace_id=opened.workspace_id
         except Exception as exc:
             failure=ErrorDetail(code=getattr(exc,'code','WORKER_FAILED'),message='Analysis could not be completed and verified.',
                 detail=str(exc),stage_id=getattr(exc,'stage_id',None))
@@ -239,28 +300,37 @@ class JobStore:
             if write_fd is not None:os.close(write_fd)
             if process is not None:
                 if process.poll() is None:
-                    signal_group(process.pid,signal.SIGKILL);process.wait()
-                # Exception paths must not strand descendants after the leader exits.
-                signal_group(process.pid,signal.SIGKILL)
-                while group_alive(process.pid):
+                    if any(e.get('status')=='SUPERVISOR_READY' for e in received):
+                        process.send_signal(signal.SIGTERM)
+                        process.wait()  # Supervisor retains lease until owned descendants are reaped.
+                    else:
+                        signal_group(process.pid,signal.SIGKILL);process.wait()
+                # Never signal a hardened supervisor's numeric PGID after reaping.
+                if not hardened():
+                    signal_group(process.pid,signal.SIGKILL)
+                    while group_alive(process.pid):
+                        reap_group(process.pid)
+                        if group_alive(process.pid):time.sleep(.02)
                     reap_group(process.pid)
-                    if group_alive(process.pid):time.sleep(.02)
-                reap_group(process.pid)
                 if process.stdin and not process.stdin.closed:process.stdin.close()
-                if reader:reader.join()
-                if drainer:drainer.join()
+                if reader:reader.join(timeout=1)
+                if drainer:drainer.join(timeout=1)
             if read_fd is not None and reader is None:os.close(read_fd)
+            contained=process is None or (process.poll() is not None and confirmed())
+            if job.lease_fd is not None and contained:
+                os.close(job.lease_fd);job.lease_fd=None
             with self.lock:
-                if job.cancel.is_set():
-                    job.view.state='CANCELLED';job.view.workspace_id=None
+                if not contained:
+                    self._finish(job,'FAILED',ErrorDetail(code='CANCELLATION_INCOMPLETE',message='Scientific process containment could not be confirmed.',
+                        detail='The host worker lease remains held; supervisor exit is not proof of cleanup.'))
+                elif job.cancel.is_set():
+                    self._finish(job,'CANCELLED')
                     for stage in job.view.stages:
                         if stage.stage_id==job.view.current_stage_id and stage.status in {'RUNNING','FAILED'}:stage.status='CANCELLED'
                 elif failure is not None or not job.view.workspace_id:
-                    job.view.state='FAILED';job.view.error=failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail='')
-                else:job.view.state='COMPLETED'
-                job.view.cancellable=False;job.ended=time.monotonic();job.view.ended_at=timestamp()
-                self._event(job,job.view.state,code=job.view.error.code if job.view.error else None)
-                self.active=None
+                    self._finish(job,'FAILED',failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail=''))
+                else:self._finish(job,'COMPLETED')
+                if contained:self.active=None
 
     def close(self):
         with self.lock:

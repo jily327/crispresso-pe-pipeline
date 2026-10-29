@@ -1,0 +1,65 @@
+{
+  "branch": "feat/m11c-recovery",
+  "base": "a1f2fbb5794dfa7be3d5bc614db3baf30f6fb503",
+  "base_parents": [
+    "c5f6272612df06e7f939f58fc567e1c386cc750a",
+    "022e7c4d69d7faf4de4005eed8bf5f8bfcd6b159"
+  ],
+  "qualified_source_head": "57456d21daee38300f770b567f11be8077443fca",
+  "implementation_commits": [
+    {
+      "sha": "84084c18d38117ea494106b72ca32cb837905b4f",
+      "subject": "fix: preflight all reusable stages before workflow invalidation"
+    },
+    {
+      "sha": "24a2ea97f4e068a4fa14a12833132878bdbb9643",
+      "subject": "feat: bind inspected recovery to a contained leased worker lifecycle"
+    },
+    {
+      "sha": "f6d7656775c47eced7eddea226231d8a78ce0fa5",
+      "subject": "feat: add backend-authoritative recovery review and confirmation UI"
+    },
+    {
+      "sha": "38a38ded64f5b872ade6e6f50fbd647cd3b12591",
+      "subject": "test: qualify recovery parity, containment, and adversarial previews"
+    },
+    {
+      "sha": "d93a9cf692ba161080d85d8b4bf7573e2bc04ff1",
+      "subject": "fix: generate recovery and scoped capability transport types"
+    },
+    {
+      "sha": "57456d21daee38300f770b567f11be8077443fca",
+      "subject": "test: allow new recovery registrations during browser lifecycle checks"
+    }
+  ],
+  "production_files_changed": [
+    "M\tfrontend/src/app/App.tsx",
+    "M\tfrontend/src/models/jobs.ts",
+    "A\tfrontend/src/models/recovery.ts",
+    "M\tfrontend/src/models/setup.ts",
+    "A\tfrontend/src/pages/Recovery.tsx",
+    "M\tfrontend/src/pages/Run.tsx",
+    "M\tscripts/generate_viewer_types.py",
+    "M\tsrc/peanalyzer/gui/__main__.py",
+    "M\tsrc/peanalyzer/gui/app.py",
+    "M\tsrc/peanalyzer/gui/execution.py",
+    "M\tsrc/peanalyzer/gui/job_models.py",
+    "M\tsrc/peanalyzer/gui/jobs.py",
+    "A\tsrc/peanalyzer/gui/process_safety.py",
+    "A\tsrc/peanalyzer/gui/recovery.py",
+    "A\tsrc/peanalyzer/gui/recovery_models.py",
+    "M\tsrc/peanalyzer/gui/setup_models.py",
+    "A\tsrc/peanalyzer/gui/static/assets/index-BypUqR2Y.js",
+    "D\tsrc/peanalyzer/gui/static/assets/index-DIPPXUF5.js",
+    "M\tsrc/peanalyzer/gui/static/build-identity.json",
+    "M\tsrc/peanalyzer/gui/static/index.html",
+    "A\tsrc/peanalyzer/gui/supervision.py",
+    "M\tsrc/peanalyzer/gui/worker.py",
+    "M\tsrc/peanalyzer/workflow.py",
+    "A\tsrc/peanalyzer/workflow_recovery.py"
+  ],
+  "version": "0.8.0",
+  "main_modified": false,
+  "pr_created": false,
+  "merged": false
+}

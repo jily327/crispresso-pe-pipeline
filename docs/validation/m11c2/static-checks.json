@@ -1,0 +1,269 @@
+{
+  "candidate": "b4aee11b1f4ba56791a5d36629a14c3e154ae4d8",
+  "force_closure": {
+    "allowed": 192,
+    "blocked": 64,
+    "mismatches": 0
+  },
+  "science_files": 62,
+  "science_byte_identical": true,
+  "audit_files": 65,
+  "audit_byte_identical": true,
+  "audit_commit": "78125e5d3ff20e68921e03843bd44fa5d9de2150",
+  "audit_package": {
+    "payload_files": 62,
+    "zip_members": 63,
+    "zip_sha256": "ae1ee41f34f93f52f64536ca9d5543cb3927d06a1b7e49f6694351bbe35a623e",
+    "copy_equal": false
+  },
+  "science_inventory": [
+    {
+      "path": "src/peanalyzer/__init__.py",
+      "sha256": "72127d3373faf48dbcfa0c346dfd1567bd12fc7a02a1651a34ce3a3abee850ef"
+    },
+    {
+      "path": "src/peanalyzer/__main__.py",
+      "sha256": "9fd0bd4e19ff0d5d0b247226b224ec35ab63f691b9b08c942c4af48130cadd70"
+    },
+    {
+      "path": "src/peanalyzer/aggregation.py",
+      "sha256": "641ee9dbd3f1da255d534695541ec30ff55b551d4f7b1588852f8c53ddc8dd6a"
+    },
+    {
+      "path": "src/peanalyzer/analysis_fastq.py",
+      "sha256": "f48ef7f012b3fbb6124c4fb69487ca7100d4362325213039201455efb3203efa"
+    },
+    {
+      "path": "src/peanalyzer/analysis_verify.py",
+      "sha256": "1a2b619b91a1debbd8d97546ba68dc9e4c47ea2c1487f0f5af1dd2a0287c5b84"
+    },
+    {
+      "path": "src/peanalyzer/backend/__init__.py",
+      "sha256": "5e94deb1ac16d458563bebffd77ca0defe003ac10140967e98fd9be2ae0df2d1"
+    },
+    {
+      "path": "src/peanalyzer/backend/comparator.py",
+      "sha256": "e7766b933623fc62b18abf1c5b2470e7be5b27cd3bc30fe1ffc5168b2a47123d"
+    },
+    {
+      "path": "src/peanalyzer/backend/core.py",
+      "sha256": "7183b2fde5d2edca56e18fa891bdba9da0b2ba35dacc3ff0ff9d8d3e055be887"
+    },
+    {
+      "path": "src/peanalyzer/backend/metrics.py",
+      "sha256": "bf089430b76d9d970f57bb524d6183a0310ed713aa2ad162f8769a8749e62700"
+    },
+    {
+      "path": "src/peanalyzer/backend/pooled.py",
+      "sha256": "309fcf514413372eb952fb2cb86b82daf03daa617dbe79029507a5ec7fb113ef"
+    },
+    {
+      "path": "src/peanalyzer/backend/routing_validation.py",
+      "sha256": "b109b6489ff07de32f2dc11315c6c5895d082d3b4307f9539fed3909ff584d3f"
+    },
+    {
+      "path": "src/peanalyzer/backend/synthetic.py",
+      "sha256": "0ecc0636928a9a768b9edb648156dce93d5874774cede4783bf3ee9a4f5aaeab"
+    },
+    {
+      "path": "src/peanalyzer/barcode_sets/qi_hitom_v1.csv",
+      "sha256": "4dad06151a5161a841d5ac624bf8728d844e80208d462dc7fba957198ce4c013"
+    },
+    {
+      "path": "src/peanalyzer/barcodes.py",
+      "sha256": "690e5677c245ab8a1fb67448a2996e3b17b95c236202025f87dff939c7a179ce"
+    },
+    {
+      "path": "src/peanalyzer/cli.py",
+      "sha256": "69f09487ee2f473f18e347ebd5a086658efc7c78030ee9944cca076520515666"
+    },
+    {
+      "path": "src/peanalyzer/demux.py",
+      "sha256": "64ec514b068c19877e813675b0fc17ea1fda9b0d48e3a936cca86ca01c5bc6bf"
+    },
+    {
+      "path": "src/peanalyzer/demux_output.py",
+      "sha256": "dc443e28855ae7b0573dcd9d3b26b055a9f160671c1c29519649327e50c30546"
+    },
+    {
+      "path": "src/peanalyzer/demux_verify.py",
+      "sha256": "3e374110a72b5dd44bc22b3e414acd6c269db77ef1bfb3bdd98dbf319a537fc3"
+    },
+    {
+      "path": "src/peanalyzer/fastq.py",
+      "sha256": "aec342f796eaa33228313cf94ba55bd26b0494b10ac34c4b78d9de71aba41598"
+    },
+    {
+      "path": "src/peanalyzer/geometry.py",
+      "sha256": "3911648e46ba4f5f38f75d241b50734cee3fddac9a2ad31a365a6b5891fb4dfc"
+    },
+    {
+      "path": "src/peanalyzer/metrics/__init__.py",
+      "sha256": "c08738ce2c4a0c881b19b6bc5bfb1c39e10664d17f22e3b631c7be3fe7ad55b5"
+    },
+    {
+      "path": "src/peanalyzer/metrics/family.py",
+      "sha256": "8ff56e0d2a6eac68c6f95bb1efc509ef7d58de5c146b576dc8cf08f634f471b0"
+    },
+    {
+      "path": "src/peanalyzer/metrics/family_models.py",
+      "sha256": "556f5a7fc4b03e175cdac577cf3411690ecdcab488d3921fb71a68529b88cba3"
+    },
+    {
+      "path": "src/peanalyzer/metrics/models.py",
+      "sha256": "123971715cbf80e31e70aaa246e5958f5921c2e3273dcbe37bb16c27fbd8b6aa"
+    },
+    {
+      "path": "src/peanalyzer/metrics/policy_requests.py",
+      "sha256": "541b4962dcdda81a908427467e639251155dc6f7156e8f30febf0b3dbefa7cba"
+    },
+    {
+      "path": "src/peanalyzer/metrics/production.py",
+      "sha256": "14c6b7a645577c262c56eae88bebc0718d79ba1fba8d5be0211f7070663e4a73"
+    },
+    {
+      "path": "src/peanalyzer/metrics/products.py",
+      "sha256": "5778edab32b9792c55771e0f8defb0e394ce9f6a1d3383d0e88d4683d7bc7015"
+    },
+    {
+      "path": "src/peanalyzer/metrics/result.schema.json",
+      "sha256": "a3b3b41994a929e3ca5b8aad8b99fd8152384601f75a9473ef5ae70d9cff4ae5"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/__init__.py",
+      "sha256": "7e86bb4bee161fc6779284a44f7517d26a5910caa518752bfe479f9ae4442129"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/aggregation.py",
+      "sha256": "7d16ae34bc19bde7bb3ffe7f6106ca81179838552d4077b4bf8ebf0609f796a6"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/backend.py",
+      "sha256": "a872c22ce142ae373da93be93539ade9f154da61b35c6803014f5ca634140afb"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/models.py",
+      "sha256": "0e37bc84eb60d94b7564606da89d0793a7ea286e710a02e4896ac075491fd6d5"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/qualification.py",
+      "sha256": "7b4f2cca0d005f565a8bda14e573b7f3c9788910f96681a06e07f41fc8dd4edb"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/report.schema.json",
+      "sha256": "042e66652ae28f552f85f8c4d566a1b77cceb846f39cf164954fcadc844e40f9"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/reporting.py",
+      "sha256": "c0aea702a2b926a453971db07245e16d886d53f48339422a636cce89df609b85"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/result.schema.json",
+      "sha256": "0a4c39a5b210f260134f911e75bf2bf0fe78f9244c16fbab0aa2c4bd4d5e14b6"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/statistics.schema.json",
+      "sha256": "f3bc3b3319a2c27a52b3a2c014a719ee18a1d91a4639375a6915ef44aa0d6cb4"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/target.schema.json",
+      "sha256": "52954d6cb4b5fca84b2562ea96511df1fb480c409131bc28fa8f72ce720bb1de"
+    },
+    {
+      "path": "src/peanalyzer/nuclease/targets.py",
+      "sha256": "11f0c80a9909f2d0177be0f3c0e3c7b05c2399af36a698de04cb268d5cee0369"
+    },
+    {
+      "path": "src/peanalyzer/observability.py",
+      "sha256": "533c9b0f8ae35d2782050471e6ea74935fa7e3c2f9b5b31f7fd8be4a273858ce"
+    },
+    {
+      "path": "src/peanalyzer/profiles/qi_hitom_v1.yaml",
+      "sha256": "2afb0adf750b279ef7cc8b3e99442ab91ed07605a8bbbb3d3bfb7cc96a9674b8"
+    },
+    {
+      "path": "src/peanalyzer/provenance.py",
+      "sha256": "422b8ae092d1f50489a53beddf0a320ea417b8b4889209fdbbdaba39862eff2a"
+    },
+    {
+      "path": "src/peanalyzer/qualification.py",
+      "sha256": "1c85cfa34fc16beb19dc9b081633da66116f790a5b4da12c003f55ff8e093ba1"
+    },
+    {
+      "path": "src/peanalyzer/remediation.py",
+      "sha256": "ec099adfcb7e1bf44f79da2db5bccb3739d60e3b89726c6614c9f11710ed2f6c"
+    },
+    {
+      "path": "src/peanalyzer/reporting.py",
+      "sha256": "fe810fc25d61f823f8be96fc6102fb6032f898fdb3608f6778544a0fc7a160ef"
+    },
+    {
+      "path": "src/peanalyzer/reporting_models.py",
+      "sha256": "35088c64bc785d37b221d22a90ae0569a4b60712e74aea70859938c873c5e42c"
+    },
+    {
+      "path": "src/peanalyzer/reporting_resources/report.css",
+      "sha256": "90be482b908e43c8cc775ed3ee651bf804eaf6b90b4366324395b0eeb99d775e"
+    },
+    {
+      "path": "src/peanalyzer/reporting_resources/report_manifest.schema.json",
+      "sha256": "4a03946e3c73c1e4cfc5210b98b049deba1ccf6692609ae86bb3890952c39f5a"
+    },
+    {
+      "path": "src/peanalyzer/result_dispatch.py",
+      "sha256": "ea79c887f6b62da4f1db5d30e430fd862fb385697b6c9ca50ea017fe097e9856"
+    },
+    {
+      "path": "src/peanalyzer/routing.py",
+      "sha256": "8e04123514927aba9db5c4616d3d073a334f3f98632ae1f5ac3005dc7e8dbd92"
+    },
+    {
+      "path": "src/peanalyzer/schemas.py",
+      "sha256": "b76b731c605e3f773dd7a6b2d2615f3a8c417f26a1f0b3fede219526db85a68c"
+    },
+    {
+      "path": "src/peanalyzer/statistical_models.py",
+      "sha256": "df5d4033529eac22f102c38e1061d269b5c5ef800a13ec63d592d08a5138379d"
+    },
+    {
+      "path": "src/peanalyzer/statistics.py",
+      "sha256": "e39c594ea01c7e15ea894b7ba51f83b520e7e542405d0d8edc6df26d90ec3d26"
+    },
+    {
+      "path": "src/peanalyzer/statistics_resources/contrasts.schema.json",
+      "sha256": "c067312e301e21a6d275cda4ac72b934f4a1f24b02dfba3283b73c49438b84c2"
+    },
+    {
+      "path": "src/peanalyzer/statistics_resources/result.schema.json",
+      "sha256": "de932dd95a2269e95420bd036d425818626d0f4aabee84d5dc4e6f94d88afd53"
+    },
+    {
+      "path": "src/peanalyzer/synthetic_routing.py",
+      "sha256": "e9214b4077e4572fff9e2073026bd7f0ac2d98d2b93d94c607338c2c5fa312eb"
+    },
+    {
+      "path": "src/peanalyzer/validation.py",
+      "sha256": "46e9c196ebdb5a2bf749f463a70e9e281d101960c2becd738eec26af3555f7fe"
+    },
+    {
+      "path": "src/peanalyzer/workflow_models.py",
+      "sha256": "9c759ead2a75fd491e244910bb235d1230d92c566bec6caf6628a2c2d63b20c6"
+    },
+    {
+      "path": "src/peanalyzer/workflow_resources/__init__.py",
+      "sha256": "161398db7cd8890f09088b4629e5fd5adf5db76fa193bcd9122c36c3fd009565"
+    },
+    {
+      "path": "src/peanalyzer/workflow_resources/stage_manifest.schema.json",
+      "sha256": "629cdc27e9ea4ac572094f59ae28fa1743024ab414507e9ae2c3ae011aa002b9"
+    },
+    {
+      "path": "src/peanalyzer/workflow_resources/workflow_manifest.schema.json",
+      "sha256": "3b693f6b92af90a02a1f1d82ac5ba9873c1fa0b1c1bf3c31c1cd0b429f67b960"
+    },
+    {
+      "path": "src/peanalyzer/workflow_storage.py",
+      "sha256": "bf2da066e52f956e5a7ab19eaf4bf0b21a03273146eeb1ef68fe20597d6080ea"
+    }
+  ]
+}

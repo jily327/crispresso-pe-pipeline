@@ -33,17 +33,28 @@ def main():
         def emit(event):
             try:stream.write(json.dumps(event,separators=(',',':'))+'\n')
             except (OSError,ValueError):pass  # Observation never changes scientific execution.
-        try:
-            with sigterm_cleanup():
-                envelope=json.load(sys.stdin)
-                payload=envelope['spec']
-                if hashlib.sha256(canonical(payload).encode()).hexdigest()!=envelope['sha256']:
-                    raise ValueError('Execution specification checksum mismatch')
-                run(ExecutionSpec.model_validate(payload),emit)
-        except BaseException as exc:
-            emit(dict(status='WORKER_ERROR',code=getattr(exc,'code','WORKER_FAILED'),
-                stage_id=getattr(exc,'stage_id',None),message=str(exc)))
-            return 1
+        def action():
+            try:
+                with sigterm_cleanup():
+                    envelope=json.load(sys.stdin)
+                    payload=envelope['spec']
+                    if hashlib.sha256(canonical(payload).encode()).hexdigest()!=envelope['sha256']:
+                        raise ValueError('Execution specification checksum mismatch')
+                    if payload.get('intent')=='recovery':
+                        from peanalyzer.gui.recovery import RecoveryExecution, run_recovery
+                        run_recovery(RecoveryExecution.model_validate(payload),emit)
+                    else:
+                        run(ExecutionSpec.model_validate(payload),emit)
+                return 0
+            except BaseException as exc:
+                emit(dict(status='WORKER_ERROR',code=getattr(exc,'code','WORKER_FAILED'),
+                    stage_id=getattr(exc,'stage_id',None),message=str(exc)))
+                return 1
+        if 'PEANALYZER_SUPERVISOR_PARENT' in os.environ:
+            from peanalyzer.gui.supervision import supervise
+            return supervise(action,emit,int(os.environ['PEANALYZER_SUPERVISOR_PARENT']),
+                int(os.environ['PEANALYZER_SUPERVISOR_PARENT_START']))
+        return action()
     return 0
 
 

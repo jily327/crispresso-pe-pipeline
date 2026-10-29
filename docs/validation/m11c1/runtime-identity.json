@@ -1,0 +1,20 @@
+{
+  "core_version": "2.3.4",
+  "runtime_image": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "execution_transport": "Native extracted qualified image content; wrappers exec directly into native Python",
+  "sha256": {
+    "/workspace/m11c1-remediation/native-bin/CRISPResso": "671cee5a66a3672524ae20e62d6a0ee9da6be4669f08b36d051340bf9f38405d",
+    "/workspace/m11c1-remediation/native-bin/CRISPRessoPooled": "dc3659dfb6c3d8fd51d714980d6173083c2ab3f23f09d4a0db99fb730fa7b014",
+    "/workspace/m11c1-remediation/native-env/bin/python3.12": "b1aa39a10a1ab859c368779b83b9f0e7d1272213cad18b30bc4704de94556715",
+    "/workspace/m11c1-remediation/native-env/bin/fastp": "45f19b4ae0d8b49a38c2548a317e3193f82ff0282097e976ed115b0513bb967a",
+    "/workspace/m11c1-remediation/native-env/bin/samtools": "a9d912836977333dd78aa73d2642b92d1c0c34285eaf728c2b996700c70601b8",
+    "/workspace/m11c1-remediation/CRISPResso2/CRISPRessoCORE.py": "3dc11f1b4642d56b8d2e1ca8ff987431cee049bbdc8837cbd43bba8fe6dc3fe3"
+  },
+  "python_source": "/workspace/m11b-implementation/venv/bin/python",
+  "python_wheel": "/workspace/m11c1-remediation/wheel-venv/bin/python",
+  "installed_import": {
+    "import_path": "/workspace/m11c1-remediation/wheel-venv/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "supervision_path": "/workspace/m11c1-remediation/wheel-venv/lib/python3.12/site-packages/peanalyzer/gui/supervision.py",
+    "version": "0.8.0"
+  }
+}

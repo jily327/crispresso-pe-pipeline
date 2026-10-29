@@ -147,8 +147,11 @@ def test_existing_root_not_adopted(case):
     ('report','report/report.html','report')])
 def test_corruption_requires_correct_force(case,kind,relative,family):
     options,_=complete(case);path=options['output']/relative;path.write_bytes(path.read_bytes()+b' ')
+    # M11C failed preflight preserves evidence; a corrupt marker is not success.
+    marker=options['output']/'workflow_manifest.json';before=marker.read_bytes()
     with pytest.raises(w.WorkflowError):w.execute_workflow(**options,resume=True)
-    assert not (options['output']/'workflow_manifest.json').exists()
+    assert marker.read_bytes()==before
+    with pytest.raises(w.WorkflowError):w.verify_workflow_output(options['output'])
     if family!='report':
         with pytest.raises(w.WorkflowError):w.execute_workflow(**options,resume=True,force=['report'])
     w.execute_workflow(**options,resume=True,force=[family])
