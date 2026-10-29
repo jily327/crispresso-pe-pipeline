@@ -1,0 +1,587 @@
+You are preparing a **frozen independent audit kit** for the next PEAnalyzer maintenance candidate in:
+
+`jily327/crispresso-pe-pipeline`
+
+You are NOT the implementation agent.
+
+Another Codex instance is independently implementing the maintenance milestone.
+
+Your job is to prepare adversarial tests, audit methodology, expected invariants, fixtures, and audit documentation **before seeing the candidate implementation**.
+
+This separation is intentional.
+
+# Absolute independence rule
+
+Do NOT inspect the implementation candidate branch.
+
+Do NOT ask for its SHA.
+
+Do NOT read implementation-agent notes.
+
+Do NOT modify production code.
+
+Base all audit preparation only on the current merged remote `main` and the requested feature contract below.
+
+First:
+
+1. fetch current remote repository
+2. record exact `main` SHA
+3. inspect current architecture
+4. create a separate artifact/audit-prep branch from current `main`
+
+Suggested branch:
+
+`artifacts/practical-ux-audit-prep`
+
+Never use this branch as an implementation base.
+
+---
+
+# Maintenance features that will later need independent audit
+
+The future candidate is expected to add:
+
+1. browser-based FASTQ upload
+2. official `.xlsx` sample-template import
+3. final-verification progress presentation
+4. simultaneous display of Exact intended PE and the CRISPResso PE comparator
+5. clearer human-facing CRISPResso metric naming
+6. primary-vs-copy-specific metric grouping
+7. metric definitions/tooltips
+8. package version bump from 0.8.0 to 0.9.0
+
+The implementation is required to keep PEAnalyzer science and M11C lifecycle/recovery semantics unchanged.
+
+---
+
+# Frozen areas
+
+The future candidate must not alter the scientific meaning of:
+
+- Exact intended PE
+- PE denominators
+- CRISPResso result extraction
+- CRISPResso arguments
+- routing biology
+- copy qualification
+- nuclease metrics
+- TIGR/Tas geometry
+- qwc
+- statistics
+- scientific reports
+
+It must also not redesign:
+
+- recovery authentication
+- ownership model
+- containment
+- cancellation
+- terminal job states
+- M11C recovery behavior
+
+Known M11C MINOR/INFO findings are explicitly out of scope.
+
+Build tripwires capable of detecting unexpected changes in those areas.
+
+---
+
+# Audit-prep objective
+
+Prepare a candidate-independent audit package that can later answer:
+
+> Did the maintenance candidate implement the requested UX/input functionality safely without changing qualified scientific or M11C contracts?
+
+Do not decide whether the future implementation passes yet.
+
+Prepare the tests and expected behavior first.
+
+---
+
+# A. FASTQ upload adversarial matrix
+
+Design candidate-independent tests for:
+
+## Normal cases
+
+- valid R1 upload
+- valid R2 upload
+- R1 + R2
+- replacement
+- duplicate original filenames
+- same filename with different bytes
+- same bytes with different filenames
+
+## Streaming/integrity
+
+- sufficiently large synthetic `.fastq.gz`
+- verify upload is not whole-file buffered if testable
+- exact SHA-256 preservation
+- exact byte-size preservation
+- registered file equals uploaded bytes
+- no truncated upload accepted
+
+## Interrupted upload
+
+Test disconnect/failure at:
+
+- 0 bytes
+- first chunk
+- middle
+- final chunk before finalize
+- after temp write but before registration if such a boundary exists
+
+Expected invariant:
+
+**no partial file may become an accepted Setup input.**
+
+Determine how to inspect application-owned temp/staging leftovers safely.
+
+## Filename attacks
+
+Prepare filenames such as:
+
+`../../VICTIM.fastq.gz`
+
+`..\..\VICTIM.fastq.gz`
+
+`/tmp/VICTIM.fastq.gz`
+
+`C:\Windows\System32\VICTIM.fastq.gz`
+
+encoded separator variants
+
+Unicode lookalike separators where relevant
+
+very long filename
+
+leading dot filename
+
+duplicate filename
+
+Expected:
+
+- filename cannot control server path
+- no external victim mutation
+- no traversal
+- no arbitrary overwrite
+
+## Server-path injection
+
+Ensure the API cannot be abused by sending a local Linux path instead of file bytes.
+
+Attempt references to:
+
+`/etc/passwd`
+
+owned workspace files
+
+another analysis input
+
+external legacy `--setup-fastq` file
+
+Expected:
+
+**upload API cannot convert arbitrary server paths into uploaded inputs.**
+
+## Symlink attacks
+
+If feasible, test:
+
+- staging destination symlink
+- temp-file replacement
+- symlink to external victim
+- directory substitution
+
+Expected fail-closed behavior.
+
+Do not alter M11C recovery fixtures to accomplish this.
+
+---
+
+# B. Uploaded-file ownership tests
+
+Prepare tests distinguishing:
+
+1. application-owned uploaded file
+2. externally owned legacy `--setup-fastq` file
+
+Critical invariant:
+
+Cleanup/replacement of an uploaded file must NEVER delete an external legacy input.
+
+Design explicit victim-file tests.
+
+---
+
+# C. Excel import adversarial matrix
+
+Prepare `.xlsx` fixtures for:
+
+## Valid
+
+- 1 sample
+- 20 samples
+- whitespace normalization
+- optional blanks
+- standard QI-HITOM barcode lookup
+
+## Invalid columns
+
+- missing required column
+- misspelled required column
+- unexpected column
+- duplicate header
+- empty header
+
+## Invalid rows
+
+- missing sample_name
+- missing biological_replicate where backend requires it
+- duplicate barcode_id
+- unknown barcode such as `9Z`
+- malformed dpi such as `six`
+- malformed paired such as `maybe`
+- invalid custom barcode sequence if supported
+
+## Structural ambiguity
+
+- blank row in middle
+- data after blank row
+- multiple apparent data sheets
+- renamed Samples sheet
+- hidden rows
+- hidden columns
+- merged cells
+- duplicate samples
+- formula cells
+- formula errors
+- dates where integers are expected
+
+Define expected fail-closed behavior from the requested contract and current backend semantics.
+
+Do not create a second scientific validator.
+
+---
+
+# D. QI-HITOM authority tests
+
+Inspect the existing qualified QI-HITOM v1 catalog.
+
+Prepare a test proving:
+
+Excel:
+
+`barcode_id = 4A`
+
+resolves through the existing backend catalog rather than an Excel-specific duplicate mapping.
+
+Prepare tamper/tripwire detection so a future implementation that copies barcode sequences into a separate parser lookup will be flagged for review.
+
+---
+
+# E. Manual vs Excel parity oracle
+
+Using current backend models, prepare an oracle for equivalent metadata entered by:
+
+A. manual sample form
+
+B. Excel import
+
+Compare canonical sample/draft content after normalization.
+
+Determine which fields must be byte/value identical.
+
+Do not assume opaque identities are necessarily path-independent.
+
+Document the exact expected parity based on current `main`.
+
+---
+
+# F. Legacy FASTQ vs browser-upload parity oracle
+
+Determine current scientific/provenance identity behavior.
+
+Prepare an oracle comparing identical FASTQ bytes supplied through:
+
+A. existing legacy registration
+
+B. future uploaded/staged registration
+
+At minimum verify:
+
+- FASTQ content hashes
+- scientific configuration
+- sample metadata
+- routing inputs
+- resulting scientific plan
+- scientific outputs
+
+Determine whether current `scientific_identity` and `plan_identity` should also be exactly equal.
+
+Do not redefine identity semantics to make the test convenient.
+
+Document the expected result.
+
+---
+
+# G. Final-verification presentation tests
+
+Inspect current Run event/state behavior.
+
+Prepare tests for:
+
+## Scientific stage active
+
+Expected ordinary RUNNING UI.
+
+## Last scientific stage completes
+
+All scientific stages complete.
+
+Job may still authoritatively remain RUNNING.
+
+## Final verification active
+
+Expected future UI:
+
+- clearly states final verification/finalization is occurring
+- scientific progress remains complete
+- does not present the run primarily as idle/hung
+- does NOT change authoritative JobState semantics
+
+## Completion
+
+Normal verified COMPLETED.
+
+## Failure/cancel/reload
+
+Ensure presentation logic does not alter:
+
+- failure
+- cancellation
+- reconnect/reload
+- registration
+- terminal event behavior
+
+Explicitly add tripwires against new lifecycle states or modified M11C transitions.
+
+---
+
+# H. Results metric audit oracle
+
+From current `main`, independently document the authoritative definitions of:
+
+## Exact intended PE
+
+Record:
+
+- numerator
+- denominator
+- population
+- stored metadata source
+- target-level vs copy-specific semantics
+
+## Current CRISPResso PE comparator
+
+Record exactly:
+
+- backend metric ID
+- numerator
+- denominator
+- population
+- distinction from CRISPResso Modified%
+
+Prepare UI assertions for the future human-facing label.
+
+Do NOT prescribe a label that contradicts actual backend semantics.
+
+---
+
+# I. Primary vs copy-specific metric tests
+
+Prepare fixtures containing:
+
+- target-level Exact intended PE
+- target-level CRISPResso comparator
+- chr01 copy metric
+- chr11 copy metric
+- blocked copy metric
+- null metric
+
+Future UI requirements:
+
+Primary biological metrics first.
+
+Copy-specific routed metrics visibly separated as diagnostics.
+
+Underlying values unchanged.
+
+No JavaScript scientific recalculation.
+
+No null → zero conversion.
+
+---
+
+# J. Simultaneous Samples-table metrics
+
+Prepare expected Results/Samples rows showing both primary PE metrics simultaneously.
+
+Test:
+
+- normal values
+- numerator/denominator
+- blocked
+- null
+- missing comparator
+- multiple samples
+- PE mode
+- nuclease regression
+
+The future implementation must not derive new scientific counts in the frontend.
+
+---
+
+# K. Versioning audit
+
+Current project has historically remained on 0.8.0.
+
+The future milestone is expected to bump to:
+
+`0.9.0`
+
+unless the implementation finds an explicit project versioning policy requiring otherwise.
+
+Prepare checks for:
+
+- authoritative Python package version
+- runtime-reported version
+- UI-displayed version
+- built wheel metadata
+- installed package version
+- static build identity where applicable
+
+Historical M8/M10/M11 validation artifacts containing 0.8.0 must NOT be rewritten simply to make version searches uniform.
+
+Prepare a regression that distinguishes historical evidence from current runtime version sources.
+
+---
+
+# L. Frozen-core tripwire
+
+Produce a manifest/hash list or other deterministic tripwire covering relevant qualified production files in:
+
+- scientific calculations
+- routing
+- statistics
+- reporting
+- CRISPResso configuration
+- TIGR geometry
+- M11C recovery/integrity
+- containment/supervision
+
+The eventual audit should distinguish:
+
+1. files that truly must remain byte-identical
+2. files that may legitimately receive a tiny additive presentation exposure
+
+Do not create an impossible blanket rule if the current architecture requires one shared API model file to change.
+
+Document expected exceptions narrowly.
+
+---
+
+# M. Retained regression inventory
+
+Identify the smallest existing retained test subsets that provide coverage for:
+
+- Setup
+- viewer
+- Run
+- cancellation
+- recovery
+- force
+- PE
+- nuclease
+- statistics
+- reports
+
+Prepare exact commands where possible.
+
+Do not run unnecessary giant qualification repeatedly during audit prep.
+
+---
+
+# N. Browser audit plan
+
+Prepare Playwright/browser cases for:
+
+1. Windows-style browser file input behavior
+2. FASTQ upload and replacement
+3. Excel template download
+4. Excel import
+5. imported editable rows
+6. Validate & Review after import
+7. final-verification presentation
+8. simultaneous PE metrics
+9. metric info/tooltips
+10. copy-specific grouping
+11. nuclease regression
+12. existing Run/Recovery flows
+
+Use browser file-input APIs with actual fixture files.
+
+Do not emulate upload by passing a server path.
+
+---
+
+# O. Findings policy
+
+During audit preparation, if you discover an existing issue in current `main`, classify it:
+
+- BLOCKING
+- MAJOR
+- MINOR
+- INFO
+
+But do not fix it.
+
+Clearly distinguish:
+
+- pre-existing current-main issue
+- future-candidate audit expectation
+
+Do not expand this maintenance milestone.
+
+---
+
+# Deliverables
+
+Commit only audit-prep artifacts/tests/fixtures that are intentionally independent of the future candidate.
+
+Do not modify production code.
+
+At the end report:
+
+1. exact main SHA used
+2. audit-prep branch
+3. audit-prep commit SHA
+4. files created
+5. FASTQ adversarial matrix
+6. Excel adversarial matrix
+7. parity oracle
+8. metric-definition oracle
+9. final-verification lifecycle oracle
+10. versioning oracle
+11. frozen-core tripwire
+12. browser test plan
+13. retained regression commands
+14. pre-existing findings, if any
+15. confirmation that the implementation candidate was never inspected
+
+Push the audit-prep branch to GitHub so it is durable.
+
+Final verdict should be:
+
+`AUDIT PREP FROZEN — READY FOR FUTURE CANDIDATE`
+
+Do not audit or approve the implementation yet.

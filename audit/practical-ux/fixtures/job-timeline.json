@@ -1,0 +1,52 @@
+[
+  {
+    "phase": "scientific",
+    "state": "RUNNING",
+    "status": "RUNNING",
+    "finished": 1,
+    "total": 2,
+    "current": "metrics",
+    "workspace_id": null,
+    "cancellable": true
+  },
+  {
+    "phase": "stages-done",
+    "state": "RUNNING",
+    "status": "COMPLETED",
+    "finished": 2,
+    "total": 2,
+    "current": "report",
+    "workspace_id": null,
+    "cancellable": true
+  },
+  {
+    "phase": "final-verification",
+    "state": "RUNNING",
+    "status": "FINAL_VALIDATION",
+    "finished": 2,
+    "total": 2,
+    "current": null,
+    "workspace_id": null,
+    "cancellable": true
+  },
+  {
+    "phase": "viewer-verification",
+    "state": "RUNNING",
+    "status": "VIEWER_VERIFICATION",
+    "finished": 2,
+    "total": 2,
+    "current": null,
+    "workspace_id": null,
+    "cancellable": false
+  },
+  {
+    "phase": "complete",
+    "state": "COMPLETED",
+    "status": "COMPLETED",
+    "finished": 2,
+    "total": 2,
+    "current": null,
+    "workspace_id": "opaque-verified",
+    "cancellable": false
+  }
+]

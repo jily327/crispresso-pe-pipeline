@@ -1,0 +1,134 @@
+{
+  "valid-one": {
+    "expectation": "accept",
+    "options": {}
+  },
+  "valid-twenty": {
+    "expectation": "accept",
+    "options": {}
+  },
+  "whitespace": {
+    "expectation": "accept-normalized",
+    "options": {}
+  },
+  "optional-blanks": {
+    "expectation": "accept",
+    "options": {}
+  },
+  "catalog-4A": {
+    "expectation": "candidate-catalog-expansion",
+    "options": {}
+  },
+  "missing-column": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "missing-biological-column": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "misspelled-column": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "unexpected-column": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "duplicate-header": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "empty-header": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "missing-name": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "missing-replicate": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "unknown-barcode": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "bad-dpi": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "bad-paired": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "bad-custom-sequence": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "duplicate-barcode": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "duplicate-samples": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "blank-middle": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "data-after-blank": {
+    "expectation": "reject",
+    "options": {}
+  },
+  "multiple-sheets": {
+    "expectation": "reject",
+    "options": {
+      "extra": true
+    }
+  },
+  "renamed-sheet": {
+    "expectation": "reject",
+    "options": {
+      "sheet": "Renamed"
+    }
+  },
+  "hidden-row": {
+    "expectation": "reject",
+    "options": {
+      "hidden_row": true
+    }
+  },
+  "hidden-column": {
+    "expectation": "reject",
+    "options": {
+      "hidden_col": true
+    }
+  },
+  "merged-cells": {
+    "expectation": "reject",
+    "options": {
+      "merged": true
+    }
+  },
+  "formula": {
+    "expectation": "reject",
+    "options": {
+      "formula": true
+    }
+  },
+  "formula-error": {
+    "expectation": "reject",
+    "options": {
+      "error": true
+    }
+  },
+  "date-dpi": {
+    "expectation": "reject",
+    "options": {
+      "date": true
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "R1.fastq.gz": {
+    "sha256": "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8",
+    "size_bytes": 1005
+  },
+  "R2.fastq.gz": {
+    "sha256": "41abcea5dc24340e209d418e504ff3e16c731261f0feb46f5b75de295fad022a",
+    "size_bytes": 1008
+  },
+  "bad-custom-sequence.xlsx": {
+    "sha256": "974ed7ff447033207e656b539a51d969678b6c213ad465bbd9067f77d953f419",
+    "size_bytes": 1566
+  },
+  "bad-dpi.xlsx": {
+    "sha256": "456feaf64e8602194332ceb195a99ff059e911ac739f70796c61268377ab1548",
+    "size_bytes": 1566
+  },
+  "bad-paired.xlsx": {
+    "sha256": "cad32d979733d09914dbcad98dfd8090c622d6059e89519dc7ff9187dfd6c860",
+    "size_bytes": 1566
+  },
+  "blank-middle.xlsx": {
+    "sha256": "5c699dd4096c2d18e6a4a5c7b25c5854ff1772acbbd0eae55716037361b766e4",
+    "size_bytes": 1659
+  },
+  "catalog-4A.xlsx": {
+    "sha256": "6a9c66aa6191bd1abe4fe367a4f0cc6acf646a2149e4bda619f3006baf29ad90",
+    "size_bytes": 1551
+  },
+  "data-after-blank.xlsx": {
+    "sha256": "9fe5071c8bae5fd50996e332974fab2193784a1513d758b795eca7b5135221a8",
+    "size_bytes": 1602
+  },
+  "date-dpi.xlsx": {
+    "sha256": "a31e96b810a61ae22f459d48d5d2d42dff59690ee3bd91bd7a2a2dcce56507ee",
+    "size_bytes": 1585
+  },
+  "duplicate-barcode.xlsx": {
+    "sha256": "5cc3508d1513930ed2a0a84f5ee1d9eba1fa42e1804bd933ff6e2e76b4ca6db5",
+    "size_bytes": 1609
+  },
+  "duplicate-header.xlsx": {
+    "sha256": "6611d0883ce7b0c37ff5bee3c48235a52389c3a2af5717cb3a59b92fb6f05906",
+    "size_bytes": 1562
+  },
+  "duplicate-samples.xlsx": {
+    "sha256": "fad50ad628e49ad9b1f6c8f7e93d7a130428106032d9153ba53d5867ae2c5e7c",
+    "size_bytes": 1608
+  },
+  "empty-header.xlsx": {
+    "sha256": "f4b4533307aec962fa032a2372586c9ce2a3a31947a1e21c9e367c9459f2d21e",
+    "size_bytes": 1559
+  },
+  "excel-cases.json": {
+    "sha256": "2d131a73abff2f794b815791b891b81d55656fdcf7c5fd9b7b65e7fdb475e39c",
+    "size_bytes": 2382
+  },
+  "formula-error.xlsx": {
+    "sha256": "05868908844ba9b42c7a4f02500a561f888cd608fea53d99fe1f31fadb7c7211",
+    "size_bytes": 1581
+  },
+  "formula.xlsx": {
+    "sha256": "64d4a5473634016df6b27e2910c8d30bf81198aa5e7dff3e9b13d734d62a0d0a",
+    "size_bytes": 1579
+  },
+  "hidden-column.xlsx": {
+    "sha256": "b97f6839a08eb9681d5830151cd42a464d34f6ee5a2039fa8c145f1f3373ac2f",
+    "size_bytes": 1590
+  },
+  "hidden-row.xlsx": {
+    "sha256": "8dfa047f4357f5f6746c76674b30257ea086616dbc12bd7d1e489e4a62498412",
+    "size_bytes": 1571
+  },
+  "job-timeline.json": {
+    "sha256": "8e492afc3be7219526e71e4fc3fc63920630dd4223946bf3bd705ff8d0320771",
+    "size_bytes": 1025
+  },
+  "merged-cells.xlsx": {
+    "sha256": "d899fd9e854d63573390e7d6bb957326e6627f12734b7231a51e41ed60288520",
+    "size_bytes": 1593
+  },
+  "metric-display.json": {
+    "sha256": "f9d6d8f0c0e8f25d3c0333e6ceba567db0dc5fa16353e051f6d376a70d6629b5",
+    "size_bytes": 186790
+  },
+  "missing-biological-column.xlsx": {
+    "sha256": "90c08616f514cafb445e8d38a73c98d24add1ab561ca16bc06e1208ec063f055",
+    "size_bytes": 1540
+  },
+  "missing-column.xlsx": {
+    "sha256": "abb923ef3a75f08adf64113f035b2c7153d8351bd970fcd8669d45064c1e4840",
+    "size_bytes": 1546
+  },
+  "missing-name.xlsx": {
+    "sha256": "7bb966e92713b4892ac25d3e46b78601192005ed02abf1a03df119851f595df1",
+    "size_bytes": 1563
+  },
+  "missing-replicate.xlsx": {
+    "sha256": "285abc99c31686a506ef5a5daa56337399449bc623caa7ae56f71059eba01f26",
+    "size_bytes": 1563
+  },
+  "misspelled-column.xlsx": {
+    "sha256": "4a201c8fb820531b8ce4b80d3df6726dcd73b13b5d5d9df66287de8799e9de0d",
+    "size_bytes": 1564
+  },
+  "multiple-sheets.xlsx": {
+    "sha256": "8502f4e3faa176d74303c02835ae66658882b7dffd60dfd80fd332f08f2ad276",
+    "size_bytes": 2049
+  },
+  "optional-blanks.xlsx": {
+    "sha256": "6b04ea13fe93045bf1ea535bf0f4cdfdcb3ad474e1820b6047ec58cca925ec8f",
+    "size_bytes": 1565
+  },
+  "renamed-sheet.xlsx": {
+    "sha256": "1fc7727e24fab2c199051a765b7a87de3b690740483bc48b2273e8747032329e",
+    "size_bytes": 1564
+  },
+  "truncated.fastq.gz": {
+    "sha256": "3f2b1cd79c0990faea82d475a0480546d52d3414062793a7b53367c8b4f138fa",
+    "size_bytes": 996
+  },
+  "unexpected-column.xlsx": {
+    "sha256": "9a7e78497574033fad35a2684d8bb8b0fabc3dfbc82aeb60cff497a38e5940ec",
+    "size_bytes": 1576
+  },
+  "unknown-barcode.xlsx": {
+    "sha256": "56ece94ae2be9b9cc38e8102942fde6908a07197cb90f5cfd164292f13fd9e6b",
+    "size_bytes": 1552
+  },
+  "valid-one.xlsx": {
+    "sha256": "6b04ea13fe93045bf1ea535bf0f4cdfdcb3ad474e1820b6047ec58cca925ec8f",
+    "size_bytes": 1565
+  },
+  "valid-twenty.xlsx": {
+    "sha256": "1d1937c252ea1df6e29f8ad53c5728ad94360ddb9b32c15c21ad579c850c43bf",
+    "size_bytes": 2456
+  },
+  "whitespace.xlsx": {
+    "sha256": "b1f471363fe026d6468bbd27e76c72a9824495b58fd6c700e1c3f91a58621438",
+    "size_bytes": 1570
+  }
+}

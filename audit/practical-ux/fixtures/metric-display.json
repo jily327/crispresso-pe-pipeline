@@ -1,0 +1,6251 @@
+{
+  "kind": "synthetic-display-only-not-qualified-results",
+  "scenarios": {
+    "normal": [
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "blocked": [
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "null": [
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "NOT_ASSESSABLE",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "NOT_ASSESSABLE",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "NOT_ASSESSABLE",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "NOT_ASSESSABLE",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "NOT_ASSESSABLE",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "NOT_ASSESSABLE",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "missing-comparator": [
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "multiple-samples": [
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "second-7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "sample2",
+        "sample_name": "second sample",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "second-57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "sample2",
+        "sample_name": "second sample",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "second-6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "sample2",
+        "sample_name": "second sample",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "second-bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "sample2",
+        "sample_name": "second sample",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "second-2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "sample2",
+        "sample_name": "second sample",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "second-3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "sample2",
+        "sample_name": "second sample",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "large-integer": [
+      {
+        "numerator": "9007199254740993",
+        "denominator": "9007199254740995",
+        "fraction": 0.9999999999999998,
+        "percentage": "100%",
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "mixed-copy-blocked": [
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "7bb62c6a3a19ed8c72fb9e00b3fceaec2af01fb799e98f1f8f6d8d72e292c7e4",
+        "series_id": "02c71d0ccb862ebce62e4635126e05c00f60539357c1f3ab75c1c21d0241c9ea",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_crispresso_native_pe",
+        "label": "chr01 crispresso native pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "2",
+        "denominator": "12",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "57925b8093e1b3445cbf0077a0beb803b269804092b606032c2c7365c04e2191",
+        "series_id": "039669053550a3a57dcffc35355bdebbc6e6ba3e3335cb9de409b891703490ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr01",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr01_precise_pe",
+        "label": "chr01 precise pe",
+        "population_id": "2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"2107bfd56f8c004599c3309ac37d6544515298e77ebb20bc832bdbf10e8c656c\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy1\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "6179f7ca51bcd7a50cc2bc423ed196afa4f539ea40017f084c9cc042ed4030b2",
+        "series_id": "0b385d68a2f4a1b782488b277df8960a7ca52edb1f3fc6d5571d7ace61bd82da",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_crispresso_native_pe",
+        "label": "chr11 crispresso native pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": null,
+        "denominator": null,
+        "fraction": null,
+        "percentage": null,
+        "observation_id": "bb343b44c68b4044e1a81ceeb88f300147b6818d9e63a6d5581cbac51ba8325b",
+        "series_id": "5a266d8f0b0ded068f7ad196fff69d83a04fa6c3c09e81433ac5e0d3214936ad",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": "chr11",
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "chr11_precise_pe",
+        "label": "chr11 precise pe",
+        "population_id": "07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a",
+        "population_scope": "confident_copy",
+        "routing_conditioned": true,
+        "status": "BLOCKED",
+        "reasons": [
+          "AUDIT_SYNTHETIC_UNAVAILABLE"
+        ],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"confident_copy\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"07e2ec91a265eb91cd667f768af114cc1e9990734ce78659a33b83b11341313a\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "copy_id",
+            "value": "\"copy2\""
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "true"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "2"
+          },
+          {
+            "name": "denominator",
+            "value": "12"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "12"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "12"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "12"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 12, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 2, \"exact_wt\": 10, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "2e29074adda3002c0e451cc98e08c3d4d61c433eb2c8cbf43ebcacad114cc0a5",
+        "series_id": "7085de603cfd86651d7fb4ff3073b75a227e10e428386f33eac8932313bbc0a9",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "total_precise_pe",
+        "label": "Exact intended PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "prepared_pairs",
+        "backend_counts_role": "parallel_native_analysis",
+        "denominator_label": "Exact WT + exact PE products",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"precise\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"prepared_pairs\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"parallel_native_analysis\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": "{\"classification_input_reads\": 24, \"contradictory_state\": 0, \"denominator_exclusions\": 0, \"exact_pe\": 4, \"exact_wt\": 20, \"exclusion_reason_counts\": {}, \"other_nonexact_assessable\": 0, \"pe_plus_extra_change\": 0, \"unresolved_unassessable\": 0}"
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "numerator": "4",
+        "denominator": "24",
+        "fraction": 0.16666666666666666,
+        "percentage": "16.6667%",
+        "observation_id": "3fad43ea2b3bc827750c160f3875ffb3c19c41ecda7a997b3f0e4330c41ac85b",
+        "series_id": "9ec3787613f07db28c7c30f65be187c394d1e8fa9b76b0296b401978137e0658",
+        "sample_id": "bc001",
+        "sample_name": "bio1",
+        "editor": "synthetic-editor",
+        "treatment": "A",
+        "dpi": "6",
+        "biological_replicate": "1",
+        "block_id": null,
+        "paired": false,
+        "target": "T1",
+        "copy_name": null,
+        "policy_id": null,
+        "policy": [],
+        "metric_name": "target_crispresso_native_pe",
+        "label": "CRISPResso native PE",
+        "population_id": "1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba",
+        "population_scope": "target_all_prepared",
+        "routing_conditioned": false,
+        "status": "REPORTABLE",
+        "reasons": [],
+        "assessment_stage": "backend_aligned_products",
+        "backend_counts_role": "metric_filter",
+        "denominator_label": "Authoritative aligned reads",
+        "source": {
+          "artifact_id": "ecf2fc4cc7ed4546836a5c25afe16e63",
+          "name": "metrics/bc001/T1/result.json",
+          "sha256": "2f0e7bce757ad83e4a5dcbfd0bba3fedc4914701a50bc48c46ad36d688d29606",
+          "size_bytes": "61218",
+          "kind": "json",
+          "downloadable": true
+        },
+        "evidence": [
+          {
+            "name": "metric_family",
+            "value": "\"native\""
+          },
+          {
+            "name": "population_scope",
+            "value": "\"target_all_prepared\""
+          },
+          {
+            "name": "population_id",
+            "value": "\"1db33eb7a3e3794396d2f4258ef5cd2ef36dd75eec180061c521edb258bf9eba\""
+          },
+          {
+            "name": "population_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "copy_id",
+            "value": null
+          },
+          {
+            "name": "routing_conditioned",
+            "value": "false"
+          },
+          {
+            "name": "assessment_stage",
+            "value": "\"backend_aligned_products\""
+          },
+          {
+            "name": "status",
+            "value": "\"REPORTABLE\""
+          },
+          {
+            "name": "numerator",
+            "value": "4"
+          },
+          {
+            "name": "denominator",
+            "value": "24"
+          },
+          {
+            "name": "confident_input_reads",
+            "value": null
+          },
+          {
+            "name": "backend_input_reads",
+            "value": "24"
+          },
+          {
+            "name": "reads_after_preprocessing",
+            "value": "24"
+          },
+          {
+            "name": "aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "unaligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "ordinary_classified_aligned_reads",
+            "value": "24"
+          },
+          {
+            "name": "ambiguous_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "discarded_aligned_reads",
+            "value": "0"
+          },
+          {
+            "name": "backend_counts_role",
+            "value": "\"metric_filter\""
+          },
+          {
+            "name": "preprocessing_count_delta",
+            "value": "0"
+          },
+          {
+            "name": "unaligned_reason_counts",
+            "value": "{\"unknown_backend_alignment_failure\": 0}"
+          },
+          {
+            "name": "products",
+            "value": null
+          },
+          {
+            "name": "population_denominator_exclusions",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+}
