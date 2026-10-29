@@ -1,5 +1,10 @@
 # crispresso-pe-pipeline
 
+Version **0.9.0** adds browser FASTQ upload, official Excel sample-template
+import, side-by-side primary PE metrics, and visible Run final verification.
+See [input workflows, limits and metric definitions](docs/practical-ux-inputs.md).
+Scientific calculations and M11C recovery contracts are unchanged.
+
 Version 0.8.0 adds a separate CRISPResso-backed single-copy `indel_nuclease` mode
 while preserving `precise_edit`. See [M8 nuclease contracts](docs/m8-nuclease.md)
 for target schemas, TIGR–Tas windows, integer-count metrics and workflow limits.
@@ -154,7 +159,7 @@ confirmation.
 **M11A validates and previews analyses but does not execute them.** Choose
 **New Analysis** for Samples → Mode → Target → Configuration → Review, or
 **Open Existing Analysis** for the verified result viewer. Register paired-pool
-FASTQs with repeatable `--setup-fastq PATH`, M2 archives with `--setup-demux PATH`,
+FASTQs with the browser file picker or repeatable `--setup-fastq PATH`, M2 archives with `--setup-demux PATH`,
 and optional output parents with `--setup-output-root PATH`. File selections use
 opaque local capabilities. Drafts are ephemeral; no scientific workspace is
 created. See [the setup contract and execution boundary](docs/m11-analysis-setup.md).

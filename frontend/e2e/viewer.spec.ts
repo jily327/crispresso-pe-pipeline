@@ -15,7 +15,7 @@ test('real PE workspace → five views, exact/native distinction, source downloa
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await open(page);
   await expect(page.getByRole('heading',{name:'Exact intended PE',exact:true})).toBeVisible();
-  await expect(page.getByRole('heading',{name:'CRISPResso native PE',exact:true})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'CRISPResso Prime-edited reference fraction',exact:true})).toBeVisible();
   await tab(page,'Samples');await page.getByRole('button',{name:'Inspect bio1',exact:true}).click();
   await expect(page.getByRole('region',{name:'Sample detail'})).toBeVisible();await page.getByRole('button',{name:'Close sample detail'}).click();
   await tab(page,'QC');await expect(page.getByText('This is not a universal input → aligned → exact funnel.',{exact:false})).toBeVisible();

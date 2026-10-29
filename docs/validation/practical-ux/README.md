@@ -18,3 +18,19 @@ Transient development findings were test harness/expectation defects: the first
 20-sample spreadsheet used non-catalog letters; a mocked download returned no
 Promise; and a retained denominator-label assertion needed its new explicit
 Denominator prefix. No scientific rule was changed to satisfy those tests.
+
+## Parity/browser checkpoint
+
+Two compiler identity cases and two native-Core integration cases pass. The
+legacy/manual and uploaded/XLSX routes have equal scientific inputs and outputs
+for PE and nuclease; current identities deliberately include input basenames.
+Same-basename equivalent inputs also have identical plan/scientific digests.
+
+Browser tests use actual File inputs and the real native backend. A test-only
+worker pauses the authoritative FINAL_VALIDATION event before continuing; it
+never changes production job semantics. An earlier reader-thread pause was a
+harness defect (delayed containment acknowledgement), replaced with a producer
+pause. Other browser harness corrections concerned response-body lifetime and
+asserting two equal primary metric counts instead of one.
+
+Full release qualification will run only after this test checkpoint is pushed.
