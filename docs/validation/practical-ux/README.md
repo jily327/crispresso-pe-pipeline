@@ -57,3 +57,13 @@ nuclease audit fixture and developer type-generator script. Four tests failed
 with FileNotFoundError. Copying the exact committed audit inputs fixed all four;
 no wheel or production change was made. The complete wheel suite was restarted
 with fresh results. Its final gate remains pending here.
+
+## Wheel runner interruption
+
+A later complete wheel attempt stopped after 1,757 reported passes, without an
+assertion failure, final JUnit file or recoverable tool-session status. No process
+remained; cgroup OOM counters were zero and disk space remained available. Cause
+is undetermined. Both installed-wheel real transport-parity cases subsequently
+passed in isolation (44.83 seconds), with unchanged production/wheel bytes. The
+complete wheel suite is being repeated under a detached qualification supervisor
+that records its exit status explicitly. No incomplete run is counted as a pass.

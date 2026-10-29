@@ -1,0 +1,12 @@
+{
+  "classification": "runner interruption, cause undetermined",
+  "reported_passes_before_interruption": 1757,
+  "reported_test_failures": 0,
+  "final_junit_present": false,
+  "runner_process_present": false,
+  "cgroup_oom": 0,
+  "cgroup_oom_kill": 0,
+  "last_test_started": "test_real_transport_scientific_parity[precise_edit]",
+  "production_changed": false,
+  "next_step": "isolated installed-wheel transport tests, then complete release run with detached durable status record"
+}
