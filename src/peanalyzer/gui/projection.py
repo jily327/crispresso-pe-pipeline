@@ -9,7 +9,7 @@ from peanalyzer.workflow_storage import digest, WorkflowError
 from peanalyzer.result_dispatch import statistics_model, metric_model
 
 LABELS = {'total_precise_pe': 'Exact intended PE',
-    'target_crispresso_native_pe': 'CRISPResso native PE', 'indel_fraction': 'Indel fraction'}
+    'target_crispresso_native_pe': 'CRISPResso Prime-edited reference fraction', 'indel_fraction': 'Indel fraction'}
 
 
 def percentage(fraction):
@@ -39,6 +39,10 @@ def condition(c):
 
 
 def label(name):
+    if name.endswith('_crispresso_native_pe'):
+        return 'CRISPResso Prime-edited reference fraction'
+    if name.endswith('_precise_pe'):
+        return 'Exact intended PE'
     return LABELS.get(name, name.replace('_', ' '))
 
 
@@ -93,6 +97,11 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
             routing_conditioned=o.routing_conditioned, status=o.status, reasons=o.reason_codes,
             assessment_stage=record.assessment_stage if record else ('backend_aligned_products' if mode=='indel_nuclease' else 'See stored policy evidence'),
             backend_counts_role=record.backend_counts_role if record else ('metric_filter' if mode=='indel_nuclease' else 'See stored policy evidence'),
+            numerator_label=('Reads assigned to the Prime-edited reference' if record and record.metric_family=='native'
+                else 'Exact intended PE products' if record else 'Stored metric numerator'),
+            definition=('Prime-edited reference-assigned reads / authoritative aligned reads; not CRISPResso Modified%.' if record and record.metric_family=='native'
+                else 'Exact intended PE / (exact WT + exact intended PE). Different numerator and denominator from the CRISPResso reference fraction; neither is a lower bound.' if record
+                else 'Stored metric fraction for the authoritative population and selected window/policy.'),
             denominator_label=('Authoritative aligned reads' if mode=='indel_nuclease' or (record and record.metric_family=='native')
                 else 'Exact WT + exact PE products' if record else 'Stored policy-specific denominator'), source=source, evidence=evidence))
     for key, m in metrics.items():

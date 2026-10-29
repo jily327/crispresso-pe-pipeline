@@ -24,6 +24,13 @@ class SetupReferences:
                 if label in used:label+=' ('+str(len(used)+1)+')'
                 self.entries[key]=SetupFile(file_id=key,label=label,kind=kind)
 
+    def register_upload(self, path, entry):
+        path = safe_registration(path)
+        if entry.file_id in self.paths:
+            raise ViewerError('UPLOAD_COLLISION', 'Input capability already exists')
+        self.paths[entry.file_id] = path
+        self.entries[entry.file_id] = entry
+
     def resolve(self, key, kind):
         if key not in self.paths or self.entries[key].kind!=kind:
             raise ViewerError('INVALID_FILE_REFERENCE','Select a file registered by the local launcher')
@@ -38,7 +45,12 @@ class SetupReferences:
 
     def identity(self,key):
         path=self.resolve(key,self.entries[key].kind)
-        if path.is_file():return dict(name=path.name,sha256=sha(path),size_bytes=str(path.stat().st_size))
+        if path.is_file():
+            identity=dict(name=path.name,sha256=sha(path),size_bytes=str(path.stat().st_size))
+            entry=self.entries[key]
+            if entry.origin=='upload' and (identity['sha256']!=entry.sha256 or identity['size_bytes']!=entry.size_bytes):
+                raise ViewerError('UPLOAD_CHANGED','Registered upload differs from received bytes')
+            return identity
         return dict(name=path.name,inventory_sha256=digest(snapshot(path)))
 
     def signature(self,content):

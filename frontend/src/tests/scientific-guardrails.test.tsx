@@ -5,7 +5,9 @@ import peRaw from './fixtures/pe.json';
 import nucleaseRaw from './fixtures/nuclease.json';
 import { MetricCard } from '../components/Common';
 import { Overview, Statistics, Samples, Provenance } from '../pages/Results';
-const pe=peRaw as WorkspaceView;const nuclease=nucleaseRaw as WorkspaceView;
+// Historical fixtures retain their source values; supply additive presentation fields in memory.
+const pe={...peRaw,observations:peRaw.observations.map(o=>({...o,numerator_label:'Stored numerator',definition:'Stored definition'}))} as WorkspaceView;
+const nuclease={...nucleaseRaw,observations:nucleaseRaw.observations.map(o=>({...o,numerator_label:'Stored numerator',definition:'Stored definition'}))} as WorkspaceView;
 const primary=(v:WorkspaceView)=>v.observations.find(o=>o.metric_name===(v.mode==='precise_edit'?'total_precise_pe':'indel_fraction'))!;
 const props=(v:WorkspaceView)=>({view:v,sample:primary(v).sample_id,series:primary(v).series_id,onDownload:vi.fn(),onError:vi.fn()});
 
@@ -52,7 +54,7 @@ describe('frontend scientific ownership',()=>{
   });
   it('shows PE exact/native separately with their own denominators',()=>{
     render(<Overview {...props(pe)}/>);expect(screen.getByRole('heading',{name:'Exact intended PE'})).toBeVisible();expect(screen.getByRole('heading',{name:'CRISPResso native PE'})).toBeVisible();
-    expect(screen.getByText('Exact WT + exact PE products')).toBeVisible();expect(screen.getByText('Authoritative aligned reads')).toBeVisible();
+    expect(screen.getByText('Denominator: Exact WT + exact PE products')).toBeVisible();expect(screen.getByText('Denominator: Authoritative aligned reads')).toBeVisible();
   });
   it('filters sample rows without recomputing scientific values',()=>{
     render(<Samples {...props(pe)}/>);fireEvent.change(screen.getByLabelText('Filter samples'),{target:{value:'bc001'}});

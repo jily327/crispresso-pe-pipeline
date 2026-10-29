@@ -123,6 +123,9 @@ export interface SetupFile {
   file_id: string;
   label: string;
   kind: "fastq" | "demux" | "output_root";
+  origin: "launcher" | "upload";
+  sha256: string | null;
+  size_bytes: string | null;
 }
 
 export interface SetupIssue {
@@ -142,4 +145,21 @@ export interface TargetPreview {
   annotation: Array<FieldValue>;
   scientific_configuration: Array<FieldValue>;
   configuration_notes: Array<string>;
+}
+
+export interface WorkbookImport {
+  template_version: "samples-xlsx-v1";
+  samples: Array<DraftSample>;
+  imported_count: number;
+  valid_count: number;
+  warnings: Array<string>;
+  errors: Array<WorkbookIssue>;
+}
+
+export interface WorkbookIssue {
+  row: number;
+  field: string;
+  code: string;
+  severity: "ERROR";
+  message: string;
 }

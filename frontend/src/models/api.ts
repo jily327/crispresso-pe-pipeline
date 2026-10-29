@@ -150,6 +150,8 @@ export interface Observation {
   assessment_stage: string;
   backend_counts_role: string;
   denominator_label: string;
+  numerator_label: string;
+  definition: string;
   source: Source;
   evidence: Array<FieldValue>;
 }

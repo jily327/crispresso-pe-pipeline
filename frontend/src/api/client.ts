@@ -26,3 +26,15 @@ export async function download(workspace: string, id: string, name: string) {
   const link = document.createElement('a'); link.href = url; link.download = name.split('/').at(-1)!; link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
+
+// File is the browser-selected byte source; never translate a Windows path.
+export async function upload<T>(path: string, file: File, mediaType: string): Promise<T> {
+  const response = await checked(path, {method:'POST',headers:{'Content-Type':mediaType},body:file});
+  return response.json();
+}
+export async function sampleTemplate() {
+  const response = await checked('setup/samples/template');
+  const url=URL.createObjectURL(await response.blob());
+  const link=document.createElement('a');link.href=url;link.download='PEAnalyzer-samples-v1.xlsx';link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}

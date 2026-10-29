@@ -19,15 +19,17 @@ from peanalyzer.gui.models import (Capabilities, Registration, OpenRequest, Work
 BASE = '9e9a51fb20e56a3421fdfa156375170cd6b257dc'
 
 
-def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None, recovery_workspaces=()):
+def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None, recovery_workspaces=(), upload_root=None):
     token=token or secrets.token_urlsafe(32)
     registrations=list(registrations)
     store=WorkspaceStore(registrations)
     from peanalyzer.gui.drafts import DraftStore, SetupReferences
     from peanalyzer.gui.setup_models import (SetupCapabilities, DraftView, DraftPatch,
-        DraftRevision, DraftValidation, PlanPreview)
+        DraftRevision, DraftValidation, PlanPreview, SetupFile, WorkbookImport)
     from peanalyzer.gui.setup_validation import BASE as SETUP_BASE
     references=SetupReferences(setup_files,setup_archives,setup_output_roots)
+    from peanalyzer.gui.uploads import UploadStore
+    uploads=UploadStore(upload_root or Path.home()/'.local/share/peanalyzer/uploads',references)
     drafts=DraftStore(references,[path for _,path in registrations])
     from peanalyzer.gui.jobs import JobStore
     from peanalyzer.gui.job_models import JobSubmission, JobView, JobEvents, CancelRequest
@@ -45,6 +47,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     app.state.jobs=jobs
     app.state.recovery=recovery
     app.state.drafts=drafts
+    app.state.uploads=uploads
     app.state.token=token
 
     def error(code,detail,stage_id=None,status=409):
@@ -145,6 +148,23 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     @app.get('/api/v1/setup/capabilities',response_model=SetupCapabilities)
     def setup_capabilities():
         return SetupCapabilities(backend_base=SETUP_BASE,files=list(references.entries.values()),run_available=jobs.available,recovery_available=jobs.available)
+
+    @app.get('/api/v1/setup/samples/template')
+    def sample_template():
+        from peanalyzer.gui.sample_workbook import template
+        return Response(template(),media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            headers={'Content-Disposition':'attachment; filename="PEAnalyzer-samples-v1.xlsx"'})
+
+    @app.post('/api/v1/setup/samples/import',response_model=WorkbookImport)
+    async def import_samples(request:Request,profile:str=Query(pattern='^(qi_hitom_v1|custom)$')):
+        import asyncio
+        from peanalyzer.gui.sample_workbook import parse, receive_workbook
+        data=await receive_workbook(request)
+        return await asyncio.to_thread(parse,data,profile)
+
+    @app.post('/api/v1/setup/uploads/fastq',response_model=SetupFile)
+    async def upload_fastq(request:Request, filename:str=Query(min_length=1,max_length=255)):
+        return await uploads.receive(request, filename)
 
     @app.post('/api/v1/drafts',response_model=DraftView)
     def create_draft():

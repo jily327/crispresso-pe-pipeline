@@ -61,3 +61,19 @@ it('renders backend reuse distinctly without inventing execution',async()=>{
   expect(screen.getByText('BACKEND_REASON')).toBeVisible();
   expect(screen.queryByText('SKIPPED_SCIENTIFIC_GATE')).not.toBeInTheDocument();
 });
+
+it.each(['FINAL_VALIDATION','VIEWER_VERIFICATION'])('shows %s without changing RUNNING or permitting results',async status=>{
+  job.current_stage_id=null;job.finished_stages=job.total_stages;
+  calls.api.mockImplementation(async(path:string)=>path.includes('/events?')?{items:[{sequence:1,timestamp:'backend-time',state:'RUNNING',status,stage_id:null,stage_kind:null,reason_codes:[],code:null}],next_sequence:1,has_more:false}:structuredClone(job));
+  render(<Run jobId="opaque-job" onOpen={vi.fn()}/>);
+  expect(await screen.findByRole('heading',{name:'Final verification in progress'})).toBeVisible();
+  expect(screen.getByRole('status')).toHaveTextContent('RUNNING');
+  expect(screen.queryByText(/No scientific stage active/)).not.toBeInTheDocument();
+  expect(screen.queryByRole('button',{name:'Open Results'})).not.toBeInTheDocument();
+});
+it('does not render an old verification phase over a terminal failure',async()=>{
+  job.state='FAILED';job.error={code:'INVALID_WORKFLOW_OUTPUT',stage_id:null,message:'Final verification failed',detail:'Hash mismatch'};
+  calls.api.mockImplementation(async(path:string)=>path.includes('/events?')?{items:[{sequence:1,status:'FINAL_VALIDATION',state:'RUNNING'}],next_sequence:1,has_more:false}:structuredClone(job));
+  render(<Run jobId="opaque-job" onOpen={vi.fn()}/>);await screen.findByText('Final verification failed');
+  expect(screen.queryByRole('heading',{name:'Final verification in progress'})).not.toBeInTheDocument();
+});

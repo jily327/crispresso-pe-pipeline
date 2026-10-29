@@ -88,6 +88,8 @@ class Observation(Value):
     assessment_stage: str
     backend_counts_role: str
     denominator_label: str
+    numerator_label: str = ''
+    definition: str = ''
     source: Source
     evidence: list[FieldValue]
 

@@ -16,7 +16,7 @@ export function SourceLink({ source, onDownload }: { source: Source; onDownload:
 export function MetricCard({ row, onDownload }: { row: Observation; onDownload: (s: Source) => void }) {
   return <article className="metric-card"><div className="card-top"><h3>{row.label}</h3><Status value={row.status}/></div>
     <p className="metric-value">{absent(row.percentage)}</p><p className="ratio">{absent(row.numerator)} / {absent(row.denominator)}</p>
-    <p>{row.denominator_label}</p><p className="muted">{row.assessment_stage} · {row.backend_counts_role}</p>
+    <p>{row.definition}</p><p>Numerator: {row.numerator_label||'See stored metric evidence'}</p><p>Denominator: {row.denominator_label}</p><p className="muted">{row.assessment_stage} · {row.backend_counts_role}</p>
     <p className="muted">{row.population_scope}{row.routing_conditioned ? ' · Routing-conditioned copy' : ''}</p>
     {row.reasons.length > 0 && <p>{row.reasons.join(' · ')}</p>}
     <details><summary>Exact value and population</summary><p>Stored fraction: {absent(row.fraction)}</p><p className="literal">{row.population_id}</p><Fields values={row.policy} caption="Stored policy"/></details>
