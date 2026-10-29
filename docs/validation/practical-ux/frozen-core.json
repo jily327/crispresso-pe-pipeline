@@ -58,6 +58,12 @@
     "src/peanalyzer/gui/worker.py": "027e668576ac307ea2b9ab7aeabf4fd145372c513f85a9dbb0e00afbd28e0d24",
     "src/peanalyzer/gui/recovery.py": "ce3cf96429fb650567ac85dfe2bd6f89c6b103359f0f07bbea0fd9ad79f3cf9a",
     "src/peanalyzer/gui/recovery_models.py": "49f5ab79b3067118f95a8774cb95721cd00c24bb3fbbdefb7315a2b3f5e79f75",
-    "src/peanalyzer/gui/job_models.py": "576cf56d2240f81fd018c069f303acb2d3028fde0ff8ab3d61c08f8119b6bef4"
+    "src/peanalyzer/gui/job_models.py": "576cf56d2240f81fd018c069f303acb2d3028fde0ff8ab3d61c08f8119b6bef4",
+    "src/peanalyzer/gui/supervision.py": "32f33ee5e1a96f4d5eeb3b0914c92c0de6af2fb7e2d9c099f53b3111e94fa1b2",
+    "src/peanalyzer/gui/artifacts.py": "67c219b9d135c2ebb6a62f57737114ec4b2b8be9ac63caca6e730342d9d1d6b7",
+    "src/peanalyzer/gui/setup_validation.py": "50a5b9b93fe9ebeb0fe5106ba5d190694c74fd2618576a5f7978edec78249ef1",
+    "src/peanalyzer/gui/workspace.py": "ef218809f5bd529962db150aa434c0f4cf58cba4d070abdee33b62720873fe0f",
+    "src/peanalyzer/gui/__init__.py": "3b039c50ade78d4d4d2969e6b36e7fdebbc778d3165e1bb1ccf2c295865470d2",
+    "src/peanalyzer/gui/process_safety.py": "eb50788cb62563e1de42b7a2381aedab1f1261ce1d41bbb30f4c749bc11e9ad2"
   }
 }

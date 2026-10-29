@@ -43,3 +43,17 @@ The fresh wheel builds and imports 0.9.0 from site-packages; its 89 packaged
 application/resource files match source bytes. Full wheel and retained browser
 qualification remain pending. PE/nuclease 0.8.0 baseline science matches 0.9.0;
 the only compared SVG change is the package-version creator credit.
+
+## Complete source browser gate
+
+35/35 pass: viewer/Setup 18, Run 6, Recovery 8, new practical inputs 3.
+Zero failures, skipped or flaky cases. The viewer recorded zero scientific calls
+and unchanged input/workspace bytes and mtimes. The frozen byte inventory now
+also includes unchanged supervision, process safety, setup validation and viewer
+verification modules (64 files total).
+
+The first wheel test workspace, extracted from the sdist, lacked a historical
+nuclease audit fixture and developer type-generator script. Four tests failed
+with FileNotFoundError. Copying the exact committed audit inputs fixed all four;
+no wheel or production change was made. The complete wheel suite was restarted
+with fresh results. Its final gate remains pending here.
