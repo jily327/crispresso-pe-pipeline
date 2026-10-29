@@ -34,3 +34,12 @@ pause. Other browser harness corrections concerned response-body lifetime and
 asserting two equal primary metric counts instead of one.
 
 Full release qualification will run only after this test checkpoint is pushed.
+
+## Complete source gate
+
+All 1,972 source cases passed (0 failures/errors/skips), including all 1,910
+retained cases and 62 new cases. Integration inventory: 88 retained + 2 new = 90.
+The fresh wheel builds and imports 0.9.0 from site-packages; its 89 packaged
+application/resource files match source bytes. Full wheel and retained browser
+qualification remain pending. PE/nuclease 0.8.0 baseline science matches 0.9.0;
+the only compared SVG change is the package-version creator credit.

@@ -1,0 +1,22 @@
+[
+  {
+    "mode": "precise_edit",
+    "baseline_version": "0.8.0",
+    "candidate_version": "0.9.0",
+    "baseline_science_sha256": "0f48c9bab8665b2f408da16c6df924a0e70778edb546abc144a4e721358ff52b",
+    "candidate_science_sha256": "0f48c9bab8665b2f408da16c6df924a0e70778edb546abc144a4e721358ff52b",
+    "equal": true,
+    "figure_count": 6,
+    "figure_difference_only": "SVG dc:creator dc:title package version 0.8.0 \u2192 0.9.0"
+  },
+  {
+    "mode": "indel_nuclease",
+    "baseline_version": "0.8.0",
+    "candidate_version": "0.9.0",
+    "baseline_science_sha256": "fbf1ea82204f7d2436c758b7fb1e29ecaab950045dfc471ca9a097c151921b62",
+    "candidate_science_sha256": "fbf1ea82204f7d2436c758b7fb1e29ecaab950045dfc471ca9a097c151921b62",
+    "equal": true,
+    "figure_count": 10,
+    "figure_difference_only": "SVG dc:creator dc:title package version 0.8.0 \u2192 0.9.0"
+  }
+]
