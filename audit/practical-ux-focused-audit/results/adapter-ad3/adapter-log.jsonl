@@ -1,0 +1,1 @@
+{"test": "audit_candidate.py::test_upload_streaming (teardown)", "log": [["large", 1000000, 51560698], ["stream", {"size": 51560698, "chunk": 65536, "peak_traced": 2020851, "seconds": 43.2, "reads_n": 199, "reads_max": 262144, "rss_kb": 212796}]]}

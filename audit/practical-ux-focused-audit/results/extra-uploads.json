@@ -1,0 +1,224 @@
+{
+ "U01-r1-alone-r2-alone-pair": {
+  "verdict": "PASS",
+  "r1_only_issues": [
+   [
+    "r2",
+    "REQUIRED"
+   ]
+  ],
+  "status": "INVALID",
+  "upload_entries": [
+   [
+    "1ef43cd5bbdb4e90ba1b4fb72ea3560a",
+    "fastq",
+    "upload",
+    "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8",
+    "1005"
+   ],
+   [
+    "e29f6db41fd54f7da1997a72d2532125",
+    "fastq",
+    "upload",
+    "41abcea5dc24340e209d418e504ff3e16c731261f0feb46f5b75de295fad022a",
+    "1008"
+   ]
+  ]
+ },
+ "U02-replace-after-validation": {
+  "verdict": "PASS",
+  "first_validation": "INVALID",
+  "stale_preview_status": 409,
+  "stale_code": "STALE_DRAFT_REVISION",
+  "revalidated": "INVALID",
+  "revalidated_input_identity": [],
+  "old_bytes_retained": true
+ },
+ "U03-U05-duplicates": {
+  "verdict": "PASS",
+  "distinct_capabilities": 4,
+  "identities": [
+   {
+    "name": "input.fastq.gz",
+    "sha256": "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8",
+    "size_bytes": "1005"
+   },
+   {
+    "name": "input.fastq.gz",
+    "sha256": "41abcea5dc24340e209d418e504ff3e16c731261f0feb46f5b75de295fad022a",
+    "size_bytes": "1008"
+   },
+   {
+    "name": "input.fastq.gz",
+    "sha256": "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8",
+    "size_bytes": "1005"
+   },
+   {
+    "name": "input.fastq.gz",
+    "sha256": "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8",
+    "size_bytes": "1005"
+   }
+  ],
+  "labels": [
+   "dup.fastq.gz",
+   "dup.fastq.gz",
+   "other-name.fastq.gz",
+   "dup.fastq.gz"
+  ]
+ },
+ "U09-malformed-and-mismatched": {
+  "verdict": "PASS",
+  "cases": {
+   "truncated-gzip": [
+    false,
+    409,
+    "INVALID_FASTQ_UPLOAD"
+   ],
+   "gzip-header-only": [
+    false,
+    409,
+    "INVALID_FASTQ_UPLOAD"
+   ],
+   "malformed-fastq": [
+    false,
+    409,
+    "INVALID_FASTQ_UPLOAD"
+   ],
+   "not-fastq-text": [
+    false,
+    409,
+    "INVALID_FASTQ_UPLOAD"
+   ],
+   "plain-truncated-record": [
+    false,
+    409,
+    "INVALID_FASTQ_UPLOAD"
+   ],
+   "empty": [
+    false,
+    409,
+    "EMPTY_UPLOAD"
+   ]
+  },
+  "mismatched_mates": [
+   "INVALID",
+   [
+    [
+     "r1",
+     "INPUT_VALIDATION",
+     "pair 9: R1/R2 record counts differ (/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c7"
+    ]
+   ]
+  ]
+ },
+ "U12-real-dir-substitution": {
+  "verdict": "PASS",
+  "accepted": true,
+  "status": 200,
+  "body": null,
+  "registered": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/runs/extra1/u12-real-dir-substitution/private/uploads/3555099e5d7540fdab00af2a37a8370d/input.fastq.gz",
+  "registered_is_external_inode": false,
+  "victim_changes": {},
+  "note": "same-account filesystem writer inside the private 0700 upload root during the upload window"
+ },
+ "U12-hardlink-identical-external": {
+  "verdict": "FAIL",
+  "accepted": true,
+  "status": 200,
+  "body": null,
+  "registered": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/runs/extra1/u12-hardlink-identical-external/private/uploads/5f1fe2922f3c417586f3487c91562658/input.fastq.gz",
+  "registered_is_external_inode": true,
+  "victim_changes": {
+   "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/runs/extra1/u12-hardlink-identical-external/external/hl-victim.fastq.gz": [
+    {
+     "ino": 884817,
+     "mode": 33188,
+     "mtime": 1793325129894320858,
+     "size": 1005,
+     "nlink": 1,
+     "sha256": "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8"
+    },
+    {
+     "ino": 884817,
+     "mode": 33024,
+     "mtime": 1793325129894320858,
+     "size": 1005,
+     "nlink": 2,
+     "sha256": "abceb22fcc7769bd8910d3b8910864e13741bf7ee9488c5471ef005bceb9edc8"
+    }
+   ]
+  },
+  "note": "same-account filesystem writer inside the private 0700 upload root during the upload window"
+ },
+ "U14-enospc-oversize-concurrent": {
+  "verdict": "PASS",
+  "enospc": [
+   409,
+   "INVALID_FASTQ_UPLOAD"
+  ],
+  "oversize": [
+   409,
+   "UPLOAD_LIMIT"
+  ],
+  "concurrent": [
+   [
+    "c1",
+    200
+   ],
+   [
+    "c2",
+    200
+   ],
+   [
+    "c0",
+    200
+   ],
+   [
+    "c3",
+    200
+   ]
+  ]
+ },
+ "U08-chunked-abort": {
+  "verdict": "PASS",
+  "caps_unchanged": true
+ },
+ "U15-token-host-origin": {
+  "verdict": "PASS",
+  "statuses": {
+   "/api/v1/setup/uploads/fastq": [
+    401,
+    401,
+    403,
+    403
+   ],
+   "/api/v1/setup/samples/import": [
+    401,
+    401,
+    403,
+    403
+   ],
+   "/api/v1/setup/samples/template": [
+    401,
+    401,
+    403,
+    403
+   ]
+  }
+ },
+ "U15-restart-stale-capability": {
+  "verdict": "FAIL",
+  "stale_issue": [],
+  "original_upload_retained_on_disk": true
+ },
+ "U12-upload-root-mode-0755": {
+  "verdict": "PASS",
+  "status": 409,
+  "code": "UNSAFE_UPLOAD_ROOT"
+ },
+ "U12-upload-root-symlink-root": {
+  "verdict": "PASS",
+  "status": 409,
+  "code": "UNSAFE_PATH"
+ }
+}

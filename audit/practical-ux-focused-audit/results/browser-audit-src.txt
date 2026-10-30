@@ -1,0 +1,50 @@
+
+Running 16 tests using 1 worker
+
+  ✘   1 audit-pux/audit.spec.ts:16:1 › B01/B02 Windows-origin, unicode and duplicate names; path and buffer inputs; replacement; bytes exact (944ms)
+  ✓   2 audit-pux/audit.spec.ts:42:1 › B02 mid-body page close leaves no selectable partial; reload keeps only complete uploads (15.6s)
+
+  ✓   3 audit-pux/audit.spec.ts:56:1 › B03 official template download structure (771ms)
+  ✓   4 audit-pux/audit.spec.ts:69:1 › B04/B05 all 29 frozen workbooks through the file input: atomic failure, editable rows, invalidation (14.8s)
+  ✓   5 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: normal (2.5s)
+  ✓   6 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: blocked (2.3s)
+  ✓   7 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: null (2.2s)
+  ✓   8 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: missing-comparator (2.3s)
+  ✓   9 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: multiple-samples (2.6s)
+  ✓  10 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: large-integer (2.4s)
+  ✓  11 audit-pux/audit.spec.ts:106:58 › B08/B10 stored metric display: mixed-copy-blocked (2.4s)
+  ✓  12 audit-pux/audit.spec.ts:133:1 › B09/B10 definitions, keyboard disclosure, statistics/overview labelling of copy series (real PE workspace) (3.4s)
+  ✓  13 audit-pux/audit.spec.ts:157:1 › B11 nuclease results unchanged: no PE columns, exclusive vs overlapping, stored counts (1.8s)
+  ✓  14 audit-pux/audit.spec.ts:186:3 › B07 verification timelines › active → all stages complete → FINAL_VALIDATION → VIEWER_VERIFICATION → COMPLETED; reload, duplicate/out-of-order events (1.0m)
+  ✓  15 audit-pux/audit.spec.ts:213:3 › B07 verification timelines › cancel during FINAL_VALIDATION: CANCELLING/CANCELLED supersede verification text (1.0m)
+  ✓  16 audit-pux/audit.spec.ts:223:3 › B07 verification timelines › verification failure: FAILED supersedes stale verification text; no results (1.1m)
+
+
+  1) audit-pux/audit.spec.ts:16:1 › B01/B02 Windows-origin, unicode and duplicate names; path and buffer inputs; replacement; bytes exact 
+
+    Error: response.body: Protocol error (Network.getResponseBody): Request content was evicted from inspector cache
+    Response body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.
+
+      32 |   }
+      33 |   // Actual on-disk fixture path through the native file input, twice (same file selected sequentially)
+    > 34 |   for(const n of [1,2]){const resp=page.waitForResponse(r=>r.url().includes('/setup/uploads/fastq'));await page.getByLabel('Replace R1 FASTQ').setInputFiles(path.join(FIX,'R1.fastq.gz'));const b=JSON.parse((await (await resp).body()).toString());seen.push({native:n,entry:b});expect(b.sha256).toBe(sha(r1))}
+         |                                                                                                                                                                                                                                   ^
+      35 |   const ids=seen.map(s=>s.entry.file_id);expect(new Set(ids).size).toBe(ids.length);
+      36 |   // nothing was written outside the private upload root; victims identical
+      37 |   expect(victims()).toEqual(before);
+        at /tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/fe/frontend/audit-pux/audit.spec.ts:34:227
+
+    Error Context: ../../e2e-audit-src/test-results/audit-B01-B02-Windows-orig-bc576-uts-replacement-bytes-exact/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../e2e-audit-src/test-results/audit-B01-B02-Windows-orig-bc576-uts-replacement-bytes-exact/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../e2e-audit-src/test-results/audit-B01-B02-Windows-orig-bc576-uts-replacement-bytes-exact/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    audit-pux/audit.spec.ts:16:1 › B01/B02 Windows-origin, unicode and duplicate names; path and buffer inputs; replacement; bytes exact 
+  15 passed (4.1m)
+EXIT 1

@@ -1,0 +1,13 @@
+
+ RUN  v5.0.5 /tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/fe/frontend
+
+
+ Test Files  7 passed (7)
+      Tests  56 passed (56)
+   Start at  02:13:11
+   Duration  9.36s (tests 46%, environment 40%, transform 6%, setup 5%, import 2%)
+
+Environment  jsdom was created 7 times · 9.80s total, 40% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

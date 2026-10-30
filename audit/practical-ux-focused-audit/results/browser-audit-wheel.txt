@@ -1,0 +1,23 @@
+
+Running 16 tests using 1 worker
+
+  ✓   1 audit-pux/audit.spec.ts:16:1 › B01/B02 Windows-origin, unicode and duplicate names; path and buffer inputs; replacement; bytes exact (822ms)
+  ✓   2 audit-pux/audit.spec.ts:43:1 › B02 mid-body page close leaves no selectable partial; reload keeps only complete uploads (15.4s)
+
+  ✓   3 audit-pux/audit.spec.ts:57:1 › B03 official template download structure (687ms)
+  ✓   4 audit-pux/audit.spec.ts:70:1 › B04/B05 all 29 frozen workbooks through the file input: atomic failure, editable rows, invalidation (15.1s)
+  ✓   5 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: normal (2.2s)
+  ✓   6 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: blocked (2.1s)
+  ✓   7 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: null (2.2s)
+  ✓   8 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: missing-comparator (2.1s)
+  ✓   9 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: multiple-samples (2.4s)
+  ✓  10 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: large-integer (2.2s)
+  ✓  11 audit-pux/audit.spec.ts:107:58 › B08/B10 stored metric display: mixed-copy-blocked (2.2s)
+  ✓  12 audit-pux/audit.spec.ts:134:1 › B09/B10 definitions, keyboard disclosure, statistics/overview labelling of copy series (real PE workspace) (3.2s)
+  ✓  13 audit-pux/audit.spec.ts:158:1 › B11 nuclease results unchanged: no PE columns, exclusive vs overlapping, stored counts (1.7s)
+  ✓  14 audit-pux/audit.spec.ts:187:3 › B07 verification timelines › active → all stages complete → FINAL_VALIDATION → VIEWER_VERIFICATION → COMPLETED; reload, duplicate/out-of-order events (1.0m)
+  ✓  15 audit-pux/audit.spec.ts:214:3 › B07 verification timelines › cancel during FINAL_VALIDATION: CANCELLING/CANCELLED supersede verification text (56.4s)
+  ✓  16 audit-pux/audit.spec.ts:224:3 › B07 verification timelines › verification failure: FAILED supersedes stale verification text; no results (55.5s)
+
+  16 passed (3.8m)
+EXIT 0

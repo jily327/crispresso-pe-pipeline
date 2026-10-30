@@ -1,0 +1,877 @@
+.......................................                                  [100%]
+==================================== PASSES ====================================
+___________________________ test_interruption[zero] ____________________________
+----------------------------- Captured stderr call -----------------------------
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    |     return await inner(scope, rec, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    |     response=await call_next(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    |     await super().handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    |     return await uploads.receive(request, filename)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    |     async for data in request.stream():
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    |     raise ClientDisconnect()
+    | starlette.requests.ClientDisconnect
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    return await inner(scope, rec, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    response=await call_next(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    return await uploads.receive(request, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    async for data in request.stream():
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+___________________________ test_interruption[first] ___________________________
+----------------------------- Captured stderr call -----------------------------
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    |     return await inner(scope, rec, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    |     response=await call_next(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    |     await super().handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    |     return await uploads.receive(request, filename)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    |     async for data in request.stream():
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    |     raise ClientDisconnect()
+    | starlette.requests.ClientDisconnect
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    return await inner(scope, rec, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    response=await call_next(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    return await uploads.receive(request, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    async for data in request.stream():
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+__________________________ test_interruption[middle] ___________________________
+----------------------------- Captured stderr call -----------------------------
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    |     return await inner(scope, rec, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    |     response=await call_next(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    |     await super().handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    |     return await uploads.receive(request, filename)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    |     async for data in request.stream():
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    |     raise ClientDisconnect()
+    | starlette.requests.ClientDisconnect
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    return await inner(scope, rec, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    response=await call_next(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    return await uploads.receive(request, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    async for data in request.stream():
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+___________________ test_interruption[last-before-finalize] ____________________
+----------------------------- Captured stderr call -----------------------------
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    |     return await inner(scope, rec, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    |     response=await call_next(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    |     await super().handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    |     return await uploads.receive(request, filename)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    |     async for data in request.stream():
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    |     raise ClientDisconnect()
+    | starlette.requests.ClientDisconnect
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    return await inner(scope, rec, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    response=await call_next(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    return await uploads.receive(request, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 86, in receive
+    async for data in request.stream():
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/requests.py", line 235, in stream
+    raise ClientDisconnect()
+starlette.requests.ClientDisconnect
+__________________ test_interruption[written-before-register] __________________
+----------------------------- Captured stderr call -----------------------------
+ERROR:    Exception in ASGI application
+  + Exception Group Traceback (most recent call last):
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 76, in collapse_excgroups
+  |     yield
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 177, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 847, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    |     result = await app(  # type: ignore[func-returns-value]
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    |     return await self.app(scope, receive, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    |     return await inner(scope, rec, send)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    |     await super().__call__(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    |     await self.app(scope, receive, _send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    |     with recv_stream, send_stream, collapse_excgroups():
+    |   File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    |     self.gen.throw(value)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    |     response = await self.dispatch_func(request, call_next)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    |     response=await call_next(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    |     raise app_exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    |     await self.app(scope, receive_or_disconnect, send_no_error)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    |     await self.middleware_stack(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    |     await route.handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    |     await super().handle(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    |     await self.app(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    |     raise exc
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    |     await app(scope, receive, sender)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    |     response = await f(request)
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    |     raw_response = await run_endpoint_function(
+    |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    |     return await dependant.call(**values)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    |     return await uploads.receive(request, filename)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 116, in receive
+    |     self.references.register_upload(self.root/key/leaf, entry)
+    |   File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 224, in boom
+    |     def boom(*a, **k): raise RuntimeError('AUDIT injected registration failure after write')
+    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | RuntimeError: AUDIT injected registration failure after write
+    +------------------------------------
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/protocols/http/h11_impl.py", line 411, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 50, in wrapped
+    return await inner(scope, rec, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1194, in __call__
+    await super().__call__(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/telemetry/_asgi.py", line 151, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 176, in __call__
+    with recv_stream, send_stream, collapse_excgroups():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_utils.py", line 82, in collapse_excgroups
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 178, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 88, in local_boundary
+    response=await call_next(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 156, in call_next
+    raise app_exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 141, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 2811, in app
+    await route.handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 1330, in handle
+    await super().handle(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 166, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 152, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 745, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/venv/lib/python3.12/site-packages/fastapi/routing.py", line 372, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/app.py", line 167, in upload_fastq
+    return await uploads.receive(request, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/cand/src/peanalyzer/gui/uploads.py", line 116, in receive
+    self.references.register_upload(self.root/key/leaf, entry)
+  File "/tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/kit/auditor_candidate_binding.py", line 224, in boom
+    def boom(*a, **k): raise RuntimeError('AUDIT injected registration failure after write')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: AUDIT injected registration failure after write
+- generated xml file: /tmp/claude-0/-home-user-crispresso-pe-pipeline/9767c72f-405b-5205-aa52-fc76302ea49c/scratchpad/pux/runs/ad2/junit.xml -
+=========================== short test summary info ============================
+PASSED audit_candidate.py::test_interruption[zero]
+PASSED audit_candidate.py::test_interruption[first]
+PASSED audit_candidate.py::test_interruption[middle]
+PASSED audit_candidate.py::test_interruption[last-before-finalize]
+PASSED audit_candidate.py::test_interruption[written-before-register]
+PASSED audit_candidate.py::test_symlink[staging-symlink]
+PASSED audit_candidate.py::test_symlink[replace-temp]
+PASSED audit_candidate.py::test_symlink[external-symlink]
+PASSED audit_candidate.py::test_symlink[directory-substitution]
+PASSED audit_candidate.py::test_excel[valid-one]
+PASSED audit_candidate.py::test_excel[valid-twenty]
+PASSED audit_candidate.py::test_excel[whitespace]
+PASSED audit_candidate.py::test_excel[optional-blanks]
+PASSED audit_candidate.py::test_excel[catalog-4A]
+PASSED audit_candidate.py::test_excel[missing-column]
+PASSED audit_candidate.py::test_excel[missing-biological-column]
+PASSED audit_candidate.py::test_excel[misspelled-column]
+PASSED audit_candidate.py::test_excel[unexpected-column]
+PASSED audit_candidate.py::test_excel[duplicate-header]
+PASSED audit_candidate.py::test_excel[empty-header]
+PASSED audit_candidate.py::test_excel[missing-name]
+PASSED audit_candidate.py::test_excel[missing-replicate]
+PASSED audit_candidate.py::test_excel[unknown-barcode]
+PASSED audit_candidate.py::test_excel[bad-dpi]
+PASSED audit_candidate.py::test_excel[bad-paired]
+PASSED audit_candidate.py::test_excel[bad-custom-sequence]
+PASSED audit_candidate.py::test_excel[duplicate-barcode]
+PASSED audit_candidate.py::test_excel[duplicate-samples]
+PASSED audit_candidate.py::test_excel[blank-middle]
+PASSED audit_candidate.py::test_excel[data-after-blank]
+PASSED audit_candidate.py::test_excel[multiple-sheets]
+PASSED audit_candidate.py::test_excel[renamed-sheet]
+PASSED audit_candidate.py::test_excel[hidden-row]
+PASSED audit_candidate.py::test_excel[hidden-column]
+PASSED audit_candidate.py::test_excel[merged-cells]
+PASSED audit_candidate.py::test_excel[formula]
+PASSED audit_candidate.py::test_excel[formula-error]
+PASSED audit_candidate.py::test_excel[date-dpi]
+PASSED audit_candidate.py::test_catalog_dependency
+39 passed, 27 deselected in 13.62s
+EXIT 0

@@ -1,0 +1,14 @@
+
+Running 8 tests using 1 worker
+
+  ✓  1 e2e-recovery/recovery.spec.ts:18:51 › pe-resume: read-only preview → resume → verified M10 (8.3s)
+  ✓  2 e2e-recovery/recovery.spec.ts:18:51 › nuclease-resume: read-only preview → resume → verified M10 (7.0s)
+  ✓  3 e2e-recovery/recovery.spec.ts:26:1 › advanced force shows authoritative closure before removal and completion (7.4s)
+  ✓  4 e2e-recovery/recovery.spec.ts:33:1 › stale preview refuses confirmation without deleting a foreign arrival (1.1s)
+  ✓  5 e2e-recovery/recovery.spec.ts:39:1 › completed workspace routes to Open Results without resume/force (1.6s)
+  ✓  6 e2e-recovery/recovery.spec.ts:43:41 › cancel: recovery cancellation → new inspection → resume (12.6s)
+  ✓  7 e2e-recovery/recovery.spec.ts:43:41 › detached: recovery cancellation → new inspection → resume (18.0s)
+  ✓  8 e2e-recovery/recovery.spec.ts:50:1 › server SIGKILL: restart sees lease, cleanup contains escaped child, then recovery (18.2s)
+
+  8 passed (1.3m)
+EXIT 0

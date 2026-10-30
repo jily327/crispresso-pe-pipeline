@@ -1,0 +1,130 @@
+{
+ "valid-one": {
+  "manual_status": "VALID",
+  "excel_status": "VALID",
+  "compiled_equal": true,
+  "compiled_files_equal": {
+   "samples.csv": true,
+   "targets.csv": true,
+   "config.json": true,
+   "barcodes.csv": true
+  },
+  "preview_equal": true,
+  "preview_diff": [],
+  "issues_equal": true,
+  "n": 1,
+  "scientific_identity": true,
+  "plan_identity": true,
+  "replicate_text": [
+   "01"
+  ]
+ },
+ "valid-twenty": {
+  "manual_status": "VALID",
+  "excel_status": "VALID",
+  "compiled_equal": true,
+  "compiled_files_equal": {
+   "samples.csv": true,
+   "targets.csv": true,
+   "config.json": true,
+   "barcodes.csv": true
+  },
+  "preview_equal": true,
+  "preview_diff": [],
+  "issues_equal": true,
+  "n": 20,
+  "scientific_identity": true,
+  "plan_identity": true,
+  "replicate_text": [
+   "1",
+   "2",
+   "3"
+  ]
+ },
+ "catalog-4A": {
+  "manual_status": "VALID",
+  "excel_status": "VALID",
+  "compiled_equal": true,
+  "compiled_files_equal": {
+   "samples.csv": true,
+   "targets.csv": true,
+   "config.json": true,
+   "barcodes.csv": true
+  },
+  "preview_equal": true,
+  "preview_diff": [],
+  "issues_equal": true,
+  "n": 1,
+  "scientific_identity": true,
+  "plan_identity": true,
+  "replicate_text": [
+   "01"
+  ]
+ },
+ "whitespace": {
+  "manual_status": "VALID",
+  "excel_status": "VALID",
+  "compiled_equal": true,
+  "compiled_files_equal": {
+   "samples.csv": true,
+   "targets.csv": true,
+   "config.json": true,
+   "barcodes.csv": true
+  },
+  "preview_equal": true,
+  "preview_diff": [],
+  "issues_equal": true,
+  "n": 1,
+  "scientific_identity": true,
+  "plan_identity": true,
+  "replicate_text": [
+   "01"
+  ]
+ },
+ "optional-blanks": {
+  "manual_status": "VALID",
+  "excel_status": "VALID",
+  "compiled_equal": true,
+  "compiled_files_equal": {
+   "samples.csv": true,
+   "targets.csv": true,
+   "config.json": true,
+   "barcodes.csv": true
+  },
+  "preview_equal": true,
+  "preview_diff": [],
+  "issues_equal": true,
+  "n": 1,
+  "scientific_identity": true,
+  "plan_identity": true,
+  "replicate_text": [
+   "01"
+  ]
+ },
+ "no_execution": {
+  "jobs_created": 0,
+  "outputs_written": []
+ },
+ "edit_invalidates": {
+  "first_preview": 200,
+  "stale_preview": [
+   409,
+   "STALE_DRAFT_REVISION"
+  ],
+  "stale_submit": [
+   409,
+   "RUN_UNAVAILABLE"
+  ],
+  "revalidated": "VALID",
+  "sci_changed": true
+ },
+ "restart_stale_capability": {
+  "status": "INVALID",
+  "issues": [
+   [
+    "r1",
+    "INPUT_VALIDATION"
+   ]
+  ]
+ }
+}

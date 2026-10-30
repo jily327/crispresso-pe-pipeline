@@ -1,0 +1,24 @@
+
+Running 18 tests using 1 worker
+
+  ✓   1 e2e/setup.spec.ts:19:1 › PE setup through real Python validation → deterministic Review without execution (2.9s)
+  ✓   2 e2e/setup.spec.ts:20:1 › explicit nuclease window 0-0 → locked full contract → Review (1.3s)
+  ✓   3 e2e/setup.spec.ts:21:1 › TIGR W2 and W1 annotations come from backend; accessible and responsive (2.2s)
+  ✓   4 e2e/setup.spec.ts:22:1 › invalid sentinel cannot reach Review and first error is focusable (1.1s)
+  ✓   5 e2e/setup.spec.ts:24:1 › duplicate biological replicate blocks Review and focuses replicate metadata (1.7s)
+  ✓   6 e2e/setup.spec.ts:36:1 › paired metadata error focuses Block ID rather than sample name (1.5s)
+  ✓   7 e2e/setup.spec.ts:45:1 › ambiguous deletion reaches Review with authoritative limitation warnings (1.6s)
+  ✓   8 e2e/setup.spec.ts:52:1 › zero-pair raw pool blocks Review with an input error (1.6s)
+  ✓   9 e2e/viewer.spec.ts:14:1 › real PE workspace → five views, exact/native distinction, source download and reopen (5.1s)
+  ✓  10 e2e/viewer.spec.ts:31:1 › real nuclease data preserves partition, overlap, net-zero, alleles and qualified configuration (1.8s)
+  ✓  11 e2e/viewer.spec.ts:44:1 › invalid workspace refuses scientific display (420ms)
+  ✓  12 e2e/viewer.spec.ts:51:1 › keyboard tabs, accessible tables, AA scan and desktop/200-percent reflow (3.1s)
+  ✓  13 e2e/viewer.spec.ts:67:1 › local API denies missing session and cross-origin access (26ms)
+  ✓  14 e2e/viewer.spec.ts:72:1 › a failed revalidation hides an already opened scientific view (1.8s)
+  ✓  15 e2e/viewer.spec.ts:84:3 › keyboard Tab → Enter keeps focus during integrity loading (2.9s)
+  ✓  16 e2e/viewer.spec.ts:84:3 › keyboard Tab → Space keeps focus during integrity loading (2.7s)
+  ✓  17 e2e/viewer.spec.ts:107:1 › keyboard Open completion intentionally focuses the analysis heading (1.7s)
+  ✓  18 e2e/viewer.spec.ts:117:1 › same-basename registrations show unique labels and their correct scientific mode (2.6s)
+
+  18 passed (37.7s)
+EXIT 0

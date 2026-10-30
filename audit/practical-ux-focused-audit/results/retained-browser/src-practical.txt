@@ -1,0 +1,9 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 e2e-practical/inputs.spec.ts:7:37 › pe: actual browser file inputs + XLSX → Review → Run → Results (23.8s)
+  ✓  2 e2e-practical/inputs.spec.ts:7:37 › nuclease: actual browser file inputs + XLSX → Review → Run → Results (13.4s)
+  ✓  3 e2e-practical/inputs.spec.ts:60:1 › failed replacement and invalid workbook preserve editable selections (657ms)
+
+  3 passed (39.2s)
+EXIT 0

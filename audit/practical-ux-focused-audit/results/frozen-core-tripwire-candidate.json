@@ -1,0 +1,66 @@
+[
+  {
+    "path": "frontend/package-lock.json",
+    "disposition": "REVIEW_VERSION_OR_PRESENTATION"
+  },
+  {
+    "path": "frontend/package.json",
+    "disposition": "REVIEW_VERSION_OR_PRESENTATION"
+  },
+  {
+    "path": "frontend/src/models/api.ts",
+    "disposition": "REVIEW_VERSION_OR_PRESENTATION"
+  },
+  {
+    "path": "frontend/src/models/setup.ts",
+    "disposition": "REVIEW_VERSION_OR_PRESENTATION"
+  },
+  {
+    "path": "pyproject.toml",
+    "disposition": "REVIEW_VERSION_OR_PRESENTATION"
+  },
+  {
+    "path": "src/peanalyzer/gui/__main__.py",
+    "disposition": "REVIEW_NARROW_ADDITIVE_CHANGE"
+  },
+  {
+    "path": "src/peanalyzer/gui/app.py",
+    "disposition": "REVIEW_NARROW_ADDITIVE_CHANGE"
+  },
+  {
+    "path": "src/peanalyzer/gui/drafts.py",
+    "disposition": "REVIEW_NARROW_ADDITIVE_CHANGE"
+  },
+  {
+    "path": "src/peanalyzer/gui/models.py",
+    "disposition": "REVIEW_NARROW_ADDITIVE_CHANGE"
+  },
+  {
+    "path": "src/peanalyzer/gui/projection.py",
+    "disposition": "REVIEW_NARROW_ADDITIVE_CHANGE"
+  },
+  {
+    "path": "src/peanalyzer/gui/setup_models.py",
+    "disposition": "REVIEW_NARROW_ADDITIVE_CHANGE"
+  },
+  {
+    "path": "src/peanalyzer/gui/static/assets/index-BypUqR2Y.js",
+    "disposition": "REVIEW_REGENERATED_BUNDLE"
+  },
+  {
+    "path": "src/peanalyzer/gui/static/build-identity.json",
+    "disposition": "REVIEW_REGENERATED_BUNDLE"
+  },
+  {
+    "path": "src/peanalyzer/gui/static/index.html",
+    "disposition": "REVIEW_REGENERATED_BUNDLE"
+  },
+  {
+    "path": "src/peanalyzer/gui/sample_workbook.py",
+    "disposition": "REVIEW_NEW_PRODUCTION_FILE"
+  },
+  {
+    "path": "src/peanalyzer/gui/uploads.py",
+    "disposition": "REVIEW_NEW_PRODUCTION_FILE"
+  }
+]
