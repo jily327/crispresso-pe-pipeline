@@ -1,69 +1,61 @@
-# Practical UX qualification — in progress
+# Practical GUI maintenance qualification (0.9.0)
 
 Base: `72e0f86a495e079cab2ae50d2796e7a3423c78af`.
-Branch: `feat/practical-ux-inputs`. Package: 0.8.0 → 0.9.0.
+Candidate: `feat/practical-ux-inputs`. No PR or merge.
 
-The initial durable implementation checkpoint passed 116 focused Python cases,
-169 retained GUI/Setup/Run/M11C.2 cases, and 56 frontend cases (zero failures,
-errors or skips in those successful runs). A final reader ZIP-part restriction
-was additionally checked against all 35 workbook cases plus the version case.
-Generated frontend assets pass the existing identity gate.
+See [the engineering report](ENGINEERING_REPORT.md) for implementation, scope,
+version/dependency changes, identity rules, findings and limitations. The exact
+candidate SHA is the Git commit containing the final report; production bytes
+remain those of the first implementation checkpoint.
 
-The source hashes in frozen-core.json prove scientific Python modules outside
-GUI and the explicitly frozen GUI execution/jobs/worker/recovery models remain
-byte-identical to the base. Full source/wheel, browser and real native-Core
-transport-parity qualification are still pending. This is not an audit pass.
+| Gate | Measured result |
+|---|---|
+| Source Python | 1,972 passed; 0 failures/errors/skips |
+| Fresh installed wheel Python | 1,972 passed; 0 failures/errors/skips |
+| Retained/new Python inventory | 1,910 retained + 62 new; none removed |
+| Integration inventory | 88 retained + 2 new = 90 |
+| Frontend | 56 passed |
+| Source browser | 35 passed; 0 failures/skips/flaky |
+| Installed-wheel browser | 35 passed; 0 failures/skips/flaky |
+| Package | source and wheel report 0.9.0; 89 package files byte-identical |
+| Frozen boundaries | 64 files byte-identical to base; complete production diff recorded |
+| Scientific parity | legacy/manual vs upload/XLSX, PE + nuclease; source vs wheel |
+| Prior 0.8.0 outputs | scientific values unchanged; SVG creator credit changes to 0.9.0 |
 
-Transient development findings were test harness/expectation defects: the first
-20-sample spreadsheet used non-catalog letters; a mocked download returned no
-Promise; and a retained denominator-label assertion needed its new explicit
-Denominator prefix. No scientific rule was changed to satisfy those tests.
+Browser inventory is 18 viewer/Setup, 6 Run, 8 Recovery and 3 practical-input
+scenarios. Actual browser File inputs and native Core execute in Linux Chromium.
+Windows OS/browser testing was not available. Both viewer audits record zero
+scientific calls and unchanged input/workspace bytes and mtimes.
 
-## Parity/browser checkpoint
+`qualification.json` records counts/timing; `case-retention.json` records exact
+node-ID retention; `scope.json` and `frozen-core.json` record production boundaries.
+Transport, baseline and source/wheel parity JSON records accompany the report.
+The source/wheel suite logs and environment-specific runners are included. These
+runners identify the qualified local native backend; adapt their executable paths
+to the audit environment. They do not replace the production launcher.
 
-Two compiler identity cases and two native-Core integration cases pass. The
-legacy/manual and uploaded/XLSX routes have equal scientific inputs and outputs
-for PE and nuclease; current identities deliberately include input basenames.
-Same-basename equivalent inputs also have identical plan/scientific digests.
+## Durable checkpoints and harness corrections
 
-Browser tests use actual File inputs and the real native backend. A test-only
-worker pauses the authoritative FINAL_VALIDATION event before continuing; it
-never changes production job semantics. An earlier reader-thread pause was a
-harness defect (delayed containment acknowledgement), replaced with a producer
-pause. Other browser harness corrections concerned response-body lifetime and
-asserting two equal primary metric counts instead of one.
+- `2cb293d240c78d197d5fd89a14f3ea8bb0c07363`: implementation and focused tests.
+- `858a4817a8e3e4339dd9bc3e32af43d6a348afee`: real browser/transport parity tests.
+- `b1c52d2cbc42b015e6cc06b58727af6bc945e5b5`: complete passing source suite.
+- `ee2214973bad6642950d8453731b94e023336afa`: complete passing source browsers.
+- `d3d9f27`: interruption diagnosis; production unchanged.
+- This evidence commit: final wheel/browser/package qualification and handoff.
 
-Full release qualification will run only after this test checkpoint is pushed.
+Development harness corrections are documented in the engineering report. The
+initial external wheel-test workspace lacked a historical audit fixture and a
+developer generator script, causing four FileNotFoundError failures. Exact
+committed test inputs were restored; the four passed, and the entire wheel suite
+was restarted with fresh outputs and unchanged production/wheel bytes. The table
+reports the complete successful run, not a combination of partial runs.
 
-## Complete source gate
+No new scientific or lifecycle behavior was introduced. Known M11C minor/info
+findings and optional extra UX items remain deferred. This evidence supports an
+independent focused audit; it is not a merge approval.
 
-All 1,972 source cases passed (0 failures/errors/skips), including all 1,910
-retained cases and 62 new cases. Integration inventory: 88 retained + 2 new = 90.
-The fresh wheel builds and imports 0.9.0 from site-packages; its 89 packaged
-application/resource files match source bytes. Full wheel and retained browser
-qualification remain pending. PE/nuclease 0.8.0 baseline science matches 0.9.0;
-the only compared SVG change is the package-version creator credit.
-
-## Complete source browser gate
-
-35/35 pass: viewer/Setup 18, Run 6, Recovery 8, new practical inputs 3.
-Zero failures, skipped or flaky cases. The viewer recorded zero scientific calls
-and unchanged input/workspace bytes and mtimes. The frozen byte inventory now
-also includes unchanged supervision, process safety, setup validation and viewer
-verification modules (64 files total).
-
-The first wheel test workspace, extracted from the sdist, lacked a historical
-nuclease audit fixture and developer type-generator script. Four tests failed
-with FileNotFoundError. Copying the exact committed audit inputs fixed all four;
-no wheel or production change was made. The complete wheel suite was restarted
-with fresh results. Its final gate remains pending here.
-
-## Wheel runner interruption
-
-A later complete wheel attempt stopped after 1,757 reported passes, without an
-assertion failure, final JUnit file or recoverable tool-session status. No process
-remained; cgroup OOM counters were zero and disk space remained available. Cause
-is undetermined. Both installed-wheel real transport-parity cases subsequently
-passed in isolation (44.83 seconds), with unchanged production/wheel bytes. The
-complete wheel suite is being repeated under a detached qualification supervisor
-that records its exit status explicitly. No incomplete run is counted as a pass.
+The tool-session interruption after 1,757 reported passes is recorded separately.
+Two isolated installed-wheel transport tests passed; the detached full runner then
+completed all 1,972 cases with exit 0. No partial-run totals are combined. A temporary
+GitHub HTTP 401 resolved after the managed authorization refreshed; no credentials
+are stored in these artifacts.

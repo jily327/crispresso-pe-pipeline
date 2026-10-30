@@ -1,0 +1,16 @@
+{
+  "mode": "indel_nuclease",
+  "legacy_state": "COMPLETED",
+  "uploaded_state": "COMPLETED",
+  "science_sha256": "bb734e41a574bff1dc1c81ea92cfb41074bf8a394248a382a6e51942e444098b",
+  "uploaded_science_sha256": "bb734e41a574bff1dc1c81ea92cfb41074bf8a394248a382a6e51942e444098b",
+  "source_report_bytes_equal": true,
+  "observations_equal": true,
+  "provenance_differences": [
+    "input basename/path",
+    "output-root-bound identities",
+    "source result hashes",
+    "timestamps",
+    "invocation"
+  ]
+}
