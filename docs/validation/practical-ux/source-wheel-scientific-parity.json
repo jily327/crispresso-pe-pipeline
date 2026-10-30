@@ -1,0 +1,38 @@
+[
+  {
+    "fixture": "m11b",
+    "workspace": "analysis",
+    "mode": "precise_edit",
+    "source_science_sha256": "4de66e9afe1ccf7e8f35329ca3849604ecf030bfca48836c156bac0721ae00ea",
+    "wheel_science_sha256": "4de66e9afe1ccf7e8f35329ca3849604ecf030bfca48836c156bac0721ae00ea",
+    "equal": true,
+    "comparison": "M4 science/anchors, M5 science, prepared reads, routed reads/ledgers, byte-identical SVG figures; excludes documented root/software provenance"
+  },
+  {
+    "fixture": "m11b",
+    "workspace": "analysis",
+    "mode": "indel_nuclease",
+    "source_science_sha256": "bb734e41a574bff1dc1c81ea92cfb41074bf8a394248a382a6e51942e444098b",
+    "wheel_science_sha256": "bb734e41a574bff1dc1c81ea92cfb41074bf8a394248a382a6e51942e444098b",
+    "equal": true,
+    "comparison": "M4 science/anchors, M5 science, prepared reads, routed reads/ledgers, byte-identical SVG figures; excludes documented root/software provenance"
+  },
+  {
+    "fixture": "practical",
+    "workspace": "uploaded",
+    "mode": "precise_edit",
+    "source_science_sha256": "4de66e9afe1ccf7e8f35329ca3849604ecf030bfca48836c156bac0721ae00ea",
+    "wheel_science_sha256": "4de66e9afe1ccf7e8f35329ca3849604ecf030bfca48836c156bac0721ae00ea",
+    "equal": true,
+    "comparison": "M4 science/anchors, M5 science, prepared reads, routed reads/ledgers, byte-identical SVG figures; excludes documented root/software provenance"
+  },
+  {
+    "fixture": "practical",
+    "workspace": "uploaded",
+    "mode": "indel_nuclease",
+    "source_science_sha256": "bb734e41a574bff1dc1c81ea92cfb41074bf8a394248a382a6e51942e444098b",
+    "wheel_science_sha256": "bb734e41a574bff1dc1c81ea92cfb41074bf8a394248a382a6e51942e444098b",
+    "equal": true,
+    "comparison": "M4 science/anchors, M5 science, prepared reads, routed reads/ledgers, byte-identical SVG figures; excludes documented root/software provenance"
+  }
+]

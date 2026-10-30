@@ -1,0 +1,16 @@
+{
+  "mode": "precise_edit",
+  "legacy_state": "COMPLETED",
+  "uploaded_state": "COMPLETED",
+  "science_sha256": "4de66e9afe1ccf7e8f35329ca3849604ecf030bfca48836c156bac0721ae00ea",
+  "uploaded_science_sha256": "4de66e9afe1ccf7e8f35329ca3849604ecf030bfca48836c156bac0721ae00ea",
+  "source_report_bytes_equal": true,
+  "observations_equal": true,
+  "provenance_differences": [
+    "input basename/path",
+    "output-root-bound identities",
+    "source result hashes",
+    "timestamps",
+    "invocation"
+  ]
+}

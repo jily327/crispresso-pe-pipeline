@@ -22,12 +22,13 @@ export function Run({jobId,onOpen,onRecovery}:{jobId:string,onOpen:(id:string)=>
     finally{if(active)timer=setTimeout(poll,1000)}}
     void poll();return()=>{active=false;clearTimeout(timer)};
   },[jobId]);
+  const verifying=job?.state==='RUNNING'&&(events.some(e=>['FINAL_VALIDATION','VIEWER_VERIFICATION'].includes(e.status))||(job.total_stages>0&&job.finished_stages===job.total_stages));
   async function cancel(){setBusy(true);setConfirm(false);try{setJob(await api<JobView>(`jobs/${jobId}/cancel`,{}));setError('')}catch(e){setError(String(e))}finally{setBusy(false);cancelButton.current?.focus()}}
   return <main id="run-main" className="setup"><p className="eyebrow">RUN ANALYSIS</p><h1 ref={heading} tabIndex={-1}>{job?.analysis_name||'Connecting to analysis'}</h1>
     {error&&<p role="alert" className="error-panel">{error}</p>}
     {job&&<><p>Target {job.target_name} · {job.analysis_mode==='precise_edit'?'Precise Edit':'Indel / Nuclease'}</p>
       <p role="status" aria-live="polite"><strong>{job.state}</strong> · {job.finished_stages} / {job.total_stages} stages finished · Elapsed {job.elapsed_seconds} seconds</p>
-      <p>Current stage: {job.current_stage_id||'No scientific stage active'}</p><p>Output: {job.output_proposal}</p>
+      {verifying?<section aria-label="Final workspace verification"><h2>Final verification in progress</h2><p>Scientific analysis: {job.finished_stages} / {job.total_stages} stages complete · verifying completed workspace integrity. Results open only after verification succeeds.</p></section>:<p>Current stage: {job.current_stage_id||'No scientific stage active'}</p>}<p>Output: {job.output_proposal}</p>
       <dl className="identities"><dt>Job ID</dt><dd>{job.job_id}</dd><dt>Scientific identity SHA-256</dt><dd>{job.scientific_identity_sha256}</dd><dt>Plan identity SHA-256</dt><dd>{job.plan_identity_sha256}</dd><dt>Accepted execution specification SHA-256</dt><dd>{job.execution_spec_sha256}</dd></dl>
       {job.warnings.length>0&&<section aria-label="Accepted setup warnings"><h2>Setup warnings</h2><ul>{job.warnings.map((w,i)=><li key={i}>{w.code}: {w.message}</li>)}</ul></section>}
       <Table caption="Authoritative stage progress" headers={['Stage','Status','Backend reasons']}>{job.stages.map(s=><tr key={s.stage_id}><th scope="row">{s.stage_id} · {s.label}</th><td>{s.status}</td><td>{s.reason_codes.join(', ')||'None'}</td></tr>)}</Table>

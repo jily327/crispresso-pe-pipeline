@@ -1,0 +1,44 @@
+{
+  "base": "72e0f86a495e079cab2ae50d2796e7a3423c78af",
+  "implementation_checkpoint": "2cb293d240c78d197d5fd89a14f3ea8bb0c07363",
+  "test_checkpoint": "858a4817a8e3e4339dd9bc3e32af43d6a348afee",
+  "production_files": [
+    "frontend/package-lock.json",
+    "frontend/package.json",
+    "frontend/src/api/client.ts",
+    "frontend/src/app/App.tsx",
+    "frontend/src/components/Common.tsx",
+    "frontend/src/components/InputImports.tsx",
+    "frontend/src/models/api.ts",
+    "frontend/src/models/setup.ts",
+    "frontend/src/pages/Results.tsx",
+    "frontend/src/pages/Run.tsx",
+    "frontend/src/pages/SetupWizard.tsx",
+    "pyproject.toml",
+    "requirements-gui.lock",
+    "src/peanalyzer/gui/__main__.py",
+    "src/peanalyzer/gui/app.py",
+    "src/peanalyzer/gui/drafts.py",
+    "src/peanalyzer/gui/models.py",
+    "src/peanalyzer/gui/projection.py",
+    "src/peanalyzer/gui/sample_workbook.py",
+    "src/peanalyzer/gui/setup_models.py",
+    "src/peanalyzer/gui/static/assets/index-BypUqR2Y.js",
+    "src/peanalyzer/gui/static/assets/index-NuK6ZCun.js",
+    "src/peanalyzer/gui/static/build-identity.json",
+    "src/peanalyzer/gui/static/index.html",
+    "src/peanalyzer/gui/uploads.py"
+  ],
+  "version_authority": "pyproject.toml",
+  "version_before": "0.8.0",
+  "version_after": "0.9.0",
+  "version_sources_changed": [
+    "pyproject.toml",
+    "frontend/package.json",
+    "frontend/package-lock.json"
+  ],
+  "generated_version_surfaces": [
+    "src/peanalyzer/gui/static/build-identity.json"
+  ],
+  "frozen_files_byte_identical": 64
+}

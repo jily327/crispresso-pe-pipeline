@@ -1,0 +1,17 @@
+{
+  "implementation_sha": "2cb293d240c78d197d5fd89a14f3ea8bb0c07363",
+  "test_checkpoint_sha": "858a4817a8e3e4339dd9bc3e32af43d6a348afee",
+  "source_suite_git_head": "858a4817a8e3e4339dd9bc3e32af43d6a348afee",
+  "source_browser_git_head": "b1c52d2cbc42b015e6cc06b58727af6bc945e5b5",
+  "durable_source_browser_checkpoint": "ee2214973bad6642950d8453731b94e023336afa",
+  "production_unchanged_since_implementation_checkpoint": true,
+  "wheel_import": "site-packages/peanalyzer",
+  "wheel_version": "0.9.0",
+  "wheel_test_harness": "sdist test tree plus exact committed docs/scripts and browser-only test inputs from test checkpoint; runtime imported from installed wheel",
+  "first_wheel_attempt": "4 missing-harness-file failures, then deliberate interruption; affected 4 pass after fixture restoration; complete suite restarted with unchanged wheel",
+  "interruption_diagnosis_commit": "d3d9f27f8793eaf46f3848e2fe8c9841744d306b",
+  "complete_wheel_runner": "wheel-durable-status.json",
+  "complete_wheel_exit_code": 0,
+  "source_wheel_test_case_coverage_equal": true,
+  "case_identity_note": "1970 exact JUnit case IDs match; two new gzip-input parameter IDs contain gzip default timestamp bytes. The identical test file supplies the same seven invalid-upload cases; family multiplicities match."
+}

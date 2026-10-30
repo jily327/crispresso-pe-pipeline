@@ -10,6 +10,9 @@ class SetupFile(Model):
     file_id: str
     label: str
     kind: Literal['fastq', 'demux', 'output_root']
+    origin: Literal['launcher', 'upload'] = 'launcher'
+    sha256: str | None = None
+    size_bytes: str | None = None
 
 
 class DraftSample(Model):
@@ -149,3 +152,20 @@ class SetupCapabilities(Model):
     recovery_available: bool = False
     statistics: Literal['descriptive_only'] = 'descriptive_only'
     run_available: bool = False
+
+
+class WorkbookIssue(Model):
+    row: int
+    field: str
+    code: str
+    severity: Literal['ERROR']
+    message: str
+
+
+class WorkbookImport(Model):
+    template_version: Literal['samples-xlsx-v1']
+    samples: list[DraftSample]
+    imported_count: int
+    valid_count: int
+    warnings: list[str]
+    errors: list[WorkbookIssue]
