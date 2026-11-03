@@ -30,7 +30,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     references=SetupReferences(setup_files,setup_archives,setup_output_roots)
     from peanalyzer.gui.uploads import UploadStore
     uploads=UploadStore(upload_root or Path.home()/'.local/share/peanalyzer/uploads',references)
-    drafts=DraftStore(references,[path for _,path in registrations])
+    drafts=DraftStore(references,[path for _,path in store.registrations.values()])
     from peanalyzer.gui.jobs import JobStore
     from peanalyzer.gui.job_models import JobSubmission, JobView, JobEvents, CancelRequest
     jobs=JobStore(drafts,store,runtime)
@@ -117,7 +117,12 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
 
     @app.post('/api/v1/workspace-library/refresh')
     def refresh_library(body:CancelRequest=CancelRequest()):
-        return store.refresh_library()
+        result=store.refresh_library()
+        with store.lock:
+            paths=tuple(path for _,path in store.registrations.values())
+        with drafts.lock:
+            drafts.protected=tuple(dict.fromkeys((*drafts.protected,*paths)))
+        return result
 
     @app.post('/api/v1/workspaces/{workspace_id}/reveal')
     def reveal_workspace(workspace_id:str,body:CancelRequest=CancelRequest()):

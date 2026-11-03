@@ -96,3 +96,26 @@ def test_real_verified_open_remains_read_only(case):
     assert c.post('/api/v1/workspaces/open',json={'registration_id':rows[0]['registration_id']}).status_code==200
     assert fingerprint(root)==before
     assert not (root/'PEAnalyzer_Summary.xlsx').exists()
+
+
+def test_discovered_workspaces_protect_new_output_destinations(tmp_path):
+    root=tmp_path/'library';root.mkdir();first=root/'first';markers(first)
+    app=create_app(token='test',workspace_library_roots=[root],setup_output_roots=[first])
+    assert first in app.state.drafts.protected
+    # The unchanged setup boundary must reject a new output nested in a discovered analysis.
+    from peanalyzer.gui.setup_validation import compile_draft
+    from m11b_helpers import application
+    inputs,c,content,_,_=application(tmp_path/'inputs-fixture')
+    ref=content.output_root
+    inputs.state.drafts.references.paths[ref]=first
+    inputs.state.drafts.protected=app.state.drafts.protected
+    d=c.post('/api/v1/drafts').json()
+    c.patch('/api/v1/drafts/'+d['draft_id'],json={'revision':0,'content':content.model_dump()})
+    result=c.post('/api/v1/drafts/'+d['draft_id']+'/validate',json={'revision':1}).json()
+    assert result['status']=='INVALID'
+    assert any('OUTPUT' in issue['code'] for issue in result['issues'])
+    client=TestClient(app,base_url='http://127.0.0.1',headers={'X-Viewer-Token':'test'})
+    later=root/'later';markers(later)
+    assert client.post('/api/v1/workspace-library/refresh',json={}).status_code==200
+    assert first in app.state.drafts.protected and later in app.state.drafts.protected
+    inputs.state.jobs.close()
