@@ -8,6 +8,7 @@ from peanalyzer.gui.app import create_app
 
 def main():
     parser=argparse.ArgumentParser(description='Local PEAnalyzer setup, execution, and verified result viewer')
+    parser.add_argument('--workspace-library-root',action='append',default=[],metavar='PATH',help='Discover historical workspaces beneath this bounded, explicit root; repeat for multiple roots')
     parser.add_argument('--workspace',action='append',default=[],metavar='PATH',help='Register an existing workspace; repeat for more choices')
     parser.add_argument('--setup-fastq',action='append',default=[],metavar='PATH',help='Register a paired-pool FASTQ input for setup')
     parser.add_argument('--upload-root',type=Path,help='Private durable browser-upload storage; default ~/.local/share/peanalyzer/uploads; retain original sources')
@@ -22,7 +23,7 @@ def main():
         parser.error('port must be between 1 and 65535')
     token=secrets.token_urlsafe(32)
     from peanalyzer.gui.execution import RuntimeSettings
-    app=create_app([(None,Path(p)) for p in args.workspace],token=token,setup_files=args.setup_fastq,setup_archives=args.setup_demux,setup_output_roots=args.setup_output_root,runtime=None if args.view_only else RuntimeSettings(crispresso=args.run_crispresso),recovery_workspaces=args.recover_workspace,upload_root=args.upload_root)
+    app=create_app([(None,Path(p)) for p in args.workspace],token=token,setup_files=args.setup_fastq,setup_archives=args.setup_demux,setup_output_roots=args.setup_output_root,runtime=None if args.view_only else RuntimeSettings(crispresso=args.run_crispresso),recovery_workspaces=args.recover_workspace,upload_root=args.upload_root,workspace_library_roots=args.workspace_library_root)
     if not (Path(__file__).parent/'static/index.html').is_file():
         parser.error('Built viewer assets are missing. Run npm ci && npm run build in frontend before packaging.')
     print(f'Open http://127.0.0.1:{args.port}/#{token}',flush=True)

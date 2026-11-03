@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import {OpenOutput} from '../components/OpenOutput';
 import { api, ViewerFailure } from '../api/client';
 import { Fields, Table } from '../components/Common';
 import type {RecoveryView} from '../models/recovery';
@@ -6,6 +7,7 @@ import type { JobEvent, JobEvents, JobView } from '../models/jobs';
 
 export function Run({jobId,onOpen,onRecovery}:{jobId:string,onOpen:(id:string)=>Promise<void>,onRecovery?:(view:RecoveryView)=>void}) {
   const [job,setJob]=useState<JobView|null>(null),[events,setEvents]=useState<JobEvent[]>([]),[error,setError]=useState('');
+  const [desktopMessage,setDesktopMessage]=useState('');
   const [confirm,setConfirm]=useState(false),[busy,setBusy]=useState(false);
   const dialog=useRef<HTMLDialogElement>(null),cancelButton=useRef<HTMLButtonElement>(null),heading=useRef<HTMLHeadingElement>(null);
   useEffect(()=>{heading.current?.focus()},[jobId]);
@@ -14,6 +16,7 @@ export function Run({jobId,onOpen,onRecovery}:{jobId:string,onOpen:(id:string)=>
     let active=true,cursor=0;let timer:ReturnType<typeof setTimeout>;setJob(null);setEvents([]);setError('');
     async function poll(){try{
       const value=await api<JobView>(`jobs/${jobId}`);if(!active)return;setJob(value);
+      if(value.state==='COMPLETED'){try{const status=await api<{message:string}>(`jobs/${jobId}/desktop`);if(active)setDesktopMessage(status.message)}catch{/* Desktop convenience does not affect scientific status. */}}
       let page:JobEvents;
       do {page=await api<JobEvents>(`jobs/${jobId}/events?after=${cursor}`);if(!active)return;
         cursor=page.next_sequence;setEvents(previous=>[...previous,...page.items]);}while(page.has_more);
@@ -38,6 +41,7 @@ export function Run({jobId,onOpen,onRecovery}:{jobId:string,onOpen:(id:string)=>
       {job.state==='CANCELLED'&&<p>Analysis cancelled. Partial output is retained and is not published as a verified result.</p>}
       {job.error&&<section role="alert" className="error-panel"><h2>{job.error.message}</h2><details><summary>Technical details</summary><p>State: {job.state} · Code: {job.error.code} · Stage: {job.error.stage_id||'Before scientific stages / final verification'}</p><pre>{job.error.detail}</pre></details></section>}
       {job.state==='COMPLETED'&&job.workspace_id&&<button className="primary" disabled={busy} onClick={async()=>{setBusy(true);try{await onOpen(job.workspace_id!)}catch(e){setError(String(e))}finally{setBusy(false)}}}>Open Results</button>}
+      {job.state==='COMPLETED'&&job.workspace_id&&<><OpenOutput workspaceId={job.workspace_id}/><p role="status">{desktopMessage}</p></>}
       <details><summary>Ordered job events</summary><ol>{events.map(e=><li key={e.sequence}>{e.sequence} · {e.timestamp} · {e.state} · {e.stage_id} · {e.status}{e.code&&` · ${e.code}`}</li>)}</ol></details>
       <details><summary>Canonical input metadata hashes</summary><Fields values={job.input_metadata} caption="Execution inputs"/></details>
       {onRecovery&&['FAILED','CANCELLED'].includes(job.state)&&<button disabled={busy} onClick={async()=>{setBusy(true);try{onRecovery(await api<RecoveryView>(`jobs/${jobId}/recovery`,{}))}catch(e){setError(e instanceof ViewerFailure?`${e.detail.code}: ${e.detail.detail}`:String(e))}finally{setBusy(false)}}}>Inspect Recovery</button>}

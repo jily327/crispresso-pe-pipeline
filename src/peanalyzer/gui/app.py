@@ -19,10 +19,10 @@ from peanalyzer.gui.models import (Capabilities, Registration, OpenRequest, Work
 BASE = '9e9a51fb20e56a3421fdfa156375170cd6b257dc'
 
 
-def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None, recovery_workspaces=(), upload_root=None):
+def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(), setup_output_roots=(), runtime=None, recovery_workspaces=(), upload_root=None, workspace_library_roots=()):
     token=token or secrets.token_urlsafe(32)
     registrations=list(registrations)
-    store=WorkspaceStore(registrations)
+    store=WorkspaceStore(registrations,workspace_library_roots)
     from peanalyzer.gui.drafts import DraftStore, SetupReferences
     from peanalyzer.gui.setup_models import (SetupCapabilities, DraftView, DraftPatch,
         DraftRevision, DraftValidation, PlanPreview, SetupFile, WorkbookImport)
@@ -115,9 +115,32 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     def catalog():
         return store.catalog()
 
+    @app.post('/api/v1/workspace-library/refresh')
+    def refresh_library(body:CancelRequest=CancelRequest()):
+        return store.refresh_library()
+
+    @app.post('/api/v1/workspaces/{workspace_id}/reveal')
+    def reveal_workspace(workspace_id:str,body:CancelRequest=CancelRequest()):
+        from peanalyzer.gui.desktop import reveal_output
+        return reveal_output(store.get(workspace_id).root)
+
+    @app.get('/api/v1/jobs/{job_id}/desktop')
+    def job_desktop(job_id:str):
+        jobs.get(job_id)
+        with jobs.lock:
+            return jobs.desktop_results.get(job_id,{'ok':True,'message':''})
+
     @app.post('/api/v1/workspaces/open',response_model=WorkspaceView)
     def open_workspace(body:OpenRequest):
-        return store.open(body.registration_id)
+        try:
+            return store.open(body.registration_id)
+        except (ValueError,OSError):
+            with store.lock:
+                if body.registration_id in store.discovered:
+                    label,path=store.registrations[body.registration_id]
+                    label=label.split(' · Detected')[0].split(' · Incomplete')[0]
+                    store.registrations[body.registration_id]=(label+' · Detected — incompatible with PEAnalyzer 1.0.0 viewer',path)
+            raise
 
     @app.get('/api/v1/workspaces/{workspace_id}',response_model=WorkspaceView)
     def view(workspace_id:str):

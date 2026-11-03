@@ -100,26 +100,58 @@ class Opened:
 
 
 class WorkspaceStore:
-    def __init__(self, registrations):
+    def __init__(self, registrations, library_roots=()):
         self.registrations={uuid.uuid4().hex:(label,path) for label,path in registration_labels(registrations)}
         self.opened={}
         self.lock=threading.RLock()
+        self.library_roots=tuple(dict.fromkeys(safe_registration(p) for p in library_roots))
+        self.discovered=set()
+        self.refresh_library()
+
+    def refresh_library(self):
+        from peanalyzer.gui.library import scan
+        with self.lock:
+            rows,limited=scan(self.library_roots)
+            paths={path:key for key,(_,path) in self.registrations.items()}
+            current=set()
+            for path,label in rows:
+                key=paths.get(path) or uuid.uuid4().hex
+                if key not in self.registrations or key in self.discovered:
+                    self.registrations[key]=(label,path)
+                    current.add(key)
+            for key in self.discovered-current:
+                self.registrations.pop(key,None)
+            self.discovered=current
+            return {'registrations':self.catalog(),'limited':limited}
 
     def catalog(self):
         with self.lock:
             return [Registration(registration_id=k,label=v[0]) for k,v in self.registrations.items()]
 
-    def register_completed(self,label,path):
+    def register_completed(self,label,path,*,finalize=False):
         """Publish only after the unchanged M10 verification/projection boundary."""
         with self.lock:
             key=uuid.uuid4().hex
             self.registrations[key]=(label,safe_registration(path))
-            try:return self.open(key)
+            try:
+                if finalize:
+                    from peanalyzer import __version__
+                    from peanalyzer.gui.summary_workbook import FILENAME, write_summary, verify_summary
+                    view=self.open(key,publish=False)
+                    plan=Plan.model_validate(read_json(owned(path,'workflow/plan.json')))
+                    # Historical opens and already-published snapshots are read-only.
+                    if (view.mode=='precise_edit' and plan.software_identity.pipeline_version==__version__
+                            and not any(item.root==path for item in self.opened.values())):
+                        if (path/FILENAME).exists() or (path/FILENAME).is_symlink():
+                            verify_summary(path,view,plan)
+                        else:
+                            write_summary(path,view,plan)
+                return self.open(key)
             except BaseException:
                 self.registrations.pop(key,None)
                 raise
 
-    def open(self, registration_id):
+    def open(self, registration_id, *, publish=True):
         with self.lock:
             if registration_id not in self.registrations:
                 raise ViewerError('UNKNOWN_REGISTRATION', 'Select a workspace registered by the local launcher')
@@ -154,8 +186,9 @@ class WorkspaceStore:
             view,alleles=project(root,manifest,read,inventory,workspace_id,label,digest(identity))
             if identity != snapshot(root,inputs,external_roots):
                 raise ViewerError('WORKSPACE_CHANGED', 'Source changed during projection')
-            self.opened[workspace_id]=Opened(root,MappingProxyType(identity),inputs,external_roots,
-                MappingProxyType(records),view.model_copy(deep=True),alleles)
+            if publish:
+                self.opened[workspace_id]=Opened(root,MappingProxyType(identity),inputs,external_roots,
+                    MappingProxyType(records),view.model_copy(deep=True),alleles)
             return view
 
     def get(self, workspace_id):

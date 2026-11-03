@@ -1,6 +1,8 @@
 # crispresso-pe-pipeline
 
-Version **0.9.0** adds browser FASTQ upload, official Excel sample-template
+Version **1.0.0** adds Light/Dark themes, historical analysis discovery, a stable
+Windows/WSL launcher, completed-folder reveal and a top-level PE summary workbook.
+See [desktop use](docs/desktop-1.0.md). The previous release added browser FASTQ upload, official Excel sample-template
 import, side-by-side primary PE metrics, and visible Run final verification.
 See [input workflows, limits and metric definitions](docs/practical-ux-inputs.md).
 Scientific calculations and M11C recovery contracts are unchanged.

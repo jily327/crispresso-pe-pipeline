@@ -283,7 +283,7 @@ def test_workflow_input_change_during_execution_preserves_backend_error(case,mon
 def test_final_viewer_verification_failure_and_cancel_race(case,monkeypatch,tmp_path):
     fixture_worker(monkeypatch,tmp_path,'false_success')
     entered=threading.Event();release=threading.Event()
-    def verify(label,path):
+    def verify(label,path,**kwargs):
         entered.set();release.wait(5)
         raise ViewerError('WORKSPACE_CHANGED','Mutation before final viewer publication')
     monkeypatch.setattr(case[0].state.store,'register_completed',verify)
