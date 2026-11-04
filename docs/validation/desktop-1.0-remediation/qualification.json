@@ -1,0 +1,302 @@
+{
+  "source_focused": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "251",
+    "time": "209.312",
+    "timestamp": "2026-11-04T17:34:39.512702+00:00",
+    "hostname": "af14f0377b82"
+  },
+  "source_integration": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "4",
+    "time": "102.044",
+    "timestamp": "2026-11-04T17:38:10.792004+00:00",
+    "hostname": "af14f0377b82"
+  },
+  "source_browser": {
+    "total": 37,
+    "suites": {
+      "viewer": {
+        "startTime": "2026-11-04T17:30:40.627Z",
+        "duration": 51353.356,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "run": {
+        "startTime": "2026-11-04T17:39:55.449Z",
+        "duration": 52510.021,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "recovery": {
+        "startTime": "2026-11-04T17:42:23.478Z",
+        "duration": 66071.872,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "practical": {
+        "startTime": "2026-11-04T17:43:31.297Z",
+        "duration": 36129.613,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  },
+  "wheel_focused": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "251",
+    "time": "182.039",
+    "timestamp": "2026-11-04T17:44:08.058414+00:00",
+    "hostname": "af14f0377b82"
+  },
+  "wheel_integration": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "4",
+    "time": "86.856",
+    "timestamp": "2026-11-04T17:47:11.918845+00:00",
+    "hostname": "af14f0377b82"
+  },
+  "wheel_browser": {
+    "total": 37,
+    "suites": {
+      "viewer": {
+        "startTime": "2026-11-04T17:32:43.313Z",
+        "duration": 56937.947,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "run": {
+        "startTime": "2026-11-04T17:48:41.230Z",
+        "duration": 56004.739,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "recovery": {
+        "startTime": "2026-11-04T17:51:04.424Z",
+        "duration": 63521.544,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "practical": {
+        "startTime": "2026-11-04T17:52:09.545Z",
+        "duration": 34619.78200000001,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  },
+  "frontend": {
+    "numTotalTests": 62,
+    "numPassedTests": 62,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "success": true
+  },
+  "packaging": {
+    "candidate": "f07f1e088bdfa4d65d23053e1bab7a4fd9944e22",
+    "member_count": 93,
+    "all_package_members_identical": true,
+    "archives": {
+      "/workspace/v1-final-remediation/dist/crispresso_pe_pipeline-1.0.0-py3-none-any.whl": "4e397f09d66f8f3412352c9e35318cffb16913da9db872f3d99f3b11ae8cb7d4",
+      "/workspace/v1-final-remediation/clean-dist/crispresso_pe_pipeline-1.0.0-py3-none-any.whl": "604ddfcd50d9897666d58d1651c3d85c3983de4385e8d42d28e454d0908ab56a",
+      "/workspace/v1-final-remediation/sdist-dist/crispresso_pe_pipeline-1.0.0-py3-none-any.whl": "56de7d4f1f4c78d67d47c91d7d27ee5e3bcd850cbfa1b2831b2d96208080ca27"
+    }
+  },
+  "wheel_import": {
+    "version": "1.0.0",
+    "import_path": "/workspace/v1-final-remediation/wheel-env/lib/python3.12/site-packages/peanalyzer/__init__.py"
+  },
+  "science_preservation": {
+    "baseline": "2eba91c044c92a96afdd349a735321bbdc58a180",
+    "frozen_science_count": 70,
+    "all_byte_identical": true,
+    "sha256": {
+      "src/peanalyzer/__init__.py": "72127d3373faf48dbcfa0c346dfd1567bd12fc7a02a1651a34ce3a3abee850ef",
+      "src/peanalyzer/__main__.py": "9fd0bd4e19ff0d5d0b247226b224ec35ab63f691b9b08c942c4af48130cadd70",
+      "src/peanalyzer/aggregation.py": "641ee9dbd3f1da255d534695541ec30ff55b551d4f7b1588852f8c53ddc8dd6a",
+      "src/peanalyzer/analysis_fastq.py": "f48ef7f012b3fbb6124c4fb69487ca7100d4362325213039201455efb3203efa",
+      "src/peanalyzer/analysis_verify.py": "1a2b619b91a1debbd8d97546ba68dc9e4c47ea2c1487f0f5af1dd2a0287c5b84",
+      "src/peanalyzer/backend/__init__.py": "5e94deb1ac16d458563bebffd77ca0defe003ac10140967e98fd9be2ae0df2d1",
+      "src/peanalyzer/backend/comparator.py": "e7766b933623fc62b18abf1c5b2470e7be5b27cd3bc30fe1ffc5168b2a47123d",
+      "src/peanalyzer/backend/core.py": "7183b2fde5d2edca56e18fa891bdba9da0b2ba35dacc3ff0ff9d8d3e055be887",
+      "src/peanalyzer/backend/metrics.py": "bf089430b76d9d970f57bb524d6183a0310ed713aa2ad162f8769a8749e62700",
+      "src/peanalyzer/backend/pooled.py": "309fcf514413372eb952fb2cb86b82daf03daa617dbe79029507a5ec7fb113ef",
+      "src/peanalyzer/backend/routing_validation.py": "b109b6489ff07de32f2dc11315c6c5895d082d3b4307f9539fed3909ff584d3f",
+      "src/peanalyzer/backend/synthetic.py": "0ecc0636928a9a768b9edb648156dce93d5874774cede4783bf3ee9a4f5aaeab",
+      "src/peanalyzer/barcode_sets/qi_hitom_v1.csv": "4dad06151a5161a841d5ac624bf8728d844e80208d462dc7fba957198ce4c013",
+      "src/peanalyzer/barcodes.py": "690e5677c245ab8a1fb67448a2996e3b17b95c236202025f87dff939c7a179ce",
+      "src/peanalyzer/cli.py": "69f09487ee2f473f18e347ebd5a086658efc7c78030ee9944cca076520515666",
+      "src/peanalyzer/demux.py": "64ec514b068c19877e813675b0fc17ea1fda9b0d48e3a936cca86ca01c5bc6bf",
+      "src/peanalyzer/demux_output.py": "dc443e28855ae7b0573dcd9d3b26b055a9f160671c1c29519649327e50c30546",
+      "src/peanalyzer/demux_verify.py": "3e374110a72b5dd44bc22b3e414acd6c269db77ef1bfb3bdd98dbf319a537fc3",
+      "src/peanalyzer/fastq.py": "aec342f796eaa33228313cf94ba55bd26b0494b10ac34c4b78d9de71aba41598",
+      "src/peanalyzer/geometry.py": "3911648e46ba4f5f38f75d241b50734cee3fddac9a2ad31a365a6b5891fb4dfc",
+      "src/peanalyzer/gui/execution.py": "7f7721bd5ed9a959103b6f38648b759b95be19d12e347781bec045944e5de2d6",
+      "src/peanalyzer/gui/process_safety.py": "eb50788cb62563e1de42b7a2381aedab1f1261ce1d41bbb30f4c749bc11e9ad2",
+      "src/peanalyzer/gui/recovery.py": "ce3cf96429fb650567ac85dfe2bd6f89c6b103359f0f07bbea0fd9ad79f3cf9a",
+      "src/peanalyzer/gui/supervision.py": "32f33ee5e1a96f4d5eeb3b0914c92c0de6af2fb7e2d9c099f53b3111e94fa1b2",
+      "src/peanalyzer/gui/worker.py": "027e668576ac307ea2b9ab7aeabf4fd145372c513f85a9dbb0e00afbd28e0d24",
+      "src/peanalyzer/metrics/__init__.py": "c08738ce2c4a0c881b19b6bc5bfb1c39e10664d17f22e3b631c7be3fe7ad55b5",
+      "src/peanalyzer/metrics/family.py": "8ff56e0d2a6eac68c6f95bb1efc509ef7d58de5c146b576dc8cf08f634f471b0",
+      "src/peanalyzer/metrics/family_models.py": "556f5a7fc4b03e175cdac577cf3411690ecdcab488d3921fb71a68529b88cba3",
+      "src/peanalyzer/metrics/models.py": "123971715cbf80e31e70aaa246e5958f5921c2e3273dcbe37bb16c27fbd8b6aa",
+      "src/peanalyzer/metrics/policy_requests.py": "541b4962dcdda81a908427467e639251155dc6f7156e8f30febf0b3dbefa7cba",
+      "src/peanalyzer/metrics/production.py": "14c6b7a645577c262c56eae88bebc0718d79ba1fba8d5be0211f7070663e4a73",
+      "src/peanalyzer/metrics/products.py": "5778edab32b9792c55771e0f8defb0e394ce9f6a1d3383d0e88d4683d7bc7015",
+      "src/peanalyzer/metrics/result.schema.json": "a3b3b41994a929e3ca5b8aad8b99fd8152384601f75a9473ef5ae70d9cff4ae5",
+      "src/peanalyzer/nuclease/__init__.py": "7e86bb4bee161fc6779284a44f7517d26a5910caa518752bfe479f9ae4442129",
+      "src/peanalyzer/nuclease/aggregation.py": "7d16ae34bc19bde7bb3ffe7f6106ca81179838552d4077b4bf8ebf0609f796a6",
+      "src/peanalyzer/nuclease/backend.py": "a872c22ce142ae373da93be93539ade9f154da61b35c6803014f5ca634140afb",
+      "src/peanalyzer/nuclease/models.py": "0e37bc84eb60d94b7564606da89d0793a7ea286e710a02e4896ac075491fd6d5",
+      "src/peanalyzer/nuclease/qualification.py": "7b4f2cca0d005f565a8bda14e573b7f3c9788910f96681a06e07f41fc8dd4edb",
+      "src/peanalyzer/nuclease/report.schema.json": "042e66652ae28f552f85f8c4d566a1b77cceb846f39cf164954fcadc844e40f9",
+      "src/peanalyzer/nuclease/reporting.py": "c0aea702a2b926a453971db07245e16d886d53f48339422a636cce89df609b85",
+      "src/peanalyzer/nuclease/result.schema.json": "0a4c39a5b210f260134f911e75bf2bf0fe78f9244c16fbab0aa2c4bd4d5e14b6",
+      "src/peanalyzer/nuclease/statistics.schema.json": "f3bc3b3319a2c27a52b3a2c014a719ee18a1d91a4639375a6915ef44aa0d6cb4",
+      "src/peanalyzer/nuclease/target.schema.json": "52954d6cb4b5fca84b2562ea96511df1fb480c409131bc28fa8f72ce720bb1de",
+      "src/peanalyzer/nuclease/targets.py": "11f0c80a9909f2d0177be0f3c0e3c7b05c2399af36a698de04cb268d5cee0369",
+      "src/peanalyzer/observability.py": "533c9b0f8ae35d2782050471e6ea74935fa7e3c2f9b5b31f7fd8be4a273858ce",
+      "src/peanalyzer/profiles/qi_hitom_v1.yaml": "2afb0adf750b279ef7cc8b3e99442ab91ed07605a8bbbb3d3bfb7cc96a9674b8",
+      "src/peanalyzer/provenance.py": "422b8ae092d1f50489a53beddf0a320ea417b8b4889209fdbbdaba39862eff2a",
+      "src/peanalyzer/qualification.py": "1c85cfa34fc16beb19dc9b081633da66116f790a5b4da12c003f55ff8e093ba1",
+      "src/peanalyzer/remediation.py": "ec099adfcb7e1bf44f79da2db5bccb3739d60e3b89726c6614c9f11710ed2f6c",
+      "src/peanalyzer/reporting.py": "fe810fc25d61f823f8be96fc6102fb6032f898fdb3608f6778544a0fc7a160ef",
+      "src/peanalyzer/reporting_models.py": "35088c64bc785d37b221d22a90ae0569a4b60712e74aea70859938c873c5e42c",
+      "src/peanalyzer/reporting_resources/report.css": "90be482b908e43c8cc775ed3ee651bf804eaf6b90b4366324395b0eeb99d775e",
+      "src/peanalyzer/reporting_resources/report_manifest.schema.json": "4a03946e3c73c1e4cfc5210b98b049deba1ccf6692609ae86bb3890952c39f5a",
+      "src/peanalyzer/result_dispatch.py": "ea79c887f6b62da4f1db5d30e430fd862fb385697b6c9ca50ea017fe097e9856",
+      "src/peanalyzer/routing.py": "8e04123514927aba9db5c4616d3d073a334f3f98632ae1f5ac3005dc7e8dbd92",
+      "src/peanalyzer/schemas.py": "b76b731c605e3f773dd7a6b2d2615f3a8c417f26a1f0b3fede219526db85a68c",
+      "src/peanalyzer/statistical_models.py": "df5d4033529eac22f102c38e1061d269b5c5ef800a13ec63d592d08a5138379d",
+      "src/peanalyzer/statistics.py": "e39c594ea01c7e15ea894b7ba51f83b520e7e542405d0d8edc6df26d90ec3d26",
+      "src/peanalyzer/statistics_resources/contrasts.schema.json": "c067312e301e21a6d275cda4ac72b934f4a1f24b02dfba3283b73c49438b84c2",
+      "src/peanalyzer/statistics_resources/result.schema.json": "de932dd95a2269e95420bd036d425818626d0f4aabee84d5dc4e6f94d88afd53",
+      "src/peanalyzer/synthetic_routing.py": "e9214b4077e4572fff9e2073026bd7f0ac2d98d2b93d94c607338c2c5fa312eb",
+      "src/peanalyzer/validation.py": "46e9c196ebdb5a2bf749f463a70e9e281d101960c2becd738eec26af3555f7fe",
+      "src/peanalyzer/workflow.py": "ad5fd0e2df6e74f9b69f8518a865ce14cc4afe86d10adf1ff8c6e36dccbad71f",
+      "src/peanalyzer/workflow_integrity.py": "ec4e808a96883976089fea9560e0007a38806e37fcf3e57d39d558c97d52f759",
+      "src/peanalyzer/workflow_models.py": "9c759ead2a75fd491e244910bb235d1230d92c566bec6caf6628a2c2d63b20c6",
+      "src/peanalyzer/workflow_recovery.py": "52ad23714f10f70e6ddc3f25245eb7341a1f4e0f8e21d72ddeab56a592d91b8b",
+      "src/peanalyzer/workflow_resources/__init__.py": "161398db7cd8890f09088b4629e5fd5adf5db76fa193bcd9122c36c3fd009565",
+      "src/peanalyzer/workflow_resources/stage_manifest.schema.json": "629cdc27e9ea4ac572094f59ae28fa1743024ab414507e9ae2c3ae011aa002b9",
+      "src/peanalyzer/workflow_resources/workflow_manifest.schema.json": "3b693f6b92af90a02a1f1d82ac5ba9873c1fa0b1c1bf3c31c1cd0b429f67b960",
+      "src/peanalyzer/workflow_storage.py": "bf2da066e52f956e5a7ab19eaf4bf0b21a03273146eeb1ef68fe20597d6080ea"
+    }
+  },
+  "historical": [
+    {
+      "path": "/workspace/m11c2-remediation/source-release/m11c/precise_edit/outputs/clean",
+      "catalogue_label": "clean \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required",
+      "version": "0.8.0",
+      "opened": true,
+      "observations": 6,
+      "bytes_unchanged": true,
+      "workbook_presence_unchanged": true,
+      "mtimes_unchanged": true
+    },
+    {
+      "path": "/workspace/v1-desktop-qualification/historical-090/Run_v0.9.0",
+      "catalogue_label": "Run_v0.9.0 \u00b7 PEAnalyzer 0.9.0 \u00b7 Detected \u2014 verification required",
+      "version": "0.9.0",
+      "opened": true,
+      "observations": 12,
+      "bytes_unchanged": true,
+      "workbook_presence_unchanged": true,
+      "mtimes_unchanged": true
+    },
+    {
+      "path": "/workspace/v1-desktop-qualification/source-tests-final/m11b/precise_edit/outputs/analysis",
+      "catalogue_label": "analysis \u00b7 PEAnalyzer 1.0.0 \u00b7 Detected \u2014 verification required",
+      "version": "1.0.0",
+      "opened": true,
+      "observations": 6,
+      "bytes_unchanged": true,
+      "workbook_presence_unchanged": true,
+      "mtimes_unchanged": true
+    }
+  ],
+  "alsw": {
+    "rows": 19,
+    "all_exact_counts_match": true,
+    "basis": "Fresh export/value comparison after rehashing prior independently verified stored source files; no raw-data science rerun."
+  },
+  "real_core_counts": [
+    {
+      "installation": "source",
+      "mode": "indel_nuclease",
+      "counts": [
+        8,
+        20
+      ],
+      "metric_file": "/workspace/v1-final-remediation/source-integration-tmp/test_real_transport_scientific1/indel_nuclease/outputs/uploaded/metrics/bc001/T1/result.json",
+      "sha256": "5f69110c2c9a670e7eec8947c268323bc24f72d30a1014113608cdb19730a687"
+    },
+    {
+      "installation": "source",
+      "mode": "precise_edit",
+      "counts": [
+        2,
+        24
+      ],
+      "metric_file": "/workspace/v1-final-remediation/source-integration-tmp/test_real_transport_scientific0/precise_edit/outputs/uploaded/metrics/bc001/T1/result.json",
+      "sha256": "638de318c94f1c9b7e4cff327f128dd8d3f540d2b06198366d3a42326dee9ca6"
+    },
+    {
+      "installation": "wheel",
+      "mode": "indel_nuclease",
+      "counts": [
+        8,
+        20
+      ],
+      "metric_file": "/workspace/v1-final-remediation/wheel-integration-tmp/test_real_transport_scientific1/indel_nuclease/outputs/uploaded/metrics/bc001/T1/result.json",
+      "sha256": "0814dd641139655060b9ae4baaafd8ce74c45b38e59b60d54bcf10f6d167abe3"
+    },
+    {
+      "installation": "wheel",
+      "mode": "precise_edit",
+      "counts": [
+        2,
+        24
+      ],
+      "metric_file": "/workspace/v1-final-remediation/wheel-integration-tmp/test_real_transport_scientific0/precise_edit/outputs/uploaded/metrics/bc001/T1/result.json",
+      "sha256": "e92d038aac08b881431c410cf4b7750bd5f38edd65f5c18c237c2aa2bcc76252"
+    }
+  ],
+  "initial_nonfinal_run": {
+    "result": "249 passed, 2 SOFTWARE_CHANGED failures",
+    "cause": "Qualification overlapped a Git commit and package build in the same source checkout; source identity changed. Replaced by a complete serial run at the fixed implementation commit. No production code changed to silence the guard."
+  },
+  "limitations": [
+    "Native Linux and Chromium tested. Actual Windows/WSL and Microsoft Excel were unavailable; Explorer launch/exit and Excel file lifecycle are automated simulations.",
+    "Historical workbooks authenticate matching Summary values, not original generated bytes. Generated-byte identity is session-scoped and labelled explicitly.",
+    "No full 1,999-test suite rerun: focused changed-boundary, lifecycle, recovery, real-Core, browser and packaging gates used; protected scientific modules are byte-identical."
+  ]
+}

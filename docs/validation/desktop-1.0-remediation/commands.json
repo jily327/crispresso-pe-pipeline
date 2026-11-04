@@ -1,0 +1,22 @@
+{
+  "source_venv": "/workspace/v1-desktop-qualification/source-env",
+  "wheel_venv": "/workspace/v1-final-remediation/wheel-env",
+  "repository": "/workspace/crispresso-pe-pipeline-v1",
+  "implementation_commit": "f07f1e088bdfa4d65d23053e1bab7a4fd9944e22",
+  "commands": [
+    "npm --prefix frontend run build",
+    "npm --prefix frontend test -- --reporter=json --outputFile=/workspace/v1-final-remediation/frontend.json",
+    "python /workspace/v1-final-remediation/package.py",
+    "VIEWER_FIXTURES=/workspace/v1-desktop-qualification/source-tests-final/m10 python /workspace/v1-final-remediation/run-browsers.py source viewer",
+    "VIEWER_FIXTURES=/workspace/v1-desktop-qualification/source-tests-final/m10 python /workspace/v1-final-remediation/run-browsers.py wheel viewer",
+    "bash /workspace/v1-final-remediation/run-focused.sh source",
+    "VIEWER_FIXTURES=/workspace/v1-desktop-qualification/source-tests-final/m10 python /workspace/v1-final-remediation/run-browsers.py source run recovery practical",
+    "REMEDIATION_SUITE=/workspace/v1-final-remediation/wheel-tests-input REMEDIATION_PYTHON=/workspace/v1-final-remediation/wheel-env/bin/python bash /workspace/v1-final-remediation/run-focused.sh wheel",
+    "VIEWER_FIXTURES=/workspace/v1-desktop-qualification/source-tests-final/m10 python /workspace/v1-final-remediation/run-browsers.py wheel run recovery practical",
+    "MPLCONFIGDIR=/tmp/v1-mpl XDG_CACHE_HOME=/tmp/v1-cache /workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-final-remediation/historical.py",
+    "MPLCONFIGDIR=/tmp/v1-mpl XDG_CACHE_HOME=/tmp/v1-cache /workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-final-remediation/export-alsw.py",
+    "python /workspace/v1-final-remediation/aggregate.py"
+  ],
+  "output_policy": "Verbose logs redirected to the audit root. Scientific/process suites run serially; no commits or builds while executing their final runs.",
+  "reproduction": "These scripts record actual local paths. On another host configure the same pinned native Core and dependencies, create fresh roots, and substitute the repository/venv paths. Stored historical paths are path-bound evidence, not portable relocated workspaces."
+}

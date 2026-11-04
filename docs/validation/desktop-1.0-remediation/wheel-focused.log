@@ -1,0 +1,12 @@
+........................................................................ [ 28%]
+........................................................................ [ 57%]
+........................................................................ [ 86%]
+...................................                                      [100%]
+=============================== warnings summary ===============================
+../wheel-env/lib/python3.12/site-packages/starlette/testclient.py:37
+  /workspace/v1-final-remediation/wheel-env/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+---- generated xml file: /workspace/v1-final-remediation/wheel-focused.xml -----
+251 passed, 1 warning in 182.04s (0:03:02)
