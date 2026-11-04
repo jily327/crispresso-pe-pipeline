@@ -1,0 +1,15 @@
+{
+  "base": "432b7cca6436947d626e2699c2ee53ea3fc93f24",
+  "unchanged_methods": {
+    "_finish": "5b1a1d9ee020affd799b831850b9450f08c380ad37f0971cdef9a379fab5b6ed",
+    "_observe": "2684524fcf451f79b2342dfd2211b37a53d5753e2bf522ba853485fffbb4e14e",
+    "cancel": "cfa30fb3a5a2e5d14a12e2a6f02bc7ea9cbf028006ac2b7c60cb90dd78ddaf19",
+    "submit": "95c4ceaf7d731f1a37f31b8c31906ad3b0e7af7d4c3dca1dbb75a5751fca39f4",
+    "submit_recovery": "2592eba92720ae02bacbb9964d7e9e516b774232a8a76eaa890f7649a1d05841",
+    "close": "61843cde2a9ea4328dd3c81c65ccf6fb4fd6cbf632c3de8e29ef4732f70e9457",
+    "get": "8de777144e8619345bf98eae08ca61b805cc1898f3889261e709279170f91875",
+    "catalog": "478dcd60a106341c3fa20dfdc62a23e79807508664efa309fe61e94267793ee0",
+    "events": "c3a0fb5aff4fd5c46d7870617158849520892542442c43baf7a45b877f1c92e8"
+  },
+  "supervise_changes": "One finalization keyword at verified registration and one optional reveal call after existing terminal adjudication; no state decision changed."
+}

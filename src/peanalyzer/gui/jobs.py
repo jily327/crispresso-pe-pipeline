@@ -75,6 +75,8 @@ class JobStore:
         self.drafts=drafts;self.workspaces=workspaces;self.runtime=runtime
         self.jobs={};self.active=None;self.lock=threading.RLock();self.closing=False
         self.grace_seconds=5.0
+        self.desktop_results={}
+        self.desktop_attempted=set()
 
     @property
     def available(self):
@@ -291,7 +293,8 @@ class JobStore:
                 payload=json.loads(job.payload)
                 with self.lock:
                     if job.view.state in TERMINAL:return
-                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']))
+                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']),finalize=True,
+                        sample_order=[s['barcode_id'] for s in payload['content']['samples']] if 'content' in payload else None)
                     job.view.workspace_id=opened.workspace_id
         except Exception as exc:
             failure=ErrorDetail(code=getattr(exc,'code','WORKER_FAILED'),message='Analysis could not be completed and verified.',
@@ -331,6 +334,22 @@ class JobStore:
                     self._finish(job,'FAILED',failure or ErrorDetail(code='WORKER_FAILED',message='No verified result.',detail=''))
                 else:self._finish(job,'COMPLETED')
                 if contained:self.active=None
+
+        self.reveal_completed(job.view.job_id)
+
+    def reveal_completed(self,key):
+        """An optional desktop side effect after terminal adjudication, never from polling."""
+        with self.lock:
+            job=self._job(key)
+            if job.view.state!='COMPLETED' or key in self.desktop_attempted:return
+            self.desktop_attempted.add(key)
+            workspace_id=job.view.workspace_id
+        try:
+            from peanalyzer.gui.desktop import reveal_output
+            result=reveal_output(self.workspaces.get(workspace_id).root)
+        except Exception:
+            result={'ok':False,'message':'Could not open output folder. The completed analysis is unchanged.'}
+        with self.lock:self.desktop_results[key]=result
 
     def close(self):
         with self.lock:

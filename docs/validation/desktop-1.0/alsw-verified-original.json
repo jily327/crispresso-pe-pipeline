@@ -1,0 +1,41 @@
+[
+  {
+    "root": "/workspace/alsw-requalification-071/azenta-different-barcodes",
+    "verifier_version": "0.7.1",
+    "status": "COMPLETED",
+    "completion_sha256": "f86df5dccdfe678b8da3974f2fe2f621a6feb2b20a14e7b24771d71deef08d32",
+    "files": {
+      "workflow/plan.json": "17a570f02c85559a2f6a8d6e1db1012c9774f49f44f1ad4cab11316961d1b618",
+      "statistics/result.json": "c7e1edce75a5f8936a541d1e93648b0c1723cb2c75809755bf27b3802e07cdde",
+      "metrics/1A/ALSW/result.json": "30b52e5ce08cbf44c85a7bff78e99bcb5335409a10de4f592f49c59df41a2715",
+      "metrics/2B/ALSW/result.json": "fdfd885f2ae696d18c76f936089f80a8dbd8f35fe42b7f16cad0823cbe590a63",
+      "metrics/3C/ALSW/result.json": "bc1cd843524c3b7aefec10aae6b2bd51b68082ba849a3bc5ca239ad5ec4c676e",
+      "metrics/4D/ALSW/result.json": "2f5c54a85dc74f43ddbb6e2cf60e7bf6a2a0750d174221decd0e8ddccac3a4a5",
+      "metrics/5E/ALSW/result.json": "5567b92614c8844796bac6270f23bdec4adffaa2740470916ab3dc507832d689",
+      "metrics/6F/ALSW/result.json": "1aad41dbf346951edf4fe16248ab873ecc04423e71e60f0c8a628b0521e9c571",
+      "metrics/7G/ALSW/result.json": "63159637196061d067bd46f2009d1d62090069181dd4ac59494e9163e2c4486b"
+    }
+  },
+  {
+    "root": "/workspace/alsw-requalification-071/ampseq-ev-only",
+    "verifier_version": "0.7.1",
+    "status": "COMPLETED",
+    "completion_sha256": "8759a77f2ff28f77e407926480cbe4b592539ae51045aca3d36cdc69bd9d3152",
+    "files": {
+      "workflow/plan.json": "992147499fc0f7bb8aac8c0e5ba3bfc61a29689004fc1e8bc5b5c09f26060baf",
+      "statistics/result.json": "8398b02529ba6899dca707cb32084ceebfd4e1b10837bb7ba8b923371cdea17e",
+      "metrics/1B/ALSW/result.json": "ad2ac0bfee1bb1f6b9641cfd8a4891ea2f0ef9b0565826d4f16d5139d31fb304",
+      "metrics/1C/ALSW/result.json": "08803ba1671751af1cfb70849f24b04bb2be491edc8a9f9c3edf8c0d66cabab2",
+      "metrics/2C/ALSW/result.json": "60f8956a19e59f1b35ecb3807ca9d7c7724f9a41d7f389b73ada910ce82aea13",
+      "metrics/2D/ALSW/result.json": "9ae238681e52df92aac02281d1f294ff41ff45948f659f42d6d9dab2322b24da",
+      "metrics/3D/ALSW/result.json": "46bf4e79ce73bf70db5ea8513a4bf2a1e5e155fa9acb48e1a05075b615749035",
+      "metrics/3E/ALSW/result.json": "36307bc442f09704c54aa751033922340e6d582d7ce87180ff963f2525dac8ca",
+      "metrics/4A/ALSW/result.json": "d45d1c86789d92e33cd91fc76b16f523b87abe732e34196e28ad58a2c663aca3",
+      "metrics/4E/ALSW/result.json": "948c4f895d29411c2bc93826248b49c9ba9753675b1f8c0f7b441267482809f0",
+      "metrics/5A/ALSW/result.json": "261ceef9588e94f6f1b24bef2f70072279360c0b96e516385f688bfc60138c53",
+      "metrics/5B/ALSW/result.json": "ed65d5e8ebf21e961ada48226e5a939ffeaf104ad78f9a25123a01d1e92bfa35",
+      "metrics/6F/ALSW/result.json": "53e565bee36bc63fe9b10d99032c8c1ed8d26f89c5ba24fe320903dd235663c4",
+      "metrics/7G/ALSW/result.json": "8c05bcec0c6f6acab35d354227a7362d0fc07dad72a08c10467be650188afc24"
+    }
+  }
+]

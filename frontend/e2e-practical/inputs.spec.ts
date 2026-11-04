@@ -53,6 +53,21 @@ for(const mode of ['pe','nuclease'])test(`${mode}: actual browser file inputs + 
     await expect(table.getByRole('columnheader',{name:'Exact intended PE'})).toBeVisible();await expect(table.getByRole('columnheader',{name:'CRISPResso Prime-edited reference fraction'})).toBeVisible();
     await expect(table.getByText('2 / 24',{exact:true})).toHaveCount(2);
     expect(await page.getByLabel('Stored metric series').locator('optgroup').evaluateAll(items=>items.map(e=>e.getAttribute('label')))).toEqual(['Primary biological metrics','Copy-specific routed diagnostics']);
+    const workspace=path.join(root,'outputs',mode),workbook=path.join(workspace,'PEAnalyzer_Summary.xlsx'),lock=path.join(workspace,'~$PEAnalyzer_Summary.xlsx');
+    const bytes=fs.readFileSync(workbook);
+    const integrity=page.getByRole('region',{name:'Excel summary integrity'});
+    await expect(integrity).toContainText('Workbook bytes match');
+    fs.writeFileSync(lock,'Excel owner');await integrity.getByRole('button',{name:'Check summary integrity'}).click();
+    await expect(integrity).toContainText('Workbook bytes match');
+    fs.writeFileSync(workbook,'user-edited export');await integrity.getByRole('button',{name:'Check summary integrity'}).click();
+    await expect(integrity).toContainText('Workbook bytes changed');
+    await page.getByRole('tab',{name:'Overview',exact:true}).click();await page.getByRole('tab',{name:'Samples',exact:true}).click();
+    await expect(table.getByText('2 / 24',{exact:true})).toHaveCount(2);
+    fs.unlinkSync(workbook);fs.unlinkSync(lock);await integrity.getByRole('button',{name:'Check summary integrity'}).click();
+    await expect(integrity).toContainText('Excel summary is not present');
+    fs.writeFileSync(workbook,bytes);await integrity.getByRole('button',{name:'Check summary integrity'}).click();
+    await expect(integrity).toContainText('Workbook bytes match');
+
   }else{await expect(page.getByRole('table',{name:'Biological sample observations'})).toBeVisible()}
   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);
   for(const width of [1366,683]){await page.setViewportSize({width,height:768});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)}

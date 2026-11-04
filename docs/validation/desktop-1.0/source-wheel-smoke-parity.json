@@ -1,0 +1,73 @@
+[
+  {
+    "mode": "precise_edit",
+    "source": {
+      "precise": [
+        2,
+        24
+      ],
+      "native": [
+        "REPORTABLE",
+        2,
+        24
+      ]
+    },
+    "wheel": {
+      "precise": [
+        2,
+        24
+      ],
+      "native": [
+        "REPORTABLE",
+        2,
+        24
+      ]
+    },
+    "equal": true,
+    "fresh_resume_force_equal": true
+  },
+  {
+    "mode": "indel_nuclease",
+    "source": {
+      "indel": [
+        8,
+        20
+      ]
+    },
+    "wheel": {
+      "indel": [
+        8,
+        20
+      ]
+    },
+    "equal": true,
+    "fresh_resume_force_equal": true
+  },
+  {
+    "mode": "ambiguous_pe",
+    "source": {
+      "precise": [
+        12,
+        24
+      ],
+      "native": [
+        "BLOCKED",
+        null,
+        null
+      ]
+    },
+    "wheel": {
+      "precise": [
+        12,
+        24
+      ],
+      "native": [
+        "BLOCKED",
+        null,
+        null
+      ]
+    },
+    "equal": true,
+    "fresh_resume_force_equal": true
+  }
+]

@@ -1,0 +1,302 @@
+{
+  "numTotalTests": 62,
+  "numPassedTests": 62,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "success": true,
+  "tests": [
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/export-integrity.test.tsx",
+      "assertions": [
+        {
+          "title": "separates optional export warnings from authoritative lifecycle status",
+          "status": "passed"
+        },
+        {
+          "title": "refreshes changed export bytes without declaring scientific failure",
+          "status": "passed"
+        },
+        {
+          "title": "does not advertise a PE export for nuclease results",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/navigation.test.tsx",
+      "assertions": [
+        {
+          "title": "keeps the active tab enabled and focused during {Enter} loading",
+          "status": "passed"
+        },
+        {
+          "title": "keeps the active tab enabled and focused during   loading",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/practical-inputs.test.tsx",
+      "assertions": [
+        {
+          "title": "uses File bytes, registers each mate, and replaces only after success",
+          "status": "passed"
+        },
+        {
+          "title": "downloads and imports into editable rows then uses existing validation",
+          "status": "passed"
+        },
+        {
+          "title": "reports workbook row errors without replacing manual rows",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/practical-results.test.tsx",
+      "assertions": [
+        {
+          "title": "shows both primary fractions and exact stored integers simultaneously",
+          "status": "passed"
+        },
+        {
+          "title": "retains blocked/null and routing diagnostics without a zero substitute",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/recovery.test.tsx",
+      "assertions": [
+        {
+          "title": "renders exact backend stage actions and identities without inferring closure",
+          "status": "passed"
+        },
+        {
+          "title": "requires explicit confirmation and submits only opaque identity fields",
+          "status": "passed"
+        },
+        {
+          "title": "force selection invalidates confirmation and does not itself issue a request",
+          "status": "passed"
+        },
+        {
+          "title": "uses backend closure and removal paths after a force preview",
+          "status": "passed"
+        },
+        {
+          "title": "completed workspace offers only verified Open Results",
+          "status": "passed"
+        },
+        {
+          "title": "stale confirmation rejects and requires a fresh preview",
+          "status": "passed"
+        },
+        {
+          "title": "non-executable ACTIVE has no recovery action",
+          "status": "passed"
+        },
+        {
+          "title": "non-executable SOFTWARE_CHANGED has no recovery action",
+          "status": "passed"
+        },
+        {
+          "title": "non-executable TAMPERED has no recovery action",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/run.test.tsx",
+      "assertions": [
+        {
+          "title": "displays authoritative counts, stages, warnings and identities without percentage or science",
+          "status": "passed"
+        },
+        {
+          "title": "requires deliberate cancellation confirmation and submits no process or scientific parameters",
+          "status": "passed"
+        },
+        {
+          "title": "shows backend failure code, stage and message without fabricated results",
+          "status": "passed"
+        },
+        {
+          "title": "opens only the opaque verified workspace through the existing viewer callback",
+          "status": "passed"
+        },
+        {
+          "title": "reconnects to ordered prior events and state without starting another execution",
+          "status": "passed"
+        },
+        {
+          "title": "Review Run requires a backend validated output: null",
+          "status": "passed"
+        },
+        {
+          "title": "Review Run requires a backend validated output: registered output",
+          "status": "passed"
+        },
+        {
+          "title": "renders backend reuse distinctly without inventing execution",
+          "status": "passed"
+        },
+        {
+          "title": "shows FINAL_VALIDATION without changing RUNNING or permitting results",
+          "status": "passed"
+        },
+        {
+          "title": "shows VIEWER_VERIFICATION without changing RUNNING or permitting results",
+          "status": "passed"
+        },
+        {
+          "title": "does not render an old verification phase over a terminal failure",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/scientific-guardrails.test.tsx",
+      "assertions": [
+        {
+          "title": "frontend scientific ownership renders the backend percentage even when fixture counts deliberately disagree",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership keeps unavailable distinct from reportable zero",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership uses stored condition mean rather than pooling sample counts",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership displays stored effect, p, q and biological n unchanged",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership preserves explicit descriptive-only state",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership keeps exclusive and overlapping metrics separate without normalization",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership preserves a net-zero indel bin as an indel",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership renders stored W1 window without geometry calculations",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership renders stored W2 window without geometry calculations",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership renders stored W3 window without geometry calculations",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership renders stored W4 window without geometry calculations",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership renders stored explicit window without geometry calculations",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership shows PE exact/native separately with their own denominators",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership filters sample rows without recomputing scientific values",
+          "status": "passed"
+        },
+        {
+          "title": "frontend scientific ownership never embeds native HTML and reports absence explicitly",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/setup-wizard.test.tsx",
+      "assertions": [
+        {
+          "title": "requires explicit mode and warns before discarding mode-specific fields",
+          "status": "passed"
+        },
+        {
+          "title": "retains entered PE fields when mode switch is cancelled",
+          "status": "passed"
+        },
+        {
+          "title": "defaults TIGR to W2 and renders backend selected-window values",
+          "status": "passed"
+        },
+        {
+          "title": "shows backend-owned locked configuration without editable defaults",
+          "status": "passed"
+        },
+        {
+          "title": "maps backend errors to fields, focuses first invalid input and blocks Review",
+          "status": "passed"
+        },
+        {
+          "title": "rejects stale save response after edits",
+          "status": "passed"
+        },
+        {
+          "title": "rejects stale validation response after edits",
+          "status": "passed"
+        },
+        {
+          "title": "rejects stale preview response after edits",
+          "status": "passed"
+        },
+        {
+          "title": "Review displays only backend preview and execution stays disabled",
+          "status": "passed"
+        },
+        {
+          "title": "renders arbitrary backend annotations without deriving coordinates",
+          "status": "passed"
+        },
+        {
+          "title": "keeps Review non-executable without a launch endpoint",
+          "status": "passed"
+        },
+        {
+          "title": "reveals a filtered-out sample before focusing its backend error",
+          "status": "passed"
+        },
+        {
+          "title": "focuses backend sample biological_replicate errors without allowing Review",
+          "status": "passed"
+        },
+        {
+          "title": "focuses backend sample block_id errors without allowing Review",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/crispresso-pe-pipeline-v1/frontend/src/tests/theme.test.tsx",
+      "assertions": [
+        {
+          "title": "first use chooses Light without consulting the system preference",
+          "status": "passed"
+        },
+        {
+          "title": "explicit theme survives remount and keyboard operation",
+          "status": "passed"
+        },
+        {
+          "title": "unknown preference falls back to Light",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

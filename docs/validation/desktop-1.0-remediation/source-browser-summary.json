@@ -1,0 +1,34 @@
+{
+  "viewer": {
+    "startTime": "2026-11-04T17:30:40.627Z",
+    "duration": 51353.356,
+    "expected": 20,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "run": {
+    "startTime": "2026-11-04T17:39:55.449Z",
+    "duration": 52510.021,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "recovery": {
+    "startTime": "2026-11-04T17:42:23.478Z",
+    "duration": 66071.872,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "practical": {
+    "startTime": "2026-11-04T17:43:31.297Z",
+    "duration": 36129.613,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

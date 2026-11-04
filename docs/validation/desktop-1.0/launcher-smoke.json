@@ -1,0 +1,42 @@
+{
+  "mocked_runtime": true,
+  "real_Windows_tested": false,
+  "cases": [
+    {
+      "installed_version": "0.9.0",
+      "stable_entry": "/workspace/v1-desktop-qualification/launcher-smoke/peanalyzer-current",
+      "argv": [
+        "-m",
+        "peanalyzer.gui",
+        "--workspace-library-root",
+        "/workspace/v1-desktop-qualification/launcher-smoke/Library with spaces",
+        "--setup-output-root",
+        "/workspace/v1-desktop-qualification/launcher-smoke/Library with spaces/v0.9.0",
+        "--run-crispresso",
+        "/workspace/v1-desktop-qualification/launcher-smoke/Release 0.9.0/bin/CRISPResso",
+        "--port",
+        "8769"
+      ],
+      "exit": 0
+    },
+    {
+      "installed_version": "1.0.0",
+      "stable_entry": "/workspace/v1-desktop-qualification/launcher-smoke/peanalyzer-current",
+      "argv": [
+        "-m",
+        "peanalyzer.gui",
+        "--workspace-library-root",
+        "/workspace/v1-desktop-qualification/launcher-smoke/Library with spaces",
+        "--setup-output-root",
+        "/workspace/v1-desktop-qualification/launcher-smoke/Library with spaces/v1.0.0",
+        "--run-crispresso",
+        "/workspace/v1-desktop-qualification/launcher-smoke/Release 1.0.0/bin/CRISPResso",
+        "--port",
+        "8769"
+      ],
+      "exit": 0
+    }
+  ],
+  "docker_failure_stops_startup": true,
+  "shell_syntax_valid": true
+}

@@ -1,0 +1,23 @@
+{
+  "base": "2eba91c044c92a96afdd349a735321bbdc58a180",
+  "unchanged_methods": {
+    "__init__": "7c15468be245b34a9e47da361bd26d7d91a05f383cf8ec747d52e808e434c39e",
+    "available": "591d288c8ae845081e5b3697d3032c177e31f7bf5eea23d06d652469229ac566",
+    "_job": "fbbc4d3669027f75a3305084d455bf0d1fe58585d266595a2f10b391c81ec016",
+    "_event": "75de4a9d7f322251acba14f7827a23672ebee86d66aac1de719b188a1fd8f243",
+    "_finish": "5b1a1d9ee020affd799b831850b9450f08c380ad37f0971cdef9a379fab5b6ed",
+    "get": "8de777144e8619345bf98eae08ca61b805cc1898f3889261e709279170f91875",
+    "catalog": "478dcd60a106341c3fa20dfdc62a23e79807508664efa309fe61e94267793ee0",
+    "events": "c3a0fb5aff4fd5c46d7870617158849520892542442c43baf7a45b877f1c92e8",
+    "submit": "95c4ceaf7d731f1a37f31b8c31906ad3b0e7af7d4c3dca1dbb75a5751fca39f4",
+    "submit_recovery": "2592eba92720ae02bacbb9964d7e9e516b774232a8a76eaa890f7649a1d05841",
+    "cancel": "cfa30fb3a5a2e5d14a12e2a6f02bc7ea9cbf028006ac2b7c60cb90dd78ddaf19",
+    "_observe": "2684524fcf451f79b2342dfd2211b37a53d5753e2bf522ba853485fffbb4e14e",
+    "reveal_completed": "a7aecf973224dac7e08ea1d70b72de57b2fe8f754fdc90216375620dd999678c",
+    "close": "61843cde2a9ea4328dd3c81c65ccf6fb4fd6cbf632c3de8e29ef4732f70e9457"
+  },
+  "changed_methods": [
+    "_supervise"
+  ],
+  "change": "Only accepted sample_order passed to verified registration; no lifecycle decision changed."
+}
