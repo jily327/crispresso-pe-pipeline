@@ -72,8 +72,12 @@ Set `PEANALYZER_LIBRARY_ROOT` in the WSL login environment to choose another sta
 library location. Set `PEANALYZER_CRISPRESSO` to the existing qualified executable
 wrapper, or install it at the release's `bin/CRISPResso`. The launcher checks Docker
 availability, but does not replace the backend's pinned CRISPResso2 2.3.4 runtime
-checks. Open the local URL printed by the application. Startup errors stay visible
-in the BAT console. Extra CLI arguments may be passed to `run-oneclick.sh`.
+checks. On WSL, the launcher waits for the server-generated local URL and requests
+that Windows open it in the default browser via PowerShell. This is best-effort:
+if Windows interop or browser launch fails, open the printed URL manually; the
+server stays running. The token-bearing URL is recorded in a private (0600),
+uniquely named temporary log; do not share it. Startup errors stay visible in
+the BAT console. Extra CLI arguments may be passed to `run-oneclick.sh`.
 
 ## Completed analysis convenience
 
