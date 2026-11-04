@@ -29,7 +29,7 @@ def safe_registration(path):
     return no_symlinks(Path(os.path.abspath(raw)))
 
 
-def snapshot(root, inputs=(), external_roots=()):
+def snapshot(root, inputs=(), external_roots=(), *, scientific=False):
     """Hash regular-file bytes and directory inventory; never follow symlinks/devices."""
     no_symlinks(root)
     if not root.is_dir():
@@ -37,8 +37,16 @@ def snapshot(root, inputs=(), external_roots=()):
     result={}
     for path in sorted(root.rglob('*')):
         no_symlinks(path)
-        mode=path.stat().st_mode
         key=path.relative_to(root).as_posix()
+        from peanalyzer.gui.export_integrity import PRESENTATION_FILES
+        try:
+            mode=path.stat().st_mode
+        except FileNotFoundError:
+            if scientific and key in PRESENTATION_FILES:
+                continue  # Excel may remove its regular lock between enumeration and stat.
+            raise
+        if scientific and key in PRESENTATION_FILES and stat.S_ISREG(mode):
+            continue
         if stat.S_ISDIR(mode):
             result[key+'/']='directory'
         elif stat.S_ISREG(mode):
@@ -103,6 +111,8 @@ class WorkspaceStore:
     def __init__(self, registrations, library_roots=()):
         self.registrations={uuid.uuid4().hex:(label,path) for label,path in registration_labels(registrations)}
         self.opened={}
+        from peanalyzer.gui.export_integrity import ExportTracker
+        self.exports=ExportTracker()
         self.lock=threading.RLock()
         self.library_roots=tuple(dict.fromkeys(safe_registration(p) for p in library_roots))
         self.discovered=set()
@@ -128,7 +138,7 @@ class WorkspaceStore:
         with self.lock:
             return [Registration(registration_id=k,label=v[0]) for k,v in self.registrations.items()]
 
-    def register_completed(self,label,path,*,finalize=False):
+    def register_completed(self,label,path,*,finalize=False,sample_order=None):
         """Publish only after the unchanged M10 verification/projection boundary."""
         with self.lock:
             key=uuid.uuid4().hex
@@ -142,10 +152,16 @@ class WorkspaceStore:
                     # Historical opens and already-published snapshots are read-only.
                     if (view.mode=='precise_edit' and plan.software_identity.pipeline_version==__version__
                             and not any(item.root==path for item in self.opened.values())):
-                        if (path/FILENAME).exists() or (path/FILENAME).is_symlink():
-                            verify_summary(path,view,plan)
-                        else:
-                            write_summary(path,view,plan)
+                        try:
+                            if (path/FILENAME).exists() or (path/FILENAME).is_symlink():
+                                verify_summary(path,view,plan)
+                            else:
+                                write_summary(path,view,plan,sample_order=sample_order)
+                                self.exports.generated(path)
+                        except Exception as exc:
+                            self.exports.warn(path,exc)
+                # Reverify science even when the optional export failed.
+
                 return self.open(key)
             except BaseException:
                 self.registrations.pop(key,None)
@@ -156,7 +172,7 @@ class WorkspaceStore:
             if registration_id not in self.registrations:
                 raise ViewerError('UNKNOWN_REGISTRATION', 'Select a workspace registered by the local launcher')
             label,root=self.registrations[registration_id]
-            initial=snapshot(root)
+            initial=snapshot(root,scientific=True)
             if 'workflow_manifest.json' not in initial:
                 raise ViewerError('INCOMPLETE_WORKSPACE', 'A completed workflow manifest is required')
             # Read the plan only to capture source identities BEFORE verification.
@@ -164,7 +180,7 @@ class WorkspaceStore:
             plan=Plan.model_validate(read_json(owned(root,'workflow/plan.json')))
             inputs=tuple(a.source_path for a in plan.inputs.values())
             external_roots=(plan.normalized_options['external_demux'],) if plan.mode=='analyze' else ()
-            identity=snapshot(root,inputs,external_roots)
+            identity=snapshot(root,inputs,external_roots,scientific=True)
             if initial != {k:v for k,v in identity.items() if not k.startswith(('input:','external:'))}:
                 raise ViewerError('WORKSPACE_CHANGED', 'Workspace changed during verification')
             manifest=verify_workflow_output(root)
@@ -176,6 +192,9 @@ class WorkspaceStore:
                 stage=StageManifest.model_validate(json.loads(read_bound(root,ref)))
                 for item in stage.output_artifacts:
                     records[item.path]=item
+            from peanalyzer.gui.export_integrity import PRESENTATION_FILES
+            if set(records)&PRESENTATION_FILES:
+                raise ViewerError('UNSAFE_EXPORT_COLLISION','Scientific inventory cannot use reserved presentation filenames')
             inventory=sources(records)
             def read(path):
                 if path not in records:
@@ -184,9 +203,11 @@ class WorkspaceStore:
                 return json.loads(read_bound(root,records[path]))
             workspace_id=uuid.uuid4().hex
             view,alleles=project(root,manifest,read,inventory,workspace_id,label,digest(identity))
-            if identity != snapshot(root,inputs,external_roots):
+            if identity != snapshot(root,inputs,external_roots,scientific=True):
                 raise ViewerError('WORKSPACE_CHANGED', 'Source changed during projection')
             if publish:
+                if view.mode=='precise_edit':
+                    self.exports.capture(root,view,plan)
                 self.opened[workspace_id]=Opened(root,MappingProxyType(identity),inputs,external_roots,
                     MappingProxyType(records),view.model_copy(deep=True),alleles)
             return view
@@ -197,7 +218,7 @@ class WorkspaceStore:
             if item is None:
                 raise ViewerError('WORKSPACE_NOT_OPEN', 'Open and verify the registered workspace again')
             try:
-                if item.identity != snapshot(item.root,item.inputs,item.external_roots):
+                if item.identity != snapshot(item.root,item.inputs,item.external_roots,scientific=True):
                     raise ViewerError('WORKSPACE_CHANGED', 'Verified files changed; reopen and verify before viewing')
             except (OSError,ValueError):
                 self.opened.pop(workspace_id,None)
@@ -205,6 +226,13 @@ class WorkspaceStore:
             # Callers cannot mutate the cached typed projection through a response.
             return Opened(item.root,item.identity,item.inputs,item.external_roots,item.records,
                 item.view.model_copy(deep=True),deepcopy(item.alleles))
+
+    def export_status(self,workspace_id):
+        with self.lock:
+            item=self.get(workspace_id)
+            if item.view.mode!='precise_edit':
+                return dict(state='NOT_APPLICABLE',message='PE summary is only available for precise-edit analyses.',warning=None)
+            return self.exports.status(item.root)
 
     def download(self, workspace_id, artifact_id):
         with self.lock:

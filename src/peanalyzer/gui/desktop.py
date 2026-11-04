@@ -17,8 +17,13 @@ def reveal_output(root):
             return {'ok': False, 'message': 'Open output folder is available on Windows / WSL. The analysis remains completed.'}
         if not windows or any(c in windows for c in ('\n', '\r', '\x00', '"')):
             raise ValueError('Unsafe Windows path conversion')
-        subprocess.run(['explorer.exe', '/select,', windows], check=True,
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
-        return {'ok': True, 'message': 'Opened the parent folder with the analysis selected.'}
+        try:
+            result = subprocess.run(['explorer.exe', '/select,', windows], check=False,
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
+            exit_code = result.returncode
+        except subprocess.TimeoutExpired:
+            exit_code = None  # Process launch succeeded; desktop visibility is still unknown.
+        return {'ok': True, 'state': 'REQUESTED', 'display_confirmed': False, 'exit_code': exit_code,
+            'message': 'Explorer request sent. Desktop display cannot be confirmed here. Use Open output folder to retry if needed.'}
     except (OSError, ValueError, subprocess.SubprocessError):
         return {'ok': False, 'message': 'Could not open Windows Explorer. Use Open output folder to retry; the analysis remains completed.'}

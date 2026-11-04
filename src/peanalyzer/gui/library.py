@@ -79,4 +79,8 @@ def scan(roots):
                         queue.append((Path(entry.path), depth + 1))
         except (OSError, ValueError):
             continue
-    return sorted(found, key=lambda item: str(item[0])), limited or bool(queue)
+    from peanalyzer.gui.workspace import registration_labels
+    ordered=sorted(found,key=lambda item:str(item[0]))
+    labels=registration_labels([(None,path) for path,_ in ordered])
+    found=[(path,label+description[len(path.name):]) for (path,description),(label,_) in zip(ordered,labels)]
+    return found, limited or bool(queue)

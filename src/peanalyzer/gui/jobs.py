@@ -293,7 +293,8 @@ class JobStore:
                 payload=json.loads(job.payload)
                 with self.lock:
                     if job.view.state in TERMINAL:return
-                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']),finalize=True)
+                    opened=self.workspaces.register_completed(job.view.analysis_name,Path(payload['output']),finalize=True,
+                        sample_order=[s['barcode_id'] for s in payload['content']['samples']] if 'content' in payload else None)
                     job.view.workspace_id=opened.workspace_id
         except Exception as exc:
             failure=ErrorDetail(code=getattr(exc,'code','WORKER_FAILED'),message='Analysis could not be completed and verified.',

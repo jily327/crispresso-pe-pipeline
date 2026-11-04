@@ -19,7 +19,8 @@ def test_all_rows_exact_and_immutable_publication(case):
     store=WorkspaceStore([])
     view=store.register_completed('New analysis',root,finalize=True)
     assert snapshot(root)=={**before,FILENAME:snapshot(root)[FILENAME]}
-    assert FILENAME in store.opened[view.workspace_id].identity
+    assert FILENAME not in store.opened[view.workspace_id].identity
+    assert store.export_status(view.workspace_id)['state']=='UNCHANGED'
     assert store.get(view.workspace_id).view==view
     workbook=load_workbook(root/FILENAME)
     assert workbook.sheetnames==['Summary','Definitions']
@@ -88,4 +89,6 @@ def test_original_csv_order_and_existing_summary_validation(case):
     assert book['Summary']['B2'].value=='bc002'
     book['Summary']['D2']='fabricated'
     book.save(root/FILENAME);book.close()
-    with pytest.raises(ValueError):WorkspaceStore([]).register_completed('New',root,finalize=True)
+    other=WorkspaceStore([]);reopened=other.register_completed('New',root,finalize=True)
+    assert other.export_status(reopened.workspace_id)['state']=='UNVERIFIED'
+    assert other.get(reopened.workspace_id).view.verified

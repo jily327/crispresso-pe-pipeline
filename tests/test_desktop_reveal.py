@@ -16,7 +16,7 @@ def test_wsl_argv_and_selection(monkeypatch,tmp_path):
     monkeypatch.setattr(desktop.os,'uname',lambda:SimpleNamespace(release='Microsoft-WSL2'))
     def run(argv,**kwargs):
         calls.append((argv,kwargs))
-        return SimpleNamespace(stdout='C:\\Analyses\\Run & $(bad)\n')
+        return SimpleNamespace(returncode=0,stdout='C:\\Analyses\\Run & $(bad)\n')
     monkeypatch.setattr(desktop.subprocess,'run',run)
     root=tmp_path/'Run & $(bad)'
     assert desktop.reveal_output(root)['ok']
@@ -25,7 +25,7 @@ def test_wsl_argv_and_selection(monkeypatch,tmp_path):
     assert all(not kwargs.get('shell') and kwargs['timeout']==5 for _,kwargs in calls)
 
 
-@pytest.mark.parametrize('failure',[OSError('missing'),subprocess.TimeoutExpired('explorer',5),subprocess.CalledProcessError(1,'explorer')])
+@pytest.mark.parametrize('failure',[OSError('missing'),subprocess.CalledProcessError(1,'conversion')])
 def test_nonfatal_reveal_failures(monkeypatch,failure):
     monkeypatch.setattr(desktop.sys,'platform','win32')
     def fail(*a,**kw):raise failure

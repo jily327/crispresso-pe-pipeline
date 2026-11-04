@@ -139,17 +139,22 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     def open_workspace(body:OpenRequest):
         try:
             return store.open(body.registration_id)
-        except (ValueError,OSError):
+        except (ValueError,OSError) as exc:
             with store.lock:
                 if body.registration_id in store.discovered:
                     label,path=store.registrations[body.registration_id]
                     label=label.split(' · Detected')[0].split(' · Incomplete')[0]
-                    store.registrations[body.registration_id]=(label+' · Detected — incompatible with PEAnalyzer 1.0.0 viewer',path)
+                    state='Incomplete — use Recovery' if getattr(exc,'code',None)=='INCOMPLETE_WORKSPACE' else 'Detected — incompatible with PEAnalyzer 1.0.0 viewer'
+                    store.registrations[body.registration_id]=(label+' · '+state,path)
             raise
 
     @app.get('/api/v1/workspaces/{workspace_id}',response_model=WorkspaceView)
     def view(workspace_id:str):
         return store.get(workspace_id).view
+
+    @app.get('/api/v1/workspaces/{workspace_id}/export')
+    def export_status(workspace_id:str):
+        return store.export_status(workspace_id)
 
     @app.get('/api/v1/workspaces/{workspace_id}/observations',response_model=ObservationPage)
     def observations(workspace_id:str,offset:int=Query(0,ge=0),limit:int=Query(50,ge=1,le=200),

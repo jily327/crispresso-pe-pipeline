@@ -33,8 +33,10 @@ Labels use stored workflow software provenance, not version text in folder names
 **Detected — verification required** is catalogue metadata, not a scientific
 verification claim. Open and verify still runs the full existing verifier.
 Malformed or unsupported contracts stay visible as incompatible. If full Open
-fails, the verifier's error remains visible and the catalogue label changes to
-incompatible. Missing completion markers are labelled **Incomplete — use Recovery**;
+fails, the verifier's error remains visible. Incomplete workspaces keep
+**Incomplete — use Recovery**, including after a failed Open. Other incompatibilities
+remain labelled incompatible. Duplicate workspace names include a unique parent/path
+suffix. Missing completion markers are labelled **Incomplete — use Recovery**;
 register these explicitly with `--recover-workspace` to inspect recovery.
 Discovery does not automatically authorize recovery or migrate schemas.
 
@@ -77,8 +79,10 @@ in the BAT console. Extra CLI arguments may be passed to `run-oneclick.sh`.
 
 A newly completed GUI job attempts Explorer reveal once on the server, after
 verified publication and summary finalization. On WSL this uses `wslpath -w` and
-`explorer.exe /select,` via argument arrays, without a shell. Explorer opens the
-parent folder with the analysis selected. Reloading a page and opening an older
+`explorer.exe /select,` via argument arrays, without a shell. The request asks Explorer to show the
+parent folder with the analysis selected. A launched Explorer request is reported
+as requested, not confirmed visible: normal nonzero exit codes and a wait timeout
+do not prove desktop failure. Process launch/conversion failures remain warnings. Reloading a page and opening an older
 analysis do not trigger automatic reveal. **Open output folder** retries manually
 for any currently verified completed workspace. Unsupported desktops or Explorer
 errors show a nonfatal message and never change COMPLETED or scientific output.
@@ -86,7 +90,7 @@ errors show a nonfatal message and never change COMPLETED or scientific output.
 ## PEAnalyzer_Summary.xlsx
 
 New GUI precise-edit analyses receive `PEAnalyzer_Summary.xlsx` at the workspace
-root before registration in the immutable viewer snapshot. Successful recovery of
+root as a separately checked presentation artifact, outside the scientific snapshot. Successful recovery of
 an unpublished current-release analysis also finalizes this presentation file.
 An existing summary is checked against verified metrics, never silently overwritten.
 CLI scientific stages are unchanged; this is a GUI finalization artifact.
@@ -105,12 +109,32 @@ The Summary sheet has exactly these columns:
 Percentages are stored backend fractions formatted `0.00%`. Counts remain exact
 text, including integers beyond Excel's numeric precision. BLOCKED,
 NOT_ASSESSABLE or missing observations show **Not available**, never invented zeros.
-Copy-routed diagnostic metrics are not used. Original sample CSV order is used
-when available with verified input hashes; otherwise rows use deterministic barcode
-ID order. The Definitions sheet records metric identifiers, meanings, package
+Copy-routed diagnostic metrics are not used. New GUI jobs preserve the accepted input sample order, checked against verified
+sample identities. Recovery uses the stored sample CSV order when its hash verifies
+(GUI-generated CSVs use canonical barcode order); otherwise rows use deterministic
+barcode ID order. The workbook labels its actual ordering rule. The Definitions sheet records metric identifiers, meanings, package
 version, workspace/target and source hashes. No frontend or FASTQ recalculation is
 involved. A temporary workbook is finalized before atomic, exclusive publication.
-A failed export prevents viewer publication without rewriting scientific outputs.
+Optional export failure preserves scientific COMPLETED and verified Results access,
+with an export warning. Scientific verification failures still prevent publication.
+A failed write removes its temporary file; existing workbooks are never overwritten.
+
+Results and completed PE Run show **Excel summary integrity** separately from
+scientific **Verified**. Exactly two top-level regular files are excluded from the
+scientific snapshot: `PEAnalyzer_Summary.xlsx` and `~$PEAnalyzer_Summary.xlsx`.
+Creating, opening, editing or deleting these files does not hide unchanged science.
+Unknown files, nested lookalikes, directories, symlinks and scientific artifacts
+retain the original strict integrity checks. Scientific inventories may not claim
+these reserved presentation filenames.
+
+A workbook generated in this server session is checked against its captured SHA-256;
+changed bytes are labelled changed and missing files are labelled missing. The check
+runs on window focus, every ten seconds while visible, or **Check summary integrity**.
+After a server restart, an existing workbook can only be checked for matching Summary
+counts: original generated bytes are explicitly **not authenticated**. This avoids
+trusting an unsigned receipt or claiming that user-edited formatting is original.
+A newly appearing or invalid workbook is unverified. Opening old analyses never
+creates or rewrites an export or integrity receipt.
 
 Back up the entire analysis and source inputs. Backup is not supported workspace
 relocation: absolute lineage and recovery authentication bind paths and, for

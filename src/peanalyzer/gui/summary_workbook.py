@@ -19,10 +19,14 @@ def literal(cell, value):
     cell.data_type = 's'
 
 
-def ordered_samples(plan):
-    """Recover original CSV order only from the verified, hashed input identity."""
+def ordered_samples(plan, sample_order=None):
+    """Use accepted GUI order, verified CSV order, or deterministic barcode order."""
     from peanalyzer.workflow_storage import no_symlinks, sha
     samples = {s['barcode_id']: s for s in plan.samples}
+    if sample_order is not None:
+        if len(sample_order)!=len(samples) or set(sample_order)!=set(samples):
+            raise ValueError('Accepted sample order does not match verified sample identities')
+        return [samples[key] for key in sample_order]
     source = getattr(plan, 'inputs', {}).get('samples')
     if source is not None:
         path = no_symlinks(Path(source.source_path))
@@ -50,7 +54,13 @@ def verify_summary(root, view, plan):
         samples = ordered_samples(plan)
         if len(rows) != len(samples) + 1 or [c.value for c in rows[0]] != HEADERS:
             raise ValueError('Existing summary has an unexpected row inventory')
-        for row, sample in zip(rows[1:], samples):
+        by_id={s['barcode_id']:s for s in samples}
+        if len(rows[1:])!=len({row[1].value for row in rows[1:]}):
+            raise ValueError('Duplicate summary sample')
+        for row in rows[1:]:
+            sample=by_id.get(row[1].value)
+            if sample is None or any(cell.data_type=='f' for cell in row):
+                raise ValueError('Unknown sample or formula in summary')
             if [c.value for c in row[:2]] != [sample['sample_name'], sample['barcode_id']]:
                 raise ValueError('Existing summary sample identity differs')
             for metric, column in zip(METRICS, (2, 4)):
@@ -70,7 +80,7 @@ def verify_summary(root, view, plan):
         book.close()
 
 
-def write_summary(root, view, plan):
+def write_summary(root, view, plan, *, sample_order=None):
     """Called only for a new, verified, unpublished precise-edit workspace."""
     if view.mode != 'precise_edit':
         return
@@ -91,7 +101,7 @@ def write_summary(root, view, plan):
     sheet = workbook.active
     sheet.title = 'Summary'
     sheet.append(HEADERS)
-    for row_number, sample in enumerate(ordered_samples(plan), 2):
+    for row_number, sample in enumerate(ordered_samples(plan,sample_order), 2):
         barcode = sample['barcode_id']
         literal(sheet.cell(row_number, 1), sample['sample_name'])
         literal(sheet.cell(row_number, 2), barcode)
@@ -120,7 +130,7 @@ def write_summary(root, view, plan):
         ('CRISPResso edit %', 'Prime-edited-reference assigned reads / authoritative aligned reads. NOT Modified%.'),
         ('Precise edit %', 'Exact intended PE / (exact WT + exact intended PE), under existing observability/reconstruction qualification.'),
         ('Source metric identifiers', ', '.join(METRICS)),
-        ('Ordering', 'Verified original sample CSV order when available; otherwise deterministic barcode ID order.'),
+        ('Ordering', 'Accepted GUI input order, checked against verified sample identities.' if sample_order is not None else 'Stored sample CSV order (GUI-generated CSVs use canonical barcode order); otherwise deterministic barcode ID order.'),
         ('Unavailable values', 'Not available means missing, BLOCKED or NOT_ASSESSABLE; never zero-filled.'),
         ('Export provenance', 'Server projection of verified stored target-primary observations before viewer publication.'),
         ('Verified source snapshot', view.snapshot_id),
