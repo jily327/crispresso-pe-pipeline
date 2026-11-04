@@ -1,0 +1,176 @@
+[
+  {
+    "dataset": "azenta-different-barcodes",
+    "original_verifier_version": "0.7.1",
+    "original_completion_sha256": "f86df5dccdfe678b8da3974f2fe2f621a6feb2b20a14e7b24771d71deef08d32",
+    "all_rows_match_authoritative_target_counts": true,
+    "historical_files_unchanged": true,
+    "rows": [
+      {
+        "sample_name": "NC_6dpi_old_1",
+        "barcode": "1A",
+        "native_fraction": 0.02074192261667332,
+        "native_counts": "52 / 2507",
+        "precise_fraction": 0.01721355567509414,
+        "precise_counts": "32 / 1859"
+      },
+      {
+        "sample_name": "ePPEmax-v2-EV_6dpi_leaf1",
+        "barcode": "2B",
+        "native_fraction": 0.02327084680025857,
+        "native_counts": "72 / 3094",
+        "precise_fraction": 0.01766004415011038,
+        "precise_counts": "40 / 2265"
+      },
+      {
+        "sample_name": "PE6c-v3-EV_6dpi_leaf1",
+        "barcode": "3C",
+        "native_fraction": 0.01630587573798144,
+        "native_counts": "58 / 3557",
+        "precise_fraction": 0.0115919629057187,
+        "precise_counts": "30 / 2588"
+      },
+      {
+        "sample_name": "ePPEmax-v2-ALSW_6dpi_leaf1",
+        "barcode": "4D",
+        "native_fraction": 0.2135776509462301,
+        "native_counts": "711 / 3329",
+        "precise_fraction": 0.2148421484214842,
+        "precise_counts": "524 / 2439"
+      },
+      {
+        "sample_name": "PE6c-v3-ALSW_6dpi_leaf1",
+        "barcode": "5E",
+        "native_fraction": 0.3543130990415335,
+        "native_counts": "1109 / 3130",
+        "precise_fraction": 0.3661670235546038,
+        "precise_counts": "855 / 2335"
+      },
+      {
+        "sample_name": "ePPEmax-v2-ALSW_6dpi_leaf4",
+        "barcode": "6F",
+        "native_fraction": 0.1569308493842753,
+        "native_counts": "497 / 3167",
+        "precise_fraction": 0.1571621014818141,
+        "precise_counts": "350 / 2227"
+      },
+      {
+        "sample_name": "PE6c-v3-ALSW_6dpi_leaf4",
+        "barcode": "7G",
+        "native_fraction": 0.2413570274636511,
+        "native_counts": "747 / 3095",
+        "precise_fraction": 0.2457503642544925,
+        "precise_counts": "506 / 2059"
+      }
+    ],
+    "workbook": "/workspace/v1-desktop-qualification/alsw-export-verified/azenta-different-barcodes/PEAnalyzer_Summary.xlsx",
+    "workbook_sha256": "e6b0ea16e70be0a8bb0f1410d953589796dc2835d3fdb313846213b6100c279c"
+  },
+  {
+    "dataset": "ampseq-ev-only",
+    "original_verifier_version": "0.7.1",
+    "original_completion_sha256": "8759a77f2ff28f77e407926480cbe4b592539ae51045aca3d36cdc69bd9d3152",
+    "all_rows_match_authoritative_target_counts": true,
+    "historical_files_unchanged": true,
+    "rows": [
+      {
+        "sample_name": "ePPEmax-v2-EV_leaf1",
+        "barcode": "1B",
+        "native_fraction": 0.02674292780955325,
+        "native_counts": "173 / 6469",
+        "precise_fraction": 0.02078808563450202,
+        "precise_counts": "67 / 3223"
+      },
+      {
+        "sample_name": "ePPEmax-v2-EV_leaf2",
+        "barcode": "2C",
+        "native_fraction": 0.01685985247629083,
+        "native_counts": "144 / 8541",
+        "precise_fraction": 0.01534988713318284,
+        "precise_counts": "68 / 4430"
+      },
+      {
+        "sample_name": "ePPEmax-v2-EV_leaf3",
+        "barcode": "3D",
+        "native_fraction": 0.02245827010622155,
+        "native_counts": "148 / 6590",
+        "precise_fraction": 0.0181009844395046,
+        "precise_counts": "57 / 3149"
+      },
+      {
+        "sample_name": "ePPEmax-v2-EV_leaf4",
+        "barcode": "4E",
+        "native_fraction": 0.03143874864488153,
+        "native_counts": "203 / 6457",
+        "precise_fraction": 0.02411932719771501,
+        "precise_counts": "76 / 3151"
+      },
+      {
+        "sample_name": "ePPEmax-v2-EV_leaf5",
+        "barcode": "5A",
+        "native_fraction": 0.01424657534246575,
+        "native_counts": "130 / 9125",
+        "precise_fraction": 0.01161137440758294,
+        "precise_counts": "49 / 4220"
+      },
+      {
+        "sample_name": "PE6c-v3-EV_leaf1",
+        "barcode": "1C",
+        "native_fraction": 0.02529155543065898,
+        "native_counts": "180 / 7117",
+        "precise_fraction": 0.02189570728896572,
+        "precise_counts": "76 / 3471"
+      },
+      {
+        "sample_name": "PE6c-v3-EV_leaf2",
+        "barcode": "2D",
+        "native_fraction": 0.02736261209473442,
+        "native_counts": "238 / 8698",
+        "precise_fraction": 0.02034498009730208,
+        "precise_counts": "92 / 4522"
+      },
+      {
+        "sample_name": "PE6c-v3-EV_leaf3",
+        "barcode": "3E",
+        "native_fraction": 0.03386960203217612,
+        "native_counts": "200 / 5905",
+        "precise_fraction": 0.03306392358559882,
+        "precise_counts": "90 / 2722"
+      },
+      {
+        "sample_name": "PE6c-v3-EV_leaf4",
+        "barcode": "4A",
+        "native_fraction": 0.02087161984772906,
+        "native_counts": "159 / 7618",
+        "precise_fraction": 0.01824914043903729,
+        "precise_counts": "69 / 3781"
+      },
+      {
+        "sample_name": "PE6c-v3-EV_leaf5",
+        "barcode": "5B",
+        "native_fraction": 0.01804700615556799,
+        "native_counts": "129 / 7148",
+        "precise_fraction": 0.01489295687247906,
+        "precise_counts": "48 / 3223"
+      },
+      {
+        "sample_name": "Untreated_WT_gDNA",
+        "barcode": "6F",
+        "native_fraction": 0.03660949868073879,
+        "native_counts": "222 / 6064",
+        "precise_fraction": 0.03358829398071167,
+        "precise_counts": "101 / 3007"
+      },
+      {
+        "sample_name": "PCR1_NTC_to_PCR2",
+        "barcode": "7G",
+        "native_fraction": 0.0910010111223458,
+        "native_counts": "90 / 989",
+        "precise_fraction": 0.09832134292565947,
+        "precise_counts": "41 / 417"
+      }
+    ],
+    "workbook": "/workspace/v1-desktop-qualification/alsw-export-verified/ampseq-ev-only/PEAnalyzer_Summary.xlsx",
+    "workbook_sha256": "303a869fb06e472f1d76a16139bfecfcc3683ab7d8ac271ad43511e2ff405291"
+  }
+]

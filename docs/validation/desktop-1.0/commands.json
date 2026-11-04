@@ -1,0 +1,33 @@
+{
+  "source_full": {
+    "cwd": "/workspace/crispresso-pe-pipeline-v1",
+    "command": "bash /workspace/v1-desktop-qualification/run-tests.sh /workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-desktop-qualification/source-tests-final"
+  },
+  "wheel_full": {
+    "cwd": "/workspace/v1-desktop-qualification/wheel-tests-input",
+    "command": "env -u PYTHONPATH bash /workspace/v1-desktop-qualification/run-tests.sh /workspace/v1-desktop-qualification/wheel-env/bin/python /workspace/v1-desktop-qualification/wheel-tests-final"
+  },
+  "frontend": {
+    "cwd": "/workspace/crispresso-pe-pipeline-v1/frontend",
+    "command": "npm test"
+  },
+  "source_browser": {
+    "command": "/workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-desktop-qualification/run-browsers.py source"
+  },
+  "wheel_browser": {
+    "command": "/workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-desktop-qualification/run-browsers.py wheel viewer; /workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-desktop-qualification/run-browsers.py wheel run recovery practical"
+  },
+  "packaging": {
+    "command": "/workspace/v1-desktop-qualification/source-env/bin/python /workspace/v1-desktop-qualification/package.py"
+  },
+  "environment": {
+    "M3_CORE_EXECUTABLE": "/workspace/m11c1-remediation/native-bin/CRISPResso",
+    "M3_POOLED_EXECUTABLE": "/workspace/m11c1-remediation/native-bin/CRISPRessoPooled",
+    "M3_SAMTOOLS_EXECUTABLE": "/workspace/m11c1-remediation/native-env/bin/samtools",
+    "M31_RUNTIME_IMAGE": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "PLAYWRIGHT_CHROMIUM_EXECUTABLE": "/usr/bin/chromium",
+    "MPLCONFIGDIR": "/tmp/v1-mpl",
+    "XDG_CACHE_HOME": "/tmp/v1-cache"
+  },
+  "reproduction": "Use fresh result roots. Scientific/process suites run serially. Viewer-only browser tests are read-only and may overlap a Python suite after its immutable M10 fixtures finish. See the copied scripts for all retained integration flags."
+}

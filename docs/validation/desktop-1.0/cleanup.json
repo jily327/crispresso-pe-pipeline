@@ -1,0 +1,12 @@
+{
+  "live_qualification_workers_or_servers": [],
+  "test_ports_listening": {
+    "8765": false,
+    "8766": false,
+    "8767": false,
+    "8768": false
+  },
+  "host_lease_free": true,
+  "host_lease_acquire_and_release_succeeded": true,
+  "test_workspace_sentinels_preserved": true
+}

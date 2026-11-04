@@ -1,0 +1,16 @@
+{
+  "numeric_division_in_export": false,
+  "path_join_operator": [
+    "Path(root) / FILENAME"
+  ],
+  "source_fields": [
+    "Observation.fraction",
+    "Observation.numerator",
+    "Observation.denominator"
+  ],
+  "primary_metric_ids": [
+    "target_crispresso_native_pe",
+    "total_precise_pe"
+  ],
+  "frontend_change": "Theme, catalogue refresh and server-ID folder reveal only; no scientific arithmetic added."
+}
