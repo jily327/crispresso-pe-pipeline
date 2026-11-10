@@ -1,0 +1,176 @@
+{
+  "cases": {
+    "E17.cancel_at_final_validation_is_single_terminal_state": {
+      "expected": "exactly one terminal event (CANCELLED); no completion marker; no registration; recovery RESUMABLE with every stage REUSE",
+      "observed": {
+        "actions": [
+          "REUSE"
+        ],
+        "classification": "RESUMABLE",
+        "executable": true,
+        "marker": false,
+        "reasons": [],
+        "terminal_events": [
+          "CANCELLED"
+        ],
+        "workspace_id": null
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E18a.forged_stage_manifest_field": {
+      "expected": "TAMPERED (TAMPERED_STAGE_MANIFEST); not executable",
+      "observed": {
+        "classification": "TAMPERED",
+        "executable": false,
+        "reasons": [
+          "TAMPERED_STAGE_MANIFEST"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E18b.forged_plan": {
+      "expected": "TAMPERED (TAMPERED_WORKFLOW_PLAN); not executable",
+      "observed": {
+        "classification": "TAMPERED",
+        "executable": false,
+        "reasons": [
+          "TAMPERED_WORKFLOW_PLAN"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E18c.coordinated_manifest_and_receipt_forgery_without_key": {
+      "expected": "TAMPERED (TAMPERED_RECOVERY_INTEGRITY); not executable",
+      "observed": {
+        "classification": "TAMPERED",
+        "executable": false,
+        "reasons": [
+          "TAMPERED_RECOVERY_INTEGRITY"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E18d.receipt_removed": {
+      "expected": "UNSUPPORTED (UNANCHORED_RECOVERY_OWNERSHIP); not executable",
+      "observed": {
+        "classification": "UNSUPPORTED",
+        "executable": false,
+        "reasons": [
+          "UNANCHORED_RECOVERY_OWNERSHIP"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E19.foreign_user_file_in_forced_output": {
+      "expected": "refused (FOREIGN_CONTENT_PRESENT), file untouched; also blocks plain resume because the stage inventory no longer matches",
+      "observed": {
+        "file_intact": true,
+        "forced": {
+          "classification": "TAMPERED",
+          "executable": false,
+          "reasons": [
+            "FOREIGN_CONTENT_PRESENT"
+          ]
+        },
+        "plain": {
+          "classification": "TAMPERED",
+          "executable": false,
+          "reasons": [
+            "CORRUPTED_STAGE_OUTPUT"
+          ]
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E20.stale_preview_rejected_at_confirmation": {
+      "expected": "HTTP 409 RECOVERY_PLAN_CHANGED; no job",
+      "observed": {
+        "code": "RECOVERY_PLAN_CHANGED",
+        "http": 409,
+        "jobs": 1
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E20b.confirmation_must_be_literal_true": {
+      "expected": "HTTP 422",
+      "observed": {
+        "http": 422
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E21.signing_key_lost_then_regenerated": {
+      "expected": "key lost -> UNSUPPORTED/UNANCHORED (fail closed). After an unrelated run mints a new key the SAME untouched workspace should still be reported as unanchored, not as tampered.",
+      "finding": "Untouched workspace is classified TAMPERED after the per-account key is regenerated.",
+      "observed": {
+        "after_new_key_minted": {
+          "classification": "TAMPERED",
+          "executable": false,
+          "reasons": [
+            "TAMPERED_RECOVERY_INTEGRITY"
+          ]
+        },
+        "key_lost": {
+          "classification": "UNSUPPORTED",
+          "executable": false,
+          "reasons": [
+            "UNANCHORED_RECOVERY_OWNERSHIP"
+          ]
+        },
+        "original_key_restored": {
+          "classification": "RESUMABLE",
+          "executable": true,
+          "reasons": []
+        }
+      },
+      "verdict": "DEFECT"
+    },
+    "E22.clean_resume_reuses_all_and_publishes_verified_workbook": {
+      "expected": "COMPLETED; zero scientific stages re-executed (all REUSED); workbook present, values equal disk metrics; ordering rule labelled truthfully (accepted GUI order 3A,1A,4A,2A is NOT available to recovery)",
+      "observed": {
+        "error": null,
+        "export_state": "UNCHANGED",
+        "numbers_equal_disk": true,
+        "ordering_label": "Stored sample CSV order (GUI-generated CSVs use canonical barcode order); otherwise deterministic barcode ID order.",
+        "ran": [],
+        "reused": 14,
+        "row_order": [
+          "1A",
+          "2A",
+          "3A",
+          "4A"
+        ],
+        "state": "COMPLETED",
+        "workbook": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E23.restart_downgrades_workbook_to_contents_match": {
+      "expected": "label \"Detected - verification required\" before open; open verifies; export CONTENTS_MATCH (bytes not authenticated)",
+      "observed": {
+        "export_state": "CONTENTS_MATCH",
+        "label": "REC_ws \u00b7 PEAnalyzer 1.0.0 \u00b7 Detected \u2014 verification required",
+        "message": "Summary counts match verified science. Original generated bytes are not authenticated.",
+        "open_http": 200
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E24.edited_workbook_value_is_never_reported_as_matching": {
+      "expected": "same session: CHANGED; fresh session: UNVERIFIED; science still opens (200) in both",
+      "observed": {
+        "fresh_session": "UNVERIFIED",
+        "same_session": "CHANGED",
+        "science_open_http": [
+          200,
+          200
+        ]
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "E17_E24_recovery_trust",
+  "flagged": 1,
+  "library_labels_after_restart": [
+    "REC_ws \u00b7 PEAnalyzer 1.0.0 \u00b7 Detected \u2014 verification required"
+  ],
+  "passed": 11
+}

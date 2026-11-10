@@ -1,0 +1,621 @@
+{
+  "E07_E08_multicopy_real_backend": {
+    "blocked": {
+      "designed_counts": {
+        "1C": {
+          "a_pe": 0,
+          "a_pe_lowq": 0,
+          "a_wt": 200,
+          "b_pe": 0,
+          "b_wt": 150,
+          "mosaic_wt": 0
+        },
+        "2C": {
+          "a_pe": 80,
+          "a_pe_lowq": 40,
+          "a_wt": 120,
+          "b_pe": 30,
+          "b_wt": 90,
+          "mosaic_wt": 0
+        }
+      },
+      "designed_target_exact": {
+        "1C": {
+          "denominator": 350,
+          "numerator": 0
+        },
+        "2C": {
+          "denominator": 360,
+          "numerator": 150
+        }
+      },
+      "reference_lengths": {
+        "copyA": 190,
+        "copyB": 190
+      },
+      "results": {
+        "1C": {
+          "copies": {
+            "copyA": {
+              "native": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              },
+              "precise": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              }
+            },
+            "copyB": {
+              "native": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              },
+              "precise": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              }
+            }
+          },
+          "declared_runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "exact_exclusion_reason_counts": {},
+          "qc": {
+            "per_copy_confident_counts": {},
+            "prepared_input_reads": 350,
+            "routing_assigned_reads": null,
+            "routing_quarantine_reasons": {},
+            "routing_quarantined_reads": null
+          },
+          "routing_geometry_status": "BLOCKED",
+          "target_crispresso_native_pe": {
+            "denominator": 350,
+            "numerator": 0,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          },
+          "total_precise_pe": {
+            "denominator": 350,
+            "numerator": 0,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          }
+        },
+        "2C": {
+          "copies": {
+            "copyA": {
+              "native": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              },
+              "precise": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              }
+            },
+            "copyB": {
+              "native": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              },
+              "precise": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "EDIT_NOT_FLANKED_BY_PAIR_DIAGNOSTICS",
+                  "INSUFFICIENT_PAIR_DIAGNOSTICS_FOR_ROUTING_POLICY",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              }
+            }
+          },
+          "declared_runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "exact_exclusion_reason_counts": {},
+          "qc": {
+            "per_copy_confident_counts": {},
+            "prepared_input_reads": 360,
+            "routing_assigned_reads": null,
+            "routing_quarantine_reasons": {},
+            "routing_quarantined_reads": null
+          },
+          "routing_geometry_status": "BLOCKED",
+          "target_crispresso_native_pe": {
+            "denominator": 360,
+            "numerator": 150,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          },
+          "total_precise_pe": {
+            "denominator": 360,
+            "numerator": 150,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          }
+        }
+      },
+      "workflow_completed": true
+    },
+    "lengthdiff": {
+      "designed_counts": {
+        "1C": {
+          "a_pe": 0,
+          "a_pe_lowq": 0,
+          "a_wt": 200,
+          "b_pe": 0,
+          "b_wt": 150,
+          "mosaic_wt": 0
+        },
+        "2C": {
+          "a_pe": 80,
+          "a_pe_lowq": 40,
+          "a_wt": 120,
+          "b_pe": 30,
+          "b_wt": 90,
+          "mosaic_wt": 25
+        }
+      },
+      "designed_target_exact": {
+        "1C": {
+          "denominator": 350,
+          "numerator": 0
+        },
+        "2C": {
+          "denominator": 360,
+          "numerator": 150
+        }
+      },
+      "reference_lengths": {
+        "copyA": 236,
+        "copyB": 242
+      },
+      "results": {
+        "1C": {
+          "copies": {
+            "copyA": {
+              "native": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "COPY_INDEL_ROUTING_UNQUALIFIED",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              },
+              "precise": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "COPY_INDEL_ROUTING_UNQUALIFIED",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              }
+            },
+            "copyB": {
+              "native": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "COPY_INDEL_ROUTING_UNQUALIFIED",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              },
+              "precise": {
+                "denominator": null,
+                "numerator": null,
+                "population": null,
+                "reason_codes": [
+                  "COPY_COHORT_UNAVAILABLE",
+                  "COPY_INDEL_ROUTING_UNQUALIFIED",
+                  "UNSUPPORTED_ROUTING_GEOMETRY"
+                ],
+                "status": "BLOCKED"
+              }
+            }
+          },
+          "declared_runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "exact_exclusion_reason_counts": {
+            "COPY_DEPENDENT_PRODUCT_OBSERVABILITY": 350
+          },
+          "qc": {
+            "per_copy_confident_counts": {},
+            "prepared_input_reads": 350,
+            "routing_assigned_reads": null,
+            "routing_quarantine_reasons": {},
+            "routing_quarantined_reads": null
+          },
+          "routing_geometry_status": "BLOCKED",
+          "target_crispresso_native_pe": {
+            "denominator": null,
+            "numerator": null,
+            "reason_codes": [
+              "BACKEND_EXECUTION_FAILED"
+            ],
+            "status": "BLOCKED"
+          },
+          "total_precise_pe": {
+            "denominator": null,
+            "numerator": null,
+            "reason_codes": [
+              "COPY_DEPENDENT_PRODUCT_OBSERVABILITY"
+            ],
+            "status": "NOT_ASSESSABLE"
+          }
+        }
+      },
+      "workflow_completed": false
+    },
+    "routable": {
+      "designed_counts": {
+        "1C": {
+          "a_pe": 0,
+          "a_pe_lowq": 0,
+          "a_wt": 200,
+          "b_pe": 0,
+          "b_wt": 150,
+          "mosaic_wt": 0
+        },
+        "2C": {
+          "a_pe": 80,
+          "a_pe_lowq": 40,
+          "a_wt": 120,
+          "b_pe": 30,
+          "b_wt": 90,
+          "mosaic_wt": 25
+        }
+      },
+      "designed_target_exact": {
+        "1C": {
+          "denominator": 350,
+          "numerator": 0
+        },
+        "2C": {
+          "denominator": 360,
+          "numerator": 150
+        }
+      },
+      "reference_lengths": {
+        "copyA": 190,
+        "copyB": 190
+      },
+      "results": {
+        "1C": {
+          "copies": {
+            "copyA": {
+              "native": {
+                "denominator": 200,
+                "numerator": 0,
+                "population": 200,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              },
+              "precise": {
+                "denominator": 200,
+                "numerator": 0,
+                "population": 200,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              }
+            },
+            "copyB": {
+              "native": {
+                "denominator": 150,
+                "numerator": 0,
+                "population": 150,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              },
+              "precise": {
+                "denominator": 150,
+                "numerator": 0,
+                "population": 150,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              }
+            }
+          },
+          "declared_runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "exact_exclusion_reason_counts": {},
+          "qc": {
+            "per_copy_confident_counts": {
+              "copyA": 200,
+              "copyB": 150
+            },
+            "prepared_input_reads": 350,
+            "routing_assigned_reads": 350,
+            "routing_quarantine_reasons": {},
+            "routing_quarantined_reads": 0
+          },
+          "routing_geometry_status": "SAFE",
+          "target_crispresso_native_pe": {
+            "denominator": 350,
+            "numerator": 0,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          },
+          "total_precise_pe": {
+            "denominator": 350,
+            "numerator": 0,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          }
+        },
+        "2C": {
+          "copies": {
+            "copyA": {
+              "native": {
+                "denominator": 200,
+                "numerator": 80,
+                "population": 200,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              },
+              "precise": {
+                "denominator": 200,
+                "numerator": 80,
+                "population": 200,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              }
+            },
+            "copyB": {
+              "native": {
+                "denominator": 120,
+                "numerator": 30,
+                "population": 120,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              },
+              "precise": {
+                "denominator": 120,
+                "numerator": 30,
+                "population": 120,
+                "reason_codes": [],
+                "status": "REPORTABLE"
+              }
+            }
+          },
+          "declared_runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "exact_exclusion_reason_counts": {},
+          "qc": {
+            "per_copy_confident_counts": {
+              "copyA": 200,
+              "copyB": 120
+            },
+            "prepared_input_reads": 385,
+            "routing_assigned_reads": 320,
+            "routing_quarantine_reasons": {
+              "CONFLICTING_DIAGNOSTIC_EVIDENCE": 25,
+              "LOW_QUALITY_DIAGNOSTICS_ONLY": 40
+            },
+            "routing_quarantined_reads": 65
+          },
+          "routing_geometry_status": "SAFE",
+          "target_crispresso_native_pe": {
+            "denominator": 385,
+            "numerator": 150,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          },
+          "total_precise_pe": {
+            "denominator": 360,
+            "numerator": 150,
+            "reason_codes": [],
+            "status": "REPORTABLE"
+          }
+        }
+      },
+      "workflow_completed": true
+    }
+  },
+  "E11_cli_resume_after_backend_failure": {
+    "note": "Exact command output was captured in the audit transcript; the same refusal sequence is reproduced on the empty-well workspace below.",
+    "observed": {
+      "--resume": "ORPHANED_STAGE_OUTPUT [metrics::1C::T1]",
+      "--resume --force all": "FOREIGN_CONTENT_PRESENT [metrics::1C::T1]",
+      "--resume --force metrics": "FOREIGN_CONTENT_PRESENT [metrics::1C::T1]",
+      "--resume --force routing": "FOREIGN_CONTENT_PRESENT [metrics::1C::T1]"
+    },
+    "workspace": "mc_lengthdiff (metrics::1C::T1 failed: backend exit, no mergeable pairs)"
+  },
+  "E12_plate_with_one_zero_read_sample": {
+    "completion_marker": false,
+    "design": "sample 1A: 120 exact WT + 80 exact PE pairs; sample 2A declared in the sheet, zero reads in the pool",
+    "failure": {
+      "code": "BACKEND_EXECUTION_FAILED",
+      "ended_at": "2026-11-10T14:00:31.662114+00:00",
+      "error_class": "WorkflowError",
+      "message": "BACKEND_EXECUTION_FAILED: metrics::2A::T1",
+      "session_id": "f506847ac5c84093b1d2d1057a455443",
+      "stage_id": "metrics::2A::T1",
+      "started_at": "2026-11-10T14:00:17.092508+00:00"
+    },
+    "per_sample_m4": {
+      "1A": {
+        "target_crispresso_native_pe": {
+          "denominator": 200,
+          "numerator": 80,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        },
+        "total_precise_pe": {
+          "denominator": 200,
+          "numerator": 80,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        }
+      },
+      "2A": {
+        "target_crispresso_native_pe": {
+          "denominator": null,
+          "numerator": null,
+          "reason_codes": [
+            "BACKEND_EXECUTION_FAILED"
+          ],
+          "status": "BLOCKED"
+        },
+        "total_precise_pe": {
+          "denominator": null,
+          "numerator": null,
+          "reason_codes": [
+            "ZERO_EXACT_DENOMINATOR"
+          ],
+          "status": "NOT_ASSESSABLE"
+        }
+      }
+    },
+    "report_published": false,
+    "resume_attempts": [
+      "resume  => Workflow failed: ORPHANED_STAGE_OUTPUT [metrics::2A::T1]: metrics/2A/T1",
+      "resume --force metrics => Workflow failed: FOREIGN_CONTENT_PRESENT [metrics::2A::T1]: Unowned removal entries: metrics/2A/T1/comparator, metrics/2A/T1/comparator/comparator.jso",
+      "resume --force all => Workflow failed: FOREIGN_CONTENT_PRESENT [metrics::2A::T1]: Unowned removal entries: metrics/2A/T1/comparator, metrics/2A/T1/comparator/comparator.jso"
+    ],
+    "statistics_published": false,
+    "workflow_exit": 2
+  },
+  "E13_backend_merge_boundary": {
+    "design": "100 perfect read pairs (123+123 nt) per nominal overlap; one random amplicon per overlap",
+    "mapping_statistics_by_nominal_overlap": {
+      "10": "backend exited non-zero: no reads survived preprocessing",
+      "11": {
+        "N_CACHED_ALN": "99",
+        "N_CACHED_NOTALN": "0",
+        "N_COMPUTED_ALN": "1",
+        "N_COMPUTED_NOTALN": "0",
+        "READS AFTER PREPROCESSING": "100",
+        "READS ALIGNED": "100",
+        "READS IN INPUTS": "100"
+      },
+      "12": {
+        "N_CACHED_ALN": "99",
+        "N_CACHED_NOTALN": "0",
+        "N_COMPUTED_ALN": "1",
+        "N_COMPUTED_NOTALN": "0",
+        "READS AFTER PREPROCESSING": "100",
+        "READS ALIGNED": "100",
+        "READS IN INPUTS": "100"
+      },
+      "13": {
+        "N_CACHED_ALN": "99",
+        "N_CACHED_NOTALN": "0",
+        "N_COMPUTED_ALN": "1",
+        "N_COMPUTED_NOTALN": "0",
+        "READS AFTER PREPROCESSING": "100",
+        "READS ALIGNED": "100",
+        "READS IN INPUTS": "100"
+      },
+      "16": {
+        "N_CACHED_ALN": "99",
+        "N_CACHED_NOTALN": "0",
+        "N_COMPUTED_ALN": "1",
+        "N_COMPUTED_NOTALN": "0",
+        "READS AFTER PREPROCESSING": "100",
+        "READS ALIGNED": "100",
+        "READS IN INPUTS": "100"
+      },
+      "8": "backend exited non-zero: no reads survived preprocessing",
+      "9": "backend exited non-zero: no reads survived preprocessing"
+    },
+    "product_constant": "observability.MIN_PINNED_BACKEND_OVERLAP = 11 (documented as measured on fastp 1.3.3)",
+    "runtime": "bioconda CRISPResso2 2.3.4 + fastp 1.4.0 (observed with fastp --version)"
+  },
+  "E37_packaging": {
+    "built_from": "git archive 00b528e9c2ea7c1b14d8607c5c38ff46416054ae (clean export)",
+    "frontend_rebuild_from_source": "npm ci + vite build: index.html, JS and CSS byte-identical to committed assets",
+    "frontend_typecheck": "tsc --noEmit exit 0",
+    "frontend_unit_tests": "vitest: 9 files, 62 tests passed",
+    "installed_files_vs_source": "93/93 identical, none missing, none extra",
+    "installed_import_path_in_site_packages": true,
+    "installed_version": "1.0.0",
+    "package_code_sha256_source_and_wheel": "8535a431f154e5f57a93c391ca730fe108730677e16c5d01f4e9f21642f6407b",
+    "source_test_suite": "1934 passed, 92 skipped (environment-gated real-backend integration), 0 failed; exit 0",
+    "static_assets_match_build_identity": true,
+    "wheel": "crispresso_pe_pipeline-1.0.0-py3-none-any.whl",
+    "wheel_sha256": "f21e8dc81a2468913917bc7e3dda387294795f5bc344fafd67a126ae53916c6e"
+  },
+  "E38_wsl_launcher_linux_simulation": {
+    "bash_syntax_check": "bash -n OK",
+    "console": [
+      "Starting PEAnalyzer 1.0.0",
+      "Analysis library: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/launcher_sim/home/PEAnalyzer-analyses",
+      "Open http://127.0.0.1:8765/#<REDACTED_TOKEN>",
+      "INFO:     Started server process [1110]",
+      "INFO:     Waiting for application startup.",
+      "INFO:     Application startup complete.",
+      "INFO:     Uvicorn running on http://127.0.0.1:8765 (Press CTRL+C to quit)",
+      "PEAnalyzer local URL: http://127.0.0.1:8765/#<REDACTED_TOKEN>"
+    ],
+    "output_root_created": "~/PEAnalyzer-analyses/v1.0.0",
+    "powershell_mock_received": [
+      "-NoProfile -NonInteractive -Command Start-Process -FilePath 'http://127.0.0.1:8765/#<REDACTED_TOKEN>'",
+      "-NoProfile -NonInteractive -Command Start-Process -FilePath 'http://127.0.0.1:8765/#<REDACTED_TOKEN>'"
+    ],
+    "scope": "LINUX SIMULATION ONLY - docker and powershell.exe mocked; not Windows/WSL verification",
+    "sigterm_to_launcher_stops_server_within_seconds": true
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "L3_workspace": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/work/life/library/v1.0.0/L3_ws",
+  "experiment": "E10_E16_gui_lifecycle",
+  "scenarios": {
+    "L1_review_mutate_run": {
+      "expected": "HTTP 409 input-changed refusal; no job; no workspace.",
+      "failure_hypothesis": "Run accepts a FASTQ mutated after Review because only the draft revision is compared.",
+      "invariant": "A Run must execute exactly the reviewed input bytes.",
+      "observed": {
+        "code": "DRAFT_INPUT_CHANGED",
+        "http": 409,
+        "jobs": 0,
+        "workspace": {
+          "completion_marker": false,
+          "exists": false,
+          "failures": [],
+          "lock_left": false,
+          "metrics_dirs": [],
+          "stage_records": 0,
+          "summary_workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "L2_mutate_after_accept": {
+      "expected": "FAILED (SOURCE_CHANGED), no completion marker, no viewer registration, no workbook.",
+      "failure_hypothesis": "Raw FASTQ is only hashed for the demux stage, so a later mutation is missed and COMPLETED is published.",
+      "invariant": "A source changed after acceptance cannot yield a published verified result.",
+      "observed": {
+        "error": {
+          "code": "SOURCE_CHANGED",
+          "detail": "SOURCE_CHANGED: r2",
+          "message": "The scientific workflow stopped.",
+          "stage_id": null
+        },
+        "state": "FAILED",
+        "tail_events": [
+          [
+            "WORKER_ERROR",
+            "RUNNING",
+            null,
+            "SOURCE_CHANGED"
+          ],
+          [
+            "CONTAINMENT_CONFIRMED",
+            "RUNNING",
+            null,
+            null
+          ],
+          [
+            "VIEWER_VERIFICATION",
+            "RUNNING",
+            null,
+            null
+          ],
+          [
+            "FAILED",
+            "FAILED",
+            null,
+            "SOURCE_CHANGED"
+          ]
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "failures": [
+            "SOURCE_CHANGED"
+          ],
+          "lock_left": false,
+          "metrics_dirs": [
+            "metrics/1A/T1",
+            "metrics/2A/T1",
+            "metrics/3A/T1",
+            "metrics/4A/T1"
+          ],
+          "stage_records": 14,
+          "summary_workbook": false
+        },
+        "workspace_id": null
+      },
+      "verdict": "CONTROLLED"
+    },
+    "L3a_cancel_during_core": {
+      "expected": "CANCELLED only after containment; no marker; no backend processes; no stale M7 lock.",
+      "failure_hypothesis": "Detached CRISPResso/fastp children survive, or a completion marker remains.",
+      "invariant": "Cancel during Core stops every owned backend process and never publishes completion.",
+      "observed": {
+        "backend_processes_after": [],
+        "backend_seen_before_cancel": true,
+        "final_state": "CANCELLED",
+        "state_after_cancel_request": "CANCELLING",
+        "tail_events": [
+          [
+            "COMPLETED",
+            "RUNNING",
+            "routing::4A::T1",
+            null
+          ],
+          [
+            "RUNNING",
+            "RUNNING",
+            "metrics::1A::T1",
+            null
+          ],
+          [
+            "CANCEL_REQUESTED",
+            "CANCELLING",
+            null,
+            null
+          ],
+          [
+            "CONTAINMENT_CONFIRMED",
+            "CANCELLING",
+            null,
+            null
+          ],
+          [
+            "CANCELLED",
+            "CANCELLED",
+            null,
+            null
+          ]
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "failures": [
+            143
+          ],
+          "lock_left": false,
+          "metrics_dirs": [
+            "metrics/1A/T1"
+          ],
+          "stage_records": 7,
+          "summary_workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "L3b_recover_after_cancel_during_core": {
+      "expected": "Some inspected recovery path is executable.",
+      "failure_hypothesis": "The interrupted metrics stage leaves PEAnalyzer's own partial output as an unmanifested orphan; plain resume demands force and every force family is refused as FOREIGN_CONTENT_PRESENT, which the GUI labels TAMPERED.",
+      "invariant": "A run cancelled during the scientific backend stage can be resumed in place after inspection (docs/m11c-recovery.md: \"Cancellation leaves a partial workspace for a new inspection\").",
+      "observed": {
+        "force_previews": {
+          "all": {
+            "classification": "TAMPERED",
+            "executable": false,
+            "force_families": [
+              "demux",
+              "analysis",
+              "routing",
+              "metrics",
+              "statistics",
+              "report",
+              "all"
+            ],
+            "reasons": [
+              [
+                "FOREIGN_CONTENT_PRESENT",
+                "FOREIGN_CONTENT_PRESENT [metrics::1A::T1]: Unowned removal entries: metrics/1A/T1/comparator, metrics/1A/T1/comparator/copy1, metrics/1A/T1/comparator/copy1/execution.json, metrics/1A/T1/comparator/co"
+              ]
+            ],
+            "removal_paths": [],
+            "stage_actions": {
+              "analysis": "BLOCKED",
+              "demux": "BLOCKED",
+              "metrics::1A::T1": "BLOCKED",
+              "metrics::2A::T1": "BLOCKED",
+              "metrics::3A::T1": "BLOCKED",
+              "metrics::4A::T1": "BLOCKED",
+              "metrics_manifest": "BLOCKED",
+              "raw_inputs": "BLOCKED",
+              "report": "BLOCKED",
+              "routing::1A::T1": "BLOCKED",
+              "routing::2A::T1": "BLOCKED",
+              "routing::3A::T1": "BLOCKED",
+              "routing::4A::T1": "BLOCKED",
+              "statistics": "BLOCKED"
+            }
+          },
+          "metrics": {
+            "classification": "TAMPERED",
+            "executable": false,
+            "force_families": [
+              "demux",
+              "analysis",
+              "routing",
+              "metrics",
+              "statistics",
+              "report",
+              "all"
+            ],
+            "reasons": [
+              [
+                "FOREIGN_CONTENT_PRESENT",
+                "FOREIGN_CONTENT_PRESENT [metrics::1A::T1]: Unowned removal entries: metrics/1A/T1/comparator, metrics/1A/T1/comparator/copy1, metrics/1A/T1/comparator/copy1/execution.json, metrics/1A/T1/comparator/co"
+              ]
+            ],
+            "removal_paths": [],
+            "stage_actions": {
+              "analysis": "BLOCKED",
+              "demux": "BLOCKED",
+              "metrics::1A::T1": "BLOCKED",
+              "metrics::2A::T1": "BLOCKED",
+              "metrics::3A::T1": "BLOCKED",
+              "metrics::4A::T1": "BLOCKED",
+              "metrics_manifest": "BLOCKED",
+              "raw_inputs": "BLOCKED",
+              "report": "BLOCKED",
+              "routing::1A::T1": "BLOCKED",
+              "routing::2A::T1": "BLOCKED",
+              "routing::3A::T1": "BLOCKED",
+              "routing::4A::T1": "BLOCKED",
+              "statistics": "BLOCKED"
+            }
+          },
+          "routing": {
+            "classification": "TAMPERED",
+            "executable": false,
+            "force_families": [
+              "demux",
+              "analysis",
+              "routing",
+              "metrics",
+              "statistics",
+              "report",
+              "all"
+            ],
+            "reasons": [
+              [
+                "FOREIGN_CONTENT_PRESENT",
+                "FOREIGN_CONTENT_PRESENT [metrics::1A::T1]: Unowned removal entries: metrics/1A/T1/comparator, metrics/1A/T1/comparator/copy1, metrics/1A/T1/comparator/copy1/execution.json, metrics/1A/T1/comparator/co"
+              ]
+            ],
+            "removal_paths": [],
+            "stage_actions": {
+              "analysis": "BLOCKED",
+              "demux": "BLOCKED",
+              "metrics::1A::T1": "BLOCKED",
+              "metrics::2A::T1": "BLOCKED",
+              "metrics::3A::T1": "BLOCKED",
+              "metrics::4A::T1": "BLOCKED",
+              "metrics_manifest": "BLOCKED",
+              "raw_inputs": "BLOCKED",
+              "report": "BLOCKED",
+              "routing::1A::T1": "BLOCKED",
+              "routing::2A::T1": "BLOCKED",
+              "routing::3A::T1": "BLOCKED",
+              "routing::4A::T1": "BLOCKED",
+              "statistics": "BLOCKED"
+            }
+          }
+        },
+        "initial": {
+          "classification": "RESUMABLE_WITH_FORCE",
+          "executable": false,
+          "force_families": [
+            "demux",
+            "analysis",
+            "routing",
+            "metrics",
+            "statistics",
+            "report",
+            "all"
+          ],
+          "reasons": [
+            [
+              "ORPHANED_STAGE_OUTPUT",
+              "ORPHANED_STAGE_OUTPUT [metrics::1A::T1]: metrics/1A/T1"
+            ]
+          ],
+          "removal_paths": [],
+          "stage_actions": {
+            "analysis": "BLOCKED",
+            "demux": "BLOCKED",
+            "metrics::1A::T1": "BLOCKED",
+            "metrics::2A::T1": "BLOCKED",
+            "metrics::3A::T1": "BLOCKED",
+            "metrics::4A::T1": "BLOCKED",
+            "metrics_manifest": "BLOCKED",
+            "raw_inputs": "BLOCKED",
+            "report": "BLOCKED",
+            "routing::1A::T1": "BLOCKED",
+            "routing::2A::T1": "BLOCKED",
+            "routing::3A::T1": "BLOCKED",
+            "routing::4A::T1": "BLOCKED",
+            "statistics": "BLOCKED"
+          }
+        },
+        "orphan_entries_sample": [
+          "metrics/1A",
+          "metrics/1A/T1",
+          "metrics/1A/T1/comparator",
+          "metrics/1A/T1/comparator/copy1",
+          "metrics/1A/T1/comparator/copy1/execution.json",
+          "metrics/1A/T1/comparator/copy1/input_R1.fastq.gz",
+          "metrics/1A/T1/comparator/copy1/input_R2.fastq.gz",
+          "metrics/1A/T1/comparator/copy1/stderr.txt",
+          "metrics/1A/T1/comparator/copy1/stdout.txt"
+        ]
+      },
+      "verdict": "DEFECT_CONFIRMED_RECOVERY_DEAD_END"
+    },
+    "L4_supervisor_killed": {
+      "expected": "FAILED (containment not acknowledged); no registration; state stays FAILED.",
+      "failure_hypothesis": "Server treats supervisor exit as success, or later rewrites FAILED.",
+      "invariant": "An unexpectedly dead worker supervisor can never be reported as COMPLETED and FAILED is final.",
+      "observed": {
+        "error": {
+          "code": "CANCELLATION_INCOMPLETE",
+          "detail": "The host worker lease remains held; supervisor exit is not proof of cleanup.",
+          "message": "Scientific process containment could not be confirmed.",
+          "stage_id": null
+        },
+        "final_state": "FAILED",
+        "job_state_later": "FAILED",
+        "killed_supervisor_pids": [
+          30843
+        ],
+        "second_submission": [
+          409,
+          "WORKER_BUSY"
+        ],
+        "submission_after_orphans_exit": [
+          409,
+          "WORKER_BUSY"
+        ],
+        "surviving_processes_right_after": [
+          "29592 /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/venv/bin/python exp_gui_lifecycle.py /tmp/claude-0/-home-u",
+          "30837 /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/venv/bin/python -u -m peanalyzer.gui --port 8836 --workspa",
+          "30849 /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/venv/bin/python -m peanalyzer.gui.worker --events-fd 10",
+          "30951 /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/mamba/envs/c2/bin/python /tmp/claude-0/-home-user-crispres",
+          "30960 /bin/sh -c fastp -i input_R1.fastq.gz -I input_R2.fastq.gz --merge --merged_out /tmp/peanalyzer-core-lzwcqsyg/output/CRISPResso_on_confident/out.extendedF",
+          "30961 fastp -i input_R1.fastq.gz -I input_R2.fastq.gz --merge --merged_out /tmp/peanalyzer-core-lzwcqsyg/output/CRISPResso_on_confident/out.extendedFrags.fastq."
+        ],
+        "workspace_after_orphans_exit": {
+          "completion_marker": true,
+          "exists": true,
+          "failures": [],
+          "lock_left": false,
+          "metrics_dirs": [
+            "metrics/1A/T1",
+            "metrics/2A/T1",
+            "metrics/3A/T1",
+            "metrics/4A/T1"
+          ],
+          "stage_records": 14,
+          "summary_workbook": false
+        },
+        "workspace_id": null,
+        "workspace_right_after": {
+          "completion_marker": false,
+          "exists": true,
+          "failures": [],
+          "lock_left": true,
+          "metrics_dirs": [
+            "metrics/1A/T1"
+          ],
+          "stage_records": 7,
+          "summary_workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "L5_export_collision": {
+      "expected": "COMPLETED + visible export warning + integrity state not UNCHANGED/verified; foreign bytes intact.",
+      "failure_hypothesis": "A pre-existing/foreign workbook is overwritten, or is reported as a verified export, or fails the science.",
+      "invariant": "Optional workbook failure neither falsifies nor blocks scientific completion, and never overwrites a file.",
+      "observed": {
+        "error": null,
+        "export": {
+          "baseline_kind": "UNVERIFIED",
+          "baseline_sha256": "2b18383724d5c0de7d86f47599d6351d33c76670fd647c681c794117e5f764cd",
+          "message": "Workbook values could not be verified against the scientific results.",
+          "sha256": "2b18383724d5c0de7d86f47599d6351d33c76670fd647c681c794117e5f764cd",
+          "state": "UNVERIFIED",
+          "warning": "Scientific analysis completed. Optional Excel export could not be generated or verified (BadZipFile). Verified results remain available; existing files were preserved."
+        },
+        "foreign_bytes_preserved": true,
+        "state": "COMPLETED",
+        "workspace": {
+          "completion_marker": true,
+          "exists": true,
+          "failures": [],
+          "lock_left": false,
+          "metrics_dirs": [
+            "metrics/1A/T1",
+            "metrics/2A/T1",
+            "metrics/3A/T1",
+            "metrics/4A/T1"
+          ],
+          "stage_records": 14,
+          "summary_workbook": true
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "L6_cancel_near_completion": {
+      "auditor_note": "Harness error, not a product defect: the first predicate counted stage-level COMPLETED events as job-terminal events. The recorded observation shows exactly one job-terminal event (CANCELLED), no completion marker, no registration, and recovery RESUMABLE with every stage REUSE. The scenario was repeated with a corrected predicate as E17 in E17_E24_recovery_trust.json (CONTROLLED).",
+      "automated_verdict_as_first_recorded": "DEFECT",
+      "expected": "One terminal event; COMPLETED implies marker+registration; CANCELLED implies no registration (a finished workspace is reachable only via inspected Open Results).",
+      "failure_hypothesis": "Job reports CANCELLED and COMPLETED, or CANCELLED while a registered verified result exists, or COMPLETED without a marker.",
+      "invariant": "Cancel/completion race yields exactly one terminal state that is never a false COMPLETED nor a hidden success.",
+      "observed": {
+        "final_state": "CANCELLED",
+        "recovery": {
+          "classification": "RESUMABLE",
+          "executable": true,
+          "force_families": [
+            "demux",
+            "analysis",
+            "routing",
+            "metrics",
+            "statistics",
+            "report",
+            "all"
+          ],
+          "reasons": [],
+          "removal_paths": [],
+          "stage_actions": {
+            "analysis": "REUSE",
+            "demux": "REUSE",
+            "metrics::1A::T1": "REUSE",
+            "metrics::2A::T1": "REUSE",
+            "metrics::3A::T1": "REUSE",
+            "metrics::4A::T1": "REUSE",
+            "metrics_manifest": "REUSE",
+            "raw_inputs": "REUSE",
+            "report": "REUSE",
+            "routing::1A::T1": "REUSE",
+            "routing::2A::T1": "REUSE",
+            "routing::3A::T1": "REUSE",
+            "routing::4A::T1": "REUSE",
+            "statistics": "REUSE"
+          }
+        },
+        "tail_events": [
+          [
+            "RUNNING",
+            "RUNNING",
+            "report",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "report",
+            null
+          ],
+          [
+            "FINAL_VALIDATION",
+            "RUNNING",
+            null,
+            null
+          ],
+          [
+            "CANCEL_REQUESTED",
+            "CANCELLING",
+            null,
+            null
+          ],
+          [
+            "CONTAINMENT_CONFIRMED",
+            "CANCELLING",
+            null,
+            null
+          ],
+          [
+            "CANCELLED",
+            "CANCELLED",
+            null,
+            null
+          ]
+        ],
+        "terminal_events": [
+          [
+            "COMPLETED",
+            "RUNNING",
+            "raw_inputs",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "demux",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "analysis",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "routing::1A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "routing::2A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "routing::3A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "routing::4A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "metrics::1A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "metrics::2A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "metrics::3A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "metrics::4A::T1",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "metrics_manifest",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "statistics",
+            null
+          ],
+          [
+            "COMPLETED",
+            "RUNNING",
+            "report",
+            null
+          ],
+          [
+            "CANCELLED",
+            "CANCELLED",
+            null,
+            null
+          ]
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "failures": [
+            143
+          ],
+          "lock_left": false,
+          "metrics_dirs": [
+            "metrics/1A/T1",
+            "metrics/2A/T1",
+            "metrics/3A/T1",
+            "metrics/4A/T1"
+          ],
+          "stage_records": 14,
+          "summary_workbook": false
+        },
+        "workspace_id": null
+      },
+      "verdict": "CONTROLLED"
+    }
+  }
+}

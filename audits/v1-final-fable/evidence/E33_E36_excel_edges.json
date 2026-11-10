@@ -1,0 +1,175 @@
+{
+  "cases": {
+    "E33.null_is_not_zero_in_json_api_and_workbook": {
+      "expected": "5A exact: NOT_ASSESSABLE / null counts / \"Not available\" text; 5A native 40/100 numeric; 6A exact: REPORTABLE 0/50 shown as numeric 0 and \"0 / 50\"",
+      "observed": {
+        "api_5A_exact": [
+          null,
+          null,
+          null,
+          null,
+          "NOT_ASSESSABLE",
+          [
+            "ZERO_EXACT_DENOMINATOR"
+          ]
+        ],
+        "api_6A_exact": [
+          "0",
+          "50",
+          0.0,
+          "0%",
+          "REPORTABLE",
+          []
+        ],
+        "disk_5A_exact": [
+          "NOT_ASSESSABLE",
+          null,
+          null,
+          [
+            "ZERO_EXACT_DENOMINATOR"
+          ]
+        ],
+        "disk_5A_native": [
+          "REPORTABLE",
+          40,
+          100
+        ],
+        "disk_6A_exact": [
+          "REPORTABLE",
+          0,
+          50
+        ],
+        "job": "COMPLETED",
+        "xlsx_5A": [
+          [
+            "text",
+            "no_exact_products"
+          ],
+          [
+            "text",
+            "5A"
+          ],
+          [
+            "n",
+            "0.4"
+          ],
+          [
+            "text",
+            "40 / 100"
+          ],
+          [
+            "text",
+            "Not available"
+          ],
+          [
+            "text",
+            "Not available"
+          ]
+        ],
+        "xlsx_6A": [
+          [
+            "text",
+            "true_zero"
+          ],
+          [
+            "text",
+            "6A"
+          ],
+          [
+            "n",
+            "0"
+          ],
+          [
+            "text",
+            "0 / 50"
+          ],
+          [
+            "n",
+            "0"
+          ],
+          [
+            "text",
+            "0 / 50"
+          ]
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E34.workbook_uses_target_wide_not_copy_routed_metrics": {
+      "expected": "row equals target-wide stored counts and designed exact truth; no copy-cohort count pair appears",
+      "observed": {
+        "copy_values_that_must_not_appear": {
+          "copyA": [
+            [
+              80,
+              200
+            ],
+            [
+              80,
+              200
+            ]
+          ],
+          "copyB": [
+            [
+              30,
+              120
+            ],
+            [
+              30,
+              120
+            ]
+          ]
+        },
+        "designed_target_exact": [
+          150,
+          360
+        ],
+        "target_exact": [
+          150,
+          360
+        ],
+        "target_native": [
+          150,
+          385
+        ],
+        "xlsx_2C": [
+          "mc_edit",
+          "2C",
+          "0.3896103896103896",
+          "150 / 385",
+          "0.4166666666666667",
+          "150 / 360"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E35.large_integers_and_leading_zero_names_survive_as_text": {
+      "expected": "\"9223372036854775809 / 18446744073709551619\" stored as a string cell; sample name \"007\" stays text",
+      "observed": {
+        "count_cell": [
+          "text",
+          "9223372036854775809 / 18446744073709551619"
+        ],
+        "float_would_be": "9.223372036854776e+18",
+        "sample_name": [
+          "text",
+          "007"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E36.existing_workbook_is_never_overwritten_and_no_temp_left": {
+      "expected": "ValueError; bytes identical; only the workbook remains in the folder",
+      "observed": {
+        "folder": [
+          "PEAnalyzer_Summary.xlsx"
+        ],
+        "identical": true,
+        "refused": "Summary destination already exists; refusing to overwrite"
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "E33_E36_excel_edges",
+  "flagged": 0
+}

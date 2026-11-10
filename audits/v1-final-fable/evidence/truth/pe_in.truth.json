@@ -1,0 +1,124 @@
+{
+  "counts": {
+    "1A": {
+      "exact_pe": 0,
+      "exact_wt": 400,
+      "nick_deletion": 0,
+      "partial_pe": 0,
+      "pe_plus_extra": 0,
+      "unrelated": 10,
+      "wrong_substitution": 0,
+      "wt_plus_sub": 30
+    },
+    "2A": {
+      "exact_pe": 3,
+      "exact_wt": 300,
+      "nick_deletion": 5,
+      "partial_pe": 0,
+      "pe_plus_extra": 0,
+      "unrelated": 0,
+      "wrong_substitution": 0,
+      "wt_plus_sub": 10
+    },
+    "3A": {
+      "exact_pe": 100,
+      "exact_wt": 200,
+      "nick_deletion": 30,
+      "partial_pe": 40,
+      "pe_plus_extra": 60,
+      "unrelated": 5,
+      "wrong_substitution": 20,
+      "wt_plus_sub": 20
+    },
+    "4A": {
+      "exact_pe": 150,
+      "exact_wt": 100,
+      "nick_deletion": 10,
+      "partial_pe": 10,
+      "pe_plus_extra": 5,
+      "unrelated": 0,
+      "wrong_substitution": 0,
+      "wt_plus_sub": 120
+    }
+  },
+  "design": {
+    "copy_name": "copy1",
+    "edit_positions": [
+      78,
+      81
+    ],
+    "extension": "TTAGGTCCTCGATCAGGAGGAATTTGGT",
+    "partial": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "pe": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATCGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "spacer": "GGATACCAAATTCCTCCTTA",
+    "target_name": "T1",
+    "wt": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTTATGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA"
+  },
+  "expected_exact": {
+    "1A": {
+      "denominator": 400,
+      "numerator": 0
+    },
+    "2A": {
+      "denominator": 303,
+      "numerator": 3
+    },
+    "3A": {
+      "denominator": 300,
+      "numerator": 100
+    },
+    "4A": {
+      "denominator": 250,
+      "numerator": 150
+    }
+  },
+  "expected_prepared_pairs": {
+    "1A": 440,
+    "2A": 318,
+    "3A": 475,
+    "4A": 395
+  },
+  "meta": {
+    "1A": {
+      "dpi": 7,
+      "editor": "PE2",
+      "rep": "1",
+      "sample_name": "ctrl_rep1",
+      "treatment": "control"
+    },
+    "2A": {
+      "dpi": 7,
+      "editor": "PE2",
+      "rep": "2",
+      "sample_name": "ctrl_rep2",
+      "treatment": "control"
+    },
+    "3A": {
+      "dpi": 7,
+      "editor": "PE2",
+      "rep": "1",
+      "sample_name": "edit_rep1",
+      "treatment": "edited"
+    },
+    "4A": {
+      "dpi": 7,
+      "editor": "PE2",
+      "rep": "2",
+      "sample_name": "edit_rep2",
+      "treatment": "edited"
+    }
+  },
+  "molecules": {
+    "exact_pe": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATCGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "exact_wt": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTTATGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "nick_deletion": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTTGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "partial_pe": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "pe_plus_extra": "TTTCCTCATGCAATTCAAACAATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATCGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "unrelated": "ATTCGACCGAGTCTAGACCCGCATGCTTAACACTGGACTATCCCAACAGCCTGTAATATAAGTGTATAATAAGAATGCTTCTAGAGTACTGCGATATTTGCGACTGGCAGTAGGGTAGTATTGTGCACATGTGGCAGCGATCCGTCGGTCATTCATGTAACTGACAAGTCTCACCAAATGGTTACCGTGT",
+    "wrong_substitution": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATAGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+    "wt_plus_sub": "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTTATGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACTGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA"
+  },
+  "no_barcode_pairs": 15,
+  "total_pool_pairs": 1668,
+  "unexpected_valid_pairs": 25
+}

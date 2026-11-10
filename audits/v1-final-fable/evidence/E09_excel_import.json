@@ -1,0 +1,785 @@
+{
+  "cases": [
+    {
+      "actual": "ACCEPT",
+      "case": "baseline_two_rows",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        },
+        {
+          "barcode_id": "5B",
+          "biological_replicate": "2",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTGCTCT",
+          "paired": false,
+          "reverse_barcode": "CTGTGTAGT",
+          "sample_name": "s2",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "formula_in_sample_name",
+      "errors": [
+        "Formulas, error cells and hyperlinks are unsupported.",
+        "String should match pattern '^[A-Za-z0-9][A-Za-z0-9_.-]*$'"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "formula_in_dpi",
+      "errors": [
+        "Formulas, error cells and hyperlinks are unsupported.",
+        "dpi must be an integer"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "formula_text_dde_like",
+      "errors": [
+        "Formulas, error cells and hyperlinks are unsupported.",
+        "String should match pattern '^[A-Za-z0-9][A-Za-z0-9_.-]*$'"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "hyperlink_cell",
+      "errors": [
+        "External workbook relationships are unsupported."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "leading_zero_text_replicate_preserved",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "007",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "numeric_replicate_becomes_integer_text",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "A numeric Excel cell cannot carry leading zeros; documented: use text cells for IDs.",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "7",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "leading_zero_barcode_shorthand_rejected",
+      "errors": [
+        "04A is not present in the qualified QI-HITOM v1 barcode catalog."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "numeric_barcode_id_rejected",
+      "errors": [
+        "4 is not present in the qualified QI-HITOM v1 barcode catalog."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "unknown_reverse_barcode",
+      "errors": [
+        "4Z is not present in the qualified QI-HITOM v1 barcode catalog."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "unknown_forward_barcode",
+      "errors": [
+        "13A is not present in the qualified QI-HITOM v1 barcode catalog."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "lowercase_shorthand_rejected",
+      "errors": [
+        "4a is not present in the qualified QI-HITOM v1 barcode catalog."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "conflicting_explicit_catalog_id",
+      "errors": [
+        "Catalog ID conflicts with barcode_id shorthand."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "conflicting_explicit_sequence",
+      "errors": [
+        "s1: conflicting sequence for F4"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "redundant_matching_sequence_accepted",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "duplicate_barcode_rows",
+      "errors": [
+        "Duplicate barcode_id; first appears on row 2."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "duplicate_sample_names",
+      "errors": [
+        "Duplicate sample_name; first appears on row 2."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "missing_dpi",
+      "errors": [
+        "dpi must be an integer"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "fractional_dpi",
+      "errors": [
+        "Use text or an exact integer; dates, fractions and other cell types are unsupported.",
+        "dpi must be an integer"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "float_integer_dpi_accepted",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "6",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "negative_dpi",
+      "errors": [
+        "Input should be greater than or equal to 0"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "text_dpi_not_numeric",
+      "errors": [
+        "dpi must be an integer"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "missing_replicate",
+      "errors": [
+        "String should match pattern '^[A-Za-z0-9][A-Za-z0-9_.-]*$'"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "missing_treatment",
+      "errors": [
+        "String should have at least 1 character"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "date_cell_in_replicate",
+      "errors": [
+        "Use text or an exact integer; dates, fractions and other cell types are unsupported.",
+        "String should match pattern '^[A-Za-z0-9][A-Za-z0-9_.-]*$'"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "boolean_in_text_field",
+      "errors": [
+        "Use text or an exact integer; dates, fractions and other cell types are unsupported.",
+        "String should have at least 1 character"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "paired_true_without_block",
+      "errors": [
+        "Value error, paired samples require block_id"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "paired_true_with_block",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "leaf1",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": true,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "paired_yes_text_not_inferred",
+      "errors": [
+        "paired must be true or false"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "paired_text_TRUE_case_insensitive",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "leaf1",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": true,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "paired_numeric_1_not_inferred",
+      "errors": [
+        "paired must be true or false"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "blank_row_inside_table",
+      "errors": [
+        "Blank row inside active sample table."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "trailing_blank_rows_ignored",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "whitespace_trimmed_at_cell_edges",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "sample_name_with_space_rejected",
+      "errors": [
+        "String should match pattern '^[A-Za-z0-9][A-Za-z0-9_.-]*$'"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "duplicate_header",
+      "errors": [
+        "Duplicate/blank column headers are unsupported."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "unknown_header",
+      "errors": [
+        "Unknown column(s): genotype"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "missing_required_header",
+      "errors": [
+        "Unknown column(s): block_id2"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "hidden_row",
+      "errors": [
+        "Hidden rows/columns are unsupported."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "hidden_column",
+      "errors": [
+        "Hidden rows/columns are unsupported."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "merged_cells",
+      "errors": [
+        "Hidden sheets, merged cells, tables, charts and images are unsupported."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "extra_sheet",
+      "errors": [
+        "Unsupported workbook part: xl/worksheets/sheet3.xml"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "hidden_alternative_sheet_named_like_data",
+      "errors": [
+        "Unsupported workbook part: xl/worksheets/sheet3.xml"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "named_range",
+      "errors": [
+        "Use Samples and optional official Instructions only; named ranges are unsupported."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "instructions_version_changed",
+      "errors": [
+        "Unsupported template version or Instructions sheet."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "thousand_and_one_rows",
+      "errors": [
+        "Workbook exceeds 1000 sample rows or allowed column bounds."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "not_a_zip",
+      "errors": [
+        "File is not a zip file"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "empty_bytes",
+      "errors": [
+        "File is not a zip file"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "macro_part_added",
+      "errors": [
+        "Unsupported workbook part: xl/vbaProject.bin"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "external_link_part_added",
+      "errors": [
+        "Unsupported workbook part: xl/externalLinks/externalLink1.xml"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "xml_entity_expansion_in_sheet",
+      "errors": [
+        "EntitiesForbidden(name='a', system_id=None, public_id=None)"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "truncated_xml",
+      "errors": [
+        "unclosed token: line 1, column 201"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "expanded_archive_over_16MiB",
+      "errors": [
+        "Workbook archive exceeds the supported structure/expanded-size limit."
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "REJECT",
+      "case": "custom_profile_requires_sequences",
+      "errors": [
+        "Value error, forward barcode sequence or catalog ID is required"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "custom_profile_with_sequences",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "X1",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "ACGTAC",
+          "paired": false,
+          "reverse_barcode": "TGCATG",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        }
+      ]
+    },
+    {
+      "actual": "REJECT",
+      "case": "custom_profile_non_acgt_sequence",
+      "errors": [
+        "Value error, sequence must contain only A/C/G/T"
+      ],
+      "expected": "REJECT",
+      "note": "",
+      "ok": true,
+      "samples": []
+    },
+    {
+      "actual": "ACCEPT",
+      "case": "same_condition_same_replicate_import_keeps_both_rows",
+      "errors": [],
+      "expected": "ACCEPT",
+      "note": "Import is transport only; DUPLICATE_BIOLOGICAL_REPLICATE is raised by Validate & Review (checked in E10).",
+      "ok": true,
+      "samples": [
+        {
+          "barcode_id": "4A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTCTCGT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s1",
+          "treatment": "ctrl"
+        },
+        {
+          "barcode_id": "5A",
+          "biological_replicate": "1",
+          "block_id": "",
+          "dpi": "7",
+          "editor": "PE2",
+          "forward_barcode": "GCTTGCTCT",
+          "paired": false,
+          "reverse_barcode": "CTGTGCGTT",
+          "sample_name": "s2",
+          "treatment": "ctrl"
+        }
+      ]
+    }
+  ],
+  "experiment": "E09_excel_import_adversarial",
+  "failed": 0,
+  "passed": 57
+}

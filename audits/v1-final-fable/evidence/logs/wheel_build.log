@@ -1,0 +1,392 @@
+* Getting build dependencies for wheel...
+running egg_info
+creating src/crispresso_pe_pipeline.egg-info
+writing src/crispresso_pe_pipeline.egg-info/PKG-INFO
+writing dependency_links to src/crispresso_pe_pipeline.egg-info/dependency_links.txt
+writing entry points to src/crispresso_pe_pipeline.egg-info/entry_points.txt
+writing requirements to src/crispresso_pe_pipeline.egg-info/requires.txt
+writing top-level names to src/crispresso_pe_pipeline.egg-info/top_level.txt
+writing manifest file 'src/crispresso_pe_pipeline.egg-info/SOURCES.txt'
+reading manifest file 'src/crispresso_pe_pipeline.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m311'
+warning: no files found matching '*.csv' under directory 'docs/validation/m312'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m312'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m4'
+warning: no files found matching '*.csv' under directory 'docs/validation/m4'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m4'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m41'
+warning: no files found matching '*.csv' under directory 'docs/validation/m41'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m41'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m42'
+warning: no files found matching '*.csv' under directory 'docs/validation/m42'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m42'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m421'
+warning: no files found matching '*.csv' under directory 'docs/validation/m421'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m421'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m422'
+warning: no files found matching '*.csv' under directory 'docs/validation/m422'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m422'
+warning: no files found matching '*.sh' under directory 'docs/validation/m5'
+warning: no files found matching '*.sh' under directory 'docs/validation/m51'
+warning: no files found matching '*.sh' under directory 'docs/validation/m6'
+warning: no files found matching '*.sh' under directory 'docs/validation/m61'
+warning: no files found matching '*.sh' under directory 'docs/validation/readthrough'
+warning: no files found matching '*.txt' under directory 'docs/validation/m11c'
+writing manifest file 'src/crispresso_pe_pipeline.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/peanalyzer
+copying src/peanalyzer/cli.py -> build/lib/peanalyzer
+copying src/peanalyzer/synthetic_routing.py -> build/lib/peanalyzer
+copying src/peanalyzer/remediation.py -> build/lib/peanalyzer
+copying src/peanalyzer/result_dispatch.py -> build/lib/peanalyzer
+copying src/peanalyzer/routing.py -> build/lib/peanalyzer
+copying src/peanalyzer/demux_output.py -> build/lib/peanalyzer
+copying src/peanalyzer/__init__.py -> build/lib/peanalyzer
+copying src/peanalyzer/workflow_storage.py -> build/lib/peanalyzer
+copying src/peanalyzer/schemas.py -> build/lib/peanalyzer
+copying src/peanalyzer/reporting.py -> build/lib/peanalyzer
+copying src/peanalyzer/geometry.py -> build/lib/peanalyzer
+copying src/peanalyzer/statistical_models.py -> build/lib/peanalyzer
+copying src/peanalyzer/statistics.py -> build/lib/peanalyzer
+copying src/peanalyzer/barcodes.py -> build/lib/peanalyzer
+copying src/peanalyzer/workflow.py -> build/lib/peanalyzer
+copying src/peanalyzer/workflow_recovery.py -> build/lib/peanalyzer
+copying src/peanalyzer/demux_verify.py -> build/lib/peanalyzer
+copying src/peanalyzer/observability.py -> build/lib/peanalyzer
+copying src/peanalyzer/provenance.py -> build/lib/peanalyzer
+copying src/peanalyzer/workflow_models.py -> build/lib/peanalyzer
+copying src/peanalyzer/analysis_fastq.py -> build/lib/peanalyzer
+copying src/peanalyzer/reporting_models.py -> build/lib/peanalyzer
+copying src/peanalyzer/aggregation.py -> build/lib/peanalyzer
+copying src/peanalyzer/qualification.py -> build/lib/peanalyzer
+copying src/peanalyzer/__main__.py -> build/lib/peanalyzer
+copying src/peanalyzer/fastq.py -> build/lib/peanalyzer
+copying src/peanalyzer/workflow_integrity.py -> build/lib/peanalyzer
+copying src/peanalyzer/analysis_verify.py -> build/lib/peanalyzer
+copying src/peanalyzer/validation.py -> build/lib/peanalyzer
+copying src/peanalyzer/demux.py -> build/lib/peanalyzer
+creating build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/recovery_models.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/worker.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/summary_workbook.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/process_safety.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/jobs.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/artifacts.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/__init__.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/execution.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/recovery.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/projection.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/uploads.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/library.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/sample_workbook.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/export_integrity.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/setup_models.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/setup_validation.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/job_models.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/supervision.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/workspace.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/__main__.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/models.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/drafts.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/app.py -> build/lib/peanalyzer/gui
+copying src/peanalyzer/gui/desktop.py -> build/lib/peanalyzer/gui
+creating build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/products.py -> build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/__init__.py -> build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/family.py -> build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/family_models.py -> build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/models.py -> build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/policy_requests.py -> build/lib/peanalyzer/metrics
+copying src/peanalyzer/metrics/production.py -> build/lib/peanalyzer/metrics
+creating build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/synthetic.py -> build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/routing_validation.py -> build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/__init__.py -> build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/metrics.py -> build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/core.py -> build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/pooled.py -> build/lib/peanalyzer/backend
+copying src/peanalyzer/backend/comparator.py -> build/lib/peanalyzer/backend
+creating build/lib/peanalyzer/workflow_resources
+copying src/peanalyzer/workflow_resources/__init__.py -> build/lib/peanalyzer/workflow_resources
+creating build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/__init__.py -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/backend.py -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/targets.py -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/reporting.py -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/aggregation.py -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/qualification.py -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/models.py -> build/lib/peanalyzer/nuclease
+running egg_info
+writing src/crispresso_pe_pipeline.egg-info/PKG-INFO
+writing dependency_links to src/crispresso_pe_pipeline.egg-info/dependency_links.txt
+writing entry points to src/crispresso_pe_pipeline.egg-info/entry_points.txt
+writing requirements to src/crispresso_pe_pipeline.egg-info/requires.txt
+writing top-level names to src/crispresso_pe_pipeline.egg-info/top_level.txt
+reading manifest file 'src/crispresso_pe_pipeline.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m311'
+warning: no files found matching '*.csv' under directory 'docs/validation/m312'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m312'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m4'
+warning: no files found matching '*.csv' under directory 'docs/validation/m4'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m4'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m41'
+warning: no files found matching '*.csv' under directory 'docs/validation/m41'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m41'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m42'
+warning: no files found matching '*.csv' under directory 'docs/validation/m42'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m42'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m421'
+warning: no files found matching '*.csv' under directory 'docs/validation/m421'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m421'
+warning: no files found matching '*.jsonl' under directory 'docs/validation/m422'
+warning: no files found matching '*.csv' under directory 'docs/validation/m422'
+warning: no files found matching '*.tsv' under directory 'docs/validation/m422'
+warning: no files found matching '*.sh' under directory 'docs/validation/m5'
+warning: no files found matching '*.sh' under directory 'docs/validation/m51'
+warning: no files found matching '*.sh' under directory 'docs/validation/m6'
+warning: no files found matching '*.sh' under directory 'docs/validation/m61'
+warning: no files found matching '*.sh' under directory 'docs/validation/readthrough'
+warning: no files found matching '*.txt' under directory 'docs/validation/m11c'
+writing manifest file 'src/crispresso_pe_pipeline.egg-info/SOURCES.txt'
+creating build/lib/peanalyzer/barcode_sets
+copying src/peanalyzer/barcode_sets/qi_hitom_v1.csv -> build/lib/peanalyzer/barcode_sets
+creating build/lib/peanalyzer/profiles
+copying src/peanalyzer/profiles/qi_hitom_v1.yaml -> build/lib/peanalyzer/profiles
+copying src/peanalyzer/metrics/result.schema.json -> build/lib/peanalyzer/metrics
+creating build/lib/peanalyzer/statistics_resources
+copying src/peanalyzer/statistics_resources/result.schema.json -> build/lib/peanalyzer/statistics_resources
+copying src/peanalyzer/statistics_resources/contrasts.schema.json -> build/lib/peanalyzer/statistics_resources
+creating build/lib/peanalyzer/reporting_resources
+copying src/peanalyzer/reporting_resources/report_manifest.schema.json -> build/lib/peanalyzer/reporting_resources
+copying src/peanalyzer/reporting_resources/report.css -> build/lib/peanalyzer/reporting_resources
+copying src/peanalyzer/workflow_resources/workflow_manifest.schema.json -> build/lib/peanalyzer/workflow_resources
+copying src/peanalyzer/workflow_resources/stage_manifest.schema.json -> build/lib/peanalyzer/workflow_resources
+copying src/peanalyzer/nuclease/result.schema.json -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/target.schema.json -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/report.schema.json -> build/lib/peanalyzer/nuclease
+copying src/peanalyzer/nuclease/statistics.schema.json -> build/lib/peanalyzer/nuclease
+creating build/lib/peanalyzer/gui/static
+copying src/peanalyzer/gui/static/index.html -> build/lib/peanalyzer/gui/static
+copying src/peanalyzer/gui/static/build-identity.json -> build/lib/peanalyzer/gui/static
+creating build/lib/peanalyzer/gui/static/assets
+copying src/peanalyzer/gui/static/assets/index-Bpzot19A.css -> build/lib/peanalyzer/gui/static/assets
+copying src/peanalyzer/gui/static/assets/index-DHit4Qqe.js -> build/lib/peanalyzer/gui/static/assets
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/peanalyzer
+copying build/lib/peanalyzer/cli.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/synthetic_routing.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/reporting_resources
+copying build/lib/peanalyzer/reporting_resources/report_manifest.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/reporting_resources
+copying build/lib/peanalyzer/reporting_resources/report.css -> build/bdist.linux-x86_64/wheel/./peanalyzer/reporting_resources
+copying build/lib/peanalyzer/remediation.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/result_dispatch.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/statistics_resources
+copying build/lib/peanalyzer/statistics_resources/result.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/statistics_resources
+copying build/lib/peanalyzer/statistics_resources/contrasts.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/statistics_resources
+copying build/lib/peanalyzer/routing.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/gui
+copying build/lib/peanalyzer/gui/recovery_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/worker.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/summary_workbook.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/process_safety.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/jobs.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/artifacts.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/__init__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+creating build/bdist.linux-x86_64/wheel/peanalyzer/gui/static
+creating build/bdist.linux-x86_64/wheel/peanalyzer/gui/static/assets
+copying build/lib/peanalyzer/gui/static/assets/index-Bpzot19A.css -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui/static/assets
+copying build/lib/peanalyzer/gui/static/assets/index-DHit4Qqe.js -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui/static/assets
+copying build/lib/peanalyzer/gui/static/index.html -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui/static
+copying build/lib/peanalyzer/gui/static/build-identity.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui/static
+copying build/lib/peanalyzer/gui/execution.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/recovery.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/projection.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/uploads.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/library.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/sample_workbook.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/export_integrity.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/setup_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/setup_validation.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/job_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/supervision.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/workspace.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/__main__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/drafts.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/app.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/gui/desktop.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/gui
+copying build/lib/peanalyzer/demux_output.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/products.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/result.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/__init__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/family.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/family_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/policy_requests.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+copying build/lib/peanalyzer/metrics/production.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/metrics
+creating build/bdist.linux-x86_64/wheel/peanalyzer/profiles
+copying build/lib/peanalyzer/profiles/qi_hitom_v1.yaml -> build/bdist.linux-x86_64/wheel/./peanalyzer/profiles
+copying build/lib/peanalyzer/__init__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/workflow_storage.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/backend
+copying build/lib/peanalyzer/backend/synthetic.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/backend/routing_validation.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/backend/__init__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/backend/metrics.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/backend/core.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/backend/pooled.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/backend/comparator.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/backend
+copying build/lib/peanalyzer/schemas.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/reporting.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/geometry.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/statistical_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/statistics.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/barcodes.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/workflow.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/workflow_recovery.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/demux_verify.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/observability.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/workflow_resources
+copying build/lib/peanalyzer/workflow_resources/__init__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/workflow_resources
+copying build/lib/peanalyzer/workflow_resources/workflow_manifest.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/workflow_resources
+copying build/lib/peanalyzer/workflow_resources/stage_manifest.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/workflow_resources
+creating build/bdist.linux-x86_64/wheel/peanalyzer/barcode_sets
+copying build/lib/peanalyzer/barcode_sets/qi_hitom_v1.csv -> build/bdist.linux-x86_64/wheel/./peanalyzer/barcode_sets
+copying build/lib/peanalyzer/provenance.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/workflow_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/analysis_fastq.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/reporting_models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/aggregation.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/qualification.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/__main__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/fastq.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/workflow_integrity.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/analysis_verify.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+copying build/lib/peanalyzer/validation.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+creating build/bdist.linux-x86_64/wheel/peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/result.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/__init__.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/backend.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/targets.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/reporting.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/target.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/report.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/statistics.schema.json -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/aggregation.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/qualification.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/nuclease/models.py -> build/bdist.linux-x86_64/wheel/./peanalyzer/nuclease
+copying build/lib/peanalyzer/demux.py -> build/bdist.linux-x86_64/wheel/./peanalyzer
+running install_egg_info
+Copying src/crispresso_pe_pipeline.egg-info to build/bdist.linux-x86_64/wheel/./crispresso_pe_pipeline-1.0.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/crispresso_pe_pipeline-1.0.0.dist-info/WHEEL
+creating '/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/wheel/dist/.tmp-04mjqcvk/crispresso_pe_pipeline-1.0.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'peanalyzer/__init__.py'
+adding 'peanalyzer/__main__.py'
+adding 'peanalyzer/aggregation.py'
+adding 'peanalyzer/analysis_fastq.py'
+adding 'peanalyzer/analysis_verify.py'
+adding 'peanalyzer/barcodes.py'
+adding 'peanalyzer/cli.py'
+adding 'peanalyzer/demux.py'
+adding 'peanalyzer/demux_output.py'
+adding 'peanalyzer/demux_verify.py'
+adding 'peanalyzer/fastq.py'
+adding 'peanalyzer/geometry.py'
+adding 'peanalyzer/observability.py'
+adding 'peanalyzer/provenance.py'
+adding 'peanalyzer/qualification.py'
+adding 'peanalyzer/remediation.py'
+adding 'peanalyzer/reporting.py'
+adding 'peanalyzer/reporting_models.py'
+adding 'peanalyzer/result_dispatch.py'
+adding 'peanalyzer/routing.py'
+adding 'peanalyzer/schemas.py'
+adding 'peanalyzer/statistical_models.py'
+adding 'peanalyzer/statistics.py'
+adding 'peanalyzer/synthetic_routing.py'
+adding 'peanalyzer/validation.py'
+adding 'peanalyzer/workflow.py'
+adding 'peanalyzer/workflow_integrity.py'
+adding 'peanalyzer/workflow_models.py'
+adding 'peanalyzer/workflow_recovery.py'
+adding 'peanalyzer/workflow_storage.py'
+adding 'peanalyzer/backend/__init__.py'
+adding 'peanalyzer/backend/comparator.py'
+adding 'peanalyzer/backend/core.py'
+adding 'peanalyzer/backend/metrics.py'
+adding 'peanalyzer/backend/pooled.py'
+adding 'peanalyzer/backend/routing_validation.py'
+adding 'peanalyzer/backend/synthetic.py'
+adding 'peanalyzer/barcode_sets/qi_hitom_v1.csv'
+adding 'peanalyzer/gui/__init__.py'
+adding 'peanalyzer/gui/__main__.py'
+adding 'peanalyzer/gui/app.py'
+adding 'peanalyzer/gui/artifacts.py'
+adding 'peanalyzer/gui/desktop.py'
+adding 'peanalyzer/gui/drafts.py'
+adding 'peanalyzer/gui/execution.py'
+adding 'peanalyzer/gui/export_integrity.py'
+adding 'peanalyzer/gui/job_models.py'
+adding 'peanalyzer/gui/jobs.py'
+adding 'peanalyzer/gui/library.py'
+adding 'peanalyzer/gui/models.py'
+adding 'peanalyzer/gui/process_safety.py'
+adding 'peanalyzer/gui/projection.py'
+adding 'peanalyzer/gui/recovery.py'
+adding 'peanalyzer/gui/recovery_models.py'
+adding 'peanalyzer/gui/sample_workbook.py'
+adding 'peanalyzer/gui/setup_models.py'
+adding 'peanalyzer/gui/setup_validation.py'
+adding 'peanalyzer/gui/summary_workbook.py'
+adding 'peanalyzer/gui/supervision.py'
+adding 'peanalyzer/gui/uploads.py'
+adding 'peanalyzer/gui/worker.py'
+adding 'peanalyzer/gui/workspace.py'
+adding 'peanalyzer/gui/static/build-identity.json'
+adding 'peanalyzer/gui/static/index.html'
+adding 'peanalyzer/gui/static/assets/index-Bpzot19A.css'
+adding 'peanalyzer/gui/static/assets/index-DHit4Qqe.js'
+adding 'peanalyzer/metrics/__init__.py'
+adding 'peanalyzer/metrics/family.py'
+adding 'peanalyzer/metrics/family_models.py'
+adding 'peanalyzer/metrics/models.py'
+adding 'peanalyzer/metrics/policy_requests.py'
+adding 'peanalyzer/metrics/production.py'
+adding 'peanalyzer/metrics/products.py'
+adding 'peanalyzer/metrics/result.schema.json'
+adding 'peanalyzer/nuclease/__init__.py'
+adding 'peanalyzer/nuclease/aggregation.py'
+adding 'peanalyzer/nuclease/backend.py'
+adding 'peanalyzer/nuclease/models.py'
+adding 'peanalyzer/nuclease/qualification.py'
+adding 'peanalyzer/nuclease/report.schema.json'
+adding 'peanalyzer/nuclease/reporting.py'
+adding 'peanalyzer/nuclease/result.schema.json'
+adding 'peanalyzer/nuclease/statistics.schema.json'
+adding 'peanalyzer/nuclease/target.schema.json'
+adding 'peanalyzer/nuclease/targets.py'
+adding 'peanalyzer/profiles/qi_hitom_v1.yaml'
+adding 'peanalyzer/reporting_resources/report.css'
+adding 'peanalyzer/reporting_resources/report_manifest.schema.json'
+adding 'peanalyzer/statistics_resources/contrasts.schema.json'
+adding 'peanalyzer/statistics_resources/result.schema.json'
+adding 'peanalyzer/workflow_resources/__init__.py'
+adding 'peanalyzer/workflow_resources/stage_manifest.schema.json'
+adding 'peanalyzer/workflow_resources/workflow_manifest.schema.json'
+adding 'crispresso_pe_pipeline-1.0.0.dist-info/METADATA'
+adding 'crispresso_pe_pipeline-1.0.0.dist-info/WHEEL'
+adding 'crispresso_pe_pipeline-1.0.0.dist-info/entry_points.txt'
+adding 'crispresso_pe_pipeline-1.0.0.dist-info/top_level.txt'
+adding 'crispresso_pe_pipeline-1.0.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built crispresso_pe_pipeline-1.0.0-py3-none-any.whl
