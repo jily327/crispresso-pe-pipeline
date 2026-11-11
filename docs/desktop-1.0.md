@@ -1,9 +1,11 @@
 # PEAnalyzer 1.0 desktop use
 
+For the v1.0.1 maintenance upgrade, see [release notes](release-notes-1.0.1.md) and the [Windows smoke-test checklist](validation/v1.0.1-audit-remediation/WINDOWS_SMOKE_TEST.md). Keep the permanent BAT and library roots; install the new wheel into a separate release directory before updating `peanalyzer-current`.
+
 The desktop release adds Light/Dark themes, a bounded analysis library, optional
 Windows Explorer reveal, and a top-level precise-edit summary workbook. Scientific
-calculations and the M11B/M11C supervision, recovery and authentication rules are
-unchanged.
+calculations are unchanged. The v1.0.1 recovery and credential improvements retain
+the M11B/M11C supervision and deletion-safety guarantees.
 
 ## Light and Dark
 
@@ -53,16 +55,16 @@ waits up to three minutes for Docker in Ubuntu-24.04, and calls the stable WSL e
 Install each release into its own WSL directory, for example:
 
 ```sh
-mkdir -p "$HOME/peanalyzer1.0.0"
-python3 -m venv "$HOME/peanalyzer1.0.0/venv"
-"$HOME/peanalyzer1.0.0/venv/bin/pip" install 'crispresso-pe-pipeline[gui]==1.0.0'
-cp desktop/run-oneclick.sh "$HOME/peanalyzer1.0.0/run-oneclick.sh"
-chmod +x "$HOME/peanalyzer1.0.0/run-oneclick.sh"
-ln -sfn "$HOME/peanalyzer1.0.0" "$HOME/peanalyzer-current"
+mkdir -p "$HOME/peanalyzer1.0.1"
+python3 -m venv "$HOME/peanalyzer1.0.1/venv"
+"$HOME/peanalyzer1.0.1/venv/bin/pip" install '/path/to/crispresso_pe_pipeline-1.0.1-py3-none-any.whl[gui]'
+cp desktop/run-oneclick.sh "$HOME/peanalyzer1.0.1/run-oneclick.sh"
+chmod +x "$HOME/peanalyzer1.0.1/run-oneclick.sh"
+ln -sfn "$HOME/peanalyzer1.0.1" "$HOME/peanalyzer-current"
 ```
 
-Install from the qualified release wheel instead of the package index when that
-wheel is the distributed artifact. The stable entry must be a symlink (not an
+Replace `/path/to/` with the downloaded, qualified release wheel location. The
+stable entry must be a symlink (not an
 existing ordinary directory). Point it at the next installed release to update;
 the permanent BAT remains unchanged. Keep the previous release for rollback.
 
@@ -71,8 +73,9 @@ The launcher reads the installed distribution version. New output parents are
 Set `PEANALYZER_LIBRARY_ROOT` in the WSL login environment to choose another stable
 library location. Set `PEANALYZER_CRISPRESSO` to the existing qualified executable
 wrapper, or install it at the release's `bin/CRISPResso`. The launcher checks Docker
-availability, but does not replace the backend's pinned CRISPResso2 2.3.4 runtime
-checks. On WSL, the launcher waits for the server-generated local URL and requests
+availability. Execution checks CRISPResso2 2.3.4 and the executable bytes; the
+qualified image digest is declared, not independently attested by the launcher.
+On WSL, the launcher waits for the server-generated local URL and requests
 that Windows open it in the default browser via PowerShell. This is best-effort:
 if Windows interop or browser launch fails, open the printed URL manually; the
 server stays running. The token-bearing URL is recorded in a private (0600),

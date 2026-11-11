@@ -109,7 +109,7 @@ def test_software_change_requires_explicit_full_rebuild(case,monkeypatch):
 def test_orphan_requires_force_and_wrong_force_does_not_authorize(case):
     options,_=partial(case);root=options['output'];(root/'report').mkdir();(root/'report/partial').write_text('partial')
     app,c=client_for(options);v=open_preview(c)
-    assert v['classification']=='RESUMABLE_WITH_FORCE' and not v['executable']
+    assert v['classification']=='UNSUPPORTED' and not v['executable']
     r=c.post(f"/api/v1/recovery/{v['recovery_id']}/preview",json=dict(revision=v['revision'],force=['report']))
     assert not r.json()['executable']
     assert r.json()['reasons'][0]['code']=='FOREIGN_CONTENT_PRESENT'

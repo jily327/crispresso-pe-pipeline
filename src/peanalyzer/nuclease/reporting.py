@@ -18,8 +18,8 @@ def extend_html(page,spec):
         parts.append(_table('Backend population and provenance',[dict(identity_mechanism=result['identity_mechanism'],
             backend_input_reads=result['backend_input_reads'],reads_after_preprocessing=result['reads_after_preprocessing'],
             aligned_reads=result['aligned_reads'],unaligned_reads=result['unaligned_reads'],class_counts=result['class_counts'],
-            crispresso_version=result['provenance']['crispresso_version'],runtime_digest=result['provenance']['runtime_digest'])],
-            ['identity_mechanism','backend_input_reads','reads_after_preprocessing','aligned_reads','unaligned_reads','class_counts','crispresso_version','runtime_digest']))
+            crispresso_version=result['provenance']['crispresso_version'],declared_qualified_runtime=result['provenance']['runtime_digest'])],
+            ['identity_mechanism','backend_input_reads','reads_after_preprocessing','aligned_reads','unaligned_reads','class_counts','crispresso_version','declared_qualified_runtime']))
         sizes=[dict(net_delta_bp=k,**v) for k,v in result['fraction_of_indel_reads_by_net_size'].items()]
         parts.append(_table('Fraction of indel reads by NET size',sizes,['net_delta_bp','numerator','denominator','fraction']))
         alleles=sorted(result['alleles'],key=lambda a:(-a['reads'],canonical(a['authoritative_fields'])))

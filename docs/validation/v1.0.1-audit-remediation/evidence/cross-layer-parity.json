@@ -1,0 +1,242 @@
+{
+  "passed": 59,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "metrics/1A/T1/result.json:target_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/1A/T1/result.json:copies",
+      "passed": true
+    },
+    {
+      "name": "metrics/1A/T1/result.json:eligibility",
+      "passed": true
+    },
+    {
+      "name": "metrics/1A/T1/result.json:qc",
+      "passed": true
+    },
+    {
+      "name": "metrics/1A/T1/result.json:product_evidence",
+      "passed": true
+    },
+    {
+      "name": "metrics/1A/T1/result.json:derived_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/2A/T1/result.json:target_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/2A/T1/result.json:copies",
+      "passed": true
+    },
+    {
+      "name": "metrics/2A/T1/result.json:eligibility",
+      "passed": true
+    },
+    {
+      "name": "metrics/2A/T1/result.json:qc",
+      "passed": true
+    },
+    {
+      "name": "metrics/2A/T1/result.json:product_evidence",
+      "passed": true
+    },
+    {
+      "name": "metrics/2A/T1/result.json:derived_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/3A/T1/result.json:target_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/3A/T1/result.json:copies",
+      "passed": true
+    },
+    {
+      "name": "metrics/3A/T1/result.json:eligibility",
+      "passed": true
+    },
+    {
+      "name": "metrics/3A/T1/result.json:qc",
+      "passed": true
+    },
+    {
+      "name": "metrics/3A/T1/result.json:product_evidence",
+      "passed": true
+    },
+    {
+      "name": "metrics/3A/T1/result.json:derived_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/4A/T1/result.json:target_metrics",
+      "passed": true
+    },
+    {
+      "name": "metrics/4A/T1/result.json:copies",
+      "passed": true
+    },
+    {
+      "name": "metrics/4A/T1/result.json:eligibility",
+      "passed": true
+    },
+    {
+      "name": "metrics/4A/T1/result.json:qc",
+      "passed": true
+    },
+    {
+      "name": "metrics/4A/T1/result.json:product_evidence",
+      "passed": true
+    },
+    {
+      "name": "metrics/4A/T1/result.json:derived_metrics",
+      "passed": true
+    },
+    {
+      "name": "statistics:observations",
+      "passed": true
+    },
+    {
+      "name": "statistics:group_summaries",
+      "passed": true
+    },
+    {
+      "name": "statistics:contrasts",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:1Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:1Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:1Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:1Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:1Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:1Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:1Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:1Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:2Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:2Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:2Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:2Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:2Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:2Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:2Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:2Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:3Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:3Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:3Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:3Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:3Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:3Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:3Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:3Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:4Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:4Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:4Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:4Atotal_precise_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP counts:4Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "HTTP fraction:4Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel fraction:4Atarget_crispresso_native_pe",
+      "passed": true
+    },
+    {
+      "name": "Excel counts:4Atarget_crispresso_native_pe",
+      "passed": true
+    }
+  ]
+}

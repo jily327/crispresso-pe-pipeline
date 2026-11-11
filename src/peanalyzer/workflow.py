@@ -250,10 +250,10 @@ def _manifest_csv(plan):
     return stream.getvalue()
 
 
-def validate_stage(plan, node, status):
+def validate_stage(plan, node, status, *, output_override=None):
     """Validate existing outputs without invoking any scientific executor."""
     root = Path(plan.output)
-    output = owned(root, node.output_path)
+    output = output_override if output_override is not None else owned(root, node.output_path)
     kind = node.stage_kind
     if kind in ('raw_inputs', 'external_demux'):
         if read_json(output) != {k:v.model_dump() for k,v in inputs_for(plan,node).items()}:
@@ -294,7 +294,9 @@ def validate_stage(plan, node, status):
         if result.provenance.target_definitions_sha256 != metric_digest([t.model_dump() for t in targets_for(plan,node)]):
             raise WorkflowError('METRICS_TARGET_MISMATCH', node.stage_id)
         if read_json(output / 'execution_failures.json'):
-            raise WorkflowError('BACKEND_EXECUTION_FAILED', node.stage_id)
+            raise WorkflowError('BACKEND_EXECUTION_FAILED',
+                f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '
+                'Inspect execution_failures.json in the retained metrics attempt. Check read quality, mate overlap and sample selection in Setup/Review; no sample was omitted.',node.stage_id)
     elif kind == 'metrics_manifest':
         if output.read_text() != _manifest_csv(plan):
             raise WorkflowError('METRICS_COVERAGE_MISMATCH', 'manifest rows differ from the complete inventory')
@@ -368,18 +370,19 @@ def execute_stage(plan, node, completed, argv):
         else:
             route_analysis(root / 'analysis', node.sample_id, targets, output, RoutingPolicy())
     elif kind == 'metrics':
+        from peanalyzer.workflow_publication import publish_metrics
         route = completed[f'routing::{node.sample_id}::{node.target_name}']
         policies = None
         if 'policies' in plan.inputs:
             policies = yaml.load(_file(plan,'policies').read_text(), Loader=UniqueKeyLoader)
         if targets_for(plan,node)[0].analysis_mode == 'indel_nuclease':
             if policies is not None:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',node.stage_id)
-            run_nuclease_metrics(analysis_root=root/'analysis',sample_id=node.sample_id,targets=targets_for(plan,node),
-                analysis_id='m7-'+digest([node.sample_id,node.target_name]),output=output,
+            publish_metrics(plan,node,run_nuclease_metrics,analysis_root=root/'analysis',sample_id=node.sample_id,targets=targets_for(plan,node),
+                analysis_id='m7-'+digest([node.sample_id,node.target_name]),
                 core=resolve_executable(plan.backend_identity.executable),runtime_digest=plan.backend_identity.runtime_digest)
             return status,reasons
-        run_metrics(analysis_root=root / 'analysis', sample_id=node.sample_id, targets=targets_for(plan,node),
-            analysis_id='m7-' + digest([node.sample_id, node.target_name]), output=output,
+        publish_metrics(plan,node,run_metrics,analysis_root=root / 'analysis', sample_id=node.sample_id, targets=targets_for(plan,node),
+            analysis_id='m7-' + digest([node.sample_id, node.target_name]),
             core=resolve_executable(plan.backend_identity.executable),
             routing_root=root / route.node.output_path if route.status == 'COMPLETED' else None,
             runtime_digest=plan.backend_identity.runtime_digest, tolerance_policies=policies)
@@ -454,8 +457,14 @@ def _graph_change(old, new, force):
 def _invalidate(root, old, new, force):
     """Delete only fixed, validated plan-owned paths, never stored arbitrary paths."""
     nodes = {n.stage_id:n for p in (old,new) for n in p.nodes if n.stage_id in force_closure(p,force)}
-    # Prove every deletion safe before mutating anything. Reject nested symlinks too.
+    from peanalyzer.workflow_recovery import stored_manifests, check_removal_contents, remove_manifested_directory
+    from peanalyzer.workflow_integrity import authenticate
+    authenticate(root,old)
+    manifests=stored_manifests(old)
+    # Recheck at commitment, then unlink only individually authenticated paths.
+    # A file planted after this check can prevent rmdir, never be swept by rmtree.
     for node in nodes.values():
+        check_removal_contents(root,node,manifests.get(node.stage_id))
         path = owned(root,node.output_path)
         owned(root,stage_manifest_path(node))
         if path.exists() and path.is_dir():
@@ -466,7 +475,7 @@ def _invalidate(root, old, new, force):
     for node in reversed(list(nodes.values())):
         path = owned(root,node.output_path)
         if path.is_dir():
-            shutil.rmtree(path)
+            remove_manifested_directory(root,node,manifests.get(node.stage_id))
         elif path.exists():
             path.unlink()
         owned(root,stage_manifest_path(node)).unlink(missing_ok=True)
@@ -617,6 +626,7 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
             workspace_owned=True
         from peanalyzer.workflow_integrity import RecoveryIntegrity, authenticate, signing_key
         integrity = authenticate(root,old) if resume else RecoveryIntegrity(root,signing_key(create=True),{})
+        if resume:integrity.persist_credential()
         if force:
             _invalidate(root,old,plan,force)
         _snapshots(plan)
@@ -656,8 +666,16 @@ def execute_workflow(*, resume=False, force=(), argv=None, observer=None, expect
                 result = StageManifest(**_expected(plan,node,refs),status=status,reason_codes=reasons,
                     output_artifacts=inventory(root,node.output_path),started_at=stage_start,ended_at=utc(),
                     validation=['stage_contract','output_inventory_sha256','source_identity','dependency_identity'])
-                atomic_json(path,result)
-                integrity.record(stage_manifest_path(node),result)
+                # Metrics publication signs its prepared inventory independently;
+                # refresh the receipt before adding the stage completion.
+                if node.stage_kind=='metrics':
+                    integrity=authenticate(root,plan)
+                    integrity.commit_new(stage_manifest_path(node),result)
+                    integrity.publications.pop(node.stage_id,None)
+                    integrity.save()
+                else:
+                    atomic_json(path,result)
+                    integrity.record(stage_manifest_path(node),result)
                 executed.append(node.stage_id)
             completed[node.stage_id] = result
             identities[node.stage_id] = dependency(root,node,result)

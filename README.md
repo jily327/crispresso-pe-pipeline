@@ -1,11 +1,14 @@
 # crispresso-pe-pipeline
 
-Version **1.0.0** adds Light/Dark themes, historical analysis discovery, a stable
+Version **1.0.1** addresses audit recovery, credentials, provenance and export findings; see [release notes](docs/release-notes-1.0.1.md) and [qualification](docs/validation/v1.0.1-audit-remediation/README.md).
+
+Version **1.0.0** added Light/Dark themes, historical analysis discovery, a stable
 Windows/WSL launcher, completed-folder reveal and a top-level PE summary workbook.
 See [desktop use](docs/desktop-1.0.md). The previous release added browser FASTQ upload, official Excel sample-template
 import, side-by-side primary PE metrics, and visible Run final verification.
 See [input workflows, limits and metric definitions](docs/practical-ux-inputs.md).
-Scientific calculations and M11C recovery contracts are unchanged.
+Scientific calculations and M11C deletion-safety guarantees are preserved; the
+v1.0.1 release notes describe recovery publication and credential changes.
 
 Version 0.8.0 adds a separate CRISPResso-backed single-copy `indel_nuclease` mode
 while preserving `precise_edit`. See [M8 nuclease contracts](docs/m8-nuclease.md)

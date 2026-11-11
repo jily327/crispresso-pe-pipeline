@@ -1,0 +1,18 @@
+{
+  "version": "1.0.1",
+  "clean_wheel_sha256": "3bac6e89b77ad3e0a3b810a6c6b65f82af5232871f5befb4aaa5a82e4c8ab1d1",
+  "tested_wheel_sha256": "58a8304b0c637e4c3f4aa6456a80346664191cfdf706fb721db7366debe05296",
+  "package_files_identical_to_tested_wheel_and_source": 94,
+  "metadata_difference": "Final README wording only; package code/resources unchanged",
+  "source_date_epoch": "1793824842",
+  "build": "clean source copy; no isolation; locked qualification environment",
+  "sdist": "Final committed source archive checked separately after documentation completion",
+  "final_wheel_smoke": {
+    "passed": 5,
+    "failed": 0,
+    "seconds": 1.79,
+    "command": "python -m pytest -q tests/test_cli.py tests/test_practical_version.py",
+    "imported_from_installed_wheel": true,
+    "version": "1.0.1"
+  }
+}

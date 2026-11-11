@@ -1,0 +1,294 @@
+{
+  "passed": 48,
+  "failed": 0,
+  "checks": [
+    {
+      "window": "W2",
+      "sample": "4B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "4B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "4B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "4B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "4B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "4B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "3B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "3B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "3B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "3B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "3B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "3B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "2B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "2B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "2B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "2B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "2B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "2B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "1B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "1B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "1B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "1B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "1B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W2",
+      "sample": "1B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "4B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "4B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "4B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "4B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "4B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "4B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "3B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "3B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "3B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "3B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "3B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "3B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "2B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "2B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "2B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "2B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "2B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "2B",
+      "field": "alleles",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "1B",
+      "field": "metrics",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "1B",
+      "field": "class_counts",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "1B",
+      "field": "aligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "1B",
+      "field": "unaligned_reads",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "1B",
+      "field": "fraction_of_indel_reads_by_net_size",
+      "passed": true
+    },
+    {
+      "window": "W4",
+      "sample": "1B",
+      "field": "alleles",
+      "passed": true
+    }
+  ]
+}

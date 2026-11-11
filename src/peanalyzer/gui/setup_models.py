@@ -1,6 +1,6 @@
 """Editable drafts and non-executable, backend-owned setup previews."""
 from typing import Literal
-from pydantic import Field, PrivateAttr
+from pydantic import Field, PrivateAttr, field_validator
 from peanalyzer.gui.models import Model, FieldValue
 
 Step = Literal['samples', 'mode', 'target', 'configuration', 'review']
@@ -26,6 +26,13 @@ class DraftSample(Model):
     biological_replicate: str = ''
     paired: bool = False
     block_id: str = ''
+
+    @field_validator('barcode_id')
+    @classmethod
+    def normalized_barcode(cls,value):
+        # Match the existing authoritative Sample contract. Invalid characters
+        # remain visible to the normal Setup validator; case is never changed.
+        return value.strip()
 
 
 class PETargetDraft(Model):

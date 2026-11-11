@@ -1,0 +1,26 @@
+{
+  "empty_sample": "BACKEND_EXECUTION_FAILED: metrics::bc001::T1",
+  "nonempty_metrics_files": [
+    "metrics/bc001/T1/result.json",
+    "metrics/bc001/T1/execution_failures.json",
+    "metrics/bc001/T1/comparator/comparator.json",
+    "metrics/bc001/T1/comparator/copy1/input_R1.fastq.gz",
+    "metrics/bc001/T1/comparator/copy1/input_R2.fastq.gz",
+    "metrics/bc001/T1/comparator/copy1/stderr.txt",
+    "metrics/bc001/T1/comparator/copy1/execution.json",
+    "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt",
+    "metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json"
+  ],
+  "resume_[]": "ORPHANED_STAGE_OUTPUT [metrics::bc001::T1]: metrics/bc001/T1",
+  "resume_['metrics']": "FOREIGN_CONTENT_PRESENT [metrics::bc001::T1]: Unowned removal entries: metrics/bc001/T1/comparator, metrics/bc001/T1/comparator/comparator.json, metrics/bc001/T1/comparator/copy1, metrics/bc001/T1/comparator/copy1/execution.json, metrics/bc001/T1/comparator/copy1/input_R1.fastq.gz, metrics/bc001/T1/comparator/copy1/input_R2.fastq.gz, metrics/bc001/T1/comparator/copy1/output, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json, metrics/bc001/T1/comparator/copy1/stderr.txt, metrics/bc001/T1/comparator/copy1/stdout.txt, metrics/bc001/T1/execution_failures.json, metrics/bc001/T1/result.json",
+  "resume_['routing']": "FOREIGN_CONTENT_PRESENT [metrics::bc001::T1]: Unowned removal entries: metrics/bc001/T1/comparator, metrics/bc001/T1/comparator/comparator.json, metrics/bc001/T1/comparator/copy1, metrics/bc001/T1/comparator/copy1/execution.json, metrics/bc001/T1/comparator/copy1/input_R1.fastq.gz, metrics/bc001/T1/comparator/copy1/input_R2.fastq.gz, metrics/bc001/T1/comparator/copy1/output, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json, metrics/bc001/T1/comparator/copy1/stderr.txt, metrics/bc001/T1/comparator/copy1/stdout.txt, metrics/bc001/T1/execution_failures.json, metrics/bc001/T1/result.json",
+  "resume_['all']": "FOREIGN_CONTENT_PRESENT [metrics::bc001::T1]: Unowned removal entries: metrics/bc001/T1/comparator, metrics/bc001/T1/comparator/comparator.json, metrics/bc001/T1/comparator/copy1, metrics/bc001/T1/comparator/copy1/execution.json, metrics/bc001/T1/comparator/copy1/input_R1.fastq.gz, metrics/bc001/T1/comparator/copy1/input_R2.fastq.gz, metrics/bc001/T1/comparator/copy1/output, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt, metrics/bc001/T1/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_status.json, metrics/bc001/T1/comparator/copy1/stderr.txt, metrics/bc001/T1/comparator/copy1/stdout.txt, metrics/bc001/T1/execution_failures.json, metrics/bc001/T1/result.json",
+  "regenerated_key": "TAMPERED_RECOVERY_INTEGRITY: Recovery history authentication failed",
+  "padded_export": "Accepted sample order does not match verified sample identities",
+  "runtime_claim": {
+    "executable": "/workspace/peanalyzer-runtime/bin/CRISPResso",
+    "executable_sha256": "5642126bf8386ac12b297f114c8b0ad3a89db70f7bedca863236f6c2be08bce1",
+    "version": "2.3.4",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+  }
+}

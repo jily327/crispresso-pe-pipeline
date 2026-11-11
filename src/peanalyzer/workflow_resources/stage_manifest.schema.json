@@ -40,6 +40,7 @@
           "type": "string"
         },
         "runtime_digest": {
+          "description": "Declared qualified runtime; not observed image identity or attestation",
           "minLength": 1,
           "title": "Runtime Digest",
           "type": "string"

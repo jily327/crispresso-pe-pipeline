@@ -1,0 +1,252 @@
+{
+  "checked": 41,
+  "all_match": true,
+  "dependencies": [
+    {
+      "package": "PyYAML",
+      "expected": "6.0.3",
+      "observed": "6.0.3",
+      "match": true
+    },
+    {
+      "package": "Pygments",
+      "expected": "2.21.0",
+      "observed": "2.21.0",
+      "match": true
+    },
+    {
+      "package": "annotated-types",
+      "expected": "0.8.0",
+      "observed": "0.8.0",
+      "match": true
+    },
+    {
+      "package": "build",
+      "expected": "1.6.1",
+      "observed": "1.6.1",
+      "match": true
+    },
+    {
+      "package": "biopython",
+      "expected": "1.85",
+      "observed": "1.85",
+      "match": true
+    },
+    {
+      "package": "contourpy",
+      "expected": "1.4.0",
+      "observed": "1.4.0",
+      "match": true
+    },
+    {
+      "package": "cycler",
+      "expected": "0.12.1",
+      "observed": "0.12.1",
+      "match": true
+    },
+    {
+      "package": "fonttools",
+      "expected": "4.67.0",
+      "observed": "4.67.0",
+      "match": true
+    },
+    {
+      "package": "iniconfig",
+      "expected": "2.3.1",
+      "observed": "2.3.1",
+      "match": true
+    },
+    {
+      "package": "kiwisolver",
+      "expected": "1.5.1",
+      "observed": "1.5.1",
+      "match": true
+    },
+    {
+      "package": "matplotlib",
+      "expected": "3.11.2",
+      "observed": "3.11.2",
+      "match": true
+    },
+    {
+      "package": "numpy",
+      "expected": "2.5.4",
+      "observed": "2.5.4",
+      "match": true
+    },
+    {
+      "package": "packaging",
+      "expected": "26.3",
+      "observed": "26.3",
+      "match": true
+    },
+    {
+      "package": "pillow",
+      "expected": "13.0.0",
+      "observed": "13.0.0",
+      "match": true
+    },
+    {
+      "package": "pluggy",
+      "expected": "1.7.0",
+      "observed": "1.7.0",
+      "match": true
+    },
+    {
+      "package": "pydantic",
+      "expected": "2.14.1",
+      "observed": "2.14.1",
+      "match": true
+    },
+    {
+      "package": "pydantic_core",
+      "expected": "2.50.1",
+      "observed": "2.50.1",
+      "match": true
+    },
+    {
+      "package": "pyparsing",
+      "expected": "3.3.3",
+      "observed": "3.3.3",
+      "match": true
+    },
+    {
+      "package": "pyproject_hooks",
+      "expected": "1.3.3",
+      "observed": "1.3.3",
+      "match": true
+    },
+    {
+      "package": "pytest",
+      "expected": "8.4.2",
+      "observed": "8.4.2",
+      "match": true
+    },
+    {
+      "package": "python-dateutil",
+      "expected": "2.9.0.post0",
+      "observed": "2.9.0.post0",
+      "match": true
+    },
+    {
+      "package": "setuptools",
+      "expected": "80.9.0",
+      "observed": "80.9.0",
+      "match": true
+    },
+    {
+      "package": "six",
+      "expected": "1.17.0",
+      "observed": "1.17.0",
+      "match": true
+    },
+    {
+      "package": "typing-inspection",
+      "expected": "0.4.4",
+      "observed": "0.4.4",
+      "match": true
+    },
+    {
+      "package": "typing_extensions",
+      "expected": "4.16.0",
+      "observed": "4.16.0",
+      "match": true
+    },
+    {
+      "package": "wheel",
+      "expected": "0.45.1",
+      "observed": "0.45.1",
+      "match": true
+    },
+    {
+      "package": "annotated-doc",
+      "expected": "0.0.5",
+      "observed": "0.0.5",
+      "match": true
+    },
+    {
+      "package": "anyio",
+      "expected": "4.15.1",
+      "observed": "4.15.1",
+      "match": true
+    },
+    {
+      "package": "certifi",
+      "expected": "2026.10.23",
+      "observed": "2026.10.23",
+      "match": true
+    },
+    {
+      "package": "click",
+      "expected": "8.5.0",
+      "observed": "8.5.0",
+      "match": true
+    },
+    {
+      "package": "fastapi",
+      "expected": "0.162.0",
+      "observed": "0.162.0",
+      "match": true
+    },
+    {
+      "package": "h11",
+      "expected": "0.16.0",
+      "observed": "0.16.0",
+      "match": true
+    },
+    {
+      "package": "httpcore",
+      "expected": "1.0.9",
+      "observed": "1.0.9",
+      "match": true
+    },
+    {
+      "package": "httpx",
+      "expected": "0.28.1",
+      "observed": "0.28.1",
+      "match": true
+    },
+    {
+      "package": "idna",
+      "expected": "3.20",
+      "observed": "3.20",
+      "match": true
+    },
+    {
+      "package": "opentelemetry-api",
+      "expected": "1.45.1",
+      "observed": "1.45.1",
+      "match": true
+    },
+    {
+      "package": "starlette",
+      "expected": "0.46.2",
+      "observed": "0.46.2",
+      "match": true
+    },
+    {
+      "package": "uvicorn",
+      "expected": "0.54.0",
+      "observed": "0.54.0",
+      "match": true
+    },
+    {
+      "package": "openpyxl",
+      "expected": "3.1.5",
+      "observed": "3.1.5",
+      "match": true
+    },
+    {
+      "package": "et_xmlfile",
+      "expected": "2.0.0",
+      "observed": "2.0.0",
+      "match": true
+    },
+    {
+      "package": "defusedxml",
+      "expected": "0.7.1",
+      "observed": "0.7.1",
+      "match": true
+    }
+  ]
+}

@@ -31,3 +31,5 @@ recursive-include src/peanalyzer/gui/static *.json *.html *.js *.css
 
 recursive-include docs/validation/m101 *.json *.md
 recursive-include docs/validation/m11c *.json *.md *.txt *.py *.sh
+recursive-include docs/validation/v1.0.1-audit-remediation *.json *.md *.py *.sh
+include desktop/PEAnalyzer.bat desktop/run-oneclick.sh

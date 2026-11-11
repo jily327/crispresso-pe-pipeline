@@ -35,7 +35,14 @@ chmod 600 "$launch_log"
   --setup-output-root "$output_root" --run-crispresso "$core_command" "$@" \
   > >(tee "$launch_log") 2>&1 &
 server_pid=$!
-trap 'kill "$server_pid" 2>/dev/null || true' INT TERM
+cleanup() {
+  kill "$server_pid" 2>/dev/null || true
+  wait "$server_pid" 2>/dev/null || true
+  rm -f -- "$launch_log"
+}
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 url=""
 for ((attempt=0; attempt<150; attempt++)); do

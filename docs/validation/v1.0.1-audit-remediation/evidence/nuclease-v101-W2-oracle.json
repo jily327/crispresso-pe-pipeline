@@ -1,0 +1,904 @@
+{
+  "checks": [
+    {
+      "actual": 1,
+      "check": "1B.single_backend_run",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "check": "1B.backend_window_equals_independent_tigr_geometry",
+      "expected": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "ok": true
+    },
+    {
+      "actual": 530,
+      "check": "1B.allele_rows_sum_to_aligned",
+      "expected": 530,
+      "ok": true
+    },
+    {
+      "actual": {
+        "any_modification_fraction": [
+          0,
+          530
+        ],
+        "deletion_containing_fraction": [
+          0,
+          530
+        ],
+        "indel_fraction": [
+          0,
+          530
+        ],
+        "indel_only_fraction": [
+          0,
+          530
+        ],
+        "indel_plus_substitution_fraction": [
+          0,
+          530
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          530
+        ],
+        "insertion_containing_fraction": [
+          0,
+          530
+        ],
+        "substitution_containing_fraction": [
+          0,
+          530
+        ],
+        "substitution_only_fraction": [
+          0,
+          530
+        ],
+        "unmodified_fraction": [
+          530,
+          530
+        ]
+      },
+      "check": "1B.all_ten_metrics_vs_independent_parse",
+      "expected": {
+        "any_modification_fraction": [
+          0,
+          530
+        ],
+        "deletion_containing_fraction": [
+          0,
+          530
+        ],
+        "indel_fraction": [
+          0,
+          530
+        ],
+        "indel_only_fraction": [
+          0,
+          530
+        ],
+        "indel_plus_substitution_fraction": [
+          0,
+          530
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          530
+        ],
+        "insertion_containing_fraction": [
+          0,
+          530
+        ],
+        "substitution_containing_fraction": [
+          0,
+          530
+        ],
+        "substitution_only_fraction": [
+          0,
+          530
+        ],
+        "unmodified_fraction": [
+          530,
+          530
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": 530,
+      "check": "1B.exclusive_classes_partition_aligned",
+      "expected": 530,
+      "ok": true
+    },
+    {
+      "actual": {},
+      "check": "1B.net_size_bins_vs_independent_parse",
+      "expected": {},
+      "ok": true
+    },
+    {
+      "actual": 530,
+      "check": "1B.backend_input_equals_designed_pairs",
+      "expected": 530,
+      "ok": true
+    },
+    {
+      "actual": 530,
+      "check": "1B.aligned_equals_designed_minus_unrelated",
+      "expected": 530,
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "2B.single_backend_run",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "check": "2B.backend_window_equals_independent_tigr_geometry",
+      "expected": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "ok": true
+    },
+    {
+      "actual": 456,
+      "check": "2B.allele_rows_sum_to_aligned",
+      "expected": 456,
+      "ok": true
+    },
+    {
+      "actual": {
+        "any_modification_fraction": [
+          6,
+          456
+        ],
+        "deletion_containing_fraction": [
+          0,
+          456
+        ],
+        "indel_fraction": [
+          0,
+          456
+        ],
+        "indel_only_fraction": [
+          0,
+          456
+        ],
+        "indel_plus_substitution_fraction": [
+          0,
+          456
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          456
+        ],
+        "insertion_containing_fraction": [
+          0,
+          456
+        ],
+        "substitution_containing_fraction": [
+          6,
+          456
+        ],
+        "substitution_only_fraction": [
+          6,
+          456
+        ],
+        "unmodified_fraction": [
+          450,
+          456
+        ]
+      },
+      "check": "2B.all_ten_metrics_vs_independent_parse",
+      "expected": {
+        "any_modification_fraction": [
+          6,
+          456
+        ],
+        "deletion_containing_fraction": [
+          0,
+          456
+        ],
+        "indel_fraction": [
+          0,
+          456
+        ],
+        "indel_only_fraction": [
+          0,
+          456
+        ],
+        "indel_plus_substitution_fraction": [
+          0,
+          456
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          456
+        ],
+        "insertion_containing_fraction": [
+          0,
+          456
+        ],
+        "substitution_containing_fraction": [
+          6,
+          456
+        ],
+        "substitution_only_fraction": [
+          6,
+          456
+        ],
+        "unmodified_fraction": [
+          450,
+          456
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": 456,
+      "check": "2B.exclusive_classes_partition_aligned",
+      "expected": 456,
+      "ok": true
+    },
+    {
+      "actual": {},
+      "check": "2B.net_size_bins_vs_independent_parse",
+      "expected": {},
+      "ok": true
+    },
+    {
+      "actual": 460,
+      "check": "2B.backend_input_equals_designed_pairs",
+      "expected": 460,
+      "ok": true
+    },
+    {
+      "actual": 456,
+      "check": "2B.aligned_equals_designed_minus_unrelated",
+      "expected": 456,
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "3B.single_backend_run",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "check": "3B.backend_window_equals_independent_tigr_geometry",
+      "expected": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "ok": true
+    },
+    {
+      "actual": 535,
+      "check": "3B.allele_rows_sum_to_aligned",
+      "expected": 535,
+      "ok": true
+    },
+    {
+      "actual": {
+        "any_modification_fraction": [
+          190,
+          535
+        ],
+        "deletion_containing_fraction": [
+          110,
+          535
+        ],
+        "indel_fraction": [
+          150,
+          535
+        ],
+        "indel_only_fraction": [
+          140,
+          535
+        ],
+        "indel_plus_substitution_fraction": [
+          10,
+          535
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          535
+        ],
+        "insertion_containing_fraction": [
+          40,
+          535
+        ],
+        "substitution_containing_fraction": [
+          50,
+          535
+        ],
+        "substitution_only_fraction": [
+          40,
+          535
+        ],
+        "unmodified_fraction": [
+          345,
+          535
+        ]
+      },
+      "check": "3B.all_ten_metrics_vs_independent_parse",
+      "expected": {
+        "any_modification_fraction": [
+          190,
+          535
+        ],
+        "deletion_containing_fraction": [
+          110,
+          535
+        ],
+        "indel_fraction": [
+          150,
+          535
+        ],
+        "indel_only_fraction": [
+          140,
+          535
+        ],
+        "indel_plus_substitution_fraction": [
+          10,
+          535
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          535
+        ],
+        "insertion_containing_fraction": [
+          40,
+          535
+        ],
+        "substitution_containing_fraction": [
+          50,
+          535
+        ],
+        "substitution_only_fraction": [
+          40,
+          535
+        ],
+        "unmodified_fraction": [
+          345,
+          535
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": 535,
+      "check": "3B.exclusive_classes_partition_aligned",
+      "expected": 535,
+      "ok": true
+    },
+    {
+      "actual": {
+        "-3": [
+          10,
+          150
+        ],
+        "-5": [
+          80,
+          150
+        ],
+        "-50": [
+          20,
+          150
+        ],
+        "3": [
+          40,
+          150
+        ]
+      },
+      "check": "3B.net_size_bins_vs_independent_parse",
+      "expected": {
+        "-3": [
+          10,
+          150
+        ],
+        "-5": [
+          80,
+          150
+        ],
+        "-50": [
+          20,
+          150
+        ],
+        "3": [
+          40,
+          150
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": 540,
+      "check": "3B.backend_input_equals_designed_pairs",
+      "expected": 540,
+      "ok": true
+    },
+    {
+      "actual": 535,
+      "check": "3B.aligned_equals_designed_minus_unrelated",
+      "expected": 535,
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "4B.single_backend_run",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "check": "4B.backend_window_equals_independent_tigr_geometry",
+      "expected": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "ok": true
+    },
+    {
+      "actual": 360,
+      "check": "4B.allele_rows_sum_to_aligned",
+      "expected": 360,
+      "ok": true
+    },
+    {
+      "actual": {
+        "any_modification_fraction": [
+          160,
+          360
+        ],
+        "deletion_containing_fraction": [
+          150,
+          360
+        ],
+        "indel_fraction": [
+          160,
+          360
+        ],
+        "indel_only_fraction": [
+          160,
+          360
+        ],
+        "indel_plus_substitution_fraction": [
+          0,
+          360
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          360
+        ],
+        "insertion_containing_fraction": [
+          10,
+          360
+        ],
+        "substitution_containing_fraction": [
+          0,
+          360
+        ],
+        "substitution_only_fraction": [
+          0,
+          360
+        ],
+        "unmodified_fraction": [
+          200,
+          360
+        ]
+      },
+      "check": "4B.all_ten_metrics_vs_independent_parse",
+      "expected": {
+        "any_modification_fraction": [
+          160,
+          360
+        ],
+        "deletion_containing_fraction": [
+          150,
+          360
+        ],
+        "indel_fraction": [
+          160,
+          360
+        ],
+        "indel_only_fraction": [
+          160,
+          360
+        ],
+        "indel_plus_substitution_fraction": [
+          0,
+          360
+        ],
+        "insertion_and_deletion_containing_fraction": [
+          0,
+          360
+        ],
+        "insertion_containing_fraction": [
+          10,
+          360
+        ],
+        "substitution_containing_fraction": [
+          0,
+          360
+        ],
+        "substitution_only_fraction": [
+          0,
+          360
+        ],
+        "unmodified_fraction": [
+          200,
+          360
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": 360,
+      "check": "4B.exclusive_classes_partition_aligned",
+      "expected": 360,
+      "ok": true
+    },
+    {
+      "actual": {
+        "-5": [
+          120,
+          160
+        ],
+        "-50": [
+          30,
+          160
+        ],
+        "3": [
+          10,
+          160
+        ]
+      },
+      "check": "4B.net_size_bins_vs_independent_parse",
+      "expected": {
+        "-5": [
+          120,
+          160
+        ],
+        "-50": [
+          30,
+          160
+        ],
+        "3": [
+          10,
+          160
+        ]
+      },
+      "ok": true
+    },
+    {
+      "actual": 360,
+      "check": "4B.backend_input_equals_designed_pairs",
+      "expected": 360,
+      "ok": true
+    },
+    {
+      "actual": 360,
+      "check": "4B.aligned_equals_designed_minus_unrelated",
+      "expected": 360,
+      "ok": true
+    },
+    {
+      "actual": [
+        0,
+        530
+      ],
+      "check": "1B.stats_observation_equals_metric",
+      "expected": [
+        0,
+        530
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        0,
+        456
+      ],
+      "check": "2B.stats_observation_equals_metric",
+      "expected": [
+        0,
+        456
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        150,
+        535
+      ],
+      "check": "3B.stats_observation_equals_metric",
+      "expected": [
+        150,
+        535
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        160,
+        360
+      ],
+      "check": "4B.stats_observation_equals_metric",
+      "expected": [
+        160,
+        360
+      ],
+      "ok": true
+    }
+  ],
+  "detail": {
+    "1B": {
+      "aligned": 530,
+      "backend_bins": {},
+      "backend_classes": {
+        "unmodified": 530
+      },
+      "backend_flags": {
+        "any": 0,
+        "both": 0,
+        "deletion": 0,
+        "insertion": 0,
+        "substitution": 0
+      },
+      "designed_classes": {
+        "unmodified": 530
+      },
+      "designed_molecules": {
+        "deletion_outside_window": 10,
+        "substitution_outside_window": 20,
+        "wt": 500
+      },
+      "resolved_args_subset": {
+        "default_min_aln_score": 60,
+        "discard_indel_reads": false,
+        "exclude_bp_from_left": 0,
+        "exclude_bp_from_right": 0,
+        "ignore_deletions": false,
+        "ignore_insertions": false,
+        "ignore_substitutions": false,
+        "min_average_read_quality": 0,
+        "min_single_bp_quality": 0,
+        "plot_window_size": 20,
+        "quantification_window_coordinates": "84-93",
+        "use_legacy_insertion_quantification": false
+      }
+    },
+    "2B": {
+      "aligned": 456,
+      "backend_bins": {},
+      "backend_classes": {
+        "substitution_only": 6,
+        "unmodified": 450
+      },
+      "backend_flags": {
+        "any": 6,
+        "both": 0,
+        "deletion": 0,
+        "insertion": 0,
+        "substitution": 6
+      },
+      "designed_classes": {
+        "substitution_only": 6,
+        "unaligned": 4,
+        "unmodified": 450
+      },
+      "designed_molecules": {
+        "substitution_in_window": 6,
+        "unrelated": 4,
+        "wt": 450
+      },
+      "resolved_args_subset": {
+        "default_min_aln_score": 60,
+        "discard_indel_reads": false,
+        "exclude_bp_from_left": 0,
+        "exclude_bp_from_right": 0,
+        "ignore_deletions": false,
+        "ignore_insertions": false,
+        "ignore_substitutions": false,
+        "min_average_read_quality": 0,
+        "min_single_bp_quality": 0,
+        "plot_window_size": 20,
+        "quantification_window_coordinates": "84-93",
+        "use_legacy_insertion_quantification": false
+      }
+    },
+    "3B": {
+      "aligned": 535,
+      "backend_bins": {
+        "-3": 10,
+        "-5": 80,
+        "-50": 20,
+        "3": 40
+      },
+      "backend_classes": {
+        "indel_only": 140,
+        "indel_plus_substitution": 10,
+        "substitution_only": 40,
+        "unmodified": 345
+      },
+      "backend_flags": {
+        "any": 190,
+        "both": 0,
+        "deletion": 110,
+        "indel": 150,
+        "insertion": 40,
+        "substitution": 50
+      },
+      "designed_classes": {
+        "indel_only": 155,
+        "indel_plus_substitution": 10,
+        "see_notes": 25,
+        "substitution_only": 25,
+        "unaligned": 5,
+        "unmodified": 320
+      },
+      "designed_molecules": {
+        "deletion_in_window": 80,
+        "deletion_outside_window": 12,
+        "deletion_plus_substitution": 10,
+        "ins_and_del_net_zero": 15,
+        "insertion_in_window": 40,
+        "large_deletion_spanning_window": 20,
+        "separated_del5_ins2": 7,
+        "separated_ins_del_net_zero": 18,
+        "substitution_in_window": 25,
+        "substitution_outside_window": 8,
+        "unrelated": 5,
+        "wt": 300
+      },
+      "resolved_args_subset": {
+        "default_min_aln_score": 60,
+        "discard_indel_reads": false,
+        "exclude_bp_from_left": 0,
+        "exclude_bp_from_right": 0,
+        "ignore_deletions": false,
+        "ignore_insertions": false,
+        "ignore_substitutions": false,
+        "min_average_read_quality": 0,
+        "min_single_bp_quality": 0,
+        "plot_window_size": 20,
+        "quantification_window_coordinates": "84-93",
+        "use_legacy_insertion_quantification": false
+      }
+    },
+    "4B": {
+      "aligned": 360,
+      "backend_bins": {
+        "-5": 120,
+        "-50": 30,
+        "3": 10
+      },
+      "backend_classes": {
+        "indel_only": 160,
+        "unmodified": 200
+      },
+      "backend_flags": {
+        "any": 160,
+        "both": 0,
+        "deletion": 150,
+        "indel": 160,
+        "insertion": 10,
+        "substitution": 0
+      },
+      "designed_classes": {
+        "indel_only": 160,
+        "unmodified": 200
+      },
+      "designed_molecules": {
+        "deletion_in_window": 120,
+        "insertion_in_window": 10,
+        "large_deletion_spanning_window": 30,
+        "wt": 200
+      },
+      "resolved_args_subset": {
+        "default_min_aln_score": 60,
+        "discard_indel_reads": false,
+        "exclude_bp_from_left": 0,
+        "exclude_bp_from_right": 0,
+        "ignore_deletions": false,
+        "ignore_insertions": false,
+        "ignore_substitutions": false,
+        "min_average_read_quality": 0,
+        "min_single_bp_quality": 0,
+        "plot_window_size": 20,
+        "quantification_window_coordinates": "84-93",
+        "use_legacy_insertion_quantification": false
+      }
+    }
+  },
+  "failed": 0,
+  "passed": 36,
+  "window": "W2",
+  "workspace": "pe-v101-nuclease-W2"
+}

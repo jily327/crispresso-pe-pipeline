@@ -33,7 +33,7 @@ def ordered_samples(plan, sample_order=None):
         if sha(path) != source.sha256:
             raise ValueError('Sample source changed before export')
         with path.open(newline='', encoding='utf-8-sig') as stream:
-            ids = [row['barcode_id'] for row in csv.DictReader(stream)]
+            ids = [row['barcode_id'].strip() for row in csv.DictReader(stream)]
         if sha(path) != source.sha256 or len(ids) != len(samples) or set(ids) != set(samples):
             raise ValueError('Sample source order does not match the verified plan')
         return [samples[key] for key in ids]
@@ -133,6 +133,8 @@ def write_summary(root, view, plan, *, sample_order=None):
         ('Ordering', 'Accepted GUI input order, checked against verified sample identities.' if sample_order is not None else 'Stored sample CSV order (GUI-generated CSVs use canonical barcode order); otherwise deterministic barcode ID order.'),
         ('Unavailable values', 'Not available means missing, BLOCKED or NOT_ASSESSABLE; never zero-filled.'),
         ('Export provenance', 'Server projection of verified stored target-primary observations before viewer publication.'),
+        ('Declared qualified runtime', plan.backend_identity.runtime_digest if hasattr(plan,'backend_identity') else 'Not recorded'),
+        ('Runtime identity limitation', 'The declared digest is not image attestation. The observed executable/version do not establish which Docker image ran.'),
         ('Verified source snapshot', view.snapshot_id),
         ('Metric sources', '\n'.join(sorted({o.source.name + ' SHA-256 ' + o.source.sha256 for o in observations.values()}))),
     ]:

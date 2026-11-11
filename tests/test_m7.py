@@ -233,17 +233,19 @@ def test_interrupted_without_orphan_resumes_upstream(case,monkeypatch):
 
 
 @pytest.mark.parametrize('cancel',[False,True])
-def test_metrics_orphan_needs_force_and_cancellation_unwinds(case,monkeypatch,cancel):
+def test_metrics_attempt_is_unpublished_and_cancellation_unwinds(case,monkeypatch,cancel):
     options,counts=case;original=w.run_metrics
     def fail(**kwargs):
         Path(kwargs['output']).mkdir(parents=True)
+        (Path(kwargs['output'])/'partial.txt').write_text('nonempty backend output')
         raise SystemExit(143) if cancel else RuntimeError('partial backend output')
     monkeypatch.setattr(w,'run_metrics',fail)
     with pytest.raises(SystemExit if cancel else w.WorkflowError):w.execute_workflow(**options)
     assert not (options['output']/'workflow_manifest.json').exists()
     assert not options['output'].with_name('.workflow.m7-lock').exists()
     monkeypatch.setattr(w,'run_metrics',original)
-    with pytest.raises(w.WorkflowError,match='ORPHANED_STAGE_OUTPUT'):w.resume_workflow(**options)
+    assert not (options['output']/'metrics/bc001/T1').exists()
+    w.resume_workflow(**options)
     w.resume_workflow(**options,force=['metrics'])
 
 

@@ -32,7 +32,7 @@ def test_foreign_removal_entries_refused_without_any_mutation(case,monkeypatch,f
     before=snapshot(root);raw=options['r1'].read_bytes()
     monkeypatch.setattr(w,'_invalidate',lambda *a:pytest.fail('invalidation entered'))
     _,c=client_for(options);v=force(c,open_preview(c),family)
-    assert not v['executable'] and v['classification']=='TAMPERED'
+    assert not v['executable'] and v['classification']==('TAMPERED' if entry=='symlink' else 'UNSUPPORTED')
     assert v['reasons'][0]['code'] in {'FOREIGN_CONTENT_PRESENT','UNSAFE_PATH'}
     if entry!='symlink':assert str(path.relative_to(root)) in v['reasons'][0]['detail']
     with pytest.raises(ValueError):w.resume_workflow(**options,force=[family])

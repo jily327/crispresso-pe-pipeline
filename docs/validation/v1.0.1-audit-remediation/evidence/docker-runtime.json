@@ -1,0 +1,14 @@
+{
+  "declared_image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "observed_container_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "observed_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "observed_repo_digests": [
+    "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+  ],
+  "versions": {
+    "CRISPResso": "CRISPResso 2.3.4",
+    "fastp": "fastp 1.3.3"
+  },
+  "network": "none",
+  "scope": "Independent qualification observation from local Docker daemon; not a product attestation guarantee"
+}

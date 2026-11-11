@@ -152,7 +152,9 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
         stages.append(Stage(stage_id=stage_id,label='Single-copy identity check' if mode=='indel_nuclease' and s.node.stage_kind=='routing' else s.node.stage_kind,
             status=s.status,history='reused' if stage_id in manifest.session.reused_stages else 'executed',signature=s.stage_signature_sha256,started_at=s.started_at,ended_at=s.ended_at))
     provenance = fields(dict(viewer_version=__version__,source_software=manifest.software_identity.model_dump(),
-        analysis_mode=mode,CRISPResso_version=plan.backend_identity.version,runtime_digest=plan.backend_identity.runtime_digest,
+        analysis_mode=mode,observed_CRISPResso_version=plan.backend_identity.version,declared_qualified_runtime=plan.backend_identity.runtime_digest,
+        observed_executable=plan.backend_identity.executable,observed_executable_sha256=plan.backend_identity.executable_sha256,
+        runtime_provenance='Image identity unverified; the qualified digest is a declaration, not attestation. Executable hash may identify a wrapper only.',
         input_identities={k:dict(sha256=v.sha256,size_bytes=str(v.size_bytes)) for k,v in manifest.input_inventory.items()},
         limitations=manifest.limitations,statistics_source_sha256=manifest.statistics_result.sha256,report_manifest_sha256=manifest.report_manifest.sha256))
     native = False
