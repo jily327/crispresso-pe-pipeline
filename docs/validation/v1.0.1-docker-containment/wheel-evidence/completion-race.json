@@ -1,0 +1,13 @@
+{
+  "state": {
+    "status": "removing",
+    "running": false,
+    "pid": 0,
+    "id": "a18208a996a344757d1c3035eac7335cbca7b6f2e7c2acdbb4119df52c50111e"
+  },
+  "guard": {
+    "reason": "backend_exit",
+    "backend_returncode": 0
+  },
+  "wrapper_returncode": -15
+}

@@ -1,6 +1,6 @@
 # PEAnalyzer 1.0 desktop use
 
-For the v1.0.1 maintenance upgrade, see [release notes](release-notes-1.0.1.md) and the [Windows smoke-test checklist](validation/v1.0.1-audit-remediation/WINDOWS_SMOKE_TEST.md). Keep the permanent BAT and library roots; install the new wheel into a separate release directory before updating `peanalyzer-current`.
+For the v1.0.1 maintenance upgrade, follow the [guarded Docker installation and rollback instructions](docker-runtime-1.0.1.md); the new launcher rejects the old persistent-container wrapper. Also see [release notes](release-notes-1.0.1.md) and the [Windows smoke-test checklist](validation/v1.0.1-audit-remediation/WINDOWS_SMOKE_TEST.md). Keep the permanent BAT and library roots; install the new wheel into a separate release directory before updating `peanalyzer-current`.
 
 The desktop release adds Light/Dark themes, a bounded analysis library, optional
 Windows Explorer reveal, and a top-level precise-edit summary workbook. Scientific

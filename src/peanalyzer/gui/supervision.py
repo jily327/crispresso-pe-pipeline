@@ -36,8 +36,11 @@ def supervise(action,emit,parent_pid,parent_start,grace=5.0,uncertainty_timeout=
     if cancelled:
         emit(dict(status='CONTAINMENT_CONFIRMED'))
         return 1
+    from peanalyzer.docker_runtime import DockerSession
+    docker_session=DockerSession()
     child=os.fork()
     if child==0:
+        docker_session.child_environment()
         # Science keeps the existing CLI's main-thread SIGTERM unwind behavior.
         signal.signal(signal.SIGTERM,signal.SIG_DFL);signal.signal(signal.SIGINT,signal.SIG_DFL)
         code=1
@@ -90,9 +93,18 @@ def supervise(action,emit,parent_pid,parent_start,grace=5.0,uncertainty_timeout=
             # The guardian stays alive and holds the lease until cleanup is known.
             emit(dict(status='CONTAINMENT_FAILED',code='CANCELLATION_INCOMPLETE'));failure_emitted=True
         if result is not None and not owned and not reap_failed and not census_failed:
+            try:docker_confirmed=docker_session.confirm()
+            except Exception as exc:
+                error('docker_containment',exc);docker_confirmed=False
+            if not docker_confirmed:
+                # The host lease remains held until the daemon independently
+                # confirms every registered invocation has no running backend.
+                time.sleep(.25)
+                continue
             # Only the supervisor can attest that its scientific child exited and
             # every adopted/known descendant was reaped. Exit alone is not proof.
             emit(dict(status='CONTAINMENT_CONFIRMED'))
+            os.close(docker_session.fd)
             return 1 if cancelled or containment_failed else max(0,result) if result>=0 else 1
         # An unkillable descendant holds this supervisor AND its inherited lease.
         time.sleep(.02)

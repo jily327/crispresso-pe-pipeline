@@ -16,7 +16,7 @@ def wait_for(predicate,timeout=10):
     raise AssertionError('launcher barrier timeout')
 
 
-@pytest.mark.parametrize('failure',['none','docker','server','browser','missing_venv','missing_core'])
+@pytest.mark.parametrize('failure',['none','docker','server','browser','missing_venv','missing_core','legacy_wrapper','runtime_probe'])
 def test_wsl_launcher_quoting_lifetime_and_failures(tmp_path,failure):
     release=tmp_path/'release with spaces';release.mkdir()
     script=release/'run-oneclick.sh'
@@ -32,7 +32,9 @@ trap 'touch "$TEST_STOPPED"; exit 0' TERM INT
 printf 'http://127.0.0.1:8765/#synthetic_TEST-token\\n'
 while true; do sleep .1; done
 ''');python.chmod(0o755)
-    core=release/'bin/CRISPResso';core.parent.mkdir();core.write_text('#!/bin/sh\nexit 0\n');core.chmod(0o755)
+    entry=release/'venv/bin/peanalyzer-crispresso';entry.write_text('#!/bin/sh\n[ "$TEST_FAILURE" != runtime_probe ]\n');entry.chmod(0o755)
+    core=release/'bin/CRISPResso';core.parent.mkdir();core.symlink_to('../venv/bin/peanalyzer-crispresso')
+    if failure=='legacy_wrapper':core.unlink();core.write_text('#!/bin/sh\nexit 0\n');core.chmod(0o755)
     docker=binaries/'docker';docker.write_text('#!/bin/sh\n[ "$TEST_FAILURE" != docker ]\n');docker.chmod(0o755)
     browser=binaries/'powershell.exe';browser.write_text('#!/bin/sh\nprintf "%s\\n" "$@" > "$TEST_BROWSER"\n[ "$TEST_FAILURE" != browser ]\n');browser.chmod(0o755)
     if failure=='missing_venv':python.unlink()

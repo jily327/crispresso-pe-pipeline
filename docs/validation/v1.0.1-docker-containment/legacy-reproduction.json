@@ -1,0 +1,12 @@
+{
+  "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "local_cli_returncode": -9,
+  "genuine_nonempty_files": [
+    "output/CRISPResso_on_legacy_repro/CRISPResso_status.json",
+    "output/CRISPResso_on_legacy_repro/CRISPResso_RUNNING_LOG.txt"
+  ],
+  "core_alive_after_local_cli_sigkill": true,
+  "container_id": "f030b778621a072952360f992d70c83a933578800a714fd47e55a7f49c53a5cf",
+  "scope": "Dedicated synthetic persistent-container model; no user installation touched"
+}

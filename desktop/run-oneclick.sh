@@ -21,9 +21,15 @@ if [[ ! -x "$core_command" ]]; then
   echo "Set PEANALYZER_CRISPRESSO to your qualified CRISPResso 2.3.4 wrapper." >&2
   exit 1
 fi
+guarded_entry="$release_dir/venv/bin/peanalyzer-crispresso"
+if [[ ! -x "$guarded_entry" || "$(readlink -f -- "$core_command")" != "$(readlink -f -- "$guarded_entry")" ]]; then
+  echo 'This Docker desktop launcher requires the guarded runtime. Run desktop/install-runtime.sh for this new release and remove any legacy PEANALYZER_CRISPRESSO override.' >&2
+  exit 1
+fi
 # Work from Linux home; avoid inheriting /mnt/c paths for the Docker wrapper.
 cd "$HOME"
-docker info >/dev/null
+env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock info >/dev/null
+"$core_command" --version >/dev/null
 printf 'Starting PEAnalyzer %s\n' "$package_version"
 printf 'Analysis library: %s\n' "$library_root"
 

@@ -14,10 +14,15 @@ Whitespace-padded barcode IDs follow the existing Sample normalization consisten
 
 Use `any_modification_fraction` alongside nuclease `indel_fraction`: CRISPResso may classify compact equal-length deletion/insertion events as substitutions. This upstream contract is unchanged.
 
-Qualify the deployed Docker wrapper's cancellation independently. The local supervisor owns local descendants; it cannot establish that a daemon-owned container has stopped. A plain `docker run --sig-proxy` wrapper failed this check during qualification. The genuine cancellation regression uses a container-side guard that terminates its owned backend when the local wrapper loses its kernel lease, including abrupt owner death. A host-side signal handler alone is also insufficient. This patch does not replace arbitrary external laboratory wrappers.
+The initial qualification showed that local descendant termination alone cannot establish Docker containment: signal-only wrappers can leave Core alive. The shipped `peanalyzer-crispresso` runtime now adds container-side owner-death guards and independent daemon observation before GUI containment confirmation. The supported desktop launcher requires it. Arbitrary external laboratory wrappers remain unqualified; replacing the user's old wrapper requires the installation and actual-PC tests below.
 
 For desktop upgrades install into a new version directory and update `~/peanalyzer-current`; retain the permanent BAT, library root and old analysis directories. The launcher cleans its private URL log on exit. Linux launcher tests and user-reported Windows success are distinct from testing the final launcher on Windows. Follow [the manual checklist](validation/v1.0.1-audit-remediation/WINDOWS_SMOKE_TEST.md).
 
 See [qualification evidence](validation/v1.0.1-audit-remediation/README.md) for actual results and remaining release gates.
 
 Authorized legacy resume also persists its authenticated credential. If a different primary key already exists, it is preserved unchanged and the original credential is saved as `legacy-<nonsecret SHA-256 key ID>` in the same private recovery directory. Read-only inspection never creates or migrates keys. Receipts signed before migration remain recoverable through the archived original key after `/tmp` cleanup. Already-lost original credentials cannot be reconstructed.
+
+
+## Docker containment deployment follow-up
+
+The maintenance candidate now ships `peanalyzer-crispresso`, a pinned-image, per-invocation Docker runtime with container-side owner-death guards and independent daemon confirmation in GUI supervision. It replaces the unsafe persistent-container `docker exec` wrapper for the supported desktop launcher. No scientific calculation or recovery deletion authorization changed. Install beside the old release and qualify before switching `peanalyzer-current`; the old wrapper is not overwritten. See [installation, exact WSL tests and rollback](docker-runtime-1.0.1.md) and [follow-up qualification](validation/v1.0.1-docker-containment/README.md). Final Windows/WSL/Docker Desktop/Excel testing remains a manual deployment gate.

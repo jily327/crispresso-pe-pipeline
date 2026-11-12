@@ -17,6 +17,7 @@ dev = ["pytest>=8.3,<9", "build>=1.2,<2", "httpx==0.28.1", "fastapi==0.162.0", "
 [project.scripts]
 peanalyzer = "peanalyzer.cli:main"
 peanalyzer-viewer = "peanalyzer.gui.__main__:main"
+peanalyzer-crispresso = "peanalyzer.docker_runtime:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

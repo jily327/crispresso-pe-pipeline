@@ -1,4 +1,4 @@
-# Release readiness
+# Release readiness — initial candidate 59e6755
 
 **Verdict: PASS WITH CONDITIONS for the targeted maintenance remediation.**
 
@@ -22,3 +22,8 @@ Accepted maintenance-release limitations, to remain prominent:
 * Windows/WSL/Excel hardware-specific behavior is NOT VERIFIED IN THIS ENVIRONMENT. Linux Chromium and shell simulations do not substitute for it.
 
 Scientific calculations/definitions and CRISPResso parsing/dispatch code remain frozen; report-module changes are provenance presentation only. Old completed v1.0.0 workspaces verified under the candidate with no byte/mtime changes. The branch is intended for review into main; neither merging nor release tagging is authorized by this task.
+
+
+## Subsequent Docker containment work
+
+The initial evidence and limitations above describe candidate 59e6755. The deployment follow-up now ships the owner-death guard and supervisor daemon observation; its independent results and remaining Windows gate are recorded in [v1.0.1-docker-containment](../v1.0.1-docker-containment/README.md). Do not use this initial report's test counts or wheel hash as evidence for the later artifact.

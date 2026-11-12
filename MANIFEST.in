@@ -33,3 +33,11 @@ recursive-include docs/validation/m101 *.json *.md
 recursive-include docs/validation/m11c *.json *.md *.txt *.py *.sh
 recursive-include docs/validation/v1.0.1-audit-remediation *.json *.md *.py *.sh
 include desktop/PEAnalyzer.bat desktop/run-oneclick.sh
+include desktop/install-runtime.sh
+
+recursive-include docs/validation/v1.0.1-docker-containment *.json *.md *.py
+include frontend/playwright.config.ts frontend/playwright.run.config.ts frontend/playwright.recovery.config.ts frontend/playwright.practical.config.ts
+recursive-include frontend/e2e *.ts
+recursive-include frontend/e2e-run *.ts
+recursive-include frontend/e2e-recovery *.ts
+recursive-include frontend/e2e-practical *.ts
