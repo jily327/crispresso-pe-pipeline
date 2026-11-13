@@ -26,3 +26,9 @@ Authorized legacy resume also persists its authenticated credential. If a differ
 ## Docker containment deployment follow-up
 
 The maintenance candidate now ships `peanalyzer-crispresso`, a pinned-image, per-invocation Docker runtime with container-side owner-death guards and independent daemon confirmation in GUI supervision. It replaces the unsafe persistent-container `docker exec` wrapper for the supported desktop launcher. No scientific calculation or recovery deletion authorization changed. Install beside the old release and qualify before switching `peanalyzer-current`; the old wrapper is not overwritten. See [installation, exact WSL tests and rollback](docker-runtime-1.0.1.md) and [follow-up qualification](validation/v1.0.1-docker-containment/README.md). Final Windows/WSL/Docker Desktop/Excel testing remains a manual deployment gate.
+
+## Final independent Claude audit follow-up
+
+Default installed desktop Recovery now resolves the installer's backend alias consistently with the accepted workflow plan, retaining path/hash and deletion-safety checks. Exact version probes use private invocation storage without mounting the user's home or configured analysis roots. Incompatible-viewer labels are version neutral.
+
+Abrupt death of a standalone CLI caller can still leave its wrapper completing the current Core invocation; GUI supervisor ownership and wrapper-death containment are separate guarantees. Wheel archive hashes can vary with checkout metadata even when all application member hashes match. See [focused qualification and accepted limits](validation/v1.0.1-claude-remediation/README.md). Windows/WSL/Docker Desktop owner-death lock release, BAT, Explorer and Excel remain mandatory real-PC gates; a passing `--version` probe is insufficient.

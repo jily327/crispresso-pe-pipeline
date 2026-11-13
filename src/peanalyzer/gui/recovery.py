@@ -58,7 +58,10 @@ def inspect(root,runtime,force=(),*,check_active=True):
         raise WorkflowError('SOFTWARE_CHANGED','Stored software differs. Only an explicit full rebuild can replace every stage identity')
     executable=shutil.which(runtime.crispresso)
     if not executable:raise WorkflowError('BACKEND_UNAVAILABLE','Configured executable is unavailable; no probe was executed')
-    executable=no_symlinks(executable)
+    # Canonicalize only the configured executable alias, matching build_workflow_plan.
+    # Workspace/output/receipt paths still forbid symlinks. Execution re-inspects
+    # and compares the accepted canonical path/hash before invalidation.
+    executable=no_symlinks(Path(executable).resolve(strict=True))
     backend=Backend(executable=str(executable),executable_sha256=sha(executable),version='2.3.4',runtime_digest=runtime.runtime_digest)
     plan=old.model_copy(update={'software_identity':current,'backend_identity':backend})
     preflight=preflight_resume(old,plan,force)

@@ -36,6 +36,7 @@ include desktop/PEAnalyzer.bat desktop/run-oneclick.sh
 include desktop/install-runtime.sh
 
 recursive-include docs/validation/v1.0.1-docker-containment *.json *.md *.py
+recursive-include docs/validation/v1.0.1-claude-remediation *.json *.md *.py
 include frontend/playwright.config.ts frontend/playwright.run.config.ts frontend/playwright.recovery.config.ts frontend/playwright.practical.config.ts
 recursive-include frontend/e2e *.ts
 recursive-include frontend/e2e-run *.ts

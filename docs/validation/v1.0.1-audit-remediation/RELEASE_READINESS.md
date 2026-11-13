@@ -1,5 +1,7 @@
 # Release readiness — initial candidate 59e6755
 
+> Historical qualification record. The current follow-up and remaining release gates are in [final Claude remediation](../v1.0.1-claude-remediation/README.md). Earlier test counts apply to their recorded candidate, not automatically to newer commits.
+
 **Verdict: PASS WITH CONDITIONS for the targeted maintenance remediation.**
 
 The branch is suitable for maintenance review/merge with the documented compatibility limits accepted. It is **not an unconditional Windows/Docker desktop release approval**. Before approving that deployment, complete the final-byte Windows smoke test and independently qualify the deployed external Docker wrapper for abrupt owner-death containment. Neither gate is closed by Linux tests or earlier user-reported desktop success.

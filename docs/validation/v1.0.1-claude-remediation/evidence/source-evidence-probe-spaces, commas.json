@@ -1,0 +1,22 @@
+{
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/tmp/peanalyzer-docker-p3g7kdxi",
+      "Destination": "/tmp/peanalyzer-docker-p3g7kdxi",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "<repository>/src/peanalyzer/docker_guard.py",
+      "Destination": "/peanalyzer_guard.py",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "workdir": "/tmp/peanalyzer-docker-p3g7kdxi",
+  "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d"
+}

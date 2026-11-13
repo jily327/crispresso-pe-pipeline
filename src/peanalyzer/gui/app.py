@@ -144,7 +144,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
                 if body.registration_id in store.discovered:
                     label,path=store.registrations[body.registration_id]
                     label=label.split(' · Detected')[0].split(' · Incomplete')[0]
-                    state='Incomplete — use Recovery' if getattr(exc,'code',None)=='INCOMPLETE_WORKSPACE' else 'Detected — incompatible with PEAnalyzer 1.0.0 viewer'
+                    state='Incomplete — use Recovery' if getattr(exc,'code',None)=='INCOMPLETE_WORKSPACE' else 'Detected — incompatible with this PEAnalyzer viewer'
                     store.registrations[body.registration_id]=(label+' · '+state,path)
             raise
 

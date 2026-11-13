@@ -1,5 +1,7 @@
 # v1.0.1 independent-audit remediation
 
+> Historical qualification record. The current follow-up and remaining release gates are in [final Claude remediation](../v1.0.1-claude-remediation/README.md). Earlier test counts apply to their recorded candidate, not automatically to newer commits.
+
 Production baseline was fetched and verified as `00b528e9c2ea7c1b14d8607c5c38ff46416054ae`. The fetched Fable artifact branch HEAD was exactly `94c19b639744e771df198a81604f9fd0452ea592`. Production had not advanced. Work is on `fix/v1.0.1-audit-remediation`; neither main nor the audit branch was modified.
 
 The six primary reports and their synthetic scripts/machine-readable evidence were inspected. Fable's claims were treated as hypotheses. Before changing production code, an independent run of the original source with genuine CRISPResso2 2.3.4 produced nonempty failed metrics output. Ordinary resume returned ORPHANED_STAGE_OUTPUT; metrics/routing/all force returned FOREIGN_CONTENT_PRESENT. Separate checks reproduced key-regeneration misclassification and padded-ID export rejection. See evidence/baseline-reproductions.json. All inputs were synthetic.

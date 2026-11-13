@@ -164,9 +164,13 @@ def invoke(argv):
     docker=Docker();image_id=docker.image()
     executable=shutil.which('docker')
     if not executable:raise RuntimeErrorDetail('Docker CLI is unavailable; install Docker Desktop WSL integration')
+    probe=list(argv)==['--version']
     cwd=os.getcwd()
-    roots=mount_roots(cwd,os.environ.get('PEANALYZER_DOCKER_MOUNT_ROOTS','[]'))
+    roots=[] if probe else mount_roots(cwd,os.environ.get('PEANALYZER_DOCKER_MOUNT_ROOTS','[]'))
     control=Path(tempfile.mkdtemp(prefix='peanalyzer-docker-',dir='/tmp'))
+    # Probes need no caller files or configured analysis roots. Use the private
+    # control mount as cwd; normal scientific invocation mounts are unchanged.
+    if probe:cwd=str(control)
     nonce=secrets.token_hex(16);name=f'peanalyzer-core-{os.getuid()}-{nonce}'
     user=f'{os.getuid()}:{os.getgid()}'
     record=dict(version=1,nonce=nonce,name=name,uid=os.getuid(),user=user,image_id=image_id,socket=docker.path,control=str(control),owner_pid=os.getpid())

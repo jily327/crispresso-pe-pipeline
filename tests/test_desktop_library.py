@@ -72,6 +72,7 @@ def test_incomplete_malformed_and_incompatible_are_visible(tmp_path):
     labels=[label for _,label in scan([tmp_path])[0]]
     assert sum('Incomplete' in label for label in labels)==1
     assert sum('incompatible' in label for label in labels)==2
+    assert all('this PEAnalyzer viewer' in label for label in labels if 'incompatible' in label)
 
 
 def test_budgets_and_unsafe_root(tmp_path,monkeypatch):

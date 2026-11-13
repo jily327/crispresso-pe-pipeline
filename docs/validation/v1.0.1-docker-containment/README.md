@@ -1,5 +1,7 @@
 # Docker containment follow-up to PR #16
 
+> Historical qualification record. The current follow-up and remaining release gates are in [final Claude remediation](../v1.0.1-claude-remediation/README.md). Earlier test counts apply to their recorded candidate, not automatically to newer commits.
+
 Scope: replace the actual reported persistent-container wrapper model with a shipped, independently tested per-invocation runtime. Starting candidate: `59e6755aa2cc1dbe67b6decd88865d9616a3c7e4`; production remains audited `00b528e9c2ea7c1b14d8607c5c38ff46416054ae`. No changes to main, audit artifacts or historical completed workspaces. No new PR and no merge.
 
 The independent legacy reproduction ran genuine Core 2.3.4 in a dedicated synthetic persistent container. After a nonempty running log appeared, killing the local `docker exec` client left Core alive, confirmed by `docker top`. `legacy-reproduction.json` records the result. `reproduce_legacy.py` reproduces the experiment from the repository root; it removes only its own newly created test container. It does not touch the user's historical container.

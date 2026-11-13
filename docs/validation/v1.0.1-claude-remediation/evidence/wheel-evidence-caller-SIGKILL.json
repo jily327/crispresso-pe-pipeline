@@ -1,0 +1,15 @@
+{
+  "after_caller_death": {
+    "status": "running",
+    "running": true,
+    "pid": 77777,
+    "id": "c7669644df41c7f4aff12964ad68126cf2207ff38f02c5d65e34472ea46ad324"
+  },
+  "after_wrapper_death": {
+    "status": "removing",
+    "running": false,
+    "pid": 0,
+    "id": "c7669644df41c7f4aff12964ad68126cf2207ff38f02c5d65e34472ea46ad324"
+  },
+  "conclusion": "Upstream caller death alone is not a standalone wrapper lease release"
+}

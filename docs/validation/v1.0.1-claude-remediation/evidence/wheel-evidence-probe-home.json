@@ -1,0 +1,22 @@
+{
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "<qualification>/wheel-env/lib/python3.12/site-packages/peanalyzer/docker_guard.py",
+      "Destination": "/peanalyzer_guard.py",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/peanalyzer-docker-iktvs4gt",
+      "Destination": "/tmp/peanalyzer-docker-iktvs4gt",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "workdir": "/tmp/peanalyzer-docker-iktvs4gt",
+  "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d"
+}

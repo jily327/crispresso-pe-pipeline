@@ -1,5 +1,7 @@
 # Release readiness — Docker containment follow-up
 
+> Historical qualification record. The current follow-up and remaining release gates are in [final Claude remediation](../v1.0.1-claude-remediation/README.md). Earlier test counts apply to their recorded candidate, not automatically to newer commits.
+
 **PASS WITH CONDITIONS.** The supported guarded Docker workflow passes Linux qualification. PR #16 is suitable for maintenance review/merge with the compatibility limits below accepted. This is not approval for routine Windows deployment before the final actual-PC smoke test. No merge or release tag was performed.
 
 The legacy persistent-container model was independently reproduced leaving genuine Core alive after local client SIGKILL. The shipped replacement uses one pinned-image container per invocation, a wrapper-owned kernel lease, a separate production-supervisor lease for GUI work, and independent daemon observation before GUI containment confirmation. Genuine installed-wheel tests pass all eight cases, including nonempty partial backend failure, wrapper/CLI/supervisor death, completion race, repeated cancellation/recovery, foreign-file preservation, unrelated-container isolation and PE/nuclease parity.

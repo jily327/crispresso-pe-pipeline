@@ -48,3 +48,5 @@ The full suite and browser/GUI suites run serially to respect the account's excl
 - An initial sandboxed default-suite invocation was stopped before completion and is not counted. The replacement full-suite runs use required loopback/process permissions.
 
 Verbose logs and synthetic working directories remain outside Git. Compact results include independent daemon states, genuine guard exit codes, recovery/oracle results and archive hashes. No user laboratory data, URL tokens or private Windows paths are included.
+
+Wheel byte equality here describes controlled repeat builds only. Different checkout file modes can change ZIP metadata and archive SHA while all application member hashes remain identical (independent audit V-07).
