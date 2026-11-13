@@ -1,0 +1,40 @@
+{
+  "attempts": [
+    {
+      "behavior": "failure",
+      "gui_state": "FAILED",
+      "daemon_state": {
+        "status": "absent",
+        "running": false,
+        "pid": 0
+      },
+      "observed_image_id": "sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+    },
+    {
+      "behavior": "cancel",
+      "gui_state": "CANCELLED",
+      "daemon_state": {
+        "status": "absent",
+        "running": false,
+        "pid": 0
+      },
+      "observed_image_id": "sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+    },
+    {
+      "behavior": "cancel",
+      "gui_state": "CANCELLED",
+      "daemon_state": {
+        "status": "absent",
+        "running": false,
+        "pid": 0
+      },
+      "observed_image_id": "sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+    }
+  ],
+  "exact_counts": [
+    2,
+    400
+  ],
+  "verified": true,
+  "foreign_files_preserved": 3
+}

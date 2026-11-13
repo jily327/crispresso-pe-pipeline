@@ -1,0 +1,27 @@
+{
+  "passed_checks": 35,
+  "primary": {
+    "bc001": [
+      2,
+      20
+    ],
+    "bc002": [
+      4,
+      20
+    ],
+    "bc003": [
+      14,
+      20
+    ],
+    "bc004": [
+      16,
+      20
+    ]
+  },
+  "previous_candidate": "59e6755aa2cc1dbe67b6decd88865d9616a3c7e4",
+  "historical_bytes_and_mtimes_unchanged": true,
+  "unrelated_container_unchanged": true,
+  "stopped_legacy_container_unchanged": true,
+  "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "observed_image_id": "sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+}

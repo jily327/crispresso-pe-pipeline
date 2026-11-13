@@ -1,0 +1,142 @@
+{
+  "cases": {
+    "E25.three_releases_discovered_with_provenance_versions_and_unique_names": {
+      "expected": "one entry per genuine workspace; version from stored provenance; duplicate folder names disambiguated; none claims verification",
+      "observed": {
+        "all_unique": true,
+        "any_says_verified": [],
+        "v080": [
+          "v0.8.0 / exp1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required",
+          "v9.9.9-looks-new / exp1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required"
+        ],
+        "v090": [
+          "v0.9.0 / exp1 \u00b7 PEAnalyzer 0.9.0 \u00b7 Detected \u2014 verification required"
+        ],
+        "v100": [
+          "v1.0.0 / exp1 \u00b7 PEAnalyzer 1.0.0 \u00b7 Detected \u2014 verification required"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E26.incomplete_is_not_presented_as_completed": {
+      "expected": "\"Incomplete - use Recovery\"",
+      "observed": [
+        "incomplete_run \u00b7 PEAnalyzer 1.0.0 \u00b7 Incomplete \u2014 use Recovery"
+      ],
+      "verdict": "CONTROLLED"
+    },
+    "E27.symlinks_cannot_enter_the_catalogue": {
+      "expected": "no symlinked_workspace entry; linked_marker not listed as a detected completed workspace",
+      "observed": {
+        "linked_marker": [],
+        "symlinked_workspace": []
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E28.folder_name_does_not_define_version": {
+      "expected": "label shows stored 0.8.0, not 9.9.9",
+      "observed": [
+        "v9.9.9-looks-new / exp1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required"
+      ],
+      "verdict": "CONTROLLED"
+    },
+    "E29.old_workspaces_open_verified_with_identical_science_across_releases": {
+      "expected": "HTTP 200 for 0.8.0, 0.9.0, 1.0.0; exact PE equals designed truth; native identical across releases; no workbook created by viewing",
+      "observed": {
+        "exact_equals_truth": true,
+        "identical_values_across_releases": true,
+        "opened": {
+          "v0.8.0": {
+            "error": null,
+            "export": "MISSING",
+            "http": 200,
+            "source_version": "0.8.0",
+            "workbook_created": false
+          },
+          "v0.9.0": {
+            "error": null,
+            "export": "MISSING",
+            "http": 200,
+            "source_version": "0.9.0",
+            "workbook_created": false
+          },
+          "v1.0.0": {
+            "error": null,
+            "export": "MISSING",
+            "http": 200,
+            "source_version": "1.0.0",
+            "workbook_created": false
+          }
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E29b.legacy_nuclease_workspace_opens": {
+      "expected": "HTTP 200, mode indel_nuclease, export NOT_APPLICABLE",
+      "observed": {
+        "export": "NOT_APPLICABLE",
+        "http": 200,
+        "mode": "indel_nuclease"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E30.detected_is_not_verified_and_failures_stay_visible": {
+      "expected": "forged claim, incomplete copy and relocated copy all fail Open (409) with a visible reason; labels never upgrade to verified",
+      "observed": {
+        "forged_claim": {
+          "code": "VERIFICATION_FAILED",
+          "detail": "15 validation errors for Plan\nmode\n  Field required [type=missing, input_value={'software_identity': {'p...line_version': '9.9.9'}}, input_t",
+          "http": 409,
+          "label_after": [
+            "forged_claim \u00b7 PEAnalyzer 9.9.9 \u00b7 Detected \u2014 incompatible with this PEAnalyzer viewer"
+          ]
+        },
+        "incomplete_run": {
+          "code": "INCOMPLETE_WORKSPACE",
+          "detail": "INCOMPLETE_WORKSPACE: A completed workflow manifest is required",
+          "http": 409,
+          "label_after": [
+            "incomplete_run \u00b7 PEAnalyzer 1.0.0 \u00b7 Incomplete \u2014 use Recovery"
+          ]
+        },
+        "looks-new": {
+          "code": "INVALID_COMPLETION",
+          "detail": "INVALID_COMPLETION: plan identity differs",
+          "http": 409,
+          "label_after": [
+            "v9.9.9-looks-new / exp1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 incompatible with this PEAnalyzer viewer"
+          ]
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E31.discovery_open_and_refresh_never_modify_old_workspaces": {
+      "expected": "byte, size, mtime, inode and inventory identical before/after discovery + open + refresh",
+      "observed": {
+        "v0.8.0": [],
+        "v0.9.0": [],
+        "v1.0.0": []
+      },
+      "verdict": "CONTROLLED"
+    },
+    "E32.view_only_library_cannot_start_science": {
+      "expected": "HTTP 409 RUN_UNAVAILABLE",
+      "observed": {
+        "code": "RUN_UNAVAILABLE",
+        "http": 409
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "E25_E30_historical_library",
+  "flagged": 0,
+  "labels": [
+    "forged_claim \u00b7 PEAnalyzer 9.9.9 \u00b7 Detected \u2014 verification required",
+    "incomplete_run \u00b7 PEAnalyzer 1.0.0 \u00b7 Incomplete \u2014 use Recovery",
+    "nuc1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required",
+    "v0.8.0 / exp1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required",
+    "v0.9.0 / exp1 \u00b7 PEAnalyzer 0.9.0 \u00b7 Detected \u2014 verification required",
+    "v1.0.0 / exp1 \u00b7 PEAnalyzer 1.0.0 \u00b7 Detected \u2014 verification required",
+    "v9.9.9-looks-new / exp1 \u00b7 PEAnalyzer 0.8.0 \u00b7 Detected \u2014 verification required"
+  ]
+}

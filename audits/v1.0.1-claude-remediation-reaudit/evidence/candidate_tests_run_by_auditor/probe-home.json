@@ -1,0 +1,22 @@
+{
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/lib/python3.12/site-packages/peanalyzer/docker_guard.py",
+      "Destination": "/peanalyzer_guard.py",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/peanalyzer-docker-92da5qzt",
+      "Destination": "/tmp/peanalyzer-docker-92da5qzt",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "workdir": "/tmp/peanalyzer-docker-92da5qzt",
+  "image_id": "sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+}

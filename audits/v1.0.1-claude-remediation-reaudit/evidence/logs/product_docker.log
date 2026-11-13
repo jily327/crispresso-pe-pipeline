@@ -1,0 +1,9 @@
+...............                                                          [100%]
+=============================== warnings summary ===============================
+tests/test_docker_runtime_integration.py::test_genuine_gui_failure_repeated_cancel_and_verified_recovery
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 1 warning in 355.86s (0:05:55)
+docker exit=0

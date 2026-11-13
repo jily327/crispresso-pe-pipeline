@@ -1,0 +1,63 @@
+{
+  "auditor_note": "Corrected predicate: per-sample Core in this pool lasts ~1 s, so a >5 s survival threshold cannot be met. The decisive evidence is the guard record \"backend_exit / 0\": after the CLI was SIGKILLed, Core was NOT stopped by owner loss but ran to normal completion, i.e. the documented V-03 limitation. The previous audit (C17) showed the same with a 40,000-pair input: 30.9 s of continued execution. SIGTERM: stopped by OWNER_LOST in 0.1 s.",
+  "cases": {
+    "CLI_SIGKILL": {
+      "backend_gone_after_s": 0.9,
+      "cli_exit": -9,
+      "completion_marker": false,
+      "core": {
+        "container": "92714194b8cf",
+        "control": "/tmp/peanalyzer-docker-wbxaxveg"
+      },
+      "guard_record": {
+        "backend_returncode": 0,
+        "reason": "backend_exit"
+      },
+      "lock_left": true,
+      "transitions": [
+        [
+          0.0,
+          3
+        ],
+        [
+          0.6,
+          1
+        ],
+        [
+          0.9,
+          0
+        ]
+      ]
+    },
+    "CLI_SIGTERM": {
+      "backend_gone_after_s": 0.1,
+      "cli_exit": 143,
+      "completion_marker": false,
+      "core": {
+        "container": "1838f7ea7540",
+        "control": "/tmp/peanalyzer-docker-ssoq2uod"
+      },
+      "guard_record": {
+        "backend_returncode": -15,
+        "reason": "OWNER_LOST"
+      },
+      "lock_left": false,
+      "transitions": [
+        [
+          0.0,
+          3
+        ],
+        [
+          0.1,
+          0
+        ]
+      ]
+    }
+  },
+  "experiment": "v03_cli_owner_death_reaudit",
+  "verdicts": {
+    "no_false_completion": true,
+    "sigkill_matches_documented_limitation": true,
+    "sigterm_contained": true
+  }
+}

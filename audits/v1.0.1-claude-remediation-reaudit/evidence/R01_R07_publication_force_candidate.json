@@ -1,0 +1,117 @@
+{
+  "cases": {
+    "R01_crash_between_publication_and_stage_completion": {
+      "expected": "published metrics/2A/T1 exists without a stage record; an authenticated publication inventory for exactly that node exists; hard kill leaves the M7 lock",
+      "observed": {
+        "attempt_dirs_left": [],
+        "authenticated_publications": [
+          "metrics::2A::T1"
+        ],
+        "driver_exit": 137,
+        "publication_inventory_size": 68,
+        "published_dirs": [
+          "metrics/1A/T1",
+          "metrics/2A/T1"
+        ],
+        "receipt_version": 2,
+        "stage_completion_for_1A": true,
+        "stage_completion_for_2A": false,
+        "stale_lock_left": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "R02_resume_after_publication_crash": {
+      "expected": "stale lock -> WORKFLOW_LOCKED (never stolen); after operator removes it: ORPHANED_STAGE_OUTPUT (explicit force required), nothing changed",
+      "observed": {
+        "after_lock_removed": [
+          2,
+          "Workflow failed: ORPHANED_STAGE_OUTPUT [metrics::2A::T1]: metrics/2A/T1"
+        ],
+        "with_stale_lock": [
+          2,
+          "Workflow failed: WORKFLOW_LOCKED: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/work/pub/.pub_ws.m7-lock"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "R03_force_with_foreign_file_and_directory": {
+      "expected": "every force family refused with FOREIGN_CONTENT_PRESENT; whole metrics tree byte- and inode-identical",
+      "observed": {
+        "foreign_intact": true,
+        "results": {
+          "all": [
+            2,
+            "Workflow failed: FOREIGN_CONTENT_PRESENT [metrics::2A::T1]: Unowned removal entries: metrics/2A/T1/comparator/my_notes.txt, metrics/2A/T1/unexpected_directory, metrics/2A/T1/unexpected_directory/inner.bin. Recovery cannot prove ownership. Preserve this workspa"
+          ],
+          "metrics": [
+            2,
+            "Workflow failed: FOREIGN_CONTENT_PRESENT [metrics::2A::T1]: Unowned removal entries: metrics/2A/T1/comparator/my_notes.txt, metrics/2A/T1/unexpected_directory, metrics/2A/T1/unexpected_directory/inner.bin. Recovery cannot prove ownership. Preserve this workspa"
+          ],
+          "routing": [
+            2,
+            "Workflow failed: FOREIGN_CONTENT_PRESENT [metrics::2A::T1]: Unowned removal entries: metrics/2A/T1/comparator/my_notes.txt, metrics/2A/T1/unexpected_directory, metrics/2A/T1/unexpected_directory/inner.bin. Recovery cannot prove ownership. Preserve this workspa"
+          ]
+        },
+        "tree_unchanged": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "R04_forged_removal_inventory": {
+      "expected": "a receipt edited to list the foreign files as owned is rejected (authentication failure); nothing deleted",
+      "observed": {
+        "attempts": {
+          "resigned_with_guessed_key": [
+            2,
+            "Workflow failed: RECOVERY_AUTHENTICATION_FAILED: Recovery authentication failed: credentials may differ or metadata may have changed. Restore the original key and history, or use a new workspace."
+          ],
+          "unsigned_edit_original_mac": [
+            2,
+            "Workflow failed: RECOVERY_AUTHENTICATION_FAILED: Recovery authentication failed: credentials may differ or metadata may have changed. Restore the original key and history, or use a new workspace."
+          ]
+        },
+        "tree_unchanged": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "R05_published_directory_replaced_by_copy": {
+      "expected": "identical content at a different inode is not accepted as the published directory; refused; copy not deleted",
+      "observed": {
+        "lookalike_still_present_after_refusal": true,
+        "result": [
+          2,
+          "Workflow failed: TAMPERED_STAGE_MANIFEST [metrics::2A::T1]: Invalid metrics publication inventory"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "R06_concurrent_force_operations": {
+      "expected": "the second invocation is refused with WORKFLOW_LOCKED while the first holds the workspace; first completes",
+      "observed": {
+        "first_exit": 0,
+        "second": [
+          2,
+          "Workflow failed: WORKFLOW_LOCKED: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/work/pub/.pub_ws.m7-lock"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "R07_clean_force_uses_authenticated_inventory_only": {
+      "expected": "COMPLETED; science equals designed truth; bystander file in workspace root, sibling folder and retained attempt directories untouched; no pending publication left",
+      "observed": {
+        "attempt_dirs_before": 0,
+        "attempt_dirs_still_present": 0,
+        "bystander_intact": true,
+        "completion_marker": true,
+        "exact_equals_truth": true,
+        "first_exit": 0,
+        "inventoried_files_in_forced_dir": 68,
+        "new_attempt_dirs_after_success": 0,
+        "pending_publications": [],
+        "sibling_unchanged": true
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "publication_force_deletion_safety",
+  "flagged": []
+}

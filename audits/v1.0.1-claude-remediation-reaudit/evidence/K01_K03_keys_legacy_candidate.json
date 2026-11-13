@@ -1,0 +1,69 @@
+{
+  "cases": {
+    "K01_persistent_key": {
+      "dir_mode": "0o700",
+      "primary_equals_preexisting_tmp_key": true,
+      "primary_mode": "0o600"
+    },
+    "K02_key_loss_and_foreign_key": {
+      "after_foreign_key": {
+        "classification": "UNSUPPORTED",
+        "executable": false,
+        "reasons": [
+          "UNANCHORED_RECOVERY_OWNERSHIP"
+        ]
+      },
+      "baseline": {
+        "classification": "RESUMABLE",
+        "executable": true,
+        "reasons": []
+      },
+      "different_key_minted": true,
+      "keys_lost": {
+        "classification": "UNSUPPORTED",
+        "executable": false,
+        "reasons": [
+          "UNANCHORED_RECOVERY_OWNERSHIP"
+        ]
+      },
+      "restored": {
+        "classification": "RESUMABLE",
+        "executable": true,
+        "reasons": []
+      }
+    },
+    "K03_legacy_v100_partial": {
+      "force_all": {
+        "classification": "UNSUPPORTED",
+        "executable": false,
+        "reasons": [
+          "FOREIGN_CONTENT_PRESENT"
+        ]
+      },
+      "force_metrics": {
+        "classification": "SOFTWARE_CHANGED",
+        "executable": false,
+        "reasons": [
+          "SOFTWARE_CHANGED"
+        ]
+      },
+      "key_files_after": [
+        "key"
+      ],
+      "plain": {
+        "classification": "SOFTWARE_CHANGED",
+        "executable": false,
+        "reasons": [
+          "SOFTWARE_CHANGED"
+        ]
+      },
+      "unchanged": true
+    }
+  },
+  "experiment": "keys_and_legacy_candidate",
+  "verdicts": {
+    "K01": true,
+    "K02": true,
+    "K03": true
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "candidate": "115d0148adf513d1b3e5f6e5cf035685cd2ea514",
+  "cases": {
+    "G01_gui_run_probe_and_scientific_mounts": {
+      "expected": "every GUI probe: control rw + guard ro + session ro only; scientific invocations mount their private /tmp work dir rw; run COMPLETED",
+      "observed": {
+        "any_home_mount": false,
+        "any_session_rw": false,
+        "final": "COMPLETED",
+        "probe_mount_sets": [
+          [
+            [
+              "docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "peanalyzer-docker-az_2",
+              "same",
+              true
+            ],
+            [
+              "peanalyzer-docker-sess",
+              "same",
+              false
+            ]
+          ],
+          [
+            [
+              "docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "peanalyzer-docker-ha82",
+              "same",
+              true
+            ],
+            [
+              "peanalyzer-docker-sess",
+              "same",
+              false
+            ]
+          ],
+          [
+            [
+              "docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "peanalyzer-docker-pq6q",
+              "same",
+              true
+            ],
+            [
+              "peanalyzer-docker-sess",
+              "same",
+              false
+            ]
+          ],
+          [
+            [
+              "docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "peanalyzer-docker-qfd0",
+              "same",
+              true
+            ],
+            [
+              "peanalyzer-docker-sess",
+              "same",
+              false
+            ]
+          ],
+          [
+            [
+              "docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "peanalyzer-docker-qm5g",
+              "same",
+              true
+            ],
+            [
+              "peanalyzer-docker-sess",
+              "same",
+              false
+            ]
+          ],
+          [
+            [
+              "docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "peanalyzer-docker-sess",
+              "same",
+              false
+            ],
+            [
+              "peanalyzer-docker-vj5m",
+              "same",
+              true
+            ]
+          ]
+        ],
+        "probes": 6,
+        "scientific": 8,
+        "scientific_workdirs": [
+          "m311-comparator-08ex",
+          "m311-comparator-388t",
+          "m311-comparator-7iu9",
+          "m311-comparator-xs2h",
+          "peanalyzer-core-w9lm",
+          "peanalyzer-core-wej4",
+          "peanalyzer-core-x74z",
+          "peanalyzer-core-zgpw"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "P01_probe_from_home": {
+      "expected": "only the private control dir (rw, also WorkingDir) and the read-only guard; HOME not mounted",
+      "observed": {
+        "daemon": {
+          "Cmd": [
+            "/peanalyzer_guard.py",
+            "/tmp/peanalyzer-docker-9a79cmyq"
+          ],
+          "Mounts": [
+            [
+              "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/lib/python3.12/site-packages/peanalyzer/docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "/tmp/peanalyzer-docker-9a79cmyq",
+              "/tmp/peanalyzer-docker-9a79cmyq",
+              true
+            ]
+          ],
+          "WorkingDir": "/tmp/peanalyzer-docker-9a79cmyq",
+          "id": "5a31bf870d4c"
+        },
+        "exit": 0,
+        "home_mounted": false,
+        "stdout": "CRISPResso 2.3.4"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "P02_probe_with_configured_mount_roots": {
+      "expected": "configured roots and cwd ignored for the probe",
+      "observed": {
+        "daemon": {
+          "Cmd": [
+            "/peanalyzer_guard.py",
+            "/tmp/peanalyzer-docker-jixz5k17"
+          ],
+          "Mounts": [
+            [
+              "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/lib/python3.12/site-packages/peanalyzer/docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "/tmp/peanalyzer-docker-jixz5k17",
+              "/tmp/peanalyzer-docker-jixz5k17",
+              true
+            ]
+          ],
+          "WorkingDir": "/tmp/peanalyzer-docker-jixz5k17",
+          "id": "7e25994924c0"
+        },
+        "exit": 0
+      },
+      "verdict": "CONTROLLED"
+    },
+    "P03_probe_from_special_character_dirs": {
+      "expected": "exit 0, CRISPResso 2.3.4, isolated mounts in every case",
+      "observed": {
+        "comma,here": {
+          "exit": 0,
+          "probe_isolated": true,
+          "stdout": "CRISPResso 2.3.4"
+        },
+        "eq=uals": {
+          "exit": 0,
+          "probe_isolated": true,
+          "stdout": "CRISPResso 2.3.4"
+        },
+        "quote'here": {
+          "exit": 0,
+          "probe_isolated": true,
+          "stdout": "CRISPResso 2.3.4"
+        },
+        "semi;colon": {
+          "exit": 0,
+          "probe_isolated": true,
+          "stdout": "CRISPResso 2.3.4"
+        },
+        "with space": {
+          "exit": 0,
+          "probe_isolated": true,
+          "stdout": "CRISPResso 2.3.4"
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "P04_non_exact_version_argv_uses_scientific_mounts": {
+      "expected": "only argv == [\"--version\"] is a probe; anything else mounts cwd as before",
+      "observed": {
+        "cwd_mounted": true,
+        "exit": 0
+      },
+      "verdict": "CONTROLLED"
+    },
+    "S01_scientific_invocation_unchanged": {
+      "expected": "cwd mounted rw at the identical path (WorkingDir), backend output written, exit 0",
+      "observed": {
+        "cwd_mount": [
+          [
+            "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/work/v02/scientific_small",
+            "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/work/v02/scientific_small",
+            true
+          ]
+        ],
+        "daemon_workdir": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/work/v02/scientific_small",
+        "exit": 0,
+        "mapping": "1000\t1000\t1000\t971\t29\t0\t0"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "S02_special_character_scientific_cwd_matrix": {
+      "expected": "guarded runtime succeeds exactly where native CRISPResso succeeds (failures are upstream)",
+      "observed": {
+        "comma,here": {
+          "guarded_candidate": {
+            "exit": 0,
+            "output": true
+          },
+          "native_2.3.4": {
+            "exit": 0,
+            "output": true
+          }
+        },
+        "eq=uals": {
+          "guarded_candidate": {
+            "exit": 0,
+            "output": true
+          },
+          "native_2.3.4": {
+            "exit": 0,
+            "output": true
+          }
+        },
+        "plain": {
+          "guarded_candidate": {
+            "exit": 0,
+            "output": true
+          },
+          "native_2.3.4": {
+            "exit": 0,
+            "output": true
+          }
+        },
+        "quote'here": {
+          "guarded_candidate": {
+            "exit": 5,
+            "output": false
+          },
+          "native_2.3.4": {
+            "exit": 5,
+            "output": false
+          }
+        },
+        "semi;colon": {
+          "guarded_candidate": {
+            "exit": 5,
+            "output": false
+          },
+          "native_2.3.4": {
+            "exit": 5,
+            "output": false
+          }
+        },
+        "with space": {
+          "guarded_candidate": {
+            "exit": 5,
+            "output": false
+          },
+          "native_2.3.4": {
+            "exit": 5,
+            "output": false
+          }
+        }
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "v02_probe_isolation_reaudit",
+  "flagged": []
+}

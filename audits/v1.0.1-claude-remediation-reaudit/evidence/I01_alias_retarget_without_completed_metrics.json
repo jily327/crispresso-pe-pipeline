@@ -1,0 +1,22 @@
+{
+  "original_alias": {
+    "classification": "RESUMABLE",
+    "executable": true,
+    "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+    "stages": {
+      "REUSE": 7,
+      "RUN": 7
+    }
+  },
+  "alias_retargeted_to_unguarded_native_executable": {
+    "classification": "RESUMABLE",
+    "executable": true,
+    "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/bin/CRISPResso",
+    "stages": {
+      "REUSE": 7,
+      "RUN": 7
+    }
+  },
+  "restored": "../venv/bin/peanalyzer-crispresso",
+  "interpretation": "No metrics stage had completed in this workspace, so nothing pins the backend: after a same-account retarget of the installer alias the inspection is plainly RESUMABLE with the unguarded executable as backend. The change is visible only in the preview backend field. A new Run through the same server would equally use it (build_workflow_plan resolves the same alias); the launcher guard check runs only at launch. Not a regression of the recovery fix; noted as INFO."
+}

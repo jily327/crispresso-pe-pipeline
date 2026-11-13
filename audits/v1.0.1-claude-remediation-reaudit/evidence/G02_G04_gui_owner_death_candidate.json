@@ -1,0 +1,240 @@
+{
+  "backend_processes_at_end": [],
+  "experiment": "gui_docker_lifecycle",
+  "leftover_labelled_containers_at_end": [],
+  "scenarios": {
+    "G02_supervisor_SIGKILL": {
+      "claim": "SIGKILL of the supervisor cannot leave or later start an uncontrolled CRISPResso, and never yields COMPLETED.",
+      "expected": "all backend processes gone within 5 s; no CRISPResso ever starts again; job FAILED and stays FAILED; no completion marker",
+      "failure_hypothesis": "Backend survives the supervisor; or the orphaned scientific worker launches further backend runs; or the job is reported successful.",
+      "observed": {
+        "backend_after_kill": {
+          "all_backend_gone": true,
+          "seconds": 0.133
+        },
+        "core_seen_before_kill": true,
+        "core_started_again_afterwards": 0,
+        "error": {
+          "code": "CANCELLATION_INCOMPLETE",
+          "detail": "The host worker lease remains held; supervisor exit is not proof of cleanup.",
+          "message": "Scientific process containment could not be confirmed.",
+          "stage_id": null
+        },
+        "final_state": "FAILED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_state_later": "FAILED",
+        "killed": "supervisor",
+        "next_submission": [
+          409,
+          "WORKER_BUSY"
+        ],
+        "timeline": [
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.07,
+            "job": "RUNNING",
+            "last_t": 0.33
+          },
+          {
+            "backend_alive": true,
+            "container_running": false,
+            "first_t": 0.5,
+            "job": "RUNNING",
+            "last_t": 0.5
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.62,
+            "job": "RUNNING",
+            "last_t": 0.88
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 1.01,
+            "job": "FAILED",
+            "last_t": 1.01
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 13,
+              "name": "mpt-v6qa6rr4"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G03_science_worker_SIGKILL": {
+      "claim": "SIGKILL of the science cannot leave or later start an uncontrolled CRISPResso, and never yields COMPLETED.",
+      "expected": "all backend processes gone within 5 s; no CRISPResso ever starts again; job FAILED and stays FAILED; no completion marker",
+      "failure_hypothesis": "Backend survives the science; or the orphaned scientific worker launches further backend runs; or the job is reported successful.",
+      "observed": {
+        "backend_after_kill": {
+          "all_backend_gone": true,
+          "seconds": 0.177
+        },
+        "core_seen_before_kill": true,
+        "core_started_again_afterwards": 0,
+        "error": {
+          "code": "WORKER_EXITED",
+          "detail": "Worker exit code: 1",
+          "message": "The worker did not produce verified completion.",
+          "stage_id": null
+        },
+        "final_state": "FAILED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_state_later": "FAILED",
+        "killed": "science",
+        "next_submission": [
+          200,
+          null
+        ],
+        "timeline": [
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.08,
+            "job": "RUNNING",
+            "last_t": 0.33
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.46,
+            "job": "FAILED",
+            "last_t": 0.46
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": true,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 0,
+              "name": "mpt-566xld9n"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G04_wrapper_SIGKILL": {
+      "claim": "SIGKILL of the wrapper cannot leave or later start an uncontrolled CRISPResso, and never yields COMPLETED.",
+      "expected": "all backend processes gone within 5 s; no CRISPResso ever starts again; job FAILED and stays FAILED; no completion marker",
+      "failure_hypothesis": "Backend survives the wrapper; or the orphaned scientific worker launches further backend runs; or the job is reported successful.",
+      "observed": {
+        "backend_after_kill": {
+          "all_backend_gone": true,
+          "seconds": 0.17
+        },
+        "core_seen_before_kill": true,
+        "core_started_again_afterwards": 0,
+        "error": {
+          "code": "BACKEND_EXECUTION_FAILED",
+          "detail": "BACKEND_EXECUTION_FAILED [metrics::1A::T1]: Sample 1A, target T1: backend could not analyse the reads. Inspect execution_failures.json in the retained metrics attempt. Check read quality, mate overlap and sample selection in Setup/Review; no sample was omitted.",
+          "message": "The scientific workflow stopped.",
+          "stage_id": "metrics::1A::T1"
+        },
+        "final_state": "FAILED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_state_later": "FAILED",
+        "killed": "wrapper",
+        "next_submission": [
+          200,
+          null
+        ],
+        "timeline": [
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.08,
+            "job": "RUNNING",
+            "last_t": 0.38
+          },
+          {
+            "backend_alive": false,
+            "container_running": true,
+            "first_t": 0.57,
+            "job": "RUNNING",
+            "last_t": 0.57
+          },
+          {
+            "backend_alive": true,
+            "container_running": true,
+            "first_t": 0.75,
+            "job": "RUNNING",
+            "last_t": 3.11
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 3.25,
+            "job": "RUNNING",
+            "last_t": 3.77
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 3.89,
+            "job": "FAILED",
+            "last_t": 3.89
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 35,
+              "name": "mpt-wzopyabg"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "unrelated_containers_untouched_at_end": {
+    "ok": true,
+    "state": {
+      "audit-unrelated-canary": [
+        "2026-11-13T15:09:47.026222435Z",
+        11589,
+        true
+      ],
+      "peanalyzer-core-0-ffffffffffffffffffffffffffffffff": [
+        "2026-11-13T15:09:46.839917766Z",
+        11526,
+        true
+      ]
+    }
+  }
+}

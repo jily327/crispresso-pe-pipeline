@@ -1,0 +1,13 @@
+Windows/WSL/Docker identity:
+6.18.44-fc-v445
+client 29.9.2 / server 29.9.2 (linux)
+container: lock HELD visible
+host: holder SIGKILLed at 1794583714.130
+container: lock RELEASE visible at 1794583714.171
+/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/audit/scripts/windows_lock_release_probe.sh: line 50:  4755 Killed                  python3 - "$lease" <<'PY'
+import fcntl, os, sys, time
+fd = os.open(sys.argv[1], os.O_RDWR); fcntl.flock(fd, fcntl.LOCK_EX); time.sleep(3600)
+PY
+
+PASS: owner-death lock release visible inside the container within 0.117s
+exit=0

@@ -1,0 +1,403 @@
+{
+  "backend_identity_in_preview": {
+    "executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+    "preview_shows_canonical_target": true,
+    "resolved_entry": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+    "sha256_prefix": "1e0bb6cd85c6930c0807"
+  },
+  "candidate": "115d0148adf513d1b3e5f6e5cf035685cd2ea514",
+  "cases": {
+    "A02_installed_layout_cancel_recover_twice_to_verified_truth": {
+      "expected": "default installer symlink, no override: CANCELLED only with no backend; RESUMABLE (executable, 0 removals) twice; COMPLETED; verified view; exact PE equals designed truth; independent oracle passes; workbook UNCHANGED",
+      "observed": {
+        "api_exact_equals_truth": true,
+        "completion_marker": true,
+        "export_state": "UNCHANGED",
+        "final_error": null,
+        "final_execute_http": 200,
+        "final_state": "COMPLETED",
+        "first": {
+          "cancel": {
+            "backend_processes_at_terminal": 0,
+            "running_invocation_containers_at_terminal": 0,
+            "seconds": 0.55,
+            "state": "CANCELLED"
+          },
+          "core": {
+            "container": "42134f010ed3",
+            "processes": 1,
+            "running_log_bytes": 1124,
+            "staged_cwd": "/tmp/peanalyzer-core-scgbk0_c"
+          },
+          "inspect": {
+            "actions": {
+              "BLOCKED": 0,
+              "RERUN": 0,
+              "REUSE": 7,
+              "RUN": 7
+            },
+            "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+            "backend_sha256": "1e0bb6cd85c6930c0807",
+            "classification": "RESUMABLE",
+            "executable": true,
+            "reasons": [],
+            "removal_paths": 0,
+            "sequence": [
+              "RESUMABLE"
+            ]
+          }
+        },
+        "independent_after": {
+          "backend": 0,
+          "running": 0
+        },
+        "oracle": "72 passed, 0 failed",
+        "retained_attempts": [
+          "g91ou9v8",
+          "k_3_jfjf"
+        ],
+        "second": {
+          "cancel": {
+            "backend_processes_at_terminal": 0,
+            "running_invocation_containers_at_terminal": 0,
+            "seconds": 0.52,
+            "state": "CANCELLED"
+          },
+          "core": {
+            "container": "c04480c17550",
+            "processes": 1,
+            "running_log_bytes": 1182,
+            "staged_cwd": "/tmp/m311-comparator-9lxrvmao"
+          },
+          "execute_http": 200,
+          "inspect": {
+            "actions": {
+              "BLOCKED": 0,
+              "RERUN": 0,
+              "REUSE": 7,
+              "RUN": 7
+            },
+            "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+            "backend_sha256": "1e0bb6cd85c6930c0807",
+            "classification": "RESUMABLE",
+            "executable": true,
+            "reasons": [],
+            "removal_paths": 0,
+            "sequence": [
+              "RESUMABLE"
+            ]
+          }
+        },
+        "view_http": 200,
+        "view_verified": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B00_baseline_after_one_metrics_stage_completed": {
+      "expected": "RESUMABLE with metrics::1A REUSED",
+      "observed": {
+        "cancel": {
+          "backend_processes_at_terminal": 0,
+          "running_invocation_containers_at_terminal": 0,
+          "seconds": 0.53,
+          "state": "CANCELLED"
+        },
+        "core": {
+          "container": "b5871df60644",
+          "processes": 1,
+          "running_log_bytes": 1182,
+          "staged_cwd": "/tmp/m311-comparator-4aej8d_l"
+        },
+        "inspect": {
+          "actions": {
+            "BLOCKED": 0,
+            "RERUN": 0,
+            "REUSE": 8,
+            "RUN": 6
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE",
+          "executable": true,
+          "reasons": [],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE"
+          ]
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B01_stale_preview_after_alias_retarget_to_identical_bytes": {
+      "expected": "confirming the old preview is refused (no job, no change); a fresh inspection does not silently reuse metrics::1A with a different canonical backend",
+      "observed": {
+        "active_jobs": 0,
+        "code": "RECOVERY_PLAN_CHANGED",
+        "execute_http": 409,
+        "fresh_inspection": {
+          "actions": {
+            "BLOCKED": 14,
+            "RERUN": 0,
+            "REUSE": 0,
+            "RUN": 0
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE_WITH_FORCE",
+          "executable": false,
+          "reasons": [
+            [
+              "STALE_STAGE_IDENTITY",
+              "STALE_STAGE_IDENTITY [metrics::1A::T1]: stage_signature_sha256"
+            ]
+          ],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE_WITH_FORCE"
+          ]
+        },
+        "workspace_unchanged": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B02_canonical_target_hash_changed_then_restored": {
+      "expected": "changed hash: completed metrics::1A is not reused (force required / not plainly RESUMABLE); restored bytes: RESUMABLE again; workspace unchanged",
+      "observed": {
+        "changed": {
+          "actions": {
+            "BLOCKED": 14,
+            "RERUN": 0,
+            "REUSE": 0,
+            "RUN": 0
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE_WITH_FORCE",
+          "executable": false,
+          "reasons": [
+            [
+              "STALE_STAGE_IDENTITY",
+              "STALE_STAGE_IDENTITY [metrics::1A::T1]: stage_signature_sha256"
+            ]
+          ],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE_WITH_FORCE"
+          ]
+        },
+        "restored": {
+          "actions": {
+            "BLOCKED": 0,
+            "RERUN": 0,
+            "REUSE": 8,
+            "RUN": 6
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE",
+          "executable": true,
+          "reasons": [],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE"
+          ]
+        },
+        "workspace_unchanged": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B03_alias_retargeted_to_unguarded_executable_after_launch": {
+      "expected": "not silently resumable with the completed stage; the preview names the new canonical backend so the change is visible",
+      "observed": {
+        "inspection": {
+          "actions": {
+            "BLOCKED": 14,
+            "RERUN": 0,
+            "REUSE": 0,
+            "RUN": 0
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE_WITH_FORCE",
+          "executable": false,
+          "reasons": [
+            [
+              "STALE_STAGE_IDENTITY",
+              "STALE_STAGE_IDENTITY [metrics::1A::T1]: stage_signature_sha256"
+            ]
+          ],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE_WITH_FORCE"
+          ]
+        },
+        "native_target": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/bin/CRISPResso"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B04_dangling_alias": {
+      "expected": "not executable; reported unavailable (UNSUPPORTED), not tampered",
+      "observed": {
+        "inspection": {
+          "actions": {
+            "BLOCKED": 14,
+            "RERUN": 0,
+            "REUSE": 0,
+            "RUN": 0
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "UNSUPPORTED",
+          "executable": false,
+          "reasons": [
+            [
+              "BACKEND_UNAVAILABLE",
+              "BACKEND_UNAVAILABLE: Configured executable is unavailable; no probe was executed"
+            ]
+          ],
+          "removal_paths": 0,
+          "sequence": [
+            "UNSUPPORTED"
+          ]
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B05_workspace_symlinks_still_rejected": {
+      "auditor_note": "Harness artifact: the auditor's fingerprint includes directory mtimes, and planting then removing the symlinks itself changed the mtimes of workflow/sessions/ and routing/. Both planted symlinks were refused (TAMPERED/UNSAFE_PATH, not executable); after removal inspection returned RESUMABLE, and the same workspace later resumed to COMPLETED with the independent oracle passing (B07), which would not be possible had recovery deleted or altered content.",
+      "automated_verdict_as_first_recorded": "DEFECT",
+      "expected": "each planted workspace symlink: not executable (UNSAFE_PATH/TAMPERED); restore -> RESUMABLE; nothing deleted",
+      "observed": {
+        "after_restore": {
+          "actions": {
+            "BLOCKED": 0,
+            "RERUN": 0,
+            "REUSE": 8,
+            "RUN": 6
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE",
+          "executable": true,
+          "reasons": [],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE"
+          ]
+        },
+        "results": {
+          "stage_directory_replaced_by_symlink": {
+            "actions": {
+              "BLOCKED": 14,
+              "RERUN": 0,
+              "REUSE": 0,
+              "RUN": 0
+            },
+            "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+            "backend_sha256": "1e0bb6cd85c6930c0807",
+            "classification": "TAMPERED",
+            "executable": false,
+            "reasons": [
+              [
+                "UNSAFE_PATH",
+                "UNSAFE_PATH: symlink: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/home/PEAnalyzer-analyses/v1.0.1/v01_ali"
+              ]
+            ],
+            "removal_paths": 0,
+            "sequence": [
+              "TAMPERED"
+            ]
+          },
+          "symlink_file_in_workspace": {
+            "actions": {
+              "BLOCKED": 14,
+              "RERUN": 0,
+              "REUSE": 0,
+              "RUN": 0
+            },
+            "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+            "backend_sha256": "1e0bb6cd85c6930c0807",
+            "classification": "TAMPERED",
+            "executable": false,
+            "reasons": [
+              [
+                "UNSAFE_PATH",
+                "UNSAFE_PATH: symlink: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/home/PEAnalyzer-analyses/v1.0.1/v01_ali"
+              ]
+            ],
+            "removal_paths": 0,
+            "sequence": [
+              "TAMPERED"
+            ]
+          }
+        },
+        "workspace_unchanged": false
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B06_foreign_file_blocks_force": {
+      "expected": "force routing refused with FOREIGN_CONTENT_PRESENT; file intact",
+      "observed": {
+        "forced": {
+          "actions": {
+            "BLOCKED": 14,
+            "RERUN": 0,
+            "REUSE": 0,
+            "RUN": 0
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "UNSUPPORTED",
+          "executable": false,
+          "reasons": [
+            [
+              "FOREIGN_CONTENT_PRESENT",
+              "FOREIGN_CONTENT_PRESENT [routing::1A::T1]: Unowned removal entries: routing/1A/T1/user-notes.txt. Recovery cannot prove ownership. Preserve this workspace and s"
+            ]
+          ],
+          "removal_paths": 0,
+          "sequence": null
+        },
+        "foreign_intact": true
+      },
+      "verdict": "CONTROLLED"
+    },
+    "B07_restored_alias_resumes_to_truth_with_single_backend_identity": {
+      "expected": "RESUMABLE (8 reused) -> COMPLETED; all metrics stages carry one canonical backend; oracle passes",
+      "observed": {
+        "final": "COMPLETED",
+        "inspect": {
+          "actions": {
+            "BLOCKED": 0,
+            "RERUN": 0,
+            "REUSE": 8,
+            "RUN": 6
+          },
+          "backend_executable": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso",
+          "backend_sha256": "1e0bb6cd85c6930c0807",
+          "classification": "RESUMABLE",
+          "executable": true,
+          "reasons": [],
+          "removal_paths": 0,
+          "sequence": [
+            "RESUMABLE"
+          ]
+        },
+        "metrics_backend_identities": [
+          "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/venv/bin/peanalyzer-crispresso"
+        ],
+        "oracle": "72 passed, 0 failed"
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "v01_installed_desktop_recovery_reaudit",
+  "flagged": [],
+  "launcher": {
+    "configured_backend": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/r2/release/bin/CRISPResso",
+    "configured_backend_is_installer_symlink": true,
+    "override_env_present": false,
+    "started": true
+  },
+  "launcher_stopped_cleanly": true
+}

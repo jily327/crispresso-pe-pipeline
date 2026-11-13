@@ -1,0 +1,30 @@
+{
+  "attempts": [
+    {
+      "classification": "RESUMABLE",
+      "reasons": [],
+      "daemon_state": {
+        "status": "absent",
+        "running": false,
+        "pid": 0
+      }
+    },
+    {
+      "classification": "RESUMABLE",
+      "reasons": [],
+      "daemon_state": {
+        "status": "absent",
+        "running": false,
+        "pid": 0
+      }
+    }
+  ],
+  "installer_alias": true,
+  "completed": true,
+  "verified": true,
+  "exact_counts": [
+    2,
+    400
+  ],
+  "preserved_foreign_files": 2
+}

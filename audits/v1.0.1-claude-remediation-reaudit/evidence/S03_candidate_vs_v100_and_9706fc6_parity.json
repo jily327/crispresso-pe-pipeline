@@ -1,0 +1,98 @@
+{
+  "mc_blocked": {
+    "prev_candidate_9706fc6": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    },
+    "v1.0.0_00b528e": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    }
+  },
+  "mc_routable": {
+    "prev_candidate_9706fc6": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    },
+    "v1.0.0_00b528e": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    }
+  },
+  "mc_routable_vs_designed": {
+    "designed": {
+      "denominator": 360,
+      "numerator": 150
+    },
+    "quarantine": {
+      "CONFLICTING_DIAGNOSTIC_EVIDENCE": 25,
+      "LOW_QUALITY_DIAGNOSTICS_ONLY": 40
+    },
+    "stored": [
+      150,
+      360,
+      "REPORTABLE"
+    ]
+  },
+  "nucW2": {
+    "prev_candidate_9706fc6": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    },
+    "v1.0.0_00b528e": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    }
+  },
+  "nucW4": {
+    "prev_candidate_9706fc6": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    },
+    "v1.0.0_00b528e": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    }
+  },
+  "pe": {
+    "prev_candidate_9706fc6": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    },
+    "v1.0.0_00b528e": {
+      "contrasts_identical": true,
+      "group_summaries_identical": true,
+      "observations_identical": true,
+      "sample_results_identical": true
+    }
+  },
+  "source_freeze": {
+    "changed_vs_previous_candidate": [
+      "src/peanalyzer/docker_runtime.py",
+      "src/peanalyzer/gui/app.py",
+      "src/peanalyzer/gui/library.py",
+      "src/peanalyzer/gui/recovery.py"
+    ],
+    "files_checked": 44,
+    "identical_to_previous_candidate": 44,
+    "identical_to_v100": 40
+  }
+}
