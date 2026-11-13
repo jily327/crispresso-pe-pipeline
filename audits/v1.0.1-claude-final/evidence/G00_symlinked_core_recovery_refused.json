@@ -1,0 +1,83 @@
+{
+  "experiment": "gui_docker_lifecycle",
+  "scenarios": {
+    "G01a_cancel_during_core": {
+      "claim": "CANCELLED is shown only after the daemon and kernel agree no backend of this job exists.",
+      "expected": "at first CANCELLED observation: zero backend processes, zero running invocation containers; no completion marker",
+      "failure_hypothesis": "GUI shows CANCELLED while a container is still running or a CRISPResso process is alive.",
+      "observed": {
+        "core_seen_before_cancel": true,
+        "final_state": "CANCELLED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "timeline": [
+          {
+            "backend_alive": true,
+            "container_running": true,
+            "first_t": 0.13,
+            "job": "CANCELLING",
+            "last_t": 0.13
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.27,
+            "job": "CANCELLING",
+            "last_t": 0.54
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.68,
+            "job": "CANCELLED",
+            "last_t": 0.68
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 5,
+              "name": "mpt-ge3c3mys"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G01b_inspect_after_cancel_with_nonempty_partial_output": {
+      "claim": "A run cancelled during Core with genuine nonempty partial CRISPResso output is resumable in place (v1.0.0 F-01).",
+      "expected": "RESUMABLE, executable, no removal paths; partial output retained outside the workspace",
+      "failure_hypothesis": "Partial output blocks recovery or is labelled TAMPERED/UNSUPPORTED.",
+      "observed": {
+        "actions": {
+          "BLOCKED": 14,
+          "RERUN": 0,
+          "REUSE": 0,
+          "RUN": 0
+        },
+        "classification": "TAMPERED",
+        "classification_sequence": [
+          "TAMPERED"
+        ],
+        "executable": false,
+        "partial_output_is_nonempty": true,
+        "reasons": [
+          [
+            "UNSAFE_PATH",
+            "UNSAFE_PATH: symlink: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/bin/CRISP"
+          ]
+        ],
+        "removal_paths": []
+      },
+      "verdict": "DEFECT"
+    }
+  }
+}

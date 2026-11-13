@@ -1,0 +1,1040 @@
+{
+  "checks": [
+    {
+      "actual": 401,
+      "check": "api.no_token_refused",
+      "expected": 401,
+      "ok": true
+    },
+    {
+      "actual": 403,
+      "check": "api.foreign_origin_refused",
+      "expected": 403,
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "setup.run_available",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": [
+        200,
+        200
+      ],
+      "check": "upload.accepted",
+      "expected": [
+        200,
+        200
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        200,
+        [],
+        4
+      ],
+      "check": "excel_import.accepted",
+      "expected": [
+        200,
+        [],
+        4
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "4A",
+        "1A",
+        "3A",
+        "2A"
+      ],
+      "check": "excel_import.preserves_row_order",
+      "expected": [
+        "4A",
+        "1A",
+        "3A",
+        "2A"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "GCTTCTCGT",
+        "CTGTGCGTT"
+      ],
+      "check": "excel_import.catalog_resolves_sequences",
+      "expected": [
+        "GCTTCTCGT",
+        "CTGTGCGTT"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [],
+      "check": "excel_import.created_no_workspace",
+      "expected": [],
+      "ok": true
+    },
+    {
+      "actual": "VALID",
+      "check": "review.valid",
+      "expected": "VALID",
+      "ok": true
+    },
+    {
+      "actual": "4",
+      "check": "review.sample_count_is_biological_samples",
+      "expected": "4",
+      "ok": true
+    },
+    {
+      "actual": false,
+      "check": "review.no_workspace_before_run",
+      "expected": false,
+      "ok": true
+    },
+    {
+      "actual": 200,
+      "check": "run.accepted",
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "actual": [
+        409,
+        "WORKER_BUSY"
+      ],
+      "check": "run.concurrent_submission_refused",
+      "expected": [
+        409,
+        "WORKER_BUSY"
+      ],
+      "ok": true
+    },
+    {
+      "actual": false,
+      "check": "run.concurrent_submission_created_nothing",
+      "expected": false,
+      "ok": true
+    },
+    {
+      "actual": [
+        "8e209636d2174a3eb5fd4213eeb2566d"
+      ],
+      "check": "run.reload_sees_active_job",
+      "expected": [
+        "8e209636d2174a3eb5fd4213eeb2566d"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        409,
+        "DRAFT_LOCKED"
+      ],
+      "check": "run.accepted_draft_is_frozen",
+      "expected": [
+        409,
+        "DRAFT_LOCKED"
+      ],
+      "ok": true
+    },
+    {
+      "actual": "COMPLETED",
+      "check": "run.state",
+      "expected": "COMPLETED",
+      "ok": true
+    },
+    {
+      "actual": [
+        1,
+        true
+      ],
+      "check": "run.single_terminal_event_and_last",
+      "expected": [
+        1,
+        true
+      ],
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "view.verified_flag",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.1A.total_precise_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "0",
+        "400",
+        "REPORTABLE"
+      ],
+      "check": "view.1A.total_precise_pe.counts_equal_disk",
+      "expected": [
+        "0",
+        "400",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.0,
+      "check": "view.1A.total_precise_pe.fraction_equals_n_over_d",
+      "expected": 0.0,
+      "ok": true
+    },
+    {
+      "actual": "0%",
+      "check": "view.1A.total_precise_pe.percentage_is_formatted_stored_fraction",
+      "expected": "0%",
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.1A.target_crispresso_native_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "0",
+        "430",
+        "REPORTABLE"
+      ],
+      "check": "view.1A.target_crispresso_native_pe.counts_equal_disk",
+      "expected": [
+        "0",
+        "430",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.0,
+      "check": "view.1A.target_crispresso_native_pe.fraction_equals_n_over_d",
+      "expected": 0.0,
+      "ok": true
+    },
+    {
+      "actual": "0%",
+      "check": "view.1A.target_crispresso_native_pe.percentage_is_formatted_stored_fraction",
+      "expected": "0%",
+      "ok": true
+    },
+    {
+      "actual": [
+        0,
+        400
+      ],
+      "check": "disk.1A.exact_equals_designed",
+      "expected": [
+        0,
+        400
+      ],
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.2A.total_precise_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "3",
+        "303",
+        "REPORTABLE"
+      ],
+      "check": "view.2A.total_precise_pe.counts_equal_disk",
+      "expected": [
+        "3",
+        "303",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.009900990099009901,
+      "check": "view.2A.total_precise_pe.fraction_equals_n_over_d",
+      "expected": 0.009900990099009901,
+      "ok": true
+    },
+    {
+      "actual": "0.990099%",
+      "check": "view.2A.total_precise_pe.percentage_is_formatted_stored_fraction",
+      "expected": "0.990099%",
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.2A.target_crispresso_native_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "3",
+        "318",
+        "REPORTABLE"
+      ],
+      "check": "view.2A.target_crispresso_native_pe.counts_equal_disk",
+      "expected": [
+        "3",
+        "318",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.009433962264150943,
+      "check": "view.2A.target_crispresso_native_pe.fraction_equals_n_over_d",
+      "expected": 0.009433962264150943,
+      "ok": true
+    },
+    {
+      "actual": "0.943396%",
+      "check": "view.2A.target_crispresso_native_pe.percentage_is_formatted_stored_fraction",
+      "expected": "0.943396%",
+      "ok": true
+    },
+    {
+      "actual": [
+        3,
+        303
+      ],
+      "check": "disk.2A.exact_equals_designed",
+      "expected": [
+        3,
+        303
+      ],
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.3A.total_precise_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "100",
+        "300",
+        "REPORTABLE"
+      ],
+      "check": "view.3A.total_precise_pe.counts_equal_disk",
+      "expected": [
+        "100",
+        "300",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.3333333333333333,
+      "check": "view.3A.total_precise_pe.fraction_equals_n_over_d",
+      "expected": 0.3333333333333333,
+      "ok": true
+    },
+    {
+      "actual": "33.3333%",
+      "check": "view.3A.total_precise_pe.percentage_is_formatted_stored_fraction",
+      "expected": "33.3333%",
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.3A.target_crispresso_native_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "180",
+        "470",
+        "REPORTABLE"
+      ],
+      "check": "view.3A.target_crispresso_native_pe.counts_equal_disk",
+      "expected": [
+        "180",
+        "470",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.3829787234042553,
+      "check": "view.3A.target_crispresso_native_pe.fraction_equals_n_over_d",
+      "expected": 0.3829787234042553,
+      "ok": true
+    },
+    {
+      "actual": "38.2979%",
+      "check": "view.3A.target_crispresso_native_pe.percentage_is_formatted_stored_fraction",
+      "expected": "38.2979%",
+      "ok": true
+    },
+    {
+      "actual": [
+        100,
+        300
+      ],
+      "check": "disk.3A.exact_equals_designed",
+      "expected": [
+        100,
+        300
+      ],
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.4A.total_precise_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "150",
+        "250",
+        "REPORTABLE"
+      ],
+      "check": "view.4A.total_precise_pe.counts_equal_disk",
+      "expected": [
+        "150",
+        "250",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.6,
+      "check": "view.4A.total_precise_pe.fraction_equals_n_over_d",
+      "expected": 0.6,
+      "ok": true
+    },
+    {
+      "actual": "60%",
+      "check": "view.4A.total_precise_pe.percentage_is_formatted_stored_fraction",
+      "expected": "60%",
+      "ok": true
+    },
+    {
+      "actual": 1,
+      "check": "view.4A.target_crispresso_native_pe.single_row",
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "actual": [
+        "155",
+        "395",
+        "REPORTABLE"
+      ],
+      "check": "view.4A.target_crispresso_native_pe.counts_equal_disk",
+      "expected": [
+        "155",
+        "395",
+        "REPORTABLE"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.3924050632911392,
+      "check": "view.4A.target_crispresso_native_pe.fraction_equals_n_over_d",
+      "expected": 0.3924050632911392,
+      "ok": true
+    },
+    {
+      "actual": "39.2405%",
+      "check": "view.4A.target_crispresso_native_pe.percentage_is_formatted_stored_fraction",
+      "expected": "39.2405%",
+      "ok": true
+    },
+    {
+      "actual": [
+        150,
+        250
+      ],
+      "check": "disk.4A.exact_equals_designed",
+      "expected": [
+        150,
+        250
+      ],
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "excel.exists",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": [
+        "Summary",
+        "Definitions"
+      ],
+      "check": "excel.sheets",
+      "expected": [
+        "Summary",
+        "Definitions"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [],
+      "check": "excel.no_macros_or_external_parts",
+      "expected": [],
+      "ok": true
+    },
+    {
+      "actual": [
+        "Sample name",
+        "Barcode",
+        "CRISPResso edit %",
+        "CRISPResso reads/reads",
+        "Precise edit %",
+        "Precise reads/reads"
+      ],
+      "check": "excel.header",
+      "expected": [
+        "Sample name",
+        "Barcode",
+        "CRISPResso edit %",
+        "CRISPResso reads/reads",
+        "Precise edit %",
+        "Precise reads/reads"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "4A",
+        "1A",
+        "3A",
+        "2A"
+      ],
+      "check": "excel.row_order_is_accepted_gui_order",
+      "expected": [
+        "4A",
+        "1A",
+        "3A",
+        "2A"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [],
+      "check": "excel.no_formulas_anywhere",
+      "expected": [],
+      "ok": true
+    },
+    {
+      "actual": "edit_rep2",
+      "check": "excel.4A.sample_name",
+      "expected": "edit_rep2",
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "text"
+      ],
+      "check": "excel.4A.identity_cells_are_text",
+      "expected": [
+        "text",
+        "text"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.3924050632911392,
+        "0.00%"
+      ],
+      "check": "excel.4A.target_crispresso_native_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.3924050632911392,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "155 / 395"
+      ],
+      "check": "excel.4A.target_crispresso_native_pe.count_cell_text",
+      "expected": [
+        "text",
+        "155 / 395"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.6,
+        "0.00%"
+      ],
+      "check": "excel.4A.total_precise_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.6,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "150 / 250"
+      ],
+      "check": "excel.4A.total_precise_pe.count_cell_text",
+      "expected": [
+        "text",
+        "150 / 250"
+      ],
+      "ok": true
+    },
+    {
+      "actual": "ctrl_rep1",
+      "check": "excel.1A.sample_name",
+      "expected": "ctrl_rep1",
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "text"
+      ],
+      "check": "excel.1A.identity_cells_are_text",
+      "expected": [
+        "text",
+        "text"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.0,
+        "0.00%"
+      ],
+      "check": "excel.1A.target_crispresso_native_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.0,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "0 / 430"
+      ],
+      "check": "excel.1A.target_crispresso_native_pe.count_cell_text",
+      "expected": [
+        "text",
+        "0 / 430"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.0,
+        "0.00%"
+      ],
+      "check": "excel.1A.total_precise_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.0,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "0 / 400"
+      ],
+      "check": "excel.1A.total_precise_pe.count_cell_text",
+      "expected": [
+        "text",
+        "0 / 400"
+      ],
+      "ok": true
+    },
+    {
+      "actual": "edit_rep1",
+      "check": "excel.3A.sample_name",
+      "expected": "edit_rep1",
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "text"
+      ],
+      "check": "excel.3A.identity_cells_are_text",
+      "expected": [
+        "text",
+        "text"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.3829787234042553,
+        "0.00%"
+      ],
+      "check": "excel.3A.target_crispresso_native_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.3829787234042553,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "180 / 470"
+      ],
+      "check": "excel.3A.target_crispresso_native_pe.count_cell_text",
+      "expected": [
+        "text",
+        "180 / 470"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.3333333333333333,
+        "0.00%"
+      ],
+      "check": "excel.3A.total_precise_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.3333333333333333,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "100 / 300"
+      ],
+      "check": "excel.3A.total_precise_pe.count_cell_text",
+      "expected": [
+        "text",
+        "100 / 300"
+      ],
+      "ok": true
+    },
+    {
+      "actual": "ctrl_rep2",
+      "check": "excel.2A.sample_name",
+      "expected": "ctrl_rep2",
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "text"
+      ],
+      "check": "excel.2A.identity_cells_are_text",
+      "expected": [
+        "text",
+        "text"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.009433962264150943,
+        "0.00%"
+      ],
+      "check": "excel.2A.target_crispresso_native_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.009433962264150943,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "3 / 318"
+      ],
+      "check": "excel.2A.target_crispresso_native_pe.count_cell_text",
+      "expected": [
+        "text",
+        "3 / 318"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "n",
+        0.009900990099009901,
+        "0.00%"
+      ],
+      "check": "excel.2A.total_precise_pe.fraction_cell",
+      "expected": [
+        "n",
+        0.009900990099009901,
+        "0.00%"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "text",
+        "3 / 303"
+      ],
+      "check": "excel.2A.total_precise_pe.count_cell_text",
+      "expected": [
+        "text",
+        "3 / 303"
+      ],
+      "ok": true
+    },
+    {
+      "actual": "1.0.1",
+      "check": "excel.definitions.version",
+      "expected": "1.0.1",
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "excel.definitions.native_not_modified",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": [
+        "metrics/1A/T1/result.json SHA-256 af854c9a70404ea4a0c42b9a21e0b17723e8b50e7a13d9b803a7e297ab1ad0df",
+        "metrics/2A/T1/result.json SHA-256 9a2e1f4bd525646f28ea4c00b9c9e329fcb6c375e926229d24a072ecff378c0c",
+        "metrics/3A/T1/result.json SHA-256 d99f85235f68bce58bcb557317d8c3894e3126b4d1afa3cdfd41d8ab6530792b",
+        "metrics/4A/T1/result.json SHA-256 fc2fb5c49dff17cab89635cd657e7c49af86c540f7e1b3ed32dde90df44f01e0"
+      ],
+      "check": "excel.definitions.metric_source_hashes_match_disk",
+      "expected": [
+        "metrics/1A/T1/result.json SHA-256 af854c9a70404ea4a0c42b9a21e0b17723e8b50e7a13d9b803a7e297ab1ad0df",
+        "metrics/2A/T1/result.json SHA-256 9a2e1f4bd525646f28ea4c00b9c9e329fcb6c375e926229d24a072ecff378c0c",
+        "metrics/3A/T1/result.json SHA-256 d99f85235f68bce58bcb557317d8c3894e3126b4d1afa3cdfd41d8ab6530792b",
+        "metrics/4A/T1/result.json SHA-256 fc2fb5c49dff17cab89635cd657e7c49af86c540f7e1b3ed32dde90df44f01e0"
+      ],
+      "ok": true
+    },
+    {
+      "actual": "UNCHANGED",
+      "check": "excel.integrity_state_fresh",
+      "expected": "UNCHANGED",
+      "ok": true
+    },
+    {
+      "actual": [
+        "CHANGED",
+        200
+      ],
+      "check": "excel.edited_workbook_flagged_changed_science_still_served",
+      "expected": [
+        "CHANGED",
+        200
+      ],
+      "ok": true
+    },
+    {
+      "actual": 200,
+      "check": "excel.lock_file_does_not_invalidate_science",
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "actual": "UNCHANGED",
+      "check": "excel.restored_bytes_are_unchanged_again",
+      "expected": "UNCHANGED",
+      "ok": true
+    },
+    {
+      "actual": [
+        409,
+        "WORKSPACE_CHANGED"
+      ],
+      "check": "view.unknown_file_hides_results",
+      "expected": [
+        409,
+        "WORKSPACE_CHANGED"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        409,
+        "WORKSPACE_NOT_OPEN"
+      ],
+      "check": "view.changed_workspace_stays_closed_until_reopen",
+      "expected": [
+        409,
+        "WORKSPACE_NOT_OPEN"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 200,
+      "check": "view.reopen_after_stray_file_removed",
+      "expected": 200,
+      "ok": true
+    },
+    {
+      "actual": [
+        409,
+        "WORKSPACE_CHANGED"
+      ],
+      "check": "view.scientific_byte_change_hides_results",
+      "expected": [
+        409,
+        "WORKSPACE_CHANGED"
+      ],
+      "ok": true
+    },
+    {
+      "actual": 409,
+      "check": "view.reopen_after_scientific_tamper_fails",
+      "expected": 409,
+      "ok": true
+    },
+    {
+      "actual": 200,
+      "check": "view.reopen_after_restore_succeeds",
+      "expected": 200,
+      "ok": true
+    }
+  ],
+  "desktop_reveal_result_in_this_linux_container": {
+    "message": "Open output folder is available on Windows / WSL. The analysis remains completed.",
+    "ok": false
+  },
+  "event_statuses": [
+    "ACCEPTED",
+    "SUPERVISOR_READY",
+    "WORKER_READY",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "RUNNING",
+    "COMPLETED",
+    "FINAL_VALIDATION",
+    "VERIFIED_SUCCESS",
+    "CONTAINMENT_CONFIRMED",
+    "VIEWER_VERIFICATION",
+    "COMPLETED"
+  ],
+  "excel_definitions": {
+    "Analysis": "Audit PE",
+    "CRISPResso edit %": "Prime-edited-reference assigned reads / authoritative aligned reads. NOT Modified%.",
+    "Declared qualified runtime": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "Export provenance": "Server projection of verified stored target-primary observations before viewer publication.",
+    "Metric sources": "metrics/1A/T1/result.json SHA-256 af854c9a70404ea4a0c42b9a21e0b17723e8b50e7a13d9b803a7e297ab1ad0df\nmetrics/2A/T1/result.json SHA-256 9a2e1f4bd525646f28ea4c00b9c9e329fcb6c375e926229d24a072ecff378c0c\nmetrics/3A/T1/result.json SHA-256 d99f85235f68bce58bcb557317d8c3894e3126b4d1afa3cdfd41d8ab6530792b\nmetrics/4A/T1/result.json SHA-256 fc2fb5c49dff17cab89635cd657e7c49af86c540f7e1b3ed32dde90df44f01e0",
+    "Ordering": "Accepted GUI input order, checked against verified sample identities.",
+    "PEAnalyzer version": "1.0.1",
+    "Precise edit %": "Exact intended PE / (exact WT + exact intended PE), under existing observability/reconstruction qualification.",
+    "Runtime identity limitation": "The declared digest is not image attestation. The observed executable/version do not establish which Docker image ran.",
+    "Source metric identifiers": "target_crispresso_native_pe, total_precise_pe",
+    "Target": "T1",
+    "Unavailable values": "Not available means missing, BLOCKED or NOT_ASSESSABLE; never zero-filled.",
+    "Verified source snapshot": "63a71214988459f396a76fe7f60ab6a018f2c9ca6cd5dd0a81bb67c5e0629a50",
+    "Workspace": "audit_gui_pe"
+  },
+  "excel_rows": [
+    [
+      "edit_rep2",
+      "4A",
+      "0.3924050632911392",
+      "155 / 395",
+      "0.6",
+      "150 / 250"
+    ],
+    [
+      "ctrl_rep1",
+      "1A",
+      "0",
+      "0 / 430",
+      "0",
+      "0 / 400"
+    ],
+    [
+      "edit_rep1",
+      "3A",
+      "0.3829787234042553",
+      "180 / 470",
+      "0.3333333333333333",
+      "100 / 300"
+    ],
+    [
+      "ctrl_rep2",
+      "2A",
+      "0.009433962264150943",
+      "3 / 318",
+      "0.009900990099009901",
+      "3 / 303"
+    ]
+  ],
+  "experiment": "E04_E05_gui_happy_path_and_excel",
+  "failed": 0,
+  "job": {
+    "error": null,
+    "finished_stages": 14,
+    "state": "COMPLETED",
+    "total_stages": 14,
+    "workspace_id": "78f7957b0e244e6483d01e8df7b2fc71"
+  },
+  "passed": 98,
+  "reopen_after_tamper": {
+    "code": "CORRUPTED_STAGE_OUTPUT",
+    "detail": "CORRUPTED_STAGE_OUTPUT [metrics::3A::T1]: metrics/3A/T1",
+    "message": "Workspace verification failed. Scientific results are unavailable.",
+    "stage_id": "metrics::3A::T1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "first_run_exit": 2,
+  "message": "Workflow failed: EMPTY_SAMPLES [metrics::1A::T1]: Zero prepared read pairs for barcode/sample IDs: 2A. Check barcode orientation and input reads in Setup/Review. Correct the inputs or explicitly remove failed wells and start a new workspace; no samples were omitted.",
+  "metrics_published": false,
+  "completion_marker": false,
+  "attempts": []
+}

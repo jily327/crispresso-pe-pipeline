@@ -1,0 +1,440 @@
+{
+  "backend_processes_at_end": [],
+  "experiment": "gui_docker_lifecycle",
+  "leftover_labelled_containers_at_end": [],
+  "scenarios": {
+    "G01a_cancel_during_core": {
+      "claim": "CANCELLED is shown only after the daemon and kernel agree no backend of this job exists.",
+      "expected": "at first CANCELLED observation: zero backend processes, zero running invocation containers; no completion marker",
+      "failure_hypothesis": "GUI shows CANCELLED while a container is still running or a CRISPResso process is alive.",
+      "observed": {
+        "core_seen_before_cancel": true,
+        "final_state": "CANCELLED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "timeline": [
+          {
+            "backend_alive": true,
+            "container_running": true,
+            "first_t": 0.16,
+            "job": "CANCELLING",
+            "last_t": 0.16
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.32,
+            "job": "CANCELLING",
+            "last_t": 0.68
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.84,
+            "job": "CANCELLED",
+            "last_t": 0.84
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 5,
+              "name": "mpt-qyp6mwiu"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G01b_inspect_after_cancel_with_nonempty_partial_output": {
+      "claim": "A run cancelled during Core with genuine nonempty partial CRISPResso output is resumable in place (v1.0.0 F-01).",
+      "expected": "RESUMABLE, executable, no removal paths; partial output retained outside the workspace",
+      "failure_hypothesis": "Partial output blocks recovery or is labelled TAMPERED/UNSUPPORTED.",
+      "observed": {
+        "actions": {
+          "BLOCKED": 0,
+          "RERUN": 0,
+          "REUSE": 7,
+          "RUN": 7
+        },
+        "classification": "RESUMABLE",
+        "classification_sequence": [
+          "RESUMABLE"
+        ],
+        "executable": true,
+        "partial_output_is_nonempty": true,
+        "reasons": [],
+        "removal_paths": []
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G01c_repeated_cancel_and_recovery_then_science": {
+      "claim": "Repeated cancellation and recovery ends in a verified result equal to the designed truth; retained attempts are never adopted or deleted.",
+      "expected": "second cancel CANCELLED+contained; RESUMABLE again; COMPLETED; independent oracle passes; attempt directories byte-identical",
+      "failure_hypothesis": "Second cancel breaks recovery; recovered numbers differ; earlier attempt directories are reused or removed.",
+      "observed": {
+        "exact_equals_designed_truth": true,
+        "export_state": "UNCHANGED",
+        "final_error": null,
+        "final_job": "COMPLETED",
+        "first_attempt_directories_unchanged_by_recovery": true,
+        "independent_after_completion": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "oracle_tail": "72 passed, 0 failed",
+        "second_cancel": {
+          "core_seen": true,
+          "independent": {
+            "all_invocation_containers": [],
+            "backend_processes": [],
+            "running_invocation_containers": []
+          },
+          "state": "CANCELLED",
+          "timeline": [
+            {
+              "backend_alive": true,
+              "container_running": true,
+              "first_t": 0.12,
+              "job": "CANCELLING",
+              "last_t": 0.12
+            },
+            {
+              "backend_alive": false,
+              "container_running": false,
+              "first_t": 0.27,
+              "job": "CANCELLING",
+              "last_t": 0.53
+            },
+            {
+              "backend_alive": false,
+              "container_running": false,
+              "first_t": 0.67,
+              "job": "CANCELLED",
+              "last_t": 0.67
+            }
+          ]
+        },
+        "second_inspection": {
+          "actions": {
+            "BLOCKED": 0,
+            "RERUN": 0,
+            "REUSE": 7,
+            "RUN": 7
+          },
+          "classification": "RESUMABLE",
+          "classification_sequence": [
+            "RESUMABLE"
+          ],
+          "executable": true,
+          "reasons": [],
+          "removal_paths": []
+        },
+        "workspace": {
+          "completion_marker": true,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [
+            "metrics/1A/T1",
+            "metrics/2A/T1",
+            "metrics/3A/T1",
+            "metrics/4A/T1"
+          ],
+          "retained_attempts": [
+            {
+              "files": 5,
+              "name": "mpt-1tg5k5t1"
+            },
+            {
+              "files": 5,
+              "name": "mpt-qyp6mwiu"
+            }
+          ],
+          "workbook": true
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G02_supervisor_SIGKILL": {
+      "claim": "SIGKILL of the supervisor cannot leave or later start an uncontrolled CRISPResso, and never yields COMPLETED.",
+      "expected": "all backend processes gone within 5 s; no CRISPResso ever starts again; job FAILED and stays FAILED; no completion marker",
+      "failure_hypothesis": "Backend survives the supervisor; or the orphaned scientific worker launches further backend runs; or the job is reported successful.",
+      "observed": {
+        "backend_after_kill": {
+          "all_backend_gone": true,
+          "seconds": 0.102
+        },
+        "core_seen_before_kill": true,
+        "core_started_again_afterwards": 0,
+        "error": {
+          "code": "CANCELLATION_INCOMPLETE",
+          "detail": "The host worker lease remains held; supervisor exit is not proof of cleanup.",
+          "message": "Scientific process containment could not be confirmed.",
+          "stage_id": null
+        },
+        "final_state": "FAILED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_state_later": "FAILED",
+        "killed": "supervisor",
+        "next_submission": [
+          409,
+          "WORKER_BUSY"
+        ],
+        "timeline": [
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.07,
+            "job": "RUNNING",
+            "last_t": 0.5
+          },
+          {
+            "backend_alive": false,
+            "container_running": true,
+            "first_t": 0.66,
+            "job": "RUNNING",
+            "last_t": 0.66
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.79,
+            "job": "RUNNING",
+            "last_t": 1.05
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 1.18,
+            "job": "FAILED",
+            "last_t": 1.18
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 13,
+              "name": "mpt-pcn_gian"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G03_science_worker_SIGKILL": {
+      "claim": "SIGKILL of the science cannot leave or later start an uncontrolled CRISPResso, and never yields COMPLETED.",
+      "expected": "all backend processes gone within 5 s; no CRISPResso ever starts again; job FAILED and stays FAILED; no completion marker",
+      "failure_hypothesis": "Backend survives the science; or the orphaned scientific worker launches further backend runs; or the job is reported successful.",
+      "observed": {
+        "backend_after_kill": {
+          "all_backend_gone": true,
+          "seconds": 0.154
+        },
+        "core_seen_before_kill": true,
+        "core_started_again_afterwards": 0,
+        "error": {
+          "code": "WORKER_EXITED",
+          "detail": "Worker exit code: 1",
+          "message": "The worker did not produce verified completion.",
+          "stage_id": null
+        },
+        "final_state": "FAILED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_state_later": "FAILED",
+        "killed": "science",
+        "next_submission": [
+          200,
+          null
+        ],
+        "timeline": [
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.08,
+            "job": "RUNNING",
+            "last_t": 0.34
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.46,
+            "job": "FAILED",
+            "last_t": 0.46
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": true,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 0,
+              "name": "mpt-3mbc_1wy"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G04_wrapper_SIGKILL": {
+      "claim": "SIGKILL of the wrapper cannot leave or later start an uncontrolled CRISPResso, and never yields COMPLETED.",
+      "expected": "all backend processes gone within 5 s; no CRISPResso ever starts again; job FAILED and stays FAILED; no completion marker",
+      "failure_hypothesis": "Backend survives the wrapper; or the orphaned scientific worker launches further backend runs; or the job is reported successful.",
+      "observed": {
+        "backend_after_kill": {
+          "all_backend_gone": true,
+          "seconds": 0.168
+        },
+        "core_seen_before_kill": true,
+        "core_started_again_afterwards": 0,
+        "error": {
+          "code": "BACKEND_EXECUTION_FAILED",
+          "detail": "BACKEND_EXECUTION_FAILED [metrics::1A::T1]: Sample 1A, target T1: backend could not analyse the reads. Inspect execution_failures.json in the retained metrics attempt. Check read quality, mate overlap and sample selection in Setup/Review; no sample was omitted.",
+          "message": "The scientific workflow stopped.",
+          "stage_id": "metrics::1A::T1"
+        },
+        "final_state": "FAILED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_state_later": "FAILED",
+        "killed": "wrapper",
+        "next_submission": [
+          200,
+          null
+        ],
+        "timeline": [
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 0.08,
+            "job": "RUNNING",
+            "last_t": 0.41
+          },
+          {
+            "backend_alive": true,
+            "container_running": true,
+            "first_t": 0.58,
+            "job": "RUNNING",
+            "last_t": 3.5
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 3.63,
+            "job": "RUNNING",
+            "last_t": 4.13
+          },
+          {
+            "backend_alive": false,
+            "container_running": false,
+            "first_t": 4.27,
+            "job": "FAILED",
+            "last_t": 4.27
+          }
+        ],
+        "workspace": {
+          "completion_marker": false,
+          "exists": true,
+          "lock_left": false,
+          "published_metrics": [],
+          "retained_attempts": [
+            {
+              "files": 35,
+              "name": "mpt-4wpmw2ux"
+            }
+          ],
+          "workbook": false
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G05_daemon_frozen_during_cancel": {
+      "claim": "With the daemon unreachable, containment stays unconfirmed (no CANCELLED), yet the guard still stops Core; confirmation resumes when the daemon returns.",
+      "expected": "job never CANCELLED while frozen; kernel shows backend gone anyway; after resume: CANCELLED with clean independent state",
+      "failure_hypothesis": "CANCELLED is announced without daemon proof; or the backend keeps running because the daemon is needed to stop it.",
+      "observed": {
+        "containment_events_while_frozen": [
+          [
+            "CONTAINMENT_ERROR",
+            [
+              "docker_containment:RuntimeErrorDetail:None"
+            ]
+          ]
+        ],
+        "core_seen": true,
+        "final_after_daemon_resumed": "CANCELLED",
+        "independent_at_terminal": {
+          "all_invocation_containers": [],
+          "backend_processes": [],
+          "running_invocation_containers": []
+        },
+        "job_states_while_daemon_frozen": [
+          "CANCELLING"
+        ],
+        "kernel_backend_gone_after_s": 0.5,
+        "next_submission_after_resume": 200,
+        "seconds_to_terminal_after_resume": 0.63
+      },
+      "verdict": "CONTROLLED"
+    },
+    "G06_forged_session_record": {
+      "claim": "Session records authorize observation only: a forged record naming an unrelated running container can delay confirmation but can never kill or remove that container.",
+      "expected": "job stays unconfirmed while the forged record exists; unrelated container untouched; own backend already gone; CANCELLED after the record is removed",
+      "failure_hypothesis": "Supervisor kills/removes the unrelated container, or confirms containment while a registered container runs.",
+      "note": "A same-account writer can therefore hold the host lease indefinitely (fail-closed denial of service), and could equally hide a container by pointing a record at another socket; both require code execution as the user, outside the stated boundary.",
+      "observed": {
+        "final_after_forged_record_removed": "CANCELLED",
+        "genuine_records_at_forgery": 4,
+        "job_states_while_forged_record_points_at_running_unrelated_container": [
+          "CANCELLING"
+        ],
+        "own_backend_processes_during_wait": [],
+        "session_dir_mode": "0o700",
+        "unrelated_container_untouched": true
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "unrelated_containers_untouched_at_end": {
+    "ok": true,
+    "state": {
+      "audit-unrelated-canary": [
+        "2026-11-12T14:47:10.312875095Z",
+        19066,
+        true
+      ],
+      "peanalyzer-core-0-ffffffffffffffffffffffffffffffff": [
+        "2026-11-12T14:47:10.096654352Z",
+        18998,
+        true
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "baseline": "00b528e9c2ea7c1b14d8607c5c38ff46416054ae",
+  "candidate": "9706fc690739041f635a67c6f5508bbb30adc9d3",
+  "scientific_files_checked": 40,
+  "scientific_files_byte_identical": 40,
+  "changed_scientific_files": [],
+  "all_changed_package_files": [
+    "src/peanalyzer/docker_guard.py",
+    "src/peanalyzer/docker_runtime.py",
+    "src/peanalyzer/gui/jobs.py",
+    "src/peanalyzer/gui/projection.py",
+    "src/peanalyzer/gui/recovery.py",
+    "src/peanalyzer/gui/setup_models.py",
+    "src/peanalyzer/gui/setup_validation.py",
+    "src/peanalyzer/gui/static/build-identity.json",
+    "src/peanalyzer/gui/summary_workbook.py",
+    "src/peanalyzer/gui/supervision.py",
+    "src/peanalyzer/nuclease/reporting.py",
+    "src/peanalyzer/reporting.py",
+    "src/peanalyzer/workflow.py",
+    "src/peanalyzer/workflow_integrity.py",
+    "src/peanalyzer/workflow_models.py",
+    "src/peanalyzer/workflow_publication.py",
+    "src/peanalyzer/workflow_recovery.py",
+    "src/peanalyzer/workflow_resources/stage_manifest.schema.json"
+  ]
+}

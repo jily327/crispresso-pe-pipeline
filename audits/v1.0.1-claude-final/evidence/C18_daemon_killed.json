@@ -1,0 +1,27 @@
+{
+  "after_daemon_death": {
+    "containerd_shim_of_this_invocation_still_present": true,
+    "note": "With the daemon dead the container shim lingers (no scientific process under it) until a daemon returns; the wrapper reports the daemon unavailable and writes no confirmation. The audit removed its own leftover shim by PID afterwards.",
+    "processes_under_that_shim": []
+  },
+  "backend_processes_before": 1,
+  "daemon_confirmed_written": false,
+  "first_samples": [
+    [
+      0.0,
+      1
+    ],
+    [
+      0.3,
+      0
+    ]
+  ],
+  "guard_record": {
+    "backend_returncode": -15,
+    "reason": "OWNER_LOST"
+  },
+  "kernel_backend_gone_after_s": 0.25,
+  "scenario": "dockerd SIGKILLed while Core runs (containerd and shim survive)",
+  "wrapper_exit": 125,
+  "wrapper_stderr_tail": "time=\"2026-11-13T01:02:05Z\" level=error msg=\"error waiting for container: unexpected EOF\"\nPEAnalyzer Docker runtime: Docker daemon unavailable. Start Docker Desktop and enable this WSL distro; local socket: /run/docker.sock\n"
+}

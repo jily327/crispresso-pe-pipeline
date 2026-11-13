@@ -1,0 +1,83 @@
+{
+  "C14_detached_descendant": {
+    "backend_finishes_normally": {
+      "all_container_processes_gone": true,
+      "daemon_state": "absent",
+      "detached_double_forked_process_present": 1,
+      "seconds_after_event": 0.004,
+      "wrapper_exit": 0
+    },
+    "owner_SIGKILL": {
+      "all_container_processes_gone": true,
+      "daemon_state": "removing",
+      "detached_double_forked_process_present": 1,
+      "seconds_after_event": 0.05,
+      "wrapper_exit": -9
+    }
+  },
+  "C15_version_probe_mounts_from_home": {
+    "create_flags": [
+      "--host=unix:///run/docker.sock",
+      "--pull=never",
+      "--init",
+      "--rm"
+    ],
+    "cwd": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home",
+    "exit": 0,
+    "home_directory_mounted_read_write": true,
+    "mount_arguments": [
+      "type=bind,source=/tmp/peanalyzer-docker-0j9fv20s,target=/tmp/peanalyzer-docker-0j9fv20s",
+      "type=bind,source=/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/docker_guard.py,target=/peanalyzer_guard.py,readonly",
+      "type=bind,source=/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home,target=/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home"
+    ],
+    "network": "none",
+    "stdout": "CRISPResso 2.3.4",
+    "user": "0:0"
+  },
+  "C16_tmp_residue": {
+    "control_directories_in_tmp": 146,
+    "labelled_containers_now": [],
+    "note": "Every invocation, including each --version probe, leaves a private 0700 directory under /tmp; none is removed by the product.",
+    "session_directories_in_tmp": 15
+  },
+  "C17_non_gui_caller_SIGKILL": {
+    "backend_ended_after_s": 30.9,
+    "daemon_confirmed": {
+      "pid": 0,
+      "running": false,
+      "status": "absent"
+    },
+    "guard_record": {
+      "backend_returncode": 0,
+      "reason": "backend_exit"
+    },
+    "interpretation": "The wrapper survives its caller and remains the lease owner, so Core runs this one invocation to normal completion; nothing is detached from the wrapper, but no workflow consumes the result.",
+    "samples_after_caller_death": [
+      {
+        "backend_processes": 1,
+        "t": 1
+      },
+      {
+        "backend_processes": 3,
+        "t": 3
+      },
+      {
+        "backend_processes": 1,
+        "t": 5
+      },
+      {
+        "backend_processes": 1,
+        "t": 10
+      },
+      {
+        "backend_processes": 1,
+        "t": 15
+      },
+      {
+        "backend_processes": 1,
+        "t": 20
+      }
+    ],
+    "scenario": "caller of the wrapper (no GUI supervisor) receives SIGKILL while Core runs"
+  }
+}

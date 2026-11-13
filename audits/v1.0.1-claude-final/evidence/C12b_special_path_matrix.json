@@ -1,0 +1,124 @@
+{
+  "plain": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 0,
+      "aligned": "200",
+      "err": null
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 0,
+      "aligned": "200",
+      "err": null
+    }
+  },
+  "with space": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-fwhmsp01"
+      ]
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "ERROR: Fastp failed to run, please check the log file."
+      ]
+    }
+  },
+  "with,comma": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 0,
+      "aligned": "200",
+      "err": null
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 0,
+      "aligned": "200",
+      "err": null
+    }
+  },
+  "space and,comma": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-vejkyjv2"
+      ]
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "ERROR: Fastp failed to run, please check the log file."
+      ]
+    }
+  },
+  "quote'only": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-p87w301y"
+      ]
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "ERROR: Fastp failed to run, please check the log file."
+      ]
+    }
+  },
+  "semi;colon": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-qtrngr1b"
+      ]
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 5,
+      "aligned": null,
+      "err": [
+        "",
+        "ERROR: Fastp failed to run, please check the log file."
+      ]
+    }
+  },
+  "equals=sign": {
+    "guarded_docker": {
+      "version_probe_exit": 0,
+      "run_exit": 0,
+      "aligned": "200",
+      "err": null
+    },
+    "native_bioconda_2.3.4": {
+      "version_probe_exit": 0,
+      "run_exit": 0,
+      "aligned": "200",
+      "err": null
+    }
+  }
+}

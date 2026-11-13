@@ -1,0 +1,127 @@
+{
+  "baseline": "v1.0.0 @00b528e with bioconda CRISPResso2 2.3.4 / fastp 1.4.0 (audited earlier)",
+  "candidate": "v1.0.1 @9706fc6 wheel with shipped guarded runtime and pinned image digest",
+  "mc_blocked": {
+    "copies": {
+      "copyA": [
+        "BLOCKED",
+        null,
+        "BLOCKED",
+        null
+      ],
+      "copyB": [
+        "BLOCKED",
+        null,
+        "BLOCKED",
+        null
+      ]
+    },
+    "target": {
+      "target_crispresso_native_pe": [
+        "REPORTABLE",
+        150,
+        360
+      ],
+      "total_precise_pe": [
+        "REPORTABLE",
+        150,
+        360
+      ]
+    }
+  },
+  "mc_routable": {
+    "1C": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "2C": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "statistics_contrasts_identical": true,
+    "statistics_group_summaries_identical": true,
+    "statistics_observations_identical": true
+  },
+  "mc_routable_vs_designed": {
+    "confident": {
+      "copyA": 200,
+      "copyB": 120
+    },
+    "designed_target_exact": {
+      "denominator": 360,
+      "numerator": 150
+    },
+    "quarantine": {
+      "CONFLICTING_DIAGNOSTIC_EVIDENCE": 25,
+      "LOW_QUALITY_DIAGNOSTICS_ONLY": 40
+    },
+    "stored": [
+      150,
+      360,
+      "REPORTABLE"
+    ]
+  },
+  "nucW2": {
+    "1B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "2B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "3B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "4B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "statistics_contrasts_identical": true,
+    "statistics_group_summaries_identical": true,
+    "statistics_observations_identical": true
+  },
+  "nucW4": {
+    "1B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "2B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "3B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "4B": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "statistics_contrasts_identical": true,
+    "statistics_group_summaries_identical": true,
+    "statistics_observations_identical": true
+  },
+  "pe": {
+    "1A": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "2A": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "3A": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "4A": {
+      "differing_keys": [],
+      "identical": true
+    },
+    "statistics_contrasts_identical": true,
+    "statistics_group_summaries_identical": true,
+    "statistics_observations_identical": true
+  }
+}

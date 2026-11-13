@@ -1,0 +1,57 @@
+{
+  "experiment": "launcher_layout_recovery",
+  "variants": {
+    "default_symlinked_wrapper": {
+      "cancelled_state": "CANCELLED",
+      "configured_backend": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/bin/CRISPResso",
+      "configured_backend_is_symlink": true,
+      "console_head": [
+        "WARNING: Support for cgroup v1 is deprecated and planned to be removed by no later than May 2029 (https://github.com/moby/moby/issues/51111)",
+        "Starting PEAnalyzer 1.0.1",
+        "Analysis library: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home/PEAnalyzer-analyses",
+        "Open http://127.0.0.1:8765/#<TOKEN>",
+        "PEAnalyzer local URL: http://127.0.0.1:8765/#<TOKEN>",
+        "Windows PowerShell interop is unavailable; open the printed local URL manually."
+      ],
+      "core_seen_before_cancel": true,
+      "launch_logs_left_in_tmp": 0,
+      "launcher_started": true,
+      "partial_attempts": [
+        "t-g4iks4tk"
+      ],
+      "recovery_classification": "TAMPERED",
+      "recovery_executable": false,
+      "recovery_reasons": [
+        [
+          "UNSAFE_PATH",
+          "UNSAFE_PATH: symlink: <scratch>/v101/release/bin/CRISPResso"
+        ]
+      ],
+      "server_stopped_with_launcher": true
+    },
+    "override_to_venv_entry": {
+      "cancelled_state": "CANCELLED",
+      "configured_backend": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/bin/peanalyzer-crispresso",
+      "configured_backend_is_symlink": false,
+      "console_head": [
+        "WARNING: Support for cgroup v1 is deprecated and planned to be removed by no later than May 2029 (https://github.com/moby/moby/issues/51111)",
+        "Starting PEAnalyzer 1.0.1",
+        "Analysis library: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home/PEAnalyzer-analyses",
+        "Open http://127.0.0.1:8765/#<TOKEN>",
+        "INFO:     Started server process [1495]",
+        "INFO:     Waiting for application startup."
+      ],
+      "core_seen_before_cancel": true,
+      "launch_logs_left_in_tmp": 0,
+      "launcher_started": true,
+      "partial_attempts": [
+        "t-_stayslz"
+      ],
+      "recovered_job_state": "COMPLETED",
+      "recovery_classification": "RESUMABLE",
+      "recovery_executable": true,
+      "recovery_reasons": [],
+      "server_stopped_with_launcher": true
+    }
+  }
+}

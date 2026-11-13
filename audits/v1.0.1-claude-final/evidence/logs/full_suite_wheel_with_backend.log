@@ -1,0 +1,91 @@
+........................................................................ [  3%]
+.......................ssss............................................. [  6%]
+..............................................ss........................ [ 10%]
+.........ssssssss....................................................... [ 13%]
+........ss.............................................................. [ 17%]
+....................................................................s... [ 20%]
+.......................................................sss.............. [ 23%]
+........................................................................ [ 27%]
+.........................................................sss............ [ 30%]
+........................................................................ [ 34%]
+........................................................................ [ 37%]
+..............ssss...................................................... [ 41%]
+........ssssss.......................................................... [ 44%]
+........................................................................ [ 47%]
+........................................................................ [ 51%]
+........................................................................ [ 54%]
+........................................................................ [ 58%]
+........................................................................ [ 61%]
+........................................................................ [ 65%]
+........................................................................ [ 68%]
+........................................................................ [ 71%]
+........................................................................ [ 75%]
+........................................................................ [ 78%]
+........................................................................ [ 82%]
+........................................................................ [ 85%]
+........................................ss.............................. [ 89%]
+........................................................................ [ 92%]
+........................................................................ [ 95%]
+.......................................ss............................... [ 99%]
+..............                                                           [100%]
+=============================== warnings summary ===============================
+../release/venv/lib/python3.12/site-packages/starlette/testclient.py:37
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U0001]
+tests/test_m61.py::test_contrast_failure_removes_previously_staged_sample_figures
+tests/test_m7.py::test_m61_invalid_svg_fails_workflow_closed
+tests/test_m8.py::test_nuclease_keeps_m61_fail_closed[\x01]
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 1 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[U000B]
+tests/test_m8.py::test_nuclease_keeps_m61_fail_closed[\x0b]
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 11 (
+  ) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFE]
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 65534 (\ufffe) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py::test_invalid_editor_fails_closed[UFFFF]
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 65535 (\uffff) missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+tests/test_m61.py: 12 warnings
+  /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/reporting.py:231: UserWarning: Glyph 127 () missing from font(s) DejaVu Sans.
+    fig.savefig(stream, format="svg", metadata={"Date": None, "Creator": "peanalyzer " + __version__})
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_crispresso_integration.py:29: set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed
+SKIPPED [1] tests/test_crispresso_integration.py:37: set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed
+SKIPPED [1] tests/test_crispresso_integration.py:45: set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed
+SKIPPED [1] tests/test_crispresso_integration.py:53: set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed
+SKIPPED [1] tests/test_desktop_remediation_integration.py:13: requires qualified native Core 2.3.4
+SKIPPED [1] tests/test_desktop_remediation_integration.py:36: requires qualified native Core 2.3.4
+SKIPPED [3] tests/test_docker_runtime_integration.py:20: requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1
+SKIPPED [1] tests/test_docker_runtime_integration.py:46: requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1
+SKIPPED [1] tests/test_docker_runtime_integration.py:77: requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1
+SKIPPED [1] tests/test_docker_runtime_integration.py:131: requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1
+SKIPPED [2] tests/test_docker_runtime_integration.py:161: requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1
+SKIPPED [2] tests/test_gui_integration.py:15: set M10_INTEGRATION=1 with qualified Core 2.3.4
+SKIPPED [1] tests/test_m11a1_integration.py:18: requires qualified Core 2.3.4
+SKIPPED [2] tests/test_m11b_integration.py:32: requires qualified Core 2.3.4
+SKIPPED [1] tests/test_m11b_integration.py:97: requires qualified Core 2.3.4
+SKIPPED [3] tests/test_m11c_integration.py:30: requires native qualified Core 2.3.4
+SKIPPED [2] tests/test_m311_integration.py:35: set M311_INTEGRATION=1 with actual pinned Core
+SKIPPED [2] tests/test_m311_integration.py:43: set M311_INTEGRATION=1 with actual pinned Core
+SKIPPED [1] tests/test_m312_integration.py:49: set M312_INTEGRATION=1 with actual pinned Core
+SKIPPED [1] tests/test_m312_integration.py:68: set M312_INTEGRATION=1 with actual pinned Core
+SKIPPED [1] tests/test_m31_integration.py:27: set M31_INTEGRATION=1 with external 2.3.4 runtime
+SKIPPED [1] tests/test_m31_integration.py:33: set M31_INTEGRATION=1 with external 2.3.4 runtime
+SKIPPED [1] tests/test_m31_integration.py:41: set M31_INTEGRATION=1 with external 2.3.4 runtime
+SKIPPED [1] tests/test_m31_integration.py:48: set M31_INTEGRATION=1 with external 2.3.4 runtime
+SKIPPED [2] tests/test_practical_integration.py:15: requires qualified native Core 2.3.4
+SKIPPED [1] tests/test_v101_backend.py:13: requires local qualified CRISPResso 2.3.4 container; V101_DOCKER_INTEGRATION=1
+SKIPPED [1] tests/test_v101_backend.py:60: requires local qualified Docker image; V101_DOCKER_INTEGRATION=1
+2065 passed, 37 skipped, 21 warnings in 1580.41s (0:26:20)
+exit=0

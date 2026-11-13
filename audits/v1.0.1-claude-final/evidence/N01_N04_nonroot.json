@@ -1,0 +1,65 @@
+{
+  "N01_version_probe": {
+    "exit": 0,
+    "stderr": "iable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.",
+    "stdout": "CRISPResso 2.3.4"
+  },
+  "N02_live_container_identity": {
+    "auditor_note": "A fifth probe line was removed: it appended to a non-existent file in the user-owned working directory, which proves nothing (harness omission).",
+    "config_user": "1001:1001",
+    "control_dir": {
+      "mode": "0o700",
+      "uid": 1001
+    },
+    "exec_stderr": "",
+    "guard_started_record": {
+      "argv": [
+        "-r1",
+        "input_R1.fastq.gz",
+        "-r2",
+        "input_R2.fastq.gz",
+        "--amplicon_seq",
+        "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTTATGGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA",
+        "--name",
+        "unrouted",
+        "--output_folder",
+        "output",
+        "--write_detailed_allele_table",
+        "--keep_intermediate",
+        "--suppress_report",
+        "--suppress_plots",
+        "--prime_editing_pegRNA_spacer_seq",
+        "GGATACCAAATTCCTCCTTA",
+        "--prime_editing_pegRNA_extension_seq",
+        "TTAGGTCCTCGATCAGGAGGAATTTGGT",
+        "--prime_editing_override_prime_edited_ref_seq",
+        "TTTCCTCATGCAATTCAAACCATGTCCGTAATGTAGGCGAAATAGTAAACCATTTACGGAGGATACCAAATTCCTCCTGATCGAGGACCTAACCTGAGGTAAACCGGTCTCTCCGCCCTTATAAAGCTGTTGCACCTAGCCAAGTTCAACGGCAGCTGCAATGGAAATAGGCAATGACGGATATATATTA"
+      ],
+      "cwd": "/home/auditor/work1",
+      "gid": 1001,
+      "pid": 8,
+      "uid": 1001
+    },
+    "inside_container": [
+      "1001 1001",
+      "etc: Permission denied",
+      "sock: False False",
+      "home_visible: False"
+    ],
+    "lease_mode": "0o600"
+  },
+  "N03_owner_SIGKILL": {
+    "all_container_processes_gone": true,
+    "daemon_state": "removing",
+    "seconds": 0.026
+  },
+  "N04_success_ownership_and_umask": {
+    "exit": 0,
+    "expected_mode_under_umask_027": "0o640",
+    "output_mode": "0o640",
+    "output_uid_gid": [
+      1001,
+      1001
+    ]
+  }
+}

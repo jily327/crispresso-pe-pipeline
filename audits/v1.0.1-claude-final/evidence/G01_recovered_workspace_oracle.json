@@ -1,0 +1,824 @@
+{
+  "checks": [
+    {
+      "actual": 1668,
+      "check": "demux.total_input_pairs",
+      "expected": 1668,
+      "ok": true
+    },
+    {
+      "actual": {
+        "1A": 440,
+        "2A": 318,
+        "3A": 475,
+        "4A": 395
+      },
+      "check": "demux.per_sample_assigned",
+      "expected": {
+        "1A": 440,
+        "2A": 318,
+        "3A": 475,
+        "4A": 395
+      },
+      "ok": true
+    },
+    {
+      "actual": 25,
+      "check": "demux.unexpected_valid_pairs_never_assigned",
+      "expected": 25,
+      "ok": true
+    },
+    {
+      "actual": 15,
+      "check": "demux.no_barcode_pairs",
+      "expected": 15,
+      "ok": true
+    },
+    {
+      "actual": "REPORTABLE",
+      "check": "1A.exact_pe.status",
+      "expected": "REPORTABLE",
+      "ok": true
+    },
+    {
+      "actual": [
+        0,
+        400
+      ],
+      "check": "1A.exact_pe.counts",
+      "expected": [
+        0,
+        400
+      ],
+      "ok": true
+    },
+    {
+      "actual": 440,
+      "check": "1A.population_input_reads",
+      "expected": 440,
+      "ok": true
+    },
+    {
+      "actual": [
+        0,
+        430
+      ],
+      "check": "1A.native.counts_vs_independent_crispresso_parse",
+      "expected": [
+        0,
+        430
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        0,
+        430
+      ],
+      "check": "1A.native.counts_vs_designed_molecules",
+      "expected": [
+        0,
+        430
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0,
+      "check": "1A.native.ambiguous_equals_designed_partial_pe",
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "actual": "REPORTABLE",
+      "check": "2A.exact_pe.status",
+      "expected": "REPORTABLE",
+      "ok": true
+    },
+    {
+      "actual": [
+        3,
+        303
+      ],
+      "check": "2A.exact_pe.counts",
+      "expected": [
+        3,
+        303
+      ],
+      "ok": true
+    },
+    {
+      "actual": 318,
+      "check": "2A.population_input_reads",
+      "expected": 318,
+      "ok": true
+    },
+    {
+      "actual": [
+        3,
+        318
+      ],
+      "check": "2A.native.counts_vs_independent_crispresso_parse",
+      "expected": [
+        3,
+        318
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        3,
+        318
+      ],
+      "check": "2A.native.counts_vs_designed_molecules",
+      "expected": [
+        3,
+        318
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0,
+      "check": "2A.native.ambiguous_equals_designed_partial_pe",
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "2A.native_is_not_modified_pct",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": "REPORTABLE",
+      "check": "3A.exact_pe.status",
+      "expected": "REPORTABLE",
+      "ok": true
+    },
+    {
+      "actual": [
+        100,
+        300
+      ],
+      "check": "3A.exact_pe.counts",
+      "expected": [
+        100,
+        300
+      ],
+      "ok": true
+    },
+    {
+      "actual": 475,
+      "check": "3A.population_input_reads",
+      "expected": 475,
+      "ok": true
+    },
+    {
+      "actual": [
+        180,
+        470
+      ],
+      "check": "3A.native.counts_vs_independent_crispresso_parse",
+      "expected": [
+        180,
+        470
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        180,
+        470
+      ],
+      "check": "3A.native.counts_vs_designed_molecules",
+      "expected": [
+        180,
+        470
+      ],
+      "ok": true
+    },
+    {
+      "actual": 40,
+      "check": "3A.native.ambiguous_equals_designed_partial_pe",
+      "expected": 40,
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "3A.native_is_not_modified_pct",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": "REPORTABLE",
+      "check": "4A.exact_pe.status",
+      "expected": "REPORTABLE",
+      "ok": true
+    },
+    {
+      "actual": [
+        150,
+        250
+      ],
+      "check": "4A.exact_pe.counts",
+      "expected": [
+        150,
+        250
+      ],
+      "ok": true
+    },
+    {
+      "actual": 395,
+      "check": "4A.population_input_reads",
+      "expected": 395,
+      "ok": true
+    },
+    {
+      "actual": [
+        155,
+        395
+      ],
+      "check": "4A.native.counts_vs_independent_crispresso_parse",
+      "expected": [
+        155,
+        395
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        155,
+        395
+      ],
+      "check": "4A.native.counts_vs_designed_molecules",
+      "expected": [
+        155,
+        395
+      ],
+      "ok": true
+    },
+    {
+      "actual": 10,
+      "check": "4A.native.ambiguous_equals_designed_partial_pe",
+      "expected": 10,
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "4A.native_is_not_modified_pct",
+      "expected": true,
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        0,
+        400,
+        0.0
+      ],
+      "check": "1A.stats_observation.total_precise_pe",
+      "expected": [
+        "REPORTABLE",
+        0,
+        400,
+        0.0
+      ],
+      "ok": true
+    },
+    {
+      "actual": "ctrl_rep1",
+      "check": "1A.stats_observation.total_precise_pe.sample_name",
+      "expected": "ctrl_rep1",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        0,
+        430,
+        0.0
+      ],
+      "check": "1A.stats_observation.target_crispresso_native_pe",
+      "expected": [
+        "REPORTABLE",
+        0,
+        430,
+        0.0
+      ],
+      "ok": true
+    },
+    {
+      "actual": "ctrl_rep1",
+      "check": "1A.stats_observation.target_crispresso_native_pe.sample_name",
+      "expected": "ctrl_rep1",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        3,
+        303,
+        0.009900990099009901
+      ],
+      "check": "2A.stats_observation.total_precise_pe",
+      "expected": [
+        "REPORTABLE",
+        3,
+        303,
+        0.009900990099009901
+      ],
+      "ok": true
+    },
+    {
+      "actual": "ctrl_rep2",
+      "check": "2A.stats_observation.total_precise_pe.sample_name",
+      "expected": "ctrl_rep2",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        3,
+        318,
+        0.009433962264150943
+      ],
+      "check": "2A.stats_observation.target_crispresso_native_pe",
+      "expected": [
+        "REPORTABLE",
+        3,
+        318,
+        0.009433962264150943
+      ],
+      "ok": true
+    },
+    {
+      "actual": "ctrl_rep2",
+      "check": "2A.stats_observation.target_crispresso_native_pe.sample_name",
+      "expected": "ctrl_rep2",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        100,
+        300,
+        0.3333333333333333
+      ],
+      "check": "3A.stats_observation.total_precise_pe",
+      "expected": [
+        "REPORTABLE",
+        100,
+        300,
+        0.3333333333333333
+      ],
+      "ok": true
+    },
+    {
+      "actual": "edit_rep1",
+      "check": "3A.stats_observation.total_precise_pe.sample_name",
+      "expected": "edit_rep1",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        180,
+        470,
+        0.3829787234042553
+      ],
+      "check": "3A.stats_observation.target_crispresso_native_pe",
+      "expected": [
+        "REPORTABLE",
+        180,
+        470,
+        0.3829787234042553
+      ],
+      "ok": true
+    },
+    {
+      "actual": "edit_rep1",
+      "check": "3A.stats_observation.target_crispresso_native_pe.sample_name",
+      "expected": "edit_rep1",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        150,
+        250,
+        0.6
+      ],
+      "check": "4A.stats_observation.total_precise_pe",
+      "expected": [
+        "REPORTABLE",
+        150,
+        250,
+        0.6
+      ],
+      "ok": true
+    },
+    {
+      "actual": "edit_rep2",
+      "check": "4A.stats_observation.total_precise_pe.sample_name",
+      "expected": "edit_rep2",
+      "ok": true
+    },
+    {
+      "actual": [
+        "REPORTABLE",
+        155,
+        395,
+        0.3924050632911392
+      ],
+      "check": "4A.stats_observation.target_crispresso_native_pe",
+      "expected": [
+        "REPORTABLE",
+        155,
+        395,
+        0.3924050632911392
+      ],
+      "ok": true
+    },
+    {
+      "actual": "edit_rep2",
+      "check": "4A.stats_observation.target_crispresso_native_pe.sample_name",
+      "expected": "edit_rep2",
+      "ok": true
+    },
+    {
+      "actual": [
+        2,
+        2
+      ],
+      "check": "group.target_crispresso_native_pe.control.n_is_biological_samples",
+      "expected": [
+        2,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.0047169811320754715,
+      "check": "group.target_crispresso_native_pe.control.unweighted_mean",
+      "expected": 0.0047169811320754715,
+      "ok": true
+    },
+    {
+      "actual": [
+        2,
+        2
+      ],
+      "check": "group.target_crispresso_native_pe.edited.n_is_biological_samples",
+      "expected": [
+        2,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.38769189334769727,
+      "check": "group.target_crispresso_native_pe.edited.unweighted_mean",
+      "expected": 0.38769189334769727,
+      "ok": true
+    },
+    {
+      "actual": [
+        2,
+        2
+      ],
+      "check": "group.total_precise_pe.control.n_is_biological_samples",
+      "expected": [
+        2,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.0049504950495049506,
+      "check": "group.total_precise_pe.control.unweighted_mean",
+      "expected": 0.0049504950495049506,
+      "ok": true
+    },
+    {
+      "actual": [
+        2,
+        2
+      ],
+      "check": "group.total_precise_pe.edited.n_is_biological_samples",
+      "expected": [
+        2,
+        2
+      ],
+      "ok": true
+    },
+    {
+      "actual": 0.4666666666666667,
+      "check": "group.total_precise_pe.edited.unweighted_mean",
+      "expected": 0.4666666666666667,
+      "ok": true
+    },
+    {
+      "actual": [
+        "0",
+        "430",
+        "0.0"
+      ],
+      "check": "report_table.1A.copy1_crispresso_native_pe",
+      "expected": [
+        "0",
+        "430",
+        "0.0"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "3",
+        "318",
+        "0.009433962264150943"
+      ],
+      "check": "report_table.2A.copy1_crispresso_native_pe",
+      "expected": [
+        "3",
+        "318",
+        "0.009433962264150943"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "180",
+        "470",
+        "0.3829787234042553"
+      ],
+      "check": "report_table.3A.copy1_crispresso_native_pe",
+      "expected": [
+        "180",
+        "470",
+        "0.3829787234042553"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "155",
+        "395",
+        "0.3924050632911392"
+      ],
+      "check": "report_table.4A.copy1_crispresso_native_pe",
+      "expected": [
+        "155",
+        "395",
+        "0.3924050632911392"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "0",
+        "400",
+        "0.0"
+      ],
+      "check": "report_table.1A.copy1_precise_pe",
+      "expected": [
+        "0",
+        "400",
+        "0.0"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "3",
+        "303",
+        "0.009900990099009901"
+      ],
+      "check": "report_table.2A.copy1_precise_pe",
+      "expected": [
+        "3",
+        "303",
+        "0.009900990099009901"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "100",
+        "300",
+        "0.3333333333333333"
+      ],
+      "check": "report_table.3A.copy1_precise_pe",
+      "expected": [
+        "100",
+        "300",
+        "0.3333333333333333"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "150",
+        "250",
+        "0.6"
+      ],
+      "check": "report_table.4A.copy1_precise_pe",
+      "expected": [
+        "150",
+        "250",
+        "0.6"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "0",
+        "430",
+        "0.0"
+      ],
+      "check": "report_table.1A.target_crispresso_native_pe",
+      "expected": [
+        "0",
+        "430",
+        "0.0"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "3",
+        "318",
+        "0.009433962264150943"
+      ],
+      "check": "report_table.2A.target_crispresso_native_pe",
+      "expected": [
+        "3",
+        "318",
+        "0.009433962264150943"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "180",
+        "470",
+        "0.3829787234042553"
+      ],
+      "check": "report_table.3A.target_crispresso_native_pe",
+      "expected": [
+        "180",
+        "470",
+        "0.3829787234042553"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "155",
+        "395",
+        "0.3924050632911392"
+      ],
+      "check": "report_table.4A.target_crispresso_native_pe",
+      "expected": [
+        "155",
+        "395",
+        "0.3924050632911392"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "0",
+        "400",
+        "0.0"
+      ],
+      "check": "report_table.1A.total_precise_pe",
+      "expected": [
+        "0",
+        "400",
+        "0.0"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "3",
+        "303",
+        "0.009900990099009901"
+      ],
+      "check": "report_table.2A.total_precise_pe",
+      "expected": [
+        "3",
+        "303",
+        "0.009900990099009901"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "100",
+        "300",
+        "0.3333333333333333"
+      ],
+      "check": "report_table.3A.total_precise_pe",
+      "expected": [
+        "100",
+        "300",
+        "0.3333333333333333"
+      ],
+      "ok": true
+    },
+    {
+      "actual": [
+        "150",
+        "250",
+        "0.6"
+      ],
+      "check": "report_table.4A.total_precise_pe",
+      "expected": [
+        "150",
+        "250",
+        "0.6"
+      ],
+      "ok": true
+    },
+    {
+      "actual": true,
+      "check": "report.source_copy_is_byte_identical",
+      "expected": true,
+      "ok": true
+    }
+  ],
+  "failed": 0,
+  "independent_values": {
+    "1A": {
+      "allele_reads_by_reference": {
+        "Reference": 430
+      },
+      "crispresso_modified_reads_all_refs": 0,
+      "crispresso_pe_reference_modified_pct": "NA",
+      "crispresso_reference_modified_pct": "0.0",
+      "exact": [
+        0,
+        400
+      ],
+      "native": [
+        0,
+        430
+      ]
+    },
+    "2A": {
+      "allele_reads_by_reference": {
+        "Prime-edited": 3,
+        "Reference": 315
+      },
+      "crispresso_modified_reads_all_refs": 5,
+      "crispresso_pe_reference_modified_pct": "0.0",
+      "crispresso_reference_modified_pct": "1.58730159",
+      "exact": [
+        3,
+        303
+      ],
+      "native": [
+        3,
+        318
+      ]
+    },
+    "3A": {
+      "allele_reads_by_reference": {
+        "AMBIGUOUS_Reference": 40,
+        "Prime-edited": 180,
+        "Reference": 250
+      },
+      "crispresso_modified_reads_all_refs": 30,
+      "crispresso_pe_reference_modified_pct": "0.0",
+      "crispresso_reference_modified_pct": "12.0",
+      "exact": [
+        100,
+        300
+      ],
+      "native": [
+        180,
+        470
+      ]
+    },
+    "4A": {
+      "allele_reads_by_reference": {
+        "AMBIGUOUS_Reference": 10,
+        "Prime-edited": 155,
+        "Reference": 230
+      },
+      "crispresso_modified_reads_all_refs": 10,
+      "crispresso_pe_reference_modified_pct": "0.0",
+      "crispresso_reference_modified_pct": "4.34782609",
+      "exact": [
+        150,
+        250
+      ],
+      "native": [
+        155,
+        395
+      ]
+    }
+  },
+  "passed": 72,
+  "workspace": "G01_ws"
+}

@@ -1,0 +1,47 @@
+{
+  "install": {
+    "exit": 0,
+    "tail": [
+      "CRISPResso 2.3.4",
+      "Guarded wrapper installed. Keep peanalyzer-current unchanged until the synthetic smoke tests pass."
+    ]
+  },
+  "installer_on_existing_release_with_wrapper": {
+    "exit": 1,
+    "message": "Install this release wheel (including GUI dependencies) into NEW-RELEASE/venv first."
+  },
+  "launch_after_switch": {
+    "launch_log_removed": true,
+    "lines": [
+      "Starting PEAnalyzer 1.0.1",
+      "Analysis library: /tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home_deploy/PEAnalyzer-analyses"
+    ],
+    "output_root_created": true,
+    "server_gone_after_stop": true,
+    "started": true
+  },
+  "new_launcher_with_legacy_override": {
+    "exit": 1,
+    "message": "Set PEANALYZER_CRISPRESSO to your qualified CRISPResso 2.3.4 wrapper."
+  },
+  "rollback": {
+    "current": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home_deploy/peanalyzer1.0.0",
+    "exit": 0,
+    "new_release_retained": true,
+    "points_to_old": true
+  },
+  "scope": "Linux execution of the documented commands with synthetic stand-ins. NOT VERIFIED - REAL WINDOWS DEPLOYMENT REQUIRED for BAT, WSL, Docker Desktop, Explorer, Excel.",
+  "switch": {
+    "current": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/home_deploy/peanalyzer1.0.1-guarded",
+    "exit": 0,
+    "previous_recorded": true
+  },
+  "unchanged": {
+    "historical_container_untouched": true,
+    "historical_library_entries": true,
+    "legacy_tmp_key_unchanged": true,
+    "legacy_wrapper_tree": true,
+    "old_release_dir": true,
+    "persistent_key_created_by_install_or_launch": false
+  }
+}

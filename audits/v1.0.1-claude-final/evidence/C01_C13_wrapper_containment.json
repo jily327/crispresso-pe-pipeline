@@ -1,0 +1,484 @@
+{
+  "backend_processes_at_end": [],
+  "cases": {
+    "C01_normal_success_and_live_configuration": {
+      "claim": "A normal invocation runs the genuine backend in the pinned image, isolated, and removes only its own container.",
+      "expected": "exit 0; pinned image; network none; uid:gid; init; auto-remove; no socket; guard proof backend_exit/0; container absent afterwards",
+      "failure_hypothesis": "Wrong image/user/network, socket exposed, container left behind, or success without backend proof.",
+      "observed": {
+        "container_after": "absent",
+        "control_dir_files": [
+          "daemon-confirmed.json",
+          "finished.json",
+          "invocation.json",
+          "owner.lease",
+          "request.json",
+          "started.json"
+        ],
+        "control_dir_mode": "0o700",
+        "control_dir_retained": true,
+        "daemon_confirmed": {
+          "pid": 0,
+          "running": false,
+          "status": "absent"
+        },
+        "exit_code": 0,
+        "finished": {
+          "backend_returncode": 0,
+          "reason": "backend_exit"
+        },
+        "live_container": {
+          "auto_remove": true,
+          "cap_add": null,
+          "cmd": [
+            "/peanalyzer_guard.py",
+            "/tmp/peanalyzer-docker-ph09g0az"
+          ],
+          "container_process_tree": [
+            "/sbin/docker-init -- /CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/",
+            "/CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/peanalyzer-docker-ph0",
+            "/CRISPResso2/.pixi/envs/default/bin/python3.12 /CRISPResso2/.pixi/envs/default/bin/CRISPRe"
+          ],
+          "docker_socket_mounted": false,
+          "entrypoint": [
+            "/CRISPResso2/.pixi/envs/default/bin/python"
+          ],
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "init": true,
+          "ipc_mode": "private",
+          "labels": {
+            "org.opencontainers.image.authors": "support@edilytics.com",
+            "org.opencontainers.image.version": "24.04",
+            "org.peanalyzer.invocation": "83fcfc60afb4f30b53ec2fe098816842"
+          },
+          "mounts": [
+            [
+              "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/release/venv/lib/python3.12/site-packages/peanalyzer/docker_guard.py",
+              "/peanalyzer_guard.py",
+              false
+            ],
+            [
+              "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/work/contain/c01",
+              "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/work/contain/c01",
+              true
+            ],
+            [
+              "/tmp/peanalyzer-docker-ph09g0az",
+              "/tmp/peanalyzer-docker-ph09g0az",
+              true
+            ]
+          ],
+          "network": "none",
+          "networks": [
+            "none"
+          ],
+          "pid_mode": "",
+          "privileged": false,
+          "restart_policy": "no",
+          "user": "0:0",
+          "workdir": "/tmp/claude-0/-home-user-crispresso-pe-pipeline/72619c77-5fff-5411-a3dd-44f53465f845/scratchpad/v101/work/contain/c01"
+        },
+        "output_owner": {
+          "CRISPResso2_info.json": [
+            0,
+            "0o644"
+          ]
+        },
+        "output_sample": [
+          "Alleles_frequency_table.zip",
+          "CRISPResso2_info.json",
+          "CRISPResso_RUNNING_LOG.txt",
+          "CRISPResso_mapping_statistics.txt",
+          "CRISPResso_quantification_of_editing_frequency.txt",
+          "CRISPResso_status.json"
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C02_wrapper_SIGTERM": {
+      "claim": "Killing a local owner cannot leave an uncontrolled CRISPResso process.",
+      "expected": "kernel shows no scientific or detached process of that container within 5 s; daemon reports it not running/absent; unrelated containers untouched; wrapper does not report success",
+      "failure_hypothesis": "After SIGTERM of the wrapper, CRISPResso/fastp (or the detached descendant) keeps running, or the container stays running.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_gone_after_s": 0.103,
+        "daemon_not_running_after_s": 0.103,
+        "final_daemon_state": "absent",
+        "guard_record": {
+          "backend_returncode": -15,
+          "reason": "OWNER_LOST"
+        },
+        "killed": "wrapper",
+        "processes_in_container_before": [
+          "/sbin/docker-init -- /CRISPResso2/.pixi/envs/default/bin/python /peana",
+          "/CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/p",
+          "/CRISPResso2/.pixi/envs/default/bin/python3.12 /CRISPResso2/.pixi/envs"
+        ],
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "running",
+            "t": 0.034
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": "removing",
+            "t": 0.103
+          }
+        ],
+        "signal": "SIGTERM",
+        "started_record_present": true,
+        "unrelated_containers_untouched": true,
+        "wrapper_exit": -15,
+        "wrapper_stderr_tail": ""
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C03_wrapper_SIGKILL": {
+      "claim": "Killing a local owner cannot leave an uncontrolled CRISPResso process.",
+      "expected": "kernel shows no scientific or detached process of that container within 5 s; daemon reports it not running/absent; unrelated containers untouched; wrapper does not report success",
+      "failure_hypothesis": "After SIGKILL of the wrapper, CRISPResso/fastp (or the detached descendant) keeps running, or the container stays running.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_gone_after_s": 0.119,
+        "daemon_not_running_after_s": 0.119,
+        "final_daemon_state": "absent",
+        "guard_record": {
+          "backend_returncode": -15,
+          "reason": "OWNER_LOST"
+        },
+        "killed": "wrapper",
+        "processes_in_container_before": [
+          "/sbin/docker-init -- /CRISPResso2/.pixi/envs/default/bin/python /peana",
+          "/CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/p",
+          "/CRISPResso2/.pixi/envs/default/bin/python3.12 /CRISPResso2/.pixi/envs"
+        ],
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "running",
+            "t": 0.034
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": "removing",
+            "t": 0.119
+          }
+        ],
+        "signal": "SIGKILL",
+        "started_record_present": true,
+        "unrelated_containers_untouched": true,
+        "wrapper_exit": -9,
+        "wrapper_stderr_tail": ""
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C04_docker_cli_SIGKILL": {
+      "claim": "Killing a local owner cannot leave an uncontrolled CRISPResso process.",
+      "expected": "kernel shows no scientific or detached process of that container within 5 s; daemon reports it not running/absent; unrelated containers untouched; wrapper does not report success",
+      "failure_hypothesis": "After SIGKILL of the cli, CRISPResso/fastp (or the detached descendant) keeps running, or the container stays running.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_gone_after_s": 0.083,
+        "daemon_not_running_after_s": 0.083,
+        "final_daemon_state": "absent",
+        "guard_record": {
+          "backend_returncode": -15,
+          "reason": "OWNER_LOST"
+        },
+        "killed": "cli",
+        "processes_in_container_before": [
+          "/sbin/docker-init -- /CRISPResso2/.pixi/envs/default/bin/python /peana",
+          "/CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/p",
+          "/CRISPResso2/.pixi/envs/default/bin/python3.12 /CRISPResso2/.pixi/envs"
+        ],
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "running",
+            "t": 0.032
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": "removing",
+            "t": 0.083
+          }
+        ],
+        "signal": "SIGKILL",
+        "started_record_present": true,
+        "unrelated_containers_untouched": true,
+        "wrapper_exit": 137,
+        "wrapper_stderr_tail": "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-wsk4_olx\n"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C05_guard_SIGKILL": {
+      "claim": "Killing a local owner cannot leave an uncontrolled CRISPResso process.",
+      "expected": "kernel shows no scientific or detached process of that container within 5 s; daemon reports it not running/absent; unrelated containers untouched; wrapper does not report success",
+      "failure_hypothesis": "After SIGKILL of the guard, CRISPResso/fastp (or the detached descendant) keeps running, or the container stays running.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_gone_after_s": 0.109,
+        "daemon_not_running_after_s": 0.051,
+        "final_daemon_state": "absent",
+        "guard_record": null,
+        "killed": "guard",
+        "processes_in_container_before": [
+          "/sbin/docker-init -- /CRISPResso2/.pixi/envs/default/bin/python /peana",
+          "/CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/p",
+          "/CRISPResso2/.pixi/envs/default/bin/python3.12 /CRISPResso2/.pixi/envs"
+        ],
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "removing",
+            "t": 0.051
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": null,
+            "t": 0.109
+          }
+        ],
+        "signal": "SIGKILL",
+        "started_record_present": true,
+        "unrelated_containers_untouched": true,
+        "wrapper_exit": 137,
+        "wrapper_stderr_tail": "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-7ebpbpeo\n"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C06_tini_SIGKILL": {
+      "claim": "Killing a local owner cannot leave an uncontrolled CRISPResso process.",
+      "expected": "kernel shows no scientific or detached process of that container within 5 s; daemon reports it not running/absent; unrelated containers untouched; wrapper does not report success",
+      "failure_hypothesis": "After SIGKILL of the init, CRISPResso/fastp (or the detached descendant) keeps running, or the container stays running.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_gone_after_s": 0.093,
+        "daemon_not_running_after_s": 0.041,
+        "final_daemon_state": "absent",
+        "guard_record": null,
+        "killed": "init",
+        "processes_in_container_before": [
+          "/sbin/docker-init -- /CRISPResso2/.pixi/envs/default/bin/python /peana",
+          "/CRISPResso2/.pixi/envs/default/bin/python /peanalyzer_guard.py /tmp/p",
+          "/CRISPResso2/.pixi/envs/default/bin/python3.12 /CRISPResso2/.pixi/envs"
+        ],
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "removing",
+            "t": 0.041
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": null,
+            "t": 0.093
+          }
+        ],
+        "signal": "SIGKILL",
+        "started_record_present": true,
+        "unrelated_containers_untouched": true,
+        "wrapper_exit": 137,
+        "wrapper_stderr_tail": "PEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-hh6l7gmo\n"
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C07_wrapper_frozen_then_killed": {
+      "claim": "A stopped (SIGSTOP) owner still owns its lease; once killed, the backend must stop.",
+      "expected": "backend still alive while owner is frozen; gone within 5 s of SIGKILL",
+      "failure_hypothesis": "Frozen owner loses the kernel lock early, or kill of a stopped owner is not noticed.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_alive_while_owner_frozen": 1,
+        "backend_gone_after_s": 0.081,
+        "daemon_not_running_after_s": 0.081,
+        "final_daemon_state": "absent",
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "running",
+            "t": 0.031
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": "removing",
+            "t": 0.081
+          }
+        ]
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C08_owner_lease_file_removed": {
+      "claim": "If the lease can no longer be examined the guard must fail closed.",
+      "expected": "backend gone within 5 s; wrapper non-zero",
+      "failure_hypothesis": "Guard keeps the backend running, or crashes leaving the backend alive.",
+      "observed": {
+        "any_backend_process_left": [],
+        "backend_gone_after_s": 0.097,
+        "daemon_not_running_after_s": 0.097,
+        "final_daemon_state": "absent",
+        "samples": [
+          {
+            "backend_processes": 1,
+            "daemon_state": "running",
+            "t": 0.043
+          },
+          {
+            "backend_processes": 0,
+            "daemon_state": "removing",
+            "t": 0.097
+          }
+        ],
+        "wrapper_exit": 78
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C09_owner_dies_during_create": {
+      "claim": "A Docker create/start that completes after the owner died can never launch Core.",
+      "expected": "no scientific process; no started.json; guard reports OWNER_GONE (or container never started)",
+      "failure_hypothesis": "Late start runs CRISPResso with no living owner.",
+      "observed": {
+        "container_states_after": [
+          {
+            "name": "peanalyzer-core-0-57196c48fd",
+            "state": "absent"
+          }
+        ],
+        "containers_created_after_owner_death": 1,
+        "guard_record": {
+          "backend_returncode": null,
+          "reason": "OWNER_GONE_OR_LEASE_NOT_SHARED"
+        },
+        "late_manual_start": {
+          "exit": 78,
+          "stderr": "PEAnalyzer Docker guard: OWNER_GONE_OR_LEASE_NOT_SHARED"
+        },
+        "leftover_inert_containers": [],
+        "record_had_container_id_at_kill": false,
+        "scientific_process_ever_seen": [],
+        "started_record_present": false
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C10_owner_dies_between_create_and_start": {
+      "claim": "A Docker create/start that completes after the owner died can never launch Core.",
+      "expected": "no scientific process; no started.json; guard reports OWNER_GONE (or container never started)",
+      "failure_hypothesis": "Late start runs CRISPResso with no living owner.",
+      "observed": {
+        "container_states_after": [],
+        "containers_created_after_owner_death": 0,
+        "guard_record": {
+          "backend_returncode": null,
+          "reason": "OWNER_GONE_OR_LEASE_NOT_SHARED"
+        },
+        "late_manual_start": null,
+        "leftover_inert_containers": [],
+        "record_had_container_id_at_kill": true,
+        "scientific_process_ever_seen": [],
+        "started_record_present": false
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C11_endpoint_overrides": {
+      "claim": "Docker endpoint/context environment cannot redirect the runtime; an unusable socket fails closed.",
+      "expected": "bogus DOCKER_* ignored (works locally); bad PEANALYZER_DOCKER_SOCKET -> exit 125",
+      "failure_hypothesis": "DOCKER_HOST/DOCKER_CONTEXT silently selects another daemon.",
+      "observed": {
+        "DOCKER_HOST_and_CONTEXT_bogus": {
+          "exit": 0,
+          "stderr": "",
+          "stdout": "CRISPResso 2.3.4"
+        },
+        "socket_missing": {
+          "exit": 125,
+          "stderr": "PEAnalyzer Docker runtime: Docker daemon unavailable. Start Docker Desktop and enable this WSL distro; local socket: /nonexistent/docker.sock",
+          "stdout": ""
+        },
+        "socket_relative": {
+          "exit": 125,
+          "stderr": "PEAnalyzer Docker runtime: Docker socket must be an absolute local path",
+          "stdout": ""
+        }
+      },
+      "verdict": "CONTROLLED"
+    },
+    "C12_special_paths": {
+      "claim": "Working directories with spaces, commas, equals, semicolons and quotes are mounted correctly.",
+      "expected": "exit 0 and backend output written inside that directory",
+      "failure_hypothesis": "CSV mount syntax breaks or mounts a different directory.",
+      "observed": {
+        "exit": 5,
+        "mapping_statistics": null,
+        "stderr": "1 (2.0% done):\n\t Merging or trimming error, please check your input.\n\nERROR: Fastp failed to run, please check the log file. \n\nPEAnalyzer Docker invocation diagnostics: /tmp/peanalyzer-docker-my4p_esb"
+      },
+      "verdict": "DEFECT"
+    },
+    "C13_mount_restrictions": {
+      "claim": "System/runtime paths and the Docker socket directory can never be bind-mounted.",
+      "expected": "all protected cases exit 125; (cwd=/tmp and a home parent are recorded, not judged)",
+      "failure_hypothesis": "A protected path is accepted as cwd or extra root.",
+      "observed": {
+        "cwd_etc": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount would shadow or expose protected runtime paths: /etc"
+        },
+        "cwd_slash": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount would shadow or expose protected runtime paths: /"
+        },
+        "cwd_tmp": {
+          "exit": 0,
+          "message": "CRISPResso 2.3.4"
+        },
+        "extra_root_etc": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount would shadow or expose protected runtime paths: /etc"
+        },
+        "extra_root_home_parent": {
+          "exit": 0,
+          "message": "CRISPResso 2.3.4"
+        },
+        "extra_root_not_json_list": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: PEANALYZER_DOCKER_MOUNT_ROOTS must be a JSON list of absolute directories"
+        },
+        "extra_root_relative": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount root must be absolute: relative"
+        },
+        "extra_root_run_child": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount would shadow or expose protected runtime paths: /run/lock"
+        },
+        "extra_root_slash": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount would shadow or expose protected runtime paths: /"
+        },
+        "extra_root_var_run": {
+          "exit": 125,
+          "message": "PEAnalyzer Docker runtime: Docker mount would shadow or expose protected runtime paths: /run"
+        }
+      },
+      "verdict": "CONTROLLED"
+    }
+  },
+  "experiment": "wrapper_containment",
+  "leftover_labelled_containers": [],
+  "unrelated_containers_untouched_at_end": {
+    "ok": true,
+    "state": {
+      "audit-unrelated-canary": [
+        "2026-11-12T14:32:38.306926881Z",
+        6415,
+        true
+      ],
+      "peanalyzer-core-0-ffffffffffffffffffffffffffffffff": [
+        "2026-11-12T14:32:38.09979191Z",
+        6351,
+        true
+      ]
+    }
+  }
+}
