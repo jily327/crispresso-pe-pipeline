@@ -13,7 +13,7 @@ async function inspect(page:Page,name:string){
   await page.getByRole('button',{name:'Inspect workspace',exact:true}).click();
 }
 async function confirm(page:Page,force=false){await page.getByRole('checkbox',{name:/I reviewed/}).check();await page.getByRole('button',{name:force?'Confirm forced recovery':'Confirm resume',exact:true}).click()}
-async function completed(page:Page){await expect(page.locator('#run-main [role="status"]')).toContainText('COMPLETED',{timeout:90000});await page.getByRole('button',{name:'Open Results',exact:true}).click();await expect(page.getByRole('tab',{name:'Overview',exact:true})).toBeVisible()}
+async function completed(page:Page){await expect(page.locator('#run-main [role="status"]')).toContainText('COMPLETED',{timeout:Number(process.env.PEANALYZER_E2E_JOB_TIMEOUT_MS||90000)});await page.getByRole('button',{name:'Open Results',exact:true}).click();await expect(page.getByRole('tab',{name:'Overview',exact:true})).toBeVisible()}
 async function cancel(page:Page){await page.getByRole('button',{name:'Cancel analysis',exact:true}).click();await page.getByRole('button',{name:'Confirm cancellation'}).click();await expect(page.locator('#run-main [role="status"]')).toContainText('CANCELLED',{timeout:15000})}
 for(const mode of ['pe-resume','nuclease-resume'])test(`${mode}: read-only preview → resume → verified M10`,async({page})=>{
   await inspect(page,mode);await expect(page.getByRole('table',{name:'Backend recovery stage plan'})).toBeVisible();
@@ -59,6 +59,15 @@ test('server SIGKILL: restart sees lease, cleanup contains escaped child, then r
     // Either cleanup is still in progress (ACTIVE) or it has finished. Never two
     // workers; API-level lease test proves busy while the detached child lives.
     await expect.poll(()=>{try{process.kill(escaped,0);return false}catch{return true}},{timeout:20000}).toBe(true);
-    fs.unlinkSync(path.join(root,'kill/pause-report'));await page.getByRole('button',{name:'Inspect workspace',exact:true}).click();await expect(page.getByText('RESUMABLE',{exact:true})).toBeVisible();await confirm(page);await completed(page);
+    fs.unlinkSync(path.join(root,'kill/pause-report'));
+    // A local child's exit is not Docker containment proof. Each preview is a
+    // snapshot: re-inspect while the supervisor finishes independent confirmation.
+    await expect.poll(async()=>{
+      const response=page.waitForResponse(r=>r.url().endsWith('/api/v1/recovery')&&r.request().method()==='POST');
+      await page.getByRole('button',{name:'Inspect workspace',exact:true}).click();
+      const result=await response;expect(result.status()).toBe(200);
+      return (await result.json()).classification;
+    },{timeout:30000}).toBe('RESUMABLE');
+    await expect(page.getByText('RESUMABLE',{exact:true})).toBeVisible();await confirm(page);await completed(page);
   }finally{restarted.kill('SIGTERM');await new Promise<void>(resolve=>{if(restarted.exitCode!==null)resolve();else restarted.once('exit',()=>resolve())})}
 });

@@ -34,6 +34,23 @@ def stored_manifests(plan):
             refs[node.stage_id]=w.dependency(root,node,manifest)
         except (ValueError,KeyError,OSError) as exc:
             raise WorkflowError('TAMPERED_STAGE_MANIFEST','Inconsistent stored manifest',node.stage_id) from exc
+    from peanalyzer.workflow_integrity import authenticate, binding
+    from peanalyzer.workflow_models import Artifact
+    from types import SimpleNamespace
+    publications=authenticate(root,plan).publications
+    for node in plan.nodes:
+        if node.stage_kind!='metrics' or node.stage_id in records:continue
+        if node.stage_id not in publications:continue
+        try:
+            value=publications[node.stage_id]
+            if set(value)!={'version','node','directory','output_artifacts'} or value['version']!=1 or value['node']!=node.model_dump():raise ValueError('Invalid publication')
+            output=owned(root,node.output_path)
+            if output.exists() and value['directory']!=binding(output):raise ValueError('Published directory was replaced')
+            artifacts=[Artifact.model_validate(a) for a in value['output_artifacts']]
+            if len({a.path for a in artifacts})!=len(artifacts) or any(not Path(a.path).is_relative_to(node.output_path) for a in artifacts):raise ValueError('Invalid publication inventory')
+            records[node.stage_id]=SimpleNamespace(output_artifacts=artifacts)
+        except (ValueError,KeyError,TypeError) as exc:
+            raise WorkflowError('TAMPERED_STAGE_MANIFEST','Invalid metrics publication inventory',node.stage_id) from exc
     return records
 
 
@@ -51,7 +68,37 @@ def check_removal_contents(root,node,manifest):
         if (entry.is_dir() and entry not in directories) or (not entry.is_dir() and entry not in expected):
             unknown.append(entry.relative_to(root).as_posix())
     if unknown:
-        raise WorkflowError('FOREIGN_CONTENT_PRESENT','Unowned removal entries: '+', '.join(unknown),node.stage_id)
+        raise WorkflowError('FOREIGN_CONTENT_PRESENT','Unowned removal entries: '+', '.join(unknown)+
+            '. Recovery cannot prove ownership. Preserve this workspace and start a new one; legacy partial output is not safe to delete automatically.',node.stage_id)
+
+
+def remove_manifested_directory(root,node,manifest):
+    """Unlink only enumerated files through no-follow directory descriptors.
+
+    rmdir refuses newly planted content. Directory swaps cannot redirect an
+    opened descriptor through a symlink to an external user's directory.
+    """
+    path=owned(root,node.output_path)
+    expected=[Path(a.path).relative_to(node.output_path) for a in manifest.output_artifacts] if manifest else []
+    directories={Path('.')}
+    for entry in expected:directories.update(entry.parents)
+    handles={}
+    try:
+        handles[Path('.')]=os.open(path,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)
+        for directory in sorted(directories-{Path('.')},key=lambda p:len(p.parts)):
+            if directory.parent not in handles:continue
+            try:handles[directory]=os.open(directory.name,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC,dir_fd=handles[directory.parent])
+            except FileNotFoundError:pass  # Already removed by an earlier force attempt.
+        for entry in expected:
+            if entry.parent not in handles:continue
+            try:os.unlink(entry.name,dir_fd=handles[entry.parent])
+            except FileNotFoundError:pass
+        for directory in sorted(handles.keys()-{Path('.')},key=lambda p:len(p.parts),reverse=True):
+            try:os.rmdir(directory.name,dir_fd=handles[directory.parent])
+            except FileNotFoundError:pass
+        no_symlinks(path).rmdir()
+    finally:
+        for fd in handles.values():os.close(fd)
 
 
 def workspace_identity(root):
@@ -114,6 +161,7 @@ def preflight_resume(old, new, force=()):
             result=w._validate_completed(new,node,{k:refs[k] for k in node.dependencies})
             refs[node.stage_id]=w.dependency(root,node,result);state='REUSE';reasons=list(result.reason_codes)
         elif output.exists():
+            check_removal_contents(root,node,manifests.get(node.stage_id))
             raise WorkflowError('ORPHANED_STAGE_OUTPUT',node.output_path,node.stage_id)
         stages.append(dict(stage_id=node.stage_id,stage_kind=node.stage_kind,action=state,
             output_path=node.output_path,reason_codes=reasons))

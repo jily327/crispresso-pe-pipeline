@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crispresso-pe-pipeline"
-version = "1.0.0"
+version = "1.0.1"
 description = "Prime-editing measurements with qualified populations and exact biological-sample statistics and deterministic reporting"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,6 +17,7 @@ dev = ["pytest>=8.3,<9", "build>=1.2,<2", "httpx==0.28.1", "fastapi==0.162.0", "
 [project.scripts]
 peanalyzer = "peanalyzer.cli:main"
 peanalyzer-viewer = "peanalyzer.gui.__main__:main"
+peanalyzer-crispresso = "peanalyzer.docker_runtime:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

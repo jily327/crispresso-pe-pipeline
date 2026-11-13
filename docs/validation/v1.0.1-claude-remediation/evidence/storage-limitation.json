@@ -1,0 +1,6 @@
+{
+  "operation": "Docker create",
+  "storage_driver": "vfs",
+  "diagnostic": "PEAnalyzer Docker runtime: Docker create failed: Error response from daemon: write /var/lib/docker/vfs/dir/60b2e476ec73b30531c2d0ddd3c2e6a48f0f68f3bffd0861c98491dec78ad72b-init/usr/lib/x86_64-linux-gnu/perl-base/unicore/lib/In/8_0.pl: no space left on device",
+  "followup": "Only authenticated nonrunning qualification containers removed; subsequent runtime cases run serially."
+}

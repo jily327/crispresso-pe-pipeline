@@ -60,9 +60,9 @@ def scan(roots):
                     if not completion.exists():
                         state = 'Incomplete — use Recovery'
                     elif record.get('status') != 'COMPLETED' or record.get('workflow_contract_version') != 'm7-v1':
-                        state = 'Detected — incompatible with PEAnalyzer 1.0.0 viewer'
+                        state = 'Detected — incompatible with this PEAnalyzer viewer'
                 except (OSError, ValueError, TypeError, AttributeError):
-                    state = 'Detected — incompatible with PEAnalyzer 1.0.0 viewer'
+                    state = 'Detected — incompatible with this PEAnalyzer viewer'
                 found.append((root, f'{root.name} · PEAnalyzer {version} · {state}'))
                 continue  # Never descend into a workflow's scientific outputs.
             if depth >= MAX_DEPTH:

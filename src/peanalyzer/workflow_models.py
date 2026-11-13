@@ -57,7 +57,7 @@ class Backend(Model):
     executable: str
     executable_sha256: Hash
     version: Literal['2.3.4']
-    runtime_digest: Annotated[str, Field(min_length=1)]
+    runtime_digest: Annotated[str, Field(min_length=1, description='Declared qualified runtime; not observed image identity or attestation')]
 
 
 class Node(Model):

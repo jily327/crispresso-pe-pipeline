@@ -1,0 +1,12 @@
+{
+  "previous_candidate": "59e6755aa2cc1dbe67b6decd88865d9616a3c7e4",
+  "existing_package_files_unchanged": 93,
+  "existing_package_files_changed": [
+    "src/peanalyzer/gui/supervision.py"
+  ],
+  "new_runtime_modules": [
+    "src/peanalyzer/docker_guard.py",
+    "src/peanalyzer/docker_runtime.py"
+  ],
+  "scientific_algorithms_changed": false
+}

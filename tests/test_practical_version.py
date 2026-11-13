@@ -9,7 +9,7 @@ from peanalyzer import __version__
 def test_package_version_consistency():
     root=Path(__file__).parents[1]
     project=tomllib.loads((root/'pyproject.toml').read_text())['project']['version']
-    assert project=='1.0.0'
+    assert project=='1.0.1'
     assert __version__==version('crispresso-pe-pipeline')==project
     assert json.loads((root/'frontend/package.json').read_text())['version']==project
     lock=json.loads((root/'frontend/package-lock.json').read_text())

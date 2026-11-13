@@ -28,7 +28,7 @@ async function cancel(page:Page){await page.getByRole('button',{name:'Cancel ana
 for(const mode of ['pe','nuclease'])test(`${mode}: real Review → Run → verified completion → existing M10`,async({page})=>{
   await setup(page,mode,`Browser ${mode} lifecycle`,mode+'-happy');const science=await page.locator('.identities dd').first().textContent();
   await page.getByRole('button',{name:'Run Analysis',exact:true}).click();await expect(page.getByRole('table',{name:'Authoritative stage progress'})).toBeVisible();
-  await expect(page.getByRole('button',{name:'Open Results',exact:true})).toBeVisible({timeout:120000});
+  await expect(page.getByRole('button',{name:'Open Results',exact:true})).toBeVisible({timeout:Number(process.env.PEANALYZER_E2E_JOB_TIMEOUT_MS||120000)});
   await expect(page.getByText(science!,{exact:true})).toBeVisible();expect(await page.getByRole('progressbar').count()).toBe(0);
   for(const width of [1366,1920,683]){await page.setViewportSize({width,height:768});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true)}
   expect((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations).toEqual([]);

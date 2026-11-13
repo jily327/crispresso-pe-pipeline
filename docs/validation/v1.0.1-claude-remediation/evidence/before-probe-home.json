@@ -1,0 +1,38 @@
+{
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/tmp/peanalyzer-docker-vm73_vuo",
+      "Destination": "/tmp/peanalyzer-docker-vm73_vuo",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "<repository>/src/peanalyzer/docker_guard.py",
+      "Destination": "/peanalyzer_guard.py",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "<caller-home>",
+      "Destination": "<caller-home>",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/pytest-of-agent/pytest-0/test_version_probe_private_mou0/laboratory",
+      "Destination": "/tmp/pytest-of-agent/pytest-0/test_version_probe_private_mou0/laboratory",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    }
+  ],
+  "workdir": "<caller-home>",
+  "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d"
+}

@@ -1,0 +1,57 @@
+{
+  "backend": "CRISPResso2 2.3.4 in qualified Docker image",
+  "test": "test_gui_cancel_during_genuine_nonempty_core_then_resume",
+  "nonempty_backend_files_before_cancel": [
+    "output/CRISPResso_on_unrouted/CRISPResso_status.json",
+    "output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt"
+  ],
+  "container_guard_stop_proof": {
+    "owner_alive": false,
+    "backend_returncode": -15
+  },
+  "resumed_exact_metric": {
+    "metric_name": "total_precise_pe",
+    "metric_family": "precise",
+    "population_scope": "target_all_prepared",
+    "population_id": "21c8454ee99dade62f05751917c0cf95eaa57b1fd1aac8a2278091f22d7d57e9",
+    "population_input_reads": 24,
+    "copy_id": null,
+    "routing_conditioned": false,
+    "assessment_stage": "prepared_pairs",
+    "status": "REPORTABLE",
+    "numerator": 2,
+    "denominator": 24,
+    "reason_codes": [],
+    "confident_input_reads": null,
+    "backend_input_reads": 24,
+    "reads_after_preprocessing": 24,
+    "aligned_reads": 24,
+    "unaligned_reads": 0,
+    "ordinary_classified_aligned_reads": 24,
+    "ambiguous_aligned_reads": 0,
+    "discarded_aligned_reads": 0,
+    "backend_counts_role": "parallel_native_analysis",
+    "preprocessing_count_delta": 0,
+    "unaligned_reason_counts": {
+      "unknown_backend_alignment_failure": 0
+    },
+    "products": {
+      "exact_wt": 22,
+      "exact_pe": 2,
+      "pe_plus_extra_change": 0,
+      "other_nonexact_assessable": 0,
+      "unresolved_unassessable": 0,
+      "contradictory_state": 0,
+      "denominator_exclusions": 0,
+      "classification_input_reads": 24,
+      "exclusion_reason_counts": {}
+    },
+    "population_denominator_exclusions": 0
+  },
+  "completion_status": "COMPLETED",
+  "retained_partial_backend_logs": [
+    ".analysis.metrics-attempt-ucve2qix/output/comparator/copy1/output/CRISPResso_on_unrouted/CRISPResso_RUNNING_LOG.txt"
+  ],
+  "independent_running_state_and_pid_assertions": "passed in genuine integration test",
+  "limitation": "Qualification-only owner-death-aware wrapper. Arbitrary external wrappers and Windows/WSL not qualified."
+}

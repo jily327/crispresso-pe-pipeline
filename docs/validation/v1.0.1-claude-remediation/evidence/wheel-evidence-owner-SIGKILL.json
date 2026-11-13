@@ -1,0 +1,15 @@
+{
+  "state": {
+    "status": "removing",
+    "running": false,
+    "pid": 0,
+    "id": "87cb350c8e2c7b2495bae0342c474f12d2e2987c70c3ed8a9c0b93a8ea660cb5"
+  },
+  "guard": {
+    "reason": "OWNER_LOST",
+    "backend_returncode": -15
+  },
+  "nonempty": true,
+  "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "observed_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d"
+}

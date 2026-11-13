@@ -308,6 +308,7 @@ def render_html(spec, source_hash, figures):
          'complete_block_count', 'complete_blocks', 'excluded_blocks', 'status', 'reason_codes']))
     parts.append(_table('Declared multiple-testing families (M5)', spec['families'], ['family_id', 'method', 'contrast_ids', 'valid_contrast_ids', 'valid_test_count']))
     parts.append('<h2>Reportability / missingness</h2>')
+    parts.append('<p>Runtime provenance: runtime_digest is the declared qualified runtime, not an independently observed image identity. An executable hash may identify a wrapper only; version 2.3.4 does not establish Docker image equivalence.</p>')
     parts.append(_table('Expected and numerical sample inventories', summary_rows,
                         ['target', 'metric', 'condition', 'expected', 'REPORTABLE', 'BLOCKED', 'NOT_ASSESSABLE', 'MISSING_METRIC']))
     assessments = [dict(**identity(g), condition=g['condition'], **a) for g in spec['group_summaries'] for a in g['sample_assessments']]

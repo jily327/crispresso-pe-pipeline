@@ -58,7 +58,10 @@ def inspect(root,runtime,force=(),*,check_active=True):
         raise WorkflowError('SOFTWARE_CHANGED','Stored software differs. Only an explicit full rebuild can replace every stage identity')
     executable=shutil.which(runtime.crispresso)
     if not executable:raise WorkflowError('BACKEND_UNAVAILABLE','Configured executable is unavailable; no probe was executed')
-    executable=no_symlinks(executable)
+    # Canonicalize only the configured executable alias, matching build_workflow_plan.
+    # Workspace/output/receipt paths still forbid symlinks. Execution re-inspects
+    # and compares the accepted canonical path/hash before invalidation.
+    executable=no_symlinks(Path(executable).resolve(strict=True))
     backend=Backend(executable=str(executable),executable_sha256=sha(executable),version='2.3.4',runtime_digest=runtime.runtime_digest)
     plan=old.model_copy(update={'software_identity':current,'backend_identity':backend})
     preflight=preflight_resume(old,plan,force)
@@ -146,9 +149,10 @@ class RecoveryStore:
                 'SOFTWARE_CHANGED':'SOFTWARE_CHANGED','RUN_UNAVAILABLE':'UNSUPPORTED','BACKEND_UNAVAILABLE':'UNSUPPORTED',
                 'ORPHANED_STAGE_OUTPUT':'RESUMABLE_WITH_FORCE','STALE_STAGE_IDENTITY':'RESUMABLE_WITH_FORCE',
                 'CORRUPTED_STAGE_OUTPUT':'TAMPERED','SNAPSHOT_CORRUPTED':'TAMPERED','UNSAFE_PATH':'TAMPERED',
-                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'TAMPERED',
+                'TAMPERED_STAGE_MANIFEST':'TAMPERED','FOREIGN_CONTENT_PRESENT':'UNSUPPORTED',
                 'TAMPERED_WORKFLOW_PLAN':'TAMPERED','TAMPERED_COMPLETION_MARKER':'TAMPERED',
                 'TAMPERED_RECOVERY_INTEGRITY':'TAMPERED','UNSAFE_RECOVERY_KEY':'TAMPERED',
+                'RECOVERY_AUTHENTICATION_FAILED':'UNSUPPORTED',
                 'UNANCHORED_RECOVERY_OWNERSHIP':'UNSUPPORTED'}.get(code,'INVALID_WORKSPACE')
             view.classification=classification
             view.reasons=[ErrorDetail(code=code,message='Recovery requires inspection or a different explicit choice.',detail=str(exc),stage_id=getattr(exc,'stage_id',None))]

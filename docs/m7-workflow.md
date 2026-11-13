@@ -179,8 +179,7 @@ creates an explicit routing gate record, calls M4 with no usable routing root,
 and lets M4 retain blocked copy metrics while evaluating supported target metrics.
 Every participating sample still has an M4 result. Backend execution failures,
 corrupt files, invalid lineage and M6.1 `INVALID_GENERATED_SVG` stop construction;
-none become biological zeros. A partial M4 output directory remains an orphan
-until explicitly forced. No M4 change was needed for this behavior.
+none become biological zeros. Workflow M4 output is staged and validated before publication in v1.0.1. Failed attempts remain outside the workspace as diagnostics. A publication interrupted before its completion record can be explicitly forced only with authenticated publication ownership. Legacy nonempty partial M4 output has no such proof: preserve it and use a new workspace; force cannot safely delete it. No M4 change was needed for this behavior.
 
 M4 populations/denominators, M5 biological inferential units and stored statistics,
 and M6 presentation remain authoritative. No Pooled production routing, generalized

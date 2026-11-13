@@ -1,0 +1,9 @@
+# Scientific preservation
+
+The follow-up changes no scientific source area. Of 94 existing package files in candidate `59e6755`, 93 remain byte-identical; the only changed existing module is GUI process supervision. The two added modules implement Docker lifecycle/owner locks, not read processing or metrics. Recovery ownership/authentication/publication modules, CRISPResso argument construction, parsing, PE definitions, barcode routing, homeolog assignment, reconstruction, nuclease windows, statistics, reports, JSON schemas and Excel calculations are unchanged from that candidate. The original 54-file scientific freeze against audited v1.0.0 remains applicable.
+
+The genuine parity test exports the previous candidate's exact source with `git archive`, executes its legacy wrapper normally, then executes the same inputs with the shipped guarded runtime. Both use the exact qualified Docker image. The old completed output is opened and verified by the candidate and its bytes/mtimes are checked unchanged.
+
+Known-truth PE counts: (4/24, 8/24, 16/24, 20/24). Known-truth nuclease indel counts: (2/20, 4/20, 14/20, 16/20). Comparisons include target/copy metrics, eligibility/QC/product evidence, nuclease aligned/unaligned/class counts and allele/net-size data, biological observations/group summaries/contrasts, HTTP Results and PE Excel summary counts/fractions. Only population/source-result identity hashes that legitimately encode different paths/runtime identities are excluded from scientific equality. Exact PE remains exact intended / (exact WT + exact intended); native PE remains Prime-edited-reference reads / all aligned reads. No missing measurement is filled with zero.
+
+See `source-parity-*.json` and `wheel-evidence/parity-*.json`, `scientific-freeze.json` and the test matrix for executed outcomes. The earlier v1.0.0 comparison in `../v1.0.1-audit-remediation/` is separate retained evidence; its counts are not presented as new test executions.

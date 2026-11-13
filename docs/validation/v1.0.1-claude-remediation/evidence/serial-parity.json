@@ -1,0 +1,54 @@
+{
+  "precise_edit": {
+    "passed_checks": 39,
+    "primary": {
+      "bc001": [
+        4,
+        24
+      ],
+      "bc002": [
+        8,
+        24
+      ],
+      "bc003": [
+        16,
+        24
+      ],
+      "bc004": [
+        20,
+        24
+      ]
+    },
+    "previous_candidate": "59e6755aa2cc1dbe67b6decd88865d9616a3c7e4",
+    "historical_bytes_and_mtimes_unchanged": true,
+    "existing_containers_unchanged": 3,
+    "observed_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+    "baseline_runtime": "same genuine guarded wrapper; previous scientific source"
+  },
+  "indel_nuclease": {
+    "passed_checks": 35,
+    "primary": {
+      "bc001": [
+        2,
+        20
+      ],
+      "bc002": [
+        4,
+        20
+      ],
+      "bc003": [
+        14,
+        20
+      ],
+      "bc004": [
+        16,
+        20
+      ]
+    },
+    "previous_candidate": "59e6755aa2cc1dbe67b6decd88865d9616a3c7e4",
+    "historical_bytes_and_mtimes_unchanged": true,
+    "existing_containers_unchanged": 3,
+    "observed_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+    "baseline_runtime": "same genuine guarded wrapper; previous scientific source"
+  }
+}

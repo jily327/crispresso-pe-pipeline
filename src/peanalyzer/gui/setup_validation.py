@@ -211,7 +211,7 @@ def compile_draft(content, revision, references, protected):
     compiled=None
     if not any(i.severity=='ERROR' for i in issues):
         backend=dict(package_version=__version__,backend_base=BASE,crispresso_required='2.3.4',runtime_digest_required=RUNTIME_DIGEST,
-            executable_probed=False,qualification='Expected contract only; resolved execution must be verified in M11B')
+            executable_probed=False,qualification='Declared qualified runtime only. Execution checks version and executable bytes; Docker image identity is not attested.')
         normalized=dict(mode=content.analysis_mode,source_mode=content.input_mode,samples=[r.model_dump() for r in sample_rows],
             targets=[scientific_target(t) for t in target_rows],inputs=input_evidence,
             demux_config=config.model_dump(),preparation=dict(r1_analysis_trim_5p=trims[0],r2_analysis_trim_5p=trims[1]),

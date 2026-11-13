@@ -78,10 +78,11 @@ def test_future_plan_edit_and_matching_mutable_history_do_not_authenticate(case,
 @pytest.mark.parametrize('mutation',['missing','forged','missing_key','copied'])
 def test_no_retroactive_or_circular_recovery_authentication(case,monkeypatch,tmp_path,mutation):
     options,_=interrupted(case,monkeypatch);p=options['output']/RECEIPT
-    code='TAMPERED_RECOVERY_INTEGRITY'
+    code='RECOVERY_AUTHENTICATION_FAILED'
     if mutation=='missing':p.unlink();code='UNANCHORED_RECOVERY_OWNERSHIP'
     elif mutation=='missing_key':
         monkeypatch.setattr('peanalyzer.workflow_integrity.key_path',lambda:tmp_path/'unavailable/key')
+        monkeypatch.setattr('peanalyzer.workflow_integrity.legacy_key_path',lambda:tmp_path/'unavailable-legacy/key')
         code='UNANCHORED_RECOVERY_OWNERSHIP'
     else:
         v=json.loads(p.read_text())
@@ -137,7 +138,7 @@ def test_forged_ownership_and_matching_receipt_hash_still_fail_authentication(ca
     v=json.loads(p.read_text());v['output_artifacts'].append(w.artifact(root,victim).model_dump())
     v['output_artifacts'].sort(key=lambda a:a['path']);p.write_text(json.dumps(v))
     receipt=root/RECEIPT;v=json.loads(receipt.read_text());v['payload']['records'][str(p.relative_to(root))]=w.sha(p)
-    receipt.write_text(json.dumps(v));refused(options,monkeypatch,'TAMPERED_RECOVERY_INTEGRITY','routing')
+    receipt.write_text(json.dumps(v));refused(options,monkeypatch,'RECOVERY_AUTHENTICATION_FAILED','routing')
     assert victim.read_text()=='do not delete'
 
 

@@ -1,0 +1,24 @@
+{
+  "flags": [
+    "M10_INTEGRATION",
+    "M11A1_INTEGRATION",
+    "M11B_INTEGRATION",
+    "M11C_INTEGRATION",
+    "M311_INTEGRATION",
+    "M312_INTEGRATION",
+    "M31_INTEGRATION",
+    "M3_INTEGRATION",
+    "M41_INTEGRATION",
+    "M421_INTEGRATION",
+    "M422_INTEGRATION",
+    "M42_INTEGRATION",
+    "M4_INTEGRATION",
+    "M7_INTEGRATION",
+    "M8_INTEGRATION",
+    "V101_DOCKER_INTEGRATION"
+  ],
+  "child_core_command_for_corrected_rerun": "CRISPResso",
+  "initial_returncode": 1,
+  "corrected_affected_tests_returncode": 0,
+  "qualified_runtime": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+}
