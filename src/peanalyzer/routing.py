@@ -307,6 +307,37 @@ def routing_gate(*, cross_assignments: int, unsafe_assigned: int, input_pairs: i
     return dict(routing_gate='PASS' if all(checks.values()) else 'FAIL',checks=checks)
 
 
+def observed_state_symmetry(paths, targets: list[Target], report: dict, policy: RoutingPolicy) -> list[dict]:
+    """Route perfect WT and PE molecules of every copy at each OBSERVED mate-length class.
+
+    geometry() qualifies only 100/150-nt and full-length mates, but prepared
+    mates are e.g. 150-27=123 nt. At some lengths a mate ending inside or next
+    to an intended indel is quarantined in one state only, so the confident
+    cohort becomes state-selected. Return every asymmetric or cross-routed trial.
+    """
+    from peanalyzer.fastq import FastqRecord
+    lengths=sorted({(len(a.sequence),len(b.sequence)) for a,b in paired_fastq(*paths)})
+    failures=[]
+    for left,right in lengths:
+        for target in targets:
+            outcomes={}
+            for state,seq in (('WT',target.wt_sequence),('PE',target.prime_edited_sequence)):
+                reads=(seq[:left],reverse_complement(seq[-right:]))
+                pair=tuple(FastqRecord(f'@symmetry/{m}\n'.encode(),(s+'\n').encode(),b'+\n',('I'*len(s)+'\n').encode())
+                           for m,s in enumerate(reads,1))
+                outcomes[state]=route_pair(pair,targets,report,policy)['assigned_copy']
+            if outcomes['WT']!=outcomes['PE'] or any(v not in (None,target.copy_name) for v in outcomes.values()):
+                failures.append(dict(copy=target.copy_name,left_length=left,right_length=right,
+                                     wt_assigned=outcomes['WT'],pe_assigned=outcomes['PE']))
+    return failures
+
+
+def require_observed_state_symmetry(paths, targets, report, policy):
+    failures=observed_state_symmetry(paths,targets,report,policy)
+    if failures:
+        raise ValueError(f'PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED at observed mate lengths: {failures[:5]}')
+
+
 def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], output: Path,
                    policy: RoutingPolicy=RoutingPolicy()) -> dict:
     verified=verify_analysis_output(analysis_root)
@@ -315,6 +346,7 @@ def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], o
     if report['status']=='BLOCKED': raise ValueError(f"target geometry BLOCKED: {report['reasons']}")
     sample=verified.manifest['samples'][sample_id]
     paths=[verified.root/sample['files'][f'r{m}']['path'] for m in (1,2)]
+    require_observed_state_symmetry(paths,targets,report,policy)
     output=Path(output).absolute()
     if output.exists() or output.is_symlink() or output.resolve().is_relative_to(verified.root):
         raise ValueError('routing destination must be new and separate')

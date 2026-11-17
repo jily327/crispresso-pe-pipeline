@@ -15,7 +15,8 @@ from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import geometry
 from peanalyzer.provenance import software_provenance
 from peanalyzer.schemas import Target
-from peanalyzer.routing import RoutingPolicy, decide, enforce_edit_flanking, policy_identity
+from peanalyzer.routing import (RoutingPolicy, decide, enforce_edit_flanking, policy_identity,
+                                require_observed_state_symmetry)
 
 
 def verify_routing_output(root: Path) -> dict:
@@ -28,7 +29,12 @@ def verify_routing_output(root: Path) -> dict:
     targets=[Target.model_validate(t) for t in data['targets']]
     policy=RoutingPolicy(**data['policy'])
     if data.get('policy_identity')!=policy_identity(policy): raise ValueError('routing policy identity mismatch')
-    if geometry(targets,min_distinguishing_sites=policy.min_distinguishing_sites)['status']=='BLOCKED': raise ValueError('blocked target geometry')
+    report=geometry(targets,min_distinguishing_sites=policy.min_distinguishing_sites)
+    if report['status']=='BLOCKED': raise ValueError('blocked target geometry')
+    source=verified.manifest['samples'][data['sample_id']]
+    # Archives routed before this check existed must not yield state-selected cohorts.
+    require_observed_state_symmetry([verified.root/source['files'][f'r{m}']['path'] for m in (1,2)],
+                                    targets,report,policy)
     if set(data['cohorts'])!={*(t.copy_name for t in targets),'quarantine'}: raise ValueError('cohort inventory mismatch')
     ledger=root/'routing_ledger.jsonl'
     if ledger.is_symlink() or sha256_file(ledger)!=data['ledger_sha256']: raise ValueError('ledger changed')
