@@ -179,14 +179,13 @@ def test_nuclease_plan_resolves_full_scientific_identity(tmp_path):
     assert w._expected(plan,metrics,{})['api_call']=='run_nuclease_metrics'
 
 
-def test_multicopy_nuclease_rejected_before_execution(tmp_path,monkeypatch):
+def test_multicopy_nuclease_requires_compatible_window_policy(tmp_path):
     from m7_fixtures import write_csv
     options=fixture(tmp_path/'inputs');options['crispresso']=fake_core(tmp_path)
-    rows=[target(),target(copy_name='copy2',wt_sequence='A'+WT[1:])]
+    rows=[target(),target(copy_name='copy2',tigr_window='W3')]
     write_csv(options['targets'],list(rows[0].model_dump()),[t.model_dump() for t in rows])
-    for name in ('demultiplex','route_analysis','run_metrics','run_nuclease_metrics'):
-        monkeypatch.setattr(w,name,lambda **k:pytest.fail('execution on unsupported multi-copy panel'))
-    with pytest.raises(w.WorkflowError,match='MULTICOPY_NUCLEASE_UNSUPPORTED'):w.execute_workflow(**options)
+    with pytest.raises((ValueError,w.WorkflowError), match='NUCLEASE_WINDOW_POLICY_MISMATCH'):
+        w.execute_workflow(**options)
     assert not options['output'].exists()
 
 

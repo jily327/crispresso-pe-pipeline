@@ -163,6 +163,12 @@ def load_targets(path: Path) -> list[Target]:
     modes={r.get('analysis_mode','precise_edit') for r in records}
     if modes == {'indel_nuclease'}:
         rows = _load_csv(path, NucleaseTarget, ('analysis_mode','target_name','copy_name','wt_sequence'))
+        from peanalyzer.nuclease.multicopy import check_panel
+        for name in {r.target_name for r in rows}:
+            try:
+                check_panel([r for r in rows if r.target_name == name])
+            except ValueError as exc:
+                raise MetadataError(str(exc)) from exc
     elif modes <= {'precise_edit'}:
         rows = _load_csv(path, Target, TARGET_COLUMNS)
     else:
@@ -170,15 +176,16 @@ def load_targets(path: Path) -> list[Target]:
     ids = [row.amplicon_id for row in rows]
     if len(set(ids)) != len(ids):
         raise MetadataError(f"{path}: duplicate target_name/copy_name")
-    seen = set()
+    seen = {}
     for row in rows:
         seq = row.wt_sequence
-        if seq in seen or reverse_complement(seq) in seen:
+        identity = min(seq, reverse_complement(seq))
+        if identity in seen and (row.analysis_mode == "precise_edit" or seen[identity] != row.target_name):
             raise MetadataError(f"{path}: duplicate or reverse-complement WT amplicon at {row.amplicon_id}")
         # v2.3.4 also rejects a self reverse-complementing reference.
         if row.analysis_mode == "precise_edit" and seq == reverse_complement(seq):
             raise MetadataError(f"{path}: palindromic WT unsupported by CRISPRessoPooled 2.3.4: {row.amplicon_id}")
-        seen.add(seq)
+        seen[identity] = row.target_name
     return rows
 
 
@@ -198,8 +205,6 @@ def metadata_warnings(samples: list[Sample], targets: list[Target], config: Conf
             warnings.append(f"barcode matching may be ambiguous: {left.sample_name}, {right.sample_name}")
     for row in targets:
         if row.analysis_mode == "indel_nuclease":
-            if sum(t.target_name == row.target_name for t in targets)>1:
-                warnings.append("MULTICOPY_NUCLEASE_UNSUPPORTED: backend execution is blocked")
             continue
         if row.pegRNA_spacer not in row.wt_sequence:
             warnings.append(f"{row.amplicon_id}: spacer is not an exact forward WT substring; confirm strand/homeolog mismatches")
@@ -238,6 +243,6 @@ def validate_metadata(samples_path: Path, targets_path: Path, config_path: Path,
         "resolved_config": config.model_dump(mode="json"),
         "analysis_modes": sorted({t.analysis_mode for t in targets}),
         "resolved_targets": [t.scientific_identity if t.analysis_mode == "indel_nuclease" else dict(analysis_mode="precise_edit", **t.model_dump(mode="json")) for t in targets],
-        "nuclease_execution_supported": all(sum(t.target_name == r.target_name for t in targets)==1 for r in targets if r.analysis_mode=="indel_nuclease"),
+        "nuclease_execution_supported": True,
         "scope": "metadata only; FASTQ, CRISPResso execution and biological validity are not checked",
     }

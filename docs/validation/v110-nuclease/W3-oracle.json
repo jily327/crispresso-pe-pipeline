@@ -1,0 +1,149 @@
+{
+  "backend_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "backend_version": "2.3.4",
+  "expected": {
+    "chr03g": [
+      1,
+      6
+    ],
+    "chr13g": [
+      2,
+      7
+    ],
+    "combined": [
+      4,
+      16
+    ]
+  },
+  "independently_verified": {
+    "chr03g": [
+      1,
+      6
+    ],
+    "chr13g": [
+      2,
+      7
+    ],
+    "combined": [
+      4,
+      16
+    ]
+  },
+  "input_fastq_sha256": {
+    "r1": "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+    "r2": "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+  },
+  "known_inputs": {
+    "a_ins": 1,
+    "a_sub": 1,
+    "a_wt": 4,
+    "amb_del": 1,
+    "amb_wt": 2,
+    "b_del_w2": 1,
+    "b_del_w3": 1,
+    "b_wt": 5,
+    "unrelated": 1
+  },
+  "population": {
+    "aligned_unassessable_reads": 0,
+    "backend_input_reads": 17,
+    "confident_copy_reads": {
+      "chr03g": 6,
+      "chr13g": 7
+    },
+    "copy_ambiguous_assessable_reads": 3,
+    "copy_ambiguous_reads": 3,
+    "reads_after_preprocessing": 17,
+    "unaligned_reads": 1
+  },
+  "reference_runs": {
+    "chr03g": {
+      "output/CRISPResso_on_nuclease/Alleles_frequency_table.zip": "c4dc41f1b4b90fd1c03fae57459a6ffeecdfe9878ef0f97e918b798414c02763",
+      "output/CRISPResso_on_nuclease/CRISPResso2_info.json": "23f3242471afd6fb6a2a414c48ff83dc7cff597c938aa2c1517681f336676904",
+      "output/CRISPResso_on_nuclease/CRISPResso_mapping_statistics.txt": "ab80bab7a22b102c1972dd2701bf47d14651480347f2dbd0df4098b3fa08f0ff",
+      "output/CRISPResso_on_nuclease/CRISPResso_quantification_of_editing_frequency.txt": "9da27b6e63a1c74367652d846a28ed9ae73436996ea3c54a8520140ce8fec1f9"
+    },
+    "chr13g": {
+      "output/CRISPResso_on_nuclease/Alleles_frequency_table.zip": "95976eba8cd0cd12de10f48a3de0f39b3f5e2fcad47f276d77effc44ab52ed1f",
+      "output/CRISPResso_on_nuclease/CRISPResso2_info.json": "8756ae5e7ca753412f17d5b87c628c7027896a9d34d3ee4aaa2a6963e274b430",
+      "output/CRISPResso_on_nuclease/CRISPResso_mapping_statistics.txt": "ab80bab7a22b102c1972dd2701bf47d14651480347f2dbd0df4098b3fa08f0ff",
+      "output/CRISPResso_on_nuclease/CRISPResso_quantification_of_editing_frequency.txt": "9da27b6e63a1c74367652d846a28ed9ae73436996ea3c54a8520140ce8fec1f9"
+    }
+  },
+  "synthetic": true,
+  "window": "W3",
+  "windows": {
+    "chr03g": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "100-117",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          100,
+          117
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          104,
+          105
+        ],
+        [
+          112,
+          113
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        100,
+        117
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 100
+    },
+    "chr13g": {
+      "amplicon_top_strand_between_cuts": "AGGCAGTA",
+      "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+      "coordinates": "103-120",
+      "derivation": "tigr_tas_v1",
+      "intervals": [
+        [
+          103,
+          120
+        ]
+      ],
+      "orientation": "forward",
+      "physical_nick_boundaries": [
+        [
+          107,
+          108
+        ],
+        [
+          115,
+          116
+        ]
+      ],
+      "profile_version": "tigr_tas_v1",
+      "selected_window": "W3",
+      "target_interval": [
+        103,
+        120
+      ],
+      "target_oriented_between_cuts": "AGGCAGTA",
+      "target_oriented_nick_labels": [
+        "5|6",
+        "13|14"
+      ],
+      "target_sequence": "TCTATAGGCAGTAAGAAG",
+      "target_start": 103
+    }
+  }
+}

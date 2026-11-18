@@ -78,7 +78,11 @@ def parse_nuclease_child(root,target,expected_pairs):
 
 
 def run_nuclease_metrics(*,analysis_root,sample_id,targets,analysis_id,output,core,runtime_digest):
-    if len(targets)!=1:raise ValueError('MULTICOPY_NUCLEASE_UNSUPPORTED')
+    if len(targets) > 1:
+        return run_multicopy_metrics(analysis_root=analysis_root, sample_id=sample_id, targets=targets,
+            analysis_id=analysis_id, output=output, core=core, runtime_digest=runtime_digest)
+    if not targets:
+        raise ValueError('NUCLEASE_TARGET_REQUIRED')
     target=NucleaseTarget.model_validate(targets[0].model_dump())
     if core.version!='2.3.4' or runtime_digest!=RUNTIME_DIGEST:raise ValueError('UNQUALIFIED_BACKEND_RUNTIME')
     verified=verify_analysis_output(Path(analysis_root));sample=verified.manifest['samples'][sample_id]
@@ -133,3 +137,49 @@ def run_nuclease_metrics(*,analysis_root,sample_id,targets,analysis_id,output,co
         return metric
     finally:
         if stage.exists():shutil.rmtree(stage)
+
+
+def run_multicopy_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core, runtime_digest):
+    from collections import Counter
+    from peanalyzer.fastq import read_fastq
+    from peanalyzer.nuclease.multicopy import calculate, sequence_key, MECHANISM, check_panel
+    from peanalyzer.nuclease.models import MulticopyNucleaseResult
+
+    check_panel(targets)
+    output = Path(output).absolute()
+    if output.exists() or output.is_symlink():
+        raise ValueError('output must be new')
+    output.parent.mkdir(parents=True, exist_ok=True)
+    stage = Path(tempfile.mkdtemp(prefix='.'+output.name+'.incomplete-', dir=output.parent))
+    try:
+        runs = {}
+        merged_counts = None
+        for target in targets:
+            child = stage/'references'/target.copy_name
+            run = run_nuclease_metrics(analysis_root=analysis_root, sample_id=sample_id, targets=[target],
+                analysis_id=analysis_id, output=child, core=core, runtime_digest=runtime_digest)
+            (child/'result.json').rename(child/'reference_metric.json')
+            fastq = 'output/CRISPResso_on_nuclease/out.extendedFrags.fastq.gz'
+            if run.provenance.artifacts.get(fastq) != sha256_file(child/fastq):
+                raise ValueError('NUCLEASE_MERGED_EVIDENCE_MISMATCH')
+            observed = Counter(sequence_key(r.sequence.decode().upper()) for r in read_fastq(child/fastq))
+            if sum(observed.values()) != run.reads_after_preprocessing or (merged_counts is not None and merged_counts != observed):
+                raise ValueError('NUCLEASE_MERGED_POPULATION_MISMATCH')
+            merged_counts = observed
+            runs[target.copy_name] = run
+        population, combined, copies = calculate(targets, runs, merged_counts)
+        result = MulticopyNucleaseResult(sample_id=sample_id, target_id=targets[0].target_name, analysis_id=analysis_id,
+            targets=targets, windows={t.copy_name:t.window for t in targets}, population=population, copies=copies,
+            status=combined.status, reason_codes=combined.reason_codes, combined=combined, merged_counts=dict(merged_counts),
+            reference_runs=runs, provenance=dict(target_definitions_sha256=digest([t.model_dump() for t in targets]),
+                prepared_manifest_sha256=run.provenance.prepared_manifest_sha256, prepared_sample=run.provenance.prepared_sample,
+                merged_population_sha256=digest(dict(merged_counts)), method=MECHANISM, runtime_digest=runtime_digest, crispresso_version=core.version))
+        (stage/'result.json').write_text(result.model_dump_json(indent=2)+'\n')
+        (stage/'execution_failures.json').write_text('{}\n')
+        if output.exists() or output.is_symlink():
+            raise ValueError('output appeared during execution')
+        stage.rename(output)
+        return result
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)

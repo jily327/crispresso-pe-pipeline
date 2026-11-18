@@ -1,0 +1,721 @@
+{
+  "$defs": {
+    "Allele": {
+      "additionalProperties": false,
+      "properties": {
+        "authoritative_fields": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Authoritative Fields",
+          "type": "object"
+        },
+        "n_deleted": {
+          "minimum": 0,
+          "title": "N Deleted",
+          "type": "integer"
+        },
+        "n_inserted": {
+          "minimum": 0,
+          "title": "N Inserted",
+          "type": "integer"
+        },
+        "n_mutated": {
+          "minimum": 0,
+          "title": "N Mutated",
+          "type": "integer"
+        },
+        "net_delta_bp": {
+          "title": "Net Delta Bp",
+          "type": "integer"
+        },
+        "product_class": {
+          "enum": [
+            "unmodified",
+            "substitution_only",
+            "indel_only",
+            "indel_plus_substitution",
+            "ambiguous",
+            "discarded"
+          ],
+          "title": "Product Class",
+          "type": "string"
+        },
+        "reads": {
+          "minimum": 0,
+          "title": "Reads",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "authoritative_fields",
+        "reads",
+        "n_inserted",
+        "n_deleted",
+        "n_mutated",
+        "net_delta_bp",
+        "product_class"
+      ],
+      "title": "Allele",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "MulticopyPopulation": {
+      "additionalProperties": false,
+      "properties": {
+        "aligned_unassessable_reads": {
+          "minimum": 0,
+          "title": "Aligned Unassessable Reads",
+          "type": "integer"
+        },
+        "backend_input_reads": {
+          "minimum": 0,
+          "title": "Backend Input Reads",
+          "type": "integer"
+        },
+        "confident_copy_reads": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Confident Copy Reads",
+          "type": "object"
+        },
+        "copy_ambiguous_assessable_reads": {
+          "minimum": 0,
+          "title": "Copy Ambiguous Assessable Reads",
+          "type": "integer"
+        },
+        "copy_ambiguous_reads": {
+          "minimum": 0,
+          "title": "Copy Ambiguous Reads",
+          "type": "integer"
+        },
+        "reads_after_preprocessing": {
+          "minimum": 0,
+          "title": "Reads After Preprocessing",
+          "type": "integer"
+        },
+        "unaligned_reads": {
+          "minimum": 0,
+          "title": "Unaligned Reads",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "backend_input_reads",
+        "reads_after_preprocessing",
+        "unaligned_reads",
+        "aligned_unassessable_reads",
+        "copy_ambiguous_reads",
+        "copy_ambiguous_assessable_reads",
+        "confident_copy_reads"
+      ],
+      "title": "MulticopyPopulation",
+      "type": "object"
+    },
+    "MulticopyProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "crispresso_version": {
+          "const": "2.3.4",
+          "title": "Crispresso Version",
+          "type": "string"
+        },
+        "merged_population_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Merged Population Sha256",
+          "type": "string"
+        },
+        "method": {
+          "const": "conservative_flanking_markers_v1",
+          "title": "Method",
+          "type": "string"
+        },
+        "prepared_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Prepared Manifest Sha256",
+          "type": "string"
+        },
+        "prepared_sample": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Prepared Sample",
+          "type": "object"
+        },
+        "runtime_digest": {
+          "title": "Runtime Digest",
+          "type": "string"
+        },
+        "target_definitions_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Target Definitions Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_definitions_sha256",
+        "prepared_manifest_sha256",
+        "prepared_sample",
+        "merged_population_sha256",
+        "method",
+        "runtime_digest",
+        "crispresso_version"
+      ],
+      "title": "MulticopyProvenance",
+      "type": "object"
+    },
+    "NucleaseMetricResult": {
+      "additionalProperties": false,
+      "properties": {
+        "aligned_reads": {
+          "minimum": 0,
+          "title": "Aligned Reads",
+          "type": "integer"
+        },
+        "alignment_counters": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Alignment Counters",
+          "type": "object"
+        },
+        "alleles": {
+          "items": {
+            "$ref": "#/$defs/Allele"
+          },
+          "title": "Alleles",
+          "type": "array"
+        },
+        "analysis_id": {
+          "minLength": 1,
+          "title": "Analysis Id",
+          "type": "string"
+        },
+        "analysis_mode": {
+          "const": "indel_nuclease",
+          "default": "indel_nuclease",
+          "title": "Analysis Mode",
+          "type": "string"
+        },
+        "backend_input_reads": {
+          "minimum": 0,
+          "title": "Backend Input Reads",
+          "type": "integer"
+        },
+        "class_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Class Counts",
+          "type": "object"
+        },
+        "fraction_of_indel_reads_by_net_size": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Ratio"
+          },
+          "title": "Fraction Of Indel Reads By Net Size",
+          "type": "object"
+        },
+        "identity_mechanism": {
+          "const": "single_copy_identity",
+          "default": "single_copy_identity",
+          "title": "Identity Mechanism",
+          "type": "string"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "mapping_statistics": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Mapping Statistics",
+          "type": "object"
+        },
+        "metric_contract_version": {
+          "const": "indel-nuclease-v1",
+          "default": "indel-nuclease-v1",
+          "title": "Metric Contract Version",
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Ratio"
+          },
+          "title": "Metrics",
+          "type": "object"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "reads_after_preprocessing": {
+          "minimum": 0,
+          "title": "Reads After Preprocessing",
+          "type": "integer"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "sample_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Sample Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "NOT_ASSESSABLE",
+            "BLOCKED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "target": {
+          "$ref": "#/$defs/NucleaseTarget"
+        },
+        "target_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Id",
+          "type": "string"
+        },
+        "unaligned_reads": {
+          "minimum": 0,
+          "title": "Unaligned Reads",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sample_id",
+        "target_id",
+        "analysis_id",
+        "target",
+        "status",
+        "reason_codes",
+        "backend_input_reads",
+        "reads_after_preprocessing",
+        "aligned_reads",
+        "unaligned_reads",
+        "alignment_counters",
+        "mapping_statistics",
+        "class_counts",
+        "metrics",
+        "fraction_of_indel_reads_by_net_size",
+        "alleles",
+        "provenance",
+        "limitations"
+      ],
+      "title": "NucleaseMetricResult",
+      "type": "object"
+    },
+    "NucleaseTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_mode": {
+          "const": "indel_nuclease",
+          "title": "Analysis Mode",
+          "type": "string"
+        },
+        "copy_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Copy Name",
+          "type": "string"
+        },
+        "insertion_quantification_mode": {
+          "const": "current",
+          "default": "current",
+          "title": "Insertion Quantification Mode",
+          "type": "string"
+        },
+        "nuclease_profile": {
+          "anyOf": [
+            {
+              "const": "tigr_tas_v1",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Nuclease Profile"
+        },
+        "quantification_window_coordinates": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quantification Window Coordinates"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        },
+        "tigr_target_sequence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tigr Target Sequence"
+        },
+        "tigr_window": {
+          "anyOf": [
+            {
+              "enum": [
+                "W1",
+                "W2",
+                "W3",
+                "W4"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tigr Window"
+        },
+        "wt_sequence": {
+          "title": "Wt Sequence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "analysis_mode",
+        "target_name",
+        "copy_name",
+        "wt_sequence"
+      ],
+      "title": "NucleaseTarget",
+      "type": "object"
+    },
+    "PopulationMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "aligned_reads": {
+          "minimum": 0,
+          "title": "Aligned Reads",
+          "type": "integer"
+        },
+        "alleles": {
+          "items": {
+            "$ref": "#/$defs/Allele"
+          },
+          "title": "Alleles",
+          "type": "array"
+        },
+        "class_counts": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Class Counts",
+          "type": "object"
+        },
+        "fraction_of_indel_reads_by_net_size": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Ratio"
+          },
+          "title": "Fraction Of Indel Reads By Net Size",
+          "type": "object"
+        },
+        "metrics": {
+          "additionalProperties": {
+            "$ref": "#/$defs/Ratio"
+          },
+          "title": "Metrics",
+          "type": "object"
+        },
+        "reason_codes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reason Codes",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "REPORTABLE",
+            "NOT_ASSESSABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "aligned_reads",
+        "status",
+        "reason_codes",
+        "metrics",
+        "class_counts",
+        "fraction_of_indel_reads_by_net_size",
+        "alleles"
+      ],
+      "title": "PopulationMetrics",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_mode": {
+          "const": "indel_nuclease",
+          "default": "indel_nuclease",
+          "title": "Analysis Mode",
+          "type": "string"
+        },
+        "artifacts": {
+          "additionalProperties": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "title": "Artifacts",
+          "type": "object"
+        },
+        "crispresso_version": {
+          "const": "2.3.4",
+          "title": "Crispresso Version",
+          "type": "string"
+        },
+        "execution": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Execution",
+          "type": "object"
+        },
+        "prepared_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Prepared Manifest Sha256",
+          "type": "string"
+        },
+        "prepared_sample": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Prepared Sample",
+          "type": "object"
+        },
+        "runtime_digest": {
+          "title": "Runtime Digest",
+          "type": "string"
+        },
+        "scientific_identity": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Scientific Identity",
+          "type": "object"
+        },
+        "target_definitions_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Target Definitions Sha256",
+          "type": "string"
+        },
+        "wt_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Wt Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_definitions_sha256",
+        "wt_sha256",
+        "prepared_manifest_sha256",
+        "prepared_sample",
+        "runtime_digest",
+        "crispresso_version",
+        "scientific_identity",
+        "execution",
+        "artifacts"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Ratio": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "minimum": 0,
+          "title": "Denominator",
+          "type": "integer"
+        },
+        "fraction": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Fraction"
+        },
+        "numerator": {
+          "minimum": 0,
+          "title": "Numerator",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator",
+        "fraction"
+      ],
+      "title": "Ratio",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis_id": {
+      "minLength": 1,
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "analysis_mode": {
+      "const": "indel_nuclease",
+      "default": "indel_nuclease",
+      "title": "Analysis Mode",
+      "type": "string"
+    },
+    "combined": {
+      "$ref": "#/$defs/PopulationMetrics"
+    },
+    "copies": {
+      "additionalProperties": {
+        "$ref": "#/$defs/PopulationMetrics"
+      },
+      "title": "Copies",
+      "type": "object"
+    },
+    "identity_mechanism": {
+      "const": "conservative_flanking_markers_v1",
+      "default": "conservative_flanking_markers_v1",
+      "title": "Identity Mechanism",
+      "type": "string"
+    },
+    "merged_counts": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "title": "Merged Counts",
+      "type": "object"
+    },
+    "metric_contract_version": {
+      "const": "indel-nuclease-multicopy-v1",
+      "default": "indel-nuclease-multicopy-v1",
+      "title": "Metric Contract Version",
+      "type": "string"
+    },
+    "population": {
+      "$ref": "#/$defs/MulticopyPopulation"
+    },
+    "provenance": {
+      "$ref": "#/$defs/MulticopyProvenance"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reason Codes",
+      "type": "array"
+    },
+    "reference_runs": {
+      "additionalProperties": {
+        "$ref": "#/$defs/NucleaseMetricResult"
+      },
+      "title": "Reference Runs",
+      "type": "object"
+    },
+    "sample_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+      "title": "Sample Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "REPORTABLE",
+        "NOT_ASSESSABLE"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "target_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+      "title": "Target Id",
+      "type": "string"
+    },
+    "targets": {
+      "items": {
+        "$ref": "#/$defs/NucleaseTarget"
+      },
+      "minItems": 2,
+      "title": "Targets",
+      "type": "array"
+    },
+    "windows": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "type": "object"
+      },
+      "title": "Windows",
+      "type": "object"
+    }
+  },
+  "required": [
+    "sample_id",
+    "target_id",
+    "analysis_id",
+    "status",
+    "reason_codes",
+    "targets",
+    "windows",
+    "population",
+    "combined",
+    "copies",
+    "merged_counts",
+    "reference_runs",
+    "provenance"
+  ],
+  "title": "MulticopyNucleaseResult",
+  "type": "object"
+}

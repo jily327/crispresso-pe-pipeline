@@ -216,13 +216,106 @@ class NucleaseMetricResult(Model):
         return self
 
 
+from peanalyzer.sample_qc import EmptyNucleaseControl
+
+
+
+class PopulationMetrics(Model):
+    aligned_reads: Count
+    status: Literal['REPORTABLE', 'NOT_ASSESSABLE']
+    reason_codes: list[str]
+    metrics: dict[str, Ratio]
+    class_counts: dict[str, Count]
+    fraction_of_indel_reads_by_net_size: dict[str, Ratio]
+    alleles: list[Allele]
+
+    @classmethod
+    def from_rows(cls, rows):
+        count = sum(a.reads for a in rows)
+        classes, metrics, sizes = aggregate(rows, count)
+        return cls(aligned_reads=count, status='REPORTABLE' if count else 'NOT_ASSESSABLE',
+                   reason_codes=[] if count else ['NO_ASSESSABLE_READS'], class_counts=classes,
+                   metrics=metrics, fraction_of_indel_reads_by_net_size=sizes, alleles=rows)
+
+
+class MulticopyPopulation(Model):
+    backend_input_reads: Count
+    reads_after_preprocessing: Count
+    unaligned_reads: Count
+    aligned_unassessable_reads: Count
+    copy_ambiguous_reads: Count
+    copy_ambiguous_assessable_reads: Count
+    confident_copy_reads: dict[str, Count]
+
+
+class MulticopyProvenance(Model):
+    target_definitions_sha256: Hash
+    prepared_manifest_sha256: Hash
+    prepared_sample: dict[str, JsonValue]
+    merged_population_sha256: Hash
+    method: Literal['conservative_flanking_markers_v1']
+    runtime_digest: str
+    crispresso_version: Literal['2.3.4']
+
+
+class MulticopyNucleaseResult(Model):
+    schema_version: Literal[1] = 1
+    metric_contract_version: Literal['indel-nuclease-multicopy-v1'] = 'indel-nuclease-multicopy-v1'
+    analysis_mode: Literal['indel_nuclease'] = 'indel_nuclease'
+    identity_mechanism: Literal['conservative_flanking_markers_v1'] = 'conservative_flanking_markers_v1'
+    sample_id: Identifier
+    target_id: Identifier
+    analysis_id: str = Field(min_length=1)
+    status: Literal['REPORTABLE', 'NOT_ASSESSABLE']
+    reason_codes: list[str]
+    targets: list[NucleaseTarget] = Field(min_length=2)
+    windows: dict[str, dict[str, JsonValue]]
+    population: MulticopyPopulation
+    combined: PopulationMetrics
+    copies: dict[str, PopulationMetrics]
+    merged_counts: dict[str, Count]
+    reference_runs: dict[str, NucleaseMetricResult]
+    provenance: MulticopyProvenance
+
+    @model_validator(mode='after')
+    def reconcile(self):
+        from peanalyzer.metrics.production import digest, RUNTIME_DIGEST
+        from peanalyzer.nuclease.multicopy import calculate
+        targets = {t.copy_name:t for t in self.targets}
+        if (set(self.reference_runs) != set(targets) or len(targets) != len(self.targets)
+                or self.windows != {n:t.window for n,t in targets.items()}
+                or digest([t.model_dump() for t in self.targets]) != self.provenance.target_definitions_sha256
+                or digest(self.merged_counts) != self.provenance.merged_population_sha256
+                or self.provenance.runtime_digest != RUNTIME_DIGEST):
+            raise ValueError('NUCLEASE_PANEL_PROVENANCE_MISMATCH')
+        for n, run in self.reference_runs.items():
+            if (run.sample_id != self.sample_id or run.target_id != self.target_id or run.target != targets[n]
+                    or run.analysis_id != self.analysis_id or run.reads_after_preprocessing != sum(self.merged_counts.values())
+                    or run.provenance.prepared_manifest_sha256 != self.provenance.prepared_manifest_sha256
+                    or run.provenance.prepared_sample != self.provenance.prepared_sample):
+                raise ValueError('NUCLEASE_PANEL_REFERENCE_LINEAGE_MISMATCH')
+        pop, combined, copies = calculate(self.targets, self.reference_runs, self.merged_counts)
+        if (pop != self.population.model_dump() or combined != self.combined or copies != self.copies or
+                combined.status != self.status or combined.reason_codes != self.reason_codes):
+            raise ValueError('NUCLEASE_MULTICOPY_COUNT_MISMATCH')
+        return self
+
+
+def observation_populations(result):
+    if isinstance(result, MulticopyNucleaseResult):
+        return {None:result.combined, **result.copies}
+    if isinstance(result, EmptyNucleaseControl) and len(result.targets) > 1:
+        return {None:result, **{t.copy_name:result for t in result.targets}}
+    return {None:result}
+
+
 class NucleaseObservation(Observation):
-    metric_contract_version: Literal['indel-nuclease-v1']
+    metric_contract_version: Literal['indel-nuclease-v1','empty-nuclease-control-v1','indel-nuclease-multicopy-v1']
 
 
 class NucleaseStatisticsProvenance(M5Provenance):
     statistics_contract_version: Literal['indel-nuclease-stats-v1']='indel-nuclease-stats-v1'
-    source_metric_contract_versions: list[Literal['indel-nuclease-v1']]
+    source_metric_contract_versions: list[Literal['indel-nuclease-v1','empty-nuclease-control-v1','indel-nuclease-multicopy-v1']]
 
 
 class NucleaseStatisticsResult(M5Result):
@@ -230,25 +323,31 @@ class NucleaseStatisticsResult(M5Result):
     statistics_contract_version: Literal['indel-nuclease-stats-v1']
     provenance: NucleaseStatisticsProvenance
     observations: list[NucleaseObservation]
-    nuclease_results: list[NucleaseMetricResult]
+    nuclease_results: list[NucleaseMetricResult | EmptyNucleaseControl | MulticopyNucleaseResult]
 
     @model_validator(mode='after')
     def nuclease_links(self):
         sources={(r.sample_id,r.target_id):r for r in self.nuclease_results}
         if len(sources)!=len(self.nuclease_results):raise ValueError('duplicate nuclease sample/target evidence')
+        expected_rows = {(sid, target, copy, name): (group, metric, source)
+            for (sid,target),source in sources.items()
+            for copy,group in observation_populations(source).items()
+            for name,metric in group.metrics.items()}
         seen=set()
         for row in self.observations:
-            key=(row.sample_id,row.target_name)
-            if key not in sources or row.metric_name not in sources[key].metrics:raise ValueError('unknown nuclease observation source')
-            source=sources[key];metric=source.metrics[row.metric_name]
-            expected=(metric.numerator,metric.denominator,metric.fraction) if source.status=='REPORTABLE' else (None,None,None)
-            if (row.numerator,row.denominator,row.fraction)!=expected or row.status!=source.status or row.reason_codes!=source.reason_codes:
+            key = (row.sample_id,row.target_name,row.copy_name,row.metric_name)
+            if key not in expected_rows or key in seen:
+                raise ValueError('unknown or duplicate nuclease observation')
+            seen.add(key)
+            group, metric, source = expected_rows[key]
+            expected=(metric.numerator,metric.denominator,metric.fraction) if group.status=='REPORTABLE' else (None,None,None)
+            if ((row.numerator,row.denominator,row.fraction)!=expected or row.status!=group.status
+                    or row.reason_codes!=group.reason_codes or row.policy_id is not None
+                    or row.metric_contract_version != source.metric_contract_version
+                    or row.routing_conditioned != (row.copy_name is not None)):
                 raise ValueError('nuclease observation differs from source counts')
-            if row.routing_conditioned or row.copy_name is not None or row.policy_id is not None:raise ValueError('nuclease observations must use the whole prepared single-copy population')
-            identity=(*key,row.metric_name)
-            if identity in seen:raise ValueError('duplicate nuclease observation')
-            seen.add(identity)
-        if seen!={(s,t,m) for s,t in sources for m in METRICS}:raise ValueError('incomplete nuclease observation inventory')
+        if seen != expected_rows.keys():
+            raise ValueError('incomplete nuclease observation inventory')
         return self
 
 

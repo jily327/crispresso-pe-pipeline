@@ -163,7 +163,8 @@ def scientific_target(target):
 
 
 def nuclease_identity(plan, node):
-    return dict(analysis_mode='indel_nuclease', identity_mechanism='single_copy_identity',
+    mechanism = 'single_copy_identity' if len(targets_for(plan,node)) == 1 else 'conservative_flanking_markers_v1'
+    return dict(analysis_mode='indel_nuclease', identity_mechanism=mechanism,
         sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan,node)],
         analysis_manifest_sha256=sha(Path(plan.output)/'analysis/analysis_manifest.json'))
 
@@ -275,7 +276,7 @@ def validate_stage(plan, node, status, *, output_override=None):
     elif kind == 'routing':
         targets = targets_for(plan, node)
         if targets[0].analysis_mode == 'indel_nuclease':
-            if len(targets)!=1 or status!='COMPLETED' or read_json(output/'identity.json')!=nuclease_identity(plan,node):
+            if status!='COMPLETED' or read_json(output/'identity.json')!=nuclease_identity(plan,node):
                 raise WorkflowError('NUCLEASE_IDENTITY_MISMATCH',node.stage_id)
             return
         historical = 'orientation_contract' not in plan.normalized_options['routing_policy_identity']
@@ -304,13 +305,13 @@ def validate_stage(plan, node, status, *, output_override=None):
         if 'min_prepared_pairs_qc' in plan.normalized_options:
             from peanalyzer.sample_qc import validate_qc
             validate_qc(plan, node, result, output)
-        if read_json(output / 'execution_failures.json'):
         site_targets = targets_for(plan, node)
         if ('orientation_contract' in plan.normalized_options['routing_policy_identity']
                 and site_targets[0].analysis_mode == 'precise_edit' and result.qc.prepared_input_reads):
             from peanalyzer.workflow_sites import two_substitutions, verify_workflow_sites
             if two_substitutions(site_targets):
                 verify_workflow_sites(output, result, site_targets)
+        if read_json(output / 'execution_failures.json'):
             raise WorkflowError('BACKEND_EXECUTION_FAILED',
                 f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '
                 'Inspect execution_failures.json in the retained metrics attempt. Check read quality, mate overlap and sample selection in Setup/Review; no sample was omitted.',node.stage_id)
@@ -380,7 +381,6 @@ def execute_stage(plan, node, completed, argv):
     elif kind == 'routing':
         targets = targets_for(plan,node)
         if targets[0].analysis_mode == 'indel_nuclease':
-            if len(targets)!=1:raise WorkflowError('MULTICOPY_NUCLEASE_UNSUPPORTED',node.stage_id)
             atomic_json(output/'identity.json',nuclease_identity(plan,node))
             return status,reasons
         gate = geometry(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
@@ -506,7 +506,8 @@ def _invalidate(root, old, new, force):
 def _expected(plan, node, refs):
     api = API[node.stage_kind]
     if node.stage_kind in ('routing','metrics') and targets_for(plan,node)[0].analysis_mode=='indel_nuclease':
-        api = 'single_copy_identity' if node.stage_kind=='routing' else 'run_nuclease_metrics'
+        mechanism = 'single_copy_identity' if len(targets_for(plan,node)) == 1 else 'conservative_flanking_markers_v1'
+        api = mechanism if node.stage_kind=='routing' else 'run_nuclease_metrics'
     return dict(node=node, stage_signature_sha256=signature(plan,node,refs), dependencies=refs,
         input_artifacts=inputs_for(plan,node), normalized_parameters=parameters_for(plan,node),
         software_identity=plan.software_identity,
@@ -577,7 +578,8 @@ def _check_execution_scope(plan):
     for name in plan.expected_targets:
         rows=[t for t in plan.targets if t.target_name==name]
         if rows[0].analysis_mode=='indel_nuclease':
-            if len(rows)!=1:raise WorkflowError('MULTICOPY_NUCLEASE_UNSUPPORTED',name)
+            from peanalyzer.nuclease.multicopy import check_panel
+            check_panel(rows)
             if 'policies' in plan.inputs:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',name)
     if len(plan.expected_targets) != 1:
         raise WorkflowError('MULTI_TARGET_EXECUTION_UNSUPPORTED',
