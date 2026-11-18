@@ -92,6 +92,11 @@ python -m pip install --no-build-isolation --no-deps -e '.[dev]'
 python -m pytest -q
 ```
 
+EPSPS release qualification requires the [real-data regression](docs/validation/epsps-real/README.md)
+in addition to the unit suite. The archived comparison records the barcode, orientation,
+two-site and CRISPResso counts. Matching the original experiment metadata and checking
+the release candidate against those counts are still required.
+
 ## Validate metadata
 
 ```sh
