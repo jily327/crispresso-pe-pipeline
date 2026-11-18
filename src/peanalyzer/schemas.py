@@ -173,12 +173,15 @@ class QCConfig(Model):
     discriminating_variant_edit_distance: NonnegativeInt = 5
 
 
+MIN_BIOLOGICAL_REPLICATES = 2
+
+
 class StatisticsConfig(Model):
     mode: Literal["none", "simple", "factorial"] = "none"
     factors: list[Literal["editor", "treatment", "dpi"]] = Field(default_factory=list)
     block_column: Literal["block_id", "biological_replicate"] | None = None
     include_interaction: bool = False
-    min_biological_replicates: Annotated[int, Field(ge=2)] = 3
+    min_biological_replicates: Annotated[int, Field(ge=MIN_BIOLOGICAL_REPLICATES)] = MIN_BIOLOGICAL_REPLICATES
 
     @model_validator(mode="after")
     def check_design(self) -> Self:

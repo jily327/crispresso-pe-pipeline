@@ -10,6 +10,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 from peanalyzer import __version__
+from peanalyzer.schemas import MIN_BIOLOGICAL_REPLICATES
 from peanalyzer.validation import MetadataError, validate_metadata
 
 
@@ -48,6 +49,8 @@ def main(argv: list[str] | None = None) -> int:
         if name == "stats":
             command.add_argument("--contrasts", type=Path, required=True)
             command.add_argument("--max-permutations", type=int, default=100_000)
+            command.add_argument("--min-biological-replicates", type=int, default=MIN_BIOLOGICAL_REPLICATES,
+                                 help="minimum reportable samples per arm or complete paired blocks (default: %(default)s)")
     command = commands.add_parser("report", help="render a completed M5 result as an offline report")
     command.add_argument("--result", type=Path, required=True)
     command.add_argument("--output", type=Path, required=True)
@@ -98,7 +101,8 @@ def main(argv: list[str] | None = None) -> int:
             options = dict(manifest_path=args.manifest, samples_path=args.samples, output=args.output)
             with sigterm_cleanup():
                 result = summarize(**options) if args.command == "summarize" else stats(
-                    **options, contrasts_path=args.contrasts, max_permutations=args.max_permutations)
+                    **options, contrasts_path=args.contrasts, max_permutations=args.max_permutations,
+                    min_biological_replicates=args.min_biological_replicates)
             report = dict(output=str(args.output), observations=len(result.observations),
                           group_summaries=len(result.group_summaries), contrasts=len(result.contrasts),
                           statistics_contract_version=result.statistics_contract_version)

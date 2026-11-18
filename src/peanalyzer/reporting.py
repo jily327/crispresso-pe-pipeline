@@ -20,7 +20,7 @@ from matplotlib.ticker import PercentFormatter
 from peanalyzer import __version__
 from peanalyzer.result_dispatch import statistics_model, report_model
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportArtifact, ReportManifest, ReportingError
-from peanalyzer.statistical_models import ContrastResult, GroupSummary, Observation, Series, StatisticsResult
+from peanalyzer.statistical_models import BiologicalReplicateSummary, ContrastResult, GroupSummary, Observation, Series, StatisticsResult
 
 PALETTE = ("#0072B2", "#E69F00", "#009E73", "#CC79A7", "#D55E00", "#56B4E9", "#000000")
 SERIES_FIELDS = tuple(Series.model_fields)
@@ -154,6 +154,7 @@ def build_report_spec(result, title=DEFAULT_TITLE):
     sample_ids = {a["sample_name"] for g in groups for a in g["sample_assessments"]} | {r["sample_name"] for r in observations}
     spec = dict(title=title, observations=observations, group_summaries=groups, contrasts=contrasts,
         families=families, series=series, effects=effects,
+        minimum_biological_replicates=result.provenance.invocation_parameters.get("minimum_biological_replicates"),
         unused_metadata_sample_ids=sorted(result.unused_metadata_sample_ids),
         inventory=dict(biological_samples=len(sample_ids), conditions=len(conditions),
             targets=len({r["target_name"] for r in definitions.values()}), metric_series=len(series),
@@ -173,9 +174,15 @@ def _cell(value):
     return canonical(value) if isinstance(value, (dict, list)) else "" if value is None else str(value)
 
 
+def report_tables(spec):
+    versioned = any("descriptive_statistics_version" in group for group in spec["group_summaries"])
+    groups = BiologicalReplicateSummary if versioned else GroupSummary
+    return (("observations", Observation), ("group_summaries", groups), ("contrasts", ContrastResult))
+
+
 def write_tables(spec, root):
     root.mkdir()
-    for name, model in (("observations", Observation), ("group_summaries", GroupSummary), ("contrasts", ContrastResult)):
+    for name, model in report_tables(spec):
         with (root / f"{name}.tsv").open("w", encoding="utf-8", newline="") as handle:
             writer = csv.DictWriter(handle, fieldnames=list(model.model_fields), delimiter="\t", lineterminator="\n")
             writer.writeheader()
@@ -270,11 +277,19 @@ def render_html(spec, source_hash, figures):
              '<h2>Measurement definitions</h2><p>Target measurements describe the target population; copy measurements describe qualified, routing-conditioned copy populations. Native PE follows CRISPResso native classification; precise PE uses exact WT/PE product definitions. Family metrics preserve their named policy and normalized definition. Biological samples are the units of inference. POOLED READ-WEIGHTED DESCRIPTIVE FRACTION is descriptive only.</p>',
              '<h2>Biological sample summaries</h2>']
     summary_rows = [dict(target=g['target_name'], metric=metric_label(g), condition=condition_label(g['condition']),
-                         mean=percentage(g['mean_biological_sample_fraction']), expected=g['expected_sample_count'],
+                         mean=percentage(g['mean_biological_sample_fraction']),
+                         sample_SD=percentage(g.get('sample_sd_biological_sample_fraction')) or 'Unavailable',
+                         expected=g['expected_sample_count'],
                          REPORTABLE=g['reportable_count'], BLOCKED=g['blocked_count'], NOT_ASSESSABLE=g['not_assessable_count'],
                          MISSING_METRIC=g['missing_metric_count']) for g in spec['group_summaries']]
+    versioned = any("descriptive_statistics_version" in group for group in spec["group_summaries"])
+    if versioned:
+        parts.append('<p>Mean and sample SD use equally weighted reportable biological samples. '
+                     'Sample SD uses n − 1 and is unavailable below two samples. '
+                     'SD in this table is expressed in percentage points.</p>')
     parts.append(_table('Stored unweighted biological-sample means (display percentages)', summary_rows,
-                        ['target', 'metric', 'condition', 'mean', 'expected', 'REPORTABLE', 'BLOCKED', 'NOT_ASSESSABLE', 'MISSING_METRIC']))
+                        ['target', 'metric', 'condition', 'mean', *(['sample_SD'] if versioned else []),
+                         'expected', 'REPORTABLE', 'BLOCKED', 'NOT_ASSESSABLE', 'MISSING_METRIC']))
     parts.append('<h2>Sample-level figures</h2>')
     for item in spec['series']:
         caption = _series_caption(item['identity'])
@@ -285,6 +300,10 @@ def render_html(spec, source_hash, figures):
         else:
             parts.append('<p>' + escape(caption) + 'No reportable numerical observations.</p>')
     parts.append('<h2>Statistical contrasts</h2>')
+    threshold = spec.get('minimum_biological_replicates')
+    if threshold is not None:
+        parts.append(f'<p>Executed minimum biological replicates: {threshold} reportable samples per '
+                     'unpaired group or complete blocks per paired contrast.</p>')
     if not spec['contrasts']:
         parts.append('<p>No statistical contrasts in this M5 result.</p>')
     for item in spec['effects']:
@@ -314,7 +333,7 @@ def render_html(spec, source_hash, figures):
     assessments = [dict(**identity(g), condition=g['condition'], **a) for g in spec['group_summaries'] for a in g['sample_assessments']]
     parts.append(_table('Sample assessments and reason codes', assessments, [*SERIES_FIELDS, 'condition', 'sample_name', 'biological_replicate', 'block_id', 'paired', 'status', 'reason_codes']))
     parts.append('<p>Unused metadata sample IDs: ' + escape(canonical(spec['unused_metadata_sample_ids'])) + '</p><h2>Detailed tables</h2>')
-    for name, model in (("observations", Observation), ("group_summaries", GroupSummary), ("contrasts", ContrastResult)):
+    for name, model in report_tables(spec):
         parts.append('<p><a href="tables/' + name + '.tsv">Download ' + name + '.tsv</a></p>')
         parts.append(_table(name, spec[name], list(model.model_fields)))
     contracts = ('indel-nuclease-report-v1', 'indel-nuclease-stats-v1') if 'nuclease_results' in spec else ('m6-v1', 'm5-v1')

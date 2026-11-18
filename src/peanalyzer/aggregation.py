@@ -19,7 +19,7 @@ from peanalyzer.metrics import MetricResult, FamilyPolicy
 from peanalyzer.metrics.production import digest
 from peanalyzer.schemas import Sample, Target
 from peanalyzer.statistical_models import (
-    BiologicalSample, Condition, ContrastResult, GroupSummary, InputResult, Observation, Provenance,
+    BiologicalReplicateSummary, BiologicalSample, Condition, ContrastResult, GroupSummary, InputResult, Observation, Provenance,
     SampleAssessment, SampleFraction, Selector, Series, StatisticsResult,
 )
 from peanalyzer.validation import SAMPLE_COLUMNS, _load_csv
@@ -275,7 +275,9 @@ def summarize_groups(observations):
                     fractions.append(SampleFraction(sample_name=name, numerator=row.numerator,
                                                     denominator=row.denominator, fraction=row.fraction))
             values = [Fraction(r.numerator, r.denominator) for r in fractions]
-            summaries.append(GroupSummary(**definition.model_dump(), condition=Condition.model_validate_json(condition),
+            summaries.append(BiologicalReplicateSummary(**definition.model_dump(), condition=Condition.model_validate_json(condition),
+                descriptive_statistics_version="biological-sample-sd-v1",
+                sample_sd_biological_sample_fraction=descriptive.stdev(values) if len(values) >= 2 else None,
                 expected_sample_count=len(samples), expected_sample_ids=sorted(samples),
                 reportable_count=len(fractions), blocked_count=sum(r.status == "BLOCKED" for r in assessments),
                 not_assessable_count=sum(r.status == "NOT_ASSESSABLE" for r in assessments),
@@ -309,7 +311,7 @@ def publish(result, output):
         stage = Path(tempfile.mkdtemp(prefix=f".{output.name}.incomplete-", dir=output.parent))
         (stage / "result.json").write_text(json.dumps(result.model_dump(mode="json"), indent=2, sort_keys=True, allow_nan=False) + "\n")
         for filename, model, values in (("observations", Observation, result.observations),
-                ("group_summaries", GroupSummary, result.group_summaries),
+                ("group_summaries", type(result.group_summaries[0]) if result.group_summaries else GroupSummary, result.group_summaries),
                 ("contrasts", ContrastResult, result.contrasts)):
             with (stage / f"{filename}.tsv").open("w", newline="", encoding="utf-8") as handle:
                 writer = csv.DictWriter(handle, fieldnames=list(model.model_fields), delimiter="\t", lineterminator="\n")

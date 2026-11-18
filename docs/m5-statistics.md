@@ -97,8 +97,19 @@ metric/copy/policy series, summaries contain:
   counts and a per-sample status/reason inventory.
 - Reportable sample IDs, source integer numerators/denominators and fractions.
 - Unweighted biological-sample mean, median, minimum and maximum.
+- From v1.1, `sample_sd_biological_sample_fraction` is the sample standard
+  deviation of the reportable biological-sample fractions, with divisor
+  `n − 1`. Each biological replicate contributes one fraction. The SD is null
+  for zero or one reportable sample and is zero for identical fractions at
+  n ≥ 2. Descriptive eligibility is independent of the contrast threshold.
 - `pooled_read_fraction = sum(numerator) / sum(denominator)`, labelled
   **POOLED READ-WEIGHTED DESCRIPTIVE FRACTION**.
+
+Fresh group summaries carry `descriptive_statistics_version=biological-sample-sd-v1`.
+Historical results retain their original fields and stored contrasts. JSON and
+TSV express mean and SD on the fraction scale. The viewer, report and workbook
+present the mean as a percentage and the SD on the corresponding percentage-point
+scale. For example, a fraction SD of 0.02 corresponds to 2 percentage points.
 
 For `1/10` and `90/100`, the biological mean and median are `0.5`; the pooled
 fraction is `91/110`. The pooled fraction is descriptive only and never enters
@@ -139,7 +150,15 @@ There are no implicit design or multiple-testing defaults.
 
 ## Exact tests and missing observations
 
-Unpaired tests require at least **two reportable biological samples per group**.
+Workflow contrasts apply `statistics.min_biological_replicates` from config.yaml.
+Standalone `peanalyzer stats` accepts `--min-biological-replicates`. Both
+default to **2**, the minimum actually used by v1.0.1. A configured integer of
+3 or more raises the eligibility threshold for the new execution. The actual
+threshold is stored at `provenance.invocation_parameters.minimum_biological_replicates`
+and shown in the statistical report. Before v1.1, the configuration default was
+3 and the implementation always executed with 2.
+
+Unpaired tests require this many reportable biological samples in each group.
 The effect is mean(B fractions) minus mean(A fractions), without read weighting.
 Every allocation of sample labels preserving the two group sizes is enumerated:
 `choose(nA + nB, nA)` assignments. The two-sided tail includes assignments with
@@ -156,7 +175,7 @@ all expected rows. Each block/group may have at most one observation, including
 nonreportable observations. A duplicate in either group blocks the contrast.
 A usable block contains exactly one reportable A and one reportable B.
 Pairing never comes from replicate number, barcode, sample naming or ordering.
-At least **two complete blocks** are required. The effect is the mean within-
+The same configured minimum applies to complete blocks. The effect is the mean within-
 block B-minus-A fraction. Every one of `2^blocks` sign patterns is enumerated
 with the same exact two-sided tail rule.
 

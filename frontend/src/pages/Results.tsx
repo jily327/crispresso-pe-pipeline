@@ -5,7 +5,8 @@ import { absent, Fields, MetricCard, SourceLink, Status, Table } from '../compon
 
 type Props = { view: WorkspaceView; sample: string; series: string; onDownload: (s: Source) => void; onError: (e: unknown) => void };
 export function Groups({ groups }: { groups: Group[] }) {
-  return <Table caption="Biological replicate summaries · stored unweighted means" headers={['Condition', 'Metric', 'Mean', 'Reportable / expected n', 'Minimum fraction', 'Maximum fraction', 'Median fraction', 'Sample points and availability']}>{groups.map((g,i) => <tr key={i}><th scope="row">{g.condition}</th><td>{g.label}</td><td>{absent(g.mean_percentage)}</td><td>{g.reportable_n} / {g.expected_n}</td><td>{absent(g.minimum)}</td><td>{absent(g.maximum)}</td><td>{absent(g.median)}</td><td><details><summary>Biological samples</summary><Fields values={g.points} caption="Stored sample fractions"/><Fields values={g.availability} caption="Sample availability"/></details></td></tr>)}</Table>;
+  const hasSD = groups.some(g => g.descriptive_statistics_version);
+  return <Table caption="Biological replicate summaries · stored unweighted means" headers={['Condition', 'Metric', 'Mean', ...(hasSD ? ['Sample SD (percentage points)'] : []), 'Reportable / expected n', 'Minimum fraction', 'Maximum fraction', 'Median fraction', 'Sample points and availability']}>{groups.map((g,i) => <tr key={i}><th scope="row">{g.condition}</th><td>{g.label}</td><td>{absent(g.mean_percentage)}</td>{hasSD && <td>{g.sample_sd_percentage?.replace('%', '') ?? 'Unavailable'}</td>}<td>{g.reportable_n} / {g.expected_n}</td><td>{absent(g.minimum)}</td><td>{absent(g.maximum)}</td><td>{absent(g.median)}</td><td><details><summary>Biological samples</summary><Fields values={g.points} caption="Stored sample fractions"/><Fields values={g.availability} caption="Sample availability"/></details></td></tr>)}</Table>;
 }
 function Nuclease({ detail }: { detail: NucleaseDetail }) {
   return <><Fields values={detail.window} caption="Selected window · 0-based inclusive, amplicon top strand"/>
@@ -66,7 +67,9 @@ export function QC(p: Props) {
 }
 export function Statistics(p: Props) {
   const groups=p.view.groups.filter(g=>g.series_id===p.series);const contrasts=p.view.contrasts.filter(c=>c.series_id===p.series);
-  return <><h2>Statistics</h2><p className="callout">Inference uses biological samples, not sequencing reads. Means and tests below are stored M5 results.</p><Groups groups={groups}/>
+  return <><h2>Statistics</h2><p className="callout">Biological samples have equal weight. Sample SD uses n − 1 and requires two reportable replicates.</p>
+    {p.view.minimum_biological_replicates != null && <p>Executed minimum: {p.view.minimum_biological_replicates} reportable samples per unpaired group or complete paired blocks.</p>}
+    <Groups groups={groups}/>
     {!p.view.contrasts.length ? <p>Descriptive summaries only — no statistical tests requested.</p> : <><Table caption="Explicit contrasts · effect B − A" headers={['Contrast / family','A → B','Effect','p','q','Used / expected biological n (A; B)','Status','Design']}>{contrasts.map(c=><tr key={c.contrast_id}><th scope="row">{c.contrast_id}<small>{c.family}</small></th><td>{c.group_a} → {c.group_b}</td><td>{absent(c.effect)}</td><td>{absent(c.p)}</td><td>{absent(c.q)}</td><td>{c.used_a} / {c.expected_a}; {c.used_b} / {c.expected_b}</td><td><Status value={c.status}/>{c.reasons.join(' · ')}</td><td><details><summary>{c.pairing_mode}</summary><p>Complete blocks: {c.blocks.join(', ')||'—'}</p><Fields values={c.exclusions} caption="Excluded blocks"/></details></td></tr>)}</Table>{!contrasts.length&&<p>No contrast was requested for this selected series.</p>}</>}</>;
 }
 export function Provenance(p: Props) {

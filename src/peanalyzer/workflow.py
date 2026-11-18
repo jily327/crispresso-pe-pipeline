@@ -131,6 +131,8 @@ def build_workflow_plan(*, mode, samples, targets, config, output, crispresso, r
                 demux_config=settings.model_dump(mode='json'), external_demux=str(external) if external else None,
                 routing_policy=asdict(RoutingPolicy()), routing_policy_identity=policy_identity(RoutingPolicy()),
                 statistics_mode='stats' if contrasts is not None else 'summarize',
+                **({'min_biological_replicates': settings.statistics.min_biological_replicates}
+                   if contrasts is not None else {}),
                 analysis_modes=sorted({t.analysis_mode for t in target_rows}),
                 scientific_configuration=[scientific_target(t) for t in target_rows]),
             software_identity=software_identity(), backend_identity=backend)
@@ -191,7 +193,10 @@ def parameters_for(plan, node):
         return dict(sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan, node)],
                     **({'policy': options['routing_policy'], 'policy_identity': options['routing_policy_identity']} if kind == 'routing' and targets_for(plan,node)[0].analysis_mode == 'precise_edit' else {}))
     if kind == 'statistics':
-        return {'mode': options['statistics_mode']}
+        parameters = {'mode': options['statistics_mode']}
+        if 'min_biological_replicates' in options:
+            parameters['min_biological_replicates'] = options['min_biological_replicates']
+        return parameters
     if kind == 'report':
         return {'title': options['title']}
     return {}
@@ -315,6 +320,9 @@ def validate_stage(plan, node, status, *, output_override=None):
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'incomplete M4 source inventory')
         if result.provenance.invocation_parameters['command'] != plan.normalized_options['statistics_mode']:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'statistics mode differs')
+        threshold = plan.normalized_options.get('min_biological_replicates')
+        if threshold is not None and result.provenance.invocation_parameters.get('minimum_biological_replicates') != threshold:
+            raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'executed replicate threshold differs from the plan')
         expected_hash = plan.inputs['contrasts'].sha256 if 'contrasts' in plan.inputs else None
         if result.provenance.contrast_specification_hash != expected_hash:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'contrast identity differs')
@@ -394,6 +402,8 @@ def execute_stage(plan, node, completed, argv):
     elif kind == 'statistics':
         options = dict(manifest_path=root / 'metrics/manifest.csv', samples_path=_file(plan,'samples'), output=output)
         if plan.normalized_options['statistics_mode'] == 'stats':
+            if 'min_biological_replicates' in plan.normalized_options:
+                options['min_biological_replicates'] = plan.normalized_options['min_biological_replicates']
             stats(**options, contrasts_path=_file(plan,'contrasts'))
         else:
             summarize(**options)

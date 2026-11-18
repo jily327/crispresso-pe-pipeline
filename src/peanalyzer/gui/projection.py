@@ -139,6 +139,10 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     groups = [Group(series_id=series(g),metric_name=g.metric_name,label=label(g.metric_name),condition=condition(g.condition),
         expected_n=str(g.expected_sample_count),reportable_n=str(g.reportable_count),mean=g.mean_biological_sample_fraction,
         mean_percentage=percentage(g.mean_biological_sample_fraction),minimum=g.minimum_biological_sample_fraction,
+        descriptive_statistics_version=getattr(g, 'descriptive_statistics_version', None),
+        sample_sd=getattr(g, 'sample_sd_biological_sample_fraction', None),
+        sample_sd_percentage=percentage(getattr(g, 'sample_sd_biological_sample_fraction', None)),
+        pooled_read_fraction=g.pooled_read_fraction,
         maximum=g.maximum_biological_sample_fraction,median=g.median_biological_sample_fraction,
         points=fields({p.sample_name:p.fraction for p in g.source_fractions}),
         availability=fields({p.sample_name:dict(status=p.status,reasons=p.reason_codes) for p in g.sample_assessments}),source=stats_source) for g in stats.group_summaries]
@@ -166,5 +170,6 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
                 native = native or any((base/filename).as_posix() in sources for base in (parent,parent.parent))
     return WorkspaceView(workspace_id=workspace_id,label=title,snapshot_id=snapshot_id,mode=mode,targets=plan.expected_targets,
         contracts=sorted(contracts),observations=sorted(observations,key=lambda o:(o.sample_id,o.series_id,o.observation_id)),groups=groups,contrasts=contrasts,
+        minimum_biological_replicates=stats.provenance.invocation_parameters.get('minimum_biological_replicates'),
         populations=populations,nuclease=details,provenance=provenance,stages=stages,artifacts=list(sources.values()),
         native_html='Available for download only' if native else 'Not produced'), alleles

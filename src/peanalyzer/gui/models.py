@@ -103,6 +103,10 @@ class Group(Model):
     reportable_n: str
     mean: float | None
     mean_percentage: str | None
+    descriptive_statistics_version: str | None = None
+    sample_sd: float | None = None
+    sample_sd_percentage: str | None = None
+    pooled_read_fraction: float | None = None
     minimum: float | None
     maximum: float | None
     median: float | None
@@ -205,6 +209,7 @@ class WorkspaceView(Model):
     contracts: list[str]
     observations: list[Observation]
     groups: list[Group]
+    minimum_biological_replicates: int | None = None
     contrasts: list[Contrast]
     populations: list[Population]
     nuclease: list[NucleaseDetail]

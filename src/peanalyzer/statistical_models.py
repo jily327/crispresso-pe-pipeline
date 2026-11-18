@@ -154,6 +154,17 @@ class GroupSummary(Series):
         return self
 
 
+class BiologicalReplicateSummary(GroupSummary):
+    descriptive_statistics_version: Literal["biological-sample-sd-v1"]
+    sample_sd_biological_sample_fraction: Probability | None
+
+    @model_validator(mode="after")
+    def sd_availability(self):
+        if (self.sample_sd_biological_sample_fraction is None) != (self.reportable_count < 2):
+            raise ValueError("sample SD requires at least two reportable biological samples")
+        return self
+
+
 class Contrast(Selector):
     contrast_id: Identifier
     family_id: Identifier
@@ -280,13 +291,24 @@ class StatisticsResult(Model):
     input_manifest_hash: Hash
     sample_metadata_hash: Hash
     observations: list[Observation]
-    group_summaries: list[GroupSummary]
+    group_summaries: list[BiologicalReplicateSummary | GroupSummary]
     contrasts: list[ContrastResult]
     multiple_testing_families: list[MultipleTestingFamily]
     unused_metadata_sample_ids: list[Identifier]
 
     @model_validator(mode="after")
     def families(self):
+        if len({type(g) for g in self.group_summaries}) > 1:
+            raise ValueError("mixed descriptive statistics contracts")
+        threshold = self.provenance.invocation_parameters.get("minimum_biological_replicates")
+        if threshold is not None:
+            if type(threshold) is not int or threshold < 2:
+                raise ValueError("invalid executed biological replicate threshold")
+            for comparison in self.contrasts:
+                if comparison.status == "REPORTABLE" and min(
+                    comparison.used_group_a_count, comparison.used_group_b_count
+                ) < threshold:
+                    raise ValueError("reportable contrast violates the executed replicate threshold")
         ids = [c.contrast_id for c in self.contrasts]
         families = [f.family_id for f in self.multiple_testing_families]
         if len(set(ids)) != len(ids) or len(set(families)) != len(families):
