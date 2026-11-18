@@ -23,7 +23,7 @@ def test_all_rows_exact_and_immutable_publication(case):
     assert store.export_status(view.workspace_id)['state']=='UNCHANGED'
     assert store.get(view.workspace_id).view==view
     workbook=load_workbook(root/FILENAME)
-    assert workbook.sheetnames==['Summary','Definitions']
+    assert workbook.sheetnames == ['Summary', 'Definitions', 'Assessment and QC', 'Biological summaries']
     assert [c.value for c in workbook['Summary'][1]]==HEADERS
     plan=Plan.model_validate_json((root/'workflow/plan.json').read_text())
     for row,sample in zip(list(workbook['Summary'].iter_rows())[1:],plan.samples):

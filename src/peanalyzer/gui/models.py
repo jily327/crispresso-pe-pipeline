@@ -153,6 +153,19 @@ class ClassValue(Value):
     name: str
 
 
+class ScientificPanel(Model):
+    sample_id: str
+    target: str
+    method: str
+    population: str
+    status: str
+    reasons: list[str]
+    definition: str
+    measurements: list[ClassValue]
+    evidence: list[FieldValue]
+    source: Source
+
+
 class NucleaseDetail(Model):
     sample_id: str
     target: str
@@ -213,6 +226,7 @@ class WorkspaceView(Model):
     contrasts: list[Contrast]
     populations: list[Population]
     nuclease: list[NucleaseDetail]
+    scientific_panels: list[ScientificPanel] = Field(default_factory=list)
     provenance: list[FieldValue]
     stages: list[Stage]
     artifacts: list[Source]

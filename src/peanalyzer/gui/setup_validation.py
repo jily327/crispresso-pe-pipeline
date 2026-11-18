@@ -104,8 +104,6 @@ def compile_draft(content, revision, references, protected):
         issue('mode','analysis_mode','REQUIRED','Select Precise Edit or Indel / Nuclease.')
     if not content.targets:
         issue('target','targets','REQUIRED','Add a target definition.')
-    if content.analysis_mode=='indel_nuclease' and len(content.targets)!=1:
-        issue('target','targets','MULTICOPY_NUCLEASE_UNSUPPORTED','Nuclease setup requires exactly one copy.')
     for index,row in enumerate(content.targets):
         if row.analysis_mode!=content.analysis_mode:
             issue('target',f'targets.{index}','MODE_MISMATCH','Target fields must match the selected analysis mode.');continue
@@ -127,22 +125,47 @@ def compile_draft(content, revision, references, protected):
                 for reason in g['reasons']:
                     code=reason['code']
                     target_error=code in {'PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED','PE_GUIDE_ORIENTATION_UNSUPPORTED','NONUNIQUE_SPACER_LOCATION','PE_EXTENSION_LOCATION_UNSUPPORTED'}
-                    message='Backend reference geometry: '+code
+                    explanations = {
+                        'PE_REFERENCE_REVERSE_COMPLEMENTED': 'The backend uses reverse-complemented WT and intended references. Experimental guide sequences retain their supplied orientation.',
+                        'PE_EXTENSION_COPY_POLYMORPHISM': 'A natural copy difference intersects the experimental extension. The expected natural copy sequence is preserved and native PE compatibility is restricted.',
+                        'INTENDED_EDIT_OUTSIDE_PREDICTED_WINDOW': 'An intended edit falls outside the predicted quantification window. The completed backend run records its effective positions.',
+                        'PE_EXTENSION_LOCATION_UNSUPPORTED': 'The complete experimental extension could not be placed uniquely on the intended reference.',
+                    }
+                    message = explanations.get(code, 'Backend reference geometry: ' + code)
+                    if reason.get('copy'):
+                        message = reason['copy'] + ' · ' + message
                     if code in {'NONUNIQUE_REFERENCE_ALIGNMENT','NONUNIQUE_EDIT_ALIGNMENT'}:
                         message+=' — Copy/native routing-related metric families may be unavailable; target-level metrics remain subject to execution validation.'
                     issue('target','targets',code,message,'ERROR' if target_error else 'WARNING',json.dumps(reason,sort_keys=True))
                 for t in target_rows:
+                    info = g['copies'][t.copy_name]
+                    if info.get('outside_predicted_window'):
+                        issue('target', 'targets', 'INTENDED_EDIT_OUTSIDE_PREDICTED_WINDOW',
+                              f"{t.copy_name} · Intended edits outside the predicted window are listed in reference annotations. The completed backend run records the effective positions.",
+                              'WARNING', json.dumps(info['outside_predicted_window'], sort_keys=True))
+                    ref = info.get('native_reference', {})
+                    notes = []
+                    if ref:
+                        notes.append(f"Spacer strand relative to supplied WT: {ref['orientation']}. Original to backend coordinate transform: {ref['coordinate_transform']}.")
+                        ext = ref['extension_match']
+                        notes.append(f"Experimental extension match: {ext['status']}.")
+                        for mismatch in ext.get('mismatches', []):
+                            notes.append(f"Extension index {mismatch['experimental_extension_index']}, expected {mismatch['expected']}, observed {mismatch['observed']} at original intended position {mismatch['original_pe_position']} (zero-based).")
                     target_previews.append(TargetPreview(target_name=t.target_name,copy_name=t.copy_name,wt_sequence=t.wt_sequence,intended_sequence=t.prime_edited_sequence,
-                        annotation=fields(g['copies'][t.copy_name]),scientific_configuration=fields(scientific_target(t))))
+                        annotation=fields(info),scientific_configuration=fields(scientific_target(t)),configuration_notes=notes))
             else:
-                t=target_rows[0]
-                target_previews.append(TargetPreview(target_name=t.target_name,copy_name=t.copy_name,wt_sequence=t.wt_sequence,intended_sequence=None,
-                    annotation=fields(t.window),scientific_configuration=fields(t.scientific_identity['backend_settings']),
-                    configuration_notes=['CRISPResso2 2.3.4 qualified backend requirement',
-                        'Substitutions retained; current insertion semantics require both anchors in the selected window.',
-                        'End exclusions 0/0; single WT reference.',
-                        'Ambiguous aligned population must be zero; discarded aligned population must be zero.',
-                        'All 58 resolved scientific fields are locked.']))
+                from peanalyzer.nuclease.multicopy import check_panel
+                from peanalyzer.gui.scientific_projection import window_name
+                check_panel(target_rows)
+                for t in target_rows:
+                    notes = ['CRISPResso2 2.3.4 qualified backend requirement',
+                             'Substitutions retained; current insertion semantics require both anchors in the selected window.',
+                             'End exclusions 0/0; each backend run uses a single WT reference.',
+                             'Ambiguous aligned population must be zero; discarded aligned population must be zero.',
+                             'All 58 resolved scientific fields are locked.',
+                             f'{window_name(t.window)} · positions {t.window["coordinates"]} on the supplied copy.']
+                    target_previews.append(TargetPreview(target_name=t.target_name,copy_name=t.copy_name,wt_sequence=t.wt_sequence,intended_sequence=None,
+                        annotation=fields(t.window),scientific_configuration=fields(t.scientific_identity['backend_settings']), configuration_notes=notes))
         except (ValueError,KeyError) as exc:issue('target','targets','TARGET_VALIDATION',str(exc))
     trims=None
     preparation=None
@@ -224,7 +247,7 @@ def compile_draft(content, revision, references, protected):
         normalized=dict(mode=content.analysis_mode,source_mode=content.input_mode,samples=[r.model_dump() for r in sample_rows],
             targets=[scientific_target(t) for t in target_rows],inputs=input_evidence,
             demux_config=config.model_dump(),preparation=dict(r1_analysis_trim_5p=trims[0],r2_analysis_trim_5p=trims[1]),
-            routing_policy=policy_identity(RoutingPolicy()) if content.analysis_mode=='precise_edit' else 'single_copy_identity',statistics='summarize',backend=backend)
+            routing_policy=policy_identity(RoutingPolicy()) if content.analysis_mode=='precise_edit' else ('single_copy_identity' if len(target_rows)==1 else 'conservative_flanking_markers_v1'),statistics='summarize',backend=backend)
         # The same validated compiler output feeds both Review and execution.
         # Full effective catalogs matter even when some barcodes are not samples.
         catalog_rows=[dict(direction=direction,barcode_id=key,sequence=value)
@@ -239,7 +262,7 @@ def compile_draft(content, revision, references, protected):
         science=digest(normalized)
         compiled=dict(science=normalized,files=files)
         nodes=dag(content.input_mode,[s.barcode_id for s in sample_rows],sorted({t.target_name for t in target_rows}))
-        stages=[PreviewStage(stage_id=n.stage_id,kind=n.stage_kind,label='Single-copy identity check' if content.analysis_mode=='indel_nuclease' and n.stage_kind=='routing' else n.stage_kind,dependencies=n.dependencies,output_path=n.output_path) for n in nodes]
+        stages=[PreviewStage(stage_id=n.stage_id,kind=n.stage_kind,label=('Single-copy identity check' if len(target_rows)==1 else 'Copy marker assessment') if content.analysis_mode=='indel_nuclease' and n.stage_kind=='routing' else n.stage_kind,dependencies=n.dependencies,output_path=n.output_path) for n in nodes]
         preview=PlanPreview(analysis_name=content.analysis_name,analysis_mode=content.analysis_mode,source_mode=content.input_mode,
             sample_count=str(len(sample_rows)),sample_ids=[s.barcode_id for s in sample_rows],samples=fields({s.barcode_id:s.model_dump() for s in sample_rows}),
             inputs=fields(input_evidence),target_name=target_rows[0].target_name,copy_count=str(len(target_rows)),targets=target_previews,

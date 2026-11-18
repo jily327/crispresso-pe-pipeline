@@ -117,7 +117,13 @@ def test_invalid_tigr_or_copy_count(setup,mutation):
     if mutation=='short':row['tigr_target_sequence']='ACGT'
     if mutation=='multiple':row['wt_sequence']+=row['tigr_target_sequence']
     if mutation=='multi_copy':data['targets'].append(dict(row,copy_name='other'))
-    _,r=validate(setup,data);assert r.status=='INVALID'
+    _,r=validate(setup,data)
+    if mutation == 'multi_copy':
+        assert r.status == 'VALID', r.issues
+        assert {t.copy_name for t in r.targets} == {'single', 'other'}
+        assert r.preview.copy_count == '2'
+    else:
+        assert r.status == 'INVALID'
 
 
 @pytest.mark.parametrize('mutation',['dna','same_product','missing_spacer','bad_extension','duplicate_copy','mode','two_targets'])

@@ -78,6 +78,7 @@ export interface PETargetDraft {
   pegRNA_extension: string;
   nicking_guide: string;
   pegRNA_scaffold: string;
+  quantification_window_coordinates: string;
 }
 
 export interface PlanPreview {

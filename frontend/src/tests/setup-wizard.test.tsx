@@ -5,7 +5,7 @@ import { SetupWizard, TargetAnnotations, Review } from '../pages/SetupWizard';
 import type { DraftView, DraftValidation, PlanPreview } from '../models/setup';
 const calls=vi.hoisted(()=>({api:vi.fn()}));
 vi.mock('../api/client',()=>({api:calls.api,ViewerFailure:class extends Error{}}));
-const empty:DraftView={draft_id:'opaque',revision:0,validation:null,content:{analysis_name:'',input_mode:'run',r1:null,r2:null,demux:null,samples:[],analysis_mode:null,targets:[],library_profile:'qi_hitom_v1',trim_r1:'',trim_r2:'',output_root:null,workspace_name:''}};
+const empty:DraftView={draft_id:'opaque',revision:0,validation:null,content:{analysis_name:'',input_mode:'run',r1:null,r2:null,demux:null,samples:[],analysis_mode:null,targets:[],library_profile:'qi_hitom_v1',trim_r1:'',trim_r2:'',min_analyzable_reads:'1000',output_root:null,workspace_name:''}};
 const preview:PlanPreview={preview_contract:'analysis-plan-preview-v1',executable:false,analysis_name:'Backend study',analysis_mode:'indel_nuclease',source_mode:'run',sample_count:'7',sample_ids:['backend-sample'],samples:[{name:'biological design',value:'Authoritative metadata'}],inputs:[],target_name:'backend-target',copy_count:'1',targets:[{target_name:'backend-target',copy_name:'single',wt_sequence:'ACGT',intended_sequence:null,annotation:[{name:'selected_window',value:'"W1"'},{name:'coordinates',value:'"31-32_39-40"'}],scientific_configuration:[{name:'ignore_substitutions',value:'false'}],configuration_notes:['Current insertion semantics require both anchors.']}],configuration:[],stages:[],output_proposal:null,scientific_identity_sha256:'scientific-digest',plan_identity_sha256:'plan-digest',backend_identity:[],deferred:['Scientific execution']};
 let current:DraftView;
 beforeEach(()=>{current=structuredClone(empty);calls.api.mockReset();vi.spyOn(window,'confirm').mockReturnValue(true);calls.api.mockImplementation(async(path:string,body?:any,method?:string)=>{
@@ -41,4 +41,18 @@ it.each(['biological_replicate','block_id'])('focuses backend sample %s errors w
   expect(screen.getByLabelText('Filter sample names')).toHaveValue('');
   expect(screen.queryByRole('region',{name:'Validated plan preview'})).not.toBeInTheDocument();
   expect(calls.api.mock.calls.some(([p])=>p.includes('/preview?'))).toBe(false);
+});
+
+it('keeps other nuclease copies when changing a window or target profile',async()=>{
+  const user=await ready();
+  await mode(user,'Indel / Nuclease');
+  await user.type(screen.getByLabelText('Copy name'),'copyOne');
+  await user.click(screen.getByRole('button',{name:'Add copy'}));
+  const second=within(screen.getByRole('group',{name:'Target copy 2'}));
+  await user.type(second.getByLabelText('Copy name'),'copyTwo');
+  await user.selectOptions(second.getByLabelText('Target profile'),'tigr_tas_v1');
+  await user.selectOptions(second.getByLabelText('Selected window'),'W3');
+  expect(screen.getByDisplayValue('copyOne')).toBeVisible();
+  expect(second.getByLabelText('Copy name')).toHaveValue('copyTwo');
+  expect(second.getByLabelText('Selected window')).toHaveValue('W3');
 });

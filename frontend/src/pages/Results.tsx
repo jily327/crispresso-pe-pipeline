@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { WorkspaceView, Observation, Source, NucleaseDetail, AllelePage, Group } from '../models/api';
+import { ScientificResults } from '../components/ScientificResults';
 import { api } from '../api/client';
 import { absent, Fields, MetricCard, SourceLink, Status, Table } from '../components/Common';
 
@@ -17,13 +18,16 @@ function Nuclease({ detail }: { detail: NucleaseDetail }) {
 }
 export function Overview(p: Props) {
   const primary = p.view.mode === 'precise_edit' ? 'total_precise_pe' : 'indel_fraction';
-  const rows = p.view.observations.filter(o => o.sample_id === p.sample && (o.metric_name === primary || o.metric_name === 'target_crispresso_native_pe'));
+  const primaryRows = p.view.observations.filter(o => !o.routing_conditioned && o.copy_name === null);
+  const mainSeries = new Set(primaryRows.filter(o => o.metric_name === primary).map(o => o.series_id));
+  const rows = primaryRows.filter(o => o.sample_id === p.sample && (o.metric_name === primary || o.metric_name === 'target_crispresso_native_pe'));
   const detail = p.view.nuclease.find(n => n.sample_id === p.sample);
   return <><div className="section-heading"><h2>Overview</h2><p>Stored biological outcomes · equal-weight biological replicates</p></div>
-    <Groups groups={p.view.groups.filter(g => g.metric_name === primary)}/>
+    <Groups groups={p.view.groups.filter(g => mainSeries.has(g.series_id))}/>
     <h3>Selected biological sample · {rows[0]?.sample_name}</h3><div className="metric-grid">{rows.map(o => <MetricCard key={o.observation_id} row={o} onDownload={p.onDownload}/>)}</div>
     {p.view.mode === 'precise_edit' && <p className="callout">Exact intended PE and the CRISPResso Prime-edited reference fraction describe different populations and denominators. Neither metric is a lower bound for the other.</p>}
-    {detail && <Nuclease detail={detail}/>}</>;
+    {detail && <Nuclease detail={detail}/>}
+    <ScientificResults panels={(p.view.scientific_panels||[]).filter(v=>v.sample_id===p.sample)} onDownload={p.onDownload}/></>;
 }
 function Alleles(p: Props) {
   const [page,setPage]=useState<AllelePage | null>(null);const [offset,setOffset]=useState(0);
@@ -63,7 +67,7 @@ export function Samples(p: Props) {
     {detail && <section className="detail-panel" role="region" aria-label="Sample detail" onKeyDown={e=>{if(e.key==='Escape')hide()}}><button ref={close} onClick={hide}>Close sample detail</button><h3>{detail.sample_name} · {detail.sample_id}</h3><MetricCard row={detail} onDownload={p.onDownload}/><Fields values={detail.evidence} caption="Stored metric count evidence"/>{p.view.mode==='indel_nuclease'&&<Alleles {...p} sample={detail.sample_id} key={detail.sample_id}/>}</section>}</>;
 }
 export function QC(p: Props) {
-  return <><h2>QC · named populations</h2><p className="callout">{p.view.mode==='precise_edit'?'Prepared exact assessment, native CRISPResso and copy routing retain their backend-defined relationships. This is not a universal input → aligned → exact funnel.':'Single-copy identity; no PE routing. Accepted aligned outcomes have four ordinary biological classes.'}</p>{p.view.populations.filter(v=>v.sample_id===null||v.sample_id===p.sample).map((q,i)=><section className="panel" key={i}><h3>{q.name}</h3><p>{q.role}</p><Fields values={q.counts} caption="Exact stored population counts"/><SourceLink source={q.source} onDownload={p.onDownload}/></section>)}</>;
+  return <><h2>QC · named populations</h2><p className="callout">{p.view.mode==='precise_edit'?'Prepared exact assessment, native CRISPResso and copy routing retain their backend-defined relationships. This is not a universal input → aligned → exact funnel.':p.view.contracts.includes('indel-nuclease-multicopy-v1')?'A combined-target read contributes once. Copy-specific results use reads with supported copy identity.':'Single-copy identity; no PE routing. Accepted aligned outcomes have four ordinary biological classes.'}</p><ScientificResults panels={(p.view.scientific_panels||[]).filter(v=>v.sample_id===p.sample)} onDownload={p.onDownload} qc/>{p.view.populations.filter(v=>v.sample_id===null||v.sample_id===p.sample).map((q,i)=><section className="panel" key={i}><h3>{q.name}</h3><p>{q.role}</p><Fields values={q.counts} caption="Exact stored population counts"/><SourceLink source={q.source} onDownload={p.onDownload}/></section>)}</>;
 }
 export function Statistics(p: Props) {
   const groups=p.view.groups.filter(g=>g.series_id===p.series);const contrasts=p.view.contrasts.filter(c=>c.series_id===p.series);

@@ -39,6 +39,10 @@ def condition(c):
 
 
 def label(name):
+    if name.startswith("intended_sites."):
+        from peanalyzer.site_statistics import measurement_labels
+        method, outcome, _ = measurement_labels(name)
+        return f"{method} · {outcome}"
     if name.endswith('_crispresso_native_pe'):
         return 'CRISPResso Prime-edited reference fraction'
     if name.endswith('_precise_pe'):
@@ -46,9 +50,16 @@ def label(name):
     return LABELS.get(name, name.replace('_', ' '))
 
 
+def allele_rows(alleles, source):
+    return [Allele(row_id=f'{source.artifact_id}:{i}',reads=str(a.reads),product_class=a.product_class,
+                inserted_bp=str(a.n_inserted),deleted_bp=str(a.n_deleted),mutated_bp=str(a.n_mutated),net_delta=str(a.net_delta_bp),
+                aligned_sequence=a.authoritative_fields['Aligned_Sequence'],reference_sequence=a.authoritative_fields['Reference_Sequence'],
+                original_percentage=a.authoritative_fields['%Reads']) for i,a in enumerate(alleles)]
+
+
 def strict_result(raw, kind):
     key, supported, dispatch = ('statistics_contract_version', {'m5-v1', 'indel-nuclease-stats-v1'}, statistics_model) if kind == 'statistics' else (
-        'metric_contract_version', {'m4-v1', 'indel-nuclease-v1'}, metric_model)
+        'metric_contract_version', {'m4-v1', 'indel-nuclease-v1', 'empty-nuclease-control-v1', 'indel-nuclease-multicopy-v1'}, metric_model)
     if type(raw.get('schema_version')) is not int or raw['schema_version'] != 1 or raw.get(key) not in supported:
         raise WorkflowError('UNSUPPORTED_CONTRACT', 'Unsupported '+kind+' contract')
     return dispatch(raw).model_validate(raw)
@@ -62,7 +73,14 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     stats = strict_result(read(manifest.statistics_result.path), 'statistics')
     stats_source = sources[manifest.statistics_result.path]
     metrics, metric_sources, contracts = {}, {}, {stats.statistics_contract_version, manifest.workflow_contract_version}
+    from peanalyzer.gui.scientific_projection import multicopy_nuclease_panels, panel, reference_panels, site_panels, window_panels
+    scientific_panels = []
     for node in plan.nodes:
+        if mode == 'precise_edit' and node.stage_kind == 'routing':
+            for name in ('geometry.json', 'scientific_gate.json'):
+                geometry_path = f'{node.output_path}/{name}'
+                if geometry_path in sources:
+                    scientific_panels.extend(reference_panels(read(geometry_path), sources[geometry_path], node.sample_id, node.target_name))
         if node.stage_kind != 'metrics':
             continue
         path = node.output_path+'/result.json'
@@ -70,6 +88,19 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
         metrics[(result.sample_id, result.target_id)] = result
         metric_sources[(result.sample_id, result.target_id)] = sources[path]
         contracts.add(result.metric_contract_version)
+        qc_path = node.output_path + '/sample_qc.json'
+        if qc_path in sources:
+            qc = read(qc_path)
+            scientific_panels.append(panel(result.sample_id, result.target_id, 'Sample depth and role', 'Prepared read pairs',
+                qc['depth_status'], sources[qc_path], evidence=qc,
+                definition='Depth is compared with the configured minimum for prepared read pairs. Empty controls have no measured editing fraction.'))
+        if mode == 'precise_edit':
+            scientific_panels.extend(window_panels(result, sources[path]))
+            sites_path = node.output_path + '/intended_sites.json'
+            if sites_path in sources:
+                payload = read(sites_path)
+                scientific_panels.extend(site_panels(payload, sources[sites_path], result.sample_id, result.target_id))
+                contracts.add(payload['contract'])
     observations, populations, details, alleles = [], [], [], {}
     for o in stats.observations:
         key = (o.sample_id, o.target_name)
@@ -77,6 +108,13 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
             raise WorkflowError('MISSING_METRIC', 'Observation has no verified metric source')
         m = metrics[key]
         source = metric_sources[key]
+        site_labels = None
+        if o.metric_contract_version == 'intended-sites-v1.1':
+            from peanalyzer.site_statistics import ARTIFACT, measurement_labels
+            source = sources[(Path(source.name).parent / ARTIFACT).as_posix()]
+            if source.sha256 != m.provenance.artifacts[ARTIFACT].sha256:
+                raise WorkflowError('SOURCE_IDENTITY_MISMATCH', 'Declared site observation hash differs')
+            site_labels = measurement_labels(o.metric_name)
         # M5 already verifies counts/series against source metrics. Preserve that exact join.
         if (Path(stats.provenance.manifest_path).parent / o.source_result).resolve() != (root/source.name).resolve():
             raise WorkflowError('SOURCE_IDENTITY_MISMATCH', 'Observation source differs')
@@ -95,14 +133,16 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
             policy_id=o.policy_id, policy=fields(o.policy_definition or {}), metric_name=o.metric_name,
             label=label(o.metric_name), population_id=o.population_id, population_scope=o.population_scope,
             routing_conditioned=o.routing_conditioned, status=o.status, reasons=o.reason_codes,
-            assessment_stage=record.assessment_stage if record else ('backend_aligned_products' if mode=='indel_nuclease' else 'See stored policy evidence'),
-            backend_counts_role=record.backend_counts_role if record else ('metric_filter' if mode=='indel_nuclease' else 'See stored policy evidence'),
-            numerator_label=('Reads assigned to the Prime-edited reference' if record and record.metric_family=='native'
-                else 'Exact intended PE products' if record else 'Stored metric numerator'),
-            definition=('Prime-edited reference-assigned reads / authoritative aligned reads; not CRISPResso Modified%.' if record and record.metric_family=='native'
+            assessment_stage=site_labels[0] if site_labels else record.assessment_stage if record else ('backend_aligned_products' if mode=='indel_nuclease' else 'See stored policy evidence'),
+            backend_counts_role=('allele table' if '.core_alleles.' in o.metric_name else 'prepared physical pairs') if site_labels else record.backend_counts_role if record else ('metric_filter' if mode=='indel_nuclease' else 'See stored policy evidence'),
+            numerator_label=(site_labels[1] if site_labels else 'Reads assigned to the Prime-edited reference' if record and record.metric_family=='native'
+                else 'Exact intended PE products' if record else ('Reads with ' + label(o.metric_name).removesuffix(' fraction') + ' in the selected window')
+                if mode=='indel_nuclease' else 'Stored metric numerator'),
+            definition=(f'{site_labels[1]} / {site_labels[2].lower()} in this population. {site_labels[0]}.' if site_labels else 'Prime-edited reference-assigned reads / authoritative aligned reads; not CRISPResso Modified%.' if record and record.metric_family=='native'
                 else 'Exact intended PE / (exact WT + exact intended PE). Different numerator and denominator from the CRISPResso reference fraction; neither is a lower bound.' if record
+                else 'Reads with the named outcome divided by assessable aligned reads in the selected window and population.' if mode=='indel_nuclease'
                 else 'Stored metric fraction for the authoritative population and selected window/policy.'),
-            denominator_label=('Authoritative aligned reads' if mode=='indel_nuclease' or (record and record.metric_family=='native')
+            denominator_label=('Assessable aligned reads in this population' if m.metric_contract_version=='indel-nuclease-multicopy-v1' else 'Authoritative aligned reads' if mode=='indel_nuclease' or (record and record.metric_family=='native')
                 else 'Exact WT + exact PE products' if record else 'Stored policy-specific denominator'), source=source, evidence=evidence))
     for key, m in metrics.items():
         source = metric_sources[key]
@@ -113,14 +153,22 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
                 populations.append(Population(sample_id=m.sample_id,name=record.metric_name,
                     role=record.assessment_stage+' / '+record.backend_counts_role,
                     counts=fields(record.model_dump(exclude={'metric_name'})), source=source))
+        elif m.metric_contract_version == 'empty-nuclease-control-v1':
+            alleles[m.sample_id] = ([], source)
+        elif m.metric_contract_version == 'indel-nuclease-multicopy-v1':
+            scientific_panels.extend(multicopy_nuclease_panels(m, source))
+            alleles[m.sample_id] = (allele_rows(m.combined.alleles, source), source)
         else:
             populations.append(Population(sample_id=m.sample_id,name='Single-copy identity → CRISPResso alignment → ordinary population',
                 role='Experimental single-copy identity; no PE copy-routing partition',
                 counts=fields({k:getattr(m,k) for k in ('backend_input_reads','reads_after_preprocessing','aligned_reads','unaligned_reads','class_counts')}),source=source))
-            rows = [Allele(row_id=f'{source.artifact_id}:{i}',reads=str(a.reads),product_class=a.product_class,
-                inserted_bp=str(a.n_inserted),deleted_bp=str(a.n_deleted),mutated_bp=str(a.n_mutated),net_delta=str(a.net_delta_bp),
-                aligned_sequence=a.authoritative_fields['Aligned_Sequence'],reference_sequence=a.authoritative_fields['Reference_Sequence'],
-                original_percentage=a.authoritative_fields['%Reads']) for i,a in enumerate(m.alleles)]
+            if any(p.sample_id == m.sample_id and p.method == 'Sample depth and role' for p in scientific_panels):
+                from peanalyzer.gui.scientific_projection import window_name
+                window = m.provenance.scientific_identity['resolved_window']
+                scientific_panels.append(panel(m.sample_id, m.target_id, window_name(window), m.target.copy_name,
+                    m.status, source, reasons=m.reason_codes, evidence=window,
+                    definition='The selected window uses zero-based inclusive coordinates on the supplied WT amplicon.'))
+            rows = allele_rows(m.alleles, source)
             alleles[m.sample_id] = (rows, source)
             expected = m.provenance.scientific_identity['backend_settings']
             actual = m.provenance.execution['resolved_backend_arguments']
@@ -136,6 +184,12 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     if demux_path in sources:
         populations.insert(0,Population(sample_id=None,name='Demultiplexing read pairs',role='Raw pool terminal categories',
             counts=fields(read(demux_path)),source=sources[demux_path]))
+    analysis_path = 'analysis/analysis_manifest.json'
+    if analysis_path in sources:
+        manifest_qc = read(analysis_path).get('trim_boundary_qc')
+        if manifest_qc:
+            populations.append(Population(sample_id=None, name='Analysis trim boundaries', role='Raw mate offsets after preparation',
+                                          counts=fields(manifest_qc), source=sources[analysis_path]))
     groups = [Group(series_id=series(g),metric_name=g.metric_name,label=label(g.metric_name),condition=condition(g.condition),
         expected_n=str(g.expected_sample_count),reportable_n=str(g.reportable_count),mean=g.mean_biological_sample_fraction,
         mean_percentage=percentage(g.mean_biological_sample_fraction),minimum=g.minimum_biological_sample_fraction,
@@ -153,7 +207,7 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     stages=[]
     for stage_id, ref in manifest.stage_inventory.items():
         s=StageManifest.model_validate(read(ref.path))
-        stages.append(Stage(stage_id=stage_id,label='Single-copy identity check' if mode=='indel_nuclease' and s.node.stage_kind=='routing' else s.node.stage_kind,
+        stages.append(Stage(stage_id=stage_id,label=('Single-copy identity check' if len(plan.targets)==1 else 'Copy marker assessment') if mode=='indel_nuclease' and s.node.stage_kind=='routing' else s.node.stage_kind,
             status=s.status,history='reused' if stage_id in manifest.session.reused_stages else 'executed',signature=s.stage_signature_sha256,started_at=s.started_at,ended_at=s.ended_at))
     provenance = fields(dict(viewer_version=__version__,source_software=manifest.software_identity.model_dump(),
         analysis_mode=mode,observed_CRISPResso_version=plan.backend_identity.version,declared_qualified_runtime=plan.backend_identity.runtime_digest,
@@ -171,5 +225,5 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     return WorkspaceView(workspace_id=workspace_id,label=title,snapshot_id=snapshot_id,mode=mode,targets=plan.expected_targets,
         contracts=sorted(contracts),observations=sorted(observations,key=lambda o:(o.sample_id,o.series_id,o.observation_id)),groups=groups,contrasts=contrasts,
         minimum_biological_replicates=stats.provenance.invocation_parameters.get('minimum_biological_replicates'),
-        populations=populations,nuclease=details,provenance=provenance,stages=stages,artifacts=list(sources.values()),
+        populations=populations,nuclease=details,scientific_panels=scientific_panels,provenance=provenance,stages=stages,artifacts=list(sources.values()),
         native_html='Available for download only' if native else 'Not produced'), alleles

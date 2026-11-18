@@ -108,7 +108,7 @@ def create_app(registrations=(), token=None, *, setup_files=(), setup_archives=(
     @app.get('/api/v1/capabilities',response_model=Capabilities)
     def capabilities():
         return Capabilities(package_version=__version__,backend_base=BASE,viewer_software=fields(software_identity().model_dump()),
-            result_contracts=['m7-v1','m4-v1','m5-v1','m6-v1','indel-nuclease-v1','indel-nuclease-stats-v1','indel-nuclease-report-v1'],
+            result_contracts=['m7-v1','m4-v1','m5-v1','m6-v1','intended-sites-v1.1','empty-nuclease-control-v1','indel-nuclease-multicopy-v1','indel-nuclease-v1','indel-nuclease-stats-v1','indel-nuclease-report-v1'],
             analysis_modes=['precise_edit','indel_nuclease'],screens=['Overview','Samples','QC','Statistics','Provenance'])
 
     @app.get('/api/v1/workspaces',response_model=list[Registration])

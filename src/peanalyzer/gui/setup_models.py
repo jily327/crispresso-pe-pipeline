@@ -46,6 +46,7 @@ class PETargetDraft(Model):
     pegRNA_extension: str = ''
     nicking_guide: str = ''
     pegRNA_scaffold: str = ''
+    quantification_window_coordinates: str = ''
 
 
 class NucleaseTargetDraft(Model):

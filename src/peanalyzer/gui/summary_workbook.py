@@ -6,6 +6,7 @@ import tempfile
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 from peanalyzer import __version__
+from peanalyzer.gui.scientific_workbook import scientific_sheets, verify_table, write_table
 
 FILENAME = 'PEAnalyzer_Summary.xlsx'
 HEADERS = ['Sample name', 'Barcode', 'CRISPResso edit %', 'CRISPResso reads/reads',
@@ -48,8 +49,14 @@ def verify_summary(root, view, plan):
     path = no_symlinks(Path(root) / FILENAME)
     book = load_workbook(path, read_only=True, data_only=False)
     try:
-        if book.sheetnames != ['Summary', 'Definitions']:
+        sheets = scientific_sheets(view)
+        expected = (['Summary', 'Definitions'] if view.mode == 'precise_edit' else []) + list(sheets)
+        if book.sheetnames != expected:
             raise ValueError('Existing summary has unexpected sheets')
+        for name, (table, percentages) in sheets.items():
+            verify_table(book[name], table, percentages)
+        if view.mode == 'indel_nuclease':
+            return
         rows = list(book['Summary'].iter_rows())
         samples = ordered_samples(plan)
         if len(rows) != len(samples) + 1 or [c.value for c in rows[0]] != HEADERS:
@@ -82,13 +89,32 @@ def verify_summary(root, view, plan):
 
 def write_summary(root, view, plan, *, sample_order=None):
     """Called only for a new, verified, unpublished precise-edit workspace."""
-    if view.mode != 'precise_edit':
-        return
     if len(view.targets) != 1:
         raise ValueError('The desktop summary requires one target')
     destination = Path(root) / FILENAME
     if destination.exists() or destination.is_symlink():
         raise ValueError('Summary destination already exists; refusing to overwrite')
+    workbook = Workbook()
+    if view.mode == 'precise_edit':
+        _write_pe_summary(workbook, root, view, plan, sample_order)
+    else:
+        workbook.remove(workbook.active)
+    for name, (rows, percentages) in scientific_sheets(view).items():
+        write_table(workbook, name, rows, percentages)
+    fd, temporary = tempfile.mkstemp(prefix='.peanalyzer-summary-', suffix='.xlsx', dir=root)
+    try:
+        with os.fdopen(fd, 'wb') as stream:
+            workbook.save(stream)
+            stream.flush()
+            os.fsync(stream.fileno())
+        # Exclusive atomic publication; never overwrite an unrelated file.
+        os.link(temporary, destination, follow_symlinks=False)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+        workbook.close()
+
+
+def _write_pe_summary(workbook, root, view, plan, sample_order):
     observations = {}
     for observation in view.observations:
         if (observation.copy_name is None and not observation.routing_conditioned
@@ -97,7 +123,6 @@ def write_summary(root, view, plan, *, sample_order=None):
             if key in observations:
                 raise ValueError('Ambiguous target-primary summary observation')
             observations[key] = observation
-    workbook = Workbook()
     sheet = workbook.active
     sheet.title = 'Summary'
     sheet.append(HEADERS)
@@ -143,14 +168,3 @@ def write_summary(root, view, plan, *, sample_order=None):
         literal(definitions.cell(row, 2), value)
     definitions.column_dimensions['A'].width = 28
     definitions.column_dimensions['B'].width = 110
-    fd, temporary = tempfile.mkstemp(prefix='.peanalyzer-summary-', suffix='.xlsx', dir=root)
-    try:
-        with os.fdopen(fd, 'wb') as stream:
-            workbook.save(stream)
-            stream.flush()
-            os.fsync(stream.fileno())
-        # Exclusive atomic publication; never overwrite an unrelated file.
-        os.link(temporary, destination, follow_symlinks=False)
-    finally:
-        Path(temporary).unlink(missing_ok=True)
-        workbook.close()

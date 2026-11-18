@@ -115,7 +115,7 @@ def bind_plan(spec,plan):
     actual=dict(mode=plan.targets[0].analysis_mode,source_mode=plan.mode,samples=plan.samples,
         targets=[scientific_target(t) for t in plan.targets],demux_config=options['demux_config'],
         preparation=options['preparation'],statistics=options['statistics_mode'],
-        routing_policy=options['routing_policy_identity'] if science['mode']=='precise_edit' else 'single_copy_identity')
+        routing_policy=options['routing_policy_identity'] if science['mode']=='precise_edit' else ('single_copy_identity' if len(plan.targets)==1 else 'conservative_flanking_markers_v1'))
     if any(actual[key]!=science[key] for key in actual):
         raise WorkflowError('SCIENTIFIC_IDENTITY_CHANGED','M7 normalization differs from the accepted setup compiler.')
     if plan.output!=spec.output:raise WorkflowError('OUTPUT_CHANGED','M7 output differs from the accepted destination.')

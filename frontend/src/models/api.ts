@@ -99,6 +99,10 @@ export interface Group {
   reportable_n: string;
   mean: number | null;
   mean_percentage: string | null;
+  descriptive_statistics_version: string | null;
+  sample_sd: number | null;
+  sample_sd_percentage: string | null;
+  pooled_read_fraction: number | null;
   minimum: number | null;
   maximum: number | null;
   median: number | null;
@@ -180,6 +184,19 @@ export interface Registration {
   label: string;
 }
 
+export interface ScientificPanel {
+  sample_id: string;
+  target: string;
+  method: string;
+  population: string;
+  status: string;
+  reasons: Array<string>;
+  definition: string;
+  measurements: Array<ClassValue>;
+  evidence: Array<FieldValue>;
+  source: Source;
+}
+
 export interface Source {
   artifact_id: string;
   name: string;
@@ -217,9 +234,11 @@ export interface WorkspaceView {
   contracts: Array<string>;
   observations: Array<Observation>;
   groups: Array<Group>;
+  minimum_biological_replicates: number | null;
   contrasts: Array<Contrast>;
   populations: Array<Population>;
   nuclease: Array<NucleaseDetail>;
+  scientific_panels: Array<ScientificPanel>;
   provenance: Array<FieldValue>;
   stages: Array<Stage>;
   artifacts: Array<Source>;
