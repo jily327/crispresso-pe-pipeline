@@ -182,6 +182,8 @@ def collect_observations(manifest_path, samples_path):
             if result.sample_id not in metadata:
                 raise AggregationError(f"M4 sample absent from metadata barcode_id: {result.sample_id}")
             sample = metadata[result.sample_id]
+            if 'EMPTY_NEGATIVE_CONTROL' in result.target_metrics.total_precise_pe.reason_codes and sample.sample_role != 'negative_control':
+                raise AggregationError('empty control role differs from sample metadata')
             identity = (sample.sample_name, result.target_id)
             if identity in seen:
                 raise AggregationError(f"duplicate analysis for sample x target: {identity}")

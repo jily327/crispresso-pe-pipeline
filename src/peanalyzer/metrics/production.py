@@ -136,7 +136,9 @@ def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=
     selective = selective_observability_reasons(products.exclusion_reason_counts) if target_exact and products else []
     n = native['numerator'] if family == 'native' and native else products.exact_pe if products else None
     d = native['denominator'] if family == 'native' and native else products.exact_wt + products.exact_pe if products else None
-    if reasons:
+    if 'EMPTY_NEGATIVE_CONTROL' in reasons:
+        status = 'NOT_ASSESSABLE'
+    elif reasons:
         status = 'BLOCKED'
     elif selective:
         status, reasons = 'NOT_ASSESSABLE', selective
@@ -171,7 +173,8 @@ def combined_status(records):
 
 
 def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparator_root,
-                    routing_root=None, copy_roots=None, runtime_digest=None, tolerance_policies=None):
+                    routing_root=None, copy_roots=None, runtime_digest=None, tolerance_policies=None,
+                    empty_negative_control=False):
     """Build M4 JSON from existing verified runs; never accepts cached metrics.json.
 
     One invocation describes one biological target and one prepared sample. The
@@ -228,6 +231,10 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     population = digest(dict(prepared=verified.manifest_sha256 if verified else None,
                              sample=sample_id, target=definitions_hash, scope='target_all_prepared'))
     count = sample['pairs'] if sample else None
+    if empty_negative_control:
+        if count != 0:
+            raise ValueError('empty control requires verified zero prepared pairs')
+        global_reasons.append('EMPTY_NEGATIVE_CONTROL')
     product_evidence={}
     def unavailable_evidence(key, pop_id, size, scope, reasons):
         return ProductEvidence(population_id=pop_id,population_scope=scope,copy_id=None if key=='target' else key,

@@ -76,6 +76,20 @@ def _end_qc(sequence, match, rule, bridge_enabled, qc, *, reverse=False):
         observed = sequence[start:start + len(rule.bridge)].decode("ascii").upper()
         status = "short" if len(observed) < len(rule.bridge) else "match" if observed == rule.bridge else "mismatch"
         qc[f"bridge_{status}"] += 1
+        if status != "match":
+            # A displaced exact motif can flag a suspect boundary, but cannot
+            # identify an indel or distinguish it from a coincidental match.
+            bridge = rule.bridge.encode("ascii")
+            offsets = [delta for delta in (-3, -2, -1, 1, 2, 3)
+                       if start + delta >= 0 and sequence[start+delta:start+delta+len(bridge)].upper() == bridge]
+            if len(offsets) == 1:
+                qc[f"bridge_displaced_{offsets[0]:+d}"] += 1
+            elif offsets:
+                qc["bridge_multiple_displaced_matches"] += 1
+            else:
+                qc["bridge_no_nearby_match"] += 1
+        return status
+    return None
 
 
 def _json_hash(value) -> str:
@@ -145,6 +159,7 @@ def demultiplex(*, r1: Path, r2: Path, samples_path: Path, config: Config, outpu
         if settings.bridge_qc and rule.bridge:
             keys.extend(["bridge_match", "bridge_mismatch", "bridge_short"])
         end_qc[direction] = Counter(dict.fromkeys(keys, 0))
+    affected = {sample: Counter(forward=0, reverse=0, either_mate=0) for sample in sample_counts}
     total = 0
     short_motifs = dict.fromkeys(rules, 0)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -159,7 +174,7 @@ def demultiplex(*, r1: Path, r2: Path, samples_path: Path, config: Config, outpu
         writer = SampleWriter(fastq_dir, list(sample_counts), settings.max_open_sample_pairs)
         for forward, reverse in paired_fastq(r1, r2):
             total += 1
-            matches = {}
+            matches, bridge_status = {}, {}
             for direction, record in (("forward", forward), ("reverse", reverse)):
                 if len(record.sequence) < rules[direction].start + catalog_safety[direction]["barcode_length"]:
                     short_motifs[direction] += 1
@@ -170,7 +185,7 @@ def demultiplex(*, r1: Path, r2: Path, samples_path: Path, config: Config, outpu
                     barcode_counts[direction, match.barcode_id] += 1
                     if match.distance:
                         corrected[direction, match.barcode_id] += 1
-                _end_qc(record.sequence, match, rules[direction], settings.bridge_qc, end_qc[direction],
+                bridge_status[direction] = _end_qc(record.sequence, match, rules[direction], settings.bridge_qc, end_qc[direction],
                         reverse=direction == "reverse" and settings.reverse_barcode_orientation == "reverse_complement")
             f, r = matches["forward"], matches["reverse"]
             category, sample_id = assign_barcode_pair(f, r, expected)
@@ -178,6 +193,10 @@ def demultiplex(*, r1: Path, r2: Path, samples_path: Path, config: Config, outpu
             if f.status == r.status == "recognized":
                 matrix[f.barcode_id, r.barcode_id] += 1
             if category == "assigned_expected_pair":
+                suspect = [d for d, status in bridge_status.items() if status in ("short", "mismatch")]
+                if suspect:
+                    affected[sample_id]["either_mate"] += 1
+                    affected[sample_id].update(suspect)
                 records = [forward, reverse]
                 if settings.trim_barcodes:
                     for index, (direction, match) in enumerate((("forward", f), ("reverse", r))):
@@ -240,6 +259,17 @@ def demultiplex(*, r1: Path, r2: Path, samples_path: Path, config: Config, outpu
                                 "authoritative": catalog.authoritative, "resolved": catalog.ends,
                                 "resolved_sha256": _json_hash(catalog.ends), "matching_safety": catalog_safety},
             "mismatch_policy": {"method": "exact" if settings.max_mismatches == 0 else "hamming", "max_mismatches_per_end": settings.max_mismatches, "ties": "ambiguous", "sample_pair_rescue": False, "non_acgt_motifs": "unknown"},
+            "bridge_boundary_qc": {
+                "per_mate": {direction: {
+                    "checked_recognized_ends": sum(qc.get("bridge_"+k, 0) for k in ("match","short","mismatch")),
+                    "exact_match_fraction": (qc["bridge_match"]/qc["recognized"]
+                        if "bridge_match" in qc and qc["recognized"] else None),
+                    "offset_search_bp": [-3, -2, -1, 1, 2, 3],
+                    "enabled": bool(settings.bridge_qc and rules[direction].bridge),
+                } for direction, qc in end_qc.items()},
+                "per_sample_pairs_with_short_or_mismatched_bridge": affected,
+                "offset_interpretation": "Exact nearby motif among nonmatching ends; possible boundary displacement. Assignment and trimming use the configured offsets."
+            },
             "barcode_bridge_qc": {key: dict(value) for key, value in end_qc.items()},
             "resolved_config": resolved_config, "resolved_config_sha256": config_digest,
             "input_provenance": provenance, "reconciliation": reconciliation,

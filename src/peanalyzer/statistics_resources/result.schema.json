@@ -1064,6 +1064,15 @@
           "title": "Sample Name",
           "type": "string"
         },
+        "sample_role": {
+          "default": "experimental",
+          "enum": [
+            "experimental",
+            "negative_control"
+          ],
+          "title": "Sample Role",
+          "type": "string"
+        },
         "source_result": {
           "minLength": 1,
           "title": "Source Result",
@@ -1255,6 +1264,15 @@
         "sample_name": {
           "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
           "title": "Sample Name",
+          "type": "string"
+        },
+        "sample_role": {
+          "default": "experimental",
+          "enum": [
+            "experimental",
+            "negative_control"
+          ],
+          "title": "Sample Role",
           "type": "string"
         },
         "status": {

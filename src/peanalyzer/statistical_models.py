@@ -1,7 +1,7 @@
 """Strict M5 biological observation, design and statistical result contracts."""
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_serializer, model_validator
 
 from peanalyzer.metrics.models import Count, Scope, Status
 from peanalyzer.schemas import Identifier, Nonempty, NonnegativeInt
@@ -36,10 +36,19 @@ class Condition(Model):
 
 
 class BiologicalSample(Condition):
+    sample_role: Literal["experimental", "negative_control"] = "experimental"
     sample_name: Identifier
     biological_replicate: Identifier
     block_id: Identifier | None
     paired: bool
+
+    @model_serializer(mode="wrap")
+    def serialize_sample(self, handler):
+        values = handler(self)
+        if self.sample_role == "experimental":
+            values.pop("sample_role", None)
+        return values
+
 
 
 class Selector(Model):

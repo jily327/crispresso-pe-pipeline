@@ -66,6 +66,8 @@ def load_config(path: Path) -> Config:
 
 def _csv_value(column: str, value: str) -> object:
     value = value.strip()
+    if not value and column == "sample_role":
+        return "experimental"
     if not value and column in NULLABLE_COLUMNS:
         return None
     if column in INTEGER_COLUMNS:

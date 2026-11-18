@@ -11,6 +11,7 @@ export interface DraftContent {
   analysis_mode: "precise_edit" | "indel_nuclease" | null;
   targets: Array<PETargetDraft | NucleaseTargetDraft>;
   library_profile: "qi_hitom_v1" | "custom";
+  min_analyzable_reads: string;
   trim_r1: string;
   trim_r2: string;
   output_root: string | null;
@@ -27,6 +28,7 @@ export interface DraftRevision {
 }
 
 export interface DraftSample {
+  sample_role: "experimental" | "negative_control";
   sample_name: string;
   barcode_id: string;
   forward_barcode: string;

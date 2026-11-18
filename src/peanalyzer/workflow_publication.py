@@ -33,10 +33,13 @@ def publish_metrics(plan,node,runner,**kwargs):
     root=Path(plan.output)
     # Check every sample before the first backend invocation. No implicit sample
     # exclusion and no zero-valued measurement; changing the sheet needs Review.
-    prepared=verify_analysis_output(root/'analysis').manifest['samples']
-    empty=[s for s in plan.expected_samples if prepared[s]['pairs']==0]
+    from peanalyzer.sample_qc import write_empty_control, depth_assessment
+    verified=verify_analysis_output(root/'analysis')
+    prepared=verified.manifest['samples']
+    roles={s['barcode_id']:s.get('sample_role','experimental') for s in plan.samples}
+    empty=[s for s in plan.expected_samples if prepared[s]['pairs']==0 and roles[s]!='negative_control']
     if empty:
-        raise WorkflowError('EMPTY_SAMPLES','Zero prepared read pairs for barcode/sample IDs: '+', '.join(empty)+
+        raise WorkflowError('EMPTY_SAMPLES','EMPTY_EXPERIMENTAL_SAMPLE. Zero prepared read pairs for barcode/sample IDs: '+', '.join(empty)+
             '. Check barcode orientation and input reads in Setup/Review. Correct the inputs or explicitly remove failed wells and start a new workspace; no samples were omitted.',node.stage_id)
     destination=owned(root,node.output_path)
     destination.parent.mkdir(parents=True,exist_ok=True)
@@ -44,7 +47,18 @@ def publish_metrics(plan,node,runner,**kwargs):
     output=attempt/'output'
     # Deliberately no recursive failure cleanup: an external program can create
     # arbitrary content, and an interrupted attempt has no authenticated inventory.
-    runner(output=output,**kwargs)
+    count=prepared[node.sample_id]['pairs']
+    if count==0:
+        write_empty_control(verified, output, **kwargs)
+    else:
+        runner(output=output,**kwargs)
+    if 'min_prepared_pairs_qc' in plan.normalized_options:
+        from peanalyzer.result_dispatch import metric_model
+        from peanalyzer.workflow_storage import read_json
+        raw=read_json(output/'result.json')
+        result=metric_model(raw).model_validate(raw)
+        atomic_json(output/'sample_qc.json',depth_assessment(node.sample_id,roles[node.sample_id],count,
+            plan.normalized_options['min_prepared_pairs_qc'],result))
     validate_stage(plan,node,'COMPLETED',output_override=output)
     records=[a.model_copy(update={'path':node.output_path+a.path[len('output'):]}) for a in inventory(attempt,'output')]
     integrity=authenticate(root,plan)

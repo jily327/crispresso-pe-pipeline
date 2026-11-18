@@ -39,6 +39,23 @@ def resolve_trims(summary: dict, config: PreparationConfig) -> tuple[int, int]:
     return tuple(trims)
 
 
+def trim_boundary_qc(summary, trims):
+    settings = summary["resolved_config"]["demux"]
+    results = {}
+    for direction, trim in zip(("forward", "reverse"), trims):
+        rule = summary["extraction_profile"]["rules"][direction]
+        length = summary["barcode_catalog"]["matching_safety"][direction]["barcode_length"]
+        barcode_end = rule["start"] + length
+        bridge = rule.get("bridge")
+        boundary = barcode_end + len(bridge) if bridge else None
+        removed = (barcode_end + (len(bridge or "") if settings["trim_bridges"] else 0)
+                   if settings["trim_barcodes"] else 0)
+        results[direction] = dict(demux_trim_5p=removed, analysis_trim_5p=trim,
+                                  total_removed_from_raw_5p=removed + trim, expected_bridge_end_0based=boundary,
+                                  offset_from_expected_bridge_end=(removed + trim - boundary if bridge else None))
+    return results
+
+
 def prepare_analysis_fastqs(demux_root: Path, output: Path, config: PreparationConfig | None = None) -> dict:
     verified = verify_demux_output(demux_root)
     output = Path(output).absolute()
@@ -75,6 +92,7 @@ def prepare_analysis_fastqs(demux_root: Path, output: Path, config: PreparationC
             raise PreparationError("source demux summary changed during preparation")
         manifest = {"schema_version": 1, "status": "completed", "verified_demux_root": str(verified.root),
                     "demux_summary_sha256": verified.summary_sha256,
+                    "trim_boundary_qc": trim_boundary_qc(verified.summary, trims),
                     "r1_analysis_trim_5p": trims[0], "r2_analysis_trim_5p": trims[1], "samples": samples}
         (staging / "analysis_manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
         if output.exists():

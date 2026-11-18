@@ -16,6 +16,7 @@ class SetupFile(Model):
 
 
 class DraftSample(Model):
+    sample_role: Literal['experimental', 'negative_control'] = 'experimental'
     sample_name: str = ''
     barcode_id: str = ''
     forward_barcode: str = ''
@@ -68,6 +69,7 @@ class DraftContent(Model):
     analysis_mode: Literal['precise_edit', 'indel_nuclease'] | None = None
     targets: list[PETargetDraft | NucleaseTargetDraft] = Field(default_factory=list)
     library_profile: Literal['qi_hitom_v1', 'custom'] = 'qi_hitom_v1'
+    min_analyzable_reads: str = '100'
     trim_r1: str = ''
     trim_r2: str = ''
     output_root: str | None = None

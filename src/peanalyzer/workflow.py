@@ -127,7 +127,7 @@ def build_workflow_plan(*, mode, samples, targets, config, output, crispresso, r
         plan = Plan(mode=mode, output=str(root), expected_samples=expected_samples, expected_targets=expected_targets,
             samples=[s.model_dump(mode='json') for s in sample_rows], targets=target_rows,
             nodes=dag(mode, expected_samples, expected_targets), inputs=inputs,
-            normalized_options=dict(title=title, preparation=trims.model_dump(mode='json'),
+            normalized_options=dict(title=title, min_prepared_pairs_qc=settings.qc.min_analyzable_reads, preparation=trims.model_dump(mode='json'),
                 demux_config=settings.model_dump(mode='json'), external_demux=str(external) if external else None,
                 routing_policy=asdict(RoutingPolicy()), routing_policy_identity=policy_identity(RoutingPolicy()),
                 statistics_mode='stats' if contrasts is not None else 'summarize',
@@ -191,6 +191,7 @@ def parameters_for(plan, node):
         return {'preparation': options['preparation']}
     if kind in ('routing', 'metrics'):
         return dict(sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan, node)],
+                    **({'min_prepared_pairs_qc': options['min_prepared_pairs_qc']} if kind == 'metrics' and 'min_prepared_pairs_qc' in options else {}),
                     **({'policy': options['routing_policy'], 'policy_identity': options['routing_policy_identity']} if kind == 'routing' and targets_for(plan,node)[0].analysis_mode == 'precise_edit' else {}))
     if kind == 'statistics':
         parameters = {'mode': options['statistics_mode']}
@@ -298,6 +299,9 @@ def validate_stage(plan, node, status, *, output_override=None):
         from peanalyzer.metrics.production import digest as metric_digest
         if result.provenance.target_definitions_sha256 != metric_digest([t.model_dump() for t in targets_for(plan,node)]):
             raise WorkflowError('METRICS_TARGET_MISMATCH', node.stage_id)
+        if 'min_prepared_pairs_qc' in plan.normalized_options:
+            from peanalyzer.sample_qc import validate_qc
+            validate_qc(plan, node, result, output)
         if read_json(output / 'execution_failures.json'):
             raise WorkflowError('BACKEND_EXECUTION_FAILED',
                 f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '

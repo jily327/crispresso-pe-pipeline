@@ -31,7 +31,7 @@ class MemoryCSV:
     def __init__(self, rows, label):
         self.label = label
         stream = io.StringIO(newline='')
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(dict.fromkeys(key for row in rows for key in row)))
         writer.writeheader()
         writer.writerows([{k: str(v).lower() if isinstance(v, bool) else v for k,v in r.items()} for r in rows])
         self.text = stream.getvalue()
@@ -84,6 +84,15 @@ def compile_draft(content, revision, references, protected):
         try: Sample.model_validate({k:_csv_value(k,v) if isinstance(v,str) else v for k,v in row.model_dump().items()})
         except ValueError as exc:model_issues(exc,'samples',f'samples.{index}','sample_name')
     config=Config.model_validate({'schema_version':1,'demux':{'profile':content.library_profile}})
+    try:
+        if not content.min_analyzable_reads.isascii() or not content.min_analyzable_reads.isdecimal():
+            raise ValueError
+        minimum = int(content.min_analyzable_reads)
+        if minimum < 1:
+            raise ValueError
+        config.qc.min_analyzable_reads = minimum
+    except ValueError:
+        issue('configuration','min_analyzable_reads','INVALID_DEPTH','Enter a positive whole number for the advisory read-depth threshold.')
     catalog=load_catalog(bundled_catalog()) if content.library_profile=='qi_hitom_v1' else Catalog([],authoritative=False)
     if content.samples and not errors('samples'):
         try:
@@ -160,7 +169,7 @@ def compile_draft(content, revision, references, protected):
                     if trims and any(len(r.sequence)<=n for r,n in zip(pair,trims)):raise ValueError('Read length must exceed configured analysis trim.')
                     pairs+=1
                 input_evidence['paired_records']=str(pairs)
-                if pairs==0:issue('samples','r1','EMPTY_INPUT','The paired FASTQ population is empty.')
+                if pairs==0 and any(s.sample_role!='negative_control' for s in sample_rows):issue('samples','r1','EMPTY_INPUT','The paired FASTQ population is empty.')
         else:
             if content.r1 or content.r2:raise ValueError('Verified demux input cannot also select raw R1/R2.')
             if not content.demux:issue('samples','demux','REQUIRED','Select a verified demux archive.')

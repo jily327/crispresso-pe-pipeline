@@ -183,7 +183,8 @@ def aggregate_family(evidence,policy):
         label=next(iter(families)) if len(families)==1 else 'family_ambiguous' if families else 'excluded'
         counts[label]+=row.count
     denominator=counts['WT']+counts['PE']
-    if reasons:status='BLOCKED'
+    if 'EMPTY_NEGATIVE_CONTROL' in reasons:status='NOT_ASSESSABLE'
+    elif reasons:status='BLOCKED'
     elif selective:status='NOT_ASSESSABLE';reasons=selective
     elif not denominator:status='NOT_ASSESSABLE';reasons=['ZERO_FAMILY_DENOMINATOR']
     else:status='REPORTABLE'

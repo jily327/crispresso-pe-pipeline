@@ -3,7 +3,7 @@
 import re
 from typing import Annotated, Literal, Self
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_serializer, model_validator
 
 Identifier = Annotated[str, Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")]
 NonnegativeInt = Annotated[int, Field(ge=0)]
@@ -30,13 +30,24 @@ def reverse_complement(value: str) -> str:
     return value.translate(str.maketrans("ACGT", "TGCA"))[::-1]
 
 
+SampleRole = Literal["experimental", "negative_control"]
+
+
 class BarcodeSample(Model):
+    sample_role: SampleRole = "experimental"
     sample_name: Identifier
     barcode_id: Identifier
     forward_barcode: str | None = None
     reverse_barcode: str | None = None
     forward_barcode_id: Identifier | None = None
     reverse_barcode_id: Identifier | None = None
+
+    @model_serializer(mode="wrap")
+    def serialize_sample(self, handler):
+        values = handler(self)
+        if self.sample_role == "experimental":
+            values.pop("sample_role", None)
+        return values
 
     @field_validator("forward_barcode", "reverse_barcode")
     @classmethod
