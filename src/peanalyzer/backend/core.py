@@ -9,7 +9,8 @@ from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.backend.metrics import parse_child, backend_failure_code
-from peanalyzer.backend.pooled import BackendError, Executable, FIELDS, preflight_guides, utc_now
+from peanalyzer.backend.pooled import BackendError, Executable, FIELDS, backend_target, utc_now
+from peanalyzer.backend.pe_window import audit_window
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import geometry
@@ -89,7 +90,8 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
     targets=[Target.model_validate(t) for t in data['targets']]
     target=next((t for t in targets if t.copy_name==copy_name),None)
     if target is None: raise ValueError('unknown biological copy (quarantine is not a copy)')
-    preflight_guides([target])
+    plan=backend_target(target)
+    native=plan.backend
     cohort=data['cohorts'][copy_name]
     if not cohort['pairs']: raise ValueError('empty confident cohort; no backend metric')
     if core.version!='2.3.4': raise BackendError('VERSION_MISMATCH','requires 2.3.4')
@@ -102,12 +104,12 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
             source=Path(routing_root)/cohort['files'][f'r{mate}']['path']
             shutil.copyfile(source,work/f'input_R{mate}.fastq.gz')
             if sha256_file(work/f'input_R{mate}.fastq.gz')!=cohort['files'][f'r{mate}']['sha256']: raise ValueError('input changed during copy')
-        argv=[core.path,'-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz','--amplicon_seq',target.wt_sequence,
+        argv=[core.path,'-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz','--amplicon_seq',native.wt_sequence,
               '--name','confident','--output_folder','output','--write_detailed_allele_table','--keep_intermediate','--suppress_report','--suppress_plots']
         for column,field in list(FIELDS.items())[2:]:
-            value=getattr(target,field)
+            value=getattr(native,field)
             if value is not None: argv.extend(['--'+column,str(value)])
-        manifest=dict(schema_version=1,status='running',software=software_provenance(),runtime_identity=runtime_identity,
+        manifest=dict(schema_version=1,native_reference=plan.provenance(),status='running',software=software_provenance(),runtime_identity=runtime_identity,
                       executable_path=core.path,version_probe=core.probe,argv=argv,cwd=str(work),output_path=str(output),
                       routing_manifest_sha256=sha256_file(Path(routing_root)/'routing_manifest.json'),
                       inputs=cohort,started_at=utc_now(),return_code=None)
@@ -121,6 +123,8 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
             manifest['return_code']=result.returncode
             if result.returncode: raise BackendError('COMMAND_FAILED',f'Core exit {result.returncode}')
             metrics=parse_child(work/'output/CRISPResso_on_confident',routed_pairs=cohort['pairs'],one_input_record_per_pair=True)
+            refs=read_json(work/'output/CRISPResso_on_confident/CRISPResso2_info.json')['results']['refs']
+            audit_window(metrics, plan, refs)
             (work/'metrics.json').write_text(json.dumps(metrics,indent=2)+'\n')
             manifest['status']='completed'
         except (OSError,ValueError,BackendError) as exc:

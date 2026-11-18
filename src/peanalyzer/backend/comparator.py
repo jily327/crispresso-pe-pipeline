@@ -12,7 +12,9 @@ from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.backend.metrics import parse_child, backend_failure_code
-from peanalyzer.backend.pooled import FIELDS, BackendError, utc_now
+from peanalyzer.backend.pooled import FIELDS, BackendError, utc_now, backend_target
+from peanalyzer.backend.pe_window import audit_window, normalize_include_idxs
+from peanalyzer.pe_reference import native_reference
 from peanalyzer.demux_verify import sha256_file, read_json
 from peanalyzer.geometry import geometry, aligner, columns
 from peanalyzer.provenance import software_provenance
@@ -20,17 +22,6 @@ from peanalyzer.provenance import software_provenance
 
 COMPARISON_FIELDS=('backend_input_reads','reads_after_preprocessing','preprocessing_count_delta',
                    'aligned_reads','unaligned_reads','numerator','denominator')
-
-
-def normalize_include_idxs(value, reference_length):
-    """Validate list or CRISPResso2's JSON ndarray encoding; fail closed."""
-    if isinstance(value,dict):
-        if set(value)!={'_type','value'} or value['_type']!='np.ndarray':
-            raise ValueError('unknown authoritative include_idxs serialization')
-        value=value['value']
-    if not isinstance(value,list) or any(type(p) is not int or not 0<=p<reference_length for p in value):
-        raise ValueError('authoritative include_idxs must be a one-dimensional list of valid integer positions')
-    return sorted(set(value))
 
 
 def evaluate_anchors(targets, metrics):
@@ -43,7 +34,9 @@ def evaluate_anchors(targets, metrics):
         reasons.append('EDIT_COORDINATES_NOT_COMPARABLE')
     signatures=set()
     anchor=sorted(targets,key=lambda t:t.copy_name)[0].wt_sequence
-    for target in targets:
+    mixed_strands = any(r['code']=='MIXED_REFERENCE_STRANDS_NO_COMMON_COPY_COORDINATES' for r in report['reasons'])
+    if mixed_strands: reasons.append('MIXED_REFERENCE_STRANDS_NO_COMMON_COPY_COORDINATES')
+    for target in ([] if mixed_strands else targets):
         mapping={b:a for a,b in columns(aligner().align(anchor,target.wt_sequence)[0]) if b is not None}
         signature=[]
         for e in report['copies'][target.copy_name]['edits']:
@@ -107,16 +100,19 @@ def run_comparator(analysis_root, sample_id, targets, output, core, *, runtime_i
                 dest=work/f'input_R{mate}.fastq.gz'
                 shutil.copyfile(verified.root/entry['path'],dest)
                 if sha256_file(dest)!=entry['sha256']: raise ValueError('analysis input changed')
+            plan=native_reference(target)
+            native=plan.backend
             argv=[core.path,'-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz',
-                  '--amplicon_seq',target.wt_sequence,'--name','unrouted','--output_folder','output',
+                  '--amplicon_seq',native.wt_sequence,'--name','unrouted','--output_folder','output',
                   '--write_detailed_allele_table','--keep_intermediate','--suppress_report','--suppress_plots']
             for column,field in list(FIELDS.items())[2:]:
-                value=getattr(target,field)
+                value=getattr(native,field)
                 if value is not None: argv.extend(['--'+column,str(value)])
-            execution=dict(scope='qualification_only_unrouted_all_prepared_reads',argv=argv,
+            execution=dict(native_reference=plan.provenance(),scope='qualification_only_unrouted_all_prepared_reads',argv=argv,
                            started_at=utc_now(),runtime_identity=runtime_identity,software=software_provenance(),
                            analysis_manifest_sha256=verified.manifest_sha256,inputs=sample,status='running',return_code=None)
             try:
+                backend_target(target)
                 with (work/'stdout.txt').open('w') as out,(work/'stderr.txt').open('w') as err:
                     try:
                         run=subprocess.run(argv,cwd=work,stdout=out,stderr=err,check=False)
@@ -126,10 +122,11 @@ def run_comparator(analysis_root, sample_id, targets, output, core, *, runtime_i
                 if run.returncode: raise BackendError('COMMAND_FAILED',f'comparator Core exit {run.returncode}')
                 child=work/'output/CRISPResso_on_unrouted'
                 refs=read_json(child/'CRISPResso2_info.json')['results']['refs']
-                if refs['Reference']['sequence']!=target.wt_sequence or refs['Prime-edited']['sequence']!=target.prime_edited_sequence:
+                if refs['Reference']['sequence']!=native.wt_sequence or refs['Prime-edited']['sequence']!=native.prime_edited_sequence:
                     raise BackendError('BACKEND_REFERENCE_MISMATCH','comparator reference mismatch')
                 metrics[target.copy_name]=parse_child(child,routed_pairs=sample['pairs'],one_input_record_per_pair=True,
                                                       preprocessing_preserves_records=False)
+                audit_window(metrics[target.copy_name], plan, refs)
                 execution['status']='completed'
             except Exception as exc:
                 code=backend_failure_code(exc)

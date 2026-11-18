@@ -1,0 +1,69 @@
+{
+  "secondary": {
+    "status": "REPORTABLE",
+    "method": "PEAnalyzer exact observed products from conventional single-WT Core alignments",
+    "scope": "verified confidently routed copy cohort",
+    "input_pairs": 26,
+    "preprocessed": 26,
+    "aligned": 26,
+    "preprocessing_loss": 0,
+    "unaligned": 0,
+    "counts": {
+      "exact_wt": 8,
+      "intended_snp_retained": 7,
+      "intended_snp_converted": 6,
+      "other_modification": 5,
+      "unresolved": 0
+    },
+    "extension": {
+      "status": "copy_polymorphism",
+      "anchor_copies": [
+        "copy1"
+      ],
+      "mismatch_count": 1,
+      "mismatches": [
+        {
+          "original_pe_position": 140,
+          "original_wt_position": 140,
+          "experimental_extension_index": 4,
+          "expected": "A",
+          "observed": "C",
+          "natural_copy_snp": true
+        }
+      ],
+      "region": "experimental extension; RTT/PBS split unspecified"
+    }
+  },
+  "primary_native": {
+    "metric_name": "copy1_crispresso_native_pe",
+    "metric_family": "native",
+    "population_scope": "confident_copy",
+    "population_id": "da297252d36dcc1856c56e970b07f6f41bb00a3bb01c13f218bc52df5e8358b5",
+    "population_input_reads": 7,
+    "copy_id": "copy1",
+    "routing_conditioned": true,
+    "assessment_stage": "backend_aligned_products",
+    "status": "REPORTABLE",
+    "numerator": 4,
+    "denominator": 7,
+    "reason_codes": [],
+    "confident_input_reads": 7,
+    "backend_input_reads": 7,
+    "reads_after_preprocessing": 7,
+    "aligned_reads": 7,
+    "unaligned_reads": 0,
+    "ordinary_classified_aligned_reads": 7,
+    "ambiguous_aligned_reads": 0,
+    "discarded_aligned_reads": 0,
+    "backend_counts_role": "metric_filter",
+    "preprocessing_count_delta": 0,
+    "unaligned_reason_counts": {
+      "unknown_backend_alignment_failure": 0
+    },
+    "products": null,
+    "population_denominator_exclusions": 0
+  },
+  "secondary_native": "BLOCKED",
+  "quarantine": 2,
+  "cohort": 26
+}
