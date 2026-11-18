@@ -18,7 +18,7 @@ from peanalyzer.backend.pooled import resolve_executable
 from peanalyzer.barcodes import Catalog, bundled_catalog, load_catalog
 from peanalyzer.demux import demultiplex
 from peanalyzer.demux_verify import verify_demux_output
-from peanalyzer.geometry import geometry
+from peanalyzer.geometry import geometry, geometry_v101
 from peanalyzer.metrics import MetricResult, run_metrics
 from peanalyzer.nuclease.backend import run_nuclease_metrics
 from peanalyzer.result_dispatch import metric_model, statistics_model, report_model
@@ -278,7 +278,9 @@ def validate_stage(plan, node, status, *, output_override=None):
             if len(targets)!=1 or status!='COMPLETED' or read_json(output/'identity.json')!=nuclease_identity(plan,node):
                 raise WorkflowError('NUCLEASE_IDENTITY_MISMATCH',node.stage_id)
             return
-        gate = geometry(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
+        historical = 'orientation_contract' not in plan.normalized_options['routing_policy_identity']
+        geometry_check = geometry_v101 if historical else geometry
+        gate = geometry_check(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
         if gate['status'] == 'BLOCKED':
             if status != 'SKIPPED_SCIENTIFIC_GATE' or canonical(read_json(output / 'scientific_gate.json')) != canonical(gate):
                 raise WorkflowError('ROUTING_GATE_MISMATCH', node.stage_id)
@@ -288,7 +290,7 @@ def validate_stage(plan, node, status, *, output_override=None):
             data = verify_routing_output(output)
             if (data['sample_id'] != node.sample_id or data['targets'] != [t.model_dump() for t in targets]
                     or data['analysis_root'] != str(root / 'analysis')
-                    or data['policy_identity'] != policy_identity(RoutingPolicy())):
+                    or data['policy_identity'] != plan.normalized_options['routing_policy_identity']):
                 raise WorkflowError('ROUTING_LINEAGE_MISMATCH', node.stage_id)
     elif kind == 'metrics':
         result = load(output / 'result.json', metric_model(read_json(output / 'result.json')))
@@ -303,6 +305,12 @@ def validate_stage(plan, node, status, *, output_override=None):
             from peanalyzer.sample_qc import validate_qc
             validate_qc(plan, node, result, output)
         if read_json(output / 'execution_failures.json'):
+        site_targets = targets_for(plan, node)
+        if ('orientation_contract' in plan.normalized_options['routing_policy_identity']
+                and site_targets[0].analysis_mode == 'precise_edit' and result.qc.prepared_input_reads):
+            from peanalyzer.workflow_sites import two_substitutions, verify_workflow_sites
+            if two_substitutions(site_targets):
+                verify_workflow_sites(output, result, site_targets)
             raise WorkflowError('BACKEND_EXECUTION_FAILED',
                 f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '
                 'Inspect execution_failures.json in the retained metrics attempt. Check read quality, mate overlap and sample selection in Setup/Review; no sample was omitted.',node.stage_id)

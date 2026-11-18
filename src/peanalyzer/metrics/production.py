@@ -482,7 +482,15 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
     if tolerance_policies:
         result.derived_metrics={key:reaggregate(evidence,tolerance_policies) for key,evidence in result.product_evidence.items()}
     (output/'execution_failures.json').write_text(json.dumps(failures, indent=2)+'\n')
-    # Exclusive publication only after schema validation of the complete result.
+    from peanalyzer.workflow_sites import write_workflow_sites
+    from peanalyzer.metrics.models import Artifact
+    write_workflow_sites(analysis_root=analysis_root, sample_id=sample_id, targets=targets, output=output,
+                         core=core, runtime_digest=runtime_digest)
+    sites_file = output / 'intended_sites.json'
+    if sites_file.exists():
+        result.provenance.artifacts[sites_file.name] = Artifact(sha256=sha256_file(sites_file),
+                                                              size_bytes=sites_file.stat().st_size)
+    # Exclusive publication binds all scientific inputs, including supplementary site measurements.
     with (output/'result.json').open('x') as handle:
         handle.write(result.model_dump_json(indent=2)+'\n')
     return result

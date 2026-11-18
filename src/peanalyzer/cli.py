@@ -42,6 +42,14 @@ def main(argv: list[str] | None = None) -> int:
     for name in ("r1", "r2", "samples", "config", "output"):
         demux.add_argument(f"--{name}", type=Path, required=True)
     demux.add_argument("--barcodes", type=Path, help="custom CSV catalog; defaults to bundled catalog for qi_hitom_v1")
+    haplotypes = commands.add_parser("haplotypes", help="measure two intended substitutions in verified paired reads")
+    haplotypes.add_argument("--demux-root", type=Path, required=True)
+    haplotypes.add_argument("--references", type=Path, required=True, help="single-panel WT/intended_PE FASTA")
+    for mate in ("r1", "r2"):
+        haplotypes.add_argument(f"--analysis-{mate}-trim-5p", type=int, required=True)
+    haplotypes.add_argument("--copy-marker-start", type=int, action="append", default=[],
+                            help="0-based start of a 15 nt copy marker, repeat for disjoint markers")
+    haplotypes.add_argument("--negative-control", action="append", default=[], help="declared control barcode ID")
     for name in ("summarize", "stats"):
         command = commands.add_parser(name, help="aggregate biological samples" if name == "summarize" else "test explicit biological contrasts")
         for option in ("manifest", "samples", "output"):
@@ -92,6 +100,14 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "validate":
             report = validate_metadata(args.samples, args.targets, args.config, args.barcodes)
         elif args.command == "report":
+        elif args.command == "haplotypes":
+            from peanalyzer.haplotypes import measure_haplotypes
+            try:
+                report = measure_haplotypes(args.demux_root, args.references,
+                                            (args.analysis_r1_trim_5p, args.analysis_r2_trim_5p),
+                                            args.copy_marker_start, args.negative_control)
+            except ValueError as exc:
+                raise MetadataError(str(exc)) from exc
             from peanalyzer.reporting import generate_report
             with sigterm_cleanup():
                 manifest = generate_report(result_path=args.result, output=args.output, title=args.title)
@@ -114,7 +130,7 @@ def main(argv: list[str] | None = None) -> int:
                                      command_argv=([str(Path(sys.argv[0]).resolve()), *sys.argv[1:]] if argv is None
                                                    else [parser.prog, *argv]))
     except (MetadataError, FastqError, DemuxError, AggregationError, ReportingError, WorkflowError, OSError) as exc:
-        label = {"validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting", "run": "Workflow", "analyze": "Workflow"}[args.command]
+        label = {"haplotypes": "Haplotype measurement", "validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting", "run": "Workflow", "analyze": "Workflow"}[args.command]
         print(f"{label} failed: {exc}", file=sys.stderr)
         return 2
     print(json.dumps(report, indent=2, sort_keys=True))

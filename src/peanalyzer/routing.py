@@ -11,6 +11,7 @@ from pathlib import Path
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.demux_verify import sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
+from peanalyzer.observability import physical_forward_mate
 from peanalyzer.geometry import aligner, columns, geometry
 from peanalyzer.schemas import Target, reverse_complement
 
@@ -35,11 +36,14 @@ class RoutingPolicy:
 QUALIFIED_POLICY_ID = 'm312-diagnostic-q30-sites2-cap16-identity08-observed-flanks-v1'
 
 
-def policy_identity(policy: RoutingPolicy) -> dict:
+def policy_identity(policy: RoutingPolicy, *, legacy=False) -> dict:
     qualified = policy == RoutingPolicy()
-    return dict(id=QUALIFIED_POLICY_ID if qualified else 'experimental-unqualified',
+    identity = dict(id=QUALIFIED_POLICY_ID if qualified else 'experimental-unqualified',
                 qualified=qualified, placement_contract='copy-collapsed-state-qc-v1',
                 edit_coverage_contract='observed-pair-flanks-v1')
+    if not legacy:
+        identity['orientation_contract'] = 'invariant-dual-mate-strand-v1'
+    return identity
 
 
 def edit_footprints(target, state, report):
@@ -235,15 +239,16 @@ def enforce_edit_flanking(decision, flanking):
     return decision
 
 
-def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy) -> dict:
+def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy, *, legacy=False) -> dict:
     identifier=read_id(pair[0],1).decode()
     copies=sorted(t.copy_name for t in targets)
     evidence=[]; scores=[]; placements={}; ambiguity={}
+    forward = 1 if legacy else physical_forward_mate(pair, targets)
     engine=aligner(reads=True)
     for mate,record in enumerate(pair,1):
         sequence=record.sequence.decode().upper()
         qualities=[q-33 for q in record.quality_line.rstrip(b'\r\n')]
-        if mate==2:
+        if mate != (forward or 1):
             sequence=reverse_complement(sequence); qualities.reverse()
         for target in sorted(targets,key=lambda t:t.copy_name):
             witnesses=[]
@@ -255,6 +260,9 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
                             reason='COPY_HAS_NO_QUALIFIED_STATE_PLACEMENT')
             placements[mate,target.copy_name]=alternatives
             ambiguity[mate,target.copy_name]=witnesses
+    if forward is None:
+        return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,
+                    compatible_copies=copies,evidence=[],alignments=scores,reason='UNRESOLVED_READ_ORIENTATION')
     if len(copies)==1:
         # In an explicitly single-copy assay panel there is no competing copy;
         # retain placement checks and collapse WT/PE before assigning identity.

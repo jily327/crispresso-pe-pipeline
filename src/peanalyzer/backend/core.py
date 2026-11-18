@@ -13,7 +13,7 @@ from peanalyzer.backend.pooled import BackendError, Executable, FIELDS, backend_
 from peanalyzer.backend.pe_window import audit_window
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
-from peanalyzer.geometry import geometry
+from peanalyzer.geometry import geometry, geometry_v101
 from peanalyzer.provenance import software_provenance
 from peanalyzer.schemas import Target
 from peanalyzer.routing import RoutingPolicy, decide, enforce_edit_flanking, policy_identity
@@ -28,8 +28,10 @@ def verify_routing_output(root: Path) -> dict:
     if verified.manifest_sha256!=data['analysis_manifest_sha256']: raise ValueError('analysis identity mismatch')
     targets=[Target.model_validate(t) for t in data['targets']]
     policy=RoutingPolicy(**data['policy'])
-    if data.get('policy_identity')!=policy_identity(policy): raise ValueError('routing policy identity mismatch')
-    if geometry(targets,min_distinguishing_sites=policy.min_distinguishing_sites)['status']=='BLOCKED': raise ValueError('blocked target geometry')
+    legacy = data.get('policy_identity') == policy_identity(policy, legacy=True)
+    if data.get('policy_identity')!=policy_identity(policy, legacy=legacy): raise ValueError('routing policy identity mismatch')
+    geometry_check = geometry_v101 if legacy else geometry
+    if geometry_check(targets,min_distinguishing_sites=policy.min_distinguishing_sites)['status']=='BLOCKED': raise ValueError('blocked target geometry')
     if set(data['cohorts'])!={*(t.copy_name for t in targets),'quarantine'}: raise ValueError('cohort inventory mismatch')
     ledger=root/'routing_ledger.jsonl'
     if ledger.is_symlink() or sha256_file(ledger)!=data['ledger_sha256']: raise ValueError('ledger changed')
