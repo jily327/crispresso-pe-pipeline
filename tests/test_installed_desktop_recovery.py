@@ -71,7 +71,7 @@ def test_installed_launcher_cancel_recover(tmp_path):
                 response = client.post('/api/v1/jobs', json=reviewed(client, content))
                 assert response.status_code==200, response.text
                 key = response.json()['job_id']
-                workspace = home/'PEAnalyzer-analyses/v1.0.1/analysis'
+                workspace = home/'PEAnalyzer-analyses/v1.1.0/analysis'
                 for attempt in range(2):
                     record = until(lambda: active_record(ancestor=proc.pid), timeout=240); records.append(record)
                     pause_after_nonempty(record)
