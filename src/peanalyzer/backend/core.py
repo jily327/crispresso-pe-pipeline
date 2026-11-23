@@ -125,8 +125,8 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
             manifest['return_code']=result.returncode
             if result.returncode: raise BackendError('COMMAND_FAILED',f'Core exit {result.returncode}')
             metrics=parse_child(work/'output/CRISPResso_on_confident',routed_pairs=cohort['pairs'],one_input_record_per_pair=True)
-            refs=read_json(work/'output/CRISPResso_on_confident/CRISPResso2_info.json')['results']['refs']
-            audit_window(metrics, plan, refs)
+            info=read_json(work/'output/CRISPResso_on_confident/CRISPResso2_info.json')
+            audit_window(metrics, plan, info['results']['refs'], args=info['running_info']['args']['value'])
             (work/'metrics.json').write_text(json.dumps(metrics,indent=2)+'\n')
             manifest['status']='completed'
         except (OSError,ValueError,BackendError) as exc:

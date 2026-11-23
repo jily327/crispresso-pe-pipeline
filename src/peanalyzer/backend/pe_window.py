@@ -15,7 +15,7 @@ def normalize_include_idxs(value, reference_length):
     return sorted(set(value))
 
 
-def audit_window(metrics, plan, refs):
+def audit_window(metrics, plan, refs, *, args=None):
     """Expose native positions and map them back to each supplied reference."""
     if refs['Reference']['sequence'] != plan.backend.wt_sequence or refs['Prime-edited']['sequence'] != plan.backend.prime_edited_sequence:
         raise ValueError('unexpected CRISPResso WT or intended reference')
@@ -29,9 +29,24 @@ def audit_window(metrics, plan, refs):
         original = sorted(plan.original_position(p, edited=edited) for p in indices) if indices is not None else None
         windows[name] = dict(backend_positions=indices, original_positions=original)
     original = windows['Reference']['original_positions']
+    coordinates = plan.original.quantification_window_coordinates
+    explicit = coordinates not in (None, '0')
+    requested = set()
+    if explicit:
+        for interval in coordinates.split('_'):
+            first, last = map(int, interval.split('-'))
+            requested.update(range(first,last+1))
+        if original is not None and set(original) - requested:
+            raise ValueError('Core effective WT window exceeds the explicit supplied intervals')
     metrics['authoritative_reference_quantification_window'] = original
     metrics['window_audit'] = dict(source='CRISPResso2_info.json results.refs.Reference.include_idxs',
         coordinate_system='zero-based WT positions in supplied reference orientation',
         backend_positions=windows['Reference']['backend_positions'], original_wt_positions=original,
+        requested_source='explicit_WT_intervals' if explicit else 'guide_relative_Core_defaults_or_settings',
+        supplied_coordinates=coordinates,
+        missing_requested_positions=sorted(requested-set(original)) if explicit and original is not None else None,
+        backend_settings={k:args[k] for k in ('quantification_window_coordinates','quantification_window_center',
+                          'quantification_window_size','prime_editing_pegRNA_extension_quantification_window_size',
+                          'exclude_bp_from_left','exclude_bp_from_right') if args is not None and k in args},
         outside_intended_edits=outside_window(edits, original) if original is not None and edits is not None else None,
         references=windows)

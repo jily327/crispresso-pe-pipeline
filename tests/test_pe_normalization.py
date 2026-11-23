@@ -98,3 +98,31 @@ def test_mixed_copy_strands_preserve_individual_native_plans_and_block_cross_cop
     assert g['status']=='BLOCKED' and not g['diagnostics'] and g['anchor_copy'] is None
     assert any(r['code']=='MIXED_REFERENCE_STRANDS_NO_COMMON_COPY_COORDINATES' for r in g['reasons'])
     assert {v['native_reference']['orientation'] for v in g['copies'].values()}=={'forward','reverse'}
+
+
+def test_copy_with_only_an_intended_reference_difference_is_not_a_natural_snp():
+    first, secondary=polymorphic_panel()
+    # The secondary WT lacks the variant: only its submitted PE definition differs.
+    secondary=secondary.model_copy(update={'wt_sequence':panel()[1].wt_sequence})
+    g=geometry([first,secondary],reference_only=True)
+    match=g['copies']['copy2']['native_reference']['extension_match']
+    assert match['status']=='reference_mismatch' and match['mismatch_count']==1
+    assert not match['mismatches'][0]['natural_copy_snp'] and g['status']=='BLOCKED'
+
+
+def test_repeated_complete_extension_has_no_unique_backend_mapping():
+    target=panel()[0]
+    duplicate=target.model_copy(update={'pegRNA_extension':reverse_complement('A'),
+                                         'quantification_window_coordinates':'120-124'})
+    evidence=geometry([duplicate],reference_only=True)['copies']['copy1']['native_reference']
+    assert evidence['native_error']=='PE_EXTENSION_LOCATION_UNSUPPORTED'
+    assert evidence['extension_match']['status']=='multiple'
+
+
+def test_effective_window_cannot_expand_the_explicit_physical_intervals():
+    target=panel()[0].model_copy(update={'quantification_window_coordinates':'120-124'})
+    plan=native_reference(inverted(target))
+    refs={name:dict(sequence=seq,include_idxs=[115,120,121])
+          for name,seq in [('Reference',plan.backend.wt_sequence),('Prime-edited',plan.backend.prime_edited_sequence)]}
+    with pytest.raises(ValueError,match='exceeds the explicit'):
+        audit_window({},plan,refs)

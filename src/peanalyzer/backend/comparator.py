@@ -121,12 +121,13 @@ def run_comparator(analysis_root, sample_id, targets, output, core, *, runtime_i
                 execution['return_code']=run.returncode
                 if run.returncode: raise BackendError('COMMAND_FAILED',f'comparator Core exit {run.returncode}')
                 child=work/'output/CRISPResso_on_unrouted'
-                refs=read_json(child/'CRISPResso2_info.json')['results']['refs']
+                info=read_json(child/'CRISPResso2_info.json')
+                refs=info['results']['refs']
                 if refs['Reference']['sequence']!=native.wt_sequence or refs['Prime-edited']['sequence']!=native.prime_edited_sequence:
                     raise BackendError('BACKEND_REFERENCE_MISMATCH','comparator reference mismatch')
                 metrics[target.copy_name]=parse_child(child,routed_pairs=sample['pairs'],one_input_record_per_pair=True,
                                                       preprocessing_preserves_records=False)
-                audit_window(metrics[target.copy_name], plan, refs)
+                audit_window(metrics[target.copy_name], plan, refs, args=info['running_info']['args']['value'])
                 execution['status']='completed'
             except Exception as exc:
                 code=backend_failure_code(exc)

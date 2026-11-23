@@ -222,6 +222,8 @@ def _geometry(targets: list[Target], *, legacy: bool, coding: dict | None = None
             copy = copies[target.copy_name]
             copy['native_reference'] = reference_evidence
             copy['outside_predicted_window'] = outside_window(edits, window)
+            copy['predicted_window_end_conflicts'] = sorted(p for p in copy['quantification_window_positions']
+                if p < 15 or p >= len(target.wt_sequence) - 15)
         if coding and target.copy_name in coding:
             offset = coding[target.copy_name]
             if type(offset) is not int or not 0<=offset<=2:

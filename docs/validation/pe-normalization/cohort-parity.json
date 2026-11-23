@@ -1,0 +1,74 @@
+{
+  "forward": {
+    "target_native": {
+      "status": "REPORTABLE",
+      "numerator": 30,
+      "denominator": 105
+    },
+    "target_exact": {
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 55
+    },
+    "copy1_native": {
+      "status": "REPORTABLE",
+      "numerator": 18,
+      "denominator": 42
+    },
+    "copy1_exact": {
+      "status": "REPORTABLE",
+      "numerator": 12,
+      "denominator": 30
+    },
+    "copy2_native": {
+      "status": "REPORTABLE",
+      "numerator": 12,
+      "denominator": 28
+    },
+    "copy2_exact": {
+      "status": "REPORTABLE",
+      "numerator": 8,
+      "denominator": 20
+    },
+    "routing": {
+      "assigned": 75,
+      "quarantine": 50
+    }
+  },
+  "reverse": {
+    "target_native": {
+      "status": "REPORTABLE",
+      "numerator": 30,
+      "denominator": 105
+    },
+    "target_exact": {
+      "status": "REPORTABLE",
+      "numerator": 20,
+      "denominator": 55
+    },
+    "copy1_native": {
+      "status": "REPORTABLE",
+      "numerator": 18,
+      "denominator": 42
+    },
+    "copy1_exact": {
+      "status": "REPORTABLE",
+      "numerator": 12,
+      "denominator": 30
+    },
+    "copy2_native": {
+      "status": "REPORTABLE",
+      "numerator": 12,
+      "denominator": 28
+    },
+    "copy2_exact": {
+      "status": "REPORTABLE",
+      "numerator": 8,
+      "denominator": 20
+    },
+    "routing": {
+      "assigned": 75,
+      "quarantine": 50
+    }
+  }
+}

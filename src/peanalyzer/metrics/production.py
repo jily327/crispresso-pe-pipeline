@@ -133,7 +133,7 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
                      ('mapping_stats_filename', 'quant_of_editing_freq_filename', 'allele_frequency_table_zip_filename'))]:
         inventory(child_file(child, filename), artifacts, label + '/child/' + filename)
     if 'native_reference' in execution:
-        audit_window(metrics, plan, refs)
+        audit_window(metrics, plan, refs, args=info['running_info']['args']['value'])
     products = aligned_products(child, native)
     if (products.classification_input_reads != metrics['native']['aligned_reads']
             or products.exact_pe != metrics['exact_haplotype']['numerator']

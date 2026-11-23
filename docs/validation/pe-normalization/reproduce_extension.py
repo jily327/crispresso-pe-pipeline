@@ -47,7 +47,7 @@ def main(output, exe):
     assert result.copies['copy2'].native.numerator is None and result.copies['copy2'].native.status=='BLOCKED'
     assert routing['cohorts']['quarantine']['pairs']==2
     summary=dict(secondary={k:v for k,v in report.items() if k!='artifacts'},
-                 primary_native=result.copies['copy1'].native.model_dump(),secondary_native=result.copies['copy2'].native.status,
+                 primary_native=result.copies['copy1'].native.model_dump(include={'status','numerator','denominator'}),secondary_native=result.copies['copy2'].native.status,
                  quarantine=routing['cohorts']['quarantine']['pairs'],cohort=routing['cohorts']['copy2']['pairs'])
     (output/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
 
