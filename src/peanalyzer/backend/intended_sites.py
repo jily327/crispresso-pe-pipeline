@@ -26,6 +26,14 @@ QC_FIELDS = ('additional_substitution', 'additional_indel', 'incomplete_or_unkno
              'AB_with_additional_change', 'AB_full_length_exact', 'nonunique_site_deletion')
 
 
+class UnqualifiedSiteBackend(ValueError):
+    """A known design or runtime cannot support this supplementary measurement."""
+
+    def __init__(self, code, message):
+        self.code = code
+        super().__init__(message)
+
+
 def _panel(targets):
     """Establish homologous site order and strand despite remote SNPs/indels."""
     targets = tuple(targets)
@@ -37,7 +45,7 @@ def _panel(targets):
         raise ValueError('Invalid or duplicated backend reference name')
     copies = {n: {'WT': t.wt_sequence, 'PE': t.prime_edited_sequence} for n,t in by_name.items()}
     if len({p['WT'] for p in copies.values()}) != len(copies):
-        raise ValueError('Core requires distinct WT references')
+        raise UnqualifiedSiteBackend('INDISTINGUISHABLE_WT_REFERENCES', 'Core requires distinct WT references')
     panel = build_panel('intended_sites', copies, ())
     designs = {n: (p['WT'], p['PE'], panel.sites[n]) for n,p in copies.items()}
     return designs
@@ -259,18 +267,19 @@ def run_core_sites(*, targets, r1, r2, input_pairs, core, runtime_digest, output
     if integer(input_pairs) == 0:
         raise ValueError('EMPTY_INPUT')
     if core.version != VERSION or runtime_digest != IMAGE:
-        raise ValueError('UNQUALIFIED_BACKEND_RUNTIME')
+        raise UnqualifiedSiteBackend('UNQUALIFIED_BACKEND_RUNTIME', 'Expected the pinned CRISPResso2 2.3.4 runtime')
     explicit_override = windows is not None
     if windows is None:
         windows = {t.copy_name: getattr(t, 'quantification_window_coordinates', None) for t in targets}
         if any(windows[t.copy_name] in (None, '0') and any(getattr(t, field, None) is not None for field in
                ('quantification_window_size', 'quantification_window_center')) for t in targets):
-            raise ValueError('Guide-relative windows require explicit mapped coordinates in a guide-free run')
+            raise UnqualifiedSiteBackend('UNMAPPED_GUIDE_RELATIVE_WINDOW',
+                                         'Guide-relative windows require explicit mapped coordinates in a guide-free run')
     if set(windows) != set(designs):
         raise ValueError('Provide one explicit window per reference')
     selections = [windows[name] for name in designs]
     if any(v is not None for v in selections) and any(v is None for v in selections):
-        raise ValueError('Missing window for a subset of the panel')
+        raise UnqualifiedSiteBackend('INCOMPLETE_SITE_WINDOWS', 'Missing window for a subset of the panel')
     for key, value in windows.items():
         if value not in (None, '0'):
             _ranges(value, len(designs[key][0]))
@@ -312,7 +321,7 @@ def run_core_sites(*, targets, r1, r2, input_pairs, core, runtime_digest, output
                                    input_sha256=hashes, started_at=start, ended_at=utc_now(),
                                    return_code=proc.returncode, native_directory='CRISPResso_on_sites',
                                    window_selection='caller_override' if explicit_override else 'target_or_backend_default')
-        (stage / 'result.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
+        (stage / 'aligned_site_counts.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
         if output.exists() or output.is_symlink():
             raise FileExistsError(output)
         stage.rename(output)

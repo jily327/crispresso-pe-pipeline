@@ -6,7 +6,7 @@ from types import SimpleNamespace
 import pytest
 
 from peanalyzer.backend.intended_sites import (
-    _observe, _panel, _summarize, _uncertain_deletions, _window_report, run_core_sites,
+    UnqualifiedSiteBackend, _observe, _panel, _summarize, _uncertain_deletions, _window_report, run_core_sites,
 )
 from peanalyzer.docker_runtime import IMAGE
 
@@ -78,6 +78,23 @@ def test_window_and_runtime_admission(tmp_path):
                   output=tmp_path/'results', runtime_digest=IMAGE)
     with pytest.raises(ValueError, match='EMPTY_INPUT'):
         run_core_sites(**kwargs, input_pairs=0)
-    with pytest.raises(ValueError, match='Guide-relative'):
+    with pytest.raises(UnqualifiedSiteBackend, match='Guide-relative'):
         run_core_sites(**kwargs, input_pairs=1)
+    assert not kwargs['output'].exists()
+
+
+def test_known_scientific_blocks_remain_distinct_from_input_or_output_errors(tmp_path):
+    wt, pe, _ = reference()
+    t = SimpleNamespace(copy_name='one', wt_sequence=wt, prime_edited_sequence=pe)
+    duplicate_wt = SimpleNamespace(copy_name='two', wt_sequence=wt, prime_edited_sequence=pe)
+    with pytest.raises(UnqualifiedSiteBackend) as caught:
+        _panel([t, duplicate_wt])
+    assert caught.value.code == 'INDISTINGUISHABLE_WT_REFERENCES'
+    kwargs = dict(targets=[t], r1=tmp_path/'missing1', r2=tmp_path/'missing2', input_pairs=12,
+                  core=SimpleNamespace(version='2.3.4'), output=tmp_path/'result')
+    with pytest.raises(UnqualifiedSiteBackend) as caught:
+        run_core_sites(**kwargs, runtime_digest='unqualified')
+    assert caught.value.code == 'UNQUALIFIED_BACKEND_RUNTIME'
+    with pytest.raises(FileNotFoundError):
+        run_core_sites(**kwargs, runtime_digest=IMAGE)
     assert not kwargs['output'].exists()
