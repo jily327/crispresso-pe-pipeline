@@ -1,5 +1,7 @@
 # crispresso-pe-pipeline
 
+The **1.1.0 release candidate** adds strand-aware PE measurements, two-site haplotypes, multi-copy nuclease analysis and explicit empty negative controls. [Scientific definitions and migration](docs/v1.1-scientific-measurements.md) · [Qualification record](docs/validation/v110/README.md)
+
 Version **1.0.1** addresses audit recovery, credentials, provenance and export findings; see [release notes](docs/release-notes-1.0.1.md) and [qualification](docs/validation/v1.0.1-audit-remediation/README.md).
 
 Version **1.0.0** added Light/Dark themes, historical analysis discovery, a stable
