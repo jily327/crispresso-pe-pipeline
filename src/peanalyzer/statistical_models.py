@@ -83,7 +83,7 @@ class Observation(Series, BiologicalSample):
     fraction: Probability | None
     reason_codes: list[Nonempty]
     analysis_id: Nonempty
-    metric_contract_version: Literal["m4-v1"]
+    metric_contract_version: Literal["m4-v1", "intended-sites-v1.1"]
     source_result: Nonempty
 
     @model_validator(mode="after")
@@ -282,7 +282,7 @@ class InputResult(Model):
 class Provenance(Model):
     package_version: Nonempty
     statistics_contract_version: Literal["m5-v1"] = "m5-v1"
-    source_metric_contract_versions: list[Literal["m4-v1"]]
+    source_metric_contract_versions: list[Literal["m4-v1", "intended-sites-v1.1"]]
     input_results: list[InputResult]
     samples_path: Nonempty
     manifest_path: Nonempty

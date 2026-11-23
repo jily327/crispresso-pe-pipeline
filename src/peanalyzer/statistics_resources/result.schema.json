@@ -977,7 +977,10 @@
           "title": "Fraction"
         },
         "metric_contract_version": {
-          "const": "m4-v1",
+          "enum": [
+            "m4-v1",
+            "intended-sites-v1.1"
+          ],
           "title": "Metric Contract Version",
           "type": "string"
         },
@@ -1191,7 +1194,10 @@
         },
         "source_metric_contract_versions": {
           "items": {
-            "const": "m4-v1",
+            "enum": [
+              "m4-v1",
+              "intended-sites-v1.1"
+            ],
             "type": "string"
           },
           "title": "Source Metric Contract Versions",

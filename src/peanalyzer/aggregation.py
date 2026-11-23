@@ -172,6 +172,7 @@ def collect_observations(manifest_path, samples_path):
             raise AggregationError("duplicate resolved result path in manifest")
         observations, inputs, seen, replicates, target_definitions, definition_targets, policies = [], [], set(), set(), {}, {}, {}
         snapshots = {manifest_path: sha256(manifest_bytes), samples_path: sha256(samples_bytes)}
+        site_methods = {}
         for path in sorted(paths):
             data = path.read_bytes()
             raw = strict_json(data)
@@ -221,6 +222,13 @@ def collect_observations(manifest_path, samples_path):
                     raise AggregationError("duplicate metric/policy analytical series within one analysis")
                 local_series.add(key)
                 observations.append(observation)
+            from peanalyzer.site_statistics import site_observations
+            for observation in site_observations(result, sample, path, manifest_path.parent, snapshots, site_methods):
+                key = series_key(observation)
+                if key in local_series:
+                    raise AggregationError("duplicate intended-site analytical series within one analysis")
+                local_series.add(key)
+                observations.append(observation)
         # Inputs must be immutable during collection, including metadata parsed by its shared loader.
         for path, expected in snapshots.items():
             if sha256(path.read_bytes()) != expected:
@@ -236,7 +244,7 @@ def collect_observations(manifest_path, samples_path):
         observations.sort(key=lambda r: (series_key(r), condition_key(r), r.sample_name))
         return StatisticsResult(
             schema_version=1, statistics_contract_version="m5-v1",
-            provenance=Provenance(package_version=__version__, source_metric_contract_versions=["m4-v1"],
+            provenance=Provenance(package_version=__version__, source_metric_contract_versions=sorted({o.metric_contract_version for o in observations}),
                 input_results=sorted(inputs, key=lambda r: (r.sample_id, r.target_name)),
                 samples_path=str(samples_path), manifest_path=str(manifest_path),
                 contrast_specification_path=None, contrast_specification_hash=None,
@@ -247,7 +255,7 @@ def collect_observations(manifest_path, samples_path):
             observations=observations, group_summaries=summarize_groups(observations), contrasts=[],
             multiple_testing_families=[], unused_metadata_sample_ids=sorted(
                 s.sample_name for s in samples if s.sample_name not in {name for name, _ in seen}))
-    except (OSError, UnicodeError, csv.Error, ValueError, TypeError) as exc:
+    except (OSError, UnicodeError, csv.Error, ValueError, TypeError, KeyError) as exc:
         if isinstance(exc, AggregationError):
             raise
         raise AggregationError(str(exc)) from exc
@@ -256,8 +264,11 @@ def collect_observations(manifest_path, samples_path):
 def summarize_groups(observations):
     """Give each biological sample one vote; retain missing metric inventories."""
     members, series, rows = defaultdict(dict), {}, defaultdict(dict)
+    empty_controls = set()
     for row in observations:
         condition, key = condition_key(row), series_key(row)
+        if row.sample_role == "negative_control" and "EMPTY_NEGATIVE_CONTROL" in row.reason_codes:
+            empty_controls.add((row.target_name, row.sample_name))
         members[(row.target_name, condition)][row.sample_name] = subset(row, BiologicalSample)
         series[key] = subset(row, Series)
         rows[(key, condition)][row.sample_name] = row
@@ -270,9 +281,12 @@ def summarize_groups(observations):
             assessments, fractions = [], []
             for name, sample in sorted(samples.items()):
                 row = actual.get(name)
+                missing_reasons = ["METRIC_NOT_PRESENT"]
+                if definition.metric_name.startswith("intended_sites.") and (target, name) in empty_controls:
+                    missing_reasons.append("EMPTY_NEGATIVE_CONTROL")
                 assessments.append(SampleAssessment(**sample.model_dump(),
                     status=row.status if row else "MISSING_METRIC",
-                    reason_codes=row.reason_codes if row else ["METRIC_NOT_PRESENT"]))
+                    reason_codes=row.reason_codes if row else missing_reasons))
                 if row and row.status == "REPORTABLE":
                     fractions.append(SampleFraction(sample_name=name, numerator=row.numerator,
                                                     denominator=row.denominator, fraction=row.fraction))

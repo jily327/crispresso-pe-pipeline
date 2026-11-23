@@ -86,6 +86,10 @@ def metric_label(row):
     if row["policy_id"] is not None:
         return f'{population} PE family ({row["policy_id"]})'
     metric = row["metric_name"]
+    if metric.startswith("intended_sites."):
+        from peanalyzer.site_series import measurement_labels
+        method, outcome, _ = measurement_labels(metric)
+        return f"{population} {method} · {outcome}"
     if metric.endswith("crispresso_native_pe"):
         return population + " CRISPResso native PE"
     if metric.endswith("precise_pe"):
@@ -177,14 +181,17 @@ def _cell(value):
 def report_tables(spec):
     versioned = any("descriptive_statistics_version" in group for group in spec["group_summaries"])
     groups = BiologicalReplicateSummary if versioned else GroupSummary
-    return (("observations", Observation), ("group_summaries", groups), ("contrasts", ContrastResult))
+    for name, model in (("observations", Observation), ("group_summaries", groups), ("contrasts", ContrastResult)):
+        rows = spec[name]
+        present = {key for row in rows for key in row} if rows else set(model.model_fields)
+        yield name, [field for field in model.model_fields if field in present]
 
 
 def write_tables(spec, root):
     root.mkdir()
-    for name, model in report_tables(spec):
+    for name, columns in report_tables(spec):
         with (root / f"{name}.tsv").open("w", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(model.model_fields), delimiter="\t", lineterminator="\n")
+            writer = csv.DictWriter(handle, fieldnames=columns, delimiter="\t", lineterminator="\n")
             writer.writeheader()
             writer.writerows({key: _cell(value) for key, value in row.items()} for row in spec[name])
 
@@ -333,9 +340,9 @@ def render_html(spec, source_hash, figures):
     assessments = [dict(**identity(g), condition=g['condition'], **a) for g in spec['group_summaries'] for a in g['sample_assessments']]
     parts.append(_table('Sample assessments and reason codes', assessments, [*SERIES_FIELDS, 'condition', 'sample_name', 'biological_replicate', 'block_id', 'paired', 'status', 'reason_codes']))
     parts.append('<p>Unused metadata sample IDs: ' + escape(canonical(spec['unused_metadata_sample_ids'])) + '</p><h2>Detailed tables</h2>')
-    for name, model in report_tables(spec):
+    for name, columns in report_tables(spec):
         parts.append('<p><a href="tables/' + name + '.tsv">Download ' + name + '.tsv</a></p>')
-        parts.append(_table(name, spec[name], list(model.model_fields)))
+        parts.append(_table(name, spec[name], columns))
     contracts = ('indel-nuclease-report-v1', 'indel-nuclease-stats-v1') if 'nuclease_results' in spec else ('m6-v1', 'm5-v1')
     parts.extend(['<h2>Reproducibility</h2><p>Package version: ', escape(__version__),
                   '; report contract: ' + contracts[0] + '; source statistics contract: ' + contracts[1] + '; inventoried artifacts: ', str(5+len(figures)),

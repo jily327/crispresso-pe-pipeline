@@ -331,6 +331,12 @@ def validate_stage(plan, node, status, *, output_override=None):
             observed[key] = item
         if set(observed) != set(expected):
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'incomplete M4 source inventory')
+        if plan.targets[0].analysis_mode == 'precise_edit' and 'orientation_contract' in plan.normalized_options['routing_policy_identity']:
+            from peanalyzer.site_statistics import verify_workflow_site_observations
+            try:
+                verify_workflow_site_observations(plan, result, expected)
+            except (ValueError, KeyError, TypeError, OSError) as exc:
+                raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', str(exc)) from exc
         if result.provenance.invocation_parameters['command'] != plan.normalized_options['statistics_mode']:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'statistics mode differs')
         threshold = plan.normalized_options.get('min_biological_replicates')

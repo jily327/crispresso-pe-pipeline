@@ -40,7 +40,7 @@ def condition(c):
 
 def label(name):
     if name.startswith("intended_sites."):
-        from peanalyzer.site_statistics import measurement_labels
+        from peanalyzer.site_series import measurement_labels
         method, outcome, _ = measurement_labels(name)
         return f"{method} · {outcome}"
     if name.endswith('_crispresso_native_pe'):
@@ -110,7 +110,7 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
         source = metric_sources[key]
         site_labels = None
         if o.metric_contract_version == 'intended-sites-v1.1':
-            from peanalyzer.site_statistics import ARTIFACT, measurement_labels
+            from peanalyzer.site_series import ARTIFACT, measurement_labels
             source = sources[(Path(source.name).parent / ARTIFACT).as_posix()]
             if source.sha256 != m.provenance.artifacts[ARTIFACT].sha256:
                 raise WorkflowError('SOURCE_IDENTITY_MISMATCH', 'Declared site observation hash differs')
@@ -142,7 +142,7 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
                 else 'Exact intended PE / (exact WT + exact intended PE). Different numerator and denominator from the CRISPResso reference fraction; neither is a lower bound.' if record
                 else 'Reads with the named outcome divided by assessable aligned reads in the selected window and population.' if mode=='indel_nuclease'
                 else 'Stored metric fraction for the authoritative population and selected window/policy.'),
-            denominator_label=('Assessable aligned reads in this population' if m.metric_contract_version=='indel-nuclease-multicopy-v1' else 'Authoritative aligned reads' if mode=='indel_nuclease' or (record and record.metric_family=='native')
+            denominator_label=(site_labels[2] if site_labels else 'Assessable aligned reads in this population' if m.metric_contract_version=='indel-nuclease-multicopy-v1' else 'Authoritative aligned reads' if mode=='indel_nuclease' or (record and record.metric_family=='native')
                 else 'Exact WT + exact PE products' if record else 'Stored policy-specific denominator'), source=source, evidence=evidence))
     for key, m in metrics.items():
         source = metric_sources[key]

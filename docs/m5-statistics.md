@@ -241,3 +241,29 @@ remain scientific design assumptions. M4's existing observability/read-geometry
 limitations remain upstream and unchanged; M4.2.3 is not implemented here.
 See [M5 qualification](validation/m5/README.md) and
 [M5.1 coverage validation](validation/m51/README.md).
+
+## Two-site biological comparisons
+
+For a two-site precise-edit analysis, the metrics result declares the size and
+SHA-256 of `intended_sites.json`. The statistics collector checks that
+declaration, the sample, target, prepared population, reference panel and assay
+settings. Each observation links to the declared site file. A historical run
+without the companion supplies no site measurements. When other samples have
+the series, its missing observation appears in the expected replicate inventory.
+
+Contrast selectors use `intended_sites.<method>.<outcome>`. Methods are
+`two_site_q30` (paired-read contexts), `full_templates` (exact full-length
+templates) and `core_alleles` (ordinary aligned CRISPResso alleles). Outcomes
+are `WT`, `A_only`, `B_only`, `double_edit`, `any_edit`, `site_A` and `site_B`.
+The joint outcomes use the number of jointly assessed molecules. The marginal
+site outcomes use the number assessable at their respective sites. For example,
+`intended_sites.two_site_q30.double_edit` has denominator WT + A-only + B-only
++ double-edit. The strict full-length WT-versus-intended-product ratio has its
+own existing metric definition.
+
+The Q30 and full-template series support a combined target and a named
+`copy_name`. Unresolved origins contribute to the combined target and remain
+visible in the source partition. CRISPResso aligned-allele statistics cover
+the combined target. The sample-level backend tables separately identify
+assignment to a reference. Zero denominators give an unavailable fraction,
+and a blocked assay passes its reason to the replicate inventory.
