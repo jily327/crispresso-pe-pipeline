@@ -3,8 +3,7 @@ import json
 from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
-from peanalyzer.backend.intended_sites import run_core_sites
-from peanalyzer.backend.pooled import BackendError
+from peanalyzer.backend.intended_sites import run_core_sites, UnqualifiedSiteBackend
 from peanalyzer.demux_verify import VerifiedSample, read_json, sha256_file
 from peanalyzer.haplotypes import FLANK, MARKER_LENGTH, MIN_PHRED, STATES, build_panel, measure_sample
 from peanalyzer.site_exports import verify_site_exports, write_site_exports
@@ -46,14 +45,12 @@ def write_workflow_sites(*, analysis_root, sample_id, targets, output, core, run
         doc.update(result, site_coordinates_0based=panel.sites, copy_marker_starts_0based=list(panel.marker_starts),
                    reference_panel_sha256=panel.sha256, site_flank_length=FLANK, site_min_phred=MIN_PHRED,
                    copy_marker_length=MARKER_LENGTH)
-        if sample.pairs:
-            try:
-                doc['backend'] = run_core_sites(targets=targets, r1=sample.r1, r2=sample.r2,
-                                                input_pairs=sample.pairs, core=core, runtime_digest=runtime_digest,
-                                                output=output / 'core_sites')
-            except (ValueError, BackendError, OSError) as exc:
-                doc['backend'] = dict(status='BLOCKED', reason_codes=[getattr(exc, 'code', 'SITE_BACKEND_UNAVAILABLE')],
-                                      diagnostic=str(exc))
+        try:
+            doc['backend'] = run_core_sites(targets=targets, r1=sample.r1, r2=sample.r2,
+                                            input_pairs=sample.pairs, core=core, runtime_digest=runtime_digest,
+                                            output=output / 'core_sites')
+        except UnqualifiedSiteBackend as exc:
+            doc['backend'] = dict(status='BLOCKED', reason_codes=[exc.code], diagnostic=str(exc))
     with (output / 'intended_sites.json').open('x') as handle:
         json.dump(doc, handle, indent=2, allow_nan=False)
         handle.write('\n')
