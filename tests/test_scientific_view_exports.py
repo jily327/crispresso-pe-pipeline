@@ -20,7 +20,8 @@ def test_site_exports_and_excel_keep_population_and_replay(tmp_path):
     empty = dict(counts=dict.fromkeys(combined['counts'], 0), assessable=0,
                  **{k: metric(0,0) for k in ('site_A','site_B','A_only','B_only','double_edit','any_edit')})
     doc = dict(status='ASSESSED', sample_id='S1', target_name='T', input_pairs=11, site_orientation={'R2_forward':7},
-               two_site_q30=dict(combined=combined, copies={'copyA':combined}, unresolved_copy=empty))
+               two_site_q30=dict(combined=combined, copies={'copyA':combined, 'copyB':empty,
+                                 'onlyMarginal':{**empty, 'site_A':metric(0,2)}}, unresolved_copy=empty))
     (tmp_path/'intended_sites.json').write_text(json.dumps(doc))
     write_site_exports(tmp_path,doc)
     verify_site_exports(tmp_path,doc)
@@ -30,6 +31,10 @@ def test_site_exports_and_excel_keep_population_and_replay(tmp_path):
     assert lookup['Combined target','Site A edited (including double)']['Denominator'] == '9'
     assert lookup['Combined target','Complete double edit']['Denominator'] == '7'
     assert lookup['Unresolved copy','Complete double edit']['Fraction'] == ''
+    assert lookup['Copy · copyB','Complete double edit']['Status'] == 'NOT_ASSESSABLE'
+    assert lookup['Copy · onlyMarginal','Complete double edit']['Status'] == 'ASSESSED'
+    assert lookup['Copy · onlyMarginal','Complete double edit']['Fraction'] == ''
+    assert lookup['Copy · onlyMarginal','Site A edited (including double)']['Fraction'] == '0.0'
     assert 'R2_forward' in (tmp_path/'intended_sites.html').read_text()
     (tmp_path/'intended_sites.tsv').write_text('modified')
     with pytest.raises(WorkflowError, match='SITE_EXPORT_MISMATCH'):

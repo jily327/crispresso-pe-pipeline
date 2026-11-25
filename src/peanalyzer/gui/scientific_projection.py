@@ -32,6 +32,13 @@ def panel(sample, target, method, scope, status, source, *, definition='', evide
         n, d, f = (value[k] for k in ('numerator', 'denominator', 'fraction'))
         measurements.append(ClassValue(name=name, numerator=None if n is None else str(n),
                                        denominator=None if d is None else str(d), fraction=f, percentage=percentage(f)))
+    # A population can have callable marginal observations even when no joint
+    # haplotype is observable. Each stored fraction carries its own denominator.
+    if measurements and status in ('ASSESSED', 'REPORTABLE', 'NO_CALLABLE_SITE_PAIRS'):
+        if all(m.fraction is None for m in measurements):
+            status = 'NOT_ASSESSABLE'
+        elif status == 'NO_CALLABLE_SITE_PAIRS':
+            status = 'ASSESSED'
     return ScientificPanel(sample_id=sample, target=target, method=method, population=scope, status=status,
                            reasons=list(reasons), definition=definition, measurements=measurements,
                            evidence=diagnostic_fields(evidence or {}), source=source)
