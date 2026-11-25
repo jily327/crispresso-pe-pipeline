@@ -37,3 +37,9 @@ bash docs/validation/epsps-real/run-regression.sh /path/to/original/inputs /path
 ```
 
 Run the opt-in measurement fixtures using the pinned backend, following the linked reproduction programs for normalization, conventional two-site allele calls and nuclease measurements. Check the packaged viewer identity with `python viewer_build.py`. The full test and package check totals are recorded in the integrated PR. [Measurement contracts and migration notes](../../v1.1-scientific-measurements.md)
+
+## Linux qualification
+
+The installed 1.1.0 wheel passed **2,059** tests in the default Python suite, with **114 skipped, 0 failures**. The skipped count includes opt-in integrations. Separate executions passed the installed launcher/cancellation/recovery test, the genuine two-site and baseline M7 workflows (run, analyze and completed resume), and 14 checks of the final site/empty-control presentation and contracts. Frontend tests passed **64/64**. TypeScript, viewer asset identity, wheel/sdist builds, offline installation and dependency verification passed. All 112 package entries in the wheel matched the candidate checkout. [Machine-readable checks and distribution hashes](linux-qualification.json)
+
+Chromium passed all 20 setup/viewer tests and six run-lifecycle tests. The independent scientific view check opened the final two-site and W2/W3 workspaces and verified the integers, zero control, unavailable copy fractions, physical mate-order display and Excel integrity. It compared file fingerprints before and after viewing. The separate Practical browser suite was interrupted before creating a workspace. [Browser suite results](browser-regression.json) · [Scientific browser checks](scientific-browser-check.json) · [Genuine two-site workflow results](../v110-sites/workflow-comparison.json)

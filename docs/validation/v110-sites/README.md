@@ -20,7 +20,7 @@ Each EPSPS run here used the two supplied WT sequences and explicit qualificatio
 | 1A, WT-forward mate first | 5,564 | 5,543 | 5,115 | 1 | 5,027 | 31 | 15 | 21 | 20 | 0 | 5,114 | 11 |
 | All recognized pairs, WT-forward mate first | 114,761 | 114,250 | 105,769 | 49 | 105,033 | 88 | 161 | 25 | 411 | 2 | 105,718 | 12 |
 
-In acquisition order, 1A contributed 52/5,039 Site A and 29/5,039 Site B observations carrying the respective intended substitution. With the WT-forward mate first, these counts were 52/5,114 and 36/5,114. The all-known marginal denominators were 105,720 for Site A and 105,718 for Site B. The original M7 input order is explicitly recorded. A change in supplied mate order alters the physical preprocessing result in real data. Comparing counts between the two orders requires identifying both populations.
+In acquisition order, 1A contributed 52/5,039 Site A and 29/5,039 Site B observations carrying the respective intended substitution. With the WT-forward mate first, these counts were 52/5,114 and 36/5,114. The all-known marginal denominators were 105,720 for Site A and 105,718 for Site B. M7 records the submitted mate order. A change in supplied mate order alters the physical preprocessing result in real data. Comparing counts between the two orders requires identifying both populations.
 
 ## Reproduction
 
@@ -32,4 +32,12 @@ python docs/validation/v110-sites/qualify.py /new/workdir /path/to/attachments /
 
 The runner checks known synthetic molecules (including partial, double, additional-change and deletion products) against four genuine two-WT runs. The three window settings are Core defaults, explicit intended coordinates and a disjoint window. The fourth run reverses the input mate order. Per-reference counts for all 82 synthetic molecules agree with their input truth. Native window-modified counts per copy were 25, 23 and 0 for the default, intended and disjoint windows respectively. An independent acquisition-order executable invocation re-demultiplexes 1A from the raw source, reconstructs each merged read's contribution by read ID and sequence and checks per-reference nucleotide frequencies. The forward-first EPSPS invocations are compared to the independently executed [integer recount](../epsps-real/evidence/core-comparison.json). The resulting [per-reference and combined integers](integer-reconciliation.json) include the paired input hashes.
 
-The known synthetic two-site end-to-end workflow test exercises `peanalyzer run`, `--resume` and `peanalyzer analyze`. A populated experimental sample has 40 pairs. A declared negative control has zero pairs. Run the opt-in test with `M7_INTEGRATION=1` and `M3_CORE_EXECUTABLE` set to the pinned executable.
+## Workflow regression
+
+The end-to-end test generates 40 synthetic pairs distributed over two copies and declares a zero-read negative control. Both `peanalyzer run` and `peanalyzer analyze` read the same accepted demultiplexing archive. Each should return 20 WT, 6 A-only, 8 B-only and 6 double-edited pairs across the populated sample. Four double-edited reads are full-length exact products, with two assigned to each copy. The remaining two have an additional substitution. A completed resume must reuse the original completion manifest byte for byte. The test checks the source hash through the M4 metrics inventory, M5 biological observations, TSV/HTML, the GUI's verified workspace reader and the generated XLSX cells.
+
+Run the opt-in test with the pinned executable available:
+
+```sh
+M7_INTEGRATION=1 M3_CORE_EXECUTABLE=peanalyzer-crispresso python -m pytest -q tests/test_intended_sites_workflow.py
+```
