@@ -1,0 +1,78 @@
+{
+  "fixture": "One forward synthetic M7 sample, two copies, four pairs per copy; 1 PE and 3 WT per copy.",
+  "frozen_git_commit": "25ce3a990ccef9e2daa8937f0c09023498ef4cb5",
+  "frozen_version": "1.0.1",
+  "frozen_code_and_resource_files": 94,
+  "frozen_installed_package_code_sha256": "0f76e731b7e0f80047a0f23dc8b592a1cd3f0270950d4ab716a9725bf5962e16",
+  "candidate_version": "1.1.0",
+  "candidate_verify_status": "COMPLETED",
+  "candidate_package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+  "candidate_git_commit": "7a8c2fe4b99f00573ac2196c09ab874401f07296",
+  "candidate_view": {
+    "verified": true,
+    "mode": "precise_edit",
+    "targets": [
+      "T1"
+    ],
+    "stages": 8,
+    "observations": 6,
+    "groups": 6
+  },
+  "target": {
+    "native": [
+      2,
+      8
+    ],
+    "exact": [
+      2,
+      8
+    ]
+  },
+  "copies": {
+    "copy1": {
+      "native": [
+        1,
+        4
+      ],
+      "exact": [
+        1,
+        4
+      ]
+    },
+    "copy2": {
+      "native": [
+        1,
+        4
+      ],
+      "exact": [
+        1,
+        4
+      ]
+    }
+  },
+  "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "backend_runs": [
+    {
+      "execution": "metrics/bc001/T1/comparator/copy1/execution.json",
+      "version": "2.3.4"
+    },
+    {
+      "execution": "metrics/bc001/T1/comparator/copy2/execution.json",
+      "version": "2.3.4"
+    },
+    {
+      "execution": "metrics/bc001/T1/copies/copy1/execution.json",
+      "version": "2.3.4"
+    },
+    {
+      "execution": "metrics/bc001/T1/copies/copy2/execution.json",
+      "version": "2.3.4"
+    }
+  ],
+  "input_files": 8,
+  "workspace_files": 185,
+  "manifest_sha256": "a48706b27dc96f89eb771013dfdf2b540f81d8b961aa9606a2d065cb33c4b049",
+  "before_inventory_sha256": "6c0dae2144cc42b09b57ba6cbd45a54da868c660eea7e36d10326d748f6d4975",
+  "after_inventory_sha256": "6c0dae2144cc42b09b57ba6cbd45a54da868c660eea7e36d10326d748f6d4975",
+  "changed_files": 0
+}
