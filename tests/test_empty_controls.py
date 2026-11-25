@@ -32,6 +32,9 @@ def test_all_empty_controls_complete_verify_and_resume(tmp_path, monkeypatch, mo
     declare_controls(options['samples'], {'bc001', 'bc002'})
     def unexpected(**kwargs):
         pytest.fail('Empty negative control invoked a backend')
+    from peanalyzer import workflow_publication
+    monkeypatch.setattr(workflow_publication, 'resolve_executable', lambda *args: pytest.fail(
+        'Empty-sample metrics must not start a per-sample backend version probe'))
     monkeypatch.setattr(workflow, 'run_metrics', unexpected)
     monkeypatch.setattr(workflow, 'run_nuclease_metrics', unexpected)
     workflow.execute_workflow(**options)

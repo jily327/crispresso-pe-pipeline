@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import tempfile
 
+from peanalyzer.backend.pooled import resolve_executable
 from peanalyzer.workflow_storage import WorkflowError, atomic_json, inventory, owned, no_symlinks
 from peanalyzer.workflow_integrity import authenticate, binding
 
@@ -51,7 +52,8 @@ def publish_metrics(plan,node,runner,**kwargs):
     if count==0:
         write_empty_control(verified, output, **kwargs)
     else:
-        runner(output=output,**kwargs)
+        core = resolve_executable(plan.backend_identity.executable)
+        runner(output=output,core=core,**kwargs)
     if 'min_prepared_pairs_qc' in plan.normalized_options:
         from peanalyzer.result_dispatch import metric_model
         from peanalyzer.workflow_storage import read_json

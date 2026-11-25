@@ -405,11 +405,10 @@ def execute_stage(plan, node, completed, argv):
             if policies is not None:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',node.stage_id)
             publish_metrics(plan,node,run_nuclease_metrics,analysis_root=root/'analysis',sample_id=node.sample_id,targets=targets_for(plan,node),
                 analysis_id='m7-'+digest([node.sample_id,node.target_name]),
-                core=resolve_executable(plan.backend_identity.executable),runtime_digest=plan.backend_identity.runtime_digest)
+                runtime_digest=plan.backend_identity.runtime_digest)
             return status,reasons
         publish_metrics(plan,node,run_metrics,analysis_root=root / 'analysis', sample_id=node.sample_id, targets=targets_for(plan,node),
             analysis_id='m7-' + digest([node.sample_id, node.target_name]),
-            core=resolve_executable(plan.backend_identity.executable),
             routing_root=root / route.node.output_path if route.status == 'COMPLETED' else None,
             runtime_digest=plan.backend_identity.runtime_digest, tolerance_policies=policies)
     elif kind == 'metrics_manifest':

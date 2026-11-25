@@ -93,7 +93,7 @@ def validate_qc(plan, node, result, output):
 
 
 def write_empty_control(verified, output, *, sample_id, analysis_id, targets,
-                        analysis_root, runtime_digest, core, routing_root=None, tolerance_policies=None):
+                        analysis_root, runtime_digest, routing_root=None, tolerance_policies=None):
     from peanalyzer.metrics.production import collect_metrics, digest
     from peanalyzer.metrics.family import reaggregate
     from peanalyzer.workflow_storage import atomic_json
