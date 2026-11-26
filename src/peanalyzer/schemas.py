@@ -30,7 +30,19 @@ def reverse_complement(value: str) -> str:
     return value.translate(str.maketrans("ACGT", "TGCA"))[::-1]
 
 
-SampleRole = Literal["experimental", "negative_control"]
+PCRControlRole = Literal["negative_control", "pcr_negative_control", "no_template_control"]
+SampleRole = Literal["experimental", "biological_negative_control", "pcr_negative_control",
+                     "no_template_control", "technical_replicate", "negative_control"]
+BIOLOGICAL_ROLE_POLICY = "explicit-sample-roles-v1"
+
+
+def biological_role(role):
+    return role in ("experimental", "biological_negative_control")
+
+
+def pcr_control_role(role):
+    return role in ("negative_control", "pcr_negative_control", "no_template_control")
+
 
 
 class BarcodeSample(Model):

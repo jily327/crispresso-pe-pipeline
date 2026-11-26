@@ -267,3 +267,35 @@ visible in the source partition. CRISPResso aligned-allele statistics cover
 the combined target. The sample-level backend tables separately identify
 assignment to a reference. Zero denominators give an unavailable fraction,
 and a blocked assay passes its reason to the replicate inventory.
+
+## Sample roles and biological eligibility
+
+The samples CSV, Setup form and sample workbook accept the following roles.
+A missing role defaults to `experimental`. Declare empty-vector and no-guide
+biological groups with `biological_negative_control` and their actual
+treatment and independent biological replicate IDs.
+
+| Sample role | Enters biological summaries and tests | Sample-level reporting |
+| --- | --- | --- |
+| `experimental` | Yes, when the metric is reportable | All observations |
+| `biological_negative_control` | Yes, when the metric is reportable | All observations and control QC |
+| `pcr_negative_control`, `no_template_control` | No | All observations and control QC |
+| `negative_control` | No. This legacy declaration means PCR negative | All observations and control QC |
+| `technical_replicate` | No. A repeated measurement may share a biological replicate ID | All observations and technical QC |
+
+Each biological replicate contributes one fraction. The study must identify
+the independent experimental or biological-control row explicitly when it
+also records technical repeats. Technical measurements remain individually
+available. They never increase biological n and are never silently pooled.
+The role restriction precedes sample and block selection and applies to every
+metric series. The pooled biological fraction uses only the participating
+reportable biological samples. PCR and no-template controls may have zero
+reads. A nonempty control retains its actual measured numerator, denominator
+and fraction. Per-sample extension evidence remains attached to its own
+sample throughout the workflow.
+
+New executions record `biological_role_policy=explicit-sample-roles-v1`.
+They emit `control_and_technical_qc.tsv` when a declared control or repeat
+is present. The report, viewer QC and workbook expose those measurements.
+Opening a historical result reads its published statistics. Explicitly running
+a new contrast from stored observations uses the current role policy.

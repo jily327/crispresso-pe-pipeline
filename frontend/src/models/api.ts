@@ -130,6 +130,8 @@ export interface Observation {
   denominator: string | null;
   fraction: number | null;
   percentage: string | null;
+  sample_role: "experimental" | "biological_negative_control" | "pcr_negative_control" | "no_template_control" | "technical_replicate" | "negative_control";
+  biological_eligible: boolean | null;
   observation_id: string;
   series_id: string;
   sample_id: string;

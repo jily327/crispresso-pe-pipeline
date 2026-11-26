@@ -103,6 +103,8 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
                                                     canonical_record=result.target_metrics.total_precise_pe))
                 contracts.add(payload['contract'])
     observations, populations, details, alleles = [], [], [], {}
+    from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, biological_role
+    has_role_policy = stats.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY
     for o in stats.observations:
         key = (o.sample_id, o.target_name)
         if key not in metrics:
@@ -127,7 +129,8 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
                 record = next((r for r in (m.copies[o.copy_name].native, m.copies[o.copy_name].precise)
                                if r.metric_name == o.metric_name), None)
         evidence = fields(record.model_dump(exclude={'metric_name','reason_codes'}) if record else {})
-        observations.append(Observation(**ratio(o), observation_id=digest([o.sample_id,series(o),o.population_id]),
+        observations.append(Observation(**ratio(o), sample_role=o.sample_role,
+            biological_eligible=biological_role(o.sample_role) if has_role_policy else None, observation_id=digest([o.sample_id,series(o),o.population_id]),
             series_id=series(o), sample_id=o.sample_id, sample_name=o.sample_name, editor=o.editor,
             treatment=o.treatment, dpi=str(o.dpi), biological_replicate=o.biological_replicate,
             block_id=o.block_id, paired=o.paired, target=o.target_name, copy_name=o.copy_name,

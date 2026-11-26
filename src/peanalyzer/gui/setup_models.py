@@ -1,6 +1,7 @@
 """Editable drafts and non-executable, backend-owned setup previews."""
 from typing import Literal
 from pydantic import Field, PrivateAttr, field_validator
+from peanalyzer.schemas import SampleRole
 from peanalyzer.gui.models import Model, FieldValue
 
 Step = Literal['samples', 'mode', 'target', 'configuration', 'review']
@@ -16,7 +17,7 @@ class SetupFile(Model):
 
 
 class DraftSample(Model):
-    sample_role: Literal['experimental', 'negative_control'] = 'experimental'
+    sample_role: SampleRole = 'experimental'
     sample_name: str = ''
     barcode_id: str = ''
     forward_barcode: str = ''

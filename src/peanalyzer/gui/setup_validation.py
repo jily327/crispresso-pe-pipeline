@@ -5,6 +5,7 @@ import io
 import json
 from pydantic import ValidationError
 from peanalyzer import __version__
+from peanalyzer.schemas import biological_role, pcr_control_role
 from peanalyzer.schemas import Config, Sample, Target, Identifier
 from peanalyzer.nuclease.targets import NucleaseTarget
 from peanalyzer.validation import load_samples, load_targets, _csv_value, metadata_warnings
@@ -192,7 +193,7 @@ def compile_draft(content, revision, references, protected):
                     if trims and any(len(r.sequence)<=n for r,n in zip(pair,trims)):raise ValueError('Read length must exceed configured analysis trim.')
                     pairs+=1
                 input_evidence['paired_records']=str(pairs)
-                if pairs==0 and any(s.sample_role!='negative_control' for s in sample_rows):issue('samples','r1','EMPTY_INPUT','The paired FASTQ population is empty.')
+                if pairs==0 and any(not pcr_control_role(s.sample_role) for s in sample_rows):issue('samples','r1','EMPTY_INPUT','The paired FASTQ population is empty.')
         else:
             if content.r1 or content.r2:raise ValueError('Verified demux input cannot also select raw R1/R2.')
             if not content.demux:issue('samples','demux','REQUIRED','Select a verified demux archive.')
@@ -228,6 +229,8 @@ def compile_draft(content, revision, references, protected):
         indices={_csv_value('barcode_id',row.barcode_id):index for index,row in enumerate(content.samples)}
         for target_name in sorted({t.target_name for t in target_rows}):
             for sample in sample_rows:
+                if not biological_role(sample.sample_role):
+                    continue
                 key=(condition_key(sample),target_name,sample.biological_replicate)
                 replicates.setdefault(key,[]).append(sample)
         for (_,target_name,replicate),samples in replicates.items():

@@ -1,5 +1,6 @@
 """Versioned presentation contracts. Scientific integers travel as decimal strings."""
 from typing import Literal
+from peanalyzer.schemas import SampleRole
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -64,6 +65,8 @@ class Value(Model):
 
 
 class Observation(Value):
+    sample_role: SampleRole = "experimental"
+    biological_eligible: bool | None = None
     observation_id: str
     series_id: str
     sample_id: str

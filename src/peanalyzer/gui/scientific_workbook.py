@@ -18,6 +18,16 @@ def scientific_sheets(view):
                          o.status, o.numerator, o.denominator, o.fraction, o.definition, ', '.join(o.reasons) or None,
                          o.source.name, o.source.sha256))
         sheets['Nuclease summary'] = (rows, {9})
+    controls = [o for o in getattr(view, 'observations', ()) if getattr(o, 'biological_eligible', None) is not None
+                and o.sample_role != 'experimental']
+    if controls:
+        rows = [('Sample', 'Barcode', 'Role', 'Biological analysis eligible', 'Target', 'Metric', 'Copy',
+                 'Policy', 'Status', 'Numerator', 'Denominator', 'Fraction', 'Reasons', 'Source', 'SHA-256')]
+        for o in controls:
+            rows.append((o.sample_name, o.sample_id, o.sample_role, o.biological_eligible, o.target,
+                         o.metric_name, o.copy_name, o.policy_id, o.status, o.numerator, o.denominator,
+                         o.fraction, ', '.join(o.reasons) or None, o.source.name, o.source.sha256))
+        sheets['Control and technical QC'] = (rows, {12})
     panels = getattr(view, 'scientific_panels', [])
     if any(p.measurements or p.method == 'Two-site read-pair assessment' for p in panels):
         sheets['Measurements'] = (measurement_rows(panels), {9})

@@ -661,8 +661,12 @@
           "type": "string"
         },
         "sample_role": {
-          "const": "negative_control",
           "default": "negative_control",
+          "enum": [
+            "negative_control",
+            "pcr_negative_control",
+            "no_template_control"
+          ],
           "title": "Sample Role",
           "type": "string"
         },
@@ -1638,6 +1642,10 @@
           "default": "experimental",
           "enum": [
             "experimental",
+            "biological_negative_control",
+            "pcr_negative_control",
+            "no_template_control",
+            "technical_replicate",
             "negative_control"
           ],
           "title": "Sample Role",
@@ -2112,6 +2120,10 @@
           "default": "experimental",
           "enum": [
             "experimental",
+            "biological_negative_control",
+            "pcr_negative_control",
+            "no_template_control",
+            "technical_replicate",
             "negative_control"
           ],
           "title": "Sample Role",

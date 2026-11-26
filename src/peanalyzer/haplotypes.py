@@ -9,7 +9,7 @@ from peanalyzer.demux_verify import sha256_file, verify_demux_output
 from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import aligner, columns
 from peanalyzer.observability import BOUNDARY_REASONS, reconstruct_product, reference_observable
-from peanalyzer.schemas import reverse_complement, sequence
+from peanalyzer.schemas import pcr_control_role, reverse_complement, sequence
 
 STATES = ('WT', 'A_only', 'B_only', 'AB')
 FLANK = 12
@@ -343,7 +343,7 @@ def measure_haplotypes(demux_root, references, trims, marker_starts, negative_co
     panel = load_panel(references, marker_starts)
     archive = verify_demux_output(demux_root)
     negative_controls = set(negative_controls) | {row['barcode_id'] for row in archive.summary['samples']
-                                                if row.get('sample_role') == 'negative_control'}
+                                                if pcr_control_role(row.get('sample_role'))}
     unknown = negative_controls - {s.sample_id for s in archive.samples}
     if unknown:
         raise ValueError(f'Unknown negative-control barcode IDs: {sorted(unknown)}')

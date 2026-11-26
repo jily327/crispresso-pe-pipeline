@@ -14,7 +14,7 @@ from peanalyzer.statistical_models import (
     ContrastSpecification, ExcludedBlock, MultipleTestingFamily,
     Series, StatisticsResult,
 )
-from peanalyzer.schemas import MIN_BIOLOGICAL_REPLICATES
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, MIN_BIOLOGICAL_REPLICATES
 from peanalyzer.validation import UniqueKeyLoader
 
 MAX_PERMUTATIONS = 100_000
@@ -170,6 +170,11 @@ def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATI
     result_model = statistics_model(result.model_dump())
     result = result_model.model_validate(result.model_dump())
     specification = ContrastSpecification.model_validate(specification.model_dump())
+    if result.provenance.invocation_parameters.get("biological_role_policy") != BIOLOGICAL_ROLE_POLICY:
+        # A newly requested contrast on a historical archive uses stored sample
+        # observations and the current role policy. Loading the archive alone is read-only.
+        from peanalyzer.aggregation import summarize_groups
+        result.group_summaries = summarize_groups(result.observations)
     groups = {(series_key(s), canonical(s.condition)): s for s in result.group_summaries}
     contrasts = []
     for request in sorted(specification.contrasts, key=lambda c: c.contrast_id):
@@ -193,7 +198,7 @@ def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATI
     data.update(contrasts=contrasts, multiple_testing_families=[f.model_dump() for f in families])
     data["provenance"].update(contrast_specification_path=None,
         contrast_specification_hash=sha256(canonical(specification).encode("utf-8")))
-    data["provenance"]["invocation_parameters"].update(command="stats", max_permutations=max_permutations,
+    data["provenance"]["invocation_parameters"].update(command="stats", biological_role_policy=BIOLOGICAL_ROLE_POLICY, max_permutations=max_permutations,
                                                       minimum_biological_replicates=min_biological_replicates,
                                                       contrast_specification_hash_basis="normalized_typed_specification")
     return result_model.model_validate(data)

@@ -4,7 +4,7 @@ from typing import Annotated, Literal
 from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_serializer, model_validator
 
 from peanalyzer.metrics.models import Count, Scope, Status
-from peanalyzer.schemas import Identifier, Nonempty, NonnegativeInt
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, Identifier, Nonempty, NonnegativeInt, SampleRole, biological_role
 
 Probability = Annotated[float, Field(ge=0, le=1, allow_inf_nan=False)]
 Effect = Annotated[float, Field(ge=-1, le=1, allow_inf_nan=False)]
@@ -36,7 +36,7 @@ class Condition(Model):
 
 
 class BiologicalSample(Condition):
-    sample_role: Literal["experimental", "negative_control"] = "experimental"
+    sample_role: SampleRole = "experimental"
     sample_name: Identifier
     biological_replicate: Identifier
     block_id: Identifier | None
@@ -309,6 +309,13 @@ class StatisticsResult(Model):
     def families(self):
         if len({type(g) for g in self.group_summaries}) > 1:
             raise ValueError("mixed descriptive statistics contracts")
+        if self.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY:
+            excluded = {o.sample_name for o in self.observations if not biological_role(o.sample_role)}
+            if any(excluded.intersection(g.expected_sample_ids) for g in self.group_summaries):
+                raise ValueError("QC-only sample included in biological summary")
+            if any(excluded.intersection(s.sample_name for s in c.expected_group_a + c.expected_group_b)
+                   for c in self.contrasts):
+                raise ValueError("QC-only sample included in biological contrast")
         threshold = self.provenance.invocation_parameters.get("minimum_biological_replicates")
         if threshold is not None:
             if type(threshold) is not int or threshold < 2:

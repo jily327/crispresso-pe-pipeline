@@ -3,6 +3,7 @@ from typing import Literal
 
 from pydantic import Field, JsonValue, model_validator
 
+from peanalyzer.schemas import PCRControlRole, pcr_control_role
 from peanalyzer.nuclease.targets import NucleaseTarget
 from peanalyzer.schemas import Identifier
 from peanalyzer.statistical_models import Hash, Model
@@ -31,7 +32,7 @@ def depth_assessment(sample_id, role, prepared_pairs, minimum, result):
                 record(name, copy, group.status, denominator)
     return dict(schema_version=1, sample_id=sample_id, sample_role=role,
                 prepared_read_pairs=prepared_pairs, minimum_prepared_read_pairs=minimum,
-                depth_status=('EMPTY_NEGATIVE_CONTROL' if role == 'negative_control' else 'EMPTY_EXPERIMENTAL_SAMPLE')
+                depth_status=('EMPTY_NEGATIVE_CONTROL' if pcr_control_role(role) else 'EMPTY_EXPERIMENTAL_SAMPLE')
                 if prepared_pairs == 0 else ('BELOW_MINIMUM' if prepared_pairs < minimum else 'MEETS_MINIMUM'),
                 threshold_scope='prepared_read_pairs', threshold_action='flag_for_review', metric_depth=records)
 
@@ -46,7 +47,7 @@ class EmptyNucleaseControl(Model):
     schema_version: Literal[1] = 1
     metric_contract_version: Literal['empty-nuclease-control-v1'] = 'empty-nuclease-control-v1'
     analysis_mode: Literal['indel_nuclease'] = 'indel_nuclease'
-    sample_role: Literal['negative_control'] = 'negative_control'
+    sample_role: PCRControlRole = 'negative_control'
     sample_id: Identifier
     target_id: Identifier
     analysis_id: str = Field(min_length=1)
@@ -92,7 +93,7 @@ def validate_qc(plan, node, result, output):
             raise WorkflowError('EMPTY_CONTROL_LINEAGE_MISMATCH', node.stage_id)
 
 
-def write_empty_control(verified, output, *, sample_id, analysis_id, targets,
+def write_empty_control(verified, output, *, sample_role, sample_id, analysis_id, targets,
                         analysis_root, runtime_digest, routing_root=None, tolerance_policies=None):
     from peanalyzer.metrics.production import collect_metrics, digest
     from peanalyzer.metrics.family import reaggregate
@@ -103,7 +104,7 @@ def write_empty_control(verified, output, *, sample_id, analysis_id, targets,
         raise ValueError('cannot skip backend for a populated control')
     output.mkdir()
     if targets[0].analysis_mode == 'indel_nuclease':
-        result = EmptyNucleaseControl(sample_id=sample_id, target_id=targets[0].target_name,
+        result = EmptyNucleaseControl(sample_role=sample_role, sample_id=sample_id, target_id=targets[0].target_name,
             analysis_id=analysis_id, targets=targets, reason_codes=['EMPTY_NEGATIVE_CONTROL'],
             provenance=EmptyProvenance(target_definitions_sha256=digest([t.model_dump() for t in targets]),
                 prepared_manifest_sha256=verified.manifest_sha256, prepared_sample=sample))

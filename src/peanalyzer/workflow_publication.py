@@ -34,11 +34,12 @@ def publish_metrics(plan,node,runner,**kwargs):
     root=Path(plan.output)
     # Check every sample before the first backend invocation. No implicit sample
     # exclusion and no zero-valued measurement; changing the sheet needs Review.
+    from peanalyzer.schemas import pcr_control_role
     from peanalyzer.sample_qc import write_empty_control, depth_assessment
     verified=verify_analysis_output(root/'analysis')
     prepared=verified.manifest['samples']
     roles={s['barcode_id']:s.get('sample_role','experimental') for s in plan.samples}
-    empty=[s for s in plan.expected_samples if prepared[s]['pairs']==0 and roles[s]!='negative_control']
+    empty=[s for s in plan.expected_samples if prepared[s]['pairs']==0 and not pcr_control_role(roles[s])]
     if empty:
         raise WorkflowError('EMPTY_SAMPLES','EMPTY_EXPERIMENTAL_SAMPLE. Zero prepared read pairs for barcode/sample IDs: '+', '.join(empty)+
             '. Check barcode orientation and input reads in Setup/Review. Correct the inputs or explicitly remove failed wells and start a new workspace; no samples were omitted.',node.stage_id)
@@ -50,7 +51,7 @@ def publish_metrics(plan,node,runner,**kwargs):
     # arbitrary content, and an interrupted attempt has no authenticated inventory.
     count=prepared[node.sample_id]['pairs']
     if count==0:
-        write_empty_control(verified, output, **kwargs)
+        write_empty_control(verified, output, sample_role=roles[node.sample_id], **kwargs)
     else:
         core = resolve_executable(plan.backend_identity.executable)
         runner(output=output,core=core,**kwargs)

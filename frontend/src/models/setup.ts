@@ -28,7 +28,7 @@ export interface DraftRevision {
 }
 
 export interface DraftSample {
-  sample_role: "experimental" | "negative_control";
+  sample_role: "experimental" | "biological_negative_control" | "pcr_negative_control" | "no_template_control" | "technical_replicate" | "negative_control";
   sample_name: string;
   barcode_id: string;
   forward_barcode: string;

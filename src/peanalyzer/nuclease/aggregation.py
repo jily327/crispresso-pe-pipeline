@@ -8,7 +8,7 @@ from peanalyzer import __version__
 from peanalyzer.aggregation import (AggregationError,strict_json,sha256,canonical,condition_key,series_key,
     subset)
 from peanalyzer import aggregation
-from peanalyzer.schemas import Sample
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, Sample, biological_role, pcr_control_role
 from peanalyzer.validation import SAMPLE_COLUMNS,_load_csv
 from peanalyzer.statistical_models import BiologicalSample,InputResult
 from peanalyzer.metrics.production import digest
@@ -50,13 +50,14 @@ def collect(manifest_path,samples_path):
         raw=strict_json(data); result=metric_model(raw).model_validate(raw);results.append(result)
         if result.sample_id not in metadata:raise AggregationError('sample absent from metadata barcode_id')
         sample=metadata[result.sample_id]
-        if result.metric_contract_version=='empty-nuclease-control-v1' and sample.sample_role!='negative_control':
+        if result.metric_contract_version=='empty-nuclease-control-v1' and (not pcr_control_role(sample.sample_role) or result.sample_role != sample.sample_role):
             raise AggregationError('empty control role differs from sample metadata')
         key=(result.sample_id,result.target_id)
         if key in seen:raise AggregationError('duplicate analysis for sample x target')
         seen.add(key);rep=(condition_key(sample),result.target_id,sample.biological_replicate)
-        if rep in replicates:raise AggregationError('duplicate biological_replicate within condition and target')
-        replicates.add(rep)
+        if biological_role(sample.sample_role):
+            if rep in replicates:raise AggregationError('duplicate biological_replicate within condition and target')
+            replicates.add(rep)
         definition=result.provenance.target_definitions_sha256
         if definitions.setdefault(result.target_id,definition)!=definition:raise AggregationError('conflicting target identity across analyses')
         source=Path(os.path.relpath(path,manifest_path.parent)).as_posix()
@@ -85,7 +86,7 @@ def collect(manifest_path,samples_path):
         provenance=NucleaseStatisticsProvenance(package_version=__version__,source_metric_contract_versions=sorted({r.metric_contract_version for r in results}),
             input_results=sorted(inputs,key=lambda r:(r.sample_id,r.target_name)),samples_path=str(samples_path),manifest_path=str(manifest_path),
             contrast_specification_path=None,contrast_specification_hash=None,
-            invocation_parameters=dict(command='summarize',sample_identity_column='barcode_id',result_paths_relative_to='manifest_directory',
+            invocation_parameters=dict(command='summarize',biological_role_policy=BIOLOGICAL_ROLE_POLICY,sample_identity_column='barcode_id',result_paths_relative_to='manifest_directory',
                 analysis_mode='indel_nuclease',primary_outcome='indel_fraction'),python=platform.python_version(),platform=platform.platform()),
         input_manifest_hash=sha256(raw_manifest),sample_metadata_hash=sha256(raw_samples),observations=observed,
         group_summaries=aggregation.summarize_groups(observed),contrasts=[],multiple_testing_families=[],

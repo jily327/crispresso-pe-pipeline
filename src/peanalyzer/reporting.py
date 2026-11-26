@@ -20,6 +20,7 @@ from matplotlib.ticker import PercentFormatter
 from peanalyzer import __version__
 from peanalyzer.result_dispatch import statistics_model, report_model
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportArtifact, ReportManifest, ReportingError
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, biological_role
 from peanalyzer.statistical_models import BiologicalReplicateSummary, ContrastResult, GroupSummary, Observation, Series, StatisticsResult
 
 PALETTE = ("#0072B2", "#E69F00", "#009E73", "#CC79A7", "#D55E00", "#56B4E9", "#000000")
@@ -128,6 +129,7 @@ def build_report_spec(result, title=DEFAULT_TITLE):
     families = sorted((_ordered(r.model_dump(mode="json")) for r in result.multiple_testing_families),
                       key=lambda r: r["family_id"])
     definitions = {series_key(r): identity(r) for r in [*observations, *groups]}
+    role_aware = result.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY
     conditions = {condition_key(r): {k: r[k] for k in ("editor", "treatment", "dpi")} for r in observations}
     conditions.update({condition_key(g["condition"]): g["condition"] for g in groups})
     condition_colors = {key: PALETTE[i % len(PALETTE)] for i, key in enumerate(sorted(conditions))}
@@ -141,7 +143,8 @@ def build_report_spec(result, title=DEFAULT_TITLE):
         points, means = [], []
         for x, condition in enumerate(ordered_conditions):
             ck = condition_key(condition)
-            members = [r for r in rows if condition_key(r) == ck and r["status"] == "REPORTABLE"]
+            members = [r for r in rows if condition_key(r) == ck and r["status"] == "REPORTABLE"
+                       and (not role_aware or biological_role(r.get("sample_role", "experimental")))]
             for index, row in enumerate(members):
                 offset = 0.0 if len(members) == 1 else 0.36 * (index / (len(members) - 1) - 0.5)
                 points.append(dict(sample_name=row["sample_name"], condition=condition, x=x+offset,
@@ -155,8 +158,13 @@ def build_report_spec(result, title=DEFAULT_TITLE):
     effects = [dict(family_id=f["family_id"], figure_id=figure_id("contrasts", {"family_id": f["family_id"]}),
                     contrasts=[c for c in contrasts if c["family_id"] == f["family_id"] and c["status"] == "REPORTABLE"])
                for f in families]
-    sample_ids = {a["sample_name"] for g in groups for a in g["sample_assessments"]} | {r["sample_name"] for r in observations}
-    spec = dict(title=title, observations=observations, group_summaries=groups, contrasts=contrasts,
+    sample_ids = {a["sample_name"] for g in groups for a in g["sample_assessments"]} | {r["sample_name"] for r in observations
+        if not role_aware or biological_role(r.get("sample_role", "experimental"))}
+    role_qc = []
+    if role_aware:
+        role_qc = [row | {"biological_eligible": biological_role(row["sample_role"])} for row in observations
+                   if row.get("sample_role", "experimental") != "experimental"]
+    spec = dict(title=title, control_qc=role_qc, observations=observations, group_summaries=groups, contrasts=contrasts,
         families=families, series=series, effects=effects,
         minimum_biological_replicates=result.provenance.invocation_parameters.get("minimum_biological_replicates"),
         unused_metadata_sample_ids=sorted(result.unused_metadata_sample_ids),
@@ -333,6 +341,11 @@ def render_html(spec, source_hash, figures):
         ['contrast_id', 'family_id', 'pairing_mode', 'expected_n_A', 'expected_n_B', 'used_n_A', 'used_n_B',
          'complete_block_count', 'complete_blocks', 'excluded_blocks', 'status', 'reason_codes']))
     parts.append(_table('Declared multiple-testing families (M5)', spec['families'], ['family_id', 'method', 'contrast_ids', 'valid_contrast_ids', 'valid_test_count']))
+    if spec['control_qc']:
+        parts.append('<h2>Control and technical sample QC</h2>')
+        parts.append(_table('Individual sample measurements and biological eligibility', spec['control_qc'],
+                            ['sample_name','sample_id','sample_role','biological_eligible','target_name','copy_name',
+                             'policy_id','metric_name','status','numerator','denominator','fraction','reason_codes']))
     parts.append('<h2>Reportability / missingness</h2>')
     parts.append('<p>Runtime provenance: runtime_digest is the declared qualified runtime, not an independently observed image identity. An executable hash may identify a wrapper only; version 2.3.4 does not establish Docker image equivalence.</p>')
     parts.append(_table('Expected and numerical sample inventories', summary_rows,

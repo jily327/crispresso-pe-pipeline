@@ -17,7 +17,7 @@ from pydantic import ValidationError
 from peanalyzer import __version__
 from peanalyzer.metrics import MetricResult, FamilyPolicy
 from peanalyzer.metrics.production import digest
-from peanalyzer.schemas import Sample, Target
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, Sample, Target, biological_role, pcr_control_role
 from peanalyzer.statistical_models import (
     BiologicalReplicateSummary, BiologicalSample, Condition, ContrastResult, GroupSummary, InputResult, Observation, Provenance,
     SampleAssessment, SampleFraction, Selector, Series, StatisticsResult,
@@ -183,16 +183,17 @@ def collect_observations(manifest_path, samples_path):
             if result.sample_id not in metadata:
                 raise AggregationError(f"M4 sample absent from metadata barcode_id: {result.sample_id}")
             sample = metadata[result.sample_id]
-            if 'EMPTY_NEGATIVE_CONTROL' in result.target_metrics.total_precise_pe.reason_codes and sample.sample_role != 'negative_control':
+            if 'EMPTY_NEGATIVE_CONTROL' in result.target_metrics.total_precise_pe.reason_codes and not pcr_control_role(sample.sample_role):
                 raise AggregationError('empty control role differs from sample metadata')
             identity = (sample.sample_name, result.target_id)
             if identity in seen:
                 raise AggregationError(f"duplicate analysis for sample x target: {identity}")
             seen.add(identity)
             replicate = (condition_key(sample), result.target_id, sample.biological_replicate)
-            if replicate in replicates:
-                raise AggregationError("duplicate biological_replicate within condition and target")
-            replicates.add(replicate)
+            if biological_role(sample.sample_role):
+                if replicate in replicates:
+                    raise AggregationError("duplicate biological_replicate within condition and target")
+                replicates.add(replicate)
             definitions = result.provenance.target_definitions_sha256
             if target_definitions.setdefault(result.target_id, definitions) != definitions or definition_targets.setdefault(definitions, result.target_id) != result.target_id:
                 raise AggregationError("conflicting target identity across analyses")
@@ -248,7 +249,7 @@ def collect_observations(manifest_path, samples_path):
                 input_results=sorted(inputs, key=lambda r: (r.sample_id, r.target_name)),
                 samples_path=str(samples_path), manifest_path=str(manifest_path),
                 contrast_specification_path=None, contrast_specification_hash=None,
-                invocation_parameters={"command": "summarize", "sample_identity_column": "barcode_id",
+                invocation_parameters={"command": "summarize", "biological_role_policy": BIOLOGICAL_ROLE_POLICY, "sample_identity_column": "barcode_id",
                                        "result_paths_relative_to": "manifest_directory"},
                 python=platform.python_version(), platform=platform.platform()),
             input_manifest_hash=sha256(manifest_bytes), sample_metadata_hash=sha256(samples_bytes),
@@ -264,13 +265,13 @@ def collect_observations(manifest_path, samples_path):
 def summarize_groups(observations):
     """Give each biological sample one vote; retain missing metric inventories."""
     members, series, rows = defaultdict(dict), {}, defaultdict(dict)
-    empty_controls = set()
     for row in observations:
         condition, key = condition_key(row), series_key(row)
-        if row.sample_role == "negative_control" and "EMPTY_NEGATIVE_CONTROL" in row.reason_codes:
-            empty_controls.add((row.target_name, row.sample_name))
-        members[(row.target_name, condition)][row.sample_name] = subset(row, BiologicalSample)
+        samples = members[(row.target_name, condition)]
         series[key] = subset(row, Series)
+        if not biological_role(row.sample_role):
+            continue
+        samples[row.sample_name] = subset(row, BiologicalSample)
         rows[(key, condition)][row.sample_name] = row
     summaries = []
     for key, definition in sorted(series.items()):
@@ -282,8 +283,6 @@ def summarize_groups(observations):
             for name, sample in sorted(samples.items()):
                 row = actual.get(name)
                 missing_reasons = ["METRIC_NOT_PRESENT"]
-                if definition.metric_name.startswith("intended_sites.") and (target, name) in empty_controls:
-                    missing_reasons.append("EMPTY_NEGATIVE_CONTROL")
                 assessments.append(SampleAssessment(**sample.model_dump(),
                     status=row.status if row else "MISSING_METRIC",
                     reason_codes=row.reason_codes if row else missing_reasons))
@@ -326,9 +325,14 @@ def publish(result, output):
     try:
         stage = Path(tempfile.mkdtemp(prefix=f".{output.name}.incomplete-", dir=output.parent))
         (stage / "result.json").write_text(json.dumps(result.model_dump(mode="json"), indent=2, sort_keys=True, allow_nan=False) + "\n")
-        for filename, model, values in (("observations", Observation, result.observations),
-                ("group_summaries", type(result.group_summaries[0]) if result.group_summaries else GroupSummary, result.group_summaries),
-                ("contrasts", ContrastResult, result.contrasts)):
+        tables = [("observations", Observation, result.observations),
+                  ("group_summaries", type(result.group_summaries[0]) if result.group_summaries else GroupSummary, result.group_summaries),
+                  ("contrasts", ContrastResult, result.contrasts)]
+        if result.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY:
+            control_qc = [row for row in result.observations if row.sample_role != "experimental"]
+            if control_qc:
+                tables.append(("control_and_technical_qc", Observation, control_qc))
+        for filename, model, values in tables:
             with (stage / f"{filename}.tsv").open("w", newline="", encoding="utf-8") as handle:
                 writer = csv.DictWriter(handle, fieldnames=list(model.model_fields), delimiter="\t", lineterminator="\n")
                 writer.writeheader()
