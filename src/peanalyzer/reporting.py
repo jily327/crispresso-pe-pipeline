@@ -345,7 +345,7 @@ def render_html(spec, source_hash, figures):
         parts.append('<h2>Control and technical sample QC</h2>')
         parts.append(_table('Individual sample measurements and biological eligibility', spec['control_qc'],
                             ['sample_name','sample_id','sample_role','biological_eligible','target_name','copy_name',
-                             'policy_id','metric_name','status','numerator','denominator','fraction','reason_codes']))
+                             'policy_id','biological_replicate','block_id','paired','metric_name','status','numerator','denominator','fraction','reason_codes']))
     parts.append('<h2>Reportability / missingness</h2>')
     parts.append('<p>Runtime provenance: runtime_digest is the declared qualified runtime, not an independently observed image identity. An executable hash may identify a wrapper only; version 2.3.4 does not establish Docker image equivalence.</p>')
     parts.append(_table('Expected and numerical sample inventories', summary_rows,

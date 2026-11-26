@@ -9,7 +9,17 @@ from peanalyzer.site_exports import evidence_rows, measurement_rows
 
 def scientific_sheets(view):
     """Return table rows and percentage column numbers (one-based)."""
+    from peanalyzer.measurement_exports import COLUMNS, GROUPS
     sheets = {}
+    catalog = getattr(view, 'measurement_rows', ())
+    titles = ('Original CRISPResso2', 'Derived allele measurements', 'Independent measurements', 'Reconciliation and QC')
+    for group, title in zip(GROUPS, titles):
+        selected = [r for r in catalog if r.measurement_source == group]
+        if selected:
+            rows = [COLUMNS]
+            for r in selected:
+                rows.append(tuple(', '.join(r.reasons) or None if k == 'reasons' else getattr(r,'copy_name' if k=='copy' else k) for k in COLUMNS))
+            sheets[title] = (rows, {COLUMNS.index('fraction')+1})
     if view.mode == 'indel_nuclease':
         rows = [('Sample', 'Target', 'Metric', 'Population', 'Copy', 'Status', 'Numerator', 'Denominator',
                  'Fraction', 'Definition', 'Reasons', 'Source', 'SHA-256')]
@@ -22,11 +32,13 @@ def scientific_sheets(view):
                 and o.sample_role != 'experimental']
     if controls:
         rows = [('Sample', 'Barcode', 'Role', 'Biological analysis eligible', 'Target', 'Metric', 'Copy',
-                 'Policy', 'Status', 'Numerator', 'Denominator', 'Fraction', 'Reasons', 'Source', 'SHA-256')]
+                 'Policy', 'Status', 'Numerator', 'Denominator', 'Fraction', 'Reasons', 'Source', 'SHA-256',
+                 'Biological replicate ID', 'Block ID', 'Paired')]
         for o in controls:
             rows.append((o.sample_name, o.sample_id, o.sample_role, o.biological_eligible, o.target,
                          o.metric_name, o.copy_name, o.policy_id, o.status, o.numerator, o.denominator,
-                         o.fraction, ', '.join(o.reasons) or None, o.source.name, o.source.sha256))
+                         o.fraction, ', '.join(o.reasons) or None, o.source.name, o.source.sha256,
+                         o.biological_replicate, o.block_id, o.paired))
         sheets['Control and technical QC'] = (rows, {12})
     panels = getattr(view, 'scientific_panels', [])
     if any(p.measurements or p.method == 'Two-site read-pair assessment' for p in panels):

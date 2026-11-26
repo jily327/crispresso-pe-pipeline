@@ -219,11 +219,13 @@ def metadata_warnings(samples: list[Sample], targets: list[Target], config: Conf
     if len(targets) > 1 and all(t.analysis_mode == "precise_edit" for t in targets):
         warnings.append("multiple amplicons require validated copy routing; default Pooled routing does not guarantee unambiguous assignment")
     if config.statistics.mode != "none":
+        from peanalyzer.schemas import biological_role
+        biological = [row for row in samples if biological_role(row.sample_role)]
         column = config.statistics.block_column
-        if any(row.paired for row in samples) and column != "block_id":
+        if any(row.paired for row in biological) and column != "block_id":
             raise MetadataError("paired metadata requires statistics.block_column: block_id for active statistics")
-        if column and any(getattr(row, column) is None for row in samples):
-            raise MetadataError(f"statistics requires a nonempty {column} for every sample")
+        if column and any(getattr(row, column) is None for row in biological):
+            raise MetadataError(f"statistics requires a nonempty {column} for every biological sample")
         warnings.append("statistical design power, complete blocks and contrasts are not validated in Milestone 1")
     return warnings
 

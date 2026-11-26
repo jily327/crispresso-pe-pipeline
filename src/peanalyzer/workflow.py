@@ -26,7 +26,8 @@ from peanalyzer.provenance import software_provenance
 from peanalyzer.reporting import generate_report
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportManifest
 from peanalyzer.routing import RoutingPolicy, policy_identity, route_analysis
-from peanalyzer.statistical_models import StatisticsResult
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY
+from peanalyzer.statistical_models import BiologicalSample, StatisticsResult
 from peanalyzer.statistics import stats
 from peanalyzer.validation import UniqueKeyLoader, load_config, load_samples, load_targets
 from peanalyzer.workflow_models import (Backend, Dependency, InputArtifact, Plan, Session,
@@ -127,10 +128,11 @@ def build_workflow_plan(*, mode, samples, targets, config, output, crispresso, r
         plan = Plan(mode=mode, output=str(root), expected_samples=expected_samples, expected_targets=expected_targets,
             samples=[s.model_dump(mode='json') for s in sample_rows], targets=target_rows,
             nodes=dag(mode, expected_samples, expected_targets), inputs=inputs,
-            normalized_options=dict(title=title, min_prepared_pairs_qc=settings.qc.min_analyzable_reads, preparation=trims.model_dump(mode='json'),
+            normalized_options=dict(title=title, native_runs_contract='native-runs-v1', min_prepared_pairs_qc=settings.qc.min_analyzable_reads, preparation=trims.model_dump(mode='json'),
                 demux_config=settings.model_dump(mode='json'), external_demux=str(external) if external else None,
                 routing_policy=asdict(RoutingPolicy()), routing_policy_identity=policy_identity(RoutingPolicy()),
                 statistics_mode='stats' if contrasts is not None else 'summarize',
+                biological_role_policy=BIOLOGICAL_ROLE_POLICY,
                 **({'min_biological_replicates': settings.statistics.min_biological_replicates}
                    if contrasts is not None else {}),
                 analysis_modes=sorted({t.analysis_mode for t in target_rows}),
@@ -196,6 +198,8 @@ def parameters_for(plan, node):
                     **({'policy': options['routing_policy'], 'policy_identity': options['routing_policy_identity']} if kind == 'routing' and targets_for(plan,node)[0].analysis_mode == 'precise_edit' else {}))
     if kind == 'statistics':
         parameters = {'mode': options['statistics_mode']}
+        if 'biological_role_policy' in options:
+            parameters['biological_role_policy'] = options['biological_role_policy']
         if 'min_biological_replicates' in options:
             parameters['min_biological_replicates'] = options['min_biological_replicates']
         return parameters
@@ -312,6 +316,13 @@ def validate_stage(plan, node, status, *, output_override=None):
             if two_substitutions(site_targets):
                 verify_workflow_sites(output, result, site_targets,
                     require_canonical=plan.normalized_options.get('native_runs_contract') == 'native-runs-v1')
+        if plan.normalized_options.get('native_runs_contract') == 'native-runs-v1':
+            from peanalyzer.backend.native_runs import verify_native_runs
+            verify_native_runs(output, node.sample_id, node.target_name, site_targets,
+                               result.provenance.prepared_sample if hasattr(result.provenance, 'prepared_sample')
+                               else result.provenance['prepared_sample'])
+            from peanalyzer.measurement_exports import verify_measurement_exports
+            verify_measurement_exports(output, result)
         if read_json(output / 'execution_failures.json'):
             raise WorkflowError('BACKEND_EXECUTION_FAILED',
                 f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '
@@ -343,6 +354,15 @@ def validate_stage(plan, node, status, *, output_override=None):
         threshold = plan.normalized_options.get('min_biological_replicates')
         if threshold is not None and result.provenance.invocation_parameters.get('minimum_biological_replicates') != threshold:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'executed replicate threshold differs from the plan')
+        if 'biological_role_policy' in plan.normalized_options:
+            if result.provenance.invocation_parameters.get('biological_role_policy') != plan.normalized_options['biological_role_policy']:
+                raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'biological role policy differs from plan')
+            design = {s['barcode_id']: s for s in plan.samples}
+            for row in result.observations:
+                source = design.get(row.sample_id, {})
+                if any(getattr(row, k) != source.get(k, 'experimental' if k == 'sample_role' else None)
+                       for k in BiologicalSample.model_fields):
+                    raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'sample role or biological design differs from plan')
         expected_hash = plan.inputs['contrasts'].sha256 if 'contrasts' in plan.inputs else None
         if result.provenance.contrast_specification_hash != expected_hash:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'contrast identity differs')

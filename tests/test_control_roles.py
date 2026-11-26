@@ -80,3 +80,56 @@ def test_site_roles_and_dedicated_workbook_qc(inputs,tmp_path):
     sheets=scientific_sheets(SimpleNamespace(mode='precise_edit',observations=[item]))
     rows,pct=sheets['Control and technical QC']
     assert rows[1][1:4]==('barcode-A002','no_template_control',False) and rows[1][9:12]==('80','100',.8) and pct=={12}
+
+
+@pytest.mark.parametrize('role',['pcr_negative_control','no_template_control'])
+def test_empty_control_role_and_workbook_qc(tmp_path,role):
+    import json
+    from openpyxl import load_workbook
+    from m8_fixtures import fixture as nuclease
+    from m7_fixtures import write_csv
+    from peanalyzer.gui.summary_workbook import FILENAME
+    from peanalyzer.gui.workspace import WorkspaceStore
+    from peanalyzer.workflow import execute_workflow, verify_workflow_output
+    from test_empty_controls import version_probe
+
+    options = nuclease(tmp_path/'inputs', populations=[[],[]])
+    rows = read_samples(options['samples'])
+    for row in rows:
+        row['sample_role'] = role
+    write_csv(options['samples'], list(rows[0]), rows)
+    options['crispresso'] = version_probe(tmp_path/'CRISPResso')
+    execute_workflow(**options)
+    root = options['output']
+    verify_workflow_output(root)
+    store = WorkspaceStore([])
+    view = store.register_completed('Control QC',root,finalize=True)
+    qc = [o for o in view.observations if o.metric_name=='indel_fraction']
+    assert len(qc)==2 and all(o.sample_role==role and o.biological_eligible is False and o.fraction is None for o in qc)
+    with (root/'statistics/control_and_technical_qc.tsv').open() as stream:
+        assert all(r['sample_role']==role and r['fraction']=='' for r in csv.DictReader(stream,delimiter='\t'))
+    assert all(g['expected_sample_count']==g['reportable_count']==0 for g in json.loads((root/'statistics/result.json').read_bytes())['group_summaries'])
+    book = load_workbook(root/FILENAME,read_only=True)
+    try:
+        rows=list(book['Control and technical QC'].values)[1:]
+        assert rows and all(r[2]==role and r[3] is False and r[11] is None for r in rows)
+    finally:
+        book.close()
+
+
+def test_historical_read_only_and_explicit_reanalysis(tmp_path):
+    from peanalyzer.statistical_models import StatisticsResult
+    from peanalyzer.statistics import calculate_contrasts, load_contrasts
+
+    opts=fixture(tmp_path)
+    original=stats(**opts)
+    raw=original.model_dump()
+    del raw['provenance']['invocation_parameters']['biological_role_policy']
+    for o in raw['observations']:
+        if o['sample_name']=='A002':o['sample_role']='negative_control'
+    archived=StatisticsResult.model_validate(raw)
+    frozen=archived.model_dump_json()
+    assert archived.contrasts[0].status=='REPORTABLE'
+    recalculated=calculate_contrasts(archived,load_contrasts(opts['contrasts_path'])[0])
+    assert archived.model_dump_json()==frozen
+    assert recalculated.contrasts[0].status=='NOT_ASSESSABLE'
