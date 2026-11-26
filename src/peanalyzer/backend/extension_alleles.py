@@ -27,8 +27,7 @@ CLASSES = ('exact_wt', 'intended_snp_retained', 'intended_snp_converted', 'other
 
 def _argv(target):
     return ['-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz','--amplicon_seq',target.wt_sequence,
-            '--name','extension_alleles','--output_folder','output','--write_detailed_allele_table',
-            '--suppress_report','--suppress_plots']
+            '--name','extension_alleles','--output_folder','output','--write_detailed_allele_table']
 
 
 def _states(target, extension):
@@ -52,6 +51,8 @@ def run_extension(root, target, extension, cohort, routing_root, core, digest):
     if digest != IMAGE or core.version != VERSION or not cohort['pairs']:
         raise ValueError('Verified nonempty cohort and qualified Core 2.3.4 runtime required')
     routing = verify_routing_output(routing_root)
+    if routing['copy_routing_eligibility']['reason_codes'][target.copy_name]:
+        raise ValueError('State-selective copy cohorts cannot support extension haplotype efficiencies')
     panel = [Target.model_validate(t) for t in routing['targets']]
     copy_info = geometry(panel)['copies'][target.copy_name]['native_reference']
     if (routing['policy_identity'] != policy_identity(RoutingPolicy()) or target not in panel
@@ -91,7 +92,7 @@ def read_extension(root, target, extension, cohort, routing_hash, digest):
     states = _states(target, extension)
     ex = read_json(root/'execution.json')
     if (root.is_symlink() or ex['status'] != 'completed' or ex['return_code'] != 0
-            or digest != IMAGE or ex['runtime_digest'] != digest or ex['argv'][1:] != _argv(target)
+            or digest != IMAGE or ex['runtime_digest'] != digest or ex['argv'][1:] not in (_argv(target), _argv(target)+['--suppress_report','--suppress_plots'])
             or ex['routing_manifest_sha256'] != routing_hash or ex['copy'] != target.copy_name
             or ex['inputs'] != cohort or ex['extension'] != extension):
         raise ValueError('Extension allele execution identity mismatch')

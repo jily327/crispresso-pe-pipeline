@@ -108,7 +108,8 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
         value = getattr(native, field)
         if value is not None:
             expected.extend(['--' + column, str(value)])
-    if not argv or argv[1:] != expected:
+    with_reports = [item for item in expected if item not in ('--suppress_report','--suppress_plots')]
+    if not argv or argv[1:] not in (expected, with_reports):
         raise GateError('BACKEND_CONFIGURATION_MISMATCH')
     inventory(root / 'execution.json', artifacts, label + '/execution.json')
     for mate in (1, 2):
@@ -265,9 +266,12 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     else:product_evidence['target']=unavailable_evidence('target',population,count,'target_all_prepared',global_reasons)
     anchor_metrics, anchor_failures = {}, {}
     native_preconditions = global_reasons + native_reasons + runtime_reasons
-    if verified and sample and not native_preconditions:
+    if verified and sample and sample['pairs'] and not runtime_reasons:
         for target in targets:
             try:
+                plan = native_reference(target)
+                if plan.error:
+                    raise GateError(plan.error)
                 root = Path(comparator_root) / target.copy_name
                 if not root.exists():
                     raise GateError('MISSING_ANCHOR_RESULT')
@@ -327,6 +331,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     for target in targets:
         copy = target.copy_name
         reasons = global_reasons + routing_reasons + runtime_reasons
+        if routing:
+            reasons = reasons + routing['copy_routing_eligibility']['reason_codes'][copy]
         cohort = routing['cohorts'][copy] if routing else None
         size = cohort['pairs'] if cohort else None
         pop_id = digest(dict(prepared_population=population, routing=route_hash, copy=copy, scope='confident_copy'))
@@ -403,6 +409,7 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
             block_reason_codes=sorted({reason for r in records for reason in r.reason_codes})),
         target_metrics=TargetMetrics(target_crispresso_native_pe=target_native, total_precise_pe=target_exact),
         copies=copies, anchor_evidence=dict(comparison=comparison, failures=anchor_failures, backend_metrics=anchor_metrics,observability=observability, **({'copy_windows':copy_windows} if copy_windows else {}),
+                             **({'copy_routing_eligibility':routing['copy_routing_eligibility']} if routing else {}),
                              **({'extension_alleles':extension_alleles} if extension_alleles else {})),
         product_evidence=product_evidence,
         derived_metrics={key:reaggregate(evidence,tolerance_policies) for key,evidence in product_evidence.items()} if tolerance_policies else {},
@@ -448,8 +455,10 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
                 json.dump(dict(status='not_started', return_code=None,
                                reason_code=backend_failure_code(exc), error=str(exc)), handle, indent=2)
                 handle.write('\n')
-    allowed_missing = {'MISSING_ANCHOR_RESULT', 'ANCHOR_DEPENDENT_NATIVE_RESULT'}
-    if initial.qc.prepared_input_reads and set(initial.target_metrics.target_crispresso_native_pe.reason_codes) <= allowed_missing:
+    # Native analysis uses the complete verified prepared population. Supplementary
+    # observability, exact reconstruction, and copy routing cannot select its inputs.
+    if (initial.qc.prepared_input_reads and runtime_digest == RUNTIME_DIGEST
+            and any(native_reference(t).error is None for t in targets)):
         try:
             comparison = run_comparator(analysis_root, sample_id, targets, output/'comparator', core, runtime_identity=runtime)
             if comparison['anchor_failures']:

@@ -11,6 +11,7 @@ from pathlib import Path
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.demux_verify import sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
+from peanalyzer.routing_eligibility import copy_routing_eligibility, observed_pair_geometry
 from peanalyzer.observability import physical_forward_mate
 from peanalyzer.geometry import aligner, columns, geometry
 from peanalyzer.schemas import Target, reverse_complement
@@ -328,12 +329,13 @@ def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], o
         raise ValueError('routing destination must be new and separate')
     output.parent.mkdir(parents=True,exist_ok=True)
     stage=Path(tempfile.mkdtemp(prefix=f'.{output.name}.incomplete-',dir=output.parent))
-    handles={}; counts=Counter(); seen=set()
+    handles={}; counts=Counter(); observed=Counter(); seen=set()
     try:
         for cohort in [*(t.copy_name for t in targets),'quarantine']:
             for mate in (1,2): handles[cohort,mate]=gzip.open(stage/f'{cohort}_R{mate}.fastq.gz','wb')
         with (stage/'routing_ledger.jsonl').open('w') as ledger:
             for pair in paired_fastq(*paths):
+                observed[observed_pair_geometry(pair, targets)] += 1
                 row=route_pair(pair,targets,report,policy)
                 if row['read_id'] in seen: raise ValueError('duplicate input ID')
                 seen.add(row['read_id'])
@@ -351,7 +353,9 @@ def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], o
             raise ValueError('routing count mismatch')
         for mate,path in enumerate(paths,1):
             if sha256_file(path)!=sample['files'][f'r{mate}']['sha256']: raise ValueError('analysis changed while routing')
-        manifest=dict(schema_version=1,status='completed',scope='routing_only_not_scientific_qualification',
+        eligibility=copy_routing_eligibility(observed,targets,report,policy)
+        manifest=dict(schema_version=2,status='completed',scope='routing_only_not_scientific_qualification',
+                      copy_routing_eligibility=eligibility,
                       analysis_root=str(verified.root),analysis_manifest_sha256=verified.manifest_sha256,sample_id=sample_id,
                       policy=asdict(policy),policy_identity=policy_identity(policy),targets=[t.model_dump() for t in sorted(targets,key=lambda t:t.copy_name)],
                       input_pairs=sample['pairs'],categories=dict(counts),cohorts=cohorts,
