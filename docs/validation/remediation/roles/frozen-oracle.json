@@ -1,0 +1,51 @@
+{
+  "finding": "SCI-04",
+  "audited_revision": "2f567b88628eeb287bacc9febf3b65b3a00bfc7a",
+  "inputs": {
+    "A001": {
+      "role": "experimental",
+      "numerator": 1,
+      "denominator": 10
+    },
+    "A002": {
+      "role": "negative_control",
+      "numerator": 90,
+      "denominator": 100
+    }
+  },
+  "expected": {
+    "reportable_biological_n": 1,
+    "mean": 0.1,
+    "sample_sd": null,
+    "pooled_counts": [
+      1,
+      10
+    ],
+    "contrast": "NOT_ASSESSABLE",
+    "p": null,
+    "q": null,
+    "used_A": [
+      "A001"
+    ]
+  },
+  "audit_inputs": {
+    "controls.py": "7fcc57eba3c7b3a7afe9844fe107b0d894e7786cf2db165d935597bf173dd55a",
+    "control_workflow.py": "bae421313ce2e88c61589ae057f922f73e81164427ad6d5ec1246173862bb9d9",
+    "results/controls.json": "dbeb507821832c37f7a711ad47bc313b1bea3cd1e335884e2a4f564d97660447",
+    "results/control_workflow.json": "eb52118a8c8cc0fb6b43e272482a66d8b0c212127af0dafc7ffd9dfec5c80be3"
+  },
+  "observed_before": {
+    "reportable_biological_n": 2,
+    "mean": 0.5,
+    "sample_sd": 0.565685424949238,
+    "pooled_fraction": 0.8272727272727273,
+    "contrast": "REPORTABLE",
+    "used_A": [
+      "A001",
+      "A002"
+    ],
+    "p": 1.0,
+    "q": 1.0
+  },
+  "regenerated_PE_output_matches_audit_bytes": true
+}
