@@ -1040,6 +1040,22 @@
     "MulticopyNucleaseResult": {
       "additionalProperties": false,
       "properties": {
+        "aligned_exclusion_reasons": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Aligned Exclusion Reasons"
+        },
         "analysis_id": {
           "minLength": 1,
           "title": "Analysis Id",
@@ -1132,6 +1148,19 @@
           "minItems": 2,
           "title": "Targets",
           "type": "array"
+        },
+        "window_observability": {
+          "anyOf": [
+            {
+              "const": "selected_interval_union_v2",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Observability"
         },
         "windows": {
           "additionalProperties": {

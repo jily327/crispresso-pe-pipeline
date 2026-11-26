@@ -179,13 +179,19 @@ def test_nuclease_plan_resolves_full_scientific_identity(tmp_path):
     assert w._expected(plan,metrics,{})['api_call']=='run_nuclease_metrics'
 
 
-def test_multicopy_nuclease_requires_compatible_window_policy(tmp_path):
+def test_multicopy_nuclease_requires_compatible_window_policy(tmp_path, monkeypatch):
     from m7_fixtures import write_csv
     options=fixture(tmp_path/'inputs');options['crispresso']=fake_core(tmp_path)
     rows=[target(),target(copy_name='copy2',tigr_window='W3')]
     write_csv(options['targets'],list(rows[0].model_dump()),[t.model_dump() for t in rows])
-    with pytest.raises((ValueError,w.WorkflowError), match='NUCLEASE_WINDOW_POLICY_MISMATCH'):
+    def forbidden(*args, **kwargs):
+        pytest.fail('backend probe or scientific stage ran with an incompatible panel')
+    for name in ('resolve_executable', 'demultiplex', 'prepare_analysis_fastqs', 'route_analysis',
+                 'run_metrics', 'run_nuclease_metrics', 'execute_stage'):
+        monkeypatch.setattr(w,name,forbidden)
+    with pytest.raises(w.WorkflowError, match='NUCLEASE_WINDOW_POLICY_MISMATCH') as rejected:
         w.execute_workflow(**options)
+    assert rejected.value.code == 'INVALID_WORKFLOW_INPUT'
     assert not options['output'].exists()
 
 

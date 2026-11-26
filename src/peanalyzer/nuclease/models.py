@@ -276,6 +276,8 @@ class MulticopyNucleaseResult(Model):
     merged_counts: dict[str, Count]
     reference_runs: dict[str, NucleaseMetricResult]
     provenance: MulticopyProvenance
+    window_observability: Literal['selected_interval_union_v2'] | None = None
+    aligned_exclusion_reasons: dict[str, Count] | None = None
 
     @model_validator(mode='after')
     def reconcile(self):
@@ -294,7 +296,12 @@ class MulticopyNucleaseResult(Model):
                     or run.provenance.prepared_manifest_sha256 != self.provenance.prepared_manifest_sha256
                     or run.provenance.prepared_sample != self.provenance.prepared_sample):
                 raise ValueError('NUCLEASE_PANEL_REFERENCE_LINEAGE_MISMATCH')
-        pop, combined, copies = calculate(self.targets, self.reference_runs, self.merged_counts)
+        legacy = self.window_observability is None
+        reasons = None if legacy else {}
+        pop, combined, copies = calculate(self.targets, self.reference_runs, self.merged_counts,
+                                          legacy=legacy, exclusion_counts=reasons)
+        if reasons != self.aligned_exclusion_reasons:
+            raise ValueError('NUCLEASE_EXCLUSION_REASON_MISMATCH')
         if (pop != self.population.model_dump() or combined != self.combined or copies != self.copies or
                 combined.status != self.status or combined.reason_codes != self.reason_codes):
             raise ValueError('NUCLEASE_MULTICOPY_COUNT_MISMATCH')

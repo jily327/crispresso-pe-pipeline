@@ -100,7 +100,8 @@ def verify_workflow_sites(output, result, targets, *, require_canonical=False):
         if backend.get('status') in ('REPORTABLE', 'NOT_ASSESSABLE'):
             from peanalyzer.backend.intended_sites import read_core_sites
             recomputed = read_core_sites(Path(output) / 'core_sites' / 'CRISPResso_on_sites', targets,
-                                         expected_input_pairs=raw['input_pairs'])
+                                         expected_input_pairs=raw['input_pairs'],
+                                         historical_repeat_only=not require_canonical)
             execution = backend.get('execution', {})
             files = result.provenance.prepared_sample['files']
             if (execution.get('input_sha256') != [files[m]['sha256'] for m in ('r1', 'r2')]

@@ -65,26 +65,39 @@ def assign_origin(sequence, names, panel):
     return next(iter(candidates)) if len(candidates) == 1 else None
 
 
-def local_window(target):
+def local_window(target, *, legacy=False):
     """Concordance across unknown origins requires identical local WT context."""
     window = target.window
     intervals = window['intervals']
     origin = intervals[0][0]
-    start = max(0, origin - FLANK)
-    end = min(len(target.wt_sequence), intervals[-1][1] + 1 + FLANK)
-    return (tuple((a-origin, b-origin) for a,b in intervals), origin-start, target.wt_sequence[start:end])
+    if legacy:
+        start = max(0, origin - FLANK)
+        end = min(len(target.wt_sequence), intervals[-1][1] + 1 + FLANK)
+        return (tuple((a-origin, b-origin) for a,b in intervals), origin-start, target.wt_sequence[start:end])
+    return tuple((a-origin, b-origin, a-max(0,a-FLANK), target.wt_sequence[max(0,a-FLANK):b+FLANK+1])
+                 for a,b in intervals)
+
+
+def window_exclusion(row, target, *, legacy=False):
+    fields = row.authoritative_fields
+    intervals = target.window['intervals']
+    if legacy:
+        intervals = [(intervals[0][0], intervals[-1][1])]
+    positions = ast.literal_eval(fields['ref_positions'])
+    bases = [(p, b) for p, b in zip(positions, fields['Aligned_Sequence']) if p >= 0 and b != '-']
+    known = [p for p,b in bases if b in 'ACGT']
+    for start, end in intervals:
+        # At both ends require evidence bounding the reference interval. Gaps
+        # bracketed by observed bases can carry native deletion evidence.
+        if not known or min(known) > max(0,start-1) or max(known) < min(len(target.wt_sequence)-1,end+1):
+            return 'WINDOW_BOUNDARY_UNOBSERVED'
+        if any(b not in 'ACGT' for p,b in bases if start <= p <= end):
+            return 'UNKNOWN_BASE_IN_SELECTED_INTERVAL'
+    return None
 
 
 def observable(row, target):
-    fields = row.authoritative_fields
-    start, end = target.window['intervals'][0][0], target.window['intervals'][-1][1]
-    # An internal deletion can span the window. Require observed bases on both
-    # sides (or an observed boundary base at an amplicon end).
-    positions = ast.literal_eval(fields['ref_positions'])
-    bases = [(p, b) for p, b in zip(positions, fields['Aligned_Sequence']) if p >= 0 and b != '-']
-    return (any(p <= max(0, start-1) and b in 'ACGT' for p, b in bases) and
-            any(p >= min(len(target.wt_sequence)-1, end+1) and b in 'ACGT' for p, b in bases) and
-            all(b in 'ACGT' for p,b in bases if start <= p <= end))
+    return window_exclusion(row,target) is None
 
 
 def event_signature(row, target):
@@ -109,13 +122,13 @@ def event_signature(row, target):
     return (row.n_inserted,row.n_deleted,row.n_mutated,*values,fields['substitution_values'],tuple(footprint))
 
 
-def calculate(targets, reference_runs, merged_counts):
+def calculate(targets, reference_runs, merged_counts, *, legacy=False, exclusion_counts=None):
     from peanalyzer.nuclease.models import PopulationMetrics
 
     names = sorted(reference_runs)
     by_name = {t.copy_name: t for t in targets}
     panel = marker_panel(targets)
-    shared_window = len({local_window(t) for t in targets}) == 1
+    shared_window = len({local_window(t,legacy=legacy) for t in targets}) == 1
     by_sequence = defaultdict(dict)
     for name,run in reference_runs.items():
         for row in run.alleles:
@@ -143,17 +156,34 @@ def calculate(targets, reference_runs, merged_counts):
         else:
             confident[origin] += count
         chosen = None
+        reason = None
         if origin is not None:
-            if origin in hits and all(observable(r, by_name[origin]) for r in hits[origin]):
-                chosen = origin
-                accepted[origin].extend(hits[origin])
-        elif shared_window and set(hits) == set(names):
+            if origin not in hits:
+                reason = 'ASSIGNED_REFERENCE_UNALIGNED'
+            else:
+                reason = next((r for row in hits[origin]
+                               if (r := window_exclusion(row, by_name[origin], legacy=legacy))), None)
+                if reason is None:
+                    chosen = origin
+                    accepted[origin].extend(hits[origin])
+        elif not shared_window:
+            reason = 'UNRESOLVED_ORIGIN_DIFFERENT_WINDOW_CONTEXTS'
+        elif set(hits) != set(names):
+            reason = 'UNRESOLVED_ORIGIN_MISSING_REFERENCE_ALIGNMENT'
+        else:
             signatures = {event_signature(r, by_name[k]) for k,rows in hits.items() for r in rows}
-            if len(signatures) == 1 and all(observable(r, by_name[k]) for k,rows in hits.items() for r in rows):
-                chosen = names[0]
-                ambiguous_accepted += count
+            if len(signatures) != 1:
+                reason = 'UNRESOLVED_ORIGIN_DISCORDANT_WINDOW_CALLS'
+            else:
+                reason = next((r for name in names for row in hits[name]
+                               if (r := window_exclusion(row, by_name[name], legacy=legacy))), None)
+                if reason is None:
+                    chosen = names[0]
+                    ambiguous_accepted += count
         if chosen is None:
             unavailable += count
+            if exclusion_counts is not None:
+                exclusion_counts[reason] = exclusion_counts.get(reason, 0) + count
         else:
             combined.extend(hits[chosen])
     n_input = reference_runs[names[0]].backend_input_reads

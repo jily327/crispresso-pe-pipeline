@@ -1,0 +1,114 @@
+{
+  "fresh": {
+    "counts": {
+      "a": [
+        0,
+        4
+      ],
+      "b": [
+        0,
+        3
+      ],
+      "combined": [
+        0,
+        7
+      ]
+    },
+    "population": {
+      "aligned_unassessable_reads": 2,
+      "backend_input_reads": 9,
+      "confident_copy_reads": {
+        "a": 6,
+        "b": 3
+      },
+      "copy_ambiguous_assessable_reads": 0,
+      "copy_ambiguous_reads": 0,
+      "reads_after_preprocessing": 9,
+      "unaligned_reads": 0
+    },
+    "runtime": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "software": {
+      "dependencies": {
+        "PyYAML": "6.0.3",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pillow": "13.0.0",
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      },
+      "git_commit": null,
+      "git_dirty": null,
+      "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+      "pipeline_version": "1.1.0",
+      "python_version": "3.12.14"
+    },
+    "status": "COMPLETED"
+  },
+  "input_sha256": {
+    "config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+    "raw_R1.fastq.gz": "0f2484f5744c44413783fd005b3c72164b6ee7e19ccffc22b98aa9b6f9d57d1b",
+    "raw_R2.fastq.gz": "171757ee380ced51e10e14f7f2d05dcc8509e4d19c20cc97468becf067bf9ecd",
+    "samples.csv": "34a7682a7408e2e0d6e94d55c46d8d5b84cb65fcff6c86608c90fd6132209629",
+    "targets.csv": "5503e55be50baf93d41c41c992357939712715176aa80532c045f1bcca9a3f17"
+  },
+  "revision": "2f567b88628eeb287bacc9febf3b65b3a00bfc7a",
+  "supplied": {
+    "counts": {
+      "a": [
+        0,
+        4
+      ],
+      "b": [
+        0,
+        3
+      ],
+      "combined": [
+        0,
+        7
+      ]
+    },
+    "population": {
+      "aligned_unassessable_reads": 2,
+      "backend_input_reads": 9,
+      "confident_copy_reads": {
+        "a": 6,
+        "b": 3
+      },
+      "copy_ambiguous_assessable_reads": 0,
+      "copy_ambiguous_reads": 0,
+      "reads_after_preprocessing": 9,
+      "unaligned_reads": 0
+    },
+    "runtime": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "software": {
+      "dependencies": {
+        "PyYAML": "6.0.3",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pillow": "13.0.0",
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      },
+      "git_commit": "2f567b88628eeb287bacc9febf3b65b3a00bfc7a",
+      "git_dirty": false,
+      "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+      "pipeline_version": "1.0.1",
+      "python_version": "3.12.14"
+    },
+    "status": "COMPLETED"
+  }
+}

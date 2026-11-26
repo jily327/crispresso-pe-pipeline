@@ -99,7 +99,7 @@ def run_nuclease_metrics(*,analysis_root,sample_id,targets,analysis_id,output,co
             '--quantification_window_coordinates',target.window['coordinates'],
             '--exclude_bp_from_left','0','--exclude_bp_from_right','0',
             '--name','nuclease','--output_folder','output','--write_detailed_allele_table',
-            '--keep_intermediate','--suppress_report','--suppress_plots']
+            '--keep_intermediate']
         execution=dict(analysis_mode='indel_nuclease',identity_mechanism='single_copy_identity',
             scientific_identity=target.scientific_identity,argv=argv,cwd=str(stage),software=software_provenance(),
             runtime_digest=runtime_digest,version_probe=core.probe,started_at=utc_now(),status='running')
@@ -152,6 +152,9 @@ def run_multicopy_metrics(*, analysis_root, sample_id, targets, analysis_id, out
     output.parent.mkdir(parents=True, exist_ok=True)
     stage = Path(tempfile.mkdtemp(prefix='.'+output.name+'.incomplete-', dir=output.parent))
     try:
+        from peanalyzer.nuclease.native_panel import run_native_panel
+        verified = verify_analysis_output(Path(analysis_root))
+        run_native_panel(stage/'native_panel', verified, sample_id, targets, core, runtime_digest)
         runs = {}
         merged_counts = None
         for target in targets:
@@ -167,10 +170,14 @@ def run_multicopy_metrics(*, analysis_root, sample_id, targets, analysis_id, out
                 raise ValueError('NUCLEASE_MERGED_POPULATION_MISMATCH')
             merged_counts = observed
             runs[target.copy_name] = run
-        population, combined, copies = calculate(targets, runs, merged_counts)
+        if verified.manifest_sha256 != verify_analysis_output(Path(analysis_root)).manifest_sha256:
+            raise ValueError('SOURCE_CHANGED')
+        reasons = {}
+        population, combined, copies = calculate(targets, runs, merged_counts, exclusion_counts=reasons)
         result = MulticopyNucleaseResult(sample_id=sample_id, target_id=targets[0].target_name, analysis_id=analysis_id,
             targets=targets, windows={t.copy_name:t.window for t in targets}, population=population, copies=copies,
             status=combined.status, reason_codes=combined.reason_codes, combined=combined, merged_counts=dict(merged_counts),
+            window_observability='selected_interval_union_v2', aligned_exclusion_reasons=reasons,
             reference_runs=runs, provenance=dict(target_definitions_sha256=digest([t.model_dump() for t in targets]),
                 prepared_manifest_sha256=run.provenance.prepared_manifest_sha256, prepared_sample=run.provenance.prepared_sample,
                 merged_population_sha256=digest(dict(merged_counts)), method=MECHANISM, runtime_digest=runtime_digest, crispresso_version=core.version))

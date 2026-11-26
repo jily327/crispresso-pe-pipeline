@@ -17,13 +17,15 @@ from zipfile import ZipFile
 from peanalyzer.backend.comparator import normalize_include_idxs
 from peanalyzer.backend.metrics import COUNTERS, aligned_partition, child_file, fraction, integer, table
 from peanalyzer.backend.pooled import BackendError, VERSION, utc_now
+from peanalyzer.backend.site_placement import scoring_parameters, uncertain_sites
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.docker_runtime import IMAGE
 from peanalyzer.haplotypes import build_panel
 
 STATES = ('WT', 'A_only', 'B_only', 'AB', 'other_mixed', 'unassessable')
 QC_FIELDS = ('additional_substitution', 'additional_indel', 'incomplete_or_unknown',
-             'AB_with_additional_change', 'AB_full_length_exact', 'nonunique_site_deletion')
+             'AB_with_additional_change', 'AB_full_length_exact', 'nonunique_site_deletion',
+             'alternative_alignment_site_A', 'alternative_alignment_site_B', 'unqualified_alignment_scoring')
 
 
 class UnqualifiedSiteBackend(ValueError):
@@ -97,7 +99,7 @@ def _state(bases, wt, pe, sites):
     return ('WT', 'A_only', 'B_only', 'AB')[(bases[0] == pe[sites[0]]) + 2 * (bases[1] == pe[sites[1]])]
 
 
-def _observe(row, design, n, counts):
+def _observe(row, design, n, counts, scoring=(-20, -2), *, historical_repeat_only=False):
     wt, pe, sites = design
     ref, query = row['Reference_Sequence'], row['Aligned_Sequence']
     if (len(ref) != len(query) or ref.replace('-', '') != wt or set(query) - set('ACGTN-')
@@ -120,7 +122,11 @@ def _observe(row, design, n, counts):
             additional_indel |= q == '-'
             additional_sub |= q in 'ACGT' and q != r
     counts['fixed_' + _state(bases, wt, pe, sites)] += n
-    uncertain = _uncertain_deletions(ref, query, first, last, site_columns) if '-' in query else set()
+    local = _uncertain_deletions(ref, query, first, last, site_columns) if '-' in query and scoring else set()
+    uncertain = local
+    if not historical_repeat_only:
+        pending = [None if i in local else q for i,q in enumerate(bases)]
+        uncertain = local | uncertain_sites(ref, query, sites, pending, scoring)
     for index in uncertain:
         bases[index] = None
     flags = [q == pe[i] for q, i in zip(bases, sites)]
@@ -134,18 +140,20 @@ def _observe(row, design, n, counts):
         counts['any_edit'] += n
     for qc, flag in zip(QC_FIELDS, (additional_sub, additional_indel, incomplete,
                                     state == 'AB' and (additional_sub or additional_indel),
-                                    ref == wt and query == pe, bool(uncertain))):
+                                    ref == wt and query == pe, bool(uncertain) and scoring is not None and '-' in query,
+                                    0 in uncertain and scoring is not None, 1 in uncertain and scoring is not None,
+                                    scoring is None)):
         counts[qc] += n * flag
 
 
-def _summarize(counts):
+def _summarize(counts, historical_repeat_only=False):
     joint = sum(counts[s] for s in STATES[:-1])
     return dict(counts={k: counts[k] for k in STATES}, joint_assessable=joint,
                 site_A=fraction(counts['edited_A'], counts['observed_A']),
                 site_B=fraction(counts['edited_B'], counts['observed_B']),
                 A_only=fraction(counts['A_only'], joint), B_only=fraction(counts['B_only'], joint),
                 double_edit=fraction(counts['AB'], joint), any_edit=fraction(counts['any_edit'], joint),
-                qc={k: counts[k] for k in QC_FIELDS})
+                qc={k: counts[k] for k in (QC_FIELDS[:6] if historical_repeat_only else QC_FIELDS)})
 
 
 def _ranges(value, length):
@@ -179,7 +187,7 @@ def _window_report(ref, design, requested):
                          'reported indices or select explicit coordinates for a separate run.') if outside else None)
 
 
-def read_core_sites(root, targets, *, expected_input_pairs=None):
+def read_core_sites(root, targets, *, expected_input_pairs=None, historical_repeat_only=False):
     """Validate genuine artifacts and derive counts independent of native PE-reference metrics."""
     root = Path(root)
     designs = _panel(targets)
@@ -201,10 +209,11 @@ def read_core_sites(root, targets, *, expected_input_pairs=None):
         requested *= len(ordered)
     if len(requested) != len(ordered):
         raise ValueError('Missing per-reference window coordinates')
-    windows = {}
+    windows, scoring = {}, {}
     for name, coords in zip(ordered, requested):
         if refs[name]['sequence'] != designs[name][0]:
             raise ValueError('Backend WT reference sequence mismatch')
+        scoring[name] = (-20, -2) if historical_repeat_only else scoring_parameters(args, refs[name])
         windows[name] = _window_report(refs[name], designs[name], coords)
 
     mapping, = table(child_file(root, running['mapping_stats_filename']))
@@ -229,7 +238,7 @@ def read_core_sites(root, targets, *, expected_input_pairs=None):
         name, n = row['Reference_Name'], integer(row['#Reads'])
         classes[name] += n
         if name in designs:
-            _observe(row, designs[name], n, counts[name])
+            _observe(row, designs[name], n, counts[name], scoring[name], historical_repeat_only=historical_repeat_only)
             native[name, row['Read_Status']] += n
     partition = aligned_partition(info, ({'Reference_Name': k, '#Reads': v} for k, v in classes.items()), totals)
     if sum(partition.values()) != aligned:
@@ -247,10 +256,10 @@ def read_core_sites(root, targets, *, expected_input_pairs=None):
                 raise ValueError('Native window counts disagree with allele table')
         if integer(row['Modified']) + integer(row['Unmodified']) != totals[name]:
             raise ValueError('Native modification counts do not reconcile')
-        per_ref[name] = dict(**_summarize(counts[name]), ordinary_alignments=totals[name],
+        per_ref[name] = dict(**_summarize(counts[name], historical_repeat_only), ordinary_alignments=totals[name],
                              native_window_modified=integer(row['Modified']),
                              fixed_alignment_counts={s: counts[name]['fixed_' + s] for s in STATES})
-    combined = _summarize(sum(counts.values(), Counter()))
+    combined = _summarize(sum(counts.values(), Counter()), historical_repeat_only)
     return dict(method='intended_sites_from_crispresso_alleles', version=VERSION,
                 status='REPORTABLE' if any(combined[k]['denominator'] for k in ('site_A','site_B')) else 'NOT_ASSESSABLE',
                 input_pairs=raw, preprocessed=merged, aligned=aligned, preprocessing_loss=raw-merged,
@@ -288,6 +297,7 @@ def run_core_sites(*, targets, r1, r2, input_pairs, core, runtime_digest, output
         raise FileExistsError(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     stage = Path(tempfile.mkdtemp(prefix='.' + output.name + '.incomplete-', dir=output.parent))
+    preserve_native = False
     try:
         hashes, names = [], []
         for mate, source in enumerate((Path(r1), Path(r2)), 1):
@@ -303,12 +313,18 @@ def run_core_sites(*, targets, r1, r2, input_pairs, core, runtime_digest, output
         argv = [core.path, '--fastq_r1', names[0], '--fastq_r2', names[1],
                 '--amplicon_seq', ','.join(t.wt_sequence for t in targets),
                 '--amplicon_name', ','.join(designs), '--name', 'sites', '--write_detailed_allele_table',
-                '--keep_intermediate', '--suppress_report', '--suppress_plots']
+                '--keep_intermediate']
         if any(selections):
             argv.extend(['--quantification_window_coordinates', ','.join(selections)])
         start = utc_now()
         with (stage / 'core.log').open('w') as log:
             proc = subprocess.run(argv, cwd=stage, stdout=log, stderr=subprocess.STDOUT)
+        execution = dict(argv=argv, version_probe=core.probe, runtime_digest=runtime_digest, input_sha256=hashes,
+                         started_at=start, ended_at=utc_now(), return_code=proc.returncode,
+                         native_directory='CRISPResso_on_sites', analysis_mode='conventional_multi_wt_sites',
+                         window_selection='caller_override' if explicit_override else 'target_or_backend_default')
+        (stage/'execution.json').write_text(json.dumps(execution, indent=2, sort_keys=True) + '\n')
+        preserve_native = True
         if proc.returncode:
             raise BackendError('COMMAND_FAILED', (stage / 'core.log').read_text()[-2000:])
         child = stage / 'CRISPResso_on_sites'
@@ -317,10 +333,7 @@ def run_core_sites(*, targets, r1, r2, input_pairs, core, runtime_digest, output
         if [args['fastq_r1'], args['fastq_r2']] != names or (any(selections) and
                 args['quantification_window_coordinates'] != ','.join(selections)):
             raise ValueError('Backend input or requested coordinates mismatch')
-        report['execution'] = dict(argv=argv, version_probe=core.probe, runtime_digest=runtime_digest,
-                                   input_sha256=hashes, started_at=start, ended_at=utc_now(),
-                                   return_code=proc.returncode, native_directory='CRISPResso_on_sites',
-                                   window_selection='caller_override' if explicit_override else 'target_or_backend_default')
+        report['execution'] = execution
         (stage / 'aligned_site_counts.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
         if output.exists() or output.is_symlink():
             raise FileExistsError(output)
@@ -328,4 +341,7 @@ def run_core_sites(*, targets, r1, r2, input_pairs, core, runtime_digest, output
         return report
     finally:
         if stage.exists():
-            shutil.rmtree(stage)
+            if preserve_native and not output.exists() and not output.is_symlink():
+                stage.rename(output)
+            elif not preserve_native:
+                shutil.rmtree(stage)

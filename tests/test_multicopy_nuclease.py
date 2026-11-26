@@ -192,3 +192,13 @@ def test_matched_window_comparison(tmp_path):
     assert compare(paths['W2'],paths['W3']) == json.loads((EVIDENCE/'window-comparison.json').read_text())
     with pytest.raises(ValueError,match='primary TIGR W2'):
         compare(paths['W3'],paths['W2'])
+
+
+def test_disjoint_intervals_exclude_intervening_unknown_from_quality_gate():
+    from peanalyzer.nuclease.multicopy import observable
+    from types import SimpleNamespace
+    t=target(nuclease_profile=None,tigr_target_sequence=None,quantification_window_coordinates='104-113_132-135')
+    for position, expected in [(103,True),(104,False),(113,False),(114,True),(123,True),(131,True),(132,False),(135,False),(136,True)]:
+        seq=WT[:position]+'N'+WT[position+1:]
+        row=SimpleNamespace(authoritative_fields={'ref_positions':str(list(range(len(WT)))), 'Aligned_Sequence':seq})
+        assert observable(row,t) is expected, position
