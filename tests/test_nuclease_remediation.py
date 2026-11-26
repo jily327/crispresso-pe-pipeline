@@ -104,3 +104,17 @@ def test_stage_inventory_orders_native_report_sibling_before_directory(tmp_path)
     (stage/'CRISPResso_on_x.html').write_text('report')
     assert [a.path for a in inventory(tmp_path,'metrics')] == [
         'metrics/CRISPResso_on_x.html','metrics/CRISPResso_on_x/CRISPResso2_info.json']
+
+
+def test_sci03_original_native_rows_preserve_history_and_reconcile_selected_intervals():
+    from peanalyzer.nuclease.models import MulticopyNucleaseResult
+    from peanalyzer.nuclease.multicopy import calculate
+
+    frozen=Path(__file__).parents[1]/'docs/validation/remediation/nuclease/audit-inputs/audited-result.json.gz'
+    original=MulticopyNucleaseResult.model_validate_json(gzip.decompress(frozen.read_bytes()))
+    assert original.window_observability is None
+    assert (original.combined.metrics['indel_fraction'].numerator,original.combined.aligned_reads)==(0,7)
+    reasons={}
+    pop,combined,copies=calculate(original.targets,original.reference_runs,original.merged_counts,exclusion_counts=reasons)
+    actual={k:(g.metrics['indel_fraction'].numerator,g.aligned_reads) for k,g in [('combined',combined),*copies.items()]}
+    assert actual=={'combined':(2,9),'a':(2,6),'b':(0,3)} and pop['aligned_unassessable_reads']==0 and reasons=={}
