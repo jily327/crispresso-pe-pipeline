@@ -1,0 +1,120 @@
+{
+  "by_method": {
+    "canonical": {
+      "WT": 96,
+      "edited": 96,
+      "nonzero": 46,
+      "total": 192,
+      "zero": 146
+    },
+    "full_templates": {
+      "WT": 384,
+      "edited": 1152,
+      "nonzero": 170,
+      "total": 1536,
+      "unresolved": 384,
+      "zero": 1366
+    },
+    "marginal": {
+      "edited": 192,
+      "nonzero": 111,
+      "total": 384,
+      "zero": 273
+    },
+    "two_site_q30": {
+      "WT": 384,
+      "edited": 1152,
+      "nonzero": 228,
+      "total": 1536,
+      "unresolved": 384,
+      "zero": 1308
+    }
+  },
+  "cells": {
+    "WT": 864,
+    "edited": 2592,
+    "nonzero": 555,
+    "total": 3648,
+    "unresolved": 768,
+    "zero": 3093
+  },
+  "discrepancies": [],
+  "full_template_to_joint_Q30_1A": {
+    "AB": [
+      9,
+      9
+    ],
+    "A_only": [
+      11,
+      13
+    ],
+    "B_only": [
+      4,
+      4
+    ],
+    "WT": [
+      1018,
+      1957
+    ]
+  },
+  "inputs": {
+    "ALSW_EPSPS_regression_reference_DNA.zip": "514256941ba555457756bdff328bbc30ae7e87c1a5f0352acbdcf896bfc2109e",
+    "ALSW_dif_knots_R1.fastq.gz": "54e62251f5613cab4e3ef5cb774529dd3216afa496758ef986d25f00e92bf6e2",
+    "ALSW_dif_knots_R2.fastq.gz": "30d614186fbe73dc8df4c3ebd6483040be15b2194cdd29e797d9c34b98ff72ad",
+    "EPSPS_1106_R1.fastq.gz": "44fbdcf88ff89aa2d939561963220e3c2896ba3268b29e79cefb5c211239f873",
+    "EPSPS_1106_R2.fastq.gz": "0a8216b04f264385d8bf0ec82c5c82e41e4ff6b3544d925fc863063be8329f0a"
+  },
+  "observed_AB_bins": {
+    "1A": {
+      "both_indexes_recognized": true,
+      "full_AB": 9,
+      "joint_AB": 19,
+      "joint_assessable": 2034,
+      "raw_pairs": 5564
+    },
+    "1F": {
+      "both_indexes_recognized": true,
+      "full_AB": 1,
+      "joint_AB": 1,
+      "joint_assessable": 163,
+      "raw_pairs": 325
+    },
+    "3D": {
+      "both_indexes_recognized": true,
+      "full_AB": 0,
+      "joint_AB": 1,
+      "joint_assessable": 3297,
+      "raw_pairs": 8062
+    },
+    "?A": {
+      "both_indexes_recognized": false,
+      "full_AB": 0,
+      "joint_AB": 1,
+      "joint_assessable": 66,
+      "raw_pairs": 154
+    }
+  },
+  "oracle_sha256": "20870b5c62c6bcd9b7fc2ddc7aa2378d337a3f94f3f7f1e94deba0078b5ae3ca",
+  "source": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "e2ec4214b5cdd402490e39aa853dd48a4e980d8d",
+    "git_dirty": false,
+    "package_code_sha256": "db13349df04bff23fd3ca31a638b636f06c23634b9831d2a742c4e7daa72b208",
+    "pipeline_version": "1.1.0",
+    "python_version": "3.12.14"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "after": {
+    "backend_aligned": 10,
+    "backend_unaligned": 5,
+    "backend_version": "2.3.4",
+    "copy_exact_reasons": [
+      "COMPETING_UNTRIMMED_PRODUCT"
+    ],
+    "copy_exact_status": "BLOCKED",
+    "copy_native": [
+      0,
+      10
+    ],
+    "package_code_sha256": "db13349df04bff23fd3ca31a638b636f06c23634b9831d2a742c4e7daa72b208",
+    "product_exclusions": {
+      "COMPETING_UNTRIMMED_PRODUCT": 5
+    },
+    "raw_fastq_content_sha256": {
+      "raw_R1.fastq.gz": "32a1001ca492bd80b42eb323293d331fd5b15dcc9b7f396b66b82c80499f116e",
+      "raw_R2.fastq.gz": "d2eb133f63d2ea59999d7b9ac5baab3ad8c925ab29c2a0aa0129d4b09d0ee258"
+    },
+    "raw_input": 15,
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "target_exact": [
+      0,
+      10
+    ],
+    "target_native": [
+      0,
+      10
+    ],
+    "target_status": "REPORTABLE"
+  },
+  "audited_revision": "2f567b88628eeb287bacc9febf3b65b3a00bfc7a",
+  "before": {
+    "backend_aligned": 10,
+    "backend_unaligned": 5,
+    "backend_version": "2.3.4",
+    "copy_exact_reasons": [],
+    "copy_exact_status": "REPORTABLE",
+    "copy_native": [
+      0,
+      10
+    ],
+    "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+    "product_exclusions": {},
+    "raw_fastq_content_sha256": {
+      "raw_R1.fastq.gz": "32a1001ca492bd80b42eb323293d331fd5b15dcc9b7f396b66b82c80499f116e",
+      "raw_R2.fastq.gz": "d2eb133f63d2ea59999d7b9ac5baab3ad8c925ab29c2a0aa0129d4b09d0ee258"
+    },
+    "raw_input": 15,
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "target_exact": [
+      5,
+      15
+    ],
+    "target_native": [
+      0,
+      10
+    ],
+    "target_status": "REPORTABLE"
+  },
+  "corrected_revision": "e2ec4214b5cdd402490e39aa853dd48a4e980d8d",
+  "family_excluded": 5,
+  "fixed_input_matches_original": true,
+  "independent_expected": [
+    0,
+    10
+  ],
+  "original_audit_result_sha256": "42b93bd956e58de90fafecd20ac99a06297417ba034b6a8b7c768016047fb6b7",
+  "original_reproduction_script_sha256": "778fcb35225731702be65e674280a03f775019bd4e2b0020a3a4a96032cb8480"
+}
