@@ -6,8 +6,8 @@ import nucleaseRaw from './fixtures/nuclease.json';
 import { MetricCard } from '../components/Common';
 import { Overview, Statistics, Samples, Provenance } from '../pages/Results';
 // Historical fixtures retain their source values; supply additive presentation fields in memory.
-const pe={...peRaw,scientific_panels:[],minimum_biological_replicates:null,groups:peRaw.groups.map(g=>({...g,descriptive_statistics_version:null,sample_sd:null,sample_sd_percentage:null,pooled_read_fraction:null})),observations:peRaw.observations.map(o=>({...o,numerator_label:'Stored numerator',definition:'Stored definition'}))} as WorkspaceView;
-const nuclease={...nucleaseRaw,scientific_panels:[],minimum_biological_replicates:null,groups:nucleaseRaw.groups.map(g=>({...g,descriptive_statistics_version:null,sample_sd:null,sample_sd_percentage:null,pooled_read_fraction:null})),observations:nucleaseRaw.observations.map(o=>({...o,numerator_label:'Stored numerator',definition:'Stored definition'}))} as WorkspaceView;
+const pe={...peRaw,scientific_panels:[],measurement_rows:[],native_runs:[],minimum_biological_replicates:null,groups:peRaw.groups.map(g=>({...g,descriptive_statistics_version:null,sample_sd:null,sample_sd_percentage:null,pooled_read_fraction:null})),observations:peRaw.observations.map(o=>({...o,sample_role:"experimental",biological_eligible:true,numerator_label:'Stored numerator',definition:'Stored definition'}))} as WorkspaceView;
+const nuclease={...nucleaseRaw,scientific_panels:[],measurement_rows:[],native_runs:[],minimum_biological_replicates:null,groups:nucleaseRaw.groups.map(g=>({...g,descriptive_statistics_version:null,sample_sd:null,sample_sd_percentage:null,pooled_read_fraction:null})),observations:nucleaseRaw.observations.map(o=>({...o,sample_role:"experimental",biological_eligible:true,numerator_label:'Stored numerator',definition:'Stored definition'}))} as WorkspaceView;
 const primary=(v:WorkspaceView)=>v.observations.find(o=>o.metric_name===(v.mode==='precise_edit'?'total_precise_pe':'indel_fraction'))!;
 const props=(v:WorkspaceView)=>({view:v,sample:primary(v).sample_id,series:primary(v).series_id,onDownload:vi.fn(),onError:vi.fn()});
 

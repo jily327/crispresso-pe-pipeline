@@ -111,6 +111,47 @@ export interface Group {
   source: Source;
 }
 
+export interface MeasurementRow {
+  sample_id: string;
+  target: string;
+  analysis_mode: string;
+  measurement_source: string;
+  measurement: string;
+  definition: string;
+  population: string;
+  copy_name: string | null;
+  reference: string | null;
+  integer_count: string | null;
+  observation: string | null;
+  numerator: string | null;
+  denominator: string | null;
+  fraction: number | null;
+  eligibility: string;
+  reasons: Array<string>;
+  native_execution_id: string | null;
+  execution_status: string | null;
+  extraction_status: string | null;
+  recount_status: string | null;
+  runtime_identity_status: string | null;
+  direct_parity_status: string | null;
+  source_artifact: string;
+  source_sha256: string;
+}
+
+export interface NativeRunView {
+  sample_id: string;
+  target: string;
+  run_id: string;
+  mode: string;
+  population: string;
+  execution: string;
+  extraction: string;
+  recount: string;
+  direct_parity: string;
+  evidence: Array<FieldValue>;
+  files: Array<RunFile>;
+}
+
 export interface NucleaseDetail {
   sample_id: string;
   target: string;
@@ -186,6 +227,11 @@ export interface Registration {
   label: string;
 }
 
+export interface RunFile {
+  role: string;
+  source: Source;
+}
+
 export interface ScientificPanel {
   sample_id: string;
   target: string;
@@ -240,6 +286,8 @@ export interface WorkspaceView {
   contrasts: Array<Contrast>;
   populations: Array<Population>;
   nuclease: Array<NucleaseDetail>;
+  measurement_rows: Array<MeasurementRow>;
+  native_runs: Array<NativeRunView>;
   scientific_panels: Array<ScientificPanel>;
   provenance: Array<FieldValue>;
   stages: Array<Stage>;

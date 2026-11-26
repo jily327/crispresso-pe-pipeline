@@ -34,7 +34,7 @@ def evidence_rows(panels):
     return rows
 
 
-def _site_exports(output, sites_document):
+def _site_exports(output, sites_document, *, replay_legacy=False):
     path = owned(Path(output), 'intended_sites.json')
     data = path.read_bytes()
     if json.loads(data) != sites_document:
@@ -42,7 +42,7 @@ def _site_exports(output, sites_document):
     source = Source(artifact_id='intended_sites', name=path.name, sha256=hashlib.sha256(data).hexdigest(),
                     size_bytes=str(len(data)), kind='json', downloadable=True)
     panels = site_panels(sites_document, source, sites_document['sample_id'], sites_document['target_name'],
-                         replay_legacy='canonical_eligibility_contract' not in sites_document)
+                         replay_legacy=replay_legacy)
     rows = measurement_rows(panels)
     out = io.StringIO(newline='')
     writer = csv.writer(out, delimiter='\t', lineterminator='\n')
@@ -70,6 +70,7 @@ def write_site_exports(output, sites_document):
 
 
 def verify_site_exports(output, sites_document):
-    for name, expected in _site_exports(output, sites_document).items():
+    legacy = 'canonical_eligibility_contract' not in sites_document
+    for name, expected in _site_exports(output, sites_document, replay_legacy=legacy).items():
         if owned(Path(output), name).read_bytes() != expected:
             raise WorkflowError('SITE_EXPORT_MISMATCH', name)

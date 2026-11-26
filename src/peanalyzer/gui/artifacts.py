@@ -22,5 +22,6 @@ def read_bound(root, record):
 def sources(records):
     return {path: Source(artifact_id=uuid.uuid4().hex, name=path, sha256=r.sha256,
         size_bytes=str(r.size_bytes), kind=Path(path).suffix.lstrip('.') or 'file',
-        downloadable=Path(path).suffix.lower() in DOWNLOAD_SUFFIXES)
+        downloadable=(Path(path).suffix.lower() in DOWNLOAD_SUFFIXES or (path.startswith('metrics/') and
+                     Path(path).name in {'reproduce.sh','input_R1.fastq','input_R2.fastq','input_R1.fastq.gz','input_R2.fastq.gz'})))
         for path, r in sorted(records.items())}

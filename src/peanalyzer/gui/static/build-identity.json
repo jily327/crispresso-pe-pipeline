@@ -1,8 +1,8 @@
 {
   "assets": {
     "assets/index-Bpzot19A.css": "f4aec4edcfb239ad8515090c927dbe0a168c11be5ab4281f591b789ff7be2f0d",
-    "assets/index-D9izg3UZ.js": "8847ff4f87a307b61dd9961506c3b0ca386d3869e9d03cf11a5fde65349aaaae",
-    "index.html": "03bef586a2e668bc18efc92cf554b82d2c36d24d08fea839fa402969810ee6f5"
+    "assets/index-DPALPdxF.js": "40aad4ef1305305119da15f9d56dd7f948df8bbaec8153aec77f4cf543022eb6",
+    "index.html": "c1279ea4cbb493701eb410b34f70d56f4eef23083593ea8e9f1b5ea704108c4c"
   },
   "schema_version": 1,
   "sources": {
@@ -14,18 +14,19 @@
     "frontend/src/components/Common.tsx": "9ec31d23d696ba1d00effdad8eeef115d9b8c594e51f8c289d965453d0640030",
     "frontend/src/components/ExportIntegrity.tsx": "1e702488eae5b6b6d6d1e1fe9a92ee111de086371a7246140273889583260b6a",
     "frontend/src/components/InputImports.tsx": "f9f21c14b895e7b310bd1d1946a5182fc53406a9d2ce027211a37f7fb15f7b93",
+    "frontend/src/components/MeasurementCatalog.tsx": "73eac9aa3cf38098c85cb3b9a0b9effe0f8396e95adb4f7440afa6c36072476e",
     "frontend/src/components/OpenOutput.tsx": "7df96591e795c68b23199c72e614dad3b64f0b67a865c25aa1d9cf749bee9b7b",
     "frontend/src/components/ScientificResults.tsx": "672e2c8ea5f765847e65381cd1deb7f372e27f308f5e933d81bfd5c605a1aa27",
     "frontend/src/components/ThemeToggle.tsx": "7ceb8d117476b74d01bf78e22abf803955be3955b910c789e56b4ee4581a51da",
     "frontend/src/main.tsx": "f6d083039d8966c7baa933dcf1754cc4bea1d4f6f509f1414f549bf7f935f7aa",
-    "frontend/src/models/api.ts": "99c0b5176687d48694d8b464a019532021f771e2918a3890dacdbb8e64887391",
+    "frontend/src/models/api.ts": "11ca3439ba96ef90e32d64a233c3661a8b5f3d48c2b99d7e772e99b7c16d09a9",
     "frontend/src/models/jobs.ts": "b5c50ed89f999fbb653d846be69330d9db49d931d7c74a94792e75c0f2c63f3b",
     "frontend/src/models/recovery.ts": "69c9fc4044abcd0166facc53aa7f0fd8f70d760e51431daa09b8c17ebb995ee7",
-    "frontend/src/models/setup.ts": "e3d51c917ac5ba86521b0ba5e3163cbd87e9399921728339b6a88187aadd922d",
+    "frontend/src/models/setup.ts": "5fdbd19ff1be41462ae4679ff5b26ba8cf2877097ca7f7a709923c6b3fa6aa33",
     "frontend/src/pages/Recovery.tsx": "a6197c1a02ef57b76500fdeaef0f49133face714b44eb127bba7b27abe45c7ad",
-    "frontend/src/pages/Results.tsx": "404bd0e23840c59312b357cf0bc3244e42e86e2c5d80e5aba5d5129aa957eb22",
+    "frontend/src/pages/Results.tsx": "880fc08f6f4ca14a5883c0753f1afb49e6de317b2eb543f96d930825ef513e9f",
     "frontend/src/pages/Run.tsx": "79d6abf3676f72d0be065690fc3eaa63f345666978813c49e4a8c54881adca98",
-    "frontend/src/pages/SetupWizard.tsx": "2d43ce73fc6f5b60880cec81839d706ab302a765cebf2105d01d1b95a18eaf91",
+    "frontend/src/pages/SetupWizard.tsx": "9fedb60b3ef771d986bd066de033914ac2486ed39125df9f70c86565f9c70010",
     "frontend/src/styles/viewer.css": "3f5f958ddaa327e81cbb68b1d816b2c05104a5d55c6d61087099850dd6b9343a",
     "frontend/tsconfig.json": "41496c21cd58e9d80f8a36187af652c0e15797eb73d2cad754f63561ac116582",
     "frontend/vite.config.ts": "6110656e60f2e196975743a4e0c83fc4e764f7686580811951008a2c21cded64",

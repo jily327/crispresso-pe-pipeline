@@ -74,7 +74,7 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     stats_source = sources[manifest.statistics_result.path]
     metrics, metric_sources, contracts = {}, {}, {stats.statistics_contract_version, manifest.workflow_contract_version}
     from peanalyzer.gui.scientific_projection import multicopy_nuclease_panels, panel, reference_panels, site_panels, window_panels
-    scientific_panels = []
+    scientific_panels, measurement_rows, native_runs = [], [], []
     for node in plan.nodes:
         if mode == 'precise_edit' and node.stage_kind == 'routing':
             for name in ('geometry.json', 'scientific_gate.json'):
@@ -88,6 +88,12 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
         metrics[(result.sample_id, result.target_id)] = result
         metric_sources[(result.sample_id, result.target_id)] = sources[path]
         contracts.add(result.metric_contract_version)
+        catalog_path = node.output_path + '/measurements.json'
+        if catalog_path in sources:
+            from peanalyzer.gui.measurement_catalog import project_catalog
+            rows, runs = project_catalog(node.output_path, result, read, sources)
+            measurement_rows.extend(rows)
+            native_runs.extend(runs)
         qc_path = node.output_path + '/sample_qc.json'
         if qc_path in sources:
             qc = read(qc_path)
@@ -229,5 +235,5 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
     return WorkspaceView(workspace_id=workspace_id,label=title,snapshot_id=snapshot_id,mode=mode,targets=plan.expected_targets,
         contracts=sorted(contracts),observations=sorted(observations,key=lambda o:(o.sample_id,o.series_id,o.observation_id)),groups=groups,contrasts=contrasts,
         minimum_biological_replicates=stats.provenance.invocation_parameters.get('minimum_biological_replicates'),
-        populations=populations,nuclease=details,scientific_panels=scientific_panels,provenance=provenance,stages=stages,artifacts=list(sources.values()),
+        populations=populations,nuclease=details,measurement_rows=measurement_rows,native_runs=native_runs,scientific_panels=scientific_panels,provenance=provenance,stages=stages,artifacts=list(sources.values()),
         native_html='Available for download only' if native else 'Not produced'), alleles

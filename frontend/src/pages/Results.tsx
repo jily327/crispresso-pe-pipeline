@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { WorkspaceView, Observation, Source, NucleaseDetail, AllelePage, Group } from '../models/api';
+import { MeasurementCatalog } from '../components/MeasurementCatalog';
 import { ScientificResults } from '../components/ScientificResults';
 import { api } from '../api/client';
 import { absent, Fields, MetricCard, SourceLink, Status, Table } from '../components/Common';
@@ -23,6 +24,7 @@ export function Overview(p: Props) {
   const rows = primaryRows.filter(o => o.sample_id === p.sample && (o.metric_name === primary || o.metric_name === 'target_crispresso_native_pe'));
   const detail = p.view.nuclease.find(n => n.sample_id === p.sample);
   return <><div className="section-heading"><h2>Overview</h2><p>Stored biological outcomes · equal-weight biological replicates</p></div>
+    <MeasurementCatalog rows={(p.view.measurement_rows||[]).filter(v=>v.sample_id===p.sample)} runs={(p.view.native_runs||[]).filter(v=>v.sample_id===p.sample)} onDownload={p.onDownload}/>
     <Groups groups={p.view.groups.filter(g => mainSeries.has(g.series_id))}/>
     <h3>Selected biological sample · {rows[0]?.sample_name}</h3><div className="metric-grid">{rows.map(o => <MetricCard key={o.observation_id} row={o} onDownload={p.onDownload}/>)}</div>
     {p.view.mode === 'precise_edit' && <p className="callout">Exact intended PE and the CRISPResso Prime-edited reference fraction describe different populations and denominators. Neither metric is a lower bound for the other.</p>}
