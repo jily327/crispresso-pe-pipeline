@@ -55,13 +55,21 @@ def publish_metrics(plan,node,runner,**kwargs):
     else:
         core = resolve_executable(plan.backend_identity.executable)
         runner(output=output,core=core,**kwargs)
-    if 'min_prepared_pairs_qc' in plan.normalized_options:
+    native_contract = plan.normalized_options.get('native_runs_contract') == 'native-runs-v1'
+    if native_contract:
+        from peanalyzer.backend.native_runs import write_native_runs
+        write_native_runs(output, node.sample_id, node.target_name, kwargs['targets'], prepared[node.sample_id])
+    if native_contract or 'min_prepared_pairs_qc' in plan.normalized_options:
         from peanalyzer.result_dispatch import metric_model
         from peanalyzer.workflow_storage import read_json
         raw=read_json(output/'result.json')
         result=metric_model(raw).model_validate(raw)
+    if 'min_prepared_pairs_qc' in plan.normalized_options:
         atomic_json(output/'sample_qc.json',depth_assessment(node.sample_id,roles[node.sample_id],count,
             plan.normalized_options['min_prepared_pairs_qc'],result))
+    if native_contract:
+        from peanalyzer.measurement_exports import write_measurement_exports
+        write_measurement_exports(output, result)
     validate_stage(plan,node,'COMPLETED',output_override=output)
     records=[a.model_copy(update={'path':node.output_path+a.path[len('output'):]}) for a in inventory(attempt,'output')]
     integrity=authenticate(root,plan)

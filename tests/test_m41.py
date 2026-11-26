@@ -96,6 +96,10 @@ def test_independent_anchor_failures_preserve_actual_reasons(archive,tmp_path,mo
     codes={'nonzero':'BACKEND_EXECUTION_FAILED','malformed':'BACKEND_OUTPUT_MALFORMED',
            'counter':'BACKEND_COUNTER_RECONCILIATION_FAILED','ambiguity':'BACKEND_AMBIGUOUS_RECONCILIATION_FAILED',
            'launch':'BACKEND_EXECUTION_FAILED','reference':'BACKEND_REFERENCE_MISMATCH'}
+    multi_wt = []
+    def observe_panel(verified, sample_id, targets, core, runtime_digest, output):
+        multi_wt.append(([t.copy_name for t in targets], verified.manifest['samples'][sample_id]['pairs']))
+    monkeypatch.setattr('peanalyzer.backend.conventional.run_conventional_panel', observe_panel)
     real_run = subprocess.run
     def execute(argv, **kwargs):
         if argv[0] != '/test/core': return real_run(argv, **kwargs)
@@ -119,6 +123,7 @@ def test_independent_anchor_failures_preserve_actual_reasons(archive,tmp_path,mo
     result=run_metrics(analysis_root=archive/'analysis',sample_id='1B',targets=panel(),analysis_id='anchor-failure',
         output=tmp_path/'result',core=Executable('/test/core','2.3.4',{}))
     assert attempted==['copy1','copy2']
+    assert multi_wt == [(['copy1','copy2'], result.qc.prepared_input_reads)]
     failures={c:codes[k] for c,k in by_copy.items() if k!='success'}
     assert result.anchor_evidence['failures']==failures
     native=result.target_metrics.target_crispresso_native_pe

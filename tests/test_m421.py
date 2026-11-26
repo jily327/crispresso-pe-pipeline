@@ -176,6 +176,12 @@ def test_run_metrics_prevalidates_before_canonical_work_and_publishes(archive,tm
         assert events[0]=='policy_validation';events.append('backend_launch')
         shutil.copytree(archive/'comparator',output)
         return {'anchor_failures':{}}
+    from peanalyzer.backend.pooled import Executable
+    def multi_wt(verified,sample_id,targets,core,runtime_digest,output):
+        assert verified.manifest['samples'][sample_id]['pairs'] > 0
+        assert [t.copy_name for t in targets] == ['copy1', 'copy2']
+        events.append('multi_wt')
+    monkeypatch.setattr('peanalyzer.backend.conventional.run_conventional_panel',multi_wt)
     def copy_core(routing,copy,output,core,**kwargs):shutil.copytree(archive/'copies'/copy,output)
     monkeypatch.setattr(production,'prepare_policies',prepare)
     monkeypatch.setattr(production,'collect_metrics',collect_spy)
@@ -183,8 +189,8 @@ def test_run_metrics_prevalidates_before_canonical_work_and_publishes(archive,tm
     monkeypatch.setattr(production,'run_confident_core',copy_core)
     policies=[dict(policy_id='duplicate'),dict(policy_id='duplicate'),None,{},7,dict(policy_id='valid')]
     result=run_metrics(analysis_root=archive/'analysis',sample_id='1B',targets=panel(),analysis_id='mixed',
-        output=tmp_path/'result',core=['unused'],routing_root=archive/'routing',tolerance_policies=policies)
-    assert events.index('policy_validation')<events.index('canonical_collection')<events.index('backend_launch')
+        output=tmp_path/'result',core=Executable('/test/core','2.3.4',{}),routing_root=archive/'routing',tolerance_policies=policies)
+    assert events.index('policy_validation')<events.index('canonical_collection')<events.index('backend_launch')<events.index('multi_wt')
     assert canonical(result)==canonical(collect(archive))
     assert (tmp_path/'result/result.json').is_file()
     assert len(result.derived_metrics['target'])==6 and result.derived_metrics['target']['valid'].status=='REPORTABLE'

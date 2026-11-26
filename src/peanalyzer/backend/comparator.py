@@ -104,7 +104,7 @@ def run_comparator(analysis_root, sample_id, targets, output, core, *, runtime_i
             native=plan.backend
             argv=[core.path,'-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz',
                   '--amplicon_seq',native.wt_sequence,'--name','unrouted','--output_folder','output',
-                  '--write_detailed_allele_table','--keep_intermediate','--suppress_report','--suppress_plots']
+                  '--write_detailed_allele_table','--keep_intermediate']
             for column,field in list(FIELDS.items())[2:]:
                 value=getattr(native,field)
                 if value is not None: argv.extend(['--'+column,str(value)])
