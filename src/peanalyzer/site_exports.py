@@ -41,7 +41,8 @@ def _site_exports(output, sites_document):
         raise WorkflowError('SITE_EXPORT_SOURCE_MISMATCH', 'Site evidence differs from the stored source')
     source = Source(artifact_id='intended_sites', name=path.name, sha256=hashlib.sha256(data).hexdigest(),
                     size_bytes=str(len(data)), kind='json', downloadable=True)
-    panels = site_panels(sites_document, source, sites_document['sample_id'], sites_document['target_name'])
+    panels = site_panels(sites_document, source, sites_document['sample_id'], sites_document['target_name'],
+                         replay_legacy='canonical_eligibility_contract' not in sites_document)
     rows = measurement_rows(panels)
     out = io.StringIO(newline='')
     writer = csv.writer(out, delimiter='\t', lineterminator='\n')

@@ -310,7 +310,8 @@ def validate_stage(plan, node, status, *, output_override=None):
                 and site_targets[0].analysis_mode == 'precise_edit' and result.qc.prepared_input_reads):
             from peanalyzer.workflow_sites import two_substitutions, verify_workflow_sites
             if two_substitutions(site_targets):
-                verify_workflow_sites(output, result, site_targets)
+                verify_workflow_sites(output, result, site_targets,
+                    require_canonical=plan.normalized_options.get('native_runs_contract') == 'native-runs-v1')
         if read_json(output / 'execution_failures.json'):
             raise WorkflowError('BACKEND_EXECUTION_FAILED',
                 f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '

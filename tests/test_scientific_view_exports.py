@@ -65,3 +65,28 @@ def test_blocked_site_report_has_reason_and_no_numeric_value(tmp_path):
         row, = csv.DictReader(stream, delimiter='\t')
     assert row['Reasons'] == 'UNQUALIFIED_SITE_CORRESPONDENCE'
     assert row['Numerator'] == row['Denominator'] == row['Fraction'] == ''
+
+
+def test_canonical_eligibility_is_bound_and_all_exports_withhold_fraction(tmp_path):
+    from peanalyzer.canonical_site_metric import CONTRACT, canonical_site_metric, verify_canonical_binding
+    m = SimpleNamespace(numerator=None, denominator=None, status='NOT_ASSESSABLE',
+                        reason_codes=['STATE_DEPENDENT_PRODUCT_OBSERVABILITY'], population_id='all-16', metric_name='total_precise_pe')
+    raw = dict(sample_id='bc001',target_name='T1',status='ASSESSED',canonical_eligibility_contract=CONTRACT,
+               exact_double_edit_fraction=canonical_site_metric(m))
+    verify_canonical_binding(raw,m,required=True)
+    (tmp_path/'intended_sites.json').write_text(json.dumps(raw))
+    write_site_exports(tmp_path,raw)
+    verify_site_exports(tmp_path,raw)
+    with (tmp_path/'intended_sites.tsv').open() as stream:
+        row = next(row for row in csv.DictReader(stream,delimiter='\t') if row['Method']=='Exact WT or intended product')
+    assert row['Status']=='NOT_ASSESSABLE' and row['Reasons']==m.reason_codes[0]
+    assert row['Numerator']==row['Denominator']==row['Fraction']==''
+    assert m.reason_codes[0] in (tmp_path/'intended_sites.html').read_text()
+    source=Source(artifact_id='a',name='intended_sites.json',sha256='f'*64,size_bytes='1',kind='json',downloadable=True)
+    view = SimpleNamespace(mode='precise_edit',scientific_panels=site_panels(raw,source,'bc001','T1',canonical_record=m))
+    table, _ = scientific_sheets(view)['Measurements']
+    result = next(row for row in table if row[2]=='Exact WT or intended product')
+    assert result[4]=='NOT_ASSESSABLE' and result[6:9]==(None,None,None) and result[10]==m.reason_codes[0]
+    raw['exact_double_edit_fraction'].update(numerator=5,denominator=15,fraction=1/3,status='ASSESSED',reason_codes=[])
+    with pytest.raises(ValueError, match='Canonical two-site'):
+        verify_canonical_binding(raw,m,required=True)

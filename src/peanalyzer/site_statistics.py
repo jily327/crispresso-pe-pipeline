@@ -62,6 +62,11 @@ def site_observations(result, sample, result_path, manifest_directory, snapshots
             or raw["prepared_manifest_sha256"] != result.provenance.prepared_manifest_sha256
             or _count(raw["input_pairs"]) != result.qc.prepared_input_reads):
         raise AggregationError("Two-site source differs from its declaring metric result")
+    from peanalyzer.canonical_site_metric import verify_canonical_binding
+    try:
+        verify_canonical_binding(raw, result.target_metrics.total_precise_pe, required=(path.parent / 'native_runs.json').is_file())
+    except ValueError as exc:
+        raise AggregationError(str(exc)) from exc
     snapshots[path] = checksum
     source = Path(relpath(path, manifest_directory)).as_posix()
     observed = []

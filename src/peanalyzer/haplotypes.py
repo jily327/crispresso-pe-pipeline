@@ -320,7 +320,6 @@ def measure_sample(sample, panel, trims, is_control):
     full = summarize_calls(exact, panel)
     joint_report = summarize_calls(joint, panel)
     _set_marginals(joint_report, marginal, panel)
-    c = full['combined']['counts']
     if not sample.pairs:
         status = 'EMPTY_NEGATIVE_CONTROL' if is_control else 'EMPTY_SAMPLE'
     else:
@@ -328,7 +327,8 @@ def measure_sample(sample, panel, trims, is_control):
     return dict(status=status, declared_negative_control=is_control, input_pairs=sample.pairs,
                 two_site_q30=joint_report, site_exclusions=dict(qc), site_orientation=dict(orientation),
                 full_templates=full, full_template_exclusions=sample.pairs-full['combined']['assessable'],
-                exact_double_edit_fraction=fraction(c['AB'], c['WT']+c['AB']))
+                exact_double_edit_fraction=dict(numerator=None, denominator=None, fraction=None,
+                    status='NOT_ASSESSABLE', reason_codes=['CANONICAL_M4_RESULT_REQUIRED']))
 
 
 def measure_haplotypes(demux_root, references, trims, marker_starts, negative_controls):

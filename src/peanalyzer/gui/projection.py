@@ -99,7 +99,8 @@ def project(root, manifest, read, sources, workspace_id, title, snapshot_id):
             sites_path = node.output_path + '/intended_sites.json'
             if sites_path in sources:
                 payload = read(sites_path)
-                scientific_panels.extend(site_panels(payload, sources[sites_path], result.sample_id, result.target_id))
+                scientific_panels.extend(site_panels(payload, sources[sites_path], result.sample_id, result.target_id,
+                                                    canonical_record=result.target_metrics.total_precise_pe))
                 contracts.add(payload['contract'])
     observations, populations, details, alleles = [], [], [], {}
     for o in stats.observations:

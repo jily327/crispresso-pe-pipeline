@@ -44,7 +44,7 @@ def panel(sample, target, method, scope, status, source, *, definition='', evide
                            evidence=diagnostic_fields(evidence or {}), source=source)
 
 
-def site_panels(raw, source, sample, target):
+def site_panels(raw, source, sample, target, *, canonical_record=None, replay_legacy=False):
     if (raw['sample_id'], raw['target_name']) != (sample, target):
         raise WorkflowError('SOURCE_IDENTITY_MISMATCH', 'Two-site measurement and metric stage identities differ')
     status = raw['status']
@@ -70,10 +70,15 @@ def site_panels(raw, source, sample, target):
                                             + ('Site A and site B use pairs assessable at each respective site.' if key == 'two_site_q30'
                                                else 'Site A and site B use the same four full-length templates.')),
                                 evidence={'Assessable pairs': row['assessable'], **row['counts']}, ratios=ratios))
-    if 'exact_double_edit_fraction' in raw:
-        panels.append(panel(sample, target, 'Exact WT or intended product', 'Combined target', status, source,
+    exact = raw.get('exact_double_edit_fraction')
+    if canonical_record is not None:
+        from peanalyzer.canonical_site_metric import canonical_site_metric
+        exact = canonical_site_metric(canonical_record)
+    if exact and ('status' in exact or replay_legacy):
+        panels.append(panel(sample, target, 'Exact WT or intended product', 'Combined target', exact.get('status', status), source,
+                            reasons=exact.get('reason_codes', ()),
                             definition='Exact full-length double-edit pairs divided by exact WT plus exact double-edit pairs.',
-                            ratios={'Complete double edit': raw['exact_double_edit_fraction']}))
+                            ratios={'Complete double edit': exact}))
     backend = raw.get('backend')
     if backend:
         scope = 'Combined target'

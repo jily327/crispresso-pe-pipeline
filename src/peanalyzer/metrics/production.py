@@ -485,7 +485,7 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
     from peanalyzer.workflow_sites import write_workflow_sites
     from peanalyzer.metrics.models import Artifact
     write_workflow_sites(analysis_root=analysis_root, sample_id=sample_id, targets=targets, output=output,
-                         core=core, runtime_digest=runtime_digest)
+                         core=core, runtime_digest=runtime_digest, canonical_record=result.target_metrics.total_precise_pe)
     sites_file = output / 'intended_sites.json'
     if sites_file.exists():
         result.provenance.artifacts[sites_file.name] = Artifact(sha256=sha256_file(sites_file),

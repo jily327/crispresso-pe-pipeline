@@ -1,5 +1,6 @@
 """Versioned supplementary site measurements on one verified prepared sample."""
 import json
+from peanalyzer.canonical_site_metric import CONTRACT as CANONICAL_CONTRACT, canonical_site_metric, verify_canonical_binding
 from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
@@ -18,7 +19,7 @@ def two_substitutions(targets):
                for t in targets)
 
 
-def write_workflow_sites(*, analysis_root, sample_id, targets, output, core, runtime_digest):
+def write_workflow_sites(*, analysis_root, sample_id, targets, output, core, runtime_digest, canonical_record):
     if not two_substitutions(targets):
         return
     verified = verify_analysis_output(analysis_root)
@@ -51,13 +52,15 @@ def write_workflow_sites(*, analysis_root, sample_id, targets, output, core, run
                                             output=output / 'core_sites')
         except UnqualifiedSiteBackend as exc:
             doc['backend'] = dict(status='BLOCKED', reason_codes=[exc.code], diagnostic=str(exc))
+    doc['canonical_eligibility_contract'] = CANONICAL_CONTRACT
+    doc['exact_double_edit_fraction'] = canonical_site_metric(canonical_record)
     with (output / 'intended_sites.json').open('x') as handle:
         json.dump(doc, handle, indent=2, allow_nan=False)
         handle.write('\n')
     write_site_exports(output, doc)
 
 
-def verify_workflow_sites(output, result, targets):
+def verify_workflow_sites(output, result, targets, *, require_canonical=False):
     """Reconcile the supplementary populations and replay the source-bound exports."""
     path = Path(output) / 'intended_sites.json'
     artifact = result.provenance.artifacts.get(path.name)
@@ -65,6 +68,8 @@ def verify_workflow_sites(output, result, targets):
             or artifact.size_bytes != path.stat().st_size):
         raise ValueError('Unbound site measurement')
     raw = read_json(path)
+    verify_canonical_binding(raw, result.target_metrics.total_precise_pe,
+                             required=require_canonical)
     if (raw['contract'] != CONTRACT or raw['sample_id'] != result.sample_id or raw['target_name'] != result.target_id
             or raw['prepared_manifest_sha256'] != result.provenance.prepared_manifest_sha256
             or raw['input_pairs'] != result.qc.prepared_input_reads):

@@ -65,7 +65,10 @@ def test_counts_using_two_directions_and_asymmetric_trims(tmp_path, reverse_read
     expected = {'WT': 4, 'A_only': 1 if reverse_refs else 2, 'B_only': 2 if reverse_refs else 1, 'AB': 3}
     for method in ('two_site_q30', 'full_templates'):
         assert row[method]['combined']['counts'] == expected
-    assert row['exact_double_edit_fraction'] == {'numerator': 3, 'denominator': 7, 'fraction': 3 / 7}
+    assert row['exact_double_edit_fraction'] == dict(numerator=None, denominator=None, fraction=None,
+        status='NOT_ASSESSABLE', reason_codes=['CANONICAL_M4_RESULT_REQUIRED'])
+    assert row['full_templates']['combined']['counts']['WT'] == 4
+    assert row['full_templates']['combined']['counts']['AB'] == 3
     assert row['site_orientation'] == {f'R{2 if reverse_reads != reverse_refs else 1}_forward': 10}
 
 
