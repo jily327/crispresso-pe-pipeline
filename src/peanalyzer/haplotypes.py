@@ -8,7 +8,7 @@ import re
 from peanalyzer.demux_verify import sha256_file, verify_demux_output
 from peanalyzer.fastq import paired_fastq, read_id
 from peanalyzer.geometry import aligner, columns
-from peanalyzer.observability import reconstruct_product, reference_observable
+from peanalyzer.observability import BOUNDARY_REASONS, reconstruct_product, reference_observable
 from peanalyzer.schemas import reverse_complement, sequence
 
 STATES = ('WT', 'A_only', 'B_only', 'AB')
@@ -203,13 +203,15 @@ def marker_copy(mates, panel):
     return next(iter(votes)) if len(votes) == 1 else None
 
 
-def full_call(left, right, panel):
+def full_call(left, right, panel, boundary_reasons=None):
     references = tuple(panel.templates)
     # A necessary end-match check avoids reconstructing both orientations for
     # unobserved products. Final admission uses the shared exact overlap policy.
     if not any(ref.startswith(left[:len(ref)]) and ref.endswith(right[-len(ref):]) for ref in references):
         return None
     product, reason = reconstruct_product(left, right, references)
+    if boundary_reasons is not None and reason in BOUNDARY_REASONS:
+        boundary_reasons.add(reason)
     if reason or product not in panel.templates:
         return None
     if not all(reference_observable(ref, len(left), len(right)) for ref in references):
@@ -265,6 +267,7 @@ def _set_marginals(report, marginal, panel):
 
 def measure_sample(sample, panel, trims, is_control):
     joint, exact, qc, orientation = Counter(), Counter(), Counter(), Counter()
+    rejected_boundaries = Counter()
     seen, marginal = set(), Counter()
     for pair in paired_fastq(sample.r1, sample.r2):
         ident = read_id(pair[0], 1)
@@ -277,10 +280,11 @@ def measure_sample(sample, panel, trims, is_control):
         reads = [rec.sequence[trim:].decode().upper() for rec, trim in zip(pair, trims)]
         scores = [rec.quality_line[trim:].rstrip() for rec, trim in zip(pair, trims)]
         full_hits, site_hits, failures = [], [], set()
+        boundary_reasons = set()
         single_hits = {'A': [], 'B': []}
         for f, r in ((0, 1), (1, 0)):
             left, right = reads[f], reverse_complement(reads[r])
-            full = full_call(left, right, panel)
+            full = full_call(left, right, panel, boundary_reasons)
             if full:
                 full_hits.append(full)
             for site, motifs in panel.single_contexts.items():
@@ -301,7 +305,9 @@ def measure_sample(sample, panel, trims, is_control):
             if len(hits) == 1:
                 copy, edited = hits[0]
                 marginal[site, copy, edited] += 1
-        if len(full_hits) == 1:
+        if boundary_reasons:
+            rejected_boundaries.update(boundary_reasons)
+        elif len(full_hits) == 1:
             state, copy = full_hits[0]
             exact[copy, state] += 1
         if len(site_hits) == 1 and not failures:
@@ -326,7 +332,7 @@ def measure_sample(sample, panel, trims, is_control):
         status = 'ASSESSED' if joint else 'NO_CALLABLE_SITE_PAIRS'
     return dict(status=status, declared_negative_control=is_control, input_pairs=sample.pairs,
                 two_site_q30=joint_report, site_exclusions=dict(qc), site_orientation=dict(orientation),
-                full_templates=full, full_template_exclusions=sample.pairs-full['combined']['assessable'],
+                full_templates=full, full_template_boundary_reasons=dict(rejected_boundaries), full_template_exclusions=sample.pairs-full['combined']['assessable'],
                 exact_double_edit_fraction=dict(numerator=None, denominator=None, fraction=None,
                     status='NOT_ASSESSABLE', reason_codes=['CANONICAL_M4_RESULT_REQUIRED']))
 

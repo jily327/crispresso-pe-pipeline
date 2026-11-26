@@ -34,13 +34,39 @@ def reconstruct(left, right):
     return left+right[n:], None
 
 
+def readthrough_boundaries(left, right):
+    """Infer fragment lengths from opposing physical 5' ends without a template.
+
+    If both mates reach both ends, the forward prefix equals the reverse
+    suffix. If only one mate overran the fragment, place the entire shorter
+    opposite mate in the longer read to identify the boundary.
+    """
+    minimum = MIN_EXACT_PAIR_OVERLAP
+    shorter, longer = sorted((len(left), len(right)))
+    if shorter < minimum:
+        return set()
+    bounds = {n for n in range(minimum, min(shorter, longer-1)+1) if left[:n] == right[-n:]}
+    if len(left) > len(right):
+        for position in range(1, len(left)-len(right)):
+            if left.startswith(right, position):
+                bounds.add(position+len(right))
+    elif len(right) > len(left):
+        for position in range(1, len(right)-len(left)):
+            if right.startswith(left, position):
+                bounds.add(len(right)-position)
+    return bounds
+
+
+BOUNDARY_REASONS = frozenset({'COMPETING_UNTRIMMED_PRODUCT', 'UNRESOLVED_READTHROUGH_BOUNDARY'})
+
+
 @lru_cache(maxsize=8192)
 def reconstruct_product(left, right, references):
     """Exact candidate products with uniquely established terminal read-through.
 
     Reads retain their amplicon-end 5-prime anchors: left is forward, right is
     reverse-complemented. Only a complete exact candidate in an overlong mate
-    can establish a 3-prime boundary. Both mates must match their entire
+    can support a 3-prime boundary corroborated by the opposite physical mate. Both mates must match their entire
     biological portions, and their clipped overlap must pass the unchanged
     conservative reconstructor. All WT/PE/copy sequences are considered together.
     Distinct supported products or additional complete-reference occurrences
@@ -74,7 +100,12 @@ def reconstruct_product(left, right, references):
                 start = read.find(reference, start+1)
     if ambiguous or len(supported) != 1:
         return None, 'AMBIGUOUS_PRODUCT_RECONSTRUCTION'
-    return next(iter(supported)), None
+    candidate = next(iter(supported))
+    if original[0] is not None and original[0] != candidate:
+        return original[0], 'COMPETING_UNTRIMMED_PRODUCT'
+    if readthrough_boundaries(left, right) != {len(candidate)}:
+        return None, 'UNRESOLVED_READTHROUGH_BOUNDARY'
+    return candidate, None
 
 
 @lru_cache(maxsize=8192)
@@ -190,7 +221,8 @@ def population_observability(paths, targets):
         orientation[f'R{forward}_forward' if forward else 'unresolved'] += 1
         lengths[len(left),len(right)]+=1
         _,reason=reconstruct_product(left,right,references)
-        if reason in ('AMBIGUOUS_PRODUCT_RECONSTRUCTION','PERIODIC_PRODUCT_RECONSTRUCTION'):ambiguity[reason]+=1
+        if reason in BOUNDARY_REASONS or reason in ('AMBIGUOUS_PRODUCT_RECONSTRUCTION','PERIODIC_PRODUCT_RECONSTRUCTION'):
+            ambiguity[reason]+=1
     rows=[];backend=Counter();exact=Counter()
     for (left,right),count in sorted(lengths.items()):
         copies=state_geometry(targets,left,right)
