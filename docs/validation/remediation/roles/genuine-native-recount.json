@@ -65,6 +65,55 @@
       "indel": 3
     }
   },
+  "fresh_corrected_workflow": {
+    "export_workbook_sha256": "767c1baabefc142c22d249342e5ecd97a8f22734d05c27d27f245427945806cc",
+    "gui_biological_eligible": false,
+    "native": {
+      "bc001": {
+        "aligned": 10,
+        "allele_zip_sha256": "a8b879044aba7185028c9f0a536881007681cc5155e4f5554820c47d3277ce74",
+        "indel": 1
+      },
+      "bc002": {
+        "aligned": 100,
+        "allele_zip_sha256": "b654e664e85baf8bd84d46217c273987ff2cf842b16841ad318c04edbb146548",
+        "indel": 90
+      },
+      "bc003": {
+        "aligned": 10,
+        "allele_zip_sha256": "86c0b1f5298b0057fcedea8f4a28a767db7166eceb96919981a89281af732233",
+        "indel": 2
+      },
+      "bc004": {
+        "aligned": 10,
+        "allele_zip_sha256": "424401999ac01132872534c636f9dd00b266e8c08a08b49b1e9bd2149ce077e3",
+        "indel": 3
+      }
+    },
+    "role_qc_tsv_sha256": "dbdda810007532b8eb0253d013f088d970618c3319544b568a0f1b7f48fb045b",
+    "source_workflow_sha256": "1ac2c52e10d044bd6fa2505eaf6b3ab337c95c5a279023d9c19976e8e87476f4",
+    "summary": {
+      "expected": [
+        "bio1"
+      ],
+      "mean": 0.1,
+      "n": 1,
+      "p": null,
+      "pooled": 0.1,
+      "q": null,
+      "sd": null,
+      "status": "NOT_ASSESSABLE",
+      "used": [
+        "bio1"
+      ]
+    },
+    "verified": true,
+    "viewer_and_excel_control_counts": [
+      90,
+      100,
+      0.9
+    ]
+  },
   "input_hashes": {
     "config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
     "contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",

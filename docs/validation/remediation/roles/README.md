@@ -43,9 +43,16 @@ booleans and integer counts survive export and that a zero-read control has a
 blank fraction. A biological negative/control group retains the genuine 0.50
 mean and 91/110 pooled counts when both samples are biological.
 
-The final evidence file records any full workflow and workbook projection
-completed on the verified corrected workspace. Reproduce that comparison with
-the installed candidate Python:
+The installed `81c21c8` wheel completed a fresh four-sample run of the original
+synthetic SCI-04 fixture. All four native allele tables gave the expected
+indel/aligned counts in barcode order, 1/10, 90/100, 2/10 and 3/10. The
+verified treatment A summary used only `bio1`. The signed PCR observation had
+fraction 0.90 and was ineligible for biological statistics in the viewer
+projection and the saved Excel workbook. The contrast reported
+`INSUFFICIENT_BIOLOGICAL_REPLICATES`, with effect, p and q unavailable.
+`genuine-native-recount.json` binds the workbook, control TSV, workflow
+manifest and native tables to this run. Reproduce the comparison with
+the installed candidate Python.
 
 ```text
 python collect.py ORIGINAL_GENERATED_AUDIT_WORKSPACE output.json --package-root FROZEN_PACKAGE --corrected-workspace FRESH_CORRECTED_WORKSPACE
@@ -69,5 +76,6 @@ python collect.py ORIGINAL_GENERATED_AUDIT_WORKSPACE output.json --package-root 
 - After `measurement_exports` landed, the installed `81c21c8` role suite
   passed 19 tests with zero skips. The first four-sample native run was paused
   for the shared Docker lock during a bc001 version probe. It timed out.
-  A new run was started with the shared lock held from launch. Earlier failed
-  workspaces were kept separate.
+  The fresh run held the shared lock from launch and passed workflow verification,
+  native allele recount, viewer projection and saved workbook checks. Earlier
+  failed workspaces were kept separate.
