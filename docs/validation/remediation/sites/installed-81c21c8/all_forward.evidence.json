@@ -1,0 +1,655 @@
+{
+  "argc": 15,
+  "core_input_order_relative_to_acquisition": [
+    "acquired_R2",
+    "acquired_R1"
+  ],
+  "derived": {
+    "A_only": {
+      "denominator": 105718,
+      "exact_fraction": "44/52859",
+      "fraction": 0.0008324031858340113,
+      "numerator": 88
+    },
+    "B_only": {
+      "denominator": 105718,
+      "exact_fraction": "161/105718",
+      "fraction": 0.0015229194649917705,
+      "numerator": 161
+    },
+    "any_edit": {
+      "denominator": 105718,
+      "exact_fraction": "138/52859",
+      "fraction": 0.0026107190828430354,
+      "numerator": 276
+    },
+    "counts": {
+      "AB": 25,
+      "A_only": 88,
+      "B_only": 161,
+      "WT": 105033,
+      "other_mixed": 411,
+      "unassessable": 2
+    },
+    "double_edit": {
+      "denominator": 105718,
+      "exact_fraction": "25/105718",
+      "fraction": 0.0002364781777937532,
+      "numerator": 25
+    },
+    "joint_assessable": 105718,
+    "qc": {
+      "AB_full_length_exact": 12,
+      "AB_with_additional_change": 13,
+      "additional_indel": 14552,
+      "additional_substitution": 36694,
+      "alternative_alignment_site_A": 0,
+      "alternative_alignment_site_B": 0,
+      "incomplete_or_unknown": 1254,
+      "nonunique_site_deletion": 0,
+      "unqualified_alignment_scoring": 0
+    },
+    "site_A": {
+      "denominator": 105720,
+      "exact_fraction": "23/21144",
+      "fraction": 0.0010877790389708663,
+      "numerator": 115
+    },
+    "site_B": {
+      "denominator": 105718,
+      "exact_fraction": "93/52859",
+      "fraction": 0.0017593976427855238,
+      "numerator": 186
+    }
+  },
+  "info_sha256": "002f00a7e9ce7da312bed49e742d74789a65956e2ca9c37226f3f66ed63107e2",
+  "integer_parity": {
+    "allele_abundance": 105769,
+    "allele_differences": [],
+    "allele_identities": 12553,
+    "alleles_equal": true,
+    "count_parity": true,
+    "differing_parameters": [],
+    "digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "direct_info_sha256": "e4bb80aa781f8ffa64cb25efcd236522142dc5ef7587dc2a5fb80855a66048f2",
+    "effective_arguments_equal": true,
+    "id": "core_sites",
+    "image": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+    "input_pairs": 114761,
+    "input_sha256": [
+      "2237227017fd66c28a5b67a77650df9192cf211fe3163f4878bf1564ddc81803",
+      "4654978f5d94f87a843f50109cbf54316e724e63a44cfcef7f678be10ac7c2c3"
+    ],
+    "integers": [
+      {
+        "difference": 0,
+        "direct": 49,
+        "managed": 49,
+        "metric": "json/class_counts/AMBIGUOUS"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "json/class_counts/chr01g_MODIFIED"
+      },
+      {
+        "difference": 0,
+        "direct": 55998,
+        "managed": 55998,
+        "metric": "json/class_counts/chr01g_UNMODIFIED"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "json/class_counts/chr17g_MODIFIED"
+      },
+      {
+        "difference": 0,
+        "direct": 49037,
+        "managed": 49037,
+        "metric": "json/class_counts/chr17g_UNMODIFIED"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_deletion/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_deletion/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_deletion_and_substitution/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_deletion_and_substitution/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_discarded/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_discarded/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion_and_deletion/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion_and_deletion/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion_and_deletion_and_substitution/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion_and_deletion_and_substitution/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion_and_substitution/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_insertion_and_substitution/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "json/counts_modified/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "json/counts_modified/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_modified_frameshift/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_modified_frameshift/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_modified_non_frameshift/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_modified_non_frameshift/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_non_modified_non_frameshift/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_non_modified_non_frameshift/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_only_deletion/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_only_deletion/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_only_insertion/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_only_insertion/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "json/counts_only_substitution/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "json/counts_only_substitution/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_splicing_sites_modified/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "json/counts_splicing_sites_modified/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "json/counts_substitution/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "json/counts_substitution/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 56350,
+        "managed": 56350,
+        "metric": "json/counts_total/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 49370,
+        "managed": 49370,
+        "metric": "json/counts_total/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 55998,
+        "managed": 55998,
+        "metric": "json/counts_unmodified/chr01g"
+      },
+      {
+        "difference": 0,
+        "direct": 49037,
+        "managed": 49037,
+        "metric": "json/counts_unmodified/chr17g"
+      },
+      {
+        "difference": 0,
+        "direct": 93216,
+        "managed": 93216,
+        "metric": "mapping/all/N_CACHED_ALN"
+      },
+      {
+        "difference": 0,
+        "direct": 6041,
+        "managed": 6041,
+        "metric": "mapping/all/N_CACHED_NOTALN"
+      },
+      {
+        "difference": 0,
+        "direct": 12553,
+        "managed": 12553,
+        "metric": "mapping/all/N_COMPUTED_ALN"
+      },
+      {
+        "difference": 0,
+        "direct": 2440,
+        "managed": 2440,
+        "metric": "mapping/all/N_COMPUTED_NOTALN"
+      },
+      {
+        "difference": 0,
+        "direct": 114250,
+        "managed": 114250,
+        "metric": "mapping/all/READS AFTER PREPROCESSING"
+      },
+      {
+        "difference": 0,
+        "direct": 105769,
+        "managed": 105769,
+        "metric": "mapping/all/READS ALIGNED"
+      },
+      {
+        "difference": 0,
+        "direct": 114761,
+        "managed": 114761,
+        "metric": "mapping/all/READS IN INPUTS"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Deletions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Deletions and Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Discarded"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Insertions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Insertions Deletions and Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Insertions and Deletions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Insertions and Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "quantification/chr01g/Modified"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Only Deletions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr01g/Only Insertions"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "quantification/chr01g/Only Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 56350,
+        "managed": 56350,
+        "metric": "quantification/chr01g/Reads_aligned"
+      },
+      {
+        "difference": 0,
+        "direct": 105769,
+        "managed": 105769,
+        "metric": "quantification/chr01g/Reads_aligned_all_amplicons"
+      },
+      {
+        "difference": 0,
+        "direct": 114761,
+        "managed": 114761,
+        "metric": "quantification/chr01g/Reads_in_input"
+      },
+      {
+        "difference": 0,
+        "direct": 352,
+        "managed": 352,
+        "metric": "quantification/chr01g/Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 55998,
+        "managed": 55998,
+        "metric": "quantification/chr01g/Unmodified"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Deletions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Deletions and Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Discarded"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Insertions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Insertions Deletions and Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Insertions and Deletions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Insertions and Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "quantification/chr17g/Modified"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Only Deletions"
+      },
+      {
+        "difference": 0,
+        "direct": 0,
+        "managed": 0,
+        "metric": "quantification/chr17g/Only Insertions"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "quantification/chr17g/Only Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 49370,
+        "managed": 49370,
+        "metric": "quantification/chr17g/Reads_aligned"
+      },
+      {
+        "difference": 0,
+        "direct": 105769,
+        "managed": 105769,
+        "metric": "quantification/chr17g/Reads_aligned_all_amplicons"
+      },
+      {
+        "difference": 0,
+        "direct": 114761,
+        "managed": 114761,
+        "metric": "quantification/chr17g/Reads_in_input"
+      },
+      {
+        "difference": 0,
+        "direct": 333,
+        "managed": 333,
+        "metric": "quantification/chr17g/Substitutions"
+      },
+      {
+        "difference": 0,
+        "direct": 49037,
+        "managed": 49037,
+        "metric": "quantification/chr17g/Unmodified"
+      }
+    ],
+    "managed_info_sha256": "002f00a7e9ce7da312bed49e742d74789a65956e2ca9c37226f3f66ed63107e2",
+    "managed_runtime_receipt": {
+      "argv": [
+        "--fastq_r1",
+        "input_R1.fastq",
+        "--fastq_r2",
+        "input_R2.fastq",
+        "--amplicon_seq",
+        "ACCTCCGAAACAAAAAACACCAAGAAACAAAACCAAAGAAGAAAAAAAAGGAAAGCAAAGAGAGACAAAAACCAAAAGAAGTACGGAGAAGGAACGATTTGAATACCTAGAATGTCCACCAGCTACAGTAACTGCTGCCGTCAATGGCCGCATTGCTGTTCCTGCATTTCCAAGGAATAGTTGGATTTCTTCCTCAGACTTCTTGCCGACAGGAAACTGCCCACCACAACCTTCTACGATTGCTCGTTGGTTTTCATTGTCATCTTCTACATGAAGTCCAAGTG,ACCTCCGAAACAAAAAACACAAAGAAACAAAACCAAAGGAAAAAGAAAAAAAAAAGGAAAGCAAGGAGACAAAAACCAAAAAGTACGGAAGGAACGATTTGAAAACCTTGAATGTCCTCCAGCTACAGTAACTGCTGCCGTCAATGGCCGCATTGCTGTTCCTGCATTTCCAAGGAATAGTTGGATTTCTTCCTCAGACTTCTCGCCGACAGGAAACTGCCCACCACAACCTTCCACAATTGCTCGTTGGTTTTCATTGTCATCTTCTACATGAAGTCCAAGTG",
+        "--amplicon_name",
+        "chr01g,chr17g",
+        "--name",
+        "sites",
+        "--write_detailed_allele_table",
+        "--keep_intermediate",
+        "--quantification_window_coordinates",
+        "146-146_157-157,146-146_157-157"
+      ],
+      "container_id": "3379ad1b08ba9c1c0cbe21a623c2f947af76799f2db63cb210946341b46cec7e",
+      "core": "/CRISPResso2/.pixi/envs/default/bin/CRISPResso",
+      "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+      "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d"
+    },
+    "population": "all_prepared_pairs",
+    "reference_order_sequences_and_windows_equal": true,
+    "runtime_match": true,
+    "runtime_version": "CRISPResso 2.3.4",
+    "sample": "all_forward",
+    "script_sha256": "999d4f6d3e0fe68601350c14f6a8ad33bbf6414226844bdc3155d142e22e39e6",
+    "status": "PASS",
+    "target": "EPSPS"
+  },
+  "native": {
+    "chr01g": {
+      "Deletions": 0,
+      "Deletions and Substitutions": 0,
+      "Discarded": 0,
+      "Insertions": 0,
+      "Insertions Deletions and Substitutions": 0,
+      "Insertions and Deletions": 0,
+      "Insertions and Substitutions": 0,
+      "Modified": 352,
+      "Only Deletions": 0,
+      "Only Insertions": 0,
+      "Only Substitutions": 352,
+      "Reads_aligned": 56350,
+      "Substitutions": 352,
+      "Unmodified": 55998
+    },
+    "chr17g": {
+      "Deletions": 0,
+      "Deletions and Substitutions": 0,
+      "Discarded": 0,
+      "Insertions": 0,
+      "Insertions Deletions and Substitutions": 0,
+      "Insertions and Deletions": 0,
+      "Insertions and Substitutions": 0,
+      "Modified": 333,
+      "Only Deletions": 0,
+      "Only Insertions": 0,
+      "Only Substitutions": 333,
+      "Reads_aligned": 49370,
+      "Substitutions": 333,
+      "Unmodified": 49037
+    }
+  },
+  "script": "#!/bin/sh\nset -eu\ntest \"$#\" -eq 1 || { echo \"Usage: sh reproduce.sh NEW_DIRECTORY\" >&2; exit 2; }\nsrc=$(CDPATH= cd -- \"$(dirname -- \"$0\")\" && pwd -P)\nmkdir -- \"$1\"\ncd -- \"$1\"\ncp -- \"$src\"/input_R1.fastq .\nprintf \"%s\\n\" '2237227017fd66c28a5b67a77650df9192cf211fe3163f4878bf1564ddc81803  input_R1.fastq' | sha256sum -c -\ncp -- \"$src\"/input_R2.fastq .\nprintf \"%s\\n\" '4654978f5d94f87a843f50109cbf54316e724e63a44cfcef7f678be10ac7c2c3  input_R2.fastq' | sha256sum -c -\nexec docker run --rm --network none --user \"$(id -u):$(id -g)\" --volume \"$PWD:/work\" --workdir /work --entrypoint /CRISPResso2/.pixi/envs/default/bin/CRISPResso pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c --fastq_r1 input_R1.fastq --fastq_r2 input_R2.fastq --amplicon_seq ACCTCCGAAACAAAAAACACCAAGAAACAAAACCAAAGAAGAAAAAAAAGGAAAGCAAAGAGAGACAAAAACCAAAAGAAGTACGGAGAAGGAACGATTTGAATACCTAGAATGTCCACCAGCTACAGTAACTGCTGCCGTCAATGGCCGCATTGCTGTTCCTGCATTTCCAAGGAATAGTTGGATTTCTTCCTCAGACTTCTTGCCGACAGGAAACTGCCCACCACAACCTTCTACGATTGCTCGTTGGTTTTCATTGTCATCTTCTACATGAAGTCCAAGTG,ACCTCCGAAACAAAAAACACAAAGAAACAAAACCAAAGGAAAAAGAAAAAAAAAAGGAAAGCAAGGAGACAAAAACCAAAAAGTACGGAAGGAACGATTTGAAAACCTTGAATGTCCTCCAGCTACAGTAACTGCTGCCGTCAATGGCCGCATTGCTGTTCCTGCATTTCCAAGGAATAGTTGGATTTCTTCCTCAGACTTCTCGCCGACAGGAAACTGCCCACCACAACCTTCCACAATTGCTCGTTGGTTTTCATTGTCATCTTCTACATGAAGTCCAAGTG --amplicon_name chr01g,chr17g --name sites --write_detailed_allele_table --keep_intermediate --quantification_window_coordinates 146-146_157-157,146-146_157-157\n",
+  "source": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": null,
+    "git_dirty": null,
+    "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "pipeline_version": "1.1.0",
+    "python_version": "3.12.14"
+  },
+  "version": "2.3.4"
+}

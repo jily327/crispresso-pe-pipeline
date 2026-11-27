@@ -3,7 +3,6 @@ import argparse
 from collections import Counter
 from contextlib import ExitStack
 from dataclasses import asdict, dataclass
-import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -88,7 +87,9 @@ def run_one(work, key, n, targets, executable):
                         str(cell),item['id'],str(direct)],check=True)
     parity=json.loads((direct/'parity.json').read_text())
     assert parity['status']=='PASS'
-    return dict(derived=report['combined'], integer_parity=parity, native=item['per_reference'],
+    order = (['acquired_R2','acquired_R1'] if key.endswith('_forward') else
+             ['acquired_R1','acquired_R2'] if key.endswith('_acquired') else ['synthetic_forward','synthetic_reverse'])
+    return dict(core_input_order_relative_to_acquisition=order, derived=report['combined'], integer_parity=parity, native=item['per_reference'],
                 version=report['version'],info_sha256=item['sha256']['info'],argc=len(item['argv']),
                 script=(cell/item['paths']['script']).read_text(),source=software_identity().model_dump())
 
@@ -98,6 +99,7 @@ def main():
     parser.add_argument('inputs',type=Path,help='Directory containing exactly one of each original input')
     parser.add_argument('work',type=Path)
     parser.add_argument('--core',default='peanalyzer-crispresso')
+    parser.add_argument('--population',choices=('SCI02','1A_acquired','1A_forward','all_acquired','all_forward'))
     args=parser.parse_args()
     sources,panels=validate_sources(args.inputs)
     targets=[ConventionalTarget(k,v['wt_sequence'],v['intended_pe_sequence']) for k,v in panels['EPSPS_284bp'].items()]
@@ -112,6 +114,8 @@ def main():
         assert sha(args.work/filename)==digest
     core=resolve_executable(args.core)
     for population,n in prepared['counts'].items():
+        if args.population and population != args.population:
+            continue
         row=run_one(args.work,population,n,targets,core)
         (args.work/(population+'.evidence.json')).write_text(json.dumps(row,indent=2,sort_keys=True)+'\n')
         print(population,row['derived']['double_edit'],flush=True)
