@@ -30,6 +30,7 @@ def main():
     parser.add_argument("selection", choices=[*SUITES, "gate"])
     parser.add_argument("--audit-gate", type=Path)
     parser.add_argument("--test-source", type=Path, help="Committed test-harness checkout; runtime always imports the wheel")
+    parser.add_argument("--verified-fixtures", type=Path, help="Reuse wheel-generated completed PE and nuclease workspaces for read-only viewer checks")
     args = parser.parse_args()
     root = args.output.resolve()
     root.mkdir(parents=True, mode=0o700)
@@ -85,7 +86,17 @@ def main():
             env.update(AUD=str(root),PYTHONPATH=str(tests))
             run([python,args.audit_gate],"gate.log")
         else:
-            if args.selection == "viewer":
+            if args.selection == "viewer" and args.verified_fixtures:
+                fixture_root = args.verified_fixtures.resolve()
+                env["M10_E2E_ROOT"] = str(fixture_root)
+                metadata["verified_fixture_sha256"] = {
+                    str(f.relative_to(fixture_root)):digest(f)
+                    for mode in ("precise_edit","indel_nuclease")
+                    for f in sorted((fixture_root/mode/"inputs").glob("*")) if f.is_file()}
+                metadata["verified_workspace_manifest_sha256"] = {
+                    mode:digest(fixture_root/mode/"workflow/workflow_manifest.json")
+                    for mode in ("precise_edit","indel_nuclease")}
+            elif args.selection == "viewer":
                 run([python,"-m","pytest","-q","-s",str(tests/"test_gui_integration.py")],"fixtures.log")
             frontend = root/"frontend"
             shutil.copytree(harness/"frontend",frontend,ignore=shutil.ignore_patterns("node_modules","test-results"))
@@ -123,6 +134,11 @@ def main():
                     if proc.poll() is None:
                         proc.terminate()
                         proc.wait(timeout=60)
+            if args.selection=="viewer":
+                audit=json.loads((root/"immutability.json").read_text())
+                assert audit["full_verifier_calls"]>0 and audit["scientific_executor_calls"]==0
+                assert audit["workspace_and_input_bytes_and_mtimes_unchanged"] and audit["setup_inputs_and_proposed_output_unchanged"]
+                metadata["read_only_audit"]=audit
         metadata["status"]="PASS"
     finally:
         fixture_exts=(".fastq.gz",".csv",".yaml",".xlsx")

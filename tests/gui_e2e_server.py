@@ -1,5 +1,6 @@
 """Test-only local server guarding real prebuilt fixtures against execution/mutation."""
 from contextlib import asynccontextmanager
+from contextvars import ContextVar
 import json
 import os
 from pathlib import Path
@@ -32,19 +33,35 @@ def setup_inventory():
 setup_before=setup_inventory()
 patch=pytest.MonkeyPatch()
 calls=forbid_execution(patch)
-def forbid_routing(*a,**k):
-    calls.append('routing trial');raise AssertionError('Setup attempted routing')
-patch.setattr('peanalyzer.routing.route_pair',forbid_routing)
+# Setup must never classify a read. Opening a workspace must independently replay
+# its existing routing ledger and state-observability witnesses within verification.
+import peanalyzer.routing as routing
+in_verifier=ContextVar('in_verified_open',default=False)
+original_route=routing.route_pair
+routing_replays=[]
+def guard_routing(*args,**kwargs):
+    if not in_verifier.get():
+        calls.append('routing outside existing-workspace verifier')
+        raise AssertionError('Setup attempted routing')
+    routing_replays.append(1)
+    return original_route(*args,**kwargs)
+patch.setattr(routing,'route_pair',guard_routing)
 import peanalyzer.gui.workspace as workspace
 original_verifier=workspace.verify_workflow_output
 verification_calls=[]
-def counted_verify(*a,**k):
-    verification_calls.append(1);return original_verifier(*a,**k)
+def counted_verify(*args,**kwargs):
+    verification_calls.append(1)
+    token=in_verifier.set(True)
+    try:
+        return original_verifier(*args,**kwargs)
+    finally:
+        in_verifier.reset(token)
 patch.setattr(workspace,'verify_workflow_output',counted_verify)
 app=create_app([('PE reference study',paths[0]),('Nuclease reference study',paths[1]),('Invalid workspace',root/'missing'),(None,paths[0]),(None,paths[1]),(None,root/'unique')],token='e2e-local-token',setup_files=[setup_options['r1'],setup_options['r2'],*empty_files],setup_output_roots=[setup_root/'outputs'])
 def record_audit():
     unchanged=all(fingerprint(p)==original[str(p)] for p in paths) and setup_inventory()==setup_before
-    evidence=dict(full_verifier_calls=len(verification_calls),scientific_executor_calls=len(calls),workspace_and_input_bytes_and_mtimes_unchanged=unchanged,
+    evidence=dict(full_verifier_calls=len(verification_calls),scientific_executor_calls=len(calls),read_only_routing_replay_calls=len(routing_replays),
+        workspace_and_input_bytes_and_mtimes_unchanged=unchanged,
         setup_inputs_and_proposed_output_unchanged=setup_inventory()==setup_before,workspaces=[str(p) for p in paths],guarded_functions='See gui_helpers.forbid_execution')
     Path(os.environ.get('M10_E2E_EVIDENCE',str(root/'browser-immutability.json'))).write_text(json.dumps(evidence,indent=2)+'\n')
     assert unchanged and not calls
