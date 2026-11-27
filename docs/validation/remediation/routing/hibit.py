@@ -68,11 +68,14 @@ def main(root, exe):
     native=anchor['native']
     assert native['backend_input_reads']==sum(x[2] for x in products)
     assert sum(classes.values())==native['aligned_reads']
+    exact=result.target_metrics.total_precise_pe
+    observed=[exact.numerator,exact.denominator]
+    assert observed==[7,15] and exact.status=='REPORTABLE'
     summary=dict(fixture='Independent synthetic 33-nt insert, numerical multiplicities fixed before classification',
                  known_truth={state:n for state,_,n,_ in products},
                  paired_calls={s:[dict(call=k[0],reason=k[1],n=v) for k,v in counter.items()] for s,counter in by_truth.items()},
                  aligned_allele_counts=classes,full_sample_native=[native['numerator'],native['denominator']],
-                 input=native['backend_input_reads'],exact_prepared_observed=[7,15])
+                 input=native['backend_input_reads'],exact_prepared_observed=observed)
     (root/'qualification.json').write_text(json.dumps(summary,indent=2)+'\n')
 
 

@@ -1,0 +1,322 @@
+{
+  "commit": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+  "wheel": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+  "wheel_sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556",
+  "verified_source_sha256": {
+    "backend/core": "dee0b4525982fd4cac9363cfdbeb80f8a69602f31e223d1078e4a8309dfc129c",
+    "backend/metrics": "03bfe73fba1688c8c7727d7926035d1280027bc4d1acac7a4dacf39a27f9f5d6",
+    "backend/insertion_products": "746a5e4b18dc5d145f093dc69df1e48c89ab25bdf5974bb48f5d6c008a61a7fc",
+    "backend/extension_alleles": "849ea19ba2c83c6d77515f54c13710291ea2bd281ae2ae8f5bdf91b74565503f",
+    "backend/comparator": "825ddcb5f68c538638df0b47334cf3dc2171fb1b39744825820c572ba74f2a73",
+    "backend/native_artifacts": "6f10e42cceeb3fb91f0cba2b6e114878b3dd5d853bfb132439a5d8d089613645",
+    "routing": "3ee6a8a0be5184276137c1d9c2f2b7a8b2394f7813372b97b7640460bcd71698",
+    "routing_eligibility": "85eb65fa023c79e8bb75009106fba8d1e525d505f51ecfa3a633e802425a9e9b",
+    "geometry": "0e499df47dd3835d5ac9694da4d4ffed06dd794f94c37d03b26ea059ddfe1d73",
+    "observability": "afb608a6522fa8782efe6d8a105d7155363e532d5318428460b00bb1e5b95eb9",
+    "metrics/production": "f2ac0c50177953811b3b62b1f70026bc9e88745c39aec363da14d9063a9e9a87"
+  },
+  "cells": {
+    "f01": {
+      "exact_prepared": [
+        50,
+        100
+      ],
+      "runs": [
+        {
+          "id": "comparator/A",
+          "scope": "all_prepared_pairs",
+          "input": 100,
+          "integer_cells": 77,
+          "allele_identities": 2,
+          "original_report_sha256": "20321df1aab4caf8f278703b7e2257a303e948470af213a4a529030d6791597a"
+        }
+      ],
+      "result": {
+        "input_truth": {
+          "WT": 50,
+          "PE": 50
+        },
+        "assigned": {
+          "WT": 50,
+          "PE": 0
+        },
+        "quarantined": {
+          "WT": 0,
+          "PE": 50
+        },
+        "full_sample_native": {
+          "PE": 50,
+          "aligned": 100,
+          "input": 100
+        },
+        "exact": [
+          50,
+          100
+        ],
+        "copy_native": "BLOCKED",
+        "copy_precise": "BLOCKED",
+        "copy_reasons": [
+          "EDIT_STATE_SELECTIVE_COPY_ROUTING"
+        ],
+        "observed_geometry": {
+          "contract": "matched-amplicon-ends-at-observed-physical-mate-lengths-v1",
+          "observed_pairs": 100,
+          "trials": [
+            {
+              "source_copy": "A",
+              "r1_length": 123,
+              "r2_length": 123,
+              "observed_forward_mate": 1,
+              "control_forward_mate": 1,
+              "observed_pairs": 100,
+              "states": {
+                "WT": {
+                  "assigned_copy": "A",
+                  "category": "ASSIGNED_COPY"
+                },
+                "PE": {
+                  "assigned_copy": null,
+                  "category": "ALIGNMENT_FAILURE"
+                }
+              }
+            }
+          ],
+          "reason_codes": {
+            "A": [
+              "EDIT_STATE_SELECTIVE_COPY_ROUTING"
+            ]
+          }
+        }
+      }
+    },
+    "alsp-forward": {
+      "exact_prepared": [
+        11,
+        22
+      ],
+      "runs": [
+        {
+          "id": "comparator/copy1",
+          "scope": "all_prepared_pairs",
+          "input": 35,
+          "integer_cells": 79,
+          "allele_identities": 7,
+          "original_report_sha256": "4d0d226f9118b7d0b2ccb125aeda563b0f424ab94c896b69d5d3651c86db6859"
+        },
+        {
+          "id": "copies/copy1",
+          "scope": "confident_copy_cohort",
+          "input": 7,
+          "integer_cells": 77,
+          "allele_identities": 2,
+          "original_report_sha256": "e508c9daf0267dbf462f53017406193e3223f481d17fc97ef8a230fb71248df9"
+        },
+        {
+          "id": "extension_alleles/copy2",
+          "scope": "confident_copy_cohort",
+          "input": 26,
+          "integer_cells": 43,
+          "allele_identities": 4,
+          "original_report_sha256": "b7270654ccd132318fe41a435cf25a5eff163e4b467207e8da41b16f1f0c70d0"
+        },
+        {
+          "id": "multi_wt",
+          "scope": "all_prepared_pairs",
+          "input": 35,
+          "integer_cells": 79,
+          "allele_identities": 7,
+          "original_report_sha256": "01b5095ed18651e2f25aa25ab64313eae9a7d749aeab4956b93475cc1bbf6638"
+        }
+      ],
+      "result": {
+        "counts": {
+          "exact_wt": 8,
+          "intended_snp_retained": 7,
+          "intended_snp_converted": 6,
+          "other_modification": 5,
+          "unresolved": 0
+        },
+        "full_sample_anchor_pairs": 35,
+        "full_sample_native": [
+          22,
+          35
+        ],
+        "converted_verified": 6,
+        "mosaic_quarantined": 2
+      }
+    },
+    "alsp-reverse": {
+      "exact_prepared": [
+        11,
+        22
+      ],
+      "runs": [
+        {
+          "id": "comparator/copy1",
+          "scope": "all_prepared_pairs",
+          "input": 35,
+          "integer_cells": 79,
+          "allele_identities": 7,
+          "original_report_sha256": "64df4ca2c249a741c0df18a68d9b170e4b8d2c2e30089fc2e2194a8e5c56e10e"
+        },
+        {
+          "id": "copies/copy1",
+          "scope": "confident_copy_cohort",
+          "input": 7,
+          "integer_cells": 77,
+          "allele_identities": 2,
+          "original_report_sha256": "8212a3d39d1c487115039af43a946b073d16ab23ac3394b0db3a76c3ea115f73"
+        },
+        {
+          "id": "extension_alleles/copy2",
+          "scope": "confident_copy_cohort",
+          "input": 26,
+          "integer_cells": 43,
+          "allele_identities": 4,
+          "original_report_sha256": "a9bb2b591f51950c4838f0d74c402ece4d9a61d4c574623fd225f8a194cd9c7b"
+        },
+        {
+          "id": "multi_wt",
+          "scope": "all_prepared_pairs",
+          "input": 35,
+          "integer_cells": 79,
+          "allele_identities": 7,
+          "original_report_sha256": "b57e9f95b002eb3b5452bffb59a5bf45ff69265337ab0d8999e95b9b1f97e625"
+        }
+      ],
+      "result": {
+        "counts": {
+          "exact_wt": 8,
+          "intended_snp_retained": 7,
+          "intended_snp_converted": 6,
+          "other_modification": 5,
+          "unresolved": 0
+        },
+        "full_sample_anchor_pairs": 35,
+        "full_sample_native": [
+          22,
+          35
+        ],
+        "converted_verified": 6,
+        "mosaic_quarantined": 2
+      }
+    },
+    "hibit": {
+      "exact_prepared": [
+        7,
+        15
+      ],
+      "runs": [
+        {
+          "id": "comparator/A",
+          "scope": "all_prepared_pairs",
+          "input": 37,
+          "integer_cells": 78,
+          "allele_identities": 7,
+          "original_report_sha256": "d782d3b370111664b9e1342000469580de16ba2ae375a3fee1cefe059982bed0"
+        }
+      ],
+      "result": {
+        "fixture": "Independent synthetic 33-nt insert, numerical multiplicities fixed before classification",
+        "known_truth": {
+          "exact_WT": 8,
+          "exact_intended_insertion": 7,
+          "partial_intended_insert": 6,
+          "alternate_same_length_insert": 5,
+          "intended_insert_with_flank_substitutions": 4,
+          "unexpected_longer_product": 3,
+          "tandem_intended_insert": 2,
+          "insufficient": 1,
+          "ambiguous": 1
+        },
+        "paired_calls": {
+          "exact_WT": [
+            {
+              "call": "exact_WT",
+              "reason": null,
+              "n": 8
+            }
+          ],
+          "exact_intended_insertion": [
+            {
+              "call": "exact_PE",
+              "reason": null,
+              "n": 7
+            }
+          ],
+          "partial_intended_insert": [
+            {
+              "call": "other_or_unassessable",
+              "reason": null,
+              "n": 6
+            }
+          ],
+          "alternate_same_length_insert": [
+            {
+              "call": "other_or_unassessable",
+              "reason": null,
+              "n": 5
+            }
+          ],
+          "intended_insert_with_flank_substitutions": [
+            {
+              "call": "other_or_unassessable",
+              "reason": null,
+              "n": 4
+            }
+          ],
+          "unexpected_longer_product": [
+            {
+              "call": "other_or_unassessable",
+              "reason": null,
+              "n": 3
+            }
+          ],
+          "tandem_intended_insert": [
+            {
+              "call": "other_or_unassessable",
+              "reason": null,
+              "n": 2
+            }
+          ],
+          "insufficient": [
+            {
+              "call": "other_or_unassessable",
+              "reason": "INSUFFICIENT_EXACT_PAIR_OVERLAP",
+              "n": 1
+            }
+          ],
+          "ambiguous": [
+            {
+              "call": "other_or_unassessable",
+              "reason": "AMBIGUOUS_PRODUCT_RECONSTRUCTION",
+              "n": 1
+            }
+          ]
+        },
+        "aligned_allele_counts": {
+          "exact_WT": 8,
+          "exact_intended_insertion": 7,
+          "partial_intended_insert": 6,
+          "alternate_same_length_insert": 5,
+          "intended_insert_with_flank_substitutions": 4,
+          "tandem_intended_insert": 2,
+          "unexpected_longer_product": 3,
+          "other_observed_product": 0,
+          "unresolved_aligned": 0
+        },
+        "full_sample_native": [
+          27,
+          35
+        ],
+        "input": 37,
+        "exact_prepared_observed": [
+          7,
+          15
+        ]
+      }
+    }
+  },
+  "managed_direct_runs": 10,
+  "receipt_sha256": "5f299d0cdeac6ae70477746e97242c765bf85939d47c03190de658043107000a"
+}

@@ -97,3 +97,24 @@ def test_physical_routing_partition_survives_unqualified_copy_and_tampering_is_d
     path.write_text(json.dumps(route))
     with pytest.raises(ValueError,match='observed copy-routing eligibility'):
         verify_routing_output(root)
+
+
+def test_unequal_copy_lengths_and_editable_marker_are_never_used_as_proof_of_identity():
+    a,b=panel()
+    # Different reference lengths remain outside the geometric cross-copy indel
+    # qualification even when perfect control molecules happen to route correctly.
+    unequal=b.model_copy(update={'wt_sequence':b.wt_sequence+'CAG','prime_edited_sequence':b.prime_edited_sequence+'CAG'})
+    report=geometry([a,unequal],reference_only=True)
+    assert any(r['code']=='COPY_INDEL_ROUTING_UNQUALIFIED' for r in report['reasons'])
+    result=evaluate([a,unequal],{(180,170,1):2,(180,170,2):2})
+    assert len(result['trials'])==4
+    # A natural SNP inside the complete extension may be converted. Independent
+    # unchanged markers must carry both the retained and converted copy calls.
+    pos=140
+    base=next(x for x in 'ACGT' if x!=b.wt_sequence[pos])
+    def snp(seq):return seq[:pos]+base+seq[pos+1:]
+    secondary=b.model_copy(update={'wt_sequence':snp(b.wt_sequence),'prime_edited_sequence':snp(b.prime_edited_sequence)})
+    info=evaluate([a,secondary],{(150,150,1):1})
+    row=next(t for t in info['trials'] if t['source_copy']==secondary.copy_name)
+    assert set(row['states'])=={'WT','PE','PE_SNP_converted'}
+    assert all(s['assigned_copy']==secondary.copy_name for s in row['states'].values())
