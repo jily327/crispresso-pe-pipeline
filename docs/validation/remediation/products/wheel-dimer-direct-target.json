@@ -1,0 +1,511 @@
+{
+  "id": "comparator/copy1",
+  "sample": "bc001",
+  "target": "T1",
+  "population": "all_prepared_pairs",
+  "input_pairs": 15,
+  "input_sha256": [
+    "393b801235a534a0ae49d5450d535c3859ac3dd2ecbec67225b122fa9917568a",
+    "e0c42a2a88d5537593ff68aaeecd972121d3ca2d5678aecdbe84258b0e3c21f5"
+  ],
+  "script_sha256": "0434d59f2b3fdf0b8adabaea3c16af999b54f70942f633ec82c500894b06b94c",
+  "managed_info_sha256": "937750e11c77f30b3dc63579a3c80fa22e1adc075f081675eed7eb84a72f1c31",
+  "direct_info_sha256": "9f9441cc6af48459268e2d6a45eb03c9e4528ae7c07baa27a57283170e593fad",
+  "runtime_version": "CRISPResso 2.3.4",
+  "image": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+  "digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "runtime_match": true,
+  "count_parity": true,
+  "managed_runtime_receipt": {
+    "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+    "container_id": "1e3aab5cf94264a4ea75ac33f505d5f314d66ce6f71668919b3adc54aaf81341",
+    "core": "/CRISPResso2/.pixi/envs/default/bin/CRISPResso",
+    "argv": [
+      "-r1",
+      "input_R1.fastq.gz",
+      "-r2",
+      "input_R2.fastq.gz",
+      "--amplicon_seq",
+      "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGGCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC",
+      "--name",
+      "unrouted",
+      "--output_folder",
+      "output",
+      "--write_detailed_allele_table",
+      "--keep_intermediate",
+      "--prime_editing_pegRNA_spacer_seq",
+      "TAGTGCCGACGGACCAGAAC",
+      "--prime_editing_pegRNA_extension_seq",
+      "TGGTTGTTTACTGCAGATCTTGACCACATTGTTCTGGTCC",
+      "--prime_editing_override_prime_edited_ref_seq",
+      "TATTGCTTTACAAACTTAAGGCCCAAATAGCGAGGACAGTAACTATTCACGGAAGCGGGTCAGGAGACGCCAATCCCATGCGTCTGTACTCGGCGTAGTGCCGACGGACCAGAACAATGTGGTCAAGATCTGCAGTAAACAACCAGTTCAGTCACTTCCTTCGACTGATCTGTACGTGCAGACATGGACCAATCGATGATGGACTCGGATCGTGTCGTAAGACGAGCGTTATGGTCGACC"
+    ]
+  },
+  "status": "PASS",
+  "integers": [
+    {
+      "metric": "json/class_counts/Reference_UNMODIFIED",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_deletion/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_deletion/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_deletion_and_substitution/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_deletion_and_substitution/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_discarded/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_discarded/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion_and_deletion/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion_and_deletion/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion_and_deletion_and_substitution/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion_and_deletion_and_substitution/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion_and_substitution/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_insertion_and_substitution/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_modified/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_modified/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_modified_frameshift/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_modified_frameshift/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_modified_non_frameshift/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_modified_non_frameshift/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_non_modified_non_frameshift/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_non_modified_non_frameshift/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_only_deletion/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_only_deletion/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_only_insertion/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_only_insertion/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_only_substitution/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_only_substitution/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_splicing_sites_modified/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_splicing_sites_modified/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_substitution/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_substitution/Reference",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_total/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_total/Reference",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_unmodified/Prime-edited",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "json/counts_unmodified/Reference",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/N_CACHED_ALN",
+      "managed": 9,
+      "direct": 9,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/N_CACHED_NOTALN",
+      "managed": 4,
+      "direct": 4,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/N_COMPUTED_ALN",
+      "managed": 1,
+      "direct": 1,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/N_COMPUTED_NOTALN",
+      "managed": 1,
+      "direct": 1,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/READS AFTER PREPROCESSING",
+      "managed": 15,
+      "direct": 15,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/READS ALIGNED",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "mapping/all/READS IN INPUTS",
+      "managed": 15,
+      "direct": 15,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Deletions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Deletions and Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Discarded",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Insertions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Insertions Deletions and Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Insertions and Deletions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Insertions and Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Modified",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Only Deletions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Only Insertions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Only Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Reads_aligned",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Reads_aligned_all_amplicons",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Reads_in_input",
+      "managed": 15,
+      "direct": 15,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Prime-edited/Unmodified",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Deletions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Deletions and Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Discarded",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Insertions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Insertions Deletions and Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Insertions and Deletions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Insertions and Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Modified",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Only Deletions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Only Insertions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Only Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Reads_aligned",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Reads_aligned_all_amplicons",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Reads_in_input",
+      "managed": 15,
+      "direct": 15,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Substitutions",
+      "managed": 0,
+      "direct": 0,
+      "difference": 0
+    },
+    {
+      "metric": "quantification/Reference/Unmodified",
+      "managed": 10,
+      "direct": 10,
+      "difference": 0
+    }
+  ],
+  "allele_identities": 1,
+  "allele_abundance": 10,
+  "alleles_equal": true,
+  "allele_differences": [],
+  "reference_order_sequences_and_windows_equal": true,
+  "effective_arguments_equal": true,
+  "differing_parameters": []
+}

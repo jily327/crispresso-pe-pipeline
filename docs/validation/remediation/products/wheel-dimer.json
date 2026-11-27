@@ -1,0 +1,40 @@
+{
+  "copy_exact_status": "BLOCKED",
+  "expected_physical_counts": {
+    "WT": 10,
+    "intended": 0,
+    "tandem": 5
+  },
+  "full_native_replays": {
+    "comparator/copy1": {
+      "allele_abundance": 10,
+      "allele_identities": 1,
+      "differences": 0,
+      "effective_arguments_equal": true,
+      "integer_fields": 76,
+      "manual_output_sha256": "69670f5d0a264c472fb93460e0f6d09d114dee2daae6d689f82a83faf5c651e0",
+      "runtime_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+      "status": "PASS"
+    },
+    "copies/copy1": {
+      "allele_abundance": 10,
+      "allele_identities": 1,
+      "differences": 0,
+      "effective_arguments_equal": true,
+      "integer_fields": 76,
+      "manual_output_sha256": "cf22a500e49a3ad2fef30b2c52c0be6f567d77d4140485a36e41dc47acb1667a",
+      "runtime_image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+      "status": "PASS"
+    }
+  },
+  "observed_exact": [
+    0,
+    10
+  ],
+  "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+  "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "source_result_sha256": "398df0be88ccbaac26c388a8bca7b2f3aa579196699062be7ae04d90c15e3184",
+  "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+  "wheel_package_members_verified": 122,
+  "wheel_sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+}
