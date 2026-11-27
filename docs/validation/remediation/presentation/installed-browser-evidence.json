@@ -1,0 +1,841 @@
+{
+  "package": {
+    "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+    "wheel": {
+      "file": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+      "bytes": 420681,
+      "sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+    },
+    "sdist": {
+      "file": "crispresso_pe_pipeline-1.1.0.tar.gz",
+      "bytes": 3480392,
+      "sha256": "6d2a6225ff7eb0e5c20459dab8197cea9ec435e500ec12c41dca3a44bfb2c694"
+    },
+    "wheel_entries_compared_to_source_and_install": 122,
+    "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "viewer_build_manifest": {
+      "file": "build-identity.json",
+      "bytes": 2995,
+      "sha256": "d37a848c6c617b5121806e757bb309e1f4ce6289e1a98a7e4f02ecf22ce3ce45"
+    }
+  },
+  "bundled_assets": {
+    "assets/index-Bpzot19A.css": "f4aec4edcfb239ad8515090c927dbe0a168c11be5ab4281f591b789ff7be2f0d",
+    "assets/index-DPALPdxF.js": "40aad4ef1305305119da15f9d56dd7f948df8bbaec8153aec77f4cf543022eb6",
+    "index.html": "c1279ea4cbb493701eb410b34f70d56f4eef23083593ea8e9f1b5ea704108c4c"
+  },
+  "installed_runtime": {
+    "installed_module": "/workspace/scratch/audit-remediation/package/integrated-1/env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "python": "Python 3.12.14",
+    "node": "v24.22.1",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "backend_image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "backend_local_image_identity": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d"
+  },
+  "fixture_roots": "Private synthetic test directories under the recorded per-attempt output roots.",
+  "attempts": {
+    "run": {
+      "test_harness_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "/workspace/scratch/audit-remediation/package/integrated-1/source/tests/m11b_e2e_server.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/run/frontend/node_modules/.bin/playwright",
+          "test",
+          "--config",
+          "playwright.run.config.ts",
+          "--output",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/run/artifacts"
+        ]
+      ],
+      "status": "PASS",
+      "harness_evidence_sha256": "9ff909d60a83be35590ccf851df1a919ce1a39479fa2e51f7215f5a34890340a",
+      "playwright_version": "1.64.1",
+      "playwright_report_sha256": "933061ea2d55c9826d28adfee5f13ccbb15f6cc27f53cdc7173b8d49780f033d",
+      "outcomes": [
+        {
+          "test": "pe: real Review \u2192 Run \u2192 verified completion \u2192 existing M10",
+          "file": "run.spec.ts",
+          "status": "passed",
+          "duration_ms": 188673
+        },
+        {
+          "test": "nuclease: real Review \u2192 Run \u2192 verified completion \u2192 existing M10",
+          "file": "run.spec.ts",
+          "status": "passed",
+          "duration_ms": 59452
+        },
+        {
+          "test": "stale Review refuses Run before science",
+          "file": "run.spec.ts",
+          "status": "passed",
+          "duration_ms": 2059
+        },
+        {
+          "test": "live job reload reconnects without a second submission; cancel cleans child",
+          "file": "run.spec.ts",
+          "status": "passed",
+          "duration_ms": 11058
+        },
+        {
+          "test": "busy worker refuses a second reviewed Run without queueing",
+          "file": "run.spec.ts",
+          "status": "passed",
+          "duration_ms": 9299
+        },
+        {
+          "test": "backend failure retains actual code, failing stage and message",
+          "file": "run.spec.ts",
+          "status": "passed",
+          "duration_ms": 3293
+        }
+      ],
+      "totals": {
+        "startTime": "2026-11-27T02:37:57.221Z",
+        "duration": 274957.87200000003,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "input_fixture_sha256": {
+        "run-case/fields.json": "f0dce6e91a3ff67498b143c5059cb3de49cb790da28730d055f7b87a0d1f8d58",
+        "run-case/indel_nuclease/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "run-case/indel_nuclease/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "run-case/indel_nuclease/inputs/raw_R1.fastq.gz": "70ccee208d02de5b20b67895d9907fcd730ee778c41512cca5e892350d1c21f1",
+        "run-case/indel_nuclease/inputs/raw_R2.fastq.gz": "f3dc9407e5d053199f8071fce7e96c4d763ffd8bea4d52fb4d6bd3bc2b7c9c06",
+        "run-case/indel_nuclease/inputs/samples.csv": "34a7682a7408e2e0d6e94d55c46d8d5b84cb65fcff6c86608c90fd6132209629",
+        "run-case/indel_nuclease/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+        "run-case/nuclease_R1.fastq.gz": "70ccee208d02de5b20b67895d9907fcd730ee778c41512cca5e892350d1c21f1",
+        "run-case/nuclease_R2.fastq.gz": "f3dc9407e5d053199f8071fce7e96c4d763ffd8bea4d52fb4d6bd3bc2b7c9c06",
+        "run-case/pe_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "run-case/pe_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "run-case/precise_edit/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "run-case/precise_edit/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "run-case/precise_edit/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "run-case/precise_edit/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "run-case/precise_edit/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "run-case/precise_edit/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "run-case/precise_edit/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    },
+    "recovery": {
+      "test_harness_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "/workspace/scratch/audit-remediation/package/integrated-1/source/tests/m11c_e2e_server.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/recovery/frontend/node_modules/.bin/playwright",
+          "test",
+          "--config",
+          "playwright.recovery.config.ts",
+          "--output",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/recovery/artifacts"
+        ]
+      ],
+      "status": "PASS",
+      "harness_evidence_sha256": "461a6ff0bdefb201c4eabf0257f34912a89686f79663dc58c589888dfa394fbd",
+      "playwright_version": "1.64.1",
+      "playwright_report_sha256": "53c086209aff910e51c25aee6122c54ae90149e8e51f770ffd2ebf20ac9db640",
+      "outcomes": [
+        {
+          "test": "pe-resume: read-only preview \u2192 resume \u2192 verified M10",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 22545
+        },
+        {
+          "test": "nuclease-resume: read-only preview \u2192 resume \u2192 verified M10",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 18628
+        },
+        {
+          "test": "advanced force shows authoritative closure before removal and completion",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 24785
+        },
+        {
+          "test": "stale preview refuses confirmation without deleting a foreign arrival",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 2809
+        },
+        {
+          "test": "completed workspace routes to Open Results without resume/force",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 3226
+        },
+        {
+          "test": "cancel: recovery cancellation \u2192 new inspection \u2192 resume",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 40981
+        },
+        {
+          "test": "detached: recovery cancellation \u2192 new inspection \u2192 resume",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 47114
+        },
+        {
+          "test": "server SIGKILL: restart sees lease, cleanup contains escaped child, then recovery",
+          "file": "recovery.spec.ts",
+          "status": "passed",
+          "duration_ms": 47458
+        }
+      ],
+      "totals": {
+        "startTime": "2026-11-27T03:18:11.067Z",
+        "duration": 209408.144,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "input_fixture_sha256": {
+        "recovery-case/cancel/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/cancel/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/cancel/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/cancel/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/cancel/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/cancel/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/cancel/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "recovery-case/completed/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/completed/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/completed/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/completed/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/completed/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/completed/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/completed/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "recovery-case/detached/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/detached/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/detached/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/detached/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/detached/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/detached/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/detached/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "recovery-case/force/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/force/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/force/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/force/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/force/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/force/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/force/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "recovery-case/kill/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/kill/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/kill/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/kill/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/kill/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/kill/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/kill/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "recovery-case/nuclease-resume/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/nuclease-resume/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "recovery-case/nuclease-resume/inputs/raw_R1.fastq.gz": "70ccee208d02de5b20b67895d9907fcd730ee778c41512cca5e892350d1c21f1",
+        "recovery-case/nuclease-resume/inputs/raw_R2.fastq.gz": "f3dc9407e5d053199f8071fce7e96c4d763ffd8bea4d52fb4d6bd3bc2b7c9c06",
+        "recovery-case/nuclease-resume/inputs/samples.csv": "34a7682a7408e2e0d6e94d55c46d8d5b84cb65fcff6c86608c90fd6132209629",
+        "recovery-case/nuclease-resume/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+        "recovery-case/pe-resume/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/pe-resume/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/pe-resume/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/pe-resume/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/pe-resume/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/pe-resume/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/pe-resume/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "recovery-case/stale/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "recovery-case/stale/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "recovery-case/stale/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "recovery-case/stale/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "recovery-case/stale/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "recovery-case/stale/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "recovery-case/stale/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    },
+    "practical": {
+      "test_harness_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "/workspace/scratch/audit-remediation/package/integrated-1/source/tests/practical_e2e_server.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/practical/frontend/node_modules/.bin/playwright",
+          "test",
+          "--config",
+          "playwright.practical.config.ts",
+          "--output",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/practical/artifacts"
+        ]
+      ],
+      "status": "INCOMPLETE",
+      "harness_evidence_sha256": "4b498f1f35aa19f72582130ec9ea2e612563c614489303e4504ce8e1c152f010",
+      "playwright_version": "1.64.1",
+      "playwright_report_sha256": "686deac8336d7f2b9782637ca65eee506236701354891651aabdc95d3f5320c9",
+      "outcomes": [
+        {
+          "test": "pe: actual browser file inputs + XLSX \u2192 Review \u2192 Run \u2192 Results",
+          "file": "inputs.spec.ts",
+          "status": "failed",
+          "duration_ms": 93887
+        },
+        {
+          "test": "nuclease: actual browser file inputs + XLSX \u2192 Review \u2192 Run \u2192 Results",
+          "file": "inputs.spec.ts",
+          "status": "failed",
+          "duration_ms": 123879
+        },
+        {
+          "test": "failed replacement and invalid workbook preserve editable selections",
+          "file": "inputs.spec.ts",
+          "status": "passed",
+          "duration_ms": 1718
+        }
+      ],
+      "totals": {
+        "startTime": "2026-11-27T02:31:39.672Z",
+        "duration": 223316.345,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "input_fixture_sha256": {
+        "practical-case/bad.xlsx": "b64d5519bb387264d74083a132b6db2c1103aacdc483fdd2f8c17a9fc6dad055",
+        "practical-case/fields.json": "96fdbf3bb56fdc1da40d2f77f66ed197a61fec8428e290df7041ecddf6d5b55c",
+        "practical-case/nuclease/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "practical-case/nuclease/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "practical-case/nuclease/inputs/raw_R1.fastq.gz": "70ccee208d02de5b20b67895d9907fcd730ee778c41512cca5e892350d1c21f1",
+        "practical-case/nuclease/inputs/raw_R2.fastq.gz": "f3dc9407e5d053199f8071fce7e96c4d763ffd8bea4d52fb4d6bd3bc2b7c9c06",
+        "practical-case/nuclease/inputs/samples.csv": "34a7682a7408e2e0d6e94d55c46d8d5b84cb65fcff6c86608c90fd6132209629",
+        "practical-case/nuclease/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+        "practical-case/nuclease/samples.xlsx": "fddf4fa3d96cee2b430f8383e22c8415f15e30216aa3fc341bebb3f3295f9f57",
+        "practical-case/pe/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "practical-case/pe/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "practical-case/pe/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "practical-case/pe/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "practical-case/pe/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "practical-case/pe/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "practical-case/pe/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "practical-case/pe/samples.xlsx": "e20614f3f2cd6047eb57efdd5b4c1458117ba8db380cb8cb0a5b0b7800db4658"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    },
+    "practical-retry": {
+      "test_harness_revision": "7381c286e12acc64e0e8dba8a2dbcad0eaa32354",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browser-harness-7381c28/tests/practical_e2e_server.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/practical-retry/frontend/node_modules/.bin/playwright",
+          "test",
+          "--config",
+          "playwright.practical.config.ts",
+          "--output",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/practical-retry/artifacts"
+        ]
+      ],
+      "status": "PASS",
+      "harness_evidence_sha256": "55d7e4a77efffd56c5721c3a07f67b52c77bec52468097c461cc9d84345968aa",
+      "playwright_version": "1.64.1",
+      "playwright_report_sha256": "f4df56e253bfe460e3cb4a60a330bfef934be44925d4350719b13a7c88427403",
+      "outcomes": [
+        {
+          "test": "pe: actual browser file inputs + XLSX \u2192 Review \u2192 Run \u2192 Results",
+          "file": "inputs.spec.ts",
+          "status": "passed",
+          "duration_ms": 185103
+        },
+        {
+          "test": "nuclease: actual browser file inputs + XLSX \u2192 Review \u2192 Run \u2192 Results",
+          "file": "inputs.spec.ts",
+          "status": "passed",
+          "duration_ms": 63869
+        },
+        {
+          "test": "failed replacement and invalid workbook preserve editable selections",
+          "file": "inputs.spec.ts",
+          "status": "passed",
+          "duration_ms": 1384
+        }
+      ],
+      "totals": {
+        "startTime": "2026-11-27T11:50:42.853Z",
+        "duration": 251493.172,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "input_fixture_sha256": {
+        "practical-case/bad.xlsx": "3354efde71f7da03b8d3235e943550a439f0c7ab5cd95c01647db3f5994ffcc3",
+        "practical-case/fields.json": "ba73f995b008333d76d44707e8efb01fead2941ab8d46063bb921e9f08a31067",
+        "practical-case/nuclease/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "practical-case/nuclease/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "practical-case/nuclease/inputs/raw_R1.fastq.gz": "70ccee208d02de5b20b67895d9907fcd730ee778c41512cca5e892350d1c21f1",
+        "practical-case/nuclease/inputs/raw_R2.fastq.gz": "f3dc9407e5d053199f8071fce7e96c4d763ffd8bea4d52fb4d6bd3bc2b7c9c06",
+        "practical-case/nuclease/inputs/samples.csv": "34a7682a7408e2e0d6e94d55c46d8d5b84cb65fcff6c86608c90fd6132209629",
+        "practical-case/nuclease/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+        "practical-case/nuclease/samples.xlsx": "642c27bd4b3d7576904f32b88e9351c09ba98da85efdd99847cc3ad57e6912f7",
+        "practical-case/pe/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "practical-case/pe/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "practical-case/pe/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "practical-case/pe/inputs/raw_R1.fastq.gz": "ecdfef36c521662daedde1fdbbf085f24f9ec3b4067e5d71ae567b484092f284",
+        "practical-case/pe/inputs/raw_R2.fastq.gz": "42d397e4332090654896e84f50968a1f6386658aed53d5475229d257f605faac",
+        "practical-case/pe/inputs/samples.csv": "7fe422f491a8f5c78aac608a64a8bff71054e54cee95c5f8e6dedb90340a7c23",
+        "practical-case/pe/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "practical-case/pe/samples.xlsx": "a1745adccdd4f2d93fb0f05ad1186598baef3c79ab5734ea5e33105ab228c84e"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    },
+    "viewer": {
+      "test_harness_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "/workspace/scratch/audit-remediation/package/integrated-1/source/tests/test_gui_integration.py"
+        ]
+      ],
+      "status": "INCOMPLETE",
+      "harness_evidence_sha256": "7c0b946c692695dfe130295d4bcdc47fb7978623cfa208ff10f1d45dbdde3e92",
+      "fixture_checks": "2 failed, 1 warning in 829.63s (0:13:49)",
+      "input_fixture_sha256": {
+        "fixtures/indel_nuclease/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "fixtures/indel_nuclease/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "fixtures/indel_nuclease/inputs/raw_R1.fastq.gz": "babe74ca2aeedee56ba2173b4865fcbdadcddfd49918e9ea7f4f110a50eacfcc",
+        "fixtures/indel_nuclease/inputs/raw_R2.fastq.gz": "42252f117e5bf40b3c3790af7c3c254a0545377d559c94732dd5bf0d46b575d2",
+        "fixtures/indel_nuclease/inputs/samples.csv": "f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4",
+        "fixtures/indel_nuclease/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+        "fixtures/precise_edit/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "fixtures/precise_edit/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "fixtures/precise_edit/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "fixtures/precise_edit/inputs/raw_R1.fastq.gz": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+        "fixtures/precise_edit/inputs/raw_R2.fastq.gz": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+        "fixtures/precise_edit/inputs/samples.csv": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+        "fixtures/precise_edit/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    },
+    "viewer-retry": {
+      "test_harness_revision": "7381c286e12acc64e0e8dba8a2dbcad0eaa32354",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browser-harness-7381c28/tests/test_gui_integration.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browser-harness-7381c28/tests/gui_e2e_server.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-retry/frontend/node_modules/.bin/playwright",
+          "test",
+          "--config",
+          "playwright.config.ts",
+          "--output",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-retry/artifacts"
+        ]
+      ],
+      "status": "INCOMPLETE",
+      "harness_evidence_sha256": "5b2d55497caab1809b6aabfe3badebeafe2062645349e31cb5d2906ade587603",
+      "playwright_version": "1.64.1",
+      "playwright_report_sha256": "c1d5910c3f49493f094aa6a7fd0de66793fb4d32c995af043f89e74298cd9337",
+      "outcomes": [
+        {
+          "test": "Light default, persistent keyboard theme, unchanged observations and dark accessibility",
+          "file": "desktop.spec.ts",
+          "status": "timedOut",
+          "duration_ms": 120126
+        },
+        {
+          "test": "library refresh and manual reveal remain explicit conveniences",
+          "file": "desktop.spec.ts",
+          "status": "failed",
+          "duration_ms": 5730
+        },
+        {
+          "test": "PE setup through real Python validation \u2192 deterministic Review without execution",
+          "file": "setup.spec.ts",
+          "status": "failed",
+          "duration_ms": 6864
+        },
+        {
+          "test": "explicit nuclease window 0-0 \u2192 locked full contract \u2192 Review",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1559
+        },
+        {
+          "test": "TIGR W2 and W1 annotations come from backend; accessible and responsive",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 2491
+        },
+        {
+          "test": "invalid sentinel cannot reach Review and first error is focusable",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1197
+        },
+        {
+          "test": "duplicate biological replicate blocks Review and focuses replicate metadata",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1591
+        },
+        {
+          "test": "paired metadata error focuses Block ID rather than sample name",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1353
+        },
+        {
+          "test": "ambiguous deletion reaches Review with authoritative limitation warnings",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1322
+        },
+        {
+          "test": "zero-pair raw pool blocks Review with an input error",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1181
+        },
+        {
+          "test": "real PE workspace \u2192 five views, exact/native distinction, source download and reopen",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5558
+        },
+        {
+          "test": "real nuclease data preserves partition, overlap, net-zero, alleles and qualified configuration",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 2157
+        },
+        {
+          "test": "invalid workspace refuses scientific display",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 510
+        },
+        {
+          "test": "keyboard tabs, accessible tables, AA scan and desktop/200-percent reflow",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5487
+        },
+        {
+          "test": "local API denies missing session and cross-origin access",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 308
+        },
+        {
+          "test": "a failed revalidation hides an already opened scientific view",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5544
+        },
+        {
+          "test": "keyboard Tab \u2192 Enter keeps focus during integrity loading",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5581
+        },
+        {
+          "test": "keyboard Tab \u2192 Space keeps focus during integrity loading",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5590
+        },
+        {
+          "test": "keyboard Open completion intentionally focuses the analysis heading",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5577
+        },
+        {
+          "test": "same-basename registrations show unique labels and their correct scientific mode",
+          "file": "viewer.spec.ts",
+          "status": "failed",
+          "duration_ms": 5602
+        }
+      ],
+      "totals": {
+        "startTime": "2026-11-27T12:08:52.817Z",
+        "duration": 195103.134,
+        "expected": 10,
+        "skipped": 0,
+        "unexpected": 10,
+        "flaky": 0
+      },
+      "fixture_checks": "2 passed, 2 warnings in 834.32s (0:13:54)",
+      "browser_shutdown_audit": {
+        "full_verifier_calls": 11,
+        "scientific_executor_calls": 10,
+        "workspace_and_input_bytes_and_mtimes_unchanged": true,
+        "setup_inputs_and_proposed_output_unchanged": true,
+        "workspaces": [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-retry/fixtures/precise_edit/workflow",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-retry/fixtures/indel_nuclease/workflow"
+        ],
+        "guarded_functions": "See gui_helpers.forbid_execution"
+      },
+      "input_fixture_sha256": {
+        "fixtures/indel_nuclease/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "fixtures/indel_nuclease/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "fixtures/indel_nuclease/inputs/raw_R1.fastq.gz": "babe74ca2aeedee56ba2173b4865fcbdadcddfd49918e9ea7f4f110a50eacfcc",
+        "fixtures/indel_nuclease/inputs/raw_R2.fastq.gz": "42252f117e5bf40b3c3790af7c3c254a0545377d559c94732dd5bf0d46b575d2",
+        "fixtures/indel_nuclease/inputs/samples.csv": "f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4",
+        "fixtures/indel_nuclease/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba",
+        "fixtures/precise_edit/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "fixtures/precise_edit/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "fixtures/precise_edit/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "fixtures/precise_edit/inputs/raw_R1.fastq.gz": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+        "fixtures/precise_edit/inputs/raw_R2.fastq.gz": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+        "fixtures/precise_edit/inputs/samples.csv": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+        "fixtures/precise_edit/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "setup/draft-fields.json": "ded8705849e4cf1e89bed3e8fc9b488299e1c4c705c297b507134dcd553f847d",
+        "setup/empty_R1.fastq.gz": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+        "setup/empty_R2.fastq.gz": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+        "setup/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "setup/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "setup/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "setup/inputs/raw_R1.fastq.gz": "21d77588f6c6ca77d17f10f422f89e3aa3a91d9075dfbe85e173351b4d440401",
+        "setup/inputs/raw_R2.fastq.gz": "e02d0c81dc7b4f44e5bd7366d9d74db1ec2ddb636f4f0522807d0ede4c39fd0c",
+        "setup/inputs/samples.csv": "f3205fcc7dbff201ae4f2c85cc7e2d6e5d3c0a6fd84edf8fc2344f8eab15d77e",
+        "setup/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    },
+    "viewer-bound": {
+      "test_harness_revision": "fe5b4cdfe60a1703ce5edbb5b1173062011a3895",
+      "commands": [
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browser-harness-fe5b4cd/tests/gui_e2e_server.py"
+        ],
+        [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-bound/frontend/node_modules/.bin/playwright",
+          "test",
+          "--config",
+          "playwright.config.ts",
+          "--output",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-bound/artifacts"
+        ]
+      ],
+      "status": "PASS",
+      "harness_evidence_sha256": "17af19c3fdee74bb0d0561a1eb816424d3e9834e4be83cefb492be1bb5ddfe3d",
+      "playwright_version": "1.64.1",
+      "playwright_report_sha256": "fb486a77da1ac1c075fd6901af60e4df45873a5895935af3ec0f78ebfdf948af",
+      "outcomes": [
+        {
+          "test": "Light default, persistent keyboard theme, unchanged observations and dark accessibility",
+          "file": "desktop.spec.ts",
+          "status": "passed",
+          "duration_ms": 14053
+        },
+        {
+          "test": "library refresh and manual reveal remain explicit conveniences",
+          "file": "desktop.spec.ts",
+          "status": "passed",
+          "duration_ms": 4060
+        },
+        {
+          "test": "PE setup through real Python validation \u2192 deterministic Review without execution",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 4511
+        },
+        {
+          "test": "explicit nuclease window 0-0 \u2192 locked full contract \u2192 Review",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1266
+        },
+        {
+          "test": "TIGR W2 and W1 annotations come from backend; accessible and responsive",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 2111
+        },
+        {
+          "test": "invalid sentinel cannot reach Review and first error is focusable",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1030
+        },
+        {
+          "test": "duplicate biological replicate blocks Review and focuses replicate metadata",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1409
+        },
+        {
+          "test": "paired metadata error focuses Block ID rather than sample name",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1302
+        },
+        {
+          "test": "ambiguous deletion reaches Review with authoritative limitation warnings",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1144
+        },
+        {
+          "test": "zero-pair raw pool blocks Review with an input error",
+          "file": "setup.spec.ts",
+          "status": "passed",
+          "duration_ms": 1156
+        },
+        {
+          "test": "real PE workspace \u2192 five views, exact/native distinction, source download and reopen",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 11833
+        },
+        {
+          "test": "real nuclease data preserves partition, overlap, net-zero, alleles and qualified configuration",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 1857
+        },
+        {
+          "test": "invalid workspace refuses scientific display",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 479
+        },
+        {
+          "test": "keyboard tabs, accessible tables, AA scan and desktop/200-percent reflow",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 5932
+        },
+        {
+          "test": "local API denies missing session and cross-origin access",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 17
+        },
+        {
+          "test": "a failed revalidation hides an already opened scientific view",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 3491
+        },
+        {
+          "test": "keyboard Tab \u2192 Enter keeps focus during integrity loading",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 7393
+        },
+        {
+          "test": "keyboard Tab \u2192 Space keeps focus during integrity loading",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 7442
+        },
+        {
+          "test": "keyboard Open completion intentionally focuses the analysis heading",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 3442
+        },
+        {
+          "test": "same-basename registrations show unique labels and their correct scientific mode",
+          "file": "viewer.spec.ts",
+          "status": "passed",
+          "duration_ms": 4420
+        }
+      ],
+      "totals": {
+        "startTime": "2026-11-27T18:25:08.983Z",
+        "duration": 79691.45999999999,
+        "expected": 20,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "browser_shutdown_audit": {
+        "full_verifier_calls": 13,
+        "scientific_executor_calls": 0,
+        "read_only_routing_replay_calls": 176,
+        "workspace_and_input_bytes_and_mtimes_unchanged": true,
+        "setup_inputs_and_proposed_output_unchanged": true,
+        "workspaces": [
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-retry/fixtures/precise_edit/workflow",
+          "/workspace/scratch/audit-remediation/package/integrated-1/browsers/viewer-retry/fixtures/indel_nuclease/workflow"
+        ],
+        "guarded_functions": "See gui_helpers.forbid_execution"
+      },
+      "input_fixture_sha256": {
+        "setup/draft-fields.json": "ded8705849e4cf1e89bed3e8fc9b488299e1c4c705c297b507134dcd553f847d",
+        "setup/empty_R1.fastq.gz": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+        "setup/empty_R2.fastq.gz": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+        "setup/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "setup/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "setup/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "setup/inputs/raw_R1.fastq.gz": "21d77588f6c6ca77d17f10f422f89e3aa3a91d9075dfbe85e173351b4d440401",
+        "setup/inputs/raw_R2.fastq.gz": "e02d0c81dc7b4f44e5bd7366d9d74db1ec2ddb636f4f0522807d0ede4c39fd0c",
+        "setup/inputs/samples.csv": "f3205fcc7dbff201ae4f2c85cc7e2d6e5d3c0a6fd84edf8fc2344f8eab15d77e",
+        "setup/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b"
+      },
+      "reused_qualified_fixture_sha256": {
+        "precise_edit/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "precise_edit/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+        "precise_edit/inputs/policies.json": "b5213acc13d7aca76bf150779e67cac35df2bf4189a695aef1b43922b03a4e1c",
+        "precise_edit/inputs/raw_R1.fastq.gz": "d7ce7cd5db21d1881192032f63b209c6c8aba6b6fc3078556fe2dd73f45f4caa",
+        "precise_edit/inputs/raw_R2.fastq.gz": "094dea74c1c0a797048f366ef7b7f21b3a165d3728c5ef2e241c3cf414989d89",
+        "precise_edit/inputs/samples.csv": "6b3655f487629c03d2145eb3433532f3ecc229604bc9e3db16f73fd4e3c12933",
+        "precise_edit/inputs/targets.csv": "acc9d54a660ee58bcdb3a5e60c1f87db7fa6061da975762246ef936535d3247b",
+        "precise_edit/inputs/truth.json": "fc54e95e4d9e76577719de50011868edf5f529f817ead6f88b2e03f7a79eef86",
+        "indel_nuclease/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+        "indel_nuclease/inputs/contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+        "indel_nuclease/inputs/raw_R1.fastq.gz": "babe74ca2aeedee56ba2173b4865fcbdadcddfd49918e9ea7f4f110a50eacfcc",
+        "indel_nuclease/inputs/raw_R2.fastq.gz": "42252f117e5bf40b3c3790af7c3c254a0545377d559c94732dd5bf0d46b575d2",
+        "indel_nuclease/inputs/samples.csv": "f6b84e657c9bde936a01a7c3109d5c2ca1871fbac39a16ff3ba609bf661490c4",
+        "indel_nuclease/inputs/targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba"
+      },
+      "reused_workspace_manifest_sha256": {
+        "precise_edit": "0960ea2c437b1881d1a46ce540dabb06656b456511ca6e51c5721ad86f438332",
+        "indel_nuclease": "7f08b602d682471829a9383b4029d6166406c11992ee7a5198a8fd0ae8c9446f"
+      },
+      "job_timeout_ms": 600000,
+      "configured_assert_timeout_ms": 30000,
+      "workers": 1
+    }
+  }
+}
