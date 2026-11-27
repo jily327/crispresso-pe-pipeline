@@ -1,0 +1,201 @@
+{
+  "selection": {
+    "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+    "wheel": {
+      "file": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+      "bytes": 420681,
+      "sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+    },
+    "sdist": {
+      "file": "crispresso_pe_pipeline-1.1.0.tar.gz",
+      "bytes": 3480392,
+      "sha256": "6d2a6225ff7eb0e5c20459dab8197cea9ec435e500ec12c41dca3a44bfb2c694"
+    },
+    "wheel_entries_compared_to_source_and_install": 122,
+    "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "viewer_build_manifest": {
+      "file": "build-identity.json",
+      "bytes": 2995,
+      "sha256": "d37a848c6c617b5121806e757bb309e1f4ce6289e1a98a7e4f02ecf22ce3ce45"
+    },
+    "installed_module": "/workspace/scratch/audit-remediation/package/integrated-1/env/lib/python3.12/site-packages/peanalyzer/__init__.py",
+    "selection": "gate",
+    "python": "Python 3.12.14",
+    "node": "v24.22.1",
+    "chromium": "Chromium 156.0.8078.79 built on Debian GNU/Linux 13 (trixie)",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "backend_image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "backend_local_image_identity": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+    "commands": [
+      [
+        "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+        "/workspace/scratch/audit-remediation/gpt/gate.py"
+      ]
+    ],
+    "status": "PASS",
+    "auditor_script_sha256": "d06a2742c7bac8364daa68d361439ab8d284a28f3a784cfadfefcf8c6ffe944f",
+    "fixture_sha256": {
+      "gate/inputs/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+      "gate/inputs/contrasts.yaml": "db97b2cbfb774044eb915a94fd69217cafbc0c1f107e726c6319524aebe76be7",
+      "gate/inputs/raw_R1.fastq.gz": "9aee344db0447b121a8f0028b4050f56e1c5ffbf0e953900c31e8cd0031553fa",
+      "gate/inputs/raw_R2.fastq.gz": "4311e3f1d73d287a6e46f54ecec7acd7fd26b4236017d79902959b17a3525923",
+      "gate/inputs/samples.csv": "5d683693b4ea4a99f25725c08db1beb061054a7e95f003ebfd82708d3facc8ac",
+      "gate/inputs/targets.csv": "e09c6c0777bf058dde8ed18942c0e431f8fb02518d325eebb89b086fa84ef3f4",
+      "gate/workflow/inputs/5d683693b4ea4a99f25725c08db1beb061054a7e95f003ebfd82708d3facc8ac/samples.csv": "5d683693b4ea4a99f25725c08db1beb061054a7e95f003ebfd82708d3facc8ac",
+      "gate/workflow/inputs/8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef/config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+      "gate/workflow/inputs/e09c6c0777bf058dde8ed18942c0e431f8fb02518d325eebb89b086fa84ef3f4/targets.csv": "e09c6c0777bf058dde8ed18942c0e431f8fb02518d325eebb89b086fa84ef3f4"
+    }
+  },
+  "canonical": {
+    "status": "NOT_ASSESSABLE",
+    "numerator": null,
+    "denominator": null,
+    "reason_codes": [
+      "STATE_DEPENDENT_PRODUCT_OBSERVABILITY"
+    ],
+    "population_id": "da11ad589377f3a1cbf584538eae3a85afe29a0cf4edfbebd2db1c1f8a672f5f"
+  },
+  "products": {
+    "exact_wt": 10,
+    "exact_pe": 5,
+    "pe_plus_extra_change": 0,
+    "other_nonexact_assessable": 0,
+    "unresolved_unassessable": 1,
+    "contradictory_state": 0,
+    "denominator_exclusions": 1,
+    "classification_input_reads": 16,
+    "exclusion_reason_counts": {
+      "STATE_DEPENDENT_PRODUCT_OBSERVABILITY": 1
+    }
+  },
+  "independent_counts": {
+    "two_site_q30": {
+      "WT": 10,
+      "A_only": 0,
+      "B_only": 0,
+      "AB": 5
+    },
+    "full_templates": {
+      "WT": 10,
+      "A_only": 0,
+      "B_only": 0,
+      "AB": 5
+    }
+  },
+  "surface_checks": [
+    "M4 JSON",
+    "companion JSON",
+    "M5 observation and biological summary",
+    "GUI canonical observation, catalog and paired-site panels",
+    "catalog JSON",
+    "companion TSV and HTML",
+    "catalog TSV and HTML",
+    "XLSX biological summary, companion metrics and independent metrics"
+  ],
+  "reportable_biological_samples": 0,
+  "source_sha256": {
+    "statistics/result.json": "a3210d919cf276816d220bfd3a60d5b0d8f003af067655ac6bc35db9b7ec8744",
+    "statistics/observations.tsv": "8b552192cdda1d9316caf7ae512c267b495469d26486dc281c07d858b1f5e8e5",
+    "report/report_manifest.json": "0caa4139b3bb9b8890646211263ceef43266973b3d8e0d0864d35899287f64cb",
+    "metrics/bc001/T1/result.json": "cf2a05054f3c66d6c9cf5e7b4e6621019210e19824fb4430ed1fa79460fecad1",
+    "metrics/bc001/T1/intended_sites.json": "c97a56deb800bb0a40e2e49c86b6f24aa24af4fb7473a406f7f2464108f46b8f",
+    "metrics/bc001/T1/measurements.json": "6db4d9385d50c0a491b7f6be57d5a4a6e225a86ccdddf688ef9ba9ede5603d32",
+    "metrics/bc001/T1/intended_sites.tsv": "88a95027b47b773adb12a6d95d9dbfcaa610ead5de9a10c75fd3483769dd3ebd",
+    "metrics/bc001/T1/intended_sites.html": "1b4b43d7760190f273c91656158702501196844685209baf80afda67576f6305",
+    "metrics/bc001/T1/measurements.tsv": "9157780005a97743f22a3ec985c4312e2f4faf569a1baeeb5205d0be16e36aed",
+    "metrics/bc001/T1/measurements.html": "33d1cc23b49969062cbc18cb84461cf93cc8633bbb6bcf7b534025f02b88caf6"
+  },
+  "workbook_sha256": "e58704057519366bf2c93f7d86be142611078ed615cf9ac18c9443baa91383f1",
+  "status": "PASS",
+  "check_command": [
+    "/workspace/scratch/audit-remediation/package/integrated-1/env/bin/python",
+    "/workspace/crispresso-pe-pipeline/docs/validation/remediation/presentation/check_scientific_surfaces.py",
+    "/workspace/scratch/audit-remediation/package/integrated-1/browsers/gate",
+    "/workspace/scratch/audit-remediation/package/integrated-1/b6-surfaces"
+  ],
+  "check_script_sha256": "655a0e9d35afff665a5dc85e7cc1a25be866870554af5087071cf0d526cf3e8f",
+  "native_counts": [
+    {
+      "id": "comparator/copy1",
+      "mode": "native_prime_editing",
+      "population": "all_prepared_pairs",
+      "counts": {
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "preprocessing_count_delta": 0,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "numerator": 5,
+        "denominator": 16
+      },
+      "execution_status": "COMPLETED",
+      "extraction_status": "PASS",
+      "recount_status": "PASS",
+      "runtime_identity_status": "VERIFIED",
+      "direct_parity_status": "NOT_RUN"
+    },
+    {
+      "id": "comparator/copy2",
+      "mode": "native_prime_editing",
+      "population": "all_prepared_pairs",
+      "counts": {
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "preprocessing_count_delta": 0,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "numerator": 5,
+        "denominator": 16
+      },
+      "execution_status": "COMPLETED",
+      "extraction_status": "PASS",
+      "recount_status": "PASS",
+      "runtime_identity_status": "VERIFIED",
+      "direct_parity_status": "NOT_RUN"
+    },
+    {
+      "id": "copies/copy1",
+      "mode": "native_prime_editing",
+      "population": "confident_copy_cohort",
+      "counts": {
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "preprocessing_count_delta": 0,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0,
+        "numerator": 5,
+        "denominator": 16
+      },
+      "execution_status": "COMPLETED",
+      "extraction_status": "PASS",
+      "recount_status": "PASS",
+      "runtime_identity_status": "VERIFIED",
+      "direct_parity_status": "NOT_RUN"
+    },
+    {
+      "id": "core_sites",
+      "mode": "conventional_multi_wt_sites",
+      "population": "all_prepared_pairs",
+      "counts": {
+        "backend_input_reads": 16,
+        "reads_after_preprocessing": 16,
+        "aligned_reads": 16,
+        "unaligned_reads": 0,
+        "preprocessing_count_delta": 0,
+        "ambiguous_aligned_reads": 0,
+        "discarded_aligned_reads": 0
+      },
+      "execution_status": "COMPLETED",
+      "extraction_status": "PASS",
+      "recount_status": "PASS",
+      "runtime_identity_status": "VERIFIED",
+      "direct_parity_status": "NOT_RUN"
+    }
+  ]
+}
