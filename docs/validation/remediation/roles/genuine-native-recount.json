@@ -1,0 +1,80 @@
+{
+  "audit_backend": {
+    "executable": "/workspace/scratch/crispresso-pe-venv/bin/peanalyzer-crispresso",
+    "executable_sha256": "0e4abd0231ff5e89a07ae455c7626597d6e21f55892ec9b12c36f373984402e7",
+    "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "version": "2.3.4"
+  },
+  "audit_summary": {
+    "expected": [
+      "bio1",
+      "bio2"
+    ],
+    "mean": 0.5,
+    "n": 2,
+    "p": 1.0,
+    "pooled": 0.8272727272727273,
+    "q": 1.0,
+    "sd": 0.565685424949238,
+    "status": "REPORTABLE",
+    "used": [
+      "bio1",
+      "bio2"
+    ]
+  },
+  "audited_revision": "2f567b88628eeb287bacc9febf3b65b3a00bfc7a",
+  "control_measurement": [
+    90,
+    100,
+    0.9
+  ],
+  "corrected_public_stats_over_same_genuine_M4": {
+    "expected": [
+      "bio1"
+    ],
+    "mean": 0.1,
+    "n": 1,
+    "p": null,
+    "pooled": 0.1,
+    "q": null,
+    "sd": null,
+    "status": "NOT_ASSESSABLE",
+    "used": [
+      "bio1"
+    ]
+  },
+  "direct_native_allele_recount": {
+    "bc001": {
+      "aligned": 10,
+      "allele_zip_sha256": "deaccdfd9f305e20417d10a66edbf95267378527e9127b74efe62e5e44c18c5e",
+      "indel": 1
+    },
+    "bc002": {
+      "aligned": 100,
+      "allele_zip_sha256": "96bf162eebfe63b548aa2e5b4e07ddd4551a7813972e41a152eae17ea46cf44d",
+      "indel": 90
+    },
+    "bc003": {
+      "aligned": 10,
+      "allele_zip_sha256": "c788a96aaee55bf7fe547c557450aa5c0d06ced1fb0d506c2ad4ce24ee492aae",
+      "indel": 2
+    },
+    "bc004": {
+      "aligned": 10,
+      "allele_zip_sha256": "4d88addc01b0e2ec725c73413c5c632e34f9684fa01db468f6d5139f62eeb772",
+      "indel": 3
+    }
+  },
+  "input_hashes": {
+    "config.yaml": "8b363a18b7fbae23ee6526fe518a11089ebd2d66e168f62a2513002bc3259bef",
+    "contrasts.yaml": "cfe63de1b77703b83e7d8b7671394a103d49a4d4ce0a4839bed5fd1d1a3bb5d3",
+    "raw_R1.fastq.gz": "a9959c4eb5bde41c8df05ec384c6080389d20afb228e83c31b1bc152efd31bec",
+    "raw_R2.fastq.gz": "e2f1feec3c59aa62ac9a168e457780f256eb7fb64ce858306c30832b49a53d73",
+    "samples.csv": "97fbdde50cef6eac28c760b5f4f08bda0278a12bb24c7558be3404580f5638a0",
+    "targets.csv": "bb501c34cbfc2c328729a2ea1c0beadae85463ae93473a6929d6c51848e1d2ba"
+  },
+  "installed_package_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+  "python_version": "3.12.14",
+  "statistics_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+  "wheel_sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+}
