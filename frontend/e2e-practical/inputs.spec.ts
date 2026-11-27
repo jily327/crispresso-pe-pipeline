@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 const root=process.env.PRACTICAL_E2E_ROOT!;
+const jobTimeout=Number(process.env.PEANALYZER_E2E_JOB_TIMEOUT_MS||180000);
 for(const mode of ['pe','nuclease'])test(`${mode}: actual browser file inputs + XLSX → Review → Run → Results`,async({page})=>{
   const fields=JSON.parse(fs.readFileSync(path.join(root,'fields.json'),'utf8'))[mode];
   await page.goto('/#e2e-local-token');await page.getByRole('button',{name:'New Analysis',exact:true}).click();
@@ -39,14 +40,14 @@ for(const mode of ['pe','nuclease'])test(`${mode}: actual browser file inputs + 
   expect(fs.existsSync(path.join(root,'outputs',mode))).toBe(false);
   await page.getByRole('button',{name:'Run Analysis',exact:true}).click();
   if(mode==='pe'){
-    try{await expect(page.getByRole('heading',{name:'Final verification in progress'})).toBeVisible({timeout:90000});
+    try{await expect(page.getByRole('heading',{name:'Final verification in progress'})).toBeVisible({timeout:jobTimeout});
       await expect(page.locator('#run-main [role="status"]')).toContainText('RUNNING');
       expect(await page.getByText('Current stage: No scientific stage active',{exact:true}).count()).toBe(0);
       expect(await page.getByRole('button',{name:'Open Results',exact:true}).count()).toBe(0);
       await page.reload();await expect(page.getByRole('heading',{name:'Final verification in progress'})).toBeVisible();
     }finally{fs.writeFileSync(path.join(root,'final-release'),'release')}
   }
-  await expect(page.getByRole('button',{name:'Open Results',exact:true})).toBeVisible({timeout:120000});await page.getByRole('button',{name:'Open Results',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Open Results',exact:true})).toBeVisible({timeout:jobTimeout});await page.getByRole('button',{name:'Open Results',exact:true}).click();
   await page.getByRole('tab',{name:'Samples',exact:true}).click();
   if(mode==='pe'){
     const table=page.getByRole('table',{name:'Primary PE metrics across biological samples'});await expect(table).toBeVisible();

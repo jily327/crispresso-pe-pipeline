@@ -1,4 +1,5 @@
 """Real completed workflows cross verifier → projection → API; E2E reuses these roots."""
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -33,7 +34,14 @@ def test_real_verified_workspace_viewer(mode,tmp_path,monkeypatch):
     response=c.post('/api/v1/workspaces/open',json={'registration_id':reg})
     assert response.status_code==200,response.text
     view=response.json();base='/api/v1/workspaces/'+view['workspace_id']
-    assert view['mode']==mode and view['native_html']=='Not produced'
+    assert view['mode']==mode and view['native_html']=='Available for download only'
+    reports=[f['source'] for run in view['native_runs'] for f in run['files'] if f['role']=='report']
+    assert reports
+    for report in reports:
+        response=c.get(base+'/artifacts/'+report['artifact_id'])
+        assert response.status_code==200 and response.headers['content-disposition'].startswith('attachment;')
+        assert response.content==(options['output']/report['name']).read_bytes()
+        assert hashlib.sha256(response.content).hexdigest()==report['sha256']
     stats=json.loads((options['output']/'statistics/result.json').read_text())
     for actual,stored in zip(view['groups'],stats['group_summaries']):
         assert actual['mean']==stored['mean_biological_sample_fraction']
