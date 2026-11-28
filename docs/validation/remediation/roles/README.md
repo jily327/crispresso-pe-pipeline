@@ -58,6 +58,36 @@ the installed candidate Python.
 python collect.py ORIGINAL_GENERATED_AUDIT_WORKSPACE output.json --package-root FROZEN_PACKAGE --corrected-workspace FRESH_CORRECTED_WORKSPACE
 ```
 
+## Standalone CRISPResso replay
+
+All four direct CRISPResso2 2.3.4 executions matched the installed workflow.
+Each compared 43 scientific integers and two allele identities, giving zero
+differences across 172 integer comparisons. Independent sums of the direct
+allele rows also matched the four expected indel numerators and denominators.
+
+`native-evidence.zip` contains the four synthetic prepared FASTQ pairs,
+their per-sample reproduction scripts, complete managed native reports, and
+the scientific outputs and comparison receipts from each standalone run. It
+also contains the signed sample design, statistics, control QC and workbook.
+Unpack it into an empty directory. From that directory run the following
+commands with Docker and the pinned image. Each command creates a new output
+directory and verifies both prepared FASTQ hashes before starting the Core.
+
+```sh
+sh bc001/reproduce.sh replay-bc001
+sh bc002/reproduce.sh replay-bc002
+sh bc003/reproduce.sh replay-bc003
+sh bc004/reproduce.sh replay-bc004
+```
+
+Each `bcNNN/direct/parity.json` lists the managed and standalone values and
+difference for every native integer. It also records both FASTQ hashes, image
+digest, effective parameter comparison, reference/window comparison and
+allele abundance comparison. `standalone-parity.json` binds the four receipts
+to the archive. To reproduce the paired comparison automatically, run
+`direct_parity.py` from the parent ledger directory with the unpacked sample
+directory, run ID `single_reference` and a fresh output path.
+
 ## Failure and interruption history
 
 - On the detached audited SHA the new known-truth PE regression failed as

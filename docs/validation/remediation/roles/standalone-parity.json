@@ -1,0 +1,34 @@
+{
+  "archive_members": 273,
+  "archive_sha256": "bdadbdfc3342db59ea583cdbecc0bcf653b23f2d859b6bc45d8c7ff34a7ae981",
+  "samples": {
+    "bc001": {
+      "aligned": 10,
+      "indel": 1,
+      "integer_fields": 43,
+      "parity_receipt_sha256": "b215bf8a18bb78f7200b18c3ac56b5711ed2f630026de57696a10f761d816834",
+      "status": "PASS"
+    },
+    "bc002": {
+      "aligned": 100,
+      "indel": 90,
+      "integer_fields": 43,
+      "parity_receipt_sha256": "c08e4ba6a6737522f3686c1dd66387bb1849c9851be8d3373ea93e375eec8393",
+      "status": "PASS"
+    },
+    "bc003": {
+      "aligned": 10,
+      "indel": 2,
+      "integer_fields": 43,
+      "parity_receipt_sha256": "1ae4b04fe92ff1c7adaa04e8db5b907e7bfae0a7e238049cdfe182af41d156c0",
+      "status": "PASS"
+    },
+    "bc004": {
+      "aligned": 10,
+      "indel": 3,
+      "integer_fields": 43,
+      "parity_receipt_sha256": "44c77a7308f62d2631e2c7eeea866198cbabfc9517893ce3cab731b4fbc5de7c",
+      "status": "PASS"
+    }
+  }
+}
