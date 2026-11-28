@@ -1,0 +1,617 @@
+[
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_version_probe_private_mounts[home]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_version_probe_private_mounts[spaces, commas]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_version_probe_private_mounts[mnt-c-equivalent]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_cli_caller_death_is_not_gui_ownership[SIGTERM]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_cli_caller_death_is_not_gui_ownership[SIGKILL]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_actual_workflow_cli_caller_death[SIGTERM]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_claude_runtime_integration",
+    "test": "test_actual_workflow_cli_caller_death[SIGKILL]",
+    "reason": "requires genuine pinned Docker"
+  },
+  {
+    "module": "test_crispresso_integration",
+    "test": "test_real_pooled_informative_homeolog_routes",
+    "reason": "set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed"
+  },
+  {
+    "module": "test_crispresso_integration",
+    "test": "test_default_ambiguous_routing_fails_scientific_gate",
+    "reason": "set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed"
+  },
+  {
+    "module": "test_crispresso_integration",
+    "test": "test_distinct_copy_specific_wt_pe_references",
+    "reason": "set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed"
+  },
+  {
+    "module": "test_crispresso_integration",
+    "test": "test_faithful_experimental_spacer_mismatch",
+    "reason": "set M3_INTEGRATION=1 with CRISPResso2 2.3.4 installed"
+  },
+  {
+    "module": "test_desktop_remediation_integration",
+    "test": "test_real_scientific_completion_survives_partial_export_write",
+    "reason": "requires qualified native Core 2.3.4"
+  },
+  {
+    "module": "test_desktop_remediation_integration",
+    "test": "test_real_job_preserves_accepted_gui_order_without_changing_canonical_plan",
+    "reason": "requires qualified native Core 2.3.4"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_actual_owner_or_cli_death_stops_backend[SIGTERM]",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_actual_owner_or_cli_death_stops_backend[SIGKILL]",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_actual_owner_or_cli_death_stops_backend[docker_cli]",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_supervisor_death_stops_backend_with_wrapper_still_alive",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_genuine_gui_failure_repeated_cancel_and_verified_recovery",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_cancel_at_backend_completion",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_success_scientific_parity_and_unrelated_container_isolation[precise_edit]",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_docker_runtime_integration",
+    "test": "test_success_scientific_parity_and_unrelated_container_isolation[indel_nuclease]",
+    "reason": "requires genuine pinned Docker image; PEANALYZER_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_gui_integration",
+    "test": "test_real_verified_workspace_viewer[precise_edit]",
+    "reason": "set M10_INTEGRATION=1 with qualified Core 2.3.4"
+  },
+  {
+    "module": "test_gui_integration",
+    "test": "test_real_verified_workspace_viewer[indel_nuclease]",
+    "reason": "set M10_INTEGRATION=1 with qualified Core 2.3.4"
+  },
+  {
+    "module": "test_installed_desktop_recovery",
+    "test": "test_installed_launcher_cancel_recover",
+    "reason": "requires candidate wheel and real Docker installation"
+  },
+  {
+    "module": "test_intended_sites_workflow",
+    "test": "test_real_two_site_cli_and_resume",
+    "reason": "Requires pinned CRISPResso2 2.3.4"
+  },
+  {
+    "module": "test_m11a1_integration",
+    "test": "test_ambiguous_deletion_execution_retains_target_precise_metric",
+    "reason": "requires qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m11b_integration",
+    "test": "test_real_gui_direct_parity_and_independent_viewer[precise_edit]",
+    "reason": "requires qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m11b_integration",
+    "test": "test_real_gui_direct_parity_and_independent_viewer[indel_nuclease]",
+    "reason": "requires qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m11b_integration",
+    "test": "test_real_analyze_archive_and_warning_preservation",
+    "reason": "requires qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m11c_integration",
+    "test": "test_native_cancel_resume_force_and_clean_parity[precise_edit]",
+    "reason": "requires native qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m11c_integration",
+    "test": "test_native_cancel_resume_force_and_clean_parity[indel_nuclease]",
+    "reason": "requires native qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m11c_integration",
+    "test": "test_native_cancel_resume_force_and_clean_parity[ambiguous_pe]",
+    "reason": "requires native qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m311_integration",
+    "test": "test_actual_all_read_native_counts_for_every_anchor[m3]",
+    "reason": "set M311_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m311_integration",
+    "test": "test_actual_comparator_eligibility_and_anchor_invariance[m3]",
+    "reason": "set M311_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m311_integration",
+    "test": "test_actual_all_read_native_counts_for_every_anchor[m31]",
+    "reason": "set M311_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m311_integration",
+    "test": "test_actual_comparator_eligibility_and_anchor_invariance[m31]",
+    "reason": "set M311_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m312_integration",
+    "test": "test_partial_chimeras_and_indistinguishable_genuine_reads_are_excluded",
+    "reason": "set M312_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m312_integration",
+    "test": "test_real_core_classifies_quarantined_pe_partials_as_prime_edited",
+    "reason": "set M312_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m31_integration",
+    "test": "test_real_explicit_router_quarantines_ambiguity",
+    "reason": "set M31_INTEGRATION=1 with external 2.3.4 runtime"
+  },
+  {
+    "module": "test_m31_integration",
+    "test": "test_actual_core_native_exact_and_attrition",
+    "reason": "set M31_INTEGRATION=1 with external 2.3.4 runtime"
+  },
+  {
+    "module": "test_m31_integration",
+    "test": "test_quality_order_and_wt_pe_retention",
+    "reason": "set M31_INTEGRATION=1 with external 2.3.4 runtime"
+  },
+  {
+    "module": "test_m31_integration",
+    "test": "test_reverse_only_spacer_upstream_rejection_is_not_success",
+    "reason": "set M31_INTEGRATION=1 with external 2.3.4 runtime"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_ambiguous_and_preprocessing_native_partition[ambiguous]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_products_remain_on_their_own_populations[ambiguous]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_allele_categories_and_discarded_reconciliation[ambiguous]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_nonzero_core_exit_is_preserved_for_every_anchor[ambiguous]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_ambiguous_and_preprocessing_native_partition[preprocessing]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_products_remain_on_their_own_populations[preprocessing]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_allele_categories_and_discarded_reconciliation[preprocessing]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_nonzero_core_exit_is_preserved_for_every_anchor[preprocessing]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_target_families_remain_independent_of_exact_and_routing_gates[nonexact_only]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m41_integration",
+    "test": "test_actual_target_families_remain_independent_of_exact_and_routing_gates[routing_blocked]",
+    "reason": "set M41_INTEGRATION=1 with actual pinned Core"
+  },
+  {
+    "module": "test_m421_integration",
+    "test": "test_actual_copy_selective_geometry_never_reports_surviving_copy[150-150]",
+    "reason": "set M421_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m421_integration",
+    "test": "test_actual_copy_selective_geometry_never_reports_surviving_copy[125-125]",
+    "reason": "set M421_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m421_integration",
+    "test": "test_actual_copy_selective_geometry_never_reports_surviving_copy[124-125]",
+    "reason": "set M421_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m421_integration",
+    "test": "test_actual_copy_specific_repeat_excludes_target_length_class",
+    "reason": "set M421_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m422_integration",
+    "test": "test_actual_backend_cannot_rescue_selected_target_subset[fixed]",
+    "reason": "set M422_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m422_integration",
+    "test": "test_actual_backend_cannot_rescue_selected_target_subset[copy2_1_all]",
+    "reason": "set M422_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m422_integration",
+    "test": "test_actual_qualified_copy_survives_target_selective_failure",
+    "reason": "set M422_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[4]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[8]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[9]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[10]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[11]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[12]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[13]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[16]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[20]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[28]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[30]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_production_merge_overlap_titration[32]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_state_symmetry_prevents_zero_and_one_hundred_percent_bias[insertion_short]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_stored_evidence_reaggregates_without_backend[insertion_short]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_state_symmetry_prevents_zero_and_one_hundred_percent_bias[insertion_long]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_stored_evidence_reaggregates_without_backend[insertion_long]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_state_symmetry_prevents_zero_and_one_hundred_percent_bias[deletion_boundary]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_stored_evidence_reaggregates_without_backend[deletion_boundary]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_state_symmetry_prevents_zero_and_one_hundred_percent_bias[substitution]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_stored_evidence_reaggregates_without_backend[substitution]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_state_symmetry_prevents_zero_and_one_hundred_percent_bias[repeat]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_stored_evidence_reaggregates_without_backend[repeat]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_state_symmetry_prevents_zero_and_one_hundred_percent_bias[cross_copy_lengths]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_stored_evidence_reaggregates_without_backend[cross_copy_lengths]",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_distinct_copy_lengths_with_individually_qualified_routing",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_symmetric_extra_substitution_families",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m42_integration",
+    "test": "test_actual_deletion_exact_boundary_cannot_report_selected_one_hundred_percent",
+    "reason": "set M42_INTEGRATION=1 with pinned Core 2.3.4"
+  },
+  {
+    "module": "test_m4_integration",
+    "test": "test_actual_target_native_and_exact_populations[m31]",
+    "reason": "set M4_INTEGRATION=1 with actual Core 2.3.4"
+  },
+  {
+    "module": "test_m4_integration",
+    "test": "test_actual_copy_metrics_only_admit_verified_cohorts[m31]",
+    "reason": "set M4_INTEGRATION=1 with actual Core 2.3.4"
+  },
+  {
+    "module": "test_m4_integration",
+    "test": "test_actual_target_native_and_exact_populations[m3]",
+    "reason": "set M4_INTEGRATION=1 with actual Core 2.3.4"
+  },
+  {
+    "module": "test_m4_integration",
+    "test": "test_actual_copy_metrics_only_admit_verified_cohorts[m3]",
+    "reason": "set M4_INTEGRATION=1 with actual Core 2.3.4"
+  },
+  {
+    "module": "test_m7_integration",
+    "test": "test_real_m7_end_to_end_resume_and_analyze",
+    "reason": "set M7_INTEGRATION=1 with qualified Core 2.3.4"
+  },
+  {
+    "module": "test_m81_integration",
+    "test": "test_real_resolved_argument_injection_fails_closed[discard_indel_reads]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m81_integration",
+    "test": "test_real_resolved_argument_injection_fails_closed[min_bp_quality_or_N]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[WT]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[substitution]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[deletion]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[insertion]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[insertion_deletion]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[deletion_substitution]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[insertion_substitution]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[net_zero]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[outside_window]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[left_cut_insertion]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[right_cut_insertion]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_authoritative_nuclease_cases[large_deletion]",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_real_nuclease_workflow_and_resume",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_m8_integration",
+    "test": "test_generic_window_at_amplicon_ends_without_guide",
+    "reason": "requires qualified M8 Core runtime"
+  },
+  {
+    "module": "test_multicopy_nuclease",
+    "test": "test_independent_integer_oracle[W2]",
+    "reason": "requires genuine Core 2.3.4"
+  },
+  {
+    "module": "test_multicopy_nuclease",
+    "test": "test_independent_integer_oracle[W3]",
+    "reason": "requires genuine Core 2.3.4"
+  },
+  {
+    "module": "test_multicopy_nuclease",
+    "test": "test_independent_integer_oracle[explicit_distinct]",
+    "reason": "requires genuine Core 2.3.4"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[SCI03]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[single-W1]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[single-W2]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[single-W3]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[single-W4]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[multi-W1]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[multi-W2]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[multi-W3]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_nuclease_remediation",
+    "test": "test_nuclease_window_and_native_references[multi-W4]",
+    "reason": "requires pinned Core with reports and plots"
+  },
+  {
+    "module": "test_practical_integration",
+    "test": "test_real_transport_scientific_parity[precise_edit]",
+    "reason": "requires qualified native Core 2.3.4"
+  },
+  {
+    "module": "test_practical_integration",
+    "test": "test_real_transport_scientific_parity[indel_nuclease]",
+    "reason": "requires qualified native Core 2.3.4"
+  },
+  {
+    "module": "test_v101_backend",
+    "test": "test_real_nonempty_crispresso_partial_failure_and_repeated_recovery",
+    "reason": "requires local qualified CRISPResso 2.3.4 container; V101_DOCKER_INTEGRATION=1"
+  },
+  {
+    "module": "test_v101_backend",
+    "test": "test_gui_cancel_during_genuine_nonempty_core_then_resume",
+    "reason": "requires local qualified Docker image; V101_DOCKER_INTEGRATION=1"
+  }
+]

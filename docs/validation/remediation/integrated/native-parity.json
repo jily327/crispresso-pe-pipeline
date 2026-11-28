@@ -1,0 +1,1380 @@
+[
+  {
+    "analysis": "site/1A_acquired-manual",
+    "sample": "1A_acquired",
+    "target": "EPSPS",
+    "native_run": "core_sites",
+    "mode": "conventional_multi_wt_sites",
+    "population": "all_prepared_pairs",
+    "pairs": 5564,
+    "status": "PASS",
+    "integer_fields": 80,
+    "allele_identities": 727,
+    "aligned_abundance": 5040,
+    "input_sha256": [
+      "4a795f5cec8992afb4be60e827d8e5c48cd10226fda7bcc891a73e80c71564bc",
+      "05443afd79c102d51116aa14d615d1df0640798d0bc2c21a3d33cd0be3c1d247"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "aad7a587a8d119d58120edddd0aaa09f81077e8263ff0e61d0b71d562eb39d29",
+    "managed_info_sha256": "47ec54a3d7698244d796d0ec34a27e819b46e3dec4c8c4dacf961dafd38eb92d",
+    "direct_info_sha256": "feb08ed6113e64626194accc203e5eefecffc20c540938b99764b44cd00da52f",
+    "script_sha256": "42d6efabda1fcc07aefca4c2252fb12d7d328c77aff6442d3d517bf83edebf3a",
+    "parity_receipt_sha256": "1d31eaa5bec563482bc66b03e4e1fc7d1e220187539d253aefb3878f9d07aefa"
+  },
+  {
+    "analysis": "site/1A_forward-manual",
+    "sample": "1A_forward",
+    "target": "EPSPS",
+    "native_run": "core_sites",
+    "mode": "conventional_multi_wt_sites",
+    "population": "all_prepared_pairs",
+    "pairs": 5564,
+    "status": "PASS",
+    "integer_fields": 80,
+    "allele_identities": 1088,
+    "aligned_abundance": 5115,
+    "input_sha256": [
+      "234ea489c4e0495bfb394111d591908de3a9e1708895cb8af222e9a6b08e09a4",
+      "7c54fcd54dd73ea961f90edad7c4eebd7283dee8118af71df0717029abf4b7ca"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "e24d9bd8c0b9fe74e2995b8eaf71f436e864ddeeb07ea833b9d3270844cf5cdc",
+    "managed_info_sha256": "fd21ce3c4f3b76c99890d46a622cbb430fb6179d80f6e6d4587f67b63449404b",
+    "direct_info_sha256": "52d6e52a0498553abb66518eda4866ef496bc983815872206d21370e2f967e5c",
+    "script_sha256": "12924f2415e12e24b4e2134a0882881a1f2b6ca66e48cd88d5821c9b960d5934",
+    "parity_receipt_sha256": "15d65fa687dad1302332ac3ccde38f6bdcebc7b044c5b023c60c08d4fd9163b2"
+  },
+  {
+    "analysis": "site/SCI02-manual",
+    "sample": "SCI02",
+    "target": "EPSPS",
+    "native_run": "core_sites",
+    "mode": "conventional_multi_wt_sites",
+    "population": "all_prepared_pairs",
+    "pairs": 15,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 15,
+    "input_sha256": [
+      "85e076c8f3281ad0a2825c162f6a92d67ab6bce36e80a13ace11ab66befa5038",
+      "658a09f2fee9e2a25e6701062dc164032d80c0419d25daa9b57def80b57459ac"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "6432b79949c3c224b28fcaf2aa62249639c9ecb644c7eee2d359b7184ca5b855",
+    "managed_info_sha256": "1345349774f3451f5257a48eb97eb807ca48561c4ae1c71383aa49515f0ec424",
+    "direct_info_sha256": "9f19e20acd72bb09d341940ff391f95d36e13d8053159036fd24e917a042d2a4",
+    "script_sha256": "46374b448b7893c881f3841b397701369798d2fd7eab7c4892d294d31eced4de",
+    "parity_receipt_sha256": "c11b42576796e1535f648cdee656bf8cb662ec1d8fc7fc950bab94cd076c2512"
+  },
+  {
+    "analysis": "site/all_acquired-manual",
+    "sample": "all_acquired",
+    "target": "EPSPS",
+    "native_run": "core_sites",
+    "mode": "conventional_multi_wt_sites",
+    "population": "all_prepared_pairs",
+    "pairs": 114761,
+    "status": "PASS",
+    "integer_fields": 80,
+    "allele_identities": 6879,
+    "aligned_abundance": 103967,
+    "input_sha256": [
+      "f68c5fb8612ba56e4d3dba97f34a2aa384e85ca18f55e0ca582cd5d4d9940da9",
+      "4d99ff41dc6a5a183dcc743aeeee82a3d180a050152f6400da89361b2f201e5d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "8b490c0682d571583240bb43f68df0e6d6d750c8dcf6ebc7222512e30478c3bd",
+    "managed_info_sha256": "01a1f1bbbb6ff692132aec5c712033927cbb5e19c32da1819a2fa77034dde356",
+    "direct_info_sha256": "db0b5748b8e4e04cf48b5bd8279a61d56b7513ffdd929545ed53d398f64ca41d",
+    "script_sha256": "35b220999f4cd999f137680dcf25c5340bdee11c44815b89c9062895a04fffc8",
+    "parity_receipt_sha256": "e80d959fa202b883b635d90588730b589a51e62bad238b190a46a4e23255082d"
+  },
+  {
+    "analysis": "site/all_forward-manual",
+    "sample": "all_forward",
+    "target": "EPSPS",
+    "native_run": "core_sites",
+    "mode": "conventional_multi_wt_sites",
+    "population": "all_prepared_pairs",
+    "pairs": 114761,
+    "status": "PASS",
+    "integer_fields": 80,
+    "allele_identities": 12553,
+    "aligned_abundance": 105769,
+    "input_sha256": [
+      "2237227017fd66c28a5b67a77650df9192cf211fe3163f4878bf1564ddc81803",
+      "4654978f5d94f87a843f50109cbf54316e724e63a44cfcef7f678be10ac7c2c3"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "075355b1429c23e9d1fe04a57d5657b4ad7bad4e65b1d122be35ebc3d55b4292",
+    "managed_info_sha256": "002f00a7e9ce7da312bed49e742d74789a65956e2ca9c37226f3f66ed63107e2",
+    "direct_info_sha256": "e4bb80aa781f8ffa64cb25efcd236522142dc5ef7587dc2a5fb80855a66048f2",
+    "script_sha256": "999d4f6d3e0fe68601350c14f6a8ad33bbf6414226844bdc3155d142e22e39e6",
+    "parity_receipt_sha256": "7a62f2a470d308037270f3cb2d2de7d9e2fea542a0d390314bd928ed371cbbd1"
+  },
+  {
+    "analysis": "nuclease/SCI03-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 78,
+    "allele_identities": 3,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "7789a9a89e6c85083254bc3c835cd8732e89a966147b78f731bfe746aa90fa57",
+      "8e5f0638a19f7e2492408e2d7fbdf07abb600756904368a0d44ece1fb01c7766"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "6796d26d86acca9b757fda2b56e59fce5aedfdf395e4068be3f7082bfd8a4aa7",
+    "managed_info_sha256": "3c0f5c908f496c32fdaca484d63af9508173dcf1a0d659337d379d4ec3fa9481",
+    "direct_info_sha256": "f376935e7140c96bc17f6d5270d78f9d1a9bbab790cd31002446dfea95271c80",
+    "script_sha256": "6db5433d2e42f792ffb0d4b8750d288bcc6494798a0b96ad4c4dee96fd79c3d1",
+    "parity_receipt_sha256": "d25af0c07c5f13dfb099f98a200f8c2dad61ef0babd124f632a57266708ab025"
+  },
+  {
+    "analysis": "nuclease/SCI03-references-a",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/a",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 3,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "7789a9a89e6c85083254bc3c835cd8732e89a966147b78f731bfe746aa90fa57",
+      "8e5f0638a19f7e2492408e2d7fbdf07abb600756904368a0d44ece1fb01c7766"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "6796d26d86acca9b757fda2b56e59fce5aedfdf395e4068be3f7082bfd8a4aa7",
+    "managed_info_sha256": "4d68e593ba7fcfa1477ed41dd47da3c06530fedc0fe1c6e4bb248798cb5be0a1",
+    "direct_info_sha256": "739469e57007651c7c754bb59c851dc347d8dd5d2c210fae8df473b6a20ffd09",
+    "script_sha256": "63d34e651a26e0f9d51e00f88f94f5f0d787d034dee20b8e06b16243454855a6",
+    "parity_receipt_sha256": "92f575edd42ac2e2db62db90365ee9d192f7195767dc60f7dd76b2caeadb7d31"
+  },
+  {
+    "analysis": "nuclease/SCI03-references-b",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/b",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 3,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "7789a9a89e6c85083254bc3c835cd8732e89a966147b78f731bfe746aa90fa57",
+      "8e5f0638a19f7e2492408e2d7fbdf07abb600756904368a0d44ece1fb01c7766"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "6796d26d86acca9b757fda2b56e59fce5aedfdf395e4068be3f7082bfd8a4aa7",
+    "managed_info_sha256": "8ff0a0b0ad9df52ccfde3ed665116b9456443359500ce40f11bff871e5fb3939",
+    "direct_info_sha256": "398c91db636a7ee339c888704ceb495f5888128591e7758204d92d34274bdf57",
+    "script_sha256": "33413c2594a4f7a7151c37e9a93f91252bb8296fe05ad6683ce42200c0c0cdf6",
+    "parity_receipt_sha256": "946295be25537b5530dbb14a77d334512eeb3d1d5f0d01be017564efd616beb3"
+  },
+  {
+    "analysis": "nuclease/W2-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "879e3b7a9eb95a7c3e70472b180ffc2e37770bd03d99044d6eab4339b40e09a0",
+    "managed_info_sha256": "c6297385c64488f61d64f4ae98568e257d6ec3e290a68acb9cf28ddb8a9899fb",
+    "direct_info_sha256": "8681d5b1cf8f1f3794dfe743fe4f7838b3f33c8ff310586af115ec712e334df3",
+    "script_sha256": "c2a1bc0a90aa35bf241af0019364a5353dfb60b0c9265ee4027d020931577c73",
+    "parity_receipt_sha256": "b889f5b9801cada765ed211f7f2646da0485e1bb99137f1d41c012b839d492b7"
+  },
+  {
+    "analysis": "nuclease/W2-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "879e3b7a9eb95a7c3e70472b180ffc2e37770bd03d99044d6eab4339b40e09a0",
+    "managed_info_sha256": "669b941d82ca7564f531277c108b2470f810c73d16bca81b419cded28a311154",
+    "direct_info_sha256": "647ec9c71b5dd2bd83257a40661ce314b9332cfa163daadf945d3ea2c70c6da7",
+    "script_sha256": "eb2711642550114b9670d074a4b20439b8585b9b344f6bd29ab01053cf9dc59d",
+    "parity_receipt_sha256": "47fc7dddfbf0612027774acdd13e2a5c0123b8a3df03e5e6f4d86a91c933c094"
+  },
+  {
+    "analysis": "nuclease/W2-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "879e3b7a9eb95a7c3e70472b180ffc2e37770bd03d99044d6eab4339b40e09a0",
+    "managed_info_sha256": "8b4a1c431810e3819e2531f573186a187786643aff3194b65706805f5e2fd13e",
+    "direct_info_sha256": "f8ce2129881797b246214ce7d2d3927b032313078fae734b0c039591676185c1",
+    "script_sha256": "84555b895af022de9f8f1a298faa841d45a09f85913b1ac88ade1b35744d5fcc",
+    "parity_receipt_sha256": "941fdb79b4863e6d48f12ac559e418e1e69c8f8c1b444cb2a9c47bad34e0f40f"
+  },
+  {
+    "analysis": "nuclease/W3-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "a9f87012d76e095a5c91e49d70adeae3479ab8d8392fae0ebb4f948deb20d3d4",
+    "managed_info_sha256": "2d8c4ab7600ac3f17c718113f94bd3784a208e86ca4000a433a6ef3c07b7052e",
+    "direct_info_sha256": "a7faac0bc0684b44aa7e72eed84312e2b58636b16eafc71576ceebb35bf69992",
+    "script_sha256": "e9c1c122c17c3fdf45c675c14463b68e8410e01f951be65e452f1162f9e9f1b4",
+    "parity_receipt_sha256": "420f6278d034cb5e31e04318d9a9d4af3359ca4612b3f5ca7e26cbb5b107d6e6"
+  },
+  {
+    "analysis": "nuclease/W3-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "a9f87012d76e095a5c91e49d70adeae3479ab8d8392fae0ebb4f948deb20d3d4",
+    "managed_info_sha256": "1984333ceb2022f86071ec0f4b6c3d76a95eb977348d6607cf30c497d2043b86",
+    "direct_info_sha256": "31904481044f55c08b39dd7e3c852c667794de914c902fe9e31a1eb321267192",
+    "script_sha256": "e124600b781eeb6f361614936beab84089cbabe1997db277de167547e5b09ab0",
+    "parity_receipt_sha256": "bfb822a013bdc7f05299c6ecb2f03e58596b4170e04ddd41369beced0138ec06"
+  },
+  {
+    "analysis": "nuclease/W3-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "a9f87012d76e095a5c91e49d70adeae3479ab8d8392fae0ebb4f948deb20d3d4",
+    "managed_info_sha256": "48850c9c4c0b66f3d3485962192f92f024f95104d88b153685c4d42d8dab745f",
+    "direct_info_sha256": "9effda76efa60a702d6e645302acfa7fe8a87473ecbfffaf9733a1f86357feb9",
+    "script_sha256": "2c975e65d45fada7866376fffc07cd8545894635aedaa21204570d269adde5b3",
+    "parity_receipt_sha256": "92eb26fd1a8fce44ab52c9181c2587caeb69d29c8562ca8d3a1b7452551e488c"
+  },
+  {
+    "analysis": "nuclease/explicit_distinct-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "b99919b69b871546da965d5c66267e70cbc517d9032df16cfbfbd378dbc07c1e",
+    "managed_info_sha256": "bd4a94f171735d8373411b23e341bbfe817326abc5d86d5861c40667a7c9257a",
+    "direct_info_sha256": "1fe7c007f448eacbba0fb12db52a1fb66b4876df745fb8bb5a9846751c413663",
+    "script_sha256": "80c4fce494fd62c3b0a5ced9f2b1bfd29a518716147dea71d642a33055093439",
+    "parity_receipt_sha256": "0608ecc55ce11c5adcf0409b67f5757c33c6d3bb4aecc0c131046f3e7166e11b"
+  },
+  {
+    "analysis": "nuclease/explicit_distinct-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "b99919b69b871546da965d5c66267e70cbc517d9032df16cfbfbd378dbc07c1e",
+    "managed_info_sha256": "1618934c054829cd7f7fd4643b7a0a1ed2e667751a073fbfc8ae2bd0bd43b533",
+    "direct_info_sha256": "5e9647f770a02bd344394e7cbcbf2d2ab05baae3f248c80924186b36c16601b2",
+    "script_sha256": "eb2711642550114b9670d074a4b20439b8585b9b344f6bd29ab01053cf9dc59d",
+    "parity_receipt_sha256": "291de3f96bcfbda6c88078d36b76ce6677e18e06584354d0d52d8e8d69d89101"
+  },
+  {
+    "analysis": "nuclease/explicit_distinct-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 17,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 8,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+      "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "b99919b69b871546da965d5c66267e70cbc517d9032df16cfbfbd378dbc07c1e",
+    "managed_info_sha256": "c8022d1bcb659a49df45e3f9b461455c5bfbec5fcf56a09d81adb102acde52a9",
+    "direct_info_sha256": "9cf868a3eee97270f0d44787804fcdeef37c04dad1c545eba5b9d9c7eac1dbf1",
+    "script_sha256": "2c975e65d45fada7866376fffc07cd8545894635aedaa21204570d269adde5b3",
+    "parity_receipt_sha256": "71698ab86639f0ae9bd83c127315411868d2d4a2647367e2b1326437d1716630"
+  },
+  {
+    "analysis": "nuclease/multi-W1-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "442ca1418d00237c483dad4fb6f56cd6a7ae1cb79c0a376a1964f647469075a6",
+    "managed_info_sha256": "2ffc4e32c5bdf7c432555ab8bd764c689fd0f6a539a838fb8d9f723e611e3d9c",
+    "direct_info_sha256": "1df3ed37ddd6f5acc054da0f536868ecc73882fc02ae02caf52e12a2f6ba8fc2",
+    "script_sha256": "d55ca827974145bd6cc54f35699208f3040d7dca813ec8754531b5a3e97bdbe7",
+    "parity_receipt_sha256": "fbaf3c25bc8f6ee8abacddb0a3b55090f68f5bce262f37e041f287ec1ddd2157"
+  },
+  {
+    "analysis": "nuclease/multi-W1-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "442ca1418d00237c483dad4fb6f56cd6a7ae1cb79c0a376a1964f647469075a6",
+    "managed_info_sha256": "57958c7e39861ec8dd0d4f22d290f970ba6c31c73a51934bcee26cdd8f5380ef",
+    "direct_info_sha256": "6980e19b73f10adc5fbd24242e64565d502e05f45d8e6f9175d386404410dd99",
+    "script_sha256": "1e167c108612ba6b12b9ffecbacf8b185760f17e4c1ae4dcfd2f98ca7b3cdf4b",
+    "parity_receipt_sha256": "acdf8295406140c02e6f4457f14124bb67b09174a75182b0994031a9579e86c6"
+  },
+  {
+    "analysis": "nuclease/multi-W1-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "442ca1418d00237c483dad4fb6f56cd6a7ae1cb79c0a376a1964f647469075a6",
+    "managed_info_sha256": "7917963fd173e6c956c1dac6458224658a32c971a6802e908c28bd1e74507d7e",
+    "direct_info_sha256": "d7a3d302810f18bb4dafa04572af6c8f4aad1c4170d4e2a60ab179d01ba4972a",
+    "script_sha256": "ef316ebab24f53dc57f692cfd42f5264d509126deac013920a4ed3c948886378",
+    "parity_receipt_sha256": "7ee49343112384de505ac4cab76343bb92087b26a7f952d9515497c67e4fcb0f"
+  },
+  {
+    "analysis": "nuclease/multi-W2-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "8f4d191a149acf7b447f8ad61df1a00d2bfc36867c34ecdaa748a3ebe8390e41",
+    "managed_info_sha256": "47b083fffd23639fc209ec42d067e8508c2bfb9a45c133a853c7030a676f521f",
+    "direct_info_sha256": "c03125c01dbf3465facda1ee55010f4066287fd1db7615ad8669f03bce1957c0",
+    "script_sha256": "bbbc0bd8313008b52ba249fd3ed7396646c80ef2e42a34e9c563e8359fed0df9",
+    "parity_receipt_sha256": "186ff88d4472eee25d1a5c62a7574daaebc831352b4e2d0bcd7b841bcf7b3ad8"
+  },
+  {
+    "analysis": "nuclease/multi-W2-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "8f4d191a149acf7b447f8ad61df1a00d2bfc36867c34ecdaa748a3ebe8390e41",
+    "managed_info_sha256": "a608150d179ace1ab430b693ea721b5daf0983a1da1309631627a3c89149513d",
+    "direct_info_sha256": "88ef50fffb5105df8dab95619b9fc68e6f14bc938600260d8463d3d18e56d2af",
+    "script_sha256": "a97ab7ee4af70f5bbf087a82760c4b1acb29481f15f696ee43cc3089dac11a74",
+    "parity_receipt_sha256": "017ed54b301d312296c45fab6b4e140f6167962aab8f6d606bad24b8bc0f05d7"
+  },
+  {
+    "analysis": "nuclease/multi-W2-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "8f4d191a149acf7b447f8ad61df1a00d2bfc36867c34ecdaa748a3ebe8390e41",
+    "managed_info_sha256": "00f7723652fdc18f6e0fc8969e3cfb64034c715da3946b19905a7348eb4f0c9d",
+    "direct_info_sha256": "e6e2fc89526fc805bda79d0d997f4c483637e9159b2debceec21ab60fa54f2e3",
+    "script_sha256": "f569f4fbfbd85346d658399e92bb90b57f1a2380bc33e5260617b71791226c2d",
+    "parity_receipt_sha256": "848e8b5d286507c2509a9d519b5856c6d762c670263b6c5d16b57b9d24dedd59"
+  },
+  {
+    "analysis": "nuclease/multi-W3-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "86034d7782b8882944e8bd4356887af81793f704150175b5716b450c55fa1cac",
+    "managed_info_sha256": "d0fe2e7f394edb203f41b14d7d7227bf993c76ab88bea3ffa0606a5ac2b50401",
+    "direct_info_sha256": "d4ebfb31f2a25dabca9acfec608a7ae0160af6da4e4f3daa68b818e1d9c198b4",
+    "script_sha256": "73ce4546d314183935b0ec3a83f7ce473b9506d7bc0013d00667f4907bdc79da",
+    "parity_receipt_sha256": "8156eaf453724155c00731137c68e322cb1d58365eaa815bf22da93aa97fa38e"
+  },
+  {
+    "analysis": "nuclease/multi-W3-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "86034d7782b8882944e8bd4356887af81793f704150175b5716b450c55fa1cac",
+    "managed_info_sha256": "641e6d7827bb499f035097f3ef2e8725acac36a2a4906c3820c29d694fc3bc75",
+    "direct_info_sha256": "0e2af3f6902b2f123c790073f1a48dc05cbd7f9f90b3a26715bde292d301bb6f",
+    "script_sha256": "43e08e0654f245b094e7bc7c6aadb831f29bd925d2f02daf691c999eb6a3cb8a",
+    "parity_receipt_sha256": "b995dfa4d11d547854e74dd85af238dffb4534f048d519a5df7f69c6dcd93d8f"
+  },
+  {
+    "analysis": "nuclease/multi-W3-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "86034d7782b8882944e8bd4356887af81793f704150175b5716b450c55fa1cac",
+    "managed_info_sha256": "f74b29cb1b9af4fba574846ef2781ed86bdaae35a38e0fe8f6a7c7bc17442e5f",
+    "direct_info_sha256": "4cd44d18fb7ea1d4696fb5088781ea4e910dd3f624e5b1a8297a74fa6d9bb8fa",
+    "script_sha256": "f0a7bb57addc7eaecfed057840f443bb380311a936eeb687d2929c60cc42a420",
+    "parity_receipt_sha256": "684a784c79165e4dde89b0b327f18440a7b53d13b140b5b834808514ecbacf7d"
+  },
+  {
+    "analysis": "nuclease/multi-W4-native_panel",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "native_panel",
+    "mode": "native_multi_wt_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "92d75fdaaf048f99131ac437121b78ab3dab4a7f44c1d1e181afce71a273d6a0",
+    "managed_info_sha256": "62225e38fe13a8acb98315cda740fa8b9820d9b58c19ca21cc0018c38c0b787f",
+    "direct_info_sha256": "08545faebf45fa48fc9cf8c094421c67ae34b9ba3428312d5d6158933bea4dca",
+    "script_sha256": "c2afc9b2fa5cc990662e6625803b1220db09ff7d23a3db07b879cada04f88bd2",
+    "parity_receipt_sha256": "944fb2823c41f5604ccf65e2b7c3c86f6c867dee388ad17cab15355e17110b19"
+  },
+  {
+    "analysis": "nuclease/multi-W4-references-chr03g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr03g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "92d75fdaaf048f99131ac437121b78ab3dab4a7f44c1d1e181afce71a273d6a0",
+    "managed_info_sha256": "5b1fe562d77728b66c5417df8a5d4beeec7bca7106abc2a11ceef2d4eba0a65e",
+    "direct_info_sha256": "7aae10348c8538496c5c964eca944e24cccbfe25fc6a2e2a7aaa34d187a0c633",
+    "script_sha256": "acbbac35dd0211f8e759184c356d192d552a95cc8a87ced2f928ef2c09bc2dc8",
+    "parity_receipt_sha256": "f613d89d2241dad00b76e51b2a507db3111c22b03229ada17f5692239b12bb22"
+  },
+  {
+    "analysis": "nuclease/multi-W4-references-chr13g",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "references/chr13g",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 10,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+      "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "92d75fdaaf048f99131ac437121b78ab3dab4a7f44c1d1e181afce71a273d6a0",
+    "managed_info_sha256": "cb48863c3a1f507a8abc9665505195112636361805cbbe2de291ff83cd296036",
+    "direct_info_sha256": "5b19d08e678f337581fd5fb884ba83017244951095a8f153a52f2f2497e189c0",
+    "script_sha256": "2ccac664986b677551a586c55759430e46149cf65482e0551454c42df958e080",
+    "parity_receipt_sha256": "ef8ea2ad5942482608f8a430a9ff9c6f25020a408fee2af172e4dacf8848a400"
+  },
+  {
+    "analysis": "nuclease/single-W1-single_reference",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+      "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "e3c334f089156ac9eac974d876bcfe0d9a96efd77378c827f9643d63a36b2355",
+    "managed_info_sha256": "f89a20c5cc5db601eb687dafb8293b952dc848c199590e316bbe40f3b8c21093",
+    "direct_info_sha256": "b348dd040a4d066ca886fec2010e04e859f369d69fa31662f097cd441a1d39c6",
+    "script_sha256": "9cfa6df7f17b5e0e85b014987c8182461fab0a4a1a0229314e1cf68f6dbd8ddd",
+    "parity_receipt_sha256": "df23206cd2bbf15408fba0420b421c7b4960ddf18079c28855417df5ca429694"
+  },
+  {
+    "analysis": "nuclease/single-W2-single_reference",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+      "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "5e43363af57dfdfe326646ca3369cacc0c510fd8ed6f128ff7c08bb3b16084a5",
+    "managed_info_sha256": "975a1d7b54c0dc978813100adb1f99085f39b54299f256b1d48ea64a6c5f2f8f",
+    "direct_info_sha256": "1b8a49f988b1cc7d07724073a58c4a7a3f93301e2b5d15ebb418faea576e0072",
+    "script_sha256": "bad23d71d706c6c1777c8085ebcba160b2c2f83eb1d77230734d3f34df596098",
+    "parity_receipt_sha256": "8c4cfce1b45903f30e041e9eed75b8f720d7569e1bf8fb8a281e33f79c24d38b"
+  },
+  {
+    "analysis": "nuclease/single-W3-single_reference",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+      "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "77adae6946f11fddb5d6da3727fba0a20f94e984b4ef8a4b9bf8e74e08e1c097",
+    "managed_info_sha256": "a0243f359c3efebec0443c9fc39f1c1bba3b2f2d53c46b5ce48c9e9f2c084d28",
+    "direct_info_sha256": "606a7bbb27b7db654718a3ad92616690ba68235cb9debe2676d6fcc4297b3452",
+    "script_sha256": "fda3b0308d54c9f4991ecd8c2edab754c8b822916abb44e960f69d3cc21b8dc5",
+    "parity_receipt_sha256": "61249fef3119b14e5bfeaba85c0a3d01f8bce26a45098fa47bcdf693f254bee3"
+  },
+  {
+    "analysis": "nuclease/single-W4-single_reference",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 9,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 9,
+    "input_sha256": [
+      "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+      "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "459521b44b926f867ac19b4f28a9896642776d0d1222b725b006af07f903fdc8",
+    "managed_info_sha256": "d0301a0422328dec87cfa13e12a9a60bed40b6ee2fb46e34a7ac896653941871",
+    "direct_info_sha256": "490eb95c64340e9b34eab4bf6785204c34ec7a20d98cee233e37d61fc7d92aab",
+    "script_sha256": "9a36ce04b6fd310940fc2858bc70cd8b350fb6aba40a8f057cb9c984f61ab486",
+    "parity_receipt_sha256": "7548b2611358dcd54d09281f00ad94d0875637b0fa1cc6d08b4ce050f8b39a6d"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-forward-comparator-copy1",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "comparator/copy1",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 35,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 7,
+    "aligned_abundance": 35,
+    "input_sha256": [
+      "e1095539506ad261f19fc7e51be8731366cd8d991f188745a81a6c1da0ab27ba",
+      "6b7ca322912ab982fdd38acdde1b2fcec44924f74f0cd680bdf6578887a2d261"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4114c1ceab8dc68d362cca6990fa997dd39eaa8deaf4bbb29c0c4adaedcf2ae9",
+    "managed_info_sha256": "9d4ef41d721020564abe600b0378d4e91333e70d361f825d26322fdd5e960029",
+    "direct_info_sha256": "07c580031459e46358a62bb0706f44a4ac60a3ac1f1020f8866a1a04714c9e2c",
+    "script_sha256": "0bc9f75a2b1f36c9db50c96920cca1c2d2c03c3adc42b5d4a26db7495fa87422",
+    "parity_receipt_sha256": "f2aa74a8b1cfe62cac64088aa047b05b7f1056507f4b8b0eb225ebd3c325c52c"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-forward-copies-copy1",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "copies/copy1",
+    "mode": "native_prime_editing",
+    "population": "confident_copy_cohort",
+    "pairs": 7,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 7,
+    "input_sha256": [
+      "b5ebeca0b0005abb085d12bd3a7a8bdd94be4396508d69d68a2fdfe6edca4357",
+      "61f026902ecc12f6ca6a39298eb7704f63aaa074c49367b1a9ccc5a1bf706362"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4114c1ceab8dc68d362cca6990fa997dd39eaa8deaf4bbb29c0c4adaedcf2ae9",
+    "managed_info_sha256": "b26a14ff1186b0247e0621058767defe85db66fc550b4c2ff66d5b638f6290b1",
+    "direct_info_sha256": "5c96a6e8825549cffa05734354cc02818a34f4ecdff5eea9e03c43ad2c0d1b29",
+    "script_sha256": "032962bc4b81d469b3920ebdee4261d0fd4f464b5f560303d2d1227a0c8c6334",
+    "parity_receipt_sha256": "dae3d6656b20b381224503b17ed30a12171f43082fccab838d7ae369d024ce28"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-forward-extension_alleles-copy2",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "extension_alleles/copy2",
+    "mode": "conventional_wt_alignment",
+    "population": "confident_copy_cohort",
+    "pairs": 26,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 4,
+    "aligned_abundance": 26,
+    "input_sha256": [
+      "3100acebce4fb8a6a4015856d831b7b1d0ceb5e3a546bafc39097560045846b9",
+      "ac81a6fe8c4f61e1f3a1e5abd359150b29995d953d38842e10fe233bf2c2db67"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4114c1ceab8dc68d362cca6990fa997dd39eaa8deaf4bbb29c0c4adaedcf2ae9",
+    "managed_info_sha256": "14e5ea5bdddd5124a42c2ca03027f70889799c57d2ef087f8e771a2770be038f",
+    "direct_info_sha256": "5d8b9db035023ce8b734a55d9420236c66c9bcd1ea706d08d2e06d52029fc5e8",
+    "script_sha256": "547f1449e9cf1fc6e381c5af0ee89995bcf85bf74c312020ebfbb1a9a88ab21c",
+    "parity_receipt_sha256": "0c3bba5b1b1fb9ee9674dee2cdcd3517b2829fd52fdfc5a46f3612b956614c85"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-forward-multi_wt",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "multi_wt",
+    "mode": "guide_free_multi_reference",
+    "population": "all_prepared_pairs",
+    "pairs": 35,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 7,
+    "aligned_abundance": 35,
+    "input_sha256": [
+      "e1095539506ad261f19fc7e51be8731366cd8d991f188745a81a6c1da0ab27ba",
+      "6b7ca322912ab982fdd38acdde1b2fcec44924f74f0cd680bdf6578887a2d261"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4114c1ceab8dc68d362cca6990fa997dd39eaa8deaf4bbb29c0c4adaedcf2ae9",
+    "managed_info_sha256": "fb4767ce0a5161c3490703c72862b4125335b65b030722719ae5c56a10fa730f",
+    "direct_info_sha256": "e51795db2a5df980e89d477cbcaf52adc40919cf562588e9f1f2792ac39d9970",
+    "script_sha256": "79568460bc4c3281ab07fb10e1c6c95bd9015d7f5584d143eb43da3c40e05892",
+    "parity_receipt_sha256": "35cf48497dcae20fe6074a09ed90095cd29bb51305dead2f1e232ab8236c5940"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-reverse-comparator-copy1",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "comparator/copy1",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 35,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 7,
+    "aligned_abundance": 35,
+    "input_sha256": [
+      "e1095539506ad261f19fc7e51be8731366cd8d991f188745a81a6c1da0ab27ba",
+      "6b7ca322912ab982fdd38acdde1b2fcec44924f74f0cd680bdf6578887a2d261"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4318512ad5de742061cb7495a573973d14e67343803ec19c7db4776fe5e51611",
+    "managed_info_sha256": "279d01078df886970ac89d7180c19187687fe49ce2fc7f4fdc70c1daae92d71e",
+    "direct_info_sha256": "2965852e4e2632c0fb3d69e4a21787c9d3d32c09dbea93e6fdff85ff2ee19210",
+    "script_sha256": "0bc9f75a2b1f36c9db50c96920cca1c2d2c03c3adc42b5d4a26db7495fa87422",
+    "parity_receipt_sha256": "86815f8e796cd3b1a7600ab1bddb7dba2294ea90cf966e7ccde1a15d52be928e"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-reverse-copies-copy1",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "copies/copy1",
+    "mode": "native_prime_editing",
+    "population": "confident_copy_cohort",
+    "pairs": 7,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 7,
+    "input_sha256": [
+      "a3e4a9bb669814d010a3a8c4a201541b3178b0c23e912b33032a69c68a25d061",
+      "e70269e832cff4932cc13abb303638a29c0c999add9f0edfe948c0aa4c21db1b"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4318512ad5de742061cb7495a573973d14e67343803ec19c7db4776fe5e51611",
+    "managed_info_sha256": "57c02de6eda9c035f8be2b1a74642e17e0d53cd16e0314f0b93e1d79724b11ff",
+    "direct_info_sha256": "c88325bfb784ad38f48324557a0490248a3e61f5f9687f76e2d9d5481951451f",
+    "script_sha256": "a99df75ab42373183db5ce0db12964d8d428e76f8942f7cdd01a069a81ff893a",
+    "parity_receipt_sha256": "39a9214877befefffbff7d7ec75e890251dad61e6d2b5d38be849a0446579242"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-reverse-extension_alleles-copy2",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "extension_alleles/copy2",
+    "mode": "conventional_wt_alignment",
+    "population": "confident_copy_cohort",
+    "pairs": 26,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 4,
+    "aligned_abundance": 26,
+    "input_sha256": [
+      "df0812c98314232f6bcda088239b432e6f951bbff3bfe4f24685d8774b5cdadb",
+      "d3f7efa2b31c8a957974fea24b7d3c22dc9a71a6c4cebf07b43127295baff464"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4318512ad5de742061cb7495a573973d14e67343803ec19c7db4776fe5e51611",
+    "managed_info_sha256": "cbb5b4aeb91e8c859aefb8b10d29d25c01968076c57923d8023f839cdde8a687",
+    "direct_info_sha256": "8d91d73e7714dadce34feb60182c12501922574cf27b37d0dff4bc54ae7cb937",
+    "script_sha256": "f7bec2610858877a6faebd9ca14bd4ce42a0b969d41c368536b948aa0b2fcc30",
+    "parity_receipt_sha256": "6f632561ad20034ad4efaabd83d01c5a716273ab61c4907c53d5be10d0db51a4"
+  },
+  {
+    "analysis": "insertion-and-ALSP/alsp-reverse-multi_wt",
+    "sample": "1B",
+    "target": "SYN",
+    "native_run": "multi_wt",
+    "mode": "guide_free_multi_reference",
+    "population": "all_prepared_pairs",
+    "pairs": 35,
+    "status": "PASS",
+    "integer_fields": 79,
+    "allele_identities": 7,
+    "aligned_abundance": 35,
+    "input_sha256": [
+      "e1095539506ad261f19fc7e51be8731366cd8d991f188745a81a6c1da0ab27ba",
+      "6b7ca322912ab982fdd38acdde1b2fcec44924f74f0cd680bdf6578887a2d261"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "4318512ad5de742061cb7495a573973d14e67343803ec19c7db4776fe5e51611",
+    "managed_info_sha256": "1935f2adafe5d124b125122e702ce3012275e95ed38515fab578b34c982d8268",
+    "direct_info_sha256": "c6e3efb050a53cb5e57ed8ec357cb1c2e010913663a560b431f7c3cd4ea8337e",
+    "script_sha256": "56946389dc8978f9c1b5580fd447eed709e938607e28e7bdcbb69c8d648b3e0a",
+    "parity_receipt_sha256": "e16d146b307df15366d128a10e44aa48ea448ec553c92a340c61c960b77de3fc"
+  },
+  {
+    "analysis": "insertion-and-ALSP/f01-comparator-A",
+    "sample": "1B",
+    "target": "T1",
+    "native_run": "comparator/A",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 100,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 100,
+    "input_sha256": [
+      "ad6d3e69a4b01de30d14cb112e52e734fad7eaae24a610be57782527971f44cf",
+      "c2afe38d5b261b897a0ce0642e2c4b88cd6d170473a45000ed56f9c32ded0bca"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "25de8f4d2d863b31af80ba692df61b46ee11ef1ff9967dfd89495c20d5e17ae8",
+    "managed_info_sha256": "257546547274b66b12267c65f75303a864420c3244eb36c1529ea79d02a985a8",
+    "direct_info_sha256": "476878d8ca8e6b70304d106bee332cda88cc19cb3d32d2223ea4f747133afee6",
+    "script_sha256": "9dbd3fd70be4c9f72cf67fbdba9a662f82da59d13de26736051c0533be052ce9",
+    "parity_receipt_sha256": "2b655b67e4f088980eef72b32a75578a7a9e37017b5f581e5ef1fcb09cfae4d5"
+  },
+  {
+    "analysis": "insertion-and-ALSP/hibit-comparator-A",
+    "sample": "1B",
+    "target": "SyntheticTag",
+    "native_run": "comparator/A",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 37,
+    "status": "PASS",
+    "integer_fields": 78,
+    "allele_identities": 7,
+    "aligned_abundance": 35,
+    "input_sha256": [
+      "f39c6c68b97e3c691fac4266c877de23a292caa683755587a68c9fa8baec3e64",
+      "e2ec0ccb83c1e275ca0c5395493377ff134aefa9aea5ab34122111753d5343b7"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "780de43017551a3e861ea1b9a422baf2f29d7aaee00f7c59018f166011cf31fe",
+    "managed_info_sha256": "07608a8029b90a6c5fc717ace98da790dc7aacdeca46725d3e31525ae4d3fbc4",
+    "direct_info_sha256": "0b3507f957f2bfdbd55b71a94741ece0955d47e4dccf6555ac2a0b35d057d9fc",
+    "script_sha256": "ed7a64d6afa3f7502876892050cde454c7b6f48914bf5b256dbadf07fcf63cb5",
+    "parity_receipt_sha256": "64822642e96fbd97286ddadc6f99b85f1734199d5bf975bf0c205ced4c689da6"
+  },
+  {
+    "analysis": "tandem/direct-comparator/copy1",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "comparator/copy1",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 15,
+    "status": "PASS",
+    "integer_fields": 76,
+    "allele_identities": 1,
+    "aligned_abundance": 10,
+    "input_sha256": [
+      "393b801235a534a0ae49d5450d535c3859ac3dd2ecbec67225b122fa9917568a",
+      "e0c42a2a88d5537593ff68aaeecd972121d3ca2d5678aecdbe84258b0e3c21f5"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "b0511443f5cffeb6703023e306dc78b278ce77f0da3d8522de77378319e87c5f",
+    "managed_info_sha256": "937750e11c77f30b3dc63579a3c80fa22e1adc075f081675eed7eb84a72f1c31",
+    "direct_info_sha256": "9f9441cc6af48459268e2d6a45eb03c9e4528ae7c07baa27a57283170e593fad",
+    "script_sha256": "0434d59f2b3fdf0b8adabaea3c16af999b54f70942f633ec82c500894b06b94c",
+    "parity_receipt_sha256": "69670f5d0a264c472fb93460e0f6d09d114dee2daae6d689f82a83faf5c651e0"
+  },
+  {
+    "analysis": "tandem/direct-copies/copy1",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "copies/copy1",
+    "mode": "native_prime_editing",
+    "population": "confident_copy_cohort",
+    "pairs": 15,
+    "status": "PASS",
+    "integer_fields": 76,
+    "allele_identities": 1,
+    "aligned_abundance": 10,
+    "input_sha256": [
+      "29f7b09fef6f315eba6b6088619f4dba0bc25af517beb03d86f8c8aca5f77b4a",
+      "09df50b7fc0a60afd90d4e4f2031de55cb64dadef8bd411dfa5ebd60ca259281"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "b0511443f5cffeb6703023e306dc78b278ce77f0da3d8522de77378319e87c5f",
+    "managed_info_sha256": "1df4c7bdfb7cc136dfd2748abbc3219be265c1b653f855e6bdacfa6d7ad33e98",
+    "direct_info_sha256": "75a7228cf1345447fc9d91b0e35275d67a86bfc06693a43d1a8d085082ac45c9",
+    "script_sha256": "bd98671a61d528389e7aa4f2473050a5e7a74136996a16a7a8338d341d4e9b0e",
+    "parity_receipt_sha256": "cf22a500e49a3ad2fef30b2c52c0be6f567d77d4140485a36e41dc47acb1667a"
+  },
+  {
+    "analysis": "eligibility/bc001-comparator-copy1",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "comparator/copy1",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "f3fae05e6c777f0291b6aac9e13028ddbf1ae48bc97d43cbd21c7e101e0eb380",
+      "e9cc096a64251e1d7db3b88be2ef86e53b1760a3fbe1cbfd7b23a4353a04b4aa"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "d3ebed9dc8de53d7bdce462d9397d59f367f1efe75970d36a1ba49a8796055d2",
+    "managed_info_sha256": "db5781e1e7bd8974a40f73963c5e3860b503605b2a5069acd57f1bc79f2407d4",
+    "direct_info_sha256": "6f8f1ead334359aa15b6f5a5bd5f94149b66b8ec32e15a228a077a436699b6c7",
+    "script_sha256": "abedc0d0aa8905e03c7d0e6675c99520fbb869da2ad15d77c3fca28c8a245a90",
+    "parity_receipt_sha256": "617a8e1802459a401400e101d7e6fc87c4bed064461dd7a95f9e4a1b6cf8ccaa"
+  },
+  {
+    "analysis": "eligibility/bc001-comparator-copy2",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "comparator/copy2",
+    "mode": "native_prime_editing",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "f3fae05e6c777f0291b6aac9e13028ddbf1ae48bc97d43cbd21c7e101e0eb380",
+      "e9cc096a64251e1d7db3b88be2ef86e53b1760a3fbe1cbfd7b23a4353a04b4aa"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "d3ebed9dc8de53d7bdce462d9397d59f367f1efe75970d36a1ba49a8796055d2",
+    "managed_info_sha256": "f8d5fec10a73781d0547722f45371d78a0eabfb4eef3343425d0713b807854fe",
+    "direct_info_sha256": "7e5ff3f8d0f5a9e0e458a645b07239e5f1fad8d243ebd7b5580da2ed941f3331",
+    "script_sha256": "6c5546e16f763e0bbc8e1fe163bf28e07b9041668bc36571b872e58c230162ee",
+    "parity_receipt_sha256": "f5d948852596fee129223c95de625b280cce0b6397927ada57f8c9a68950f393"
+  },
+  {
+    "analysis": "eligibility/bc001-copies-copy1",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "copies/copy1",
+    "mode": "native_prime_editing",
+    "population": "confident_copy_cohort",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "cafffa3ed239c2777671babb6d5f5f29647227cc0bb4d4e99615c91cd3162129",
+      "c620f955080f8b5388a771cb2b93a7a2d09f239f84fc471d9bbc903084d3726a"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "d3ebed9dc8de53d7bdce462d9397d59f367f1efe75970d36a1ba49a8796055d2",
+    "managed_info_sha256": "74823154c2fedf5956bbf16f1be42f01e9069b6955740b3116bc91494102e5f2",
+    "direct_info_sha256": "7285c8c4f675e244cad802bd68a931532d6e73a3540c9ff003add1dc5d98de45",
+    "script_sha256": "b05054b8dd6968adb65565a7ac63a1bbe42803646b40fc76fdf5491d44a7030e",
+    "parity_receipt_sha256": "aadfc6044ba6954d4a9cab86038d110de5cf89bff78d1228f023540e5e434cca"
+  },
+  {
+    "analysis": "eligibility/bc001-core_sites",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "core_sites",
+    "mode": "conventional_multi_wt_sites",
+    "population": "all_prepared_pairs",
+    "pairs": 16,
+    "status": "PASS",
+    "integer_fields": 77,
+    "allele_identities": 2,
+    "aligned_abundance": 16,
+    "input_sha256": [
+      "f3fae05e6c777f0291b6aac9e13028ddbf1ae48bc97d43cbd21c7e101e0eb380",
+      "e9cc096a64251e1d7db3b88be2ef86e53b1760a3fbe1cbfd7b23a4353a04b4aa"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "d3ebed9dc8de53d7bdce462d9397d59f367f1efe75970d36a1ba49a8796055d2",
+    "managed_info_sha256": "9a83a6254335fd494d647e9c424ae19524da9bd53a0d7592801dfb0a5aeebb64",
+    "direct_info_sha256": "3b16d84e7831d5a10cbf0fd47cb6522d6537983213322c7b45dd65f13da82d12",
+    "script_sha256": "4631dd51c057528645d823c62b694c3721ee63adaa6062ba5319b796455e238e",
+    "parity_receipt_sha256": "4b6c6c94ad232f663f54d79f6812a171dacb294f7244db93c41d8d38c62ea37a"
+  },
+  {
+    "analysis": "controls/bc001",
+    "sample": "bc001",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 10,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 10,
+    "input_sha256": [
+      "6852838095abf7e5f36fb34ec25905da6390f04bf8ed606d42cb76535fc47802",
+      "bca29bb060115e9fb4fa4fd7c1eb1e533dd7219fdee97eb65ae0032914c0d43c"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "814369f93a1d204e0ee7f1be9cda404188d5fcb41b6c0db2c707c81555d20d39",
+    "managed_info_sha256": "636755ded16e51b9a2ef197d1c4d2a11fbff8fb07b852a805babea2f649c34bc",
+    "direct_info_sha256": "5b4331e16d2b7eae3dd33b39b843e2da8cd77257d01eda88721ae177d1d1d5ba",
+    "script_sha256": "f3a91a3baf809b1d6985a28f77da199f659119dd5d32cdb8e8a0943c0f7b49ab",
+    "parity_receipt_sha256": "b215bf8a18bb78f7200b18c3ac56b5711ed2f630026de57696a10f761d816834"
+  },
+  {
+    "analysis": "controls/bc002",
+    "sample": "bc002",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 100,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 100,
+    "input_sha256": [
+      "6dd673ba3c5ca4645614a18ced480f1a112675e72cc1e48733bdb0797b268987",
+      "8380b8fe6da707edeb49739fec6ab514caf0e9c40dfe13989e4abba3567768a4"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "7783849866e2261b516db4a987151d7a269bb76ce588c163ae00bef010f224a1",
+    "managed_info_sha256": "83c582bf41a2b86f4c8663edefba309176a5d4c6b48b77c85f131ad8bff5b7c9",
+    "direct_info_sha256": "0644da872e3538bdab4daad14716501efe27a6f38315f3d20a6ea4faf5200d56",
+    "script_sha256": "8febf66275df000f789d8ccd00c029758e44886bdf81b3765073a1286344b2e2",
+    "parity_receipt_sha256": "c08e4ba6a6737522f3686c1dd66387bb1849c9851be8d3373ea93e375eec8393"
+  },
+  {
+    "analysis": "controls/bc003",
+    "sample": "bc003",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 10,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 10,
+    "input_sha256": [
+      "107acd147022d4d2ee028992c42e803b37b53297a5d1ba0a1c7762a055fd1376",
+      "2967df806b0e1a87483cca19d5c057f733a8c567c21ace38c17583c01349ba49"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "ea226d23ddbed6c62f1402cf8ee146a251c5995161b6e5c42a826ed66889ac9c",
+    "managed_info_sha256": "fb74043c7b1aeb5aefefc1d9f25645465ad2075e75bfe2f14427cc23f0376bbd",
+    "direct_info_sha256": "504e76234aead52d9b1c5272fb2fd18a86b424bf983a2b5aa034d19f467c8f86",
+    "script_sha256": "5fab73fbbe13568d3f89f5200d148a6e8607dd402d783cd5d8290ec6beb472ef",
+    "parity_receipt_sha256": "1ae4b04fe92ff1c7adaa04e8db5b907e7bfae0a7e238049cdfe182af41d156c0"
+  },
+  {
+    "analysis": "controls/bc004",
+    "sample": "bc004",
+    "target": "T1",
+    "native_run": "single_reference",
+    "mode": "indel_nuclease",
+    "population": "all_prepared_pairs",
+    "pairs": 10,
+    "status": "PASS",
+    "integer_fields": 43,
+    "allele_identities": 2,
+    "aligned_abundance": 10,
+    "input_sha256": [
+      "a7934a3fa41a147e242891320f37f6c2a389a85220907163590a83885103a800",
+      "5387e1b6ab2529ff7b6e48a039e2546a1736640efb4ce68d47688f9273136ca9"
+    ],
+    "prepared_mate_order": [
+      "R1",
+      "R2"
+    ],
+    "manifest_sha256": "d2579230dfdf457e711318710b73d995d6de6534ea77d89d51e1235c8a62533c",
+    "managed_info_sha256": "bb61b96256149b8ccba034dfcb5ba9c102365f17bddb07861c4c19ce0babfbe6",
+    "direct_info_sha256": "a0928997b0c670ef59cc24f5ae9bf71a9053fb6da1fe1771a4ba337f662833da",
+    "script_sha256": "49f205fd3387e510675eee1891b2a9951f2556ccedc59cdeaf5bd03794ebb237",
+    "parity_receipt_sha256": "44c77a7308f62d2631e2c7eeea866198cbabfc9517893ce3cab731b4fbc5de7c"
+  }
+]
