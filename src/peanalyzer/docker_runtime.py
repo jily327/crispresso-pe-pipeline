@@ -227,6 +227,10 @@ def invoke(argv):
         proof=json.loads((control/'finished.json').read_text())
         if proof.get('reason')!='backend_exit' or proof.get('backend_returncode')!=0:
             raise RuntimeErrorDetail('The container guard did not confirm successful backend completion: '+str(control))
+        if not probe:
+            print('PEAnalyzer pinned Docker receipt ' + json.dumps(dict(image=IMAGE, image_id=image_id,
+                  container_id=record['id'], core='/CRISPResso2/.pixi/envs/default/bin/CRISPResso',
+                  argv=list(argv))), file=sys.stderr)
     if code:print('PEAnalyzer Docker invocation diagnostics: '+str(control),file=sys.stderr)
     return code if code>=0 else 128-code
 

@@ -17,9 +17,9 @@ from pydantic import ValidationError
 from peanalyzer import __version__
 from peanalyzer.metrics import MetricResult, FamilyPolicy
 from peanalyzer.metrics.production import digest
-from peanalyzer.schemas import Sample, Target
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, Sample, Target, biological_role, pcr_control_role
 from peanalyzer.statistical_models import (
-    BiologicalSample, Condition, ContrastResult, GroupSummary, InputResult, Observation, Provenance,
+    BiologicalReplicateSummary, BiologicalSample, Condition, ContrastResult, GroupSummary, InputResult, Observation, Provenance,
     SampleAssessment, SampleFraction, Selector, Series, StatisticsResult,
 )
 from peanalyzer.validation import SAMPLE_COLUMNS, _load_csv
@@ -172,6 +172,7 @@ def collect_observations(manifest_path, samples_path):
             raise AggregationError("duplicate resolved result path in manifest")
         observations, inputs, seen, replicates, target_definitions, definition_targets, policies = [], [], set(), set(), {}, {}, {}
         snapshots = {manifest_path: sha256(manifest_bytes), samples_path: sha256(samples_bytes)}
+        site_methods = {}
         for path in sorted(paths):
             data = path.read_bytes()
             raw = strict_json(data)
@@ -182,14 +183,17 @@ def collect_observations(manifest_path, samples_path):
             if result.sample_id not in metadata:
                 raise AggregationError(f"M4 sample absent from metadata barcode_id: {result.sample_id}")
             sample = metadata[result.sample_id]
+            if 'EMPTY_NEGATIVE_CONTROL' in result.target_metrics.total_precise_pe.reason_codes and not pcr_control_role(sample.sample_role):
+                raise AggregationError('empty control role differs from sample metadata')
             identity = (sample.sample_name, result.target_id)
             if identity in seen:
                 raise AggregationError(f"duplicate analysis for sample x target: {identity}")
             seen.add(identity)
             replicate = (condition_key(sample), result.target_id, sample.biological_replicate)
-            if replicate in replicates:
-                raise AggregationError("duplicate biological_replicate within condition and target")
-            replicates.add(replicate)
+            if biological_role(sample.sample_role):
+                if replicate in replicates:
+                    raise AggregationError("duplicate biological_replicate within condition and target")
+                replicates.add(replicate)
             definitions = result.provenance.target_definitions_sha256
             if target_definitions.setdefault(result.target_id, definitions) != definitions or definition_targets.setdefault(definitions, result.target_id) != result.target_id:
                 raise AggregationError("conflicting target identity across analyses")
@@ -219,6 +223,13 @@ def collect_observations(manifest_path, samples_path):
                     raise AggregationError("duplicate metric/policy analytical series within one analysis")
                 local_series.add(key)
                 observations.append(observation)
+            from peanalyzer.site_statistics import site_observations
+            for observation in site_observations(result, sample, path, manifest_path.parent, snapshots, site_methods):
+                key = series_key(observation)
+                if key in local_series:
+                    raise AggregationError("duplicate intended-site analytical series within one analysis")
+                local_series.add(key)
+                observations.append(observation)
         # Inputs must be immutable during collection, including metadata parsed by its shared loader.
         for path, expected in snapshots.items():
             if sha256(path.read_bytes()) != expected:
@@ -234,18 +245,18 @@ def collect_observations(manifest_path, samples_path):
         observations.sort(key=lambda r: (series_key(r), condition_key(r), r.sample_name))
         return StatisticsResult(
             schema_version=1, statistics_contract_version="m5-v1",
-            provenance=Provenance(package_version=__version__, source_metric_contract_versions=["m4-v1"],
+            provenance=Provenance(package_version=__version__, source_metric_contract_versions=sorted({o.metric_contract_version for o in observations}),
                 input_results=sorted(inputs, key=lambda r: (r.sample_id, r.target_name)),
                 samples_path=str(samples_path), manifest_path=str(manifest_path),
                 contrast_specification_path=None, contrast_specification_hash=None,
-                invocation_parameters={"command": "summarize", "sample_identity_column": "barcode_id",
+                invocation_parameters={"command": "summarize", "biological_role_policy": BIOLOGICAL_ROLE_POLICY, "sample_identity_column": "barcode_id",
                                        "result_paths_relative_to": "manifest_directory"},
                 python=platform.python_version(), platform=platform.platform()),
             input_manifest_hash=sha256(manifest_bytes), sample_metadata_hash=sha256(samples_bytes),
             observations=observations, group_summaries=summarize_groups(observations), contrasts=[],
             multiple_testing_families=[], unused_metadata_sample_ids=sorted(
                 s.sample_name for s in samples if s.sample_name not in {name for name, _ in seen}))
-    except (OSError, UnicodeError, csv.Error, ValueError, TypeError) as exc:
+    except (OSError, UnicodeError, csv.Error, ValueError, TypeError, KeyError) as exc:
         if isinstance(exc, AggregationError):
             raise
         raise AggregationError(str(exc)) from exc
@@ -256,8 +267,11 @@ def summarize_groups(observations):
     members, series, rows = defaultdict(dict), {}, defaultdict(dict)
     for row in observations:
         condition, key = condition_key(row), series_key(row)
-        members[(row.target_name, condition)][row.sample_name] = subset(row, BiologicalSample)
+        samples = members[(row.target_name, condition)]
         series[key] = subset(row, Series)
+        if not biological_role(row.sample_role):
+            continue
+        samples[row.sample_name] = subset(row, BiologicalSample)
         rows[(key, condition)][row.sample_name] = row
     summaries = []
     for key, definition in sorted(series.items()):
@@ -268,14 +282,17 @@ def summarize_groups(observations):
             assessments, fractions = [], []
             for name, sample in sorted(samples.items()):
                 row = actual.get(name)
+                missing_reasons = ["METRIC_NOT_PRESENT"]
                 assessments.append(SampleAssessment(**sample.model_dump(),
                     status=row.status if row else "MISSING_METRIC",
-                    reason_codes=row.reason_codes if row else ["METRIC_NOT_PRESENT"]))
+                    reason_codes=row.reason_codes if row else missing_reasons))
                 if row and row.status == "REPORTABLE":
                     fractions.append(SampleFraction(sample_name=name, numerator=row.numerator,
                                                     denominator=row.denominator, fraction=row.fraction))
             values = [Fraction(r.numerator, r.denominator) for r in fractions]
-            summaries.append(GroupSummary(**definition.model_dump(), condition=Condition.model_validate_json(condition),
+            summaries.append(BiologicalReplicateSummary(**definition.model_dump(), condition=Condition.model_validate_json(condition),
+                descriptive_statistics_version="biological-sample-sd-v1",
+                sample_sd_biological_sample_fraction=descriptive.stdev(values) if len(values) >= 2 else None,
                 expected_sample_count=len(samples), expected_sample_ids=sorted(samples),
                 reportable_count=len(fractions), blocked_count=sum(r.status == "BLOCKED" for r in assessments),
                 not_assessable_count=sum(r.status == "NOT_ASSESSABLE" for r in assessments),
@@ -308,9 +325,14 @@ def publish(result, output):
     try:
         stage = Path(tempfile.mkdtemp(prefix=f".{output.name}.incomplete-", dir=output.parent))
         (stage / "result.json").write_text(json.dumps(result.model_dump(mode="json"), indent=2, sort_keys=True, allow_nan=False) + "\n")
-        for filename, model, values in (("observations", Observation, result.observations),
-                ("group_summaries", GroupSummary, result.group_summaries),
-                ("contrasts", ContrastResult, result.contrasts)):
+        tables = [("observations", Observation, result.observations),
+                  ("group_summaries", type(result.group_summaries[0]) if result.group_summaries else GroupSummary, result.group_summaries),
+                  ("contrasts", ContrastResult, result.contrasts)]
+        if result.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY:
+            control_qc = [row for row in result.observations if row.sample_role != "experimental"]
+            if control_qc:
+                tables.append(("control_and_technical_qc", Observation, control_qc))
+        for filename, model, values in tables:
             with (stage / f"{filename}.tsv").open("w", newline="", encoding="utf-8") as handle:
                 writer = csv.DictWriter(handle, fieldnames=list(model.model_fields), delimiter="\t", lineterminator="\n")
                 writer.writeheader()

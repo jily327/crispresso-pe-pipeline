@@ -1,0 +1,130 @@
+{
+  "forward_default": {
+    "executable_version": "2.3.4",
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "input": 350,
+    "native_pe": 120,
+    "aligned": 330,
+    "exact_wt": 80,
+    "exact_pe": 60,
+    "backend_window": [
+      111,
+      112,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149
+    ],
+    "original_window": [
+      111,
+      112,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149
+    ],
+    "intended_outside": [
+      122
+    ]
+  },
+  "reverse_default": {
+    "executable_version": "2.3.4",
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "input": 350,
+    "native_pe": 120,
+    "aligned": 330,
+    "exact_wt": 80,
+    "exact_pe": 60,
+    "backend_window": [
+      111,
+      112,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149
+    ],
+    "original_window": [
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      127,
+      128
+    ],
+    "intended_outside": [
+      117
+    ]
+  },
+  "forward_explicit": {
+    "executable_version": "2.3.4",
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "input": 350,
+    "native_pe": 120,
+    "aligned": 330,
+    "exact_wt": 80,
+    "exact_pe": 60,
+    "backend_window": [
+      120,
+      121,
+      122,
+      123,
+      124
+    ],
+    "original_window": [
+      120,
+      121,
+      122,
+      123,
+      124
+    ],
+    "intended_outside": []
+  },
+  "reverse_explicit": {
+    "executable_version": "2.3.4",
+    "image_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "input": 350,
+    "native_pe": 120,
+    "aligned": 330,
+    "exact_wt": 80,
+    "exact_pe": 60,
+    "backend_window": [
+      120,
+      121,
+      122,
+      123,
+      124
+    ],
+    "original_window": [
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "intended_outside": []
+  }
+}

@@ -1,6 +1,7 @@
 """Editable drafts and non-executable, backend-owned setup previews."""
 from typing import Literal
 from pydantic import Field, PrivateAttr, field_validator
+from peanalyzer.schemas import SampleRole
 from peanalyzer.gui.models import Model, FieldValue
 
 Step = Literal['samples', 'mode', 'target', 'configuration', 'review']
@@ -16,6 +17,7 @@ class SetupFile(Model):
 
 
 class DraftSample(Model):
+    sample_role: SampleRole = 'experimental'
     sample_name: str = ''
     barcode_id: str = ''
     forward_barcode: str = ''
@@ -45,6 +47,7 @@ class PETargetDraft(Model):
     pegRNA_extension: str = ''
     nicking_guide: str = ''
     pegRNA_scaffold: str = ''
+    quantification_window_coordinates: str = ''
 
 
 class NucleaseTargetDraft(Model):
@@ -68,6 +71,7 @@ class DraftContent(Model):
     analysis_mode: Literal['precise_edit', 'indel_nuclease'] | None = None
     targets: list[PETargetDraft | NucleaseTargetDraft] = Field(default_factory=list)
     library_profile: Literal['qi_hitom_v1', 'custom'] = 'qi_hitom_v1'
+    min_analyzable_reads: str = '100'
     trim_r1: str = ''
     trim_r2: str = ''
     output_root: str | None = None

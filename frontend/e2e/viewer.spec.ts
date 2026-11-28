@@ -16,11 +16,16 @@ test('real PE workspace → five views, exact/native distinction, source downloa
   await open(page);
   await expect(page.getByRole('heading',{name:'Exact intended PE',exact:true})).toBeVisible();
   await expect(page.getByRole('heading',{name:'CRISPResso Prime-edited reference fraction',exact:true})).toBeVisible();
+  const sources=page.getByRole('region',{name:'Scientific measurement sources'});
+  await expect(sources.getByRole('heading',{name:'Original CRISPResso2 2.3.4 results',exact:true})).toBeVisible();
+  const nativeDownload=page.waitForEvent('download');
+  await sources.getByRole('button',{name:/^report · CRISPResso_on_/}).first().click();
+  expect((await nativeDownload).suggestedFilename()).toMatch(/^CRISPResso_on_.*[.]html$/);
   await tab(page,'Samples');await page.getByRole('button',{name:'Inspect bio1',exact:true}).click();
   await expect(page.getByRole('region',{name:'Sample detail'})).toBeVisible();await page.getByRole('button',{name:'Close sample detail'}).click();
   await tab(page,'QC');await expect(page.getByText('This is not a universal input → aligned → exact funnel.',{exact:false})).toBeVisible();
   await tab(page,'Statistics');await expect(page.getByRole('table',{name:'Biological replicate summaries · stored unweighted means'})).toBeVisible();
-  await tab(page,'Provenance');await expect(page.getByText('Not produced',{exact:true})).toBeVisible();
+  await tab(page,'Provenance');await expect(page.getByText('Available for download only',{exact:true})).toBeVisible();
   await page.getByLabel('Filter artifact names').fill('statistics/result.json');
   const waiting=page.waitForEvent('download');await page.getByRole('button',{name:'Download',exact:true}).click();
   expect((await waiting).suggestedFilename()).toBe('result.json');

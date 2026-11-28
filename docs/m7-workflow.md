@@ -188,3 +188,11 @@ automatic parallelism or portable CRISPResso HTML links are added.
 
 See [qualification and reproducible evidence](validation/m7/README.md) for the
 real synthetic fixture, source/wheel results and exact parity exclusions.
+
+### Sample roles and read-depth QC
+
+The optional samples.csv column `sample_role` accepts `experimental` (the default for missing or blank cells) and `negative_control`. Setup and the optional workbook column use the same values. The workflow checks all prepared pair counts before the first metrics backend call. An empty experimental sample stops the run with its barcode ID. An empty declared negative control retains its sample and target inventory and receives `NOT_ASSESSABLE` observations with reason `EMPTY_NEGATIVE_CONTROL`. Its editing fractions and count ratios are unavailable. CRISPResso receives no empty sample inputs. A populated control follows the usual measurement path.
+
+New workflows write `sample_qc.json` beside each metrics result. The advisory `qc.min_analyzable_reads` threshold flags the prepared population and each available metric denominator separately. `BELOW_MINIMUM` preserves the measured integer counts and fractions. `NOT_ASSESSABLE` denotes an unavailable metric denominator. Measurements from historical workspaces keep their recorded reportability.
+
+The demux summary records the exact bridge-match fraction among recognized barcode ends, short or mismatching ends, and unique affected pairs by sample. For a nonmatching end it checks for an exact motif within three bases either side of the configured bridge start. Near matches can arise by chance. The analysis manifest records how many bases demux and preparation removed, the expected bridge end, and their signed difference. These diagnostics preserve barcode assignments and fixed trim boundaries.

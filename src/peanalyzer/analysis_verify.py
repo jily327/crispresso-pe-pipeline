@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from itertools import zip_longest
 from pathlib import Path
 
-from peanalyzer.analysis_fastq import PreparationConfig
+from peanalyzer.analysis_fastq import PreparationConfig, trim_boundary_qc
 from peanalyzer.demux_verify import read_json, sha256_file, verify_demux_output
 from peanalyzer.fastq import paired_fastq
 
@@ -36,6 +36,8 @@ def verify_analysis_output(path: Path) -> VerifiedAnalysisRun:
         if None in trims:
             raise ValueError('resolved trims required')
         source = verify_demux_output(Path(data['verified_demux_root']))
+        if 'trim_boundary_qc' in data and data['trim_boundary_qc'] != trim_boundary_qc(source.summary, trims):
+            raise ValueError('analysis trim boundary QC mismatch')
         if data['demux_summary_sha256'] != source.summary_sha256:
             raise ValueError('source M2 identity changed')
         if set(data['samples']) != {s.sample_id for s in source.samples}:

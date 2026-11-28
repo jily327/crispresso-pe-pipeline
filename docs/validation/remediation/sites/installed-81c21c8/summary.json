@@ -1,0 +1,102 @@
+{
+  "all_previous_native_tables_reread_with_installed_wheel": true,
+  "installed_package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+  "integer_fields_compared": 397,
+  "previous_artifact_full_recount_sha256": "5039e02e9e43b3d72d6788d7baa8a22bb35f02ba655766d6ec6fc215576c36c3",
+  "regenerated_prepared_ledger_sha256": "3aa97cc34a086a6fc9c297cfaf0417fe21f3495ce780695169a77f23164b4f33",
+  "replays": {
+    "1A_acquired": {
+      "allele_abundance": 5040,
+      "allele_identities": 727,
+      "core_input_order_relative_to_acquisition": [
+        "acquired_R1",
+        "acquired_R2"
+      ],
+      "corrected_derived_summary_equal_to_previous_launch": true,
+      "evidence": "1A_acquired.evidence.json",
+      "evidence_sha256": "76b23eae7e3635d832ff405a75a9699669a6d3f695465c5fe35644eb02d390aa",
+      "integer_fields": 80,
+      "native_inputs_arguments_ordered_references_windows_and_counts_equal_to_previous_launch": true,
+      "prepared_input_sha256": [
+        "4a795f5cec8992afb4be60e827d8e5c48cd10226fda7bcc891a73e80c71564bc",
+        "05443afd79c102d51116aa14d615d1df0640798d0bc2c21a3d33cd0be3c1d247"
+      ],
+      "standalone_status": "PASS"
+    },
+    "1A_forward": {
+      "allele_abundance": 5115,
+      "allele_identities": 1088,
+      "core_input_order_relative_to_acquisition": [
+        "acquired_R2",
+        "acquired_R1"
+      ],
+      "corrected_derived_summary_equal_to_previous_launch": true,
+      "evidence": "1A_forward.evidence.json",
+      "evidence_sha256": "7680438d7f0f4caedc39e09d07c7bdfc5290623f8649b7d05623dcc9e835b6b1",
+      "integer_fields": 80,
+      "native_inputs_arguments_ordered_references_windows_and_counts_equal_to_previous_launch": true,
+      "prepared_input_sha256": [
+        "234ea489c4e0495bfb394111d591908de3a9e1708895cb8af222e9a6b08e09a4",
+        "7c54fcd54dd73ea961f90edad7c4eebd7283dee8118af71df0717029abf4b7ca"
+      ],
+      "standalone_status": "PASS"
+    },
+    "SCI02": {
+      "allele_abundance": 15,
+      "allele_identities": 2,
+      "core_input_order_relative_to_acquisition": [
+        "synthetic_forward",
+        "synthetic_reverse"
+      ],
+      "corrected_derived_summary_equal_to_previous_launch": true,
+      "evidence": "SCI02.evidence.json",
+      "evidence_sha256": "2c09fee6bd11eacd1e0e62f2bd2375ef6410d8848e39220465fe34cde8b3a9c8",
+      "integer_fields": 77,
+      "native_inputs_arguments_ordered_references_windows_and_counts_equal_to_previous_launch": true,
+      "prepared_input_sha256": [
+        "85e076c8f3281ad0a2825c162f6a92d67ab6bce36e80a13ace11ab66befa5038",
+        "658a09f2fee9e2a25e6701062dc164032d80c0419d25daa9b57def80b57459ac"
+      ],
+      "standalone_status": "PASS"
+    },
+    "all_acquired": {
+      "allele_abundance": 103967,
+      "allele_identities": 6879,
+      "core_input_order_relative_to_acquisition": [
+        "acquired_R1",
+        "acquired_R2"
+      ],
+      "corrected_derived_summary_equal_to_previous_launch": true,
+      "evidence": "all_acquired.evidence.json",
+      "evidence_sha256": "6a2d1783706923fde04e0f8342f8176dda98d182cd8eee7cac6535227ddedfec",
+      "integer_fields": 80,
+      "native_inputs_arguments_ordered_references_windows_and_counts_equal_to_previous_launch": true,
+      "prepared_input_sha256": [
+        "f68c5fb8612ba56e4d3dba97f34a2aa384e85ca18f55e0ca582cd5d4d9940da9",
+        "4d99ff41dc6a5a183dcc743aeeee82a3d180a050152f6400da89361b2f201e5d"
+      ],
+      "standalone_status": "PASS"
+    },
+    "all_forward": {
+      "allele_abundance": 105769,
+      "allele_identities": 12553,
+      "core_input_order_relative_to_acquisition": [
+        "acquired_R2",
+        "acquired_R1"
+      ],
+      "corrected_derived_summary_equal_to_previous_launch": true,
+      "evidence": "all_forward.evidence.json",
+      "evidence_sha256": "65d1a8bd14ceb1377c5287fbbf1c7eff3d11767649fe60953f63d2bf006ceef6",
+      "integer_fields": 80,
+      "native_inputs_arguments_ordered_references_windows_and_counts_equal_to_previous_launch": true,
+      "prepared_input_sha256": [
+        "2237227017fd66c28a5b67a77650df9192cf211fe3163f4878bf1564ddc81803",
+        "4654978f5d94f87a843f50109cbf54316e724e63a44cfcef7f678be10ac7c2c3"
+      ],
+      "standalone_status": "PASS"
+    }
+  },
+  "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+  "total_independent_replays": 5,
+  "wheel_sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+}

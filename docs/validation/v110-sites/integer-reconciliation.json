@@ -1,0 +1,2023 @@
+{
+  "epsps": {
+    "1A": {
+      "aligned": 5115,
+      "ambiguous": 1,
+      "backend_reference": {
+        "chr01g": {
+          "A_only": {
+            "denominator": 2691,
+            "exact_fraction": "2/897",
+            "fraction": 0.002229654403567447,
+            "numerator": 6
+          },
+          "B_only": {
+            "denominator": 2691,
+            "exact_fraction": "4/897",
+            "fraction": 0.004459308807134894,
+            "numerator": 12
+          },
+          "any_edit": {
+            "denominator": 2691,
+            "exact_fraction": "8/897",
+            "fraction": 0.008918617614269788,
+            "numerator": 24
+          },
+          "counts": {
+            "AB": 6,
+            "A_only": 6,
+            "B_only": 12,
+            "WT": 2659,
+            "other_mixed": 8,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 2691,
+            "exact_fraction": "2/897",
+            "fraction": 0.002229654403567447,
+            "numerator": 6
+          },
+          "fixed_alignment_counts": {
+            "AB": 6,
+            "A_only": 6,
+            "B_only": 12,
+            "WT": 2659,
+            "other_mixed": 8,
+            "unassessable": 0
+          },
+          "joint_assessable": 2691,
+          "native_window_modified": 32,
+          "ordinary_alignments": 2691,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 3,
+            "additional_indel": 161,
+            "additional_substitution": 747,
+            "incomplete_or_unknown": 32,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 2691,
+            "exact_fraction": "4/897",
+            "fraction": 0.004459308807134894,
+            "numerator": 12
+          },
+          "site_B": {
+            "denominator": 2691,
+            "exact_fraction": "2/299",
+            "fraction": 0.006688963210702341,
+            "numerator": 18
+          }
+        },
+        "chr17g": {
+          "A_only": {
+            "denominator": 2423,
+            "exact_fraction": "25/2423",
+            "fraction": 0.010317787866281469,
+            "numerator": 25
+          },
+          "B_only": {
+            "denominator": 2423,
+            "exact_fraction": "3/2423",
+            "fraction": 0.0012381345439537762,
+            "numerator": 3
+          },
+          "any_edit": {
+            "denominator": 2423,
+            "exact_fraction": "43/2423",
+            "fraction": 0.017746595130004126,
+            "numerator": 43
+          },
+          "counts": {
+            "AB": 15,
+            "A_only": 25,
+            "B_only": 3,
+            "WT": 2368,
+            "other_mixed": 12,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 2423,
+            "exact_fraction": "15/2423",
+            "fraction": 0.006190672719768881,
+            "numerator": 15
+          },
+          "fixed_alignment_counts": {
+            "AB": 15,
+            "A_only": 25,
+            "B_only": 3,
+            "WT": 2368,
+            "other_mixed": 12,
+            "unassessable": 0
+          },
+          "joint_assessable": 2423,
+          "native_window_modified": 55,
+          "ordinary_alignments": 2423,
+          "qc": {
+            "AB_full_length_exact": 8,
+            "AB_with_additional_change": 7,
+            "additional_indel": 554,
+            "additional_substitution": 749,
+            "incomplete_or_unknown": 36,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 2423,
+            "exact_fraction": "40/2423",
+            "fraction": 0.01650846058605035,
+            "numerator": 40
+          },
+          "site_B": {
+            "denominator": 2423,
+            "exact_fraction": "18/2423",
+            "fraction": 0.007428807263722658,
+            "numerator": 18
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 5114,
+          "exact_fraction": "31/5114",
+          "fraction": 0.006061791161517403,
+          "numerator": 31
+        },
+        "B_only": {
+          "denominator": 5114,
+          "exact_fraction": "15/5114",
+          "fraction": 0.002933124755572937,
+          "numerator": 15
+        },
+        "any_edit": {
+          "denominator": 5114,
+          "exact_fraction": "67/5114",
+          "fraction": 0.013101290574892453,
+          "numerator": 67
+        },
+        "counts": {
+          "AB": 21,
+          "A_only": 31,
+          "B_only": 15,
+          "WT": 5027,
+          "other_mixed": 20,
+          "unassessable": 0
+        },
+        "double_edit": {
+          "denominator": 5114,
+          "exact_fraction": "21/5114",
+          "fraction": 0.004106374657802112,
+          "numerator": 21
+        },
+        "joint_assessable": 5114,
+        "qc": {
+          "AB_full_length_exact": 11,
+          "AB_with_additional_change": 10,
+          "additional_indel": 715,
+          "additional_substitution": 1496,
+          "incomplete_or_unknown": 68,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 5114,
+          "exact_fraction": "26/2557",
+          "fraction": 0.010168165819319515,
+          "numerator": 52
+        },
+        "site_B": {
+          "denominator": 5114,
+          "exact_fraction": "18/2557",
+          "fraction": 0.007039499413375049,
+          "numerator": 36
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 5564,
+      "method": "intended_sites_from_crispresso_alleles",
+      "prepared_input_sha256": [
+        "234ea489c4e0495bfb394111d591908de3a9e1708895cb8af222e9a6b08e09a4",
+        "7c54fcd54dd73ea961f90edad7c4eebd7283dee8118af71df0717029abf4b7ca"
+      ],
+      "preprocessed": 5543,
+      "preprocessing_loss": 21,
+      "status": "REPORTABLE",
+      "unaligned": 428,
+      "version": "2.3.4",
+      "windows": {
+        "chr01g": {
+          "effective_indices": [
+            146,
+            157
+          ],
+          "intended_indices": [
+            146,
+            157
+          ],
+          "outside_window": [],
+          "requested": "146-146_157-157",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        },
+        "chr17g": {
+          "effective_indices": [
+            146,
+            157
+          ],
+          "intended_indices": [
+            146,
+            157
+          ],
+          "outside_window": [],
+          "requested": "146-146_157-157",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        }
+      }
+    },
+    "1A_acquired": {
+      "aligned": 5040,
+      "ambiguous": 1,
+      "backend_reference": {
+        "chr01g": {
+          "A_only": {
+            "denominator": 2653,
+            "exact_fraction": "6/2653",
+            "fraction": 0.0022615906520919715,
+            "numerator": 6
+          },
+          "B_only": {
+            "denominator": 2653,
+            "exact_fraction": "1/379",
+            "fraction": 0.002638522427440633,
+            "numerator": 7
+          },
+          "any_edit": {
+            "denominator": 2653,
+            "exact_fraction": "19/2653",
+            "fraction": 0.007161703731624576,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 6,
+            "A_only": 6,
+            "B_only": 7,
+            "WT": 2634,
+            "other_mixed": 0,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 2653,
+            "exact_fraction": "6/2653",
+            "fraction": 0.0022615906520919715,
+            "numerator": 6
+          },
+          "fixed_alignment_counts": {
+            "AB": 6,
+            "A_only": 6,
+            "B_only": 7,
+            "WT": 2634,
+            "other_mixed": 0,
+            "unassessable": 0
+          },
+          "joint_assessable": 2653,
+          "native_window_modified": 19,
+          "ordinary_alignments": 2653,
+          "qc": {
+            "AB_full_length_exact": 5,
+            "AB_with_additional_change": 1,
+            "additional_indel": 158,
+            "additional_substitution": 549,
+            "incomplete_or_unknown": 34,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 2653,
+            "exact_fraction": "12/2653",
+            "fraction": 0.004523181304183943,
+            "numerator": 12
+          },
+          "site_B": {
+            "denominator": 2653,
+            "exact_fraction": "13/2653",
+            "fraction": 0.004900113079532605,
+            "numerator": 13
+          }
+        },
+        "chr17g": {
+          "A_only": {
+            "denominator": 2386,
+            "exact_fraction": "25/2386",
+            "fraction": 0.010477787091366304,
+            "numerator": 25
+          },
+          "B_only": {
+            "denominator": 2386,
+            "exact_fraction": "1/2386",
+            "fraction": 0.00041911148365465214,
+            "numerator": 1
+          },
+          "any_edit": {
+            "denominator": 2386,
+            "exact_fraction": "41/2386",
+            "fraction": 0.017183570829840736,
+            "numerator": 41
+          },
+          "counts": {
+            "AB": 15,
+            "A_only": 25,
+            "B_only": 1,
+            "WT": 2345,
+            "other_mixed": 0,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 2386,
+            "exact_fraction": "15/2386",
+            "fraction": 0.006286672254819782,
+            "numerator": 15
+          },
+          "fixed_alignment_counts": {
+            "AB": 15,
+            "A_only": 25,
+            "B_only": 1,
+            "WT": 2345,
+            "other_mixed": 0,
+            "unassessable": 0
+          },
+          "joint_assessable": 2386,
+          "native_window_modified": 41,
+          "ordinary_alignments": 2386,
+          "qc": {
+            "AB_full_length_exact": 12,
+            "AB_with_additional_change": 3,
+            "additional_indel": 547,
+            "additional_substitution": 523,
+            "incomplete_or_unknown": 41,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 2386,
+            "exact_fraction": "20/1193",
+            "fraction": 0.016764459346186086,
+            "numerator": 40
+          },
+          "site_B": {
+            "denominator": 2386,
+            "exact_fraction": "8/1193",
+            "fraction": 0.006705783738474434,
+            "numerator": 16
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 5039,
+          "exact_fraction": "31/5039",
+          "fraction": 0.0061520142885493154,
+          "numerator": 31
+        },
+        "B_only": {
+          "denominator": 5039,
+          "exact_fraction": "8/5039",
+          "fraction": 0.0015876165905933718,
+          "numerator": 8
+        },
+        "any_edit": {
+          "denominator": 5039,
+          "exact_fraction": "60/5039",
+          "fraction": 0.011907124429450288,
+          "numerator": 60
+        },
+        "counts": {
+          "AB": 21,
+          "A_only": 31,
+          "B_only": 8,
+          "WT": 4979,
+          "other_mixed": 0,
+          "unassessable": 0
+        },
+        "double_edit": {
+          "denominator": 5039,
+          "exact_fraction": "21/5039",
+          "fraction": 0.004167493550307601,
+          "numerator": 21
+        },
+        "joint_assessable": 5039,
+        "qc": {
+          "AB_full_length_exact": 17,
+          "AB_with_additional_change": 4,
+          "additional_indel": 705,
+          "additional_substitution": 1072,
+          "incomplete_or_unknown": 75,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 5039,
+          "exact_fraction": "52/5039",
+          "fraction": 0.010319507838856917,
+          "numerator": 52
+        },
+        "site_B": {
+          "denominator": 5039,
+          "exact_fraction": "29/5039",
+          "fraction": 0.005755110140900972,
+          "numerator": 29
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 5564,
+      "method": "intended_sites_from_crispresso_alleles",
+      "prepared_input_sha256": [
+        "7c54fcd54dd73ea961f90edad7c4eebd7283dee8118af71df0717029abf4b7ca",
+        "234ea489c4e0495bfb394111d591908de3a9e1708895cb8af222e9a6b08e09a4"
+      ],
+      "preprocessed": 5465,
+      "preprocessing_loss": 99,
+      "status": "REPORTABLE",
+      "unaligned": 425,
+      "version": "2.3.4",
+      "windows": {
+        "chr01g": {
+          "effective_indices": [
+            146,
+            157
+          ],
+          "intended_indices": [
+            146,
+            157
+          ],
+          "outside_window": [],
+          "requested": "146-146_157-157",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        },
+        "chr17g": {
+          "effective_indices": [
+            146,
+            157
+          ],
+          "intended_indices": [
+            146,
+            157
+          ],
+          "outside_window": [],
+          "requested": "146-146_157-157",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        }
+      }
+    },
+    "all_known": {
+      "aligned": 105769,
+      "ambiguous": 49,
+      "backend_reference": {
+        "chr01g": {
+          "A_only": {
+            "denominator": 56349,
+            "exact_fraction": "13/18783",
+            "fraction": 0.0006921152105627429,
+            "numerator": 39
+          },
+          "B_only": {
+            "denominator": 56349,
+            "exact_fraction": "92/56349",
+            "fraction": 0.00163268203517365,
+            "numerator": 92
+          },
+          "any_edit": {
+            "denominator": 56349,
+            "exact_fraction": "47/18783",
+            "fraction": 0.0025022626843422243,
+            "numerator": 141
+          },
+          "counts": {
+            "AB": 9,
+            "A_only": 39,
+            "B_only": 92,
+            "WT": 55997,
+            "other_mixed": 212,
+            "unassessable": 1
+          },
+          "double_edit": {
+            "denominator": 56349,
+            "exact_fraction": "1/6261",
+            "fraction": 0.00015971889474524837,
+            "numerator": 9
+          },
+          "fixed_alignment_counts": {
+            "AB": 9,
+            "A_only": 39,
+            "B_only": 92,
+            "WT": 55997,
+            "other_mixed": 212,
+            "unassessable": 1
+          },
+          "joint_assessable": 56349,
+          "native_window_modified": 352,
+          "ordinary_alignments": 56350,
+          "qc": {
+            "AB_full_length_exact": 4,
+            "AB_with_additional_change": 5,
+            "additional_indel": 3521,
+            "additional_substitution": 18999,
+            "incomplete_or_unknown": 657,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 56350,
+            "exact_fraction": "1/1150",
+            "fraction": 0.0008695652173913044,
+            "numerator": 49
+          },
+          "site_B": {
+            "denominator": 56349,
+            "exact_fraction": "101/56349",
+            "fraction": 0.0017924009299188984,
+            "numerator": 101
+          }
+        },
+        "chr17g": {
+          "A_only": {
+            "denominator": 49369,
+            "exact_fraction": "49/49369",
+            "fraction": 0.0009925256740059552,
+            "numerator": 49
+          },
+          "B_only": {
+            "denominator": 49369,
+            "exact_fraction": "69/49369",
+            "fraction": 0.0013976381940083858,
+            "numerator": 69
+          },
+          "any_edit": {
+            "denominator": 49369,
+            "exact_fraction": "135/49369",
+            "fraction": 0.002734509510016407,
+            "numerator": 135
+          },
+          "counts": {
+            "AB": 16,
+            "A_only": 49,
+            "B_only": 69,
+            "WT": 49036,
+            "other_mixed": 199,
+            "unassessable": 1
+          },
+          "double_edit": {
+            "denominator": 49369,
+            "exact_fraction": "16/49369",
+            "fraction": 0.00032409001600194453,
+            "numerator": 16
+          },
+          "fixed_alignment_counts": {
+            "AB": 16,
+            "A_only": 49,
+            "B_only": 69,
+            "WT": 49036,
+            "other_mixed": 199,
+            "unassessable": 1
+          },
+          "joint_assessable": 49369,
+          "native_window_modified": 333,
+          "ordinary_alignments": 49370,
+          "qc": {
+            "AB_full_length_exact": 8,
+            "AB_with_additional_change": 8,
+            "additional_indel": 11031,
+            "additional_substitution": 17695,
+            "incomplete_or_unknown": 597,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 49370,
+            "exact_fraction": "33/24685",
+            "fraction": 0.0013368442373911282,
+            "numerator": 66
+          },
+          "site_B": {
+            "denominator": 49369,
+            "exact_fraction": "85/49369",
+            "fraction": 0.0017217282100103304,
+            "numerator": 85
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 105718,
+          "exact_fraction": "44/52859",
+          "fraction": 0.0008324031858340113,
+          "numerator": 88
+        },
+        "B_only": {
+          "denominator": 105718,
+          "exact_fraction": "161/105718",
+          "fraction": 0.0015229194649917705,
+          "numerator": 161
+        },
+        "any_edit": {
+          "denominator": 105718,
+          "exact_fraction": "138/52859",
+          "fraction": 0.0026107190828430354,
+          "numerator": 276
+        },
+        "counts": {
+          "AB": 25,
+          "A_only": 88,
+          "B_only": 161,
+          "WT": 105033,
+          "other_mixed": 411,
+          "unassessable": 2
+        },
+        "double_edit": {
+          "denominator": 105718,
+          "exact_fraction": "25/105718",
+          "fraction": 0.0002364781777937532,
+          "numerator": 25
+        },
+        "joint_assessable": 105718,
+        "qc": {
+          "AB_full_length_exact": 12,
+          "AB_with_additional_change": 13,
+          "additional_indel": 14552,
+          "additional_substitution": 36694,
+          "incomplete_or_unknown": 1254,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 105720,
+          "exact_fraction": "23/21144",
+          "fraction": 0.0010877790389708663,
+          "numerator": 115
+        },
+        "site_B": {
+          "denominator": 105718,
+          "exact_fraction": "93/52859",
+          "fraction": 0.0017593976427855238,
+          "numerator": 186
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 114761,
+      "method": "intended_sites_from_crispresso_alleles",
+      "prepared_input_sha256": [
+        "2237227017fd66c28a5b67a77650df9192cf211fe3163f4878bf1564ddc81803",
+        "4654978f5d94f87a843f50109cbf54316e724e63a44cfcef7f678be10ac7c2c3"
+      ],
+      "preprocessed": 114250,
+      "preprocessing_loss": 511,
+      "status": "REPORTABLE",
+      "unaligned": 8481,
+      "version": "2.3.4",
+      "windows": {
+        "chr01g": {
+          "effective_indices": [
+            146,
+            157
+          ],
+          "intended_indices": [
+            146,
+            157
+          ],
+          "outside_window": [],
+          "requested": "146-146_157-157",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        },
+        "chr17g": {
+          "effective_indices": [
+            146,
+            157
+          ],
+          "intended_indices": [
+            146,
+            157
+          ],
+          "outside_window": [],
+          "requested": "146-146_157-157",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        }
+      }
+    }
+  },
+  "independent_acquired": {
+    "aligned": 5040,
+    "ambiguous": {
+      "AMBIGUOUS": 1
+    },
+    "copies": {
+      "chr01g": {
+        "aligned_site_bases": {
+          "AB": 6,
+          "A_only": 6,
+          "B_only": 7,
+          "WT": 2634,
+          "other": 0
+        },
+        "literal_merged_templates": {
+          "AB": 5,
+          "A_only": 5,
+          "B_only": 4,
+          "WT": 1960
+        },
+        "native_window_modified": 19,
+        "ordinary_alignments": 2653
+      },
+      "chr17g": {
+        "aligned_site_bases": {
+          "AB": 15,
+          "A_only": 25,
+          "B_only": 1,
+          "WT": 2345,
+          "other": 0
+        },
+        "literal_merged_templates": {
+          "AB": 12,
+          "A_only": 17,
+          "B_only": 1,
+          "WT": 1412
+        },
+        "native_window_modified": 41,
+        "ordinary_alignments": 2386
+      }
+    },
+    "merged": 5465,
+    "raw_pairs": 5564,
+    "unaligned_after_merge": 425,
+    "window_indices": [
+      146,
+      157
+    ]
+  },
+  "independent_core_recount_sha256": "f120fadd9b58f86e909baeff83dc7d07272cebed5443663cde67e4c2d21a07db",
+  "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+  "synthetic": {
+    "as_acquired": {
+      "aligned": 82,
+      "ambiguous": 0,
+      "backend_reference": {
+        "one": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 23,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        },
+        "two": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 23,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "B_only": {
+          "denominator": 82,
+          "exact_fraction": "5/41",
+          "fraction": 0.12195121951219512,
+          "numerator": 10
+        },
+        "any_edit": {
+          "denominator": 82,
+          "exact_fraction": "19/41",
+          "fraction": 0.4634146341463415,
+          "numerator": 38
+        },
+        "counts": {
+          "AB": 14,
+          "A_only": 14,
+          "B_only": 10,
+          "WT": 36,
+          "other_mixed": 8,
+          "unassessable": 0
+        },
+        "double_edit": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "joint_assessable": 82,
+        "qc": {
+          "AB_full_length_exact": 6,
+          "AB_with_additional_change": 8,
+          "additional_indel": 4,
+          "additional_substitution": 8,
+          "incomplete_or_unknown": 0,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 82,
+          "exact_fraction": "14/41",
+          "fraction": 0.34146341463414637,
+          "numerator": 28
+        },
+        "site_B": {
+          "denominator": 82,
+          "exact_fraction": "12/41",
+          "fraction": 0.2926829268292683,
+          "numerator": 24
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 82,
+      "method": "intended_sites_from_crispresso_alleles",
+      "preprocessed": 82,
+      "preprocessing_loss": 0,
+      "status": "REPORTABLE",
+      "unaligned": 0,
+      "version": "2.3.4",
+      "windows": {
+        "one": {
+          "effective_indices": [
+            81,
+            92
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [],
+          "requested": "81-81_92-92",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        },
+        "two": {
+          "effective_indices": [
+            81,
+            92
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [],
+          "requested": "81-81_92-92",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        }
+      }
+    },
+    "default": {
+      "aligned": 82,
+      "ambiguous": 0,
+      "backend_reference": {
+        "one": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 25,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        },
+        "two": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 25,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "B_only": {
+          "denominator": 82,
+          "exact_fraction": "5/41",
+          "fraction": 0.12195121951219512,
+          "numerator": 10
+        },
+        "any_edit": {
+          "denominator": 82,
+          "exact_fraction": "19/41",
+          "fraction": 0.4634146341463415,
+          "numerator": 38
+        },
+        "counts": {
+          "AB": 14,
+          "A_only": 14,
+          "B_only": 10,
+          "WT": 36,
+          "other_mixed": 8,
+          "unassessable": 0
+        },
+        "double_edit": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "joint_assessable": 82,
+        "qc": {
+          "AB_full_length_exact": 6,
+          "AB_with_additional_change": 8,
+          "additional_indel": 4,
+          "additional_substitution": 8,
+          "incomplete_or_unknown": 0,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 82,
+          "exact_fraction": "14/41",
+          "fraction": 0.34146341463414637,
+          "numerator": 28
+        },
+        "site_B": {
+          "denominator": 82,
+          "exact_fraction": "12/41",
+          "fraction": 0.2926829268292683,
+          "numerator": 24
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 82,
+      "method": "intended_sites_from_crispresso_alleles",
+      "preprocessed": 82,
+      "preprocessing_loss": 0,
+      "status": "REPORTABLE",
+      "unaligned": 0,
+      "version": "2.3.4",
+      "windows": {
+        "one": {
+          "effective_indices": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [],
+          "requested": null,
+          "requested_indices_excluded": [],
+          "source": "backend_default",
+          "warning": null
+        },
+        "two": {
+          "effective_indices": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83,
+            84,
+            85,
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116,
+            117,
+            118,
+            119,
+            120,
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162,
+            163,
+            164,
+            165,
+            166,
+            167,
+            168,
+            169,
+            170,
+            171,
+            172
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [],
+          "requested": null,
+          "requested_indices_excluded": [],
+          "source": "backend_default",
+          "warning": null
+        }
+      }
+    },
+    "outside": {
+      "aligned": 82,
+      "ambiguous": 0,
+      "backend_reference": {
+        "one": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 0,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        },
+        "two": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 0,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "B_only": {
+          "denominator": 82,
+          "exact_fraction": "5/41",
+          "fraction": 0.12195121951219512,
+          "numerator": 10
+        },
+        "any_edit": {
+          "denominator": 82,
+          "exact_fraction": "19/41",
+          "fraction": 0.4634146341463415,
+          "numerator": 38
+        },
+        "counts": {
+          "AB": 14,
+          "A_only": 14,
+          "B_only": 10,
+          "WT": 36,
+          "other_mixed": 8,
+          "unassessable": 0
+        },
+        "double_edit": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "joint_assessable": 82,
+        "qc": {
+          "AB_full_length_exact": 6,
+          "AB_with_additional_change": 8,
+          "additional_indel": 4,
+          "additional_substitution": 8,
+          "incomplete_or_unknown": 0,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 82,
+          "exact_fraction": "14/41",
+          "fraction": 0.34146341463414637,
+          "numerator": 28
+        },
+        "site_B": {
+          "denominator": 82,
+          "exact_fraction": "12/41",
+          "fraction": 0.2926829268292683,
+          "numerator": 24
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 82,
+      "method": "intended_sites_from_crispresso_alleles",
+      "preprocessed": 82,
+      "preprocessing_loss": 0,
+      "status": "REPORTABLE",
+      "unaligned": 0,
+      "version": "2.3.4",
+      "windows": {
+        "one": {
+          "effective_indices": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [
+            81,
+            92
+          ],
+          "requested": "50-60",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": "Native window statistics exclude at least one intended site. Review the reported indices or select explicit coordinates for a separate run."
+        },
+        "two": {
+          "effective_indices": [
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [
+            81,
+            92
+          ],
+          "requested": "50-60",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": "Native window statistics exclude at least one intended site. Review the reported indices or select explicit coordinates for a separate run."
+        }
+      }
+    },
+    "sites": {
+      "aligned": 82,
+      "ambiguous": 0,
+      "backend_reference": {
+        "one": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 23,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        },
+        "two": {
+          "A_only": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "B_only": {
+            "denominator": 41,
+            "exact_fraction": "5/41",
+            "fraction": 0.12195121951219512,
+            "numerator": 5
+          },
+          "any_edit": {
+            "denominator": 41,
+            "exact_fraction": "19/41",
+            "fraction": 0.4634146341463415,
+            "numerator": 19
+          },
+          "counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "double_edit": {
+            "denominator": 41,
+            "exact_fraction": "7/41",
+            "fraction": 0.17073170731707318,
+            "numerator": 7
+          },
+          "fixed_alignment_counts": {
+            "AB": 7,
+            "A_only": 7,
+            "B_only": 5,
+            "WT": 18,
+            "other_mixed": 4,
+            "unassessable": 0
+          },
+          "joint_assessable": 41,
+          "native_window_modified": 23,
+          "ordinary_alignments": 41,
+          "qc": {
+            "AB_full_length_exact": 3,
+            "AB_with_additional_change": 4,
+            "additional_indel": 2,
+            "additional_substitution": 4,
+            "incomplete_or_unknown": 0,
+            "nonunique_site_deletion": 0
+          },
+          "site_A": {
+            "denominator": 41,
+            "exact_fraction": "14/41",
+            "fraction": 0.34146341463414637,
+            "numerator": 14
+          },
+          "site_B": {
+            "denominator": 41,
+            "exact_fraction": "12/41",
+            "fraction": 0.2926829268292683,
+            "numerator": 12
+          }
+        }
+      },
+      "combined": {
+        "A_only": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "B_only": {
+          "denominator": 82,
+          "exact_fraction": "5/41",
+          "fraction": 0.12195121951219512,
+          "numerator": 10
+        },
+        "any_edit": {
+          "denominator": 82,
+          "exact_fraction": "19/41",
+          "fraction": 0.4634146341463415,
+          "numerator": 38
+        },
+        "counts": {
+          "AB": 14,
+          "A_only": 14,
+          "B_only": 10,
+          "WT": 36,
+          "other_mixed": 8,
+          "unassessable": 0
+        },
+        "double_edit": {
+          "denominator": 82,
+          "exact_fraction": "7/41",
+          "fraction": 0.17073170731707318,
+          "numerator": 14
+        },
+        "joint_assessable": 82,
+        "qc": {
+          "AB_full_length_exact": 6,
+          "AB_with_additional_change": 8,
+          "additional_indel": 4,
+          "additional_substitution": 8,
+          "incomplete_or_unknown": 0,
+          "nonunique_site_deletion": 0
+        },
+        "site_A": {
+          "denominator": 82,
+          "exact_fraction": "14/41",
+          "fraction": 0.34146341463414637,
+          "numerator": 28
+        },
+        "site_B": {
+          "denominator": 82,
+          "exact_fraction": "12/41",
+          "fraction": 0.2926829268292683,
+          "numerator": 24
+        }
+      },
+      "discarded": 0,
+      "input_pairs": 82,
+      "method": "intended_sites_from_crispresso_alleles",
+      "preprocessed": 82,
+      "preprocessing_loss": 0,
+      "status": "REPORTABLE",
+      "unaligned": 0,
+      "version": "2.3.4",
+      "windows": {
+        "one": {
+          "effective_indices": [
+            81,
+            92
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [],
+          "requested": "81-81_92-92",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        },
+        "two": {
+          "effective_indices": [
+            81,
+            92
+          ],
+          "intended_indices": [
+            81,
+            92
+          ],
+          "outside_window": [],
+          "requested": "81-81_92-92",
+          "requested_indices_excluded": [],
+          "source": "explicit_coordinates",
+          "warning": null
+        }
+      }
+    }
+  },
+  "version": "2.3.4"
+}

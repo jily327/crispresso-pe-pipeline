@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from peanalyzer.demux_verify import read_json, sha256_file
+from peanalyzer.pe_reference import native_reference
 from peanalyzer.provenance import software_provenance
 from peanalyzer.schemas import Target, reverse_complement
 
@@ -66,7 +67,7 @@ def resolve_executable(command: str, required_version: str = VERSION) -> Executa
                                      "return_code": result.returncode, "stdout": result.stdout, "stderr": result.stderr})
 
 
-def validate_targets(targets: list[Target]) -> None:
+def validate_targets(targets: list[Target], *, diagnostic_test_unsupported_guide=False) -> None:
     if not targets or len({t.amplicon_id.casefold() for t in targets}) != len(targets):
         raise BackendError("MALFORMED_AMPLICON_INPUT", "empty or colliding target/copy identifiers")
     seen = set()
@@ -75,28 +76,33 @@ def validate_targets(targets: list[Target]) -> None:
         if wt in seen or reverse_complement(wt) in seen or wt == reverse_complement(wt):
             raise BackendError("MALFORMED_AMPLICON_INPUT", "WT references must be distinct, including reverse complements")
         seen.add(wt)
-        if reverse_complement(target.pegRNA_extension) not in target.prime_edited_sequence:
-            raise BackendError("PE_EXTENSION_REFERENCE_INCOMPATIBLE", target.amplicon_id)
+        plan = native_reference(target)
+        raw_diagnostic = (diagnostic_test_unsupported_guide and
+                          reverse_complement(target.pegRNA_extension) in target.prime_edited_sequence)
+        if plan.error == 'PE_EXTENSION_LOCATION_UNSUPPORTED' and not raw_diagnostic:
+            raise BackendError(plan.error, target.amplicon_id)
+
+
+def backend_target(target: Target):
+    plan = native_reference(target)
+    if plan.error:
+        raise BackendError(plan.error, f'{target.amplicon_id}: check the spacer placement and complete experimental extension')
+    return plan
 
 
 def preflight_guides(targets: list[Target]) -> None:
-    """Represent the empirically confirmed 2.3.4 exact-spacer limitation."""
     for target in targets:
-        if target.pegRNA_spacer not in target.wt_sequence and reverse_complement(target.pegRNA_spacer) in target.wt_sequence:
-            raise BackendError("PE_GUIDE_ORIENTATION_UNSUPPORTED",
-                               f"{target.amplicon_id}: reverse-only spacer rejected by validated 2.3.4 PE orientation checks; do not reverse the experimental guide")
-        if target.pegRNA_spacer not in target.wt_sequence and reverse_complement(target.pegRNA_spacer) not in target.wt_sequence:
-            raise BackendError("PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED",
-                               f"{target.amplicon_id}: actual experimental spacer is absent from WT in both orientations; "
-                               "CRISPResso2 2.3.4 rejects this configuration")
+        backend_target(target)
 
 
-def write_amplicons(path: Path, targets: list[Target]) -> None:
-    validate_targets(targets)
+def write_amplicons(path: Path, targets: list[Target], *, diagnostic_test_unsupported_guide=False) -> None:
+    validate_targets(targets, diagnostic_test_unsupported_guide=diagnostic_test_unsupported_guide)
     with Path(path).open("x", newline="") as handle:
         writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
         writer.writerow(FIELDS)
         for target in sorted(targets, key=lambda row: row.amplicon_id):
+            if not diagnostic_test_unsupported_guide:
+                target = native_reference(target).backend
             writer.writerow("NA" if getattr(target, field) is None else getattr(target, field) for field in FIELDS.values())
 
 
@@ -137,7 +143,7 @@ def run_pooled_diagnostic(*, r1: Path, r2: Path, targets: list[Target], output: 
     API calls subprocess with argv and shell=False. Output is a diagnostic run,
     not authorization for copy-specific downstream quantification.
     """
-    validate_targets(targets)
+    validate_targets(targets, diagnostic_test_unsupported_guide=diagnostic_test_unsupported_guide)
     if not diagnostic_test_unsupported_guide:
         preflight_guides(targets)
     if pooled.version != VERSION or core.version != VERSION:
@@ -156,12 +162,13 @@ def run_pooled_diagnostic(*, r1: Path, r2: Path, targets: list[Target], output: 
         for mate in (1, 2):
             if sha256_file(work / f"input_R{mate}.fastq.gz") != sources[f"r{mate}"]["sha256"]:
                 raise BackendError("INPUT_CHANGED", "FASTQ changed during staging")
-        write_amplicons(work / "amplicons.tsv", targets)
+        write_amplicons(work / "amplicons.tsv", targets, diagnostic_test_unsupported_guide=diagnostic_test_unsupported_guide)
         argv = pooled_argv(pooled.path, child_core_command=child_core_command or core.path,
                            min_reads=min_reads, diagnostic_intermediates=diagnostic_intermediates)
         manifest = {"schema_version": 1, "status": "running", "scope": "backend_diagnostic_only", "software": software_provenance(),
                     "core_version": core.version, "pooled_version": pooled.version, "version_probes": [core.probe, pooled.probe],
                     "executable_path": pooled.path, "argv": argv, "cwd": str(work), "output_path": str(output), "inputs": sources,
+                    "native_references": None if diagnostic_test_unsupported_guide else {t.amplicon_id: native_reference(t).provenance() for t in targets},
                     "amplicons_sha256": sha256_file(work / "amplicons.tsv"),
                     "target_configuration_sha256": hashlib.sha256(json.dumps([t.model_dump() for t in sorted(targets, key=lambda t: t.amplicon_id)], sort_keys=True).encode()).hexdigest(),
                     "diagnostic_test_unsupported_guide": diagnostic_test_unsupported_guide,

@@ -1,0 +1,219 @@
+{
+  "analysis": "exploratory_window_comparison",
+  "contract": "tigr-window-comparison-v1",
+  "measurements": [
+    {
+      "indel_fractions": [
+        {
+          "copy_name": null,
+          "denominator": 16,
+          "fraction": 0.1875,
+          "numerator": 3,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        },
+        {
+          "copy_name": "chr03g",
+          "denominator": 6,
+          "fraction": 0.16666666666666666,
+          "numerator": 1,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        },
+        {
+          "copy_name": "chr13g",
+          "denominator": 7,
+          "fraction": 0.14285714285714285,
+          "numerator": 1,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        }
+      ],
+      "role": "primary",
+      "source_sha256": "77891c6ebbd2141d8a427d88f8cf5d22ceac4a88a3b47f4b5e63094e0cdf3eaa",
+      "window": "W2",
+      "windows": {
+        "chr03g": {
+          "amplicon_top_strand_between_cuts": "AGGCAGTA",
+          "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+          "coordinates": "104-113",
+          "derivation": "tigr_tas_v1",
+          "intervals": [
+            [
+              104,
+              113
+            ]
+          ],
+          "orientation": "forward",
+          "physical_nick_boundaries": [
+            [
+              104,
+              105
+            ],
+            [
+              112,
+              113
+            ]
+          ],
+          "profile_version": "tigr_tas_v1",
+          "selected_window": "W2",
+          "target_interval": [
+            100,
+            117
+          ],
+          "target_oriented_between_cuts": "AGGCAGTA",
+          "target_oriented_nick_labels": [
+            "5|6",
+            "13|14"
+          ],
+          "target_sequence": "TCTATAGGCAGTAAGAAG",
+          "target_start": 100
+        },
+        "chr13g": {
+          "amplicon_top_strand_between_cuts": "AGGCAGTA",
+          "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+          "coordinates": "107-116",
+          "derivation": "tigr_tas_v1",
+          "intervals": [
+            [
+              107,
+              116
+            ]
+          ],
+          "orientation": "forward",
+          "physical_nick_boundaries": [
+            [
+              107,
+              108
+            ],
+            [
+              115,
+              116
+            ]
+          ],
+          "profile_version": "tigr_tas_v1",
+          "selected_window": "W2",
+          "target_interval": [
+            103,
+            120
+          ],
+          "target_oriented_between_cuts": "AGGCAGTA",
+          "target_oriented_nick_labels": [
+            "5|6",
+            "13|14"
+          ],
+          "target_sequence": "TCTATAGGCAGTAAGAAG",
+          "target_start": 103
+        }
+      }
+    },
+    {
+      "indel_fractions": [
+        {
+          "copy_name": null,
+          "denominator": 16,
+          "fraction": 0.25,
+          "numerator": 4,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        },
+        {
+          "copy_name": "chr03g",
+          "denominator": 6,
+          "fraction": 0.16666666666666666,
+          "numerator": 1,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        },
+        {
+          "copy_name": "chr13g",
+          "denominator": 7,
+          "fraction": 0.2857142857142857,
+          "numerator": 2,
+          "reason_codes": [],
+          "status": "REPORTABLE"
+        }
+      ],
+      "role": "exploratory",
+      "source_sha256": "94b39c5e94860d60c9d990c1d1312070b49ec1704f9e83eeaf7130c7fe258832",
+      "window": "W3",
+      "windows": {
+        "chr03g": {
+          "amplicon_top_strand_between_cuts": "AGGCAGTA",
+          "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+          "coordinates": "100-117",
+          "derivation": "tigr_tas_v1",
+          "intervals": [
+            [
+              100,
+              117
+            ]
+          ],
+          "orientation": "forward",
+          "physical_nick_boundaries": [
+            [
+              104,
+              105
+            ],
+            [
+              112,
+              113
+            ]
+          ],
+          "profile_version": "tigr_tas_v1",
+          "selected_window": "W3",
+          "target_interval": [
+            100,
+            117
+          ],
+          "target_oriented_between_cuts": "AGGCAGTA",
+          "target_oriented_nick_labels": [
+            "5|6",
+            "13|14"
+          ],
+          "target_sequence": "TCTATAGGCAGTAAGAAG",
+          "target_start": 100
+        },
+        "chr13g": {
+          "amplicon_top_strand_between_cuts": "AGGCAGTA",
+          "amplicon_top_strand_target": "TCTATAGGCAGTAAGAAG",
+          "coordinates": "103-120",
+          "derivation": "tigr_tas_v1",
+          "intervals": [
+            [
+              103,
+              120
+            ]
+          ],
+          "orientation": "forward",
+          "physical_nick_boundaries": [
+            [
+              107,
+              108
+            ],
+            [
+              115,
+              116
+            ]
+          ],
+          "profile_version": "tigr_tas_v1",
+          "selected_window": "W3",
+          "target_interval": [
+            103,
+            120
+          ],
+          "target_oriented_between_cuts": "AGGCAGTA",
+          "target_oriented_nick_labels": [
+            "5|6",
+            "13|14"
+          ],
+          "target_sequence": "TCTATAGGCAGTAAGAAG",
+          "target_start": 103
+        }
+      }
+    }
+  ],
+  "primary_window": "W2",
+  "sample_id": "bc001",
+  "target_name": "T1"
+}

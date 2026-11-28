@@ -9,12 +9,14 @@ from pathlib import Path
 
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.backend.metrics import parse_child, backend_failure_code
-from peanalyzer.backend.pooled import BackendError, Executable, FIELDS, preflight_guides, utc_now
+from peanalyzer.backend.pooled import BackendError, Executable, FIELDS, backend_target, utc_now
+from peanalyzer.backend.pe_window import audit_window
 from peanalyzer.demux_verify import read_json, sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
-from peanalyzer.geometry import geometry
+from peanalyzer.geometry import geometry, geometry_v101
 from peanalyzer.provenance import software_provenance
 from peanalyzer.schemas import Target
+from peanalyzer.routing_eligibility import copy_routing_eligibility, observed_pair_geometry
 from peanalyzer.routing import RoutingPolicy, decide, enforce_edit_flanking, policy_identity
 
 
@@ -22,13 +24,16 @@ def verify_routing_output(root: Path) -> dict:
     root=Path(root)
     if root.is_symlink() or any('.incomplete-' in p for p in root.resolve().parts): raise ValueError('unpublished routing path')
     data=read_json(root/'routing_manifest.json')
-    if data['schema_version']!=1 or data['status']!='completed': raise ValueError('incomplete routing')
+    if data['schema_version'] not in (1, 2) or data['status']!='completed': raise ValueError('incomplete routing')
     verified=verify_analysis_output(Path(data['analysis_root']))
     if verified.manifest_sha256!=data['analysis_manifest_sha256']: raise ValueError('analysis identity mismatch')
     targets=[Target.model_validate(t) for t in data['targets']]
     policy=RoutingPolicy(**data['policy'])
-    if data.get('policy_identity')!=policy_identity(policy): raise ValueError('routing policy identity mismatch')
-    if geometry(targets,min_distinguishing_sites=policy.min_distinguishing_sites)['status']=='BLOCKED': raise ValueError('blocked target geometry')
+    legacy = data.get('policy_identity') == policy_identity(policy, legacy=True)
+    if data.get('policy_identity')!=policy_identity(policy, legacy=legacy): raise ValueError('routing policy identity mismatch')
+    geometry_check = geometry_v101 if legacy else geometry
+    report=geometry_check(targets,min_distinguishing_sites=policy.min_distinguishing_sites)
+    if report['status']=='BLOCKED': raise ValueError('blocked target geometry')
     if set(data['cohorts'])!={*(t.copy_name for t in targets),'quarantine'}: raise ValueError('cohort inventory mismatch')
     ledger=root/'routing_ledger.jsonl'
     if ledger.is_symlink() or sha256_file(ledger)!=data['ledger_sha256']: raise ValueError('ledger changed')
@@ -76,10 +81,17 @@ def verify_routing_output(root: Path) -> dict:
     if actual!=expected or len(actual)!=data['input_pairs']: raise ValueError('routing partition mismatch')
     sample=verified.manifest['samples'][data['sample_id']]
     paths=[verified.root/sample['files'][f'r{m}']['path'] for m in (1,2)]
+    observed=Counter()
     for pair in paired_fastq(*paths):
+        observed[observed_pair_geometry(pair,targets)] += 1
         if contents.pop(read_id(pair[0],1).decode(),None)!=tuple(r.to_bytes() for r in pair): raise ValueError('routing did not preserve original pair')
     if contents: raise ValueError('unexpected output IDs')
-    return data
+    eligibility=copy_routing_eligibility(observed,targets,report,policy,legacy=legacy)
+    if data['schema_version']==2 and eligibility != data.get('copy_routing_eligibility'):
+        raise ValueError('observed copy-routing eligibility disagrees with verified prepared inputs')
+    # Historical manifests stay byte-for-byte intact; new metric handoffs still
+    # evaluate their actual source population before using the copy cohorts.
+    return {**data,'copy_routing_eligibility':eligibility}
 
 
 def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: Executable, *, runtime_identity: dict | None=None) -> dict:
@@ -89,7 +101,10 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
     targets=[Target.model_validate(t) for t in data['targets']]
     target=next((t for t in targets if t.copy_name==copy_name),None)
     if target is None: raise ValueError('unknown biological copy (quarantine is not a copy)')
-    preflight_guides([target])
+    reasons=data['copy_routing_eligibility']['reason_codes'][copy_name]
+    if reasons: raise BackendError(reasons[0],copy_name)
+    plan=backend_target(target)
+    native=plan.backend
     cohort=data['cohorts'][copy_name]
     if not cohort['pairs']: raise ValueError('empty confident cohort; no backend metric')
     if core.version!='2.3.4': raise BackendError('VERSION_MISMATCH','requires 2.3.4')
@@ -102,12 +117,12 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
             source=Path(routing_root)/cohort['files'][f'r{mate}']['path']
             shutil.copyfile(source,work/f'input_R{mate}.fastq.gz')
             if sha256_file(work/f'input_R{mate}.fastq.gz')!=cohort['files'][f'r{mate}']['sha256']: raise ValueError('input changed during copy')
-        argv=[core.path,'-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz','--amplicon_seq',target.wt_sequence,
-              '--name','confident','--output_folder','output','--write_detailed_allele_table','--keep_intermediate','--suppress_report','--suppress_plots']
+        argv=[core.path,'-r1','input_R1.fastq.gz','-r2','input_R2.fastq.gz','--amplicon_seq',native.wt_sequence,
+              '--name','confident','--output_folder','output','--write_detailed_allele_table','--keep_intermediate']
         for column,field in list(FIELDS.items())[2:]:
-            value=getattr(target,field)
+            value=getattr(native,field)
             if value is not None: argv.extend(['--'+column,str(value)])
-        manifest=dict(schema_version=1,status='running',software=software_provenance(),runtime_identity=runtime_identity,
+        manifest=dict(schema_version=1,native_reference=plan.provenance(),status='running',software=software_provenance(),runtime_identity=runtime_identity,
                       executable_path=core.path,version_probe=core.probe,argv=argv,cwd=str(work),output_path=str(output),
                       routing_manifest_sha256=sha256_file(Path(routing_root)/'routing_manifest.json'),
                       inputs=cohort,started_at=utc_now(),return_code=None)
@@ -121,6 +136,8 @@ def run_confident_core(routing_root: Path, copy_name: str, output: Path, core: E
             manifest['return_code']=result.returncode
             if result.returncode: raise BackendError('COMMAND_FAILED',f'Core exit {result.returncode}')
             metrics=parse_child(work/'output/CRISPResso_on_confident',routed_pairs=cohort['pairs'],one_input_record_per_pair=True)
+            info=read_json(work/'output/CRISPResso_on_confident/CRISPResso2_info.json')
+            audit_window(metrics, plan, info['results']['refs'], args=info['running_info']['args']['value'])
             (work/'metrics.json').write_text(json.dumps(metrics,indent=2)+'\n')
             manifest['status']='completed'
         except (OSError,ValueError,BackendError) as exc:

@@ -1,0 +1,63 @@
+{
+  "release": "1.1.0",
+  "python_full": {
+    "tests": 2173,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 114,
+    "passed": 2059
+  },
+  "full_suite_warnings": 21,
+  "installed_wheel_desktop_recovery": {
+    "tests": 1,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 1
+  },
+  "two_site_pinned_m7_run_analyze_resume": {
+    "tests": 1,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 1
+  },
+  "forward_pinned_m7_run_analyze_resume": {
+    "tests": 1,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 1
+  },
+  "supplementary_post_snapshot_tests": {
+    "tests": 14,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 14
+  },
+  "frontend_unit": {
+    "tests": 64,
+    "failures": 0
+  },
+  "typescript": "passed",
+  "viewer_asset_identity": "passed",
+  "offline_wheel_install": "passed",
+  "dependency_check": "passed",
+  "artifacts": {
+    "wheel": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+    "wheel_sha256": "b149c9b452f07586c147bf1e692e9f932412a56c9e95d69fc5b63a711319ae39",
+    "package_entries_compared_to_checkout": 112,
+    "sdist": "crispresso_pe_pipeline-1.1.0.tar.gz",
+    "sdist_sha256": "822dbecaebcd44d89e81d04cc2df2205661c04437a2051546174b928d194c1bf"
+  },
+  "epsps_real_comparison": {
+    "barcode_bins": 96,
+    "raw_pairs": 118742,
+    "four_state_integer_cells": 3072,
+    "marginal_integer_cells": 384,
+    "canonical_WT_PE_integer_cells": 192,
+    "unequal_cells": 0,
+    "wheel_output_matches_saved_result": true
+  }
+}

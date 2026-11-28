@@ -1,5 +1,6 @@
 """Versioned presentation contracts. Scientific integers travel as decimal strings."""
 from typing import Literal
+from peanalyzer.schemas import SampleRole
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -64,6 +65,8 @@ class Value(Model):
 
 
 class Observation(Value):
+    sample_role: SampleRole = "experimental"
+    biological_eligible: bool | None = None
     observation_id: str
     series_id: str
     sample_id: str
@@ -103,6 +106,10 @@ class Group(Model):
     reportable_n: str
     mean: float | None
     mean_percentage: str | None
+    descriptive_statistics_version: str | None = None
+    sample_sd: float | None = None
+    sample_sd_percentage: str | None = None
+    pooled_read_fraction: float | None = None
     minimum: float | None
     maximum: float | None
     median: float | None
@@ -147,6 +154,65 @@ class Bin(Value):
 
 class ClassValue(Value):
     name: str
+
+
+class ScientificPanel(Model):
+    sample_id: str
+    target: str
+    method: str
+    population: str
+    status: str
+    reasons: list[str]
+    definition: str
+    measurements: list[ClassValue]
+    evidence: list[FieldValue]
+    source: Source
+
+
+class MeasurementRow(Model):
+    sample_id: str
+    target: str
+    analysis_mode: str
+    measurement_source: str
+    measurement: str
+    definition: str
+    population: str
+    copy_name: str | None
+    reference: str | None
+    integer_count: str | None
+    observation: str | None
+    numerator: str | None
+    denominator: str | None
+    fraction: float | None
+    eligibility: str
+    reasons: list[str]
+    native_execution_id: str | None
+    execution_status: str | None
+    extraction_status: str | None
+    recount_status: str | None
+    runtime_identity_status: str | None
+    direct_parity_status: str | None
+    source_artifact: str
+    source_sha256: str
+
+
+class RunFile(Model):
+    role: str
+    source: Source
+
+
+class NativeRunView(Model):
+    sample_id: str
+    target: str
+    run_id: str
+    mode: str
+    population: str
+    execution: str
+    extraction: str
+    recount: str
+    direct_parity: str
+    evidence: list[FieldValue]
+    files: list[RunFile]
 
 
 class NucleaseDetail(Model):
@@ -205,9 +271,13 @@ class WorkspaceView(Model):
     contracts: list[str]
     observations: list[Observation]
     groups: list[Group]
+    minimum_biological_replicates: int | None = None
     contrasts: list[Contrast]
     populations: list[Population]
     nuclease: list[NucleaseDetail]
+    measurement_rows: list[MeasurementRow] = Field(default_factory=list)
+    native_runs: list[NativeRunView] = Field(default_factory=list)
+    scientific_panels: list[ScientificPanel] = Field(default_factory=list)
     provenance: list[FieldValue]
     stages: list[Stage]
     artifacts: list[Source]

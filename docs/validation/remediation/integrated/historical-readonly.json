@@ -1,0 +1,166 @@
+[
+  {
+    "manifest_sha256": "a48706b27dc96f89eb771013dfdf2b540f81d8b961aa9606a2d065cb33c4b049",
+    "workspace": "completed-workspace",
+    "producer": {
+      "dependencies": {
+        "PyYAML": "6.0.3",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pillow": "13.0.0",
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      },
+      "git_commit": null,
+      "git_dirty": null,
+      "package_code_sha256": "0f76e731b7e0f80047a0f23dc8b592a1cd3f0270950d4ab716a9725bf5962e16",
+      "pipeline_version": "1.0.1",
+      "python_version": "3.12.14"
+    },
+    "reader_package_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "targets": [
+      "T1"
+    ],
+    "sample_count": 1,
+    "modes": [
+      "precise_edit"
+    ],
+    "total_distinct_files": 190,
+    "distinct_declared_inputs": 5,
+    "before_sha256": "be34edf40d2238e9a03e7ebe6e400c9270bc80b8447c0d14439eddeda6e2b08d",
+    "after_sha256": "be34edf40d2238e9a03e7ebe6e400c9270bc80b8447c0d14439eddeda6e2b08d",
+    "byte_identities_unchanged": true,
+    "verify_status": "COMPLETED",
+    "errors": []
+  },
+  {
+    "manifest_sha256": "bdd361ad33938b63d36ed325a654130d87de9c14a2c1d717d50aff0b86b431a7",
+    "workspace": "workflow",
+    "producer": {
+      "dependencies": {
+        "PyYAML": "6.0.3",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pillow": "13.0.0",
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      },
+      "git_commit": null,
+      "git_dirty": null,
+      "package_code_sha256": "0efd2c79e733e711c4a4c9a2beaab64a3bfa37810734e93d739cccd0bc655c8c",
+      "pipeline_version": "1.0.1",
+      "python_version": "3.12.14"
+    },
+    "reader_package_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "targets": [
+      "T1"
+    ],
+    "sample_count": 4,
+    "modes": [
+      "indel_nuclease"
+    ],
+    "total_distinct_files": 177,
+    "distinct_declared_inputs": 6,
+    "before_sha256": "511b3115e00e3a03c826fe912ba5204df36f9c816b046576d38eb8ff510904a4",
+    "after_sha256": "511b3115e00e3a03c826fe912ba5204df36f9c816b046576d38eb8ff510904a4",
+    "byte_identities_unchanged": true,
+    "verify_status": "COMPLETED",
+    "errors": []
+  },
+  {
+    "manifest_sha256": "7b9b2c94dfff0dfc47c3425dc02e8183a78dac5818625fb81de5d9633de7e018",
+    "workspace": "workflow",
+    "producer": {
+      "dependencies": {
+        "PyYAML": "6.0.3",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pillow": "13.0.0",
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      },
+      "git_commit": null,
+      "git_dirty": null,
+      "package_code_sha256": "29f3b9993b39dd07c36c0b22714ee2e97ce602e591f72e8f225982eafb8dff27",
+      "pipeline_version": "1.0.1",
+      "python_version": "3.12.14"
+    },
+    "reader_package_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "targets": [
+      "T1"
+    ],
+    "sample_count": 1,
+    "modes": [
+      "indel_nuclease"
+    ],
+    "total_distinct_files": 124,
+    "distinct_declared_inputs": 5,
+    "before_sha256": "44d30eff2258baeecccf5ff1ae7a3d2f42dac6bbe888b1a754fb5cbd989f1f7b",
+    "after_sha256": "44d30eff2258baeecccf5ff1ae7a3d2f42dac6bbe888b1a754fb5cbd989f1f7b",
+    "byte_identities_unchanged": true,
+    "verify_status": "COMPLETED",
+    "errors": []
+  },
+  {
+    "manifest_sha256": "d15759cfb9acaf68fb7ccf2480986fc07f5d81ed7174e42b4a91d309466c285b",
+    "workspace": "run",
+    "producer": {
+      "dependencies": {
+        "PyYAML": "6.0.3",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.67.0",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.4",
+        "packaging": "26.3",
+        "pillow": "13.0.0",
+        "pydantic": "2.14.1",
+        "pydantic_core": "2.50.1",
+        "pyparsing": "3.3.3",
+        "python-dateutil": "2.9.0.post0"
+      },
+      "git_commit": null,
+      "git_dirty": null,
+      "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+      "pipeline_version": "1.0.1",
+      "python_version": "3.12.14"
+    },
+    "reader_package_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "targets": [
+      "T1"
+    ],
+    "sample_count": 2,
+    "modes": [
+      "precise_edit"
+    ],
+    "total_distinct_files": 276,
+    "distinct_declared_inputs": 5,
+    "before_sha256": "8b5be6ddf5e89de92396191243992dcf05f09b6f883652aa281acc40bbcec7ce",
+    "after_sha256": "8b5be6ddf5e89de92396191243992dcf05f09b6f883652aa281acc40bbcec7ce",
+    "byte_identities_unchanged": true,
+    "verify_status": "COMPLETED",
+    "errors": []
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "package": {
+    "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+    "wheel": {
+      "file": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+      "bytes": 420681,
+      "sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+    },
+    "sdist": {
+      "file": "crispresso_pe_pipeline-1.1.0.tar.gz",
+      "bytes": 3480392,
+      "sha256": "6d2a6225ff7eb0e5c20459dab8197cea9ec435e500ec12c41dca3a44bfb2c694"
+    },
+    "wheel_entries_compared_to_source_and_install": 122,
+    "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "viewer_build_manifest": {
+      "file": "build-identity.json",
+      "bytes": 2995,
+      "sha256": "d37a848c6c617b5121806e757bb309e1f4ce6289e1a98a7e4f02ecf22ce3ce45"
+    }
+  },
+  "python_default": {
+    "tests": 2243,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 123
+  },
+  "python_first_overlapping_attempt": {
+    "tests": 2243,
+    "failures": 156,
+    "errors": 0,
+    "skipped": 123
+  },
+  "installed_cancellation_and_recovery": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "baseline_m7_run_resume_analyze": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "two_site_m7_run_resume_analyze": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "viewer-bound": {
+      "startTime": "2026-11-27T18:25:08.983Z",
+      "duration": 79691.45999999999,
+      "expected": 20,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "practical-retry": {
+      "startTime": "2026-11-27T11:50:42.853Z",
+      "duration": 251493.172,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "run": {
+      "startTime": "2026-11-27T02:37:57.221Z",
+      "duration": 274957.87200000003,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "recovery": {
+      "startTime": "2026-11-27T03:18:11.067Z",
+      "duration": 209408.144,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "frontend_unit": {
+    "passed": 64,
+    "failed": 0
+  },
+  "viewer_identity": "PASS",
+  "typescript": "PASS",
+  "wheel_offline_install": "PASS",
+  "sdist_clean_install": "PASS",
+  "standalone_replays": 53,
+  "matched_integer_fields": 3231,
+  "matched_allele_identities": 21525,
+  "experimental_lab_confirmation": "PENDING",
+  "windows_wsl_deployment": "PENDING"
+}

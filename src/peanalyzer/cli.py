@@ -10,6 +10,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 from peanalyzer import __version__
+from peanalyzer.schemas import MIN_BIOLOGICAL_REPLICATES
 from peanalyzer.validation import MetadataError, validate_metadata
 
 
@@ -41,6 +42,14 @@ def main(argv: list[str] | None = None) -> int:
     for name in ("r1", "r2", "samples", "config", "output"):
         demux.add_argument(f"--{name}", type=Path, required=True)
     demux.add_argument("--barcodes", type=Path, help="custom CSV catalog; defaults to bundled catalog for qi_hitom_v1")
+    haplotypes = commands.add_parser("haplotypes", help="measure two intended substitutions in verified paired reads")
+    haplotypes.add_argument("--demux-root", type=Path, required=True)
+    haplotypes.add_argument("--references", type=Path, required=True, help="single-panel WT/intended_PE FASTA")
+    for mate in ("r1", "r2"):
+        haplotypes.add_argument(f"--analysis-{mate}-trim-5p", type=int, required=True)
+    haplotypes.add_argument("--copy-marker-start", type=int, action="append", default=[],
+                            help="0-based start of a 15 nt copy marker, repeat for disjoint markers")
+    haplotypes.add_argument("--negative-control", action="append", default=[], help="declared control barcode ID")
     for name in ("summarize", "stats"):
         command = commands.add_parser(name, help="aggregate biological samples" if name == "summarize" else "test explicit biological contrasts")
         for option in ("manifest", "samples", "output"):
@@ -48,6 +57,11 @@ def main(argv: list[str] | None = None) -> int:
         if name == "stats":
             command.add_argument("--contrasts", type=Path, required=True)
             command.add_argument("--max-permutations", type=int, default=100_000)
+            command.add_argument("--min-biological-replicates", type=int, default=MIN_BIOLOGICAL_REPLICATES,
+                                 help="minimum reportable samples per arm or complete paired blocks (default: %(default)s)")
+    compare_windows = commands.add_parser("compare-nuclease-windows", help="compare matched primary W2 and exploratory TIGR measurements")
+    for role in ("primary", "exploratory"):
+        compare_windows.add_argument("--" + role, type=Path, required=True, help="nuclease metric result JSON")
     command = commands.add_parser("report", help="render a completed M5 result as an offline report")
     command.add_argument("--result", type=Path, required=True)
     command.add_argument("--output", type=Path, required=True)
@@ -86,8 +100,22 @@ def main(argv: list[str] | None = None) -> int:
             options["argv"] = ([str(Path(sys.argv[0]).resolve()), *sys.argv[1:]] if argv is None else [parser.prog, *argv])
             with sigterm_cleanup():
                 report = execute_workflow(**options)
+        elif args.command == "haplotypes":
+            from peanalyzer.haplotypes import measure_haplotypes
+            try:
+                report = measure_haplotypes(args.demux_root, args.references,
+                                            (args.analysis_r1_trim_5p, args.analysis_r2_trim_5p),
+                                            args.copy_marker_start, args.negative_control)
+            except ValueError as exc:
+                raise MetadataError(str(exc)) from exc
         elif args.command == "validate":
             report = validate_metadata(args.samples, args.targets, args.config, args.barcodes)
+        elif args.command == "compare-nuclease-windows":
+            from peanalyzer.nuclease.window_comparison import compare
+            try:
+                report = compare(args.primary, args.exploratory)
+            except ValueError as exc:
+                raise MetadataError(str(exc)) from exc
         elif args.command == "report":
             from peanalyzer.reporting import generate_report
             with sigterm_cleanup():
@@ -98,7 +126,8 @@ def main(argv: list[str] | None = None) -> int:
             options = dict(manifest_path=args.manifest, samples_path=args.samples, output=args.output)
             with sigterm_cleanup():
                 result = summarize(**options) if args.command == "summarize" else stats(
-                    **options, contrasts_path=args.contrasts, max_permutations=args.max_permutations)
+                    **options, contrasts_path=args.contrasts, max_permutations=args.max_permutations,
+                    min_biological_replicates=args.min_biological_replicates)
             report = dict(output=str(args.output), observations=len(result.observations),
                           group_summaries=len(result.group_summaries), contrasts=len(result.contrasts),
                           statistics_contract_version=result.statistics_contract_version)
@@ -110,7 +139,7 @@ def main(argv: list[str] | None = None) -> int:
                                      command_argv=([str(Path(sys.argv[0]).resolve()), *sys.argv[1:]] if argv is None
                                                    else [parser.prog, *argv]))
     except (MetadataError, FastqError, DemuxError, AggregationError, ReportingError, WorkflowError, OSError) as exc:
-        label = {"validate": "Validation", "demux": "Demultiplexing", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting", "run": "Workflow", "analyze": "Workflow"}[args.command]
+        label = {"haplotypes": "Haplotype measurement", "validate": "Validation", "demux": "Demultiplexing", "compare-nuclease-windows": "Window comparison", "summarize": "Summarization", "stats": "Statistics", "report": "Reporting", "run": "Workflow", "analyze": "Workflow"}[args.command]
         print(f"{label} failed: {exc}", file=sys.stderr)
         return 2
     print(json.dumps(report, indent=2, sort_keys=True))

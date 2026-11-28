@@ -106,6 +106,26 @@ def _verify(path: Path) -> VerifiedDemuxRun:
     assigned = _count(summary["assigned_expected_pair"])
     _require(sum(_count(n) for n in counts.values()) == assigned, "assigned sample sum mismatch")
     _require(sum(_count(summary[key]) for key in CATEGORIES) == _count(summary["total_input_read_pairs"]), "terminal count mismatch")
+    if "bridge_boundary_qc" in summary:
+        diagnostics = summary["bridge_boundary_qc"]
+        affected = diagnostics["per_sample_pairs_with_short_or_mismatched_bridge"]
+        _require(set(affected) == set(counts), "bridge QC sample inventory mismatch")
+        for name, row in affected.items():
+            f, r, either = (_count(row[k]) for k in ("forward", "reverse", "either_mate"))
+            _require(max(f, r) <= either <= min(f+r, counts[name]), "bridge QC affected pairs mismatch")
+        for direction in ("forward", "reverse"):
+            qc = summary["barcode_bridge_qc"][direction]
+            mate = diagnostics["per_mate"][direction]
+            checked = sum(_count(qc.get("bridge_"+k, 0)) for k in ("match", "short", "mismatch"))
+            _require(checked == mate["checked_recognized_ends"] and
+                     checked == (qc["recognized"] if mate["enabled"] else 0), "bridge QC denominator mismatch")
+            fraction = qc.get("bridge_match", 0) / checked if checked else None
+            _require(mate["exact_match_fraction"] == fraction, "bridge QC fraction mismatch")
+            nonmatch = checked - qc.get("bridge_match", 0)
+            displaced = sum(_count(v) for k, v in qc.items() if k.startswith("bridge_displaced_"))
+            _require(nonmatch == displaced + qc.get("bridge_multiple_displaced_matches", 0)
+                     + qc.get("bridge_no_nearby_match", 0), "bridge offset inventory mismatch")
+            _require(sum(row[direction] for row in affected.values()) <= nonmatch, "bridge QC affected end mismatch")
     inventory = summary["output_files"]
     expected_paths = {f"02_demultiplexed_fastq/{name}" for pair in names.values() for name in pair}
     expected_paths |= {"01_demux_QC/barcode_counts.csv", "01_demux_QC/barcode_pair_matrix.csv"}

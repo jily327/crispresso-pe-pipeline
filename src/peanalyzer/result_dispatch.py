@@ -12,6 +12,12 @@ def statistics_model(raw):
 
 
 def metric_model(raw):
+    if isinstance(raw, dict) and raw.get('metric_contract_version') == 'indel-nuclease-multicopy-v1':
+        from peanalyzer.nuclease.models import MulticopyNucleaseResult
+        return MulticopyNucleaseResult
+    if isinstance(raw, dict) and raw.get('metric_contract_version') == 'empty-nuclease-control-v1':
+        from peanalyzer.sample_qc import EmptyNucleaseControl
+        return EmptyNucleaseControl
     if isinstance(raw, dict) and raw.get('metric_contract_version')=='indel-nuclease-v1':
         from peanalyzer.nuclease.models import NucleaseMetricResult
         return NucleaseMetricResult

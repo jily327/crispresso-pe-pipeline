@@ -11,6 +11,8 @@ from pathlib import Path
 from peanalyzer.analysis_verify import verify_analysis_output
 from peanalyzer.demux_verify import sha256_file
 from peanalyzer.fastq import paired_fastq, read_id
+from peanalyzer.routing_eligibility import copy_routing_eligibility, observed_pair_geometry
+from peanalyzer.observability import physical_forward_mate
 from peanalyzer.geometry import aligner, columns, geometry
 from peanalyzer.schemas import Target, reverse_complement
 
@@ -35,11 +37,14 @@ class RoutingPolicy:
 QUALIFIED_POLICY_ID = 'm312-diagnostic-q30-sites2-cap16-identity08-observed-flanks-v1'
 
 
-def policy_identity(policy: RoutingPolicy) -> dict:
+def policy_identity(policy: RoutingPolicy, *, legacy=False) -> dict:
     qualified = policy == RoutingPolicy()
-    return dict(id=QUALIFIED_POLICY_ID if qualified else 'experimental-unqualified',
+    identity = dict(id=QUALIFIED_POLICY_ID if qualified else 'experimental-unqualified',
                 qualified=qualified, placement_contract='copy-collapsed-state-qc-v1',
                 edit_coverage_contract='observed-pair-flanks-v1')
+    if not legacy:
+        identity['orientation_contract'] = 'invariant-dual-mate-strand-v1'
+    return identity
 
 
 def edit_footprints(target, state, report):
@@ -235,15 +240,16 @@ def enforce_edit_flanking(decision, flanking):
     return decision
 
 
-def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy) -> dict:
+def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy, *, legacy=False) -> dict:
     identifier=read_id(pair[0],1).decode()
     copies=sorted(t.copy_name for t in targets)
     evidence=[]; scores=[]; placements={}; ambiguity={}
+    forward = 1 if legacy else physical_forward_mate(pair, targets)
     engine=aligner(reads=True)
     for mate,record in enumerate(pair,1):
         sequence=record.sequence.decode().upper()
         qualities=[q-33 for q in record.quality_line.rstrip(b'\r\n')]
-        if mate==2:
+        if mate != (forward or 1):
             sequence=reverse_complement(sequence); qualities.reverse()
         for target in sorted(targets,key=lambda t:t.copy_name):
             witnesses=[]
@@ -255,6 +261,9 @@ def route_pair(pair, targets: list[Target], report: dict, policy: RoutingPolicy)
                             reason='COPY_HAS_NO_QUALIFIED_STATE_PLACEMENT')
             placements[mate,target.copy_name]=alternatives
             ambiguity[mate,target.copy_name]=witnesses
+    if forward is None:
+        return dict(read_id=identifier,category='ALIGNMENT_FAILURE',assigned_copy=None,
+                    compatible_copies=copies,evidence=[],alignments=scores,reason='UNRESOLVED_READ_ORIENTATION')
     if len(copies)==1:
         # In an explicitly single-copy assay panel there is no competing copy;
         # retain placement checks and collapse WT/PE before assigning identity.
@@ -320,12 +329,13 @@ def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], o
         raise ValueError('routing destination must be new and separate')
     output.parent.mkdir(parents=True,exist_ok=True)
     stage=Path(tempfile.mkdtemp(prefix=f'.{output.name}.incomplete-',dir=output.parent))
-    handles={}; counts=Counter(); seen=set()
+    handles={}; counts=Counter(); observed=Counter(); seen=set()
     try:
         for cohort in [*(t.copy_name for t in targets),'quarantine']:
             for mate in (1,2): handles[cohort,mate]=gzip.open(stage/f'{cohort}_R{mate}.fastq.gz','wb')
         with (stage/'routing_ledger.jsonl').open('w') as ledger:
             for pair in paired_fastq(*paths):
+                observed[observed_pair_geometry(pair, targets)] += 1
                 row=route_pair(pair,targets,report,policy)
                 if row['read_id'] in seen: raise ValueError('duplicate input ID')
                 seen.add(row['read_id'])
@@ -343,7 +353,9 @@ def route_analysis(analysis_root: Path, sample_id: str, targets: list[Target], o
             raise ValueError('routing count mismatch')
         for mate,path in enumerate(paths,1):
             if sha256_file(path)!=sample['files'][f'r{mate}']['sha256']: raise ValueError('analysis changed while routing')
-        manifest=dict(schema_version=1,status='completed',scope='routing_only_not_scientific_qualification',
+        eligibility=copy_routing_eligibility(observed,targets,report,policy)
+        manifest=dict(schema_version=2,status='completed',scope='routing_only_not_scientific_qualification',
+                      copy_routing_eligibility=eligibility,
                       analysis_root=str(verified.root),analysis_manifest_sha256=verified.manifest_sha256,sample_id=sample_id,
                       policy=asdict(policy),policy_identity=policy_identity(policy),targets=[t.model_dump() for t in sorted(targets,key=lambda t:t.copy_name)],
                       input_pairs=sample['pairs'],categories=dict(counts),cohorts=cohorts,

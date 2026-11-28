@@ -34,13 +34,39 @@ def reconstruct(left, right):
     return left+right[n:], None
 
 
+def readthrough_boundaries(left, right):
+    """Infer fragment lengths from opposing physical 5' ends without a template.
+
+    If both mates reach both ends, the forward prefix equals the reverse
+    suffix. If only one mate overran the fragment, place the entire shorter
+    opposite mate in the longer read to identify the boundary.
+    """
+    minimum = MIN_EXACT_PAIR_OVERLAP
+    shorter, longer = sorted((len(left), len(right)))
+    if shorter < minimum:
+        return set()
+    bounds = {n for n in range(minimum, min(shorter, longer-1)+1) if left[:n] == right[-n:]}
+    if len(left) > len(right):
+        for position in range(1, len(left)-len(right)):
+            if left.startswith(right, position):
+                bounds.add(position+len(right))
+    elif len(right) > len(left):
+        for position in range(1, len(right)-len(left)):
+            if right.startswith(left, position):
+                bounds.add(len(right)-position)
+    return bounds
+
+
+BOUNDARY_REASONS = frozenset({'COMPETING_UNTRIMMED_PRODUCT', 'UNRESOLVED_READTHROUGH_BOUNDARY'})
+
+
 @lru_cache(maxsize=8192)
 def reconstruct_product(left, right, references):
     """Exact candidate products with uniquely established terminal read-through.
 
     Reads retain their amplicon-end 5-prime anchors: left is forward, right is
     reverse-complemented. Only a complete exact candidate in an overlong mate
-    can establish a 3-prime boundary. Both mates must match their entire
+    can support a 3-prime boundary corroborated by the opposite physical mate. Both mates must match their entire
     biological portions, and their clipped overlap must pass the unchanged
     conservative reconstructor. All WT/PE/copy sequences are considered together.
     Distinct supported products or additional complete-reference occurrences
@@ -74,7 +100,12 @@ def reconstruct_product(left, right, references):
                 start = read.find(reference, start+1)
     if ambiguous or len(supported) != 1:
         return None, 'AMBIGUOUS_PRODUCT_RECONSTRUCTION'
-    return next(iter(supported)), None
+    candidate = next(iter(supported))
+    if original[0] is not None and original[0] != candidate:
+        return original[0], 'COMPETING_UNTRIMMED_PRODUCT'
+    if readthrough_boundaries(left, right) != {len(candidate)}:
+        return None, 'UNRESOLVED_READTHROUGH_BOUNDARY'
+    return candidate, None
 
 
 @lru_cache(maxsize=8192)
@@ -105,13 +136,64 @@ def copy_dependent(rows, field):
     return len({tuple(row[field]) for row in rows})>1
 
 
+@lru_cache(maxsize=128)
+def _strand_words(definitions):
+    """Edit-independent words in either copy, excluding every opposite-strand word."""
+    width = 10
+    def words(ref):
+        return {ref[i:i+width] for i in range(len(ref) - width + 1)}
+    invariant, possible = set(), set()
+    for wt, pe in definitions:
+        wt_words, pe_words = words(wt), words(pe)
+        invariant.update(wt_words & pe_words)
+        possible.update(wt_words | pe_words)
+    forward = invariant - {reverse_complement(word) for word in possible}
+    return width, forward, {reverse_complement(word) for word in forward}
+
+
+@lru_cache(maxsize=16384)
+def _read_strand(dna, definitions):
+    width, forward, reverse = _strand_words(definitions)
+    seen = set()
+    for start in range(len(dna) - width + 1):
+        word = dna[start:start+width]
+        if word in forward:
+            seen.add(1)
+        if word in reverse:
+            seen.add(-1)
+        if len(seen) == 2:
+            return 0
+    return next(iter(seen)) if seen else 0
+
+
+def physical_forward_mate(pair, targets):
+    """Require complementary directional evidence in the two physical mates."""
+    definitions = tuple(sorted((t.wt_sequence, t.prime_edited_sequence) for t in targets))
+    max_length = max(max(len(wt), len(pe)) for wt, pe in definitions)
+    strands = tuple(_read_strand(rec.sequence[:max_length].decode().upper(), definitions) for rec in pair)
+    if strands == (1, -1):
+        return 1
+    if strands == (-1, 1):
+        return 2
+    return None
+
+
+def oriented_pair(pair, targets):
+    forward = physical_forward_mate(pair, targets)
+    # Use the original ordering only to retain diagnostic information from a
+    # failed reconstruction. Unknown orientation can never admit a product.
+    first, second = (pair[1], pair[0]) if forward == 2 else pair
+    return first.sequence.decode().upper(), reverse_complement(second.sequence.decode().upper()), forward
+
+
 def assess_pair(pair, targets):
-    left=pair[0].sequence.decode().upper()
-    right=reverse_complement(pair[1].sequence.decode().upper())
+    left, right, forward = oriented_pair(pair, targets)
     rows=state_geometry(targets,len(left),len(right))
     asymmetric=[r for r in rows if len(set(r['exact_states']))>1]
     references=tuple(sorted({s for t in targets for s in (t.wt_sequence,t.prime_edited_sequence)}))
     sequence,reason=reconstruct_product(left,right,references)
+    if forward is None:
+        sequence, reason = None, reason or 'UNRESOLVED_READ_ORIENTATION'
     if asymmetric:
         reason=('STATE_DEPENDENT_PRODUCT_LENGTH_ASSESSABILITY' if any(r['wt_length']!=r['pe_length'] for r in asymmetric)
                 else 'STATE_DEPENDENT_PRODUCT_OBSERVABILITY')
@@ -127,16 +209,20 @@ def assess_pair(pair, targets):
             if sequence==target.wt_sequence:states.add('exact_WT')
             if sequence==target.prime_edited_sequence:states.add('exact_PE')
     canonical=(next(iter(states)) if len(states)==1 else 'state_collision' if states else 'other_or_unassessable')
-    return dict(sequence=sequence,reason=reason,canonical=canonical,eligible_copies=sorted(eligible),geometry=rows)
+    return dict(sequence=sequence,reason=reason,canonical=canonical,eligible_copies=sorted(eligible),geometry=rows,forward_mate=forward)
 
 
 def population_observability(paths, targets):
     lengths=Counter();ambiguity=Counter()
     references=tuple(sorted({s for t in targets for s in (t.wt_sequence,t.prime_edited_sequence)}))
+    orientation = Counter()
     for pair in paired_fastq(*paths):
-        lengths[len(pair[0].sequence),len(pair[1].sequence)]+=1
-        _,reason=reconstruct_product(pair[0].sequence.decode().upper(),reverse_complement(pair[1].sequence.decode().upper()),references)
-        if reason in ('AMBIGUOUS_PRODUCT_RECONSTRUCTION','PERIODIC_PRODUCT_RECONSTRUCTION'):ambiguity[reason]+=1
+        left, right, forward = oriented_pair(pair, targets)
+        orientation[f'R{forward}_forward' if forward else 'unresolved'] += 1
+        lengths[len(left),len(right)]+=1
+        _,reason=reconstruct_product(left,right,references)
+        if reason in BOUNDARY_REASONS or reason in ('AMBIGUOUS_PRODUCT_RECONSTRUCTION','PERIODIC_PRODUCT_RECONSTRUCTION'):
+            ambiguity[reason]+=1
     rows=[];backend=Counter();exact=Counter()
     for (left,right),count in sorted(lengths.items()):
         copies=state_geometry(targets,left,right)
@@ -149,7 +235,7 @@ def population_observability(paths, targets):
             exact['COPY_DEPENDENT_PRODUCT_OBSERVABILITY']+=count
         if any(len(set(c['exact_states']))>1 for c in copies):
             exact['STATE_DEPENDENT_PRODUCT_OBSERVABILITY']+=count
-    return dict(pair_geometries=rows,backend_reason_counts=dict(backend),exact_reason_counts=dict(exact),
+    return dict(pair_geometries=rows,physical_orientation=dict(orientation),backend_reason_counts=dict(backend),exact_reason_counts=dict(exact),
                 reconstruction_ambiguity_reason_counts=dict(ambiguity),
                 cross_copy_length_divergence=len({len(t.wt_sequence) for t in targets})>1,
                 exact_minimum_overlap=MIN_EXACT_PAIR_OVERLAP,backend_minimum_overlap=MIN_PINNED_BACKEND_OVERLAP)

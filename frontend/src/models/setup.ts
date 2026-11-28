@@ -11,6 +11,7 @@ export interface DraftContent {
   analysis_mode: "precise_edit" | "indel_nuclease" | null;
   targets: Array<PETargetDraft | NucleaseTargetDraft>;
   library_profile: "qi_hitom_v1" | "custom";
+  min_analyzable_reads: string;
   trim_r1: string;
   trim_r2: string;
   output_root: string | null;
@@ -27,6 +28,7 @@ export interface DraftRevision {
 }
 
 export interface DraftSample {
+  sample_role: "experimental" | "biological_negative_control" | "pcr_negative_control" | "no_template_control" | "technical_replicate" | "negative_control";
   sample_name: string;
   barcode_id: string;
   forward_barcode: string;
@@ -76,6 +78,7 @@ export interface PETargetDraft {
   pegRNA_extension: string;
   nicking_guide: string;
   pegRNA_scaffold: string;
+  quantification_window_coordinates: string;
 }
 
 export interface PlanPreview {

@@ -7,6 +7,7 @@ from collections import Counter
 from fractions import Fraction
 from pathlib import Path
 
+from peanalyzer.backend.insertion_products import insertion_products
 from peanalyzer.demux_verify import read_json
 from peanalyzer.schemas import reverse_complement
 
@@ -164,10 +165,11 @@ def parse_child(root: Path, *, routed_pairs: int, one_input_record_per_pair: boo
         exact['backend_preprocessing_count_delta']=input_reads-stats['N_TOT_READS']
         exact['aligned_product_excluded_reads']=exact['excluded_reads']
         exact['backend_input_excluded_reads']=input_reads-exact['denominator'] if input_reads>=stats['N_TOT_READS'] else None
+        insertions=insertion_products(refs['Reference']['sequence'],refs['Prime-edited']['sequence'],refs,alleles)
         return dict(alignment_counters=stats,mapping_statistics=mapping,routed_pairs=routed_pairs,
                     authoritative_reference_quantification_window=refs['Reference'].get('include_idxs'),
                     contract=dict(one_input_record_per_pair=one_input_record_per_pair,preprocessing_preserves_records=preprocessing_preserves_records),
-                    native=native,exact_haplotype=exact)
+                    native=native,exact_haplotype=exact, **({'insertion_products':insertions} if insertions else {}))
     except MetricContractError:
         raise
     except (OSError,KeyError,TypeError,ValueError,zipfile.BadZipFile) as exc:

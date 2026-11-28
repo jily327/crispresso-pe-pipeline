@@ -3,7 +3,7 @@
 import re
 from typing import Annotated, Literal, Self
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_serializer, model_validator
 
 Identifier = Annotated[str, Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")]
 NonnegativeInt = Annotated[int, Field(ge=0)]
@@ -30,13 +30,36 @@ def reverse_complement(value: str) -> str:
     return value.translate(str.maketrans("ACGT", "TGCA"))[::-1]
 
 
+PCRControlRole = Literal["negative_control", "pcr_negative_control", "no_template_control"]
+SampleRole = Literal["experimental", "biological_negative_control", "pcr_negative_control",
+                     "no_template_control", "technical_replicate", "negative_control"]
+BIOLOGICAL_ROLE_POLICY = "explicit-sample-roles-v1"
+
+
+def biological_role(role):
+    return role in ("experimental", "biological_negative_control")
+
+
+def pcr_control_role(role):
+    return role in ("negative_control", "pcr_negative_control", "no_template_control")
+
+
+
 class BarcodeSample(Model):
+    sample_role: SampleRole = "experimental"
     sample_name: Identifier
     barcode_id: Identifier
     forward_barcode: str | None = None
     reverse_barcode: str | None = None
     forward_barcode_id: Identifier | None = None
     reverse_barcode_id: Identifier | None = None
+
+    @model_serializer(mode="wrap")
+    def serialize_sample(self, handler):
+        values = handler(self)
+        if self.sample_role == "experimental":
+            values.pop("sample_role", None)
+        return values
 
     @field_validator("forward_barcode", "reverse_barcode")
     @classmethod
@@ -173,12 +196,15 @@ class QCConfig(Model):
     discriminating_variant_edit_distance: NonnegativeInt = 5
 
 
+MIN_BIOLOGICAL_REPLICATES = 2
+
+
 class StatisticsConfig(Model):
     mode: Literal["none", "simple", "factorial"] = "none"
     factors: list[Literal["editor", "treatment", "dpi"]] = Field(default_factory=list)
     block_column: Literal["block_id", "biological_replicate"] | None = None
     include_interaction: bool = False
-    min_biological_replicates: Annotated[int, Field(ge=2)] = 3
+    min_biological_replicates: Annotated[int, Field(ge=MIN_BIOLOGICAL_REPLICATES)] = MIN_BIOLOGICAL_REPLICATES
 
     @model_validator(mode="after")
     def check_design(self) -> Self:

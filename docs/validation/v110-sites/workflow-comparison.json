@@ -1,0 +1,49 @@
+{
+  "analyze": {
+    "backend_version": "2.3.4",
+    "counts": {
+      "AB": 6,
+      "A_only": 6,
+      "B_only": 8,
+      "WT": 20,
+      "other_mixed": 0,
+      "unassessable": 0
+    },
+    "digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "exact_ab": 4,
+    "gui_sha256": "101412ca40b66d18e1e91a778226080e7dca1b6760553b8370453bd7a1a13576",
+    "input_pairs": 40,
+    "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+    "source_verified": true,
+    "stats_double_edit": [
+      6,
+      40
+    ],
+    "workbook_verified": true,
+    "zero_control": true
+  },
+  "completed_resume_unchanged": true,
+  "run": {
+    "backend_version": "2.3.4",
+    "counts": {
+      "AB": 6,
+      "A_only": 6,
+      "B_only": 8,
+      "WT": 20,
+      "other_mixed": 0,
+      "unassessable": 0
+    },
+    "digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+    "exact_ab": 4,
+    "gui_sha256": "b0d7662b8415cab38fd6aa0f483b8724c16bf56e8a87e44ccb66eefd10f53d8c",
+    "input_pairs": 40,
+    "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+    "source_verified": true,
+    "stats_double_edit": [
+      6,
+      40
+    ],
+    "workbook_verified": true,
+    "zero_control": true
+  }
+}

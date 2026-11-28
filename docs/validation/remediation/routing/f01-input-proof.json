@@ -1,0 +1,59 @@
+{
+  "source": "2f567b8",
+  "archive_sha256": "ca4bf8f2464ff1d730e6f1df9ae43e9e83b1b5029b4523385240aad50c63e28c",
+  "audit_files_sha256": {
+    "02_probe/exp_e2e_routing.py": "0e47512e638d2a9ef0dbf8f79e77996cf2bd39c689c7d5c4d91a618a3fd46ca4",
+    "02_probe/common.py": "6df0c3efdb2c5473651d2c09b852c22ceebc628d12170c9ace0d93d72a678dc2",
+    "10_reference_patch/f658b22-observed-geometry-symmetry.patch": "5f67126f8e07990c19bd3a157fab2feaca8033bb93e846370e28a413ba4efe7b",
+    "02_probe/run_f01/R1.fastq.gz": "63e40da923cd5e82317281f2d03f14a95c55c4b4223df7ea844653f10cba17c5",
+    "02_probe/run_f01/R2.fastq.gz": "5fc7c0d2ccf22ab0c505f5cc730a2373cede83925c666ce052ce446782f8244e",
+    "02_probe/run_f01/samples.csv": "6611e6245890058002369d75d6dd62465e97507ed375fe47b935a0a62878e2f8",
+    "02_probe/run_f01/routing/routing_manifest.json": "b8ededa538c3d9a3051923592dbe68cf7536dcd50597648c8c59f72a52f293a0"
+  },
+  "before_code_policy_qualified": true,
+  "before_physical_cohort_sizes": {
+    "A": 50,
+    "quarantine": 50
+  },
+  "before_geometry_status": "SAFE",
+  "before_gate": [
+    "routing categories: {'ASSIGNED_COPY': 50, 'ALIGNMENT_FAILURE': 50}",
+    "cohort A         : WT molecules  50, PE molecules   0",
+    "cohort quarantine: WT molecules   0, PE molecules  50",
+    "verify_routing_output: accepted; policy qualified = True"
+  ],
+  "after_code_policy_qualified": true,
+  "after_physical_cohort_sizes": {
+    "A": 50,
+    "quarantine": 50
+  },
+  "after_measurement_eligibility": {
+    "contract": "matched-amplicon-ends-at-observed-physical-mate-lengths-v1",
+    "observed_pairs": 100,
+    "trials": [
+      {
+        "source_copy": "A",
+        "r1_length": 123,
+        "r2_length": 123,
+        "observed_forward_mate": 1,
+        "control_forward_mate": 1,
+        "observed_pairs": 100,
+        "states": {
+          "WT": {
+            "assigned_copy": "A",
+            "category": "ASSIGNED_COPY"
+          },
+          "PE": {
+            "assigned_copy": null,
+            "category": "ALIGNMENT_FAILURE"
+          }
+        }
+      }
+    ],
+    "reason_codes": {
+      "A": [
+        "EDIT_STATE_SELECTIVE_COPY_ROUTING"
+      ]
+    }
+  }
+}

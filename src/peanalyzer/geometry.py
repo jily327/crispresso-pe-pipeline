@@ -5,6 +5,7 @@ from itertools import combinations
 from Bio.Align import PairwiseAligner
 from Bio.Seq import Seq
 
+from peanalyzer.pe_reference import extension_polymorphism, native_reference, outside_window, unmatched_extension
 from peanalyzer.schemas import Target, reverse_complement
 
 
@@ -45,7 +46,31 @@ def edit_regions(edits):
     return regions
 
 
-def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict | None = None,
+def intended_edits(target, alignment):
+    edits = []
+    preceding_wt=-1
+    for a,b in columns(alignment):
+        old = target.wt_sequence[a] if a is not None else '-'
+        new = target.prime_edited_sequence[b] if b is not None else '-'
+        if old != new:
+            edit=dict(wt_position=a, pe_position=b, old=old, new=new,
+                      kind='insertion' if a is None else 'deletion' if b is None else 'substitution')
+            if a is None: edit['wt_boundary']=preceding_wt+1
+            edits.append(edit)
+        if a is not None: preceding_wt=a
+    return edits
+
+
+def geometry(targets: list[Target], **options) -> dict:
+    return _geometry(targets, legacy=False, **options)
+
+
+def geometry_v101(targets: list[Target], **options) -> dict:
+    """Replay the frozen pre-v1.1 geometry for historical output verification."""
+    return _geometry(targets, legacy=True, **options)
+
+
+def _geometry(targets: list[Target], *, legacy: bool, coding: dict | None = None, primers: dict | None = None,
              min_distinguishing_sites: int = 2, reference_only: bool = False) -> dict:
     if type(min_distinguishing_sites) is not int or min_distinguishing_sites < 1:
         raise ValueError('minimum diagnostic support must be a positive integer')
@@ -57,6 +82,23 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
     fields = ('pegRNA_spacer', 'pegRNA_extension', 'nicking_guide', 'pegRNA_scaffold')
     if any(len({getattr(t, f) for t in targets}) != 1 for f in fields):
         raise ValueError('one target must retain one shared experimental guide/extension/nick/scaffold')
+    native_plans = {} if legacy else {t.copy_name: native_reference(t) for t in targets}
+    orientations = {p.orientation for p in native_plans.values()}
+    if {'forward', 'reverse'} <= orientations:
+        # The routing engine's homologous-coordinate contract is a common supplied
+        # strand. Cross-strand column alignments cannot establish copy markers.
+        single = [_geometry([t], legacy=False, coding=coding, primers=None,
+                            min_distinguishing_sites=min_distinguishing_sites,
+                            reference_only=True) for t in targets]
+        copies = {name: info for report in single for name, info in report['copies'].items()}
+        return dict(schema_version=1, target_name=targets[0].target_name, anchor_copy=None,
+                    coordinate_system='zero-based positions local to each supplied WT',
+                    experimental_spacer=targets[0].pegRNA_spacer, status='BLOCKED',
+                    reasons=[dict(code='MIXED_REFERENCE_STRANDS_NO_COMMON_COPY_COORDINATES',severity='BLOCKED',
+                                  message='Supply all copies on one common biological strand for combined native comparison and copy routing.'),
+                             *(r for report in single for r in report['reasons'])],
+                    routing_policy_min_distinguishing_sites=min_distinguishing_sites,
+                    copies=copies, pairwise=[], diagnostics=[], haplotype_maps={}, primers=[])
     reasons, pairwise, events, maps = [], [], {}, {}
     def reason(code, severity='WARN', **context):
         reasons.append(dict(code=code, severity=severity, **context))
@@ -81,6 +123,10 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
             reason('INDISTINGUISHABLE_COPIES', 'BLOCKED', copies=[left.copy_name, right.copy_name])
         if any(a is None or b is None for a,b in cols):
             reason('COPY_INDEL_ROUTING_UNQUALIFIED', 'BLOCKED', copies=[left.copy_name, right.copy_name])
+    extension_variants = {copy: extension_polymorphism(plan, list(native_plans.values()))
+                          for copy, plan in native_plans.items()}
+    template_positions = {copy: {row['original_wt_position'] for row in info['mismatches']}
+                          for copy, info in extension_variants.items() if info}
     diagnostics = []
     for pos in range(len(anchor)):
         alleles, positions, edited = {}, {}, False
@@ -92,54 +138,66 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
             alleles[target.copy_name] = target.wt_sequence[w] if w is not None else '-'
             edited |= p is None or target.prime_edited_sequence[p] != alleles[target.copy_name]
         if len(set(alleles.values())) > 1:
-            diagnostics.append(dict(position=pos, positions=positions, alleles=alleles, overlaps_edit=edited,
-                                    usable_for_routing=not edited and '-' not in alleles.values()))
+            template_variant = any(positions[c] in sites for c, sites in template_positions.items())
+            diagnostics.append(dict(position=pos, positions=positions, alleles=alleles, overlaps_edit=edited or template_variant,
+                                    usable_for_routing=not edited and not template_variant and '-' not in alleles.values()))
     copies = {}
     for target in targets:
         matches = engine.align(target.wt_sequence, target.prime_edited_sequence)
         if len(matches) != 1:
             reason('NONUNIQUE_EDIT_ALIGNMENT', 'BLOCKED', copy=target.copy_name)
-        edits = []
-        preceding_wt=-1
-        for a,b in columns(matches[0]):
-            old = target.wt_sequence[a] if a is not None else '-'
-            new = target.prime_edited_sequence[b] if b is not None else '-'
-            if old != new:
-                edit=dict(wt_position=a, pe_position=b, old=old, new=new,
-                          kind='insertion' if a is None else 'deletion' if b is None else 'substitution')
-                if a is None: edit['wt_boundary']=preceding_wt+1
-                edits.append(edit)
-            if a is not None: preceding_wt=a
+        edits = intended_edits(target, matches[0])
         events[target.copy_name] = edits
         guide = target.pegRNA_spacer
         forward = [i for i in range(len(target.wt_sequence)) if target.wt_sequence.startswith(guide, i)]
         reverse = [i for i in range(len(target.wt_sequence)) if target.wt_sequence.startswith(reverse_complement(guide), i)]
         if not forward and not reverse:
             reason('PE_GUIDE_REFERENCE_MISMATCH_UNSUPPORTED', 'BLOCKED', copy=target.copy_name)
-        if not forward and reverse:
+        if legacy and not forward and reverse:
             reason('PE_GUIDE_ORIENTATION_UNSUPPORTED', 'BLOCKED', copy=target.copy_name)
         if len(forward)+len(reverse)>1:
             reason('NONUNIQUE_SPACER_LOCATION', 'BLOCKED', copy=target.copy_name)
+        reference_evidence = None
+        if not legacy:
+            plan = native_plans[target.copy_name]
+            reference_evidence = plan.provenance()
+            extension = extension_variants[target.copy_name]
+            if extension:
+                reference_evidence['extension_match'] = extension
+            elif plan.error == 'PE_EXTENSION_LOCATION_UNSUPPORTED' and not plan.extension_starts:
+                reference_evidence['extension_match'] = unmatched_extension(plan)
+            if plan.orientation == 'reverse':
+                reason('PE_REFERENCE_REVERSE_COMPLEMENTED', 'INFO', copy=target.copy_name,
+                       message='Native Core uses reverse-complemented WT and intended PE; supplied guide RNAs are preserved.')
+            if plan.error == 'PE_EXTENSION_LOCATION_UNSUPPORTED':
+                if extension and extension['status'] == 'copy_polymorphism':
+                    reason('PE_EXTENSION_COPY_POLYMORPHISM', 'WARN', copy=target.copy_name,
+                           message='Native PE mode is unavailable for this copy.', **extension)
+                else:
+                    reason(plan.error, 'BLOCKED', copy=target.copy_name,
+                           message='Check the complete experimental extension and intended reference on the spacer-supported strand.')
         window = set()
         if target.quantification_window_coordinates and target.quantification_window_coordinates != '0':
             for interval in target.quantification_window_coordinates.split('_'):
                 start,end = map(int,interval.split('-')); window.update(range(start,end+1))
-        elif target.quantification_window_coordinates != '0':
+        elif not legacy or target.quantification_window_coordinates != '0':
             size = 1 if target.quantification_window_size is None else target.quantification_window_size
             center = -3 if target.quantification_window_center is None else target.quantification_window_center
             for start in forward:
                 cut = start+len(guide)-1+center; window.update(range(cut-size+1,cut+size+1))
             for start in reverse:
                 cut = start-center-1; window.update(range(cut-size+1,cut+size+1))
-            extension=reverse_complement(target.pegRNA_extension)
+            extension=(target.pegRNA_extension if not legacy and plan.orientation == 'reverse'
+                       else reverse_complement(target.pegRNA_extension))
             locations=[i for i in range(len(target.prime_edited_sequence)) if target.prime_edited_sequence.startswith(extension,i)]
             if len(locations)!=1:
-                reason('PE_EXTENSION_LOCATION_UNSUPPORTED','BLOCKED',copy=target.copy_name)
+                if legacy: reason('PE_EXTENSION_LOCATION_UNSUPPORTED','BLOCKED',copy=target.copy_name)
             else:
                 # 2.3.4 default: 5 bases each side of the extension flap boundary.
                 pe_to_wt={b:a for a,b in columns(matches[0]) if b is not None}
                 cut=locations[0]+len(extension)-1
-                for p in range(cut-4,cut+6):
+                flap_window = (range(locations[0]-5,locations[0]+5) if not legacy and plan.orientation == 'reverse' else range(cut-4,cut+6))
+                for p in flap_window:
                     if pe_to_wt.get(p) is not None: window.add(pe_to_wt[p])
             if target.nicking_guide:
                 for guide_seq,is_reverse in ((target.nicking_guide,False),(reverse_complement(target.nicking_guide),True)):
@@ -160,6 +218,12 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
             diagnostic_positions_in_quantification_window=inside)
         copies[target.copy_name]['quantification_window_positions']=sorted(p for p in window if 0<=p<len(target.wt_sequence))
         copies[target.copy_name]['quantification_window_scope']='preflight estimate for pinned defaults; confirm child Reference.include_idxs after backend end exclusions'
+        if not legacy:
+            copy = copies[target.copy_name]
+            copy['native_reference'] = reference_evidence
+            copy['outside_predicted_window'] = outside_window(edits, window)
+            copy['predicted_window_end_conflicts'] = sorted(p for p in copy['quantification_window_positions']
+                if p < 15 or p >= len(target.wt_sequence) - 15)
         if coding and target.copy_name in coding:
             offset = coding[target.copy_name]
             if type(offset) is not int or not 0<=offset<=2:
@@ -234,7 +298,7 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
     report = dict(schema_version=1,target_name=targets[0].target_name,coordinate_system='zero-based anchor WT; intervals half-open',
                 routing_policy_min_distinguishing_sites=min_distinguishing_sites,
                 anchor_copy=targets[0].copy_name,experimental_spacer=targets[0].pegRNA_spacer,
-                status='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if reasons else 'SAFE',
+                status='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if any(r['severity']=='WARN' for r in reasons) else 'SAFE',
                 reasons=reasons,pairwise=pairwise,diagnostics=diagnostics,copies=copies,primers=primer_report,
                 haplotype_maps={f'{copy}:{state}':cols for (copy,state),cols in maps.items()})
     # Setup may inspect reference annotations without running synthetic routing trials.
@@ -254,11 +318,11 @@ def geometry(targets: list[Target], *, coding: dict | None = None, primers: dict
                 for length in sorted({min(100,len(seq)),min(150,len(seq)),len(seq)}):
                     reads=(seq[:length],reverse_complement(seq[-length:]))
                     pair=tuple(FastqRecord(f'@geometry/{m}\n'.encode(),(s+'\n').encode(),b'+\n',('I'*len(s)+'\n').encode()) for m,s in enumerate(reads,1))
-                    row=route_pair(pair,targets,report,RoutingPolicy(min_distinguishing_sites=min_distinguishing_sites))
+                    row=route_pair(pair,targets,report,RoutingPolicy(min_distinguishing_sites=min_distinguishing_sites), legacy=legacy)
                     trials.append(dict(copy=target.copy_name,state=state,mate_length=length,
                                        assigned_copy=row['assigned_copy'],category=row['category'],reason=row['reason']))
         report['indel_placement_qualification']=dict(scope='perfect amplicon-end 100/150nt and full-length mates',trials=trials)
         if any(t['assigned_copy']!=t['copy'] for t in trials):
             reason('PE_EDIT_GEOMETRY_ROUTING_UNQUALIFIED','BLOCKED')
-    report['status']='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if reasons else 'SAFE'
+    report['status']='BLOCKED' if any(r['severity']=='BLOCKED' for r in reasons) else 'WARN' if any(r['severity']=='WARN' for r in reasons) else 'SAFE'
     return report

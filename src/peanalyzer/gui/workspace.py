@@ -150,7 +150,7 @@ class WorkspaceStore:
                     view=self.open(key,publish=False)
                     plan=Plan.model_validate(read_json(owned(path,'workflow/plan.json')))
                     # Historical opens and already-published snapshots are read-only.
-                    if (view.mode=='precise_edit' and plan.software_identity.pipeline_version==__version__
+                    if (plan.software_identity.pipeline_version==__version__
                             and not any(item.root==path for item in self.opened.values())):
                         try:
                             if (path/FILENAME).exists() or (path/FILENAME).is_symlink():
@@ -206,8 +206,7 @@ class WorkspaceStore:
             if identity != snapshot(root,inputs,external_roots,scientific=True):
                 raise ViewerError('WORKSPACE_CHANGED', 'Source changed during projection')
             if publish:
-                if view.mode=='precise_edit':
-                    self.exports.capture(root,view,plan)
+                self.exports.capture(root,view,plan)
                 self.opened[workspace_id]=Opened(root,MappingProxyType(identity),inputs,external_roots,
                     MappingProxyType(records),view.model_copy(deep=True),alleles)
             return view
@@ -230,8 +229,9 @@ class WorkspaceStore:
     def export_status(self,workspace_id):
         with self.lock:
             item=self.get(workspace_id)
-            if item.view.mode!='precise_edit':
-                return dict(state='NOT_APPLICABLE',message='PE summary is only available for precise-edit analyses.',warning=None)
+            if item.view.mode=='indel_nuclease' and not item.view.scientific_panels and not any(
+                    g.descriptive_statistics_version for g in item.view.groups):
+                return dict(state='NOT_APPLICABLE',message='This historical nuclease run has no workbook export.',warning=None)
             return self.exports.status(item.root)
 
     def download(self, workspace_id, artifact_id):

@@ -1,0 +1,90 @@
+{
+  "chromium": "156.0.8078.79",
+  "results": [
+    {
+      "table": "Concordant two-site calls (Q30) \u00b7 Combined target",
+      "outcome": "Site A only",
+      "numerator": 6,
+      "denominator": 40
+    },
+    {
+      "table": "Concordant two-site calls (Q30) \u00b7 Combined target",
+      "outcome": "Site B only",
+      "numerator": 8,
+      "denominator": 40
+    },
+    {
+      "table": "Concordant two-site calls (Q30) \u00b7 Combined target",
+      "outcome": "Complete double edit",
+      "numerator": 6,
+      "denominator": 40
+    },
+    {
+      "table": "Sites in aligned CRISPResso alleles \u00b7 Combined target",
+      "outcome": "Complete double edit",
+      "numerator": 6,
+      "denominator": 40
+    },
+    {
+      "table": "Exact full-length haplotypes \u00b7 Combined target",
+      "outcome": "Complete double edit",
+      "numerator": 4,
+      "denominator": 38
+    },
+    {
+      "table": "Concordant two-site calls (Q30) \u00b7 Unresolved copy",
+      "outcome": "Complete double edit",
+      "numerator": 6,
+      "denominator": 40
+    },
+    {
+      "table": "Nuclease outcomes \u00b7 W2 primary window \u00b7 Combined target",
+      "outcome": "indel fraction",
+      "numerator": 3,
+      "denominator": 16
+    },
+    {
+      "table": "Nuclease outcomes \u00b7 W2 primary window \u00b7 Copy \u00b7 chr03g",
+      "outcome": "indel fraction",
+      "numerator": 1,
+      "denominator": 6
+    },
+    {
+      "table": "Nuclease outcomes \u00b7 W2 primary window \u00b7 Copy \u00b7 chr13g",
+      "outcome": "indel fraction",
+      "numerator": 1,
+      "denominator": 7
+    },
+    {
+      "table": "Nuclease outcomes \u00b7 W3 exploratory window \u00b7 Combined target",
+      "outcome": "indel fraction",
+      "numerator": 4,
+      "denominator": 16
+    },
+    {
+      "table": "Nuclease outcomes \u00b7 W3 exploratory window \u00b7 Copy \u00b7 chr03g",
+      "outcome": "indel fraction",
+      "numerator": 1,
+      "denominator": 6
+    },
+    {
+      "table": "Nuclease outcomes \u00b7 W3 exploratory window \u00b7 Copy \u00b7 chr13g",
+      "outcome": "indel fraction",
+      "numerator": 2,
+      "denominator": 7
+    }
+  ],
+  "empty_control": "EMPTY_NEGATIVE_CONTROL",
+  "empty_metric": "unavailable",
+  "physical_mate_order_visible": true,
+  "zero_eligible_copy": "NOT_ASSESSABLE",
+  "excel_export_status": "CONTENTS_MATCH",
+  "package_code_sha256": "1abf51ee3ff2b382179f73e6658d3849e72f98cec2043ca35f22bc1fe1db4d47",
+  "viewer_build_identity_sha256": "8eddbde40c509a0f2e5bda9956be39fac9bf8a4813e70406cf39987593c9073c",
+  "workflow_manifest_sha256": {
+    "Two-site synthetic study": "d15759cfb9acaf68fb7ccf2480986fc07f5d81ed7174e42b4a91d309466c285b",
+    "W2 synthetic study": "7b9b2c94dfff0dfc47c3425dc02e8183a78dac5818625fb81de5d9633de7e018",
+    "W3 synthetic study": "a757e80f88528eeca7f63f7dacab2eda38be18b8d4b8114fd82aa8f11d2416e5"
+  },
+  "workspace_and_input_bytes_and_mtimes_unchanged": true
+}

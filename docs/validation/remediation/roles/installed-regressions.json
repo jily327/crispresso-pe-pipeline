@@ -1,0 +1,57 @@
+{
+  "installed_regressions": {
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "19",
+    "time": "15.799"
+  },
+  "junit_sha256": "29e244dc307e7f53e6a2a00ce22e236b76c0af2d8c0d8e0165d1c4cdae4f40d2",
+  "package": {
+    "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "sdist": {
+      "bytes": 3480392,
+      "file": "crispresso_pe_pipeline-1.1.0.tar.gz",
+      "sha256": "6d2a6225ff7eb0e5c20459dab8197cea9ec435e500ec12c41dca3a44bfb2c694"
+    },
+    "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+    "viewer_build_manifest": {
+      "bytes": 2995,
+      "file": "build-identity.json",
+      "sha256": "d37a848c6c617b5121806e757bb309e1f4ce6289e1a98a7e4f02ecf22ce3ce45"
+    },
+    "wheel": {
+      "bytes": 420681,
+      "file": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+      "sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+    },
+    "wheel_entries_compared_to_source_and_install": 122
+  },
+  "pe_after": {
+    "excluded_from_biological_set": true,
+    "mean": 0.1,
+    "n": 1,
+    "p": null,
+    "pooled": 0.1,
+    "q": null,
+    "sd": null,
+    "status": "NOT_ASSESSABLE",
+    "used": [
+      "A001"
+    ]
+  },
+  "pe_before": {
+    "excluded_from_biological_set": false,
+    "mean": 0.5,
+    "n": 2,
+    "p": 1.0,
+    "pooled": 0.8272727272727273,
+    "q": 1.0,
+    "sd": 0.565685424949238,
+    "status": "REPORTABLE",
+    "used": [
+      "A001",
+      "A002"
+    ]
+  }
+}

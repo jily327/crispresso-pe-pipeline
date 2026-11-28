@@ -24,6 +24,9 @@ from peanalyzer.provenance import software_provenance
 from peanalyzer.routing import RoutingPolicy, policy_identity
 from peanalyzer.schemas import Target
 from peanalyzer.observability import population_observability
+from peanalyzer.backend.extension_alleles import read_extension, run_extension
+from peanalyzer.backend.pe_window import audit_window
+from peanalyzer.pe_reference import native_reference
 from peanalyzer.metrics.family import prepared_evidence, aligned_evidence, reaggregate
 from peanalyzer.metrics.family_models import ProductEvidence
 from peanalyzer.metrics.policy_requests import prepare_policies
@@ -89,16 +92,24 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
         raise GateError('MISSING_REQUIRED_PROVENANCE')
     if execution.get(lineage_key) != lineage_hash or execution.get('inputs') != inputs:
         raise GateError('BACKEND_INPUT_LINEAGE_MISMATCH')
+    plan = native_reference(target)
+    if plan.error:
+        raise GateError(plan.error)
+    if 'native_reference' in execution or plan.orientation == 'reverse':
+        if execution.get('native_reference') != plan.provenance():
+            raise GateError('BACKEND_CONFIGURATION_MISMATCH')
+    native = plan.backend
     name = 'unrouted' if comparator else 'confident'
     argv = execution.get('argv', [])
     expected = ['-r1', 'input_R1.fastq.gz', '-r2', 'input_R2.fastq.gz',
-                '--amplicon_seq', target.wt_sequence, '--name', name, '--output_folder', 'output',
+                '--amplicon_seq', native.wt_sequence, '--name', name, '--output_folder', 'output',
                 '--write_detailed_allele_table', '--keep_intermediate', '--suppress_report', '--suppress_plots']
     for column, field in list(FIELDS.items())[2:]:
-        value = getattr(target, field)
+        value = getattr(native, field)
         if value is not None:
             expected.extend(['--' + column, str(value)])
-    if not argv or argv[1:] != expected:
+    with_reports = [item for item in expected if item not in ('--suppress_report','--suppress_plots')]
+    if not argv or argv[1:] not in (expected, with_reports):
         raise GateError('BACKEND_CONFIGURATION_MISMATCH')
     inventory(root / 'execution.json', artifacts, label + '/execution.json')
     for mate in (1, 2):
@@ -112,7 +123,7 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
         raise GateError('MISSING_REQUIRED_PROVENANCE')
     info = read_json(child / 'CRISPResso2_info.json')
     refs = info['results']['refs']
-    if refs['Reference']['sequence'] != target.wt_sequence or refs['Prime-edited']['sequence'] != target.prime_edited_sequence:
+    if refs['Reference']['sequence'] != native.wt_sequence or refs['Prime-edited']['sequence'] != native.prime_edited_sequence:
         raise GateError('BACKEND_REFERENCE_MISMATCH')
     try:
         metrics = parse_child(child, routed_pairs=inputs['pairs'], one_input_record_per_pair=True,
@@ -122,7 +133,9 @@ def load_backend(root, target, inputs, lineage_key, lineage_hash, runtime_digest
     for filename in ['CRISPResso2_info.json', *(info['running_info'][key] for key in
                      ('mapping_stats_filename', 'quant_of_editing_freq_filename', 'allele_frequency_table_zip_filename'))]:
         inventory(child_file(child, filename), artifacts, label + '/child/' + filename)
-    products = aligned_products(child, target)
+    if 'native_reference' in execution:
+        audit_window(metrics, plan, refs, args=info['running_info']['args']['value'])
+    products = aligned_products(child, native)
     if (products.classification_input_reads != metrics['native']['aligned_reads']
             or products.exact_pe != metrics['exact_haplotype']['numerator']
             or products.exact_wt + products.exact_pe != metrics['exact_haplotype']['denominator']):
@@ -136,7 +149,9 @@ def metric(name, family, scope, pop_id, count, *, copy=None, reasons=(), native=
     selective = selective_observability_reasons(products.exclusion_reason_counts) if target_exact and products else []
     n = native['numerator'] if family == 'native' and native else products.exact_pe if products else None
     d = native['denominator'] if family == 'native' and native else products.exact_wt + products.exact_pe if products else None
-    if reasons:
+    if 'EMPTY_NEGATIVE_CONTROL' in reasons:
+        status = 'NOT_ASSESSABLE'
+    elif reasons:
         status = 'BLOCKED'
     elif selective:
         status, reasons = 'NOT_ASSESSABLE', selective
@@ -171,7 +186,8 @@ def combined_status(records):
 
 
 def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparator_root,
-                    routing_root=None, copy_roots=None, runtime_digest=None, tolerance_policies=None):
+                    routing_root=None, copy_roots=None, runtime_digest=None, tolerance_policies=None,
+                    empty_negative_control=False):
     """Build M4 JSON from existing verified runs; never accepts cached metrics.json.
 
     One invocation describes one biological target and one prepared sample. The
@@ -200,6 +216,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
         global_reasons.append('TARGET_CONFIGURATION_INVALID')
     if report['status'] == 'BLOCKED':
         routing_reasons += ['UNSUPPORTED_ROUTING_GEOMETRY'] + [r['code'] for r in report['reasons'] if r.get('severity') == 'BLOCKED']
+    if any(r['code'] == 'MIXED_REFERENCE_STRANDS_NO_COMMON_COPY_COORDINATES' for r in report['reasons']):
+        native_reasons.append('MIXED_REFERENCE_STRANDS_NO_COMMON_COPY_COORDINATES')
     if contradictory_products(targets):
         global_reasons.append('CONTRADICTORY_EXACT_PRODUCT_DEFINITIONS')
     # All target-level options, not only spacer/extension, must be shared.
@@ -228,6 +246,10 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     population = digest(dict(prepared=verified.manifest_sha256 if verified else None,
                              sample=sample_id, target=definitions_hash, scope='target_all_prepared'))
     count = sample['pairs'] if sample else None
+    if empty_negative_control:
+        if count != 0:
+            raise ValueError('empty control requires verified zero prepared pairs')
+        global_reasons.append('EMPTY_NEGATIVE_CONTROL')
     product_evidence={}
     def unavailable_evidence(key, pop_id, size, scope, reasons):
         return ProductEvidence(population_id=pop_id,population_scope=scope,copy_id=None if key=='target' else key,
@@ -244,9 +266,12 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
     else:product_evidence['target']=unavailable_evidence('target',population,count,'target_all_prepared',global_reasons)
     anchor_metrics, anchor_failures = {}, {}
     native_preconditions = global_reasons + native_reasons + runtime_reasons
-    if verified and sample and not native_preconditions:
+    if verified and sample and sample['pairs'] and not runtime_reasons:
         for target in targets:
             try:
+                plan = native_reference(target)
+                if plan.error:
+                    raise GateError(plan.error)
                 root = Path(comparator_root) / target.copy_name
                 if not root.exists():
                     raise GateError('MISSING_ANCHOR_RESULT')
@@ -301,13 +326,20 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
             routing, route_hash = None, None
             routing_reasons.append('ROUTED_HANDOFF_VERIFICATION_FAILED')
     copies = {}
+    copy_windows = {}
+    extension_alleles = {}
     for target in targets:
         copy = target.copy_name
         reasons = global_reasons + routing_reasons + runtime_reasons
+        if routing:
+            reasons = reasons + routing['copy_routing_eligibility']['reason_codes'][copy]
         cohort = routing['cohorts'][copy] if routing else None
         size = cohort['pairs'] if cohort else None
         pop_id = digest(dict(prepared_population=population, routing=route_hash, copy=copy, scope='confident_copy'))
         parsed, copy_products = None, None
+        reference = report.get('copies', {}).get(copy, {}).get('native_reference', {})
+        error = reference.get('native_error')
+        if error: reasons = reasons + [error]
         exact_observability_reasons=[]
         if cohort and size:
             paths=[Path(routing_root)/cohort['files'][f'r{m}']['path'] for m in (1,2)]
@@ -316,6 +348,24 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
             exact_observability_reasons=list(observability[copy]['exact_reason_counts'])+list(observability[copy]['reconstruction_ambiguity_reason_counts'])
         if cohort and not size:
             reasons = reasons + ['COPY_COHORT_UNAVAILABLE']
+        extension = reference.get('extension_match', {})
+        if extension.get('status') == 'copy_polymorphism':
+            blocked = set(reasons + exact_observability_reasons) - {error}
+            if not cohort or not size: blocked.add('COPY_COHORT_UNAVAILABLE')
+            result = dict(status='NOT_ASSESSABLE', reason_codes=sorted(blocked), extension=extension)
+            if not blocked:
+                ext_root = Path(comparator_root).parent/'extension_alleles'/copy
+                if not ext_root.exists():
+                    result['reason_codes'] = ['MISSING_EXTENSION_ALLELE_RUN']
+                else:
+                    try:
+                        result = read_extension(ext_root, target, extension, cohort, route_hash, runtime_digest)
+                        for path in result['artifacts']:
+                            inventory(ext_root/path, artifacts, f'extension_alleles/{copy}/{path}')
+                    except (OSError, ValueError, KeyError, TypeError) as exc:
+                        result['reason_codes'] = ['INVALID_EXTENSION_ALLELE_RUN']
+                        result['detail'] = str(exc)
+            extension_alleles[copy] = result
         if not reasons and cohort:
             try:
                 root = (copy_roots or {}).get(copy)
@@ -328,6 +378,8 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
                 reasons = reasons + [exc.code]
             except (OSError, ValueError, KeyError, TypeError) as exc:
                 reasons = reasons + [backend_failure_code(exc)]
+        if parsed and 'window_audit' in parsed:
+            copy_windows[copy] = parsed['window_audit']
         attrs = parsed['native'] if parsed else None
         windows = window_reasons(parsed, target) if parsed else []
         native = metric(copy + '_crispresso_native_pe', 'native', 'confident_copy', pop_id, size,
@@ -356,7 +408,9 @@ def collect_metrics(*, analysis_root, sample_id, targets, analysis_id, comparato
             anchor_invariant=comparison['anchor_invariant'],
             block_reason_codes=sorted({reason for r in records for reason in r.reason_codes})),
         target_metrics=TargetMetrics(target_crispresso_native_pe=target_native, total_precise_pe=target_exact),
-        copies=copies, anchor_evidence=dict(comparison=comparison, failures=anchor_failures, backend_metrics=anchor_metrics,observability=observability),
+        copies=copies, anchor_evidence=dict(comparison=comparison, failures=anchor_failures, backend_metrics=anchor_metrics,observability=observability, **({'copy_windows':copy_windows} if copy_windows else {}),
+                             **({'copy_routing_eligibility':routing['copy_routing_eligibility']} if routing else {}),
+                             **({'extension_alleles':extension_alleles} if extension_alleles else {})),
         product_evidence=product_evidence,
         derived_metrics={key:reaggregate(evidence,tolerance_policies) for key,evidence in product_evidence.items()} if tolerance_policies else {},
         qc=QC(prepared_input_reads=count, routing_assigned_reads=assigned, routing_quarantined_reads=quarantine,
@@ -401,8 +455,10 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
                 json.dump(dict(status='not_started', return_code=None,
                                reason_code=backend_failure_code(exc), error=str(exc)), handle, indent=2)
                 handle.write('\n')
-    allowed_missing = {'MISSING_ANCHOR_RESULT', 'ANCHOR_DEPENDENT_NATIVE_RESULT'}
-    if set(initial.target_metrics.target_crispresso_native_pe.reason_codes) <= allowed_missing:
+    # Native analysis uses the complete verified prepared population. Supplementary
+    # observability, exact reconstruction, and copy routing cannot select its inputs.
+    if (initial.qc.prepared_input_reads and runtime_digest == RUNTIME_DIGEST
+            and any(native_reference(t).error is None for t in targets)):
         try:
             comparison = run_comparator(analysis_root, sample_id, targets, output/'comparator', core, runtime_identity=runtime)
             if comparison['anchor_failures']:
@@ -420,13 +476,35 @@ def run_metrics(*, analysis_root, sample_id, targets, analysis_id, output, core,
             except (OSError, ValueError, KeyError, TypeError, BackendError) as exc:
                 failures[copy] = str(exc)
                 record_unstarted_failure(copy_roots[copy], exc)
+    for target in targets:
+        row = initial.anchor_evidence.get('extension_alleles', {}).get(target.copy_name, {})
+        if row.get('reason_codes') == ['MISSING_EXTENSION_ALLELE_RUN']:
+            cohort = read_json(Path(routing_root)/'routing_manifest.json')['cohorts'][target.copy_name]
+            try:
+                run_extension(output/'extension_alleles'/target.copy_name, target, row['extension'],
+                              cohort, routing_root, core, runtime_digest)
+            except (OSError, ValueError, KeyError, TypeError, BackendError) as exc:
+                failures['extension_alleles/'+target.copy_name] = str(exc)
     result = collect_metrics(analysis_root=analysis_root, sample_id=sample_id, targets=targets,
         analysis_id=analysis_id, comparator_root=output/'comparator', routing_root=routing_root,
         copy_roots=copy_roots, runtime_digest=runtime_digest)
     if tolerance_policies:
         result.derived_metrics={key:reaggregate(evidence,tolerance_policies) for key,evidence in result.product_evidence.items()}
     (output/'execution_failures.json').write_text(json.dumps(failures, indent=2)+'\n')
-    # Exclusive publication only after schema validation of the complete result.
+    from peanalyzer.workflow_sites import write_workflow_sites
+    from peanalyzer.metrics.models import Artifact
+    write_workflow_sites(analysis_root=analysis_root, sample_id=sample_id, targets=targets, output=output,
+                         core=core, runtime_digest=runtime_digest, canonical_record=result.target_metrics.total_precise_pe)
+    if (len(targets) > 1 and initial.qc.prepared_input_reads and core.version == '2.3.4'
+            and runtime_digest == RUNTIME_DIGEST and not (output/'core_sites/CRISPResso_on_sites/CRISPResso2_info.json').exists()):
+        from peanalyzer.backend.conventional import run_conventional_panel
+        run_conventional_panel(verify_analysis_output(Path(analysis_root)), sample_id, targets, core,
+                               runtime_digest, output/'multi_wt')
+    sites_file = output / 'intended_sites.json'
+    if sites_file.exists():
+        result.provenance.artifacts[sites_file.name] = Artifact(sha256=sha256_file(sites_file),
+                                                              size_bytes=sites_file.stat().st_size)
+    # Exclusive publication binds all scientific inputs, including supplementary site measurements.
     with (output/'result.json').open('x') as handle:
         handle.write(result.model_dump_json(indent=2)+'\n')
     return result

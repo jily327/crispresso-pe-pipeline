@@ -20,7 +20,8 @@ from matplotlib.ticker import PercentFormatter
 from peanalyzer import __version__
 from peanalyzer.result_dispatch import statistics_model, report_model
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportArtifact, ReportManifest, ReportingError
-from peanalyzer.statistical_models import ContrastResult, GroupSummary, Observation, Series, StatisticsResult
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, biological_role
+from peanalyzer.statistical_models import BiologicalReplicateSummary, ContrastResult, GroupSummary, Observation, Series, StatisticsResult
 
 PALETTE = ("#0072B2", "#E69F00", "#009E73", "#CC79A7", "#D55E00", "#56B4E9", "#000000")
 SERIES_FIELDS = tuple(Series.model_fields)
@@ -86,6 +87,10 @@ def metric_label(row):
     if row["policy_id"] is not None:
         return f'{population} PE family ({row["policy_id"]})'
     metric = row["metric_name"]
+    if metric.startswith("intended_sites."):
+        from peanalyzer.site_series import measurement_labels
+        method, outcome, _ = measurement_labels(metric)
+        return f"{population} {method} · {outcome}"
     if metric.endswith("crispresso_native_pe"):
         return population + " CRISPResso native PE"
     if metric.endswith("precise_pe"):
@@ -124,6 +129,7 @@ def build_report_spec(result, title=DEFAULT_TITLE):
     families = sorted((_ordered(r.model_dump(mode="json")) for r in result.multiple_testing_families),
                       key=lambda r: r["family_id"])
     definitions = {series_key(r): identity(r) for r in [*observations, *groups]}
+    role_aware = result.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY
     conditions = {condition_key(r): {k: r[k] for k in ("editor", "treatment", "dpi")} for r in observations}
     conditions.update({condition_key(g["condition"]): g["condition"] for g in groups})
     condition_colors = {key: PALETTE[i % len(PALETTE)] for i, key in enumerate(sorted(conditions))}
@@ -137,7 +143,8 @@ def build_report_spec(result, title=DEFAULT_TITLE):
         points, means = [], []
         for x, condition in enumerate(ordered_conditions):
             ck = condition_key(condition)
-            members = [r for r in rows if condition_key(r) == ck and r["status"] == "REPORTABLE"]
+            members = [r for r in rows if condition_key(r) == ck and r["status"] == "REPORTABLE"
+                       and (not role_aware or biological_role(r.get("sample_role", "experimental")))]
             for index, row in enumerate(members):
                 offset = 0.0 if len(members) == 1 else 0.36 * (index / (len(members) - 1) - 0.5)
                 points.append(dict(sample_name=row["sample_name"], condition=condition, x=x+offset,
@@ -151,9 +158,15 @@ def build_report_spec(result, title=DEFAULT_TITLE):
     effects = [dict(family_id=f["family_id"], figure_id=figure_id("contrasts", {"family_id": f["family_id"]}),
                     contrasts=[c for c in contrasts if c["family_id"] == f["family_id"] and c["status"] == "REPORTABLE"])
                for f in families]
-    sample_ids = {a["sample_name"] for g in groups for a in g["sample_assessments"]} | {r["sample_name"] for r in observations}
-    spec = dict(title=title, observations=observations, group_summaries=groups, contrasts=contrasts,
+    sample_ids = {a["sample_name"] for g in groups for a in g["sample_assessments"]} | {r["sample_name"] for r in observations
+        if not role_aware or biological_role(r.get("sample_role", "experimental"))}
+    role_qc = []
+    if role_aware:
+        role_qc = [row | {"biological_eligible": biological_role(row["sample_role"])} for row in observations
+                   if row.get("sample_role", "experimental") != "experimental"]
+    spec = dict(title=title, control_qc=role_qc, observations=observations, group_summaries=groups, contrasts=contrasts,
         families=families, series=series, effects=effects,
+        minimum_biological_replicates=result.provenance.invocation_parameters.get("minimum_biological_replicates"),
         unused_metadata_sample_ids=sorted(result.unused_metadata_sample_ids),
         inventory=dict(biological_samples=len(sample_ids), conditions=len(conditions),
             targets=len({r["target_name"] for r in definitions.values()}), metric_series=len(series),
@@ -173,11 +186,20 @@ def _cell(value):
     return canonical(value) if isinstance(value, (dict, list)) else "" if value is None else str(value)
 
 
+def report_tables(spec):
+    versioned = any("descriptive_statistics_version" in group for group in spec["group_summaries"])
+    groups = BiologicalReplicateSummary if versioned else GroupSummary
+    for name, model in (("observations", Observation), ("group_summaries", groups), ("contrasts", ContrastResult)):
+        rows = spec[name]
+        present = {key for row in rows for key in row} if rows else set(model.model_fields)
+        yield name, [field for field in model.model_fields if field in present]
+
+
 def write_tables(spec, root):
     root.mkdir()
-    for name, model in (("observations", Observation), ("group_summaries", GroupSummary), ("contrasts", ContrastResult)):
+    for name, columns in report_tables(spec):
         with (root / f"{name}.tsv").open("w", encoding="utf-8", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(model.model_fields), delimiter="\t", lineterminator="\n")
+            writer = csv.DictWriter(handle, fieldnames=columns, delimiter="\t", lineterminator="\n")
             writer.writeheader()
             writer.writerows({key: _cell(value) for key, value in row.items()} for row in spec[name])
 
@@ -270,11 +292,19 @@ def render_html(spec, source_hash, figures):
              '<h2>Measurement definitions</h2><p>Target measurements describe the target population; copy measurements describe qualified, routing-conditioned copy populations. Native PE follows CRISPResso native classification; precise PE uses exact WT/PE product definitions. Family metrics preserve their named policy and normalized definition. Biological samples are the units of inference. POOLED READ-WEIGHTED DESCRIPTIVE FRACTION is descriptive only.</p>',
              '<h2>Biological sample summaries</h2>']
     summary_rows = [dict(target=g['target_name'], metric=metric_label(g), condition=condition_label(g['condition']),
-                         mean=percentage(g['mean_biological_sample_fraction']), expected=g['expected_sample_count'],
+                         mean=percentage(g['mean_biological_sample_fraction']),
+                         sample_SD=percentage(g.get('sample_sd_biological_sample_fraction')) or 'Unavailable',
+                         expected=g['expected_sample_count'],
                          REPORTABLE=g['reportable_count'], BLOCKED=g['blocked_count'], NOT_ASSESSABLE=g['not_assessable_count'],
                          MISSING_METRIC=g['missing_metric_count']) for g in spec['group_summaries']]
+    versioned = any("descriptive_statistics_version" in group for group in spec["group_summaries"])
+    if versioned:
+        parts.append('<p>Mean and sample SD use equally weighted reportable biological samples. '
+                     'Sample SD uses n − 1 and is unavailable below two samples. '
+                     'SD in this table is expressed in percentage points.</p>')
     parts.append(_table('Stored unweighted biological-sample means (display percentages)', summary_rows,
-                        ['target', 'metric', 'condition', 'mean', 'expected', 'REPORTABLE', 'BLOCKED', 'NOT_ASSESSABLE', 'MISSING_METRIC']))
+                        ['target', 'metric', 'condition', 'mean', *(['sample_SD'] if versioned else []),
+                         'expected', 'REPORTABLE', 'BLOCKED', 'NOT_ASSESSABLE', 'MISSING_METRIC']))
     parts.append('<h2>Sample-level figures</h2>')
     for item in spec['series']:
         caption = _series_caption(item['identity'])
@@ -285,6 +315,10 @@ def render_html(spec, source_hash, figures):
         else:
             parts.append('<p>' + escape(caption) + 'No reportable numerical observations.</p>')
     parts.append('<h2>Statistical contrasts</h2>')
+    threshold = spec.get('minimum_biological_replicates')
+    if threshold is not None:
+        parts.append(f'<p>Executed minimum biological replicates: {threshold} reportable samples per '
+                     'unpaired group or complete blocks per paired contrast.</p>')
     if not spec['contrasts']:
         parts.append('<p>No statistical contrasts in this M5 result.</p>')
     for item in spec['effects']:
@@ -307,6 +341,11 @@ def render_html(spec, source_hash, figures):
         ['contrast_id', 'family_id', 'pairing_mode', 'expected_n_A', 'expected_n_B', 'used_n_A', 'used_n_B',
          'complete_block_count', 'complete_blocks', 'excluded_blocks', 'status', 'reason_codes']))
     parts.append(_table('Declared multiple-testing families (M5)', spec['families'], ['family_id', 'method', 'contrast_ids', 'valid_contrast_ids', 'valid_test_count']))
+    if spec['control_qc']:
+        parts.append('<h2>Control and technical sample QC</h2>')
+        parts.append(_table('Individual sample measurements and biological eligibility', spec['control_qc'],
+                            ['sample_name','sample_id','sample_role','biological_eligible','target_name','copy_name',
+                             'policy_id','biological_replicate','block_id','paired','metric_name','status','numerator','denominator','fraction','reason_codes']))
     parts.append('<h2>Reportability / missingness</h2>')
     parts.append('<p>Runtime provenance: runtime_digest is the declared qualified runtime, not an independently observed image identity. An executable hash may identify a wrapper only; version 2.3.4 does not establish Docker image equivalence.</p>')
     parts.append(_table('Expected and numerical sample inventories', summary_rows,
@@ -314,9 +353,9 @@ def render_html(spec, source_hash, figures):
     assessments = [dict(**identity(g), condition=g['condition'], **a) for g in spec['group_summaries'] for a in g['sample_assessments']]
     parts.append(_table('Sample assessments and reason codes', assessments, [*SERIES_FIELDS, 'condition', 'sample_name', 'biological_replicate', 'block_id', 'paired', 'status', 'reason_codes']))
     parts.append('<p>Unused metadata sample IDs: ' + escape(canonical(spec['unused_metadata_sample_ids'])) + '</p><h2>Detailed tables</h2>')
-    for name, model in (("observations", Observation), ("group_summaries", GroupSummary), ("contrasts", ContrastResult)):
+    for name, columns in report_tables(spec):
         parts.append('<p><a href="tables/' + name + '.tsv">Download ' + name + '.tsv</a></p>')
-        parts.append(_table(name, spec[name], list(model.model_fields)))
+        parts.append(_table(name, spec[name], columns))
     contracts = ('indel-nuclease-report-v1', 'indel-nuclease-stats-v1') if 'nuclease_results' in spec else ('m6-v1', 'm5-v1')
     parts.extend(['<h2>Reproducibility</h2><p>Package version: ', escape(__version__),
                   '; report contract: ' + contracts[0] + '; source statistics contract: ' + contracts[1] + '; inventoried artifacts: ', str(5+len(figures)),

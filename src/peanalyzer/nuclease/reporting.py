@@ -9,6 +9,21 @@ def extend_html(page,spec):
     parts=['<h2>Nuclease evidence</h2><p>The selected quantification window and physical cut geometry are recorded for each result below.</p>']
     for result in spec['nuclease_results']:
         parts.append('<h3>'+html.escape(result['sample_id']+' / '+result['target_id'])+'</h3>')
+        if result['metric_contract_version']=='empty-nuclease-control-v1':
+            parts.append('<p>Empty negative control. Zero prepared read pairs. Editing is not assessable.</p>')
+            continue
+        if result['metric_contract_version'] == 'indel-nuclease-multicopy-v1':
+            parts.append('<p>Each merged read contributes once to the combined assessable population. Confident copy estimates require two flanking SNP markers against every alternate copy and no conflicting marker. Copy-ambiguous reads contribute only when all reference-specific window calls agree.</p>')
+            window_rows = [dict(copy=name,measurement=w.get('selected_window','explicit'),
+                                coordinates=w['coordinates'],role='primary' if w.get('selected_window')=='W2' else 'exploratory' if w.get('selected_window') else 'specified')
+                           for name,w in result['windows'].items()]
+            parts.append(_table('Window by genomic copy',window_rows,['copy','measurement','coordinates','role']))
+            pop = result['population']
+            parts.append(_table('Physical read population',[pop],list(pop)))
+            rows = [dict(population=label, **group['metrics']['indel_fraction'],status=group['status'])
+                    for label,group in [('Combined',result['combined']),*result['copies'].items()]]
+            parts.append(_table('Indel fraction among assessable reads',rows,['population','numerator','denominator','fraction','status']))
+            continue
         window=result['provenance']['scientific_identity']['resolved_window']
         label=window.get('selected_window','explicit')
         parts.append('<p>Selected window: '+html.escape(label)+'; zero-based inclusive coordinates: '+html.escape(window['coordinates'])+'.</p>')

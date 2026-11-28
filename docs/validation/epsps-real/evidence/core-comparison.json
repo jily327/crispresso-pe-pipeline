@@ -1,0 +1,102 @@
+{
+  "1A": {
+    "aligned": 5115,
+    "ambiguous": {
+      "AMBIGUOUS_chr01g": 1
+    },
+    "copies": {
+      "chr01g": {
+        "aligned_site_bases": {
+          "AB": 6,
+          "A_only": 6,
+          "B_only": 12,
+          "WT": 2659,
+          "other": 8
+        },
+        "literal_merged_templates": {
+          "AB": 3,
+          "A_only": 3,
+          "B_only": 5,
+          "WT": 1809
+        },
+        "native_window_modified": 32,
+        "ordinary_alignments": 2691
+      },
+      "chr17g": {
+        "aligned_site_bases": {
+          "AB": 15,
+          "A_only": 25,
+          "B_only": 3,
+          "WT": 2368,
+          "other": 12
+        },
+        "literal_merged_templates": {
+          "AB": 8,
+          "A_only": 14,
+          "B_only": 3,
+          "WT": 1271
+        },
+        "native_window_modified": 55,
+        "ordinary_alignments": 2423
+      }
+    },
+    "merged": 5543,
+    "raw_pairs": 5564,
+    "unaligned_after_merge": 428,
+    "version": "2.3.4",
+    "window_indices": [
+      146,
+      157
+    ]
+  },
+  "all_known": {
+    "aligned": 105769,
+    "ambiguous": {
+      "AMBIGUOUS_chr01g": 49
+    },
+    "copies": {
+      "chr01g": {
+        "aligned_site_bases": {
+          "AB": 9,
+          "A_only": 39,
+          "B_only": 92,
+          "WT": 55997,
+          "other": 213
+        },
+        "literal_merged_templates": {
+          "AB": 4,
+          "A_only": 18,
+          "B_only": 32,
+          "WT": 35133
+        },
+        "native_window_modified": 352,
+        "ordinary_alignments": 56350
+      },
+      "chr17g": {
+        "aligned_site_bases": {
+          "AB": 16,
+          "A_only": 49,
+          "B_only": 69,
+          "WT": 49036,
+          "other": 200
+        },
+        "literal_merged_templates": {
+          "AB": 8,
+          "A_only": 18,
+          "B_only": 20,
+          "WT": 24794
+        },
+        "native_window_modified": 333,
+        "ordinary_alignments": 49370
+      }
+    },
+    "merged": 114250,
+    "raw_pairs": 114761,
+    "unaligned_after_merge": 8481,
+    "version": "2.3.4",
+    "window_indices": [
+      146,
+      157
+    ]
+  }
+}

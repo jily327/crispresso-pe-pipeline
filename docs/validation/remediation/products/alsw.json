@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "ALSW_211bp": {
+      "exact_PE": 4923,
+      "exact_WT": 12488,
+      "not_assessable": 1,
+      "other_or_unassessable": 36484
+    },
+    "ALSW_253bp": {
+      "exact_PE": 4734,
+      "exact_WT": 12004,
+      "other_or_unassessable": 37158
+    }
+  },
+  "discrepancies": [],
+  "oracle": "raw_oracle.product; supplied R1 forward",
+  "source": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "e2ec4214b5cdd402490e39aa853dd48a4e980d8d",
+    "git_dirty": false,
+    "package_code_sha256": "db13349df04bff23fd3ca31a638b636f06c23634b9831d2a742c4e7daa72b208",
+    "pipeline_version": "1.1.0",
+    "python_version": "3.12.14"
+  }
+}

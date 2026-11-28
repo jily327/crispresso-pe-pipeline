@@ -93,7 +93,7 @@ def inventory(root, relative):
     path = owned(root, relative)
     if not path.exists():
         raise WorkflowError('MISSING_STAGE_OUTPUT', relative)
-    paths = [path] if path.is_file() else sorted(path.rglob('*'))
+    paths = [path] if path.is_file() else sorted(path.rglob('*'), key=lambda p: p.as_posix())
     result = []
     for item in paths:
         no_symlinks(item)

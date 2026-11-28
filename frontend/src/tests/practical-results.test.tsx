@@ -3,7 +3,7 @@ import {expect,it,vi} from 'vitest';
 import {Samples} from '../pages/Results';
 import type {WorkspaceView} from '../models/api';
 import peRaw from './fixtures/pe.json';
-const view={...peRaw,observations:peRaw.observations.map(o=>({...o,label:o.metric_name==='target_crispresso_native_pe'?'CRISPResso Prime-edited reference fraction':o.label,numerator_label:'Authoritative numerator',definition:'Authoritative stored definition'}))} as WorkspaceView;
+const view={...peRaw,scientific_panels:[],measurement_rows:[],native_runs:[],minimum_biological_replicates:null,groups:peRaw.groups.map(g=>({...g,descriptive_statistics_version:null,sample_sd:null,sample_sd_percentage:null,pooled_read_fraction:null})),observations:peRaw.observations.map(o=>({...o,sample_role:"experimental",biological_eligible:true,label:o.metric_name==='target_crispresso_native_pe'?'CRISPResso Prime-edited reference fraction':o.label,numerator_label:'Authoritative numerator',definition:'Authoritative stored definition'}))} as WorkspaceView;
 it('shows both primary fractions and exact stored integers simultaneously',()=>{
   const v=structuredClone(view);const primary=v.observations.find(o=>o.metric_name==='total_precise_pe')!;const native=v.observations.find(o=>o.sample_id===primary.sample_id&&o.metric_name==='target_crispresso_native_pe')!;
   primary.percentage='12.345%';primary.numerator='999';primary.denominator='1';native.percentage='67.891%';

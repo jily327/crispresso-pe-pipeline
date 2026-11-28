@@ -2,6 +2,8 @@
 import csv
 import hashlib
 import json
+import math
+from fractions import Fraction
 from pathlib import Path
 import random
 import subprocess
@@ -37,7 +39,19 @@ def scientific(result):
 
 
 def scientific_sha(result):
-    return hashlib.sha256(json.dumps(scientific(result), sort_keys=True, separators=(',',':')).encode()).hexdigest()
+    # Compare the original contract byte-for-byte and independently check the
+    # two extension fields which did not exist when the frozen digest was made.
+    original = scientific(result)
+    for group in original['group_summaries']:
+        assert group.pop('descriptive_statistics_version') == 'biological-sample-sd-v1'
+        sd = group.pop('sample_sd_biological_sample_fraction')
+        values = [Fraction(row['numerator'], row['denominator']) for row in group['source_fractions']]
+        if len(values) >= 2:
+            mean = sum(values) / len(values)
+            assert sd == pytest.approx(math.sqrt(sum((x - mean)**2 for x in values) / (len(values) - 1)))
+        else:
+            assert sd is None
+    return hashlib.sha256(json.dumps(original, sort_keys=True, separators=(',',':')).encode()).hexdigest()
 
 
 def diagnostic(missing):

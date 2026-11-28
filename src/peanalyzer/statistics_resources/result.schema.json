@@ -1,5 +1,244 @@
 {
   "$defs": {
+    "BiologicalReplicateSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_count": {
+          "minimum": 0,
+          "title": "Blocked Count",
+          "type": "integer"
+        },
+        "condition": {
+          "$ref": "#/$defs/Condition"
+        },
+        "copy_name": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Copy Name"
+        },
+        "descriptive_statistics_version": {
+          "const": "biological-sample-sd-v1",
+          "title": "Descriptive Statistics Version",
+          "type": "string"
+        },
+        "expected_sample_count": {
+          "minimum": 0,
+          "title": "Expected Sample Count",
+          "type": "integer"
+        },
+        "expected_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Expected Sample Ids",
+          "type": "array"
+        },
+        "maximum_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Maximum Biological Sample Fraction"
+        },
+        "mean_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mean Biological Sample Fraction"
+        },
+        "median_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Median Biological Sample Fraction"
+        },
+        "metric_name": {
+          "minLength": 1,
+          "title": "Metric Name",
+          "type": "string"
+        },
+        "minimum_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Minimum Biological Sample Fraction"
+        },
+        "missing_metric_count": {
+          "minimum": 0,
+          "title": "Missing Metric Count",
+          "type": "integer"
+        },
+        "not_assessable_count": {
+          "minimum": 0,
+          "title": "Not Assessable Count",
+          "type": "integer"
+        },
+        "policy_definition": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "$ref": "#/$defs/JsonValue"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Definition"
+        },
+        "policy_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Policy Id"
+        },
+        "pooled_read_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Pooled Read Fraction"
+        },
+        "pooled_read_fraction_label": {
+          "const": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+          "default": "POOLED READ-WEIGHTED DESCRIPTIVE FRACTION",
+          "title": "Pooled Read Fraction Label",
+          "type": "string"
+        },
+        "population_scope": {
+          "enum": [
+            "target_all_prepared",
+            "confident_copy"
+          ],
+          "title": "Population Scope",
+          "type": "string"
+        },
+        "reportable_count": {
+          "minimum": 0,
+          "title": "Reportable Count",
+          "type": "integer"
+        },
+        "reportable_sample_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+            "type": "string"
+          },
+          "title": "Reportable Sample Ids",
+          "type": "array"
+        },
+        "routing_conditioned": {
+          "title": "Routing Conditioned",
+          "type": "boolean"
+        },
+        "sample_assessments": {
+          "items": {
+            "$ref": "#/$defs/SampleAssessment"
+          },
+          "title": "Sample Assessments",
+          "type": "array"
+        },
+        "sample_sd_biological_sample_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Sample Sd Biological Sample Fraction"
+        },
+        "source_fractions": {
+          "items": {
+            "$ref": "#/$defs/SampleFraction"
+          },
+          "title": "Source Fractions",
+          "type": "array"
+        },
+        "target_name": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
+          "title": "Target Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_name",
+        "metric_name",
+        "population_scope",
+        "routing_conditioned",
+        "condition",
+        "expected_sample_count",
+        "expected_sample_ids",
+        "reportable_count",
+        "blocked_count",
+        "not_assessable_count",
+        "missing_metric_count",
+        "sample_assessments",
+        "reportable_sample_ids",
+        "source_fractions",
+        "mean_biological_sample_fraction",
+        "median_biological_sample_fraction",
+        "minimum_biological_sample_fraction",
+        "maximum_biological_sample_fraction",
+        "pooled_read_fraction",
+        "descriptive_statistics_version",
+        "sample_sd_biological_sample_fraction"
+      ],
+      "title": "BiologicalReplicateSummary",
+      "type": "object"
+    },
     "Condition": {
       "additionalProperties": false,
       "properties": {
@@ -738,7 +977,10 @@
           "title": "Fraction"
         },
         "metric_contract_version": {
-          "const": "m4-v1",
+          "enum": [
+            "m4-v1",
+            "intended-sites-v1.1"
+          ],
           "title": "Metric Contract Version",
           "type": "string"
         },
@@ -823,6 +1065,19 @@
         "sample_name": {
           "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
           "title": "Sample Name",
+          "type": "string"
+        },
+        "sample_role": {
+          "default": "experimental",
+          "enum": [
+            "experimental",
+            "biological_negative_control",
+            "pcr_negative_control",
+            "no_template_control",
+            "technical_replicate",
+            "negative_control"
+          ],
+          "title": "Sample Role",
           "type": "string"
         },
         "source_result": {
@@ -943,7 +1198,10 @@
         },
         "source_metric_contract_versions": {
           "items": {
-            "const": "m4-v1",
+            "enum": [
+              "m4-v1",
+              "intended-sites-v1.1"
+            ],
             "type": "string"
           },
           "title": "Source Metric Contract Versions",
@@ -1016,6 +1274,19 @@
         "sample_name": {
           "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$",
           "title": "Sample Name",
+          "type": "string"
+        },
+        "sample_role": {
+          "default": "experimental",
+          "enum": [
+            "experimental",
+            "biological_negative_control",
+            "pcr_negative_control",
+            "no_template_control",
+            "technical_replicate",
+            "negative_control"
+          ],
+          "title": "Sample Role",
           "type": "string"
         },
         "status": {
@@ -1094,7 +1365,14 @@
     },
     "group_summaries": {
       "items": {
-        "$ref": "#/$defs/GroupSummary"
+        "anyOf": [
+          {
+            "$ref": "#/$defs/BiologicalReplicateSummary"
+          },
+          {
+            "$ref": "#/$defs/GroupSummary"
+          }
+        ]
       },
       "title": "Group Summaries",
       "type": "array"

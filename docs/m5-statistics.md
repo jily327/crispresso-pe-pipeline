@@ -97,8 +97,19 @@ metric/copy/policy series, summaries contain:
   counts and a per-sample status/reason inventory.
 - Reportable sample IDs, source integer numerators/denominators and fractions.
 - Unweighted biological-sample mean, median, minimum and maximum.
+- From v1.1, `sample_sd_biological_sample_fraction` is the sample standard
+  deviation of the reportable biological-sample fractions, with divisor
+  `n − 1`. Each biological replicate contributes one fraction. The SD is null
+  for zero or one reportable sample and is zero for identical fractions at
+  n ≥ 2. Descriptive eligibility is independent of the contrast threshold.
 - `pooled_read_fraction = sum(numerator) / sum(denominator)`, labelled
   **POOLED READ-WEIGHTED DESCRIPTIVE FRACTION**.
+
+Fresh group summaries carry `descriptive_statistics_version=biological-sample-sd-v1`.
+Historical results retain their original fields and stored contrasts. JSON and
+TSV express mean and SD on the fraction scale. The viewer, report and workbook
+present the mean as a percentage and the SD on the corresponding percentage-point
+scale. For example, a fraction SD of 0.02 corresponds to 2 percentage points.
 
 For `1/10` and `90/100`, the biological mean and median are `0.5`; the pooled
 fraction is `91/110`. The pooled fraction is descriptive only and never enters
@@ -139,7 +150,15 @@ There are no implicit design or multiple-testing defaults.
 
 ## Exact tests and missing observations
 
-Unpaired tests require at least **two reportable biological samples per group**.
+Workflow contrasts apply `statistics.min_biological_replicates` from config.yaml.
+Standalone `peanalyzer stats` accepts `--min-biological-replicates`. Both
+default to **2**, the minimum actually used by v1.0.1. A configured integer of
+3 or more raises the eligibility threshold for the new execution. The actual
+threshold is stored at `provenance.invocation_parameters.minimum_biological_replicates`
+and shown in the statistical report. Before v1.1, the configuration default was
+3 and the implementation always executed with 2.
+
+Unpaired tests require this many reportable biological samples in each group.
 The effect is mean(B fractions) minus mean(A fractions), without read weighting.
 Every allocation of sample labels preserving the two group sizes is enumerated:
 `choose(nA + nB, nA)` assignments. The two-sided tail includes assignments with
@@ -156,7 +175,7 @@ all expected rows. Each block/group may have at most one observation, including
 nonreportable observations. A duplicate in either group blocks the contrast.
 A usable block contains exactly one reportable A and one reportable B.
 Pairing never comes from replicate number, barcode, sample naming or ordering.
-At least **two complete blocks** are required. The effect is the mean within-
+The same configured minimum applies to complete blocks. The effect is the mean within-
 block B-minus-A fraction. Every one of `2^blocks` sign patterns is enumerated
 with the same exact two-sided tail rule.
 
@@ -222,3 +241,61 @@ remain scientific design assumptions. M4's existing observability/read-geometry
 limitations remain upstream and unchanged; M4.2.3 is not implemented here.
 See [M5 qualification](validation/m5/README.md) and
 [M5.1 coverage validation](validation/m51/README.md).
+
+## Two-site biological comparisons
+
+For a two-site precise-edit analysis, the metrics result declares the size and
+SHA-256 of `intended_sites.json`. The statistics collector checks that
+declaration, the sample, target, prepared population, reference panel and assay
+settings. Each observation links to the declared site file. A historical run
+without the companion supplies no site measurements. When other samples have
+the series, its missing observation appears in the expected replicate inventory.
+
+Contrast selectors use `intended_sites.<method>.<outcome>`. Methods are
+`two_site_q30` (paired-read contexts), `full_templates` (exact full-length
+templates) and `core_alleles` (ordinary aligned CRISPResso alleles). Outcomes
+are `WT`, `A_only`, `B_only`, `double_edit`, `any_edit`, `site_A` and `site_B`.
+The joint outcomes use the number of jointly assessed molecules. The marginal
+site outcomes use the number assessable at their respective sites. For example,
+`intended_sites.two_site_q30.double_edit` has denominator WT + A-only + B-only
++ double-edit. The strict full-length WT-versus-intended-product ratio has its
+own existing metric definition.
+
+The Q30 and full-template series support a combined target and a named
+`copy_name`. Unresolved origins contribute to the combined target and remain
+visible in the source partition. CRISPResso aligned-allele statistics cover
+the combined target. The sample-level backend tables separately identify
+assignment to a reference. Zero denominators give an unavailable fraction,
+and a blocked assay passes its reason to the replicate inventory.
+
+## Sample roles and biological eligibility
+
+The samples CSV, Setup form and sample workbook accept the following roles.
+A missing role defaults to `experimental`. Declare empty-vector and no-guide
+biological groups with `biological_negative_control` and their actual
+treatment and independent biological replicate IDs.
+
+| Sample role | Enters biological summaries and tests | Sample-level reporting |
+| --- | --- | --- |
+| `experimental` | Yes, when the metric is reportable | All observations |
+| `biological_negative_control` | Yes, when the metric is reportable | All observations and control QC |
+| `pcr_negative_control`, `no_template_control` | No | All observations and control QC |
+| `negative_control` | No. This legacy declaration means PCR negative | All observations and control QC |
+| `technical_replicate` | No. A repeated measurement may share a biological replicate ID | All observations and technical QC |
+
+Each biological replicate contributes one fraction. The study must identify
+the independent experimental or biological-control row explicitly when it
+also records technical repeats. Technical measurements remain individually
+available. They never increase biological n and are never silently pooled.
+The role restriction precedes sample and block selection and applies to every
+metric series. The pooled biological fraction uses only the participating
+reportable biological samples. PCR and no-template controls may have zero
+reads. A nonempty control retains its actual measured numerator, denominator
+and fraction. Per-sample extension evidence remains attached to its own
+sample throughout the workflow.
+
+New executions record `biological_role_policy=explicit-sample-roles-v1`.
+They emit `control_and_technical_qc.tsv` when a declared control or repeat
+is present. The report, viewer QC and workbook expose those measurements.
+Opening a historical result reads its published statistics. Explicitly running
+a new contrast from stored observations uses the current role policy.

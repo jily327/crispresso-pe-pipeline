@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import type { WorkspaceView, Observation, Source, NucleaseDetail, AllelePage, Group } from '../models/api';
+import { MeasurementCatalog } from '../components/MeasurementCatalog';
+import { ScientificResults } from '../components/ScientificResults';
 import { api } from '../api/client';
 import { absent, Fields, MetricCard, SourceLink, Status, Table } from '../components/Common';
 
 type Props = { view: WorkspaceView; sample: string; series: string; onDownload: (s: Source) => void; onError: (e: unknown) => void };
 export function Groups({ groups }: { groups: Group[] }) {
-  return <Table caption="Biological replicate summaries · stored unweighted means" headers={['Condition', 'Metric', 'Mean', 'Reportable / expected n', 'Minimum fraction', 'Maximum fraction', 'Median fraction', 'Sample points and availability']}>{groups.map((g,i) => <tr key={i}><th scope="row">{g.condition}</th><td>{g.label}</td><td>{absent(g.mean_percentage)}</td><td>{g.reportable_n} / {g.expected_n}</td><td>{absent(g.minimum)}</td><td>{absent(g.maximum)}</td><td>{absent(g.median)}</td><td><details><summary>Biological samples</summary><Fields values={g.points} caption="Stored sample fractions"/><Fields values={g.availability} caption="Sample availability"/></details></td></tr>)}</Table>;
+  const hasSD = groups.some(g => g.descriptive_statistics_version);
+  return <Table caption="Biological replicate summaries · stored unweighted means" headers={['Condition', 'Metric', 'Mean', ...(hasSD ? ['Sample SD (percentage points)'] : []), 'Reportable / expected n', 'Minimum fraction', 'Maximum fraction', 'Median fraction', 'Sample points and availability']}>{groups.map((g,i) => <tr key={i}><th scope="row">{g.condition}</th><td>{g.label}</td><td>{absent(g.mean_percentage)}</td>{hasSD && <td>{g.sample_sd_percentage?.replace('%', '') ?? 'Unavailable'}</td>}<td>{g.reportable_n} / {g.expected_n}</td><td>{absent(g.minimum)}</td><td>{absent(g.maximum)}</td><td>{absent(g.median)}</td><td><details><summary>Biological samples</summary><Fields values={g.points} caption="Stored sample fractions"/><Fields values={g.availability} caption="Sample availability"/></details></td></tr>)}</Table>;
 }
 function Nuclease({ detail }: { detail: NucleaseDetail }) {
   return <><Fields values={detail.window} caption="Selected window · 0-based inclusive, amplicon top strand"/>
@@ -16,13 +19,17 @@ function Nuclease({ detail }: { detail: NucleaseDetail }) {
 }
 export function Overview(p: Props) {
   const primary = p.view.mode === 'precise_edit' ? 'total_precise_pe' : 'indel_fraction';
-  const rows = p.view.observations.filter(o => o.sample_id === p.sample && (o.metric_name === primary || o.metric_name === 'target_crispresso_native_pe'));
+  const primaryRows = p.view.observations.filter(o => !o.routing_conditioned && o.copy_name === null);
+  const mainSeries = new Set(primaryRows.filter(o => o.metric_name === primary).map(o => o.series_id));
+  const rows = primaryRows.filter(o => o.sample_id === p.sample && (o.metric_name === primary || o.metric_name === 'target_crispresso_native_pe'));
   const detail = p.view.nuclease.find(n => n.sample_id === p.sample);
   return <><div className="section-heading"><h2>Overview</h2><p>Stored biological outcomes · equal-weight biological replicates</p></div>
-    <Groups groups={p.view.groups.filter(g => g.metric_name === primary)}/>
+    <MeasurementCatalog rows={(p.view.measurement_rows||[]).filter(v=>v.sample_id===p.sample)} runs={(p.view.native_runs||[]).filter(v=>v.sample_id===p.sample)} onDownload={p.onDownload}/>
+    <Groups groups={p.view.groups.filter(g => mainSeries.has(g.series_id))}/>
     <h3>Selected biological sample · {rows[0]?.sample_name}</h3><div className="metric-grid">{rows.map(o => <MetricCard key={o.observation_id} row={o} onDownload={p.onDownload}/>)}</div>
     {p.view.mode === 'precise_edit' && <p className="callout">Exact intended PE and the CRISPResso Prime-edited reference fraction describe different populations and denominators. Neither metric is a lower bound for the other.</p>}
-    {detail && <Nuclease detail={detail}/>}</>;
+    {detail && <Nuclease detail={detail}/>}
+    <ScientificResults panels={(p.view.scientific_panels||[]).filter(v=>v.sample_id===p.sample)} onDownload={p.onDownload}/></>;
 }
 function Alleles(p: Props) {
   const [page,setPage]=useState<AllelePage | null>(null);const [offset,setOffset]=useState(0);
@@ -62,11 +69,14 @@ export function Samples(p: Props) {
     {detail && <section className="detail-panel" role="region" aria-label="Sample detail" onKeyDown={e=>{if(e.key==='Escape')hide()}}><button ref={close} onClick={hide}>Close sample detail</button><h3>{detail.sample_name} · {detail.sample_id}</h3><MetricCard row={detail} onDownload={p.onDownload}/><Fields values={detail.evidence} caption="Stored metric count evidence"/>{p.view.mode==='indel_nuclease'&&<Alleles {...p} sample={detail.sample_id} key={detail.sample_id}/>}</section>}</>;
 }
 export function QC(p: Props) {
-  return <><h2>QC · named populations</h2><p className="callout">{p.view.mode==='precise_edit'?'Prepared exact assessment, native CRISPResso and copy routing retain their backend-defined relationships. This is not a universal input → aligned → exact funnel.':'Single-copy identity; no PE routing. Accepted aligned outcomes have four ordinary biological classes.'}</p>{p.view.populations.filter(v=>v.sample_id===null||v.sample_id===p.sample).map((q,i)=><section className="panel" key={i}><h3>{q.name}</h3><p>{q.role}</p><Fields values={q.counts} caption="Exact stored population counts"/><SourceLink source={q.source} onDownload={p.onDownload}/></section>)}</>;
+  const controls = p.view.observations.filter(o => o.sample_id === p.sample && o.biological_eligible != null && o.sample_role !== 'experimental');
+  return <><h2>QC · named populations</h2>{controls.length > 0 && <Table caption="Control and technical sample QC" headers={['Sample', 'Role', 'Biological analysis', 'Metric', 'Copy', 'Status', 'Numerator / denominator', 'Percentage']}>{controls.map(o => <tr key={o.observation_id}><td>{o.sample_name}</td><td>{o.sample_role}</td><td>{o.biological_eligible ? 'Eligible' : 'Excluded'}</td><td>{o.label}</td><td>{absent(o.copy_name)}</td><td>{o.status}</td><td>{absent(o.numerator)} / {absent(o.denominator)}</td><td>{absent(o.percentage)}</td></tr>)}</Table>}<p className="callout">{p.view.mode==='precise_edit'?'Prepared exact assessment, native CRISPResso and copy routing retain their backend-defined relationships. This is not a universal input → aligned → exact funnel.':p.view.contracts.includes('indel-nuclease-multicopy-v1')?'A combined-target read contributes once. Copy-specific results use reads with supported copy identity.':'Single-copy identity; no PE routing. Accepted aligned outcomes have four ordinary biological classes.'}</p><ScientificResults panels={(p.view.scientific_panels||[]).filter(v=>v.sample_id===p.sample)} onDownload={p.onDownload} qc/>{p.view.populations.filter(v=>v.sample_id===null||v.sample_id===p.sample).map((q,i)=><section className="panel" key={i}><h3>{q.name}</h3><p>{q.role}</p><Fields values={q.counts} caption="Exact stored population counts"/><SourceLink source={q.source} onDownload={p.onDownload}/></section>)}</>;
 }
 export function Statistics(p: Props) {
   const groups=p.view.groups.filter(g=>g.series_id===p.series);const contrasts=p.view.contrasts.filter(c=>c.series_id===p.series);
-  return <><h2>Statistics</h2><p className="callout">Inference uses biological samples, not sequencing reads. Means and tests below are stored M5 results.</p><Groups groups={groups}/>
+  return <><h2>Statistics</h2><p className="callout">Biological samples have equal weight. Sample SD uses n − 1 and requires two reportable replicates.</p>
+    {p.view.minimum_biological_replicates != null && <p>Executed minimum: {p.view.minimum_biological_replicates} reportable samples per unpaired group or complete paired blocks.</p>}
+    <Groups groups={groups}/>
     {!p.view.contrasts.length ? <p>Descriptive summaries only — no statistical tests requested.</p> : <><Table caption="Explicit contrasts · effect B − A" headers={['Contrast / family','A → B','Effect','p','q','Used / expected biological n (A; B)','Status','Design']}>{contrasts.map(c=><tr key={c.contrast_id}><th scope="row">{c.contrast_id}<small>{c.family}</small></th><td>{c.group_a} → {c.group_b}</td><td>{absent(c.effect)}</td><td>{absent(c.p)}</td><td>{absent(c.q)}</td><td>{c.used_a} / {c.expected_a}; {c.used_b} / {c.expected_b}</td><td><Status value={c.status}/>{c.reasons.join(' · ')}</td><td><details><summary>{c.pairing_mode}</summary><p>Complete blocks: {c.blocks.join(', ')||'—'}</p><Fields values={c.exclusions} caption="Excluded blocks"/></details></td></tr>)}</Table>{!contrasts.length&&<p>No contrast was requested for this selected series.</p>}</>}</>;
 }
 export function Provenance(p: Props) {

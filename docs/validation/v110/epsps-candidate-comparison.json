@@ -1,0 +1,349 @@
+{
+  "assigned_pairs": 114761,
+  "barcode_bins": 96,
+  "canonical_workflow_WT_PE_cells_compared": 192,
+  "empty_negative_control": "7G",
+  "four_state_integer_cells_compared": 3072,
+  "marginal_site_integer_cells_compared": 384,
+  "raw_pairs": 118742,
+  "sample_1A": {
+    "declared_negative_control": false,
+    "exact_double_edit_fraction": {
+      "denominator": 1966,
+      "fraction": 0.004577822990844354,
+      "numerator": 9
+    },
+    "full_template_exclusions": 3581,
+    "full_templates": {
+      "combined": {
+        "A_only": {
+          "denominator": 1983,
+          "fraction": 0.006555723651033787,
+          "numerator": 13
+        },
+        "B_only": {
+          "denominator": 1983,
+          "fraction": 0.002017145738779627,
+          "numerator": 4
+        },
+        "any_edit": {
+          "denominator": 1983,
+          "fraction": 0.013111447302067574,
+          "numerator": 26
+        },
+        "assessable": 1983,
+        "counts": {
+          "AB": 9,
+          "A_only": 13,
+          "B_only": 4,
+          "WT": 1957
+        },
+        "double_edit": {
+          "denominator": 1983,
+          "fraction": 0.0045385779122541605,
+          "numerator": 9
+        },
+        "site_A": {
+          "denominator": 1983,
+          "fraction": 0.011094301563287948,
+          "numerator": 22
+        },
+        "site_B": {
+          "denominator": 1983,
+          "fraction": 0.006555723651033787,
+          "numerator": 13
+        }
+      },
+      "copies": {
+        "chr01g": {
+          "A_only": {
+            "denominator": 1148,
+            "fraction": 0.002613240418118467,
+            "numerator": 3
+          },
+          "B_only": {
+            "denominator": 1148,
+            "fraction": 0.002613240418118467,
+            "numerator": 3
+          },
+          "any_edit": {
+            "denominator": 1148,
+            "fraction": 0.006968641114982578,
+            "numerator": 8
+          },
+          "assessable": 1148,
+          "counts": {
+            "AB": 2,
+            "A_only": 3,
+            "B_only": 3,
+            "WT": 1140
+          },
+          "double_edit": {
+            "denominator": 1148,
+            "fraction": 0.0017421602787456446,
+            "numerator": 2
+          },
+          "site_A": {
+            "denominator": 1148,
+            "fraction": 0.004355400696864111,
+            "numerator": 5
+          },
+          "site_B": {
+            "denominator": 1148,
+            "fraction": 0.004355400696864111,
+            "numerator": 5
+          }
+        },
+        "chr17g": {
+          "A_only": {
+            "denominator": 835,
+            "fraction": 0.011976047904191617,
+            "numerator": 10
+          },
+          "B_only": {
+            "denominator": 835,
+            "fraction": 0.0011976047904191617,
+            "numerator": 1
+          },
+          "any_edit": {
+            "denominator": 835,
+            "fraction": 0.02155688622754491,
+            "numerator": 18
+          },
+          "assessable": 835,
+          "counts": {
+            "AB": 7,
+            "A_only": 10,
+            "B_only": 1,
+            "WT": 817
+          },
+          "double_edit": {
+            "denominator": 835,
+            "fraction": 0.008383233532934131,
+            "numerator": 7
+          },
+          "site_A": {
+            "denominator": 835,
+            "fraction": 0.02035928143712575,
+            "numerator": 17
+          },
+          "site_B": {
+            "denominator": 835,
+            "fraction": 0.009580838323353293,
+            "numerator": 8
+          }
+        }
+      },
+      "unresolved_copy": {
+        "A_only": {
+          "denominator": 0,
+          "fraction": null,
+          "numerator": 0
+        },
+        "B_only": {
+          "denominator": 0,
+          "fraction": null,
+          "numerator": 0
+        },
+        "any_edit": {
+          "denominator": 0,
+          "fraction": null,
+          "numerator": 0
+        },
+        "assessable": 0,
+        "counts": {
+          "AB": 0,
+          "A_only": 0,
+          "B_only": 0,
+          "WT": 0
+        },
+        "double_edit": {
+          "denominator": 0,
+          "fraction": null,
+          "numerator": 0
+        },
+        "site_A": {
+          "denominator": 0,
+          "fraction": null,
+          "numerator": 0
+        },
+        "site_B": {
+          "denominator": 0,
+          "fraction": null,
+          "numerator": 0
+        }
+      }
+    },
+    "input_pairs": 5564,
+    "site_exclusions": {
+      "low_quality": 2284,
+      "missing_or_nonunique_context": 1246
+    },
+    "site_orientation": {
+      "R2_forward": 2034
+    },
+    "status": "ASSESSED",
+    "two_site_q30": {
+      "combined": {
+        "A_only": {
+          "denominator": 2034,
+          "fraction": 0.008849557522123894,
+          "numerator": 18
+        },
+        "B_only": {
+          "denominator": 2034,
+          "fraction": 0.00344149459193707,
+          "numerator": 7
+        },
+        "any_edit": {
+          "denominator": 2034,
+          "fraction": 0.021632251720747297,
+          "numerator": 44
+        },
+        "assessable": 2034,
+        "counts": {
+          "AB": 19,
+          "A_only": 18,
+          "B_only": 7,
+          "WT": 1990
+        },
+        "double_edit": {
+          "denominator": 2034,
+          "fraction": 0.009341199606686333,
+          "numerator": 19
+        },
+        "site_A": {
+          "denominator": 3334,
+          "fraction": 0.013497300539892022,
+          "numerator": 45
+        },
+        "site_B": {
+          "denominator": 2635,
+          "fraction": 0.01062618595825427,
+          "numerator": 28
+        }
+      },
+      "copies": {
+        "chr01g": {
+          "A_only": {
+            "denominator": 914,
+            "fraction": 0.0032822757111597373,
+            "numerator": 3
+          },
+          "B_only": {
+            "denominator": 914,
+            "fraction": 0.00437636761487965,
+            "numerator": 4
+          },
+          "any_edit": {
+            "denominator": 914,
+            "fraction": 0.014223194748358862,
+            "numerator": 13
+          },
+          "assessable": 914,
+          "counts": {
+            "AB": 6,
+            "A_only": 3,
+            "B_only": 4,
+            "WT": 901
+          },
+          "double_edit": {
+            "denominator": 914,
+            "fraction": 0.006564551422319475,
+            "numerator": 6
+          },
+          "site_A": {
+            "denominator": 1546,
+            "fraction": 0.00646830530401035,
+            "numerator": 10
+          },
+          "site_B": {
+            "denominator": 1201,
+            "fraction": 0.009159034138218152,
+            "numerator": 11
+          }
+        },
+        "chr17g": {
+          "A_only": {
+            "denominator": 920,
+            "fraction": 0.015217391304347827,
+            "numerator": 14
+          },
+          "B_only": {
+            "denominator": 920,
+            "fraction": 0.0010869565217391304,
+            "numerator": 1
+          },
+          "any_edit": {
+            "denominator": 920,
+            "fraction": 0.030434782608695653,
+            "numerator": 28
+          },
+          "assessable": 920,
+          "counts": {
+            "AB": 13,
+            "A_only": 14,
+            "B_only": 1,
+            "WT": 892
+          },
+          "double_edit": {
+            "denominator": 920,
+            "fraction": 0.014130434782608696,
+            "numerator": 13
+          },
+          "site_A": {
+            "denominator": 1430,
+            "fraction": 0.023076923076923078,
+            "numerator": 33
+          },
+          "site_B": {
+            "denominator": 1146,
+            "fraction": 0.013089005235602094,
+            "numerator": 15
+          }
+        }
+      },
+      "unresolved_copy": {
+        "A_only": {
+          "denominator": 200,
+          "fraction": 0.005,
+          "numerator": 1
+        },
+        "B_only": {
+          "denominator": 200,
+          "fraction": 0.01,
+          "numerator": 2
+        },
+        "any_edit": {
+          "denominator": 200,
+          "fraction": 0.015,
+          "numerator": 3
+        },
+        "assessable": 200,
+        "counts": {
+          "AB": 0,
+          "A_only": 1,
+          "B_only": 2,
+          "WT": 197
+        },
+        "double_edit": {
+          "denominator": 200,
+          "fraction": 0.0,
+          "numerator": 0
+        },
+        "site_A": {
+          "denominator": 358,
+          "fraction": 0.00558659217877095,
+          "numerator": 2
+        },
+        "site_B": {
+          "denominator": 288,
+          "fraction": 0.006944444444444444,
+          "numerator": 2
+        }
+      }
+    }
+  },
+  "site_QC_by_barcode": "passed",
+  "status": "passed"
+}

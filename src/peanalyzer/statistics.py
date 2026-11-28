@@ -14,10 +14,10 @@ from peanalyzer.statistical_models import (
     ContrastSpecification, ExcludedBlock, MultipleTestingFamily,
     Series, StatisticsResult,
 )
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, MIN_BIOLOGICAL_REPLICATES
 from peanalyzer.validation import UniqueKeyLoader
 
 MAX_PERMUTATIONS = 100_000
-MIN_BIOLOGICAL_REPLICATES = 2
 
 
 def _limit(maximum):
@@ -92,7 +92,7 @@ def load_contrasts(path):
         raise AggregationError(f"invalid contrast specification: {exc}") from exc
 
 
-def _contrast(request, summary_a, summary_b, maximum):
+def _contrast(request, summary_a, summary_b, maximum, min_biological_replicates):
     a, b = summary_a.sample_assessments, summary_b.sample_assessments
     fractions_a = {s.sample_name: Fraction(s.numerator, s.denominator) for s in summary_a.source_fractions}
     fractions_b = {s.sample_name: Fraction(s.numerator, s.denominator) for s in summary_b.source_fractions}
@@ -136,7 +136,7 @@ def _contrast(request, summary_a, summary_b, maximum):
         else:
             space = 2 ** len(complete)
     if status == "REPORTABLE":
-        if min(len(used_a), len(used_b)) < MIN_BIOLOGICAL_REPLICATES:
+        if min(len(used_a), len(used_b)) < min_biological_replicates:
             status, reasons = "NOT_ASSESSABLE", ["INSUFFICIENT_BIOLOGICAL_REPLICATES"]
         elif space > maximum:
             status, reasons = "NOT_ASSESSABLE", ["PERMUTATION_SPACE_TOO_LARGE"]
@@ -160,13 +160,21 @@ def _contrast(request, summary_a, summary_b, maximum):
         permutation_space_size=space, permutation_count=count, extreme_count=extreme)
 
 
-def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATIONS):
+def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATIONS,
+                        min_biological_replicates=MIN_BIOLOGICAL_REPLICATES):
     """Return a new result; preserve all observations and explicit sample attrition."""
     _limit(max_permutations)
+    if type(min_biological_replicates) is not int or min_biological_replicates < MIN_BIOLOGICAL_REPLICATES:
+        raise AggregationError(f"min_biological_replicates must be an integer of at least {MIN_BIOLOGICAL_REPLICATES}")
     from peanalyzer.result_dispatch import statistics_model
     result_model = statistics_model(result.model_dump())
     result = result_model.model_validate(result.model_dump())
     specification = ContrastSpecification.model_validate(specification.model_dump())
+    if result.provenance.invocation_parameters.get("biological_role_policy") != BIOLOGICAL_ROLE_POLICY:
+        # A newly requested contrast on a historical archive uses stored sample
+        # observations and the current role policy. Loading the archive alone is read-only.
+        from peanalyzer.aggregation import summarize_groups
+        result.group_summaries = summarize_groups(result.observations)
     groups = {(series_key(s), canonical(s.condition)): s for s in result.group_summaries}
     contrasts = []
     for request in sorted(specification.contrasts, key=lambda c: c.contrast_id):
@@ -174,7 +182,7 @@ def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATI
         left, right = groups.get((key, canonical(request.group_a))), groups.get((key, canonical(request.group_b)))
         if left is None or right is None:
             raise AggregationError(f"unknown/empty condition or metric population in contrast: {request.contrast_id}")
-        contrasts.append(_contrast(request, left, right, max_permutations))
+        contrasts.append(_contrast(request, left, right, max_permutations, min_biological_replicates))
     families = []
     for family in sorted(specification.families):
         members = [c for c in contrasts if c["family_id"] == family]
@@ -190,16 +198,17 @@ def calculate_contrasts(result, specification, *, max_permutations=MAX_PERMUTATI
     data.update(contrasts=contrasts, multiple_testing_families=[f.model_dump() for f in families])
     data["provenance"].update(contrast_specification_path=None,
         contrast_specification_hash=sha256(canonical(specification).encode("utf-8")))
-    data["provenance"]["invocation_parameters"].update(command="stats", max_permutations=max_permutations,
-                                                      minimum_biological_replicates=MIN_BIOLOGICAL_REPLICATES,
+    data["provenance"]["invocation_parameters"].update(command="stats", biological_role_policy=BIOLOGICAL_ROLE_POLICY, max_permutations=max_permutations,
+                                                      minimum_biological_replicates=min_biological_replicates,
                                                       contrast_specification_hash_basis="normalized_typed_specification")
     return result_model.model_validate(data)
 
 
-def stats(*, manifest_path, samples_path, contrasts_path, output=None, max_permutations=MAX_PERMUTATIONS):
+def stats(*, manifest_path, samples_path, contrasts_path, output=None, max_permutations=MAX_PERMUTATIONS,
+          min_biological_replicates=MIN_BIOLOGICAL_REPLICATES):
     specification, spec_hash = load_contrasts(contrasts_path)
     result = calculate_contrasts(collect_observations(manifest_path, samples_path), specification,
-                                 max_permutations=max_permutations)
+                                 max_permutations=max_permutations, min_biological_replicates=min_biological_replicates)
     result.provenance.contrast_specification_path = str(Path(contrasts_path).resolve())
     result.provenance.contrast_specification_hash = spec_hash
     result.provenance.invocation_parameters["contrast_specification_hash_basis"] = "source_file_bytes"

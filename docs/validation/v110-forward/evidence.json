@@ -1,0 +1,182 @@
+{
+  "archived_target_csv": {
+    "path": "targets_ALSW.csv",
+    "sha256": "3112ba5418883cf40e8d8de09d5835376027745d5616a45a05231957f8198b24",
+    "size_bytes": 1307
+  },
+  "baseline_commit": "25ce3a990ccef9e2daa8937f0c09023498ef4cb5",
+  "candidate_commit": "a9839358a53adecbb03846e7919d0a00506fd3d3",
+  "forward_synthetic": {
+    "exact_classifications_identical": {
+      "m3": 350,
+      "m31": 125
+    },
+    "routing_id_category_or_copy_differences": 0,
+    "routing_ids_compared": 125
+  },
+  "genuine_forward_backend": {
+    "m3": {
+      "backend_version": "2.3.4",
+      "completed_backend_runs": 2,
+      "measurements": {
+        "copy1/native": {
+          "denominator": null,
+          "numerator": null,
+          "population_input_reads": null,
+          "status": "BLOCKED"
+        },
+        "copy1/precise": {
+          "denominator": null,
+          "numerator": null,
+          "population_input_reads": null,
+          "status": "BLOCKED"
+        },
+        "copy2/native": {
+          "denominator": null,
+          "numerator": null,
+          "population_input_reads": null,
+          "status": "BLOCKED"
+        },
+        "copy2/precise": {
+          "denominator": null,
+          "numerator": null,
+          "population_input_reads": null,
+          "status": "BLOCKED"
+        },
+        "target_crispresso_native_pe": {
+          "denominator": 330,
+          "numerator": 120,
+          "population_input_reads": 350,
+          "status": "REPORTABLE"
+        },
+        "total_precise_pe": {
+          "denominator": 230,
+          "numerator": 100,
+          "population_input_reads": 350,
+          "status": "REPORTABLE"
+        }
+      },
+      "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+    },
+    "m31": {
+      "backend_version": "2.3.4",
+      "completed_backend_runs": 4,
+      "measurements": {
+        "copy1/native": {
+          "denominator": 42,
+          "numerator": 18,
+          "population_input_reads": 45,
+          "status": "REPORTABLE"
+        },
+        "copy1/precise": {
+          "denominator": 30,
+          "numerator": 12,
+          "population_input_reads": 45,
+          "status": "REPORTABLE"
+        },
+        "copy2/native": {
+          "denominator": 28,
+          "numerator": 12,
+          "population_input_reads": 30,
+          "status": "REPORTABLE"
+        },
+        "copy2/precise": {
+          "denominator": 20,
+          "numerator": 8,
+          "population_input_reads": 30,
+          "status": "REPORTABLE"
+        },
+        "target_crispresso_native_pe": {
+          "denominator": 105,
+          "numerator": 30,
+          "population_input_reads": 125,
+          "status": "REPORTABLE"
+        },
+        "total_precise_pe": {
+          "denominator": 55,
+          "numerator": 20,
+          "population_input_reads": 125,
+          "status": "REPORTABLE"
+        }
+      },
+      "runtime_digest": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c"
+    }
+  },
+  "historical_FASTQ_sha256": {
+    "AmpSeq_R1": "5e9a64283ab9800278c3d64b79aa12b5a453369e80d6f638272def2388b973f5",
+    "AmpSeq_R2": "22d7a68a645464aac961c7b5ea0dae452dfecb3c46666dbfca8e90fb539e3149",
+    "Azenta_R1": "04a4af1490e43e940926e4df29cfdb44ff18e6bc6d7a948ddc52bbd17eb5344b",
+    "Azenta_R2": "8b6bd623b6d063a7d6a56cea0c9213146a338bddbacc22f1ee3ff927d7c1b8a2"
+  },
+  "immutable_forward_test_cases_passed": 149,
+  "original_datasets": {
+    "AmpSeq": {
+      "archived_totals": {
+        "chr01g24880": 29817,
+        "chr11g18980": 34860,
+        "exact_PE": 834,
+        "exact_WT": 38482,
+        "native_PE": 2016,
+        "native_aligned": 80721,
+        "pairs": 85878,
+        "quarantine": 21201
+      },
+      "current_validation": "archived metric structures, sample IDs, counts and cross-file hashes",
+      "original_raw_reexecuted": false,
+      "original_workflow_sha256": "13745af41a7f0a6c44d8dd2e48de2b7071c940acbf0b603d4f9068981701d803",
+      "sample_count": 12
+    },
+    "Azenta": {
+      "archived_totals": {
+        "chr01g24880": 8095,
+        "chr11g18980": 9504,
+        "exact_PE": 2337,
+        "exact_WT": 13435,
+        "native_PE": 3246,
+        "native_aligned": 21879,
+        "pairs": 92250,
+        "quarantine": 74651
+      },
+      "current_validation": "archived metric structures, sample IDs, counts and cross-file hashes",
+      "original_raw_reexecuted": false,
+      "original_workflow_sha256": "f14d039a5f1b5240741b25812dee61ad31d5c69ba07eb42922e7b96006499b19",
+      "sample_count": 7
+    }
+  },
+  "uploaded_ALSW_panel_hypotheses": {
+    "ALSW_211bp": {
+      "exclusion_reason_changes": 120,
+      "exclusion_reason_transitions": {
+        "(none) to UNRESOLVED_READ_ORIENTATION": 120
+      },
+      "oracle_discordances": 0,
+      "pairs": 53896,
+      "product_calls": {
+        "exact_PE": 4923,
+        "exact_WT": 12488,
+        "not_assessable": 1,
+        "other_or_unassessable": 36484
+      },
+      "product_changes": 0
+    },
+    "ALSW_253bp": {
+      "exclusion_reason_changes": 22,
+      "exclusion_reason_transitions": {
+        "(none) to UNRESOLVED_READ_ORIENTATION": 22
+      },
+      "oracle_discordances": 0,
+      "pairs": 53896,
+      "product_calls": {
+        "exact_PE": 4734,
+        "exact_WT": 12004,
+        "other_or_unassessable": 37158
+      },
+      "product_changes": 0
+    }
+  },
+  "uploaded_source_sha256": {
+    "ALSW_EPSPS_regression_reference_DNA.zip": "514256941ba555457756bdff328bbc30ae7e87c1a5f0352acbdcf896bfc2109e",
+    "ALSW_dif_knots_R1.fastq.gz": "54e62251f5613cab4e3ef5cb774529dd3216afa496758ef986d25f00e92bf6e2",
+    "ALSW_dif_knots_R2.fastq.gz": "30d614186fbe73dc8df4c3ebd6483040be15b2194cdd29e797d9c34b98ff72ad"
+  }
+}

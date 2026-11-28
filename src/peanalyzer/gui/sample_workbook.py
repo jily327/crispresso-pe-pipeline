@@ -16,7 +16,7 @@ from peanalyzer.gui.workspace import ViewerError
 
 VERSION='PEAnalyzer sample template v1'
 COLUMNS=('barcode_id','sample_name','editor','treatment','dpi','biological_replicate','block_id','paired',
-         'forward_barcode_id','reverse_barcode_id','forward_barcode','reverse_barcode')
+         'forward_barcode_id','reverse_barcode_id','forward_barcode','reverse_barcode','sample_role')
 REQUIRED=set(COLUMNS[:6])
 MAX_BYTES=2*1024**2
 MAX_ROWS=1000
@@ -32,6 +32,9 @@ def template():
                  'Required: barcode_id, sample_name, editor, treatment, dpi, biological_replicate.',
                  'QI-HITOM v1: e.g. 4A resolves F4/RA through the qualified catalog; no sequences needed.',
                  'Custom profile: supply forward_barcode and reverse_barcode sequences.',
+                 'Biological roles: experimental (default), biological_negative_control (including no-guide or empty-vector treatment).',
+                 'QC-only roles: pcr_negative_control, no_template_control and technical_replicate. The legacy negative_control means PCR negative.',
+                 'Technical repeats may share a biological replicate identifier. Their counts are recorded separately.',
                  'Optional paired: blank/false means unpaired; true requires block_id.',
                  'No formulas, macros, hidden rows/sheets, merged cells, tables, links or extra sheets.',
                  'Use text cells for IDs to preserve leading zeros. Maximum 1000 data rows.',

@@ -1,10 +1,10 @@
 """Strict M5 biological observation, design and statistical result contracts."""
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_validator
+from pydantic import BaseModel, ConfigDict, Field, JsonValue, field_validator, model_serializer, model_validator
 
 from peanalyzer.metrics.models import Count, Scope, Status
-from peanalyzer.schemas import Identifier, Nonempty, NonnegativeInt
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY, Identifier, Nonempty, NonnegativeInt, SampleRole, biological_role
 
 Probability = Annotated[float, Field(ge=0, le=1, allow_inf_nan=False)]
 Effect = Annotated[float, Field(ge=-1, le=1, allow_inf_nan=False)]
@@ -36,10 +36,19 @@ class Condition(Model):
 
 
 class BiologicalSample(Condition):
+    sample_role: SampleRole = "experimental"
     sample_name: Identifier
     biological_replicate: Identifier
     block_id: Identifier | None
     paired: bool
+
+    @model_serializer(mode="wrap")
+    def serialize_sample(self, handler):
+        values = handler(self)
+        if self.sample_role == "experimental":
+            values.pop("sample_role", None)
+        return values
+
 
 
 class Selector(Model):
@@ -74,7 +83,7 @@ class Observation(Series, BiologicalSample):
     fraction: Probability | None
     reason_codes: list[Nonempty]
     analysis_id: Nonempty
-    metric_contract_version: Literal["m4-v1"]
+    metric_contract_version: Literal["m4-v1", "intended-sites-v1.1"]
     source_result: Nonempty
 
     @model_validator(mode="after")
@@ -151,6 +160,17 @@ class GroupSummary(Series):
                   self.minimum_biological_sample_fraction, self.maximum_biological_sample_fraction, self.pooled_read_fraction)
         if any((v is None) != (self.reportable_count == 0) for v in values):
             raise ValueError("empty summaries require null descriptive fractions")
+        return self
+
+
+class BiologicalReplicateSummary(GroupSummary):
+    descriptive_statistics_version: Literal["biological-sample-sd-v1"]
+    sample_sd_biological_sample_fraction: Probability | None
+
+    @model_validator(mode="after")
+    def sd_availability(self):
+        if (self.sample_sd_biological_sample_fraction is None) != (self.reportable_count < 2):
+            raise ValueError("sample SD requires at least two reportable biological samples")
         return self
 
 
@@ -262,7 +282,7 @@ class InputResult(Model):
 class Provenance(Model):
     package_version: Nonempty
     statistics_contract_version: Literal["m5-v1"] = "m5-v1"
-    source_metric_contract_versions: list[Literal["m4-v1"]]
+    source_metric_contract_versions: list[Literal["m4-v1", "intended-sites-v1.1"]]
     input_results: list[InputResult]
     samples_path: Nonempty
     manifest_path: Nonempty
@@ -280,13 +300,31 @@ class StatisticsResult(Model):
     input_manifest_hash: Hash
     sample_metadata_hash: Hash
     observations: list[Observation]
-    group_summaries: list[GroupSummary]
+    group_summaries: list[BiologicalReplicateSummary | GroupSummary]
     contrasts: list[ContrastResult]
     multiple_testing_families: list[MultipleTestingFamily]
     unused_metadata_sample_ids: list[Identifier]
 
     @model_validator(mode="after")
     def families(self):
+        if len({type(g) for g in self.group_summaries}) > 1:
+            raise ValueError("mixed descriptive statistics contracts")
+        if self.provenance.invocation_parameters.get("biological_role_policy") == BIOLOGICAL_ROLE_POLICY:
+            excluded = {o.sample_name for o in self.observations if not biological_role(o.sample_role)}
+            if any(excluded.intersection(g.expected_sample_ids) for g in self.group_summaries):
+                raise ValueError("QC-only sample included in biological summary")
+            if any(excluded.intersection(s.sample_name for s in c.expected_group_a + c.expected_group_b)
+                   for c in self.contrasts):
+                raise ValueError("QC-only sample included in biological contrast")
+        threshold = self.provenance.invocation_parameters.get("minimum_biological_replicates")
+        if threshold is not None:
+            if type(threshold) is not int or threshold < 2:
+                raise ValueError("invalid executed biological replicate threshold")
+            for comparison in self.contrasts:
+                if comparison.status == "REPORTABLE" and min(
+                    comparison.used_group_a_count, comparison.used_group_b_count
+                ) < threshold:
+                    raise ValueError("reportable contrast violates the executed replicate threshold")
         ids = [c.contrast_id for c in self.contrasts]
         families = [f.family_id for f in self.multiple_testing_families]
         if len(set(ids)) != len(ids) or len(set(families)) != len(families):

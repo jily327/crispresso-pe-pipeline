@@ -16,7 +16,8 @@ from peanalyzer.geometry import aligner, columns
 from peanalyzer.observability import assess_pair
 from peanalyzer.backend.metrics import child_file,integer
 from peanalyzer.demux_verify import read_json
-from peanalyzer.schemas import Target
+from peanalyzer.schemas import Target, reverse_complement
+from peanalyzer.pe_reference import native_reference
 from peanalyzer.metrics.family_models import FamilyPolicy,FamilyMetric,ObservedProduct,ProductEvidence
 from peanalyzer.metrics.policy_requests import PolicyRequest, prepare_policies
 from peanalyzer.metrics.products import selective_observability_reasons
@@ -125,6 +126,7 @@ def prepared_evidence(paths,targets,**identity):
 def aligned_evidence(child,target,*,targets=None,**identity):
     targets=targets or [target]
     info=read_json(child/'CRISPResso2_info.json');running=info['running_info'];refs=info['results']['refs']
+    reverse = native_reference(target).orientation == 'reverse'
     groups=Counter()
     with zipfile.ZipFile(child_file(child,running['allele_frequency_table_zip_filename'])) as z:
         rows=csv.DictReader(io.StringIO(z.read(running['allele_frequency_table_filename']).decode()),delimiter='\t')
@@ -133,6 +135,7 @@ def aligned_evidence(child,target,*,targets=None,**identity):
             full=(name in refs and row['Reference_Sequence'].replace('-','')==refs[name]['sequence']
                   and not row['Aligned_Sequence'].startswith('-') and not row['Aligned_Sequence'].endswith('-') and set(seq)<=set('ACGT'))
             reason=None if full else 'BACKEND_PRODUCT_NOT_FULLY_ASSESSABLE'
+            if reverse: seq=reverse_complement(seq)
             groups[seq,reason]+=integer(row['#Reads'])
     products=[];reasons=[]
     for (seq,reason),count in sorted(groups.items(),key=lambda x:repr(x[0])):
@@ -183,7 +186,8 @@ def aggregate_family(evidence,policy):
         label=next(iter(families)) if len(families)==1 else 'family_ambiguous' if families else 'excluded'
         counts[label]+=row.count
     denominator=counts['WT']+counts['PE']
-    if reasons:status='BLOCKED'
+    if 'EMPTY_NEGATIVE_CONTROL' in reasons:status='NOT_ASSESSABLE'
+    elif reasons:status='BLOCKED'
     elif selective:status='NOT_ASSESSABLE';reasons=selective
     elif not denominator:status='NOT_ASSESSABLE';reasons=['ZERO_FAMILY_DENOMINATOR']
     else:status='REPORTABLE'

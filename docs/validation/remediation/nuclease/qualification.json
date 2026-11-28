@@ -1,0 +1,2462 @@
+{
+  "cases": {
+    "SCI03": {
+      "native_manifest_sha256": "6796d26d86acca9b757fda2b56e59fce5aedfdf395e4068be3f7082bfd8a4aa7",
+      "observed": {
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          0,
+          3
+        ],
+        "combined": [
+          2,
+          9
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 9,
+        "excluded": 0,
+        "groups": {
+          "a": [
+            2,
+            6
+          ],
+          "b": [
+            0,
+            3
+          ],
+          "combined": [
+            2,
+            9
+          ]
+        },
+        "physical_ids": 9,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 9,
+          "allele_identities": 3,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "f376935e7140c96bc17f6d5270d78f9d1a9bbab790cd31002446dfea95271c80",
+          "effective_windows": {
+            "a": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              132,
+              133,
+              134,
+              135
+            ],
+            "b": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              135,
+              136,
+              137,
+              138
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "7789a9a89e6c85083254bc3c835cd8732e89a966147b78f731bfe746aa90fa57",
+            "8e5f0638a19f7e2492408e2d7fbdf07abb600756904368a0d44ece1fb01c7766"
+          ],
+          "integer_fields": 78,
+          "managed_info_sha256": "3c0f5c908f496c32fdaca484d63af9508173dcf1a0d659337d379d4ec3fa9481",
+          "per_reference": {
+            "a": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 2,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 0,
+              "Only Insertions": 2,
+              "Only Substitutions": 0,
+              "Reads_aligned": 6,
+              "Substitutions": 0,
+              "Unmodified": 4
+            },
+            "b": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 0,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 0,
+              "Only Deletions": 0,
+              "Only Insertions": 0,
+              "Only Substitutions": 0,
+              "Reads_aligned": 3,
+              "Substitutions": 0,
+              "Unmodified": 3
+            }
+          },
+          "script_sha256": "6db5433d2e42f792ffb0d4b8750d288bcc6494798a0b96ad4c4dee96fd79c3d1",
+          "status": "PASS"
+        },
+        "references/a": {
+          "allele_abundance": 9,
+          "allele_identities": 3,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "739469e57007651c7c754bb59c851dc347d8dd5d2c210fae8df473b6a20ffd09",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              132,
+              133,
+              134,
+              135
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "7789a9a89e6c85083254bc3c835cd8732e89a966147b78f731bfe746aa90fa57",
+            "8e5f0638a19f7e2492408e2d7fbdf07abb600756904368a0d44ece1fb01c7766"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "4d68e593ba7fcfa1477ed41dd47da3c06530fedc0fe1c6e4bb248798cb5be0a1",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 2,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 0,
+              "Only Insertions": 2,
+              "Only Substitutions": 0,
+              "Reads_aligned": 9,
+              "Substitutions": 0,
+              "Unmodified": 7
+            }
+          },
+          "script_sha256": "63d34e651a26e0f9d51e00f88f94f5f0d787d034dee20b8e06b16243454855a6",
+          "status": "PASS"
+        },
+        "references/b": {
+          "allele_abundance": 9,
+          "allele_identities": 3,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "398c91db636a7ee339c888704ceb495f5888128591e7758204d92d34274bdf57",
+          "effective_windows": {
+            "Reference": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              135,
+              136,
+              137,
+              138
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "7789a9a89e6c85083254bc3c835cd8732e89a966147b78f731bfe746aa90fa57",
+            "8e5f0638a19f7e2492408e2d7fbdf07abb600756904368a0d44ece1fb01c7766"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "8ff0a0b0ad9df52ccfde3ed665116b9456443359500ce40f11bff871e5fb3939",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 2,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 0,
+              "Only Insertions": 2,
+              "Only Substitutions": 0,
+              "Reads_aligned": 9,
+              "Substitutions": 0,
+              "Unmodified": 7
+            }
+          },
+          "script_sha256": "33413c2594a4f7a7151c37e9a93f91252bb8296fe05ad6683ce42200c0c0cdf6",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "W2": {
+      "native_manifest_sha256": "879e3b7a9eb95a7c3e70472b180ffc2e37770bd03d99044d6eab4339b40e09a0",
+      "observed": {
+        "chr03g": [
+          1,
+          6
+        ],
+        "chr13g": [
+          1,
+          7
+        ],
+        "combined": [
+          3,
+          16
+        ]
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "8681d5b1cf8f1f3794dfe743fe4f7838b3f33c8ff310586af115ec712e334df3",
+          "effective_windows": {
+            "chr03g": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ],
+            "chr13g": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "c6297385c64488f61d64f4ae98568e257d6ec3e290a68acb9cf28ddb8a9899fb",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 3,
+              "Only Deletions": 1,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 9,
+              "Substitutions": 1,
+              "Unmodified": 6
+            },
+            "chr13g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 0,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 1,
+              "Only Deletions": 1,
+              "Only Insertions": 0,
+              "Only Substitutions": 0,
+              "Reads_aligned": 7,
+              "Substitutions": 0,
+              "Unmodified": 6
+            }
+          },
+          "script_sha256": "c2a1bc0a90aa35bf241af0019364a5353dfb60b0c9265ee4027d020931577c73",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "647ec9c71b5dd2bd83257a40661ce314b9332cfa163daadf945d3ea2c70c6da7",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "669b941d82ca7564f531277c108b2470f810c73d16bca81b419cded28a311154",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 4,
+              "Only Deletions": 2,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 12
+            }
+          },
+          "script_sha256": "eb2711642550114b9670d074a4b20439b8585b9b344f6bd29ab01053cf9dc59d",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "f8ce2129881797b246214ce7d2d3927b032313078fae734b0c039591676185c1",
+          "effective_windows": {
+            "Reference": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "8b4a1c431810e3819e2531f573186a187786643aff3194b65706805f5e2fd13e",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 4,
+              "Only Deletions": 2,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 12
+            }
+          },
+          "script_sha256": "84555b895af022de9f8f1a298faa841d45a09f85913b1ac88ade1b35744d5fcc",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "W3": {
+      "native_manifest_sha256": "a9f87012d76e095a5c91e49d70adeae3479ab8d8392fae0ebb4f948deb20d3d4",
+      "observed": {
+        "chr03g": [
+          1,
+          6
+        ],
+        "chr13g": [
+          2,
+          7
+        ],
+        "combined": [
+          4,
+          16
+        ]
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "a7faac0bc0684b44aa7e72eed84312e2b58636b16eafc71576ceebb35bf69992",
+          "effective_windows": {
+            "chr03g": [
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ],
+            "chr13g": [
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "2d8c4ab7600ac3f17c718113f94bd3784a208e86ca4000a433a6ef3c07b7052e",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 3,
+              "Only Deletions": 1,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 9,
+              "Substitutions": 1,
+              "Unmodified": 6
+            },
+            "chr13g": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 0,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 2,
+              "Only Insertions": 0,
+              "Only Substitutions": 0,
+              "Reads_aligned": 7,
+              "Substitutions": 0,
+              "Unmodified": 5
+            }
+          },
+          "script_sha256": "e9c1c122c17c3fdf45c675c14463b68e8410e01f951be65e452f1162f9e9f1b4",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "31904481044f55c08b39dd7e3c852c667794de914c902fe9e31a1eb321267192",
+          "effective_windows": {
+            "Reference": [
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "1984333ceb2022f86071ec0f4b6c3d76a95eb977348d6607cf30c497d2043b86",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 3,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 3,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 11
+            }
+          },
+          "script_sha256": "e124600b781eeb6f361614936beab84089cbabe1997db277de167547e5b09ab0",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "9effda76efa60a702d6e645302acfa7fe8a87473ecbfffaf9733a1f86357feb9",
+          "effective_windows": {
+            "Reference": [
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "48850c9c4c0b66f3d3485962192f92f024f95104d88b153685c4d42d8dab745f",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 3,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 3,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 11
+            }
+          },
+          "script_sha256": "2c975e65d45fada7866376fffc07cd8545894635aedaa21204570d269adde5b3",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "explicit_distinct": {
+      "native_manifest_sha256": "b99919b69b871546da965d5c66267e70cbc517d9032df16cfbfbd378dbc07c1e",
+      "observed": {
+        "chr03g": [
+          1,
+          6
+        ],
+        "chr13g": [
+          2,
+          7
+        ],
+        "combined": [
+          3,
+          13
+        ]
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "1fe7c007f448eacbba0fb12db52a1fb66b4876df745fb8bb5a9846751c413663",
+          "effective_windows": {
+            "chr03g": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ],
+            "chr13g": [
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "bd4a94f171735d8373411b23e341bbfe817326abc5d86d5861c40667a7c9257a",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 3,
+              "Only Deletions": 1,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 9,
+              "Substitutions": 1,
+              "Unmodified": 6
+            },
+            "chr13g": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 0,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 2,
+              "Only Insertions": 0,
+              "Only Substitutions": 0,
+              "Reads_aligned": 7,
+              "Substitutions": 0,
+              "Unmodified": 5
+            }
+          },
+          "script_sha256": "80c4fce494fd62c3b0a5ced9f2b1bfd29a518716147dea71d642a33055093439",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "5e9647f770a02bd344394e7cbcbf2d2ab05baae3f248c80924186b36c16601b2",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "1618934c054829cd7f7fd4643b7a0a1ed2e667751a073fbfc8ae2bd0bd43b533",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 4,
+              "Only Deletions": 2,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 12
+            }
+          },
+          "script_sha256": "eb2711642550114b9670d074a4b20439b8585b9b344f6bd29ab01053cf9dc59d",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 8,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 17,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 17,
+            "unaligned_reads": 1
+          },
+          "direct_info_sha256": "9cf868a3eee97270f0d44787804fcdeef37c04dad1c545eba5b9d9c7eac1dbf1",
+          "effective_windows": {
+            "Reference": [
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "873626d3faef8fc7ef9f9d65a58bd249aa291f63df1f1a19728d8e0c9619c466",
+            "3d2bbe168bbc1d3632058090083392f89c4b6d344d05d6788298914e2494672d"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "c8022d1bcb659a49df45e3f9b461455c5bfbec5fcf56a09d81adb102acde52a9",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 3,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 3,
+              "Only Insertions": 1,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 11
+            }
+          },
+          "script_sha256": "2c975e65d45fada7866376fffc07cd8545894635aedaa21204570d269adde5b3",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "multi-W1": {
+      "native_manifest_sha256": "442ca1418d00237c483dad4fb6f56cd6a7ae1cb79c0a376a1964f647469075a6",
+      "observed": {
+        "chr03g": [
+          4,
+          8
+        ],
+        "chr13g": [
+          1,
+          6
+        ],
+        "combined": [
+          6,
+          16
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 16,
+        "excluded": 0,
+        "groups": {
+          "chr03g": [
+            4,
+            8
+          ],
+          "chr13g": [
+            1,
+            6
+          ],
+          "combined": [
+            6,
+            16
+          ]
+        },
+        "physical_ids": 16,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "1df3ed37ddd6f5acc054da0f536868ecc73882fc02ae02caf52e12a2f6ba8fc2",
+          "effective_windows": {
+            "chr03g": [
+              104,
+              105,
+              112,
+              113
+            ],
+            "chr13g": [
+              107,
+              108,
+              115,
+              116
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "2ffc4e32c5bdf7c432555ab8bd764c689fd0f6a539a838fb8d9f723e611e3d9c",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 4,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 0,
+              "Reads_aligned": 10,
+              "Substitutions": 0,
+              "Unmodified": 5
+            },
+            "chr13g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 0,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 1,
+              "Only Deletions": 1,
+              "Only Insertions": 0,
+              "Only Substitutions": 0,
+              "Reads_aligned": 6,
+              "Substitutions": 0,
+              "Unmodified": 5
+            }
+          },
+          "script_sha256": "d55ca827974145bd6cc54f35699208f3040d7dca813ec8754531b5a3e97bdbe7",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "6980e19b73f10adc5fbd24242e64565d502e05f45d8e6f9175d386404410dd99",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              112,
+              113
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "57958c7e39861ec8dd0d4f22d290f970ba6c31c73a51934bcee26cdd8f5380ef",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 4,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 6,
+              "Only Deletions": 2,
+              "Only Insertions": 4,
+              "Only Substitutions": 0,
+              "Reads_aligned": 16,
+              "Substitutions": 0,
+              "Unmodified": 10
+            }
+          },
+          "script_sha256": "1e167c108612ba6b12b9ffecbacf8b185760f17e4c1ae4dcfd2f98ca7b3cdf4b",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "d7a3d302810f18bb4dafa04572af6c8f4aad1c4170d4e2a60ab179d01ba4972a",
+          "effective_windows": {
+            "Reference": [
+              107,
+              108,
+              115,
+              116
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "7917963fd173e6c956c1dac6458224658a32c971a6802e908c28bd1e74507d7e",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 4,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 6,
+              "Only Deletions": 2,
+              "Only Insertions": 4,
+              "Only Substitutions": 0,
+              "Reads_aligned": 16,
+              "Substitutions": 0,
+              "Unmodified": 10
+            }
+          },
+          "script_sha256": "ef316ebab24f53dc57f692cfd42f5264d509126deac013920a4ed3c948886378",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "multi-W2": {
+      "native_manifest_sha256": "8f4d191a149acf7b447f8ad61df1a00d2bfc36867c34ecdaa748a3ebe8390e41",
+      "observed": {
+        "chr03g": [
+          2,
+          6
+        ],
+        "chr13g": [
+          1,
+          6
+        ],
+        "combined": [
+          4,
+          14
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 14,
+        "excluded": 2,
+        "groups": {
+          "chr03g": [
+            2,
+            6
+          ],
+          "chr13g": [
+            1,
+            6
+          ],
+          "combined": [
+            4,
+            14
+          ]
+        },
+        "physical_ids": 16,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "c03125c01dbf3465facda1ee55010f4066287fd1db7615ad8669f03bce1957c0",
+          "effective_windows": {
+            "chr03g": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ],
+            "chr13g": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "47b083fffd23639fc209ec42d067e8508c2bfb9a45c133a853c7030a676f521f",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 4,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 0,
+              "Reads_aligned": 10,
+              "Substitutions": 0,
+              "Unmodified": 5
+            },
+            "chr13g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 0,
+              "Only Insertions": 0,
+              "Only Substitutions": 1,
+              "Reads_aligned": 6,
+              "Substitutions": 1,
+              "Unmodified": 4
+            }
+          },
+          "script_sha256": "bbbc0bd8313008b52ba249fd3ed7396646c80ef2e42a34e9c563e8359fed0df9",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "88ef50fffb5105df8dab95619b9fc68e6f14bc938600260d8463d3d18e56d2af",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "a608150d179ace1ab430b693ea721b5daf0983a1da1309631627a3c89149513d",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 5,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 7,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 9
+            }
+          },
+          "script_sha256": "a97ab7ee4af70f5bbf087a82760c4b1acb29481f15f696ee43cc3089dac11a74",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "e6e2fc89526fc805bda79d0d997f4c483637e9159b2debceec21ab60fa54f2e3",
+          "effective_windows": {
+            "Reference": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "00f7723652fdc18f6e0fc8969e3cfb64034c715da3946b19905a7348eb4f0c9d",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 5,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 7,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 9
+            }
+          },
+          "script_sha256": "f569f4fbfbd85346d658399e92bb90b57f1a2380bc33e5260617b71791226c2d",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "multi-W3": {
+      "native_manifest_sha256": "86034d7782b8882944e8bd4356887af81793f704150175b5716b450c55fa1cac",
+      "observed": {
+        "chr03g": [
+          2,
+          6
+        ],
+        "chr13g": [
+          1,
+          6
+        ],
+        "combined": [
+          4,
+          14
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 14,
+        "excluded": 2,
+        "groups": {
+          "chr03g": [
+            2,
+            6
+          ],
+          "chr13g": [
+            1,
+            6
+          ],
+          "combined": [
+            4,
+            14
+          ]
+        },
+        "physical_ids": 16,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "d4ebfb31f2a25dabca9acfec608a7ae0160af6da4e4f3daa68b818e1d9c198b4",
+          "effective_windows": {
+            "chr03g": [
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ],
+            "chr13g": [
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "d0fe2e7f394edb203f41b14d7d7227bf993c76ab88bea3ffa0606a5ac2b50401",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 4,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 0,
+              "Reads_aligned": 10,
+              "Substitutions": 0,
+              "Unmodified": 5
+            },
+            "chr13g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 2,
+              "Only Deletions": 0,
+              "Only Insertions": 0,
+              "Only Substitutions": 1,
+              "Reads_aligned": 6,
+              "Substitutions": 1,
+              "Unmodified": 4
+            }
+          },
+          "script_sha256": "73ce4546d314183935b0ec3a83f7ce473b9506d7bc0013d00667f4907bdc79da",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "0e2af3f6902b2f123c790073f1a48dc05cbd7f9f90b3a26715bde292d301bb6f",
+          "effective_windows": {
+            "Reference": [
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "641e6d7827bb499f035097f3ef2e8725acac36a2a4906c3820c29d694fc3bc75",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 5,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 7,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 9
+            }
+          },
+          "script_sha256": "43e08e0654f245b094e7bc7c6aadb831f29bd925d2f02daf691c999eb6a3cb8a",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "4cd44d18fb7ea1d4696fb5088781ea4e910dd3f624e5b1a8297a74fa6d9bb8fa",
+          "effective_windows": {
+            "Reference": [
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "f74b29cb1b9af4fba574846ef2781ed86bdaae35a38e0fe8f6a7c7bc17442e5f",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 5,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 7,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 9
+            }
+          },
+          "script_sha256": "f0a7bb57addc7eaecfed057840f443bb380311a936eeb687d2929c60cc42a420",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "multi-W4": {
+      "native_manifest_sha256": "92d75fdaaf048f99131ac437121b78ab3dab4a7f44c1d1e181afce71a273d6a0",
+      "observed": {
+        "chr03g": [
+          2,
+          6
+        ],
+        "chr13g": [
+          2,
+          6
+        ],
+        "combined": [
+          5,
+          14
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 14,
+        "excluded": 2,
+        "groups": {
+          "chr03g": [
+            2,
+            6
+          ],
+          "chr13g": [
+            2,
+            6
+          ],
+          "combined": [
+            5,
+            14
+          ]
+        },
+        "physical_ids": 16,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "native_panel": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "08545faebf45fa48fc9cf8c094421c67ae34b9ba3428312d5d6158933bea4dca",
+          "effective_windows": {
+            "chr03g": [
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127
+            ],
+            "chr13g": [
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 79,
+          "managed_info_sha256": "62225e38fe13a8acb98315cda740fa8b9820d9b58c19ca21cc0018c38c0b787f",
+          "per_reference": {
+            "chr03g": {
+              "Deletions": 1,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 4,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 5,
+              "Only Deletions": 1,
+              "Only Insertions": 4,
+              "Only Substitutions": 0,
+              "Reads_aligned": 10,
+              "Substitutions": 0,
+              "Unmodified": 5
+            },
+            "chr13g": {
+              "Deletions": 2,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 3,
+              "Only Deletions": 1,
+              "Only Insertions": 0,
+              "Only Substitutions": 1,
+              "Reads_aligned": 6,
+              "Substitutions": 1,
+              "Unmodified": 3
+            }
+          },
+          "script_sha256": "c2afc9b2fa5cc990662e6625803b1220db09ff7d23a3db07b879cada04f88bd2",
+          "status": "PASS"
+        },
+        "references/chr03g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "7aae10348c8538496c5c964eca944e24cccbfe25fc6a2e2a7aaa34d187a0c633",
+          "effective_windows": {
+            "Reference": [
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "5b1fe562d77728b66c5417df8a5d4beeec7bca7106abc2a11ceef2d4eba0a65e",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 3,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 5,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 8,
+              "Only Deletions": 2,
+              "Only Insertions": 4,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 8
+            }
+          },
+          "script_sha256": "acbbac35dd0211f8e759184c356d192d552a95cc8a87ced2f928ef2c09bc2dc8",
+          "status": "PASS"
+        },
+        "references/chr13g": {
+          "allele_abundance": 16,
+          "allele_identities": 10,
+          "counts": {
+            "aligned_reads": 16,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 16,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 16,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "5b19d08e678f337581fd5fb884ba83017244951095a8f153a52f2f2497e189c0",
+          "effective_windows": {
+            "Reference": [
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "8f6991d98f29fbd13038cf9534431685dff8cf5c83dbbafb060c49b372ecd8f4",
+            "f7ee76461a649eed63257687bcbbd5d4759d7974e95f4ebfc3b712dfea2bb8a0"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "cb48863c3a1f507a8abc9665505195112636361805cbbe2de291ff83cd296036",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 3,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 5,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 1,
+              "Insertions and Substitutions": 0,
+              "Modified": 8,
+              "Only Deletions": 2,
+              "Only Insertions": 4,
+              "Only Substitutions": 1,
+              "Reads_aligned": 16,
+              "Substitutions": 1,
+              "Unmodified": 8
+            }
+          },
+          "script_sha256": "2ccac664986b677551a586c55759430e46149cf65482e0551454c42df958e080",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "single-W1": {
+      "native_manifest_sha256": "e3c334f089156ac9eac974d876bcfe0d9a96efd77378c827f9643d63a36b2355",
+      "observed": {
+        "combined": [
+          1,
+          9
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 9,
+        "excluded": 0,
+        "groups": {
+          "combined": [
+            1,
+            9
+          ]
+        },
+        "physical_ids": 9,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "single_reference": {
+          "allele_abundance": 9,
+          "allele_identities": 2,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "b348dd040a4d066ca886fec2010e04e859f369d69fa31662f097cd441a1d39c6",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              112,
+              113
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+            "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "f89a20c5cc5db601eb687dafb8293b952dc848c199590e316bbe40f3b8c21093",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 1,
+              "Only Deletions": 0,
+              "Only Insertions": 1,
+              "Only Substitutions": 0,
+              "Reads_aligned": 9,
+              "Substitutions": 0,
+              "Unmodified": 8
+            }
+          },
+          "script_sha256": "9cfa6df7f17b5e0e85b014987c8182461fab0a4a1a0229314e1cf68f6dbd8ddd",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "single-W2": {
+      "native_manifest_sha256": "5e43363af57dfdfe326646ca3369cacc0c510fd8ed6f128ff7c08bb3b16084a5",
+      "observed": {
+        "combined": [
+          1,
+          9
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 9,
+        "excluded": 0,
+        "groups": {
+          "combined": [
+            1,
+            9
+          ]
+        },
+        "physical_ids": 9,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "single_reference": {
+          "allele_abundance": 9,
+          "allele_identities": 2,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "1b8a49f988b1cc7d07724073a58c4a7a3f93301e2b5d15ebb418faea576e0072",
+          "effective_windows": {
+            "Reference": [
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+            "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "975a1d7b54c0dc978813100adb1f99085f39b54299f256b1d48ea64a6c5f2f8f",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 1,
+              "Only Deletions": 0,
+              "Only Insertions": 1,
+              "Only Substitutions": 0,
+              "Reads_aligned": 9,
+              "Substitutions": 0,
+              "Unmodified": 8
+            }
+          },
+          "script_sha256": "bad23d71d706c6c1777c8085ebcba160b2c2f83eb1d77230734d3f34df596098",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "single-W3": {
+      "native_manifest_sha256": "77adae6946f11fddb5d6da3727fba0a20f94e984b4ef8a4b9bf8e74e08e1c097",
+      "observed": {
+        "combined": [
+          1,
+          9
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 9,
+        "excluded": 0,
+        "groups": {
+          "combined": [
+            1,
+            9
+          ]
+        },
+        "physical_ids": 9,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "single_reference": {
+          "allele_abundance": 9,
+          "allele_identities": 2,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "606a7bbb27b7db654718a3ad92616690ba68235cb9debe2676d6fcc4297b3452",
+          "effective_windows": {
+            "Reference": [
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+            "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "a0243f359c3efebec0443c9fc39f1c1bba3b2f2d53c46b5ce48c9e9f2c084d28",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 1,
+              "Only Deletions": 0,
+              "Only Insertions": 1,
+              "Only Substitutions": 0,
+              "Reads_aligned": 9,
+              "Substitutions": 0,
+              "Unmodified": 8
+            }
+          },
+          "script_sha256": "fda3b0308d54c9f4991ecd8c2edab754c8b822916abb44e960f69d3cc21b8dc5",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    },
+    "single-W4": {
+      "native_manifest_sha256": "459521b44b926f867ac19b4f28a9896642776d0d1222b725b006af07f903fdc8",
+      "observed": {
+        "combined": [
+          1,
+          9
+        ]
+      },
+      "physical_recount": {
+        "combined_assessable": 9,
+        "excluded": 0,
+        "groups": {
+          "combined": [
+            1,
+            9
+          ]
+        },
+        "physical_ids": 9,
+        "zero_duplicate_contributions": true
+      },
+      "runs": {
+        "single_reference": {
+          "allele_abundance": 9,
+          "allele_identities": 2,
+          "counts": {
+            "aligned_reads": 9,
+            "ambiguous_aligned_reads": 0,
+            "backend_input_reads": 9,
+            "discarded_aligned_reads": 0,
+            "preprocessing_count_delta": 0,
+            "reads_after_preprocessing": 9,
+            "unaligned_reads": 0
+          },
+          "direct_info_sha256": "490eb95c64340e9b34eab4bf6785204c34ec7a20d98cee233e37d61fc7d92aab",
+          "effective_windows": {
+            "Reference": [
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127
+            ]
+          },
+          "image": "pinellolab/crispresso2@sha256:b7e7971a87769aa584d31d21e199a9abca5f641c4f889c2e807cb6324fc8ce0c",
+          "image_id": "sha256:518eb6dd6672f4edee8ec464b75d7555cf04ca185ce1ca676d7b930bde24655d",
+          "input_sha256": [
+            "c18c7c48de93735e438601035e449fa204623027ad33a8154c53f7cb9a8ba1e7",
+            "9da67233a16dd1c636f9248aa81c9f0a9d4a632e5af50fac1ab99c987be9c613"
+          ],
+          "integer_fields": 43,
+          "managed_info_sha256": "d0301a0422328dec87cfa13e12a9a60bed40b6ee2fb46e34a7ac896653941871",
+          "per_reference": {
+            "Reference": {
+              "Deletions": 0,
+              "Deletions and Substitutions": 0,
+              "Discarded": 0,
+              "Insertions": 1,
+              "Insertions Deletions and Substitutions": 0,
+              "Insertions and Deletions": 0,
+              "Insertions and Substitutions": 0,
+              "Modified": 1,
+              "Only Deletions": 0,
+              "Only Insertions": 1,
+              "Only Substitutions": 0,
+              "Reads_aligned": 9,
+              "Substitutions": 0,
+              "Unmodified": 8
+            }
+          },
+          "script_sha256": "9a36ce04b6fd310940fc2858bc70cd8b350fb6aba40a8f057cb9c984f61ab486",
+          "status": "PASS"
+        }
+      },
+      "status": "PASS",
+      "workflow_verified": true
+    }
+  },
+  "sci03_exports": {
+    "gui": {
+      "a": [
+        2,
+        6
+      ],
+      "b": [
+        0,
+        3
+      ],
+      "combined": [
+        2,
+        9
+      ]
+    },
+    "gui_native_runs": 3,
+    "html": {
+      "a": [
+        2,
+        6
+      ],
+      "b": [
+        0,
+        3
+      ],
+      "combined": [
+        2,
+        9
+      ]
+    },
+    "measurement_html_sha256": "15fd5f7e91e7f691b12f72c3c9e2d6b7699953c49a4b86c5be9d26b9692a8bbf",
+    "measurement_tsv_sha256": "f61231c18b60a2266d24bed13165e1ee48db84a2190df1775035d9c12526e76f",
+    "report_sha256": "f5c7b967c66d394ed417a8ace3c1300e24180e44be3ee0e06ed5c334650b1dee",
+    "tsv": {
+      "a": [
+        2,
+        6
+      ],
+      "b": [
+        0,
+        3
+      ],
+      "combined": [
+        2,
+        9
+      ]
+    },
+    "verified": true,
+    "workbook_sha256": "1ee0c710c3434682cfe9231c659cfb563bf23ec9db43985d858e27de4cc16b35",
+    "xlsx": {
+      "a": [
+        2,
+        6
+      ],
+      "b": [
+        0,
+        3
+      ],
+      "combined": [
+        2,
+        9
+      ]
+    }
+  },
+  "tested_package": {
+    "package_code_sha256": "ced81aa6bde707cf992e800671affc235da75c7257b3fc6c39367921e2ec0c4e",
+    "sdist": {
+      "bytes": 3480392,
+      "file": "crispresso_pe_pipeline-1.1.0.tar.gz",
+      "sha256": "6d2a6225ff7eb0e5c20459dab8197cea9ec435e500ec12c41dca3a44bfb2c694"
+    },
+    "tested_revision": "81c21c8b7dc536a6e2d1a22d446008407f625415",
+    "viewer_build_manifest": {
+      "bytes": 2995,
+      "file": "build-identity.json",
+      "sha256": "d37a848c6c617b5121806e757bb309e1f4ce6289e1a98a7e4f02ecf22ce3ce45"
+    },
+    "wheel": {
+      "bytes": 420681,
+      "file": "crispresso_pe_pipeline-1.1.0-py3-none-any.whl",
+      "sha256": "5b3cc36ac797cfb9923c02e90a2b860ccfe5ec20dee4d869f8e0f289a882c556"
+    },
+    "wheel_entries_compared_to_source_and_install": 122
+  }
+}

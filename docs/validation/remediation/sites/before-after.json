@@ -1,0 +1,287 @@
+{
+  "current_verifier": {
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.67.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.4",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pydantic": "2.14.1",
+      "pydantic_core": "2.50.1",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "2.9.0.post0"
+    },
+    "git_commit": "f9a1132719d7eea9a7b0d9426535ecad4d6d2811",
+    "git_dirty": true,
+    "package_code_sha256": "5a4e0984136d62d6dc6025ce8a5ea083a313b0abd116ded3ff960c61ab5be1af",
+    "pipeline_version": "1.1.0",
+    "python_version": "3.12.14"
+  },
+  "frozen_revision": "2f567b88628eeb287bacc9febf3b65b3a00bfc7a",
+  "populations": {
+    "1A_acquired": {
+      "after": {
+        "AB": 21,
+        "A_only": 31,
+        "B_only": 8,
+        "WT": 4979,
+        "any_edit": [
+          60,
+          5039
+        ],
+        "double_edit": [
+          21,
+          5039
+        ],
+        "other_mixed": 0,
+        "site_A": [
+          52,
+          5039
+        ],
+        "site_B": [
+          29,
+          5039
+        ],
+        "unassessable": 0
+      },
+      "allele_table_sha256": "f76d6a37bf50a0f955094b32aeb4bd59eb22169072f0332ca865c71fa2c11092",
+      "artifact_sha256": "d6d4032aa71165f2dde934ce9687574f70cf737abd3dbbb00100ce98e18d0c96",
+      "before": {
+        "AB": 21,
+        "A_only": 31,
+        "B_only": 8,
+        "WT": 4979,
+        "any_edit": [
+          60,
+          5039
+        ],
+        "double_edit": [
+          21,
+          5039
+        ],
+        "other_mixed": 0,
+        "site_A": [
+          52,
+          5039
+        ],
+        "site_B": [
+          29,
+          5039
+        ],
+        "unassessable": 0
+      }
+    },
+    "1A_forward": {
+      "after": {
+        "AB": 21,
+        "A_only": 31,
+        "B_only": 15,
+        "WT": 5027,
+        "any_edit": [
+          67,
+          5114
+        ],
+        "double_edit": [
+          21,
+          5114
+        ],
+        "other_mixed": 20,
+        "site_A": [
+          52,
+          5114
+        ],
+        "site_B": [
+          36,
+          5114
+        ],
+        "unassessable": 0
+      },
+      "allele_table_sha256": "27a2ce54265399816068ff5919b384cb322a97f6f8b238039c8086de81ab4b49",
+      "artifact_sha256": "abd94871fce7bdde1a5b7fc1a8c0ceb30c9777265eb075836cf4ec0fea928308",
+      "before": {
+        "AB": 21,
+        "A_only": 31,
+        "B_only": 15,
+        "WT": 5027,
+        "any_edit": [
+          67,
+          5114
+        ],
+        "double_edit": [
+          21,
+          5114
+        ],
+        "other_mixed": 20,
+        "site_A": [
+          52,
+          5114
+        ],
+        "site_B": [
+          36,
+          5114
+        ],
+        "unassessable": 0
+      }
+    },
+    "SCI02": {
+      "after": {
+        "AB": 0,
+        "A_only": 0,
+        "B_only": 0,
+        "WT": 10,
+        "any_edit": [
+          0,
+          10
+        ],
+        "double_edit": [
+          0,
+          10
+        ],
+        "other_mixed": 0,
+        "site_A": [
+          0,
+          10
+        ],
+        "site_B": [
+          5,
+          15
+        ],
+        "unassessable": 5
+      },
+      "allele_table_sha256": "a118f818fc7e511f39f7b6b6f82ec485eb82809e75daa47b7274b083bb2631b7",
+      "artifact_sha256": "e0bc69900f1eb171993c4b55958b3ebcb1f822f3974d863cda5238ceaad8ac9d",
+      "before": {
+        "AB": 0,
+        "A_only": 0,
+        "B_only": 0,
+        "WT": 10,
+        "any_edit": [
+          5,
+          15
+        ],
+        "double_edit": [
+          0,
+          15
+        ],
+        "other_mixed": 5,
+        "site_A": [
+          0,
+          15
+        ],
+        "site_B": [
+          5,
+          15
+        ],
+        "unassessable": 0
+      }
+    },
+    "all_acquired": {
+      "after": {
+        "AB": 24,
+        "A_only": 60,
+        "B_only": 25,
+        "WT": 103790,
+        "any_edit": [
+          109,
+          103921
+        ],
+        "double_edit": [
+          24,
+          103921
+        ],
+        "other_mixed": 22,
+        "site_A": [
+          84,
+          103921
+        ],
+        "site_B": [
+          49,
+          103921
+        ],
+        "unassessable": 0
+      },
+      "allele_table_sha256": "dbb3401d0d193bd404c44aac96725085401daa0555c382674f7ada9e3c6e192b",
+      "artifact_sha256": "0daf550a9c676acbe5ccefb1e7e51f21b32601fb29612bba018aec737c7a684b",
+      "before": {
+        "AB": 24,
+        "A_only": 60,
+        "B_only": 25,
+        "WT": 103790,
+        "any_edit": [
+          109,
+          103921
+        ],
+        "double_edit": [
+          24,
+          103921
+        ],
+        "other_mixed": 22,
+        "site_A": [
+          84,
+          103921
+        ],
+        "site_B": [
+          49,
+          103921
+        ],
+        "unassessable": 0
+      }
+    },
+    "all_forward": {
+      "after": {
+        "AB": 25,
+        "A_only": 88,
+        "B_only": 161,
+        "WT": 105033,
+        "any_edit": [
+          276,
+          105718
+        ],
+        "double_edit": [
+          25,
+          105718
+        ],
+        "other_mixed": 411,
+        "site_A": [
+          115,
+          105720
+        ],
+        "site_B": [
+          186,
+          105718
+        ],
+        "unassessable": 2
+      },
+      "allele_table_sha256": "cad1f7e0b3a0ada9a42fb5e672be5f8da04b43786920946fe88e9c6a88e283d8",
+      "artifact_sha256": "79763ea69faab2d2254920f5e4dec36390cf54e39b85a332aa700ace7ebd2727",
+      "before": {
+        "AB": 25,
+        "A_only": 88,
+        "B_only": 161,
+        "WT": 105033,
+        "any_edit": [
+          276,
+          105718
+        ],
+        "double_edit": [
+          25,
+          105718
+        ],
+        "other_mixed": 411,
+        "site_A": [
+          115,
+          105720
+        ],
+        "site_B": [
+          186,
+          105718
+        ],
+        "unassessable": 2
+      }
+    }
+  }
+}

@@ -18,7 +18,7 @@ from peanalyzer.backend.pooled import resolve_executable
 from peanalyzer.barcodes import Catalog, bundled_catalog, load_catalog
 from peanalyzer.demux import demultiplex
 from peanalyzer.demux_verify import verify_demux_output
-from peanalyzer.geometry import geometry
+from peanalyzer.geometry import geometry, geometry_v101
 from peanalyzer.metrics import MetricResult, run_metrics
 from peanalyzer.nuclease.backend import run_nuclease_metrics
 from peanalyzer.result_dispatch import metric_model, statistics_model, report_model
@@ -26,7 +26,8 @@ from peanalyzer.provenance import software_provenance
 from peanalyzer.reporting import generate_report
 from peanalyzer.reporting_models import DEFAULT_TITLE, ReportManifest
 from peanalyzer.routing import RoutingPolicy, policy_identity, route_analysis
-from peanalyzer.statistical_models import StatisticsResult
+from peanalyzer.schemas import BIOLOGICAL_ROLE_POLICY
+from peanalyzer.statistical_models import BiologicalSample, StatisticsResult
 from peanalyzer.statistics import stats
 from peanalyzer.validation import UniqueKeyLoader, load_config, load_samples, load_targets
 from peanalyzer.workflow_models import (Backend, Dependency, InputArtifact, Plan, Session,
@@ -127,10 +128,13 @@ def build_workflow_plan(*, mode, samples, targets, config, output, crispresso, r
         plan = Plan(mode=mode, output=str(root), expected_samples=expected_samples, expected_targets=expected_targets,
             samples=[s.model_dump(mode='json') for s in sample_rows], targets=target_rows,
             nodes=dag(mode, expected_samples, expected_targets), inputs=inputs,
-            normalized_options=dict(title=title, preparation=trims.model_dump(mode='json'),
+            normalized_options=dict(title=title, native_runs_contract='native-runs-v1', min_prepared_pairs_qc=settings.qc.min_analyzable_reads, preparation=trims.model_dump(mode='json'),
                 demux_config=settings.model_dump(mode='json'), external_demux=str(external) if external else None,
                 routing_policy=asdict(RoutingPolicy()), routing_policy_identity=policy_identity(RoutingPolicy()),
                 statistics_mode='stats' if contrasts is not None else 'summarize',
+                biological_role_policy=BIOLOGICAL_ROLE_POLICY,
+                **({'min_biological_replicates': settings.statistics.min_biological_replicates}
+                   if contrasts is not None else {}),
                 analysis_modes=sorted({t.analysis_mode for t in target_rows}),
                 scientific_configuration=[scientific_target(t) for t in target_rows]),
             software_identity=software_identity(), backend_identity=backend)
@@ -161,7 +165,8 @@ def scientific_target(target):
 
 
 def nuclease_identity(plan, node):
-    return dict(analysis_mode='indel_nuclease', identity_mechanism='single_copy_identity',
+    mechanism = 'single_copy_identity' if len(targets_for(plan,node)) == 1 else 'conservative_flanking_markers_v1'
+    return dict(analysis_mode='indel_nuclease', identity_mechanism=mechanism,
         sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan,node)],
         analysis_manifest_sha256=sha(Path(plan.output)/'analysis/analysis_manifest.json'))
 
@@ -189,9 +194,15 @@ def parameters_for(plan, node):
         return {'preparation': options['preparation']}
     if kind in ('routing', 'metrics'):
         return dict(sample_id=node.sample_id, targets=[scientific_target(t) for t in targets_for(plan, node)],
+                    **({'min_prepared_pairs_qc': options['min_prepared_pairs_qc']} if kind == 'metrics' and 'min_prepared_pairs_qc' in options else {}),
                     **({'policy': options['routing_policy'], 'policy_identity': options['routing_policy_identity']} if kind == 'routing' and targets_for(plan,node)[0].analysis_mode == 'precise_edit' else {}))
     if kind == 'statistics':
-        return {'mode': options['statistics_mode']}
+        parameters = {'mode': options['statistics_mode']}
+        if 'biological_role_policy' in options:
+            parameters['biological_role_policy'] = options['biological_role_policy']
+        if 'min_biological_replicates' in options:
+            parameters['min_biological_replicates'] = options['min_biological_replicates']
+        return parameters
     if kind == 'report':
         return {'title': options['title']}
     return {}
@@ -269,10 +280,12 @@ def validate_stage(plan, node, status, *, output_override=None):
     elif kind == 'routing':
         targets = targets_for(plan, node)
         if targets[0].analysis_mode == 'indel_nuclease':
-            if len(targets)!=1 or status!='COMPLETED' or read_json(output/'identity.json')!=nuclease_identity(plan,node):
+            if status!='COMPLETED' or read_json(output/'identity.json')!=nuclease_identity(plan,node):
                 raise WorkflowError('NUCLEASE_IDENTITY_MISMATCH',node.stage_id)
             return
-        gate = geometry(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
+        historical = 'orientation_contract' not in plan.normalized_options['routing_policy_identity']
+        geometry_check = geometry_v101 if historical else geometry
+        gate = geometry_check(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
         if gate['status'] == 'BLOCKED':
             if status != 'SKIPPED_SCIENTIFIC_GATE' or canonical(read_json(output / 'scientific_gate.json')) != canonical(gate):
                 raise WorkflowError('ROUTING_GATE_MISMATCH', node.stage_id)
@@ -282,7 +295,7 @@ def validate_stage(plan, node, status, *, output_override=None):
             data = verify_routing_output(output)
             if (data['sample_id'] != node.sample_id or data['targets'] != [t.model_dump() for t in targets]
                     or data['analysis_root'] != str(root / 'analysis')
-                    or data['policy_identity'] != policy_identity(RoutingPolicy())):
+                    or data['policy_identity'] != plan.normalized_options['routing_policy_identity']):
                 raise WorkflowError('ROUTING_LINEAGE_MISMATCH', node.stage_id)
     elif kind == 'metrics':
         result = load(output / 'result.json', metric_model(read_json(output / 'result.json')))
@@ -293,6 +306,23 @@ def validate_stage(plan, node, status, *, output_override=None):
         from peanalyzer.metrics.production import digest as metric_digest
         if result.provenance.target_definitions_sha256 != metric_digest([t.model_dump() for t in targets_for(plan,node)]):
             raise WorkflowError('METRICS_TARGET_MISMATCH', node.stage_id)
+        if 'min_prepared_pairs_qc' in plan.normalized_options:
+            from peanalyzer.sample_qc import validate_qc
+            validate_qc(plan, node, result, output)
+        site_targets = targets_for(plan, node)
+        if ('orientation_contract' in plan.normalized_options['routing_policy_identity']
+                and site_targets[0].analysis_mode == 'precise_edit' and result.qc.prepared_input_reads):
+            from peanalyzer.workflow_sites import two_substitutions, verify_workflow_sites
+            if two_substitutions(site_targets):
+                verify_workflow_sites(output, result, site_targets,
+                    require_canonical=plan.normalized_options.get('native_runs_contract') == 'native-runs-v1')
+        if plan.normalized_options.get('native_runs_contract') == 'native-runs-v1':
+            from peanalyzer.backend.native_runs import verify_native_runs
+            verify_native_runs(output, node.sample_id, node.target_name, site_targets,
+                               result.provenance.prepared_sample if hasattr(result.provenance, 'prepared_sample')
+                               else result.provenance['prepared_sample'])
+            from peanalyzer.measurement_exports import verify_measurement_exports
+            verify_measurement_exports(output, result)
         if read_json(output / 'execution_failures.json'):
             raise WorkflowError('BACKEND_EXECUTION_FAILED',
                 f'Sample {node.sample_id}, target {node.target_name}: backend could not analyse the reads. '
@@ -313,8 +343,26 @@ def validate_stage(plan, node, status, *, output_override=None):
             observed[key] = item
         if set(observed) != set(expected):
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'incomplete M4 source inventory')
+        if plan.targets[0].analysis_mode == 'precise_edit' and 'orientation_contract' in plan.normalized_options['routing_policy_identity']:
+            from peanalyzer.site_statistics import verify_workflow_site_observations
+            try:
+                verify_workflow_site_observations(plan, result, expected)
+            except (ValueError, KeyError, TypeError, OSError) as exc:
+                raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', str(exc)) from exc
         if result.provenance.invocation_parameters['command'] != plan.normalized_options['statistics_mode']:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'statistics mode differs')
+        threshold = plan.normalized_options.get('min_biological_replicates')
+        if threshold is not None and result.provenance.invocation_parameters.get('minimum_biological_replicates') != threshold:
+            raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'executed replicate threshold differs from the plan')
+        if 'biological_role_policy' in plan.normalized_options:
+            if result.provenance.invocation_parameters.get('biological_role_policy') != plan.normalized_options['biological_role_policy']:
+                raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'biological role policy differs from plan')
+            design = {s['barcode_id']: s for s in plan.samples}
+            for row in result.observations:
+                source = design.get(row.sample_id, {})
+                if any(getattr(row, k) != source.get(k, 'experimental' if k == 'sample_role' else None)
+                       for k in BiologicalSample.model_fields):
+                    raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'sample role or biological design differs from plan')
         expected_hash = plan.inputs['contrasts'].sha256 if 'contrasts' in plan.inputs else None
         if result.provenance.contrast_specification_hash != expected_hash:
             raise WorkflowError('STATISTICS_LINEAGE_MISMATCH', 'contrast identity differs')
@@ -360,7 +408,6 @@ def execute_stage(plan, node, completed, argv):
     elif kind == 'routing':
         targets = targets_for(plan,node)
         if targets[0].analysis_mode == 'indel_nuclease':
-            if len(targets)!=1:raise WorkflowError('MULTICOPY_NUCLEASE_UNSUPPORTED',node.stage_id)
             atomic_json(output/'identity.json',nuclease_identity(plan,node))
             return status,reasons
         gate = geometry(targets, min_distinguishing_sites=RoutingPolicy().min_distinguishing_sites)
@@ -379,11 +426,10 @@ def execute_stage(plan, node, completed, argv):
             if policies is not None:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',node.stage_id)
             publish_metrics(plan,node,run_nuclease_metrics,analysis_root=root/'analysis',sample_id=node.sample_id,targets=targets_for(plan,node),
                 analysis_id='m7-'+digest([node.sample_id,node.target_name]),
-                core=resolve_executable(plan.backend_identity.executable),runtime_digest=plan.backend_identity.runtime_digest)
+                runtime_digest=plan.backend_identity.runtime_digest)
             return status,reasons
         publish_metrics(plan,node,run_metrics,analysis_root=root / 'analysis', sample_id=node.sample_id, targets=targets_for(plan,node),
             analysis_id='m7-' + digest([node.sample_id, node.target_name]),
-            core=resolve_executable(plan.backend_identity.executable),
             routing_root=root / route.node.output_path if route.status == 'COMPLETED' else None,
             runtime_digest=plan.backend_identity.runtime_digest, tolerance_policies=policies)
     elif kind == 'metrics_manifest':
@@ -394,6 +440,8 @@ def execute_stage(plan, node, completed, argv):
     elif kind == 'statistics':
         options = dict(manifest_path=root / 'metrics/manifest.csv', samples_path=_file(plan,'samples'), output=output)
         if plan.normalized_options['statistics_mode'] == 'stats':
+            if 'min_biological_replicates' in plan.normalized_options:
+                options['min_biological_replicates'] = plan.normalized_options['min_biological_replicates']
             stats(**options, contrasts_path=_file(plan,'contrasts'))
         else:
             summarize(**options)
@@ -484,7 +532,8 @@ def _invalidate(root, old, new, force):
 def _expected(plan, node, refs):
     api = API[node.stage_kind]
     if node.stage_kind in ('routing','metrics') and targets_for(plan,node)[0].analysis_mode=='indel_nuclease':
-        api = 'single_copy_identity' if node.stage_kind=='routing' else 'run_nuclease_metrics'
+        mechanism = 'single_copy_identity' if len(targets_for(plan,node)) == 1 else 'conservative_flanking_markers_v1'
+        api = mechanism if node.stage_kind=='routing' else 'run_nuclease_metrics'
     return dict(node=node, stage_signature_sha256=signature(plan,node,refs), dependencies=refs,
         input_artifacts=inputs_for(plan,node), normalized_parameters=parameters_for(plan,node),
         software_identity=plan.software_identity,
@@ -555,7 +604,8 @@ def _check_execution_scope(plan):
     for name in plan.expected_targets:
         rows=[t for t in plan.targets if t.target_name==name]
         if rows[0].analysis_mode=='indel_nuclease':
-            if len(rows)!=1:raise WorkflowError('MULTICOPY_NUCLEASE_UNSUPPORTED',name)
+            from peanalyzer.nuclease.multicopy import check_panel
+            check_panel(rows)
             if 'policies' in plan.inputs:raise WorkflowError('PE_POLICIES_IN_NUCLEASE_MODE',name)
     if len(plan.expected_targets) != 1:
         raise WorkflowError('MULTI_TARGET_EXECUTION_UNSUPPORTED',
